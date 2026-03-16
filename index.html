@@ -386,7 +386,40 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .db-num{font-family:'Gowun Batang',serif;font-size:44px;color:var(--paper);}
 .db-lbl{font-size:11px;color:rgba(247,242,232,0.4);}
 
-@media(max-width:400px){.si-lbl{display:none;}.splash-greeting{font-size:19px;}}
+@media(max-width:400px){
+  .si-lbl{display:none;}
+  .splash-greeting{font-size:19px;}
+  /* 에디션 카드 — 1열로 */
+  .edition-cards{grid-template-columns:1fr !important;}
+  /* 힐링 테마 — 글씨 줄이기 */
+  .ht-name{font-size:12px;}
+  .ht-desc{font-size:10px;}
+  /* stat 카드 */
+  .stat-v{font-size:20px !important;}
+  .stat-v img{width:14px !important;height:14px !important;}
+  /* 비교 영역 */
+  .cmp{grid-template-columns:1fr !important;}
+  /* 공유 카드 */
+  .share-card-wrap{max-width:100% !important;}
+  .share-actions{flex-direction:column;}
+  /* 가이드 슬라이드 */
+  .gs-visual{min-height:150px !important;padding:24px 16px !important;}
+  .gs-title{font-size:16px !important;}
+  .gs-desc{font-size:12px !important;}
+  /* 입력 모드 바 */
+  .im-btn{font-size:12px;padding:8px 6px;}
+  /* 오디오 버튼 */
+  .audio-btn{font-size:12px;padding:8px;}
+  /* 견적 카드 */
+  .quote-opt-text{font-size:14px !important;}
+  /* 모달 */
+  .modal-box{padding:24px 18px !important;}
+  /* 완성 배너 */
+  .done-banner{padding:24px 16px !important;}
+  .bw-brick{width:22px !important;height:12px !important;}
+  /* bd rows */
+  .bd-stars{font-size:12px !important;}
+}
 
 /* ══════ TODAY WHY CARD (top of today page) ══════ */
 .today-why{
@@ -1192,6 +1225,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <div class="db-sub">오늘도 벽돌을 쌓았어요.</div>
 
       <!-- 벽돌 쌓기 비주얼 -->
+      <div id="dbBricks" style="display:none;"></div>
       <div class="brick-wall" id="brickWall">
         <div class="bw-label" id="bwLabel">+0 벽돌</div>
         <div class="bw-grid" id="bwGrid"></div>
@@ -2063,7 +2097,8 @@ function changeMonth(dir){
 ══════════════════════════════ */
 function renderRecords(){
   const list=document.getElementById('recList');list.innerHTML='';
-  document.getElementById('totalCount').textContent=pastRecords.length+20;
+  var tc=document.getElementById('totalCount'); var tcImg=tc?tc.querySelector('img'):null;
+  if(tc){tc.textContent=' '+(pastRecords.length+20); if(tcImg)tc.prepend(tcImg);}
   pastRecords.forEach((rec,i)=>{
     const d=new Date(rec.date);
     const dateStr=`${d.getMonth()+1}월 ${d.getDate()}일`;
@@ -2524,7 +2559,8 @@ function loadUserRecords() {
 
 function updateStats() {
   const total = pastRecords.length;
-  document.getElementById('totalCount').textContent = total;
+  var tc2=document.getElementById('totalCount'); var tc2Img=tc2?tc2.querySelector('img'):null;
+  if(tc2){tc2.textContent=' '+total; if(tc2Img)tc2.prepend(tc2Img);}
   if (total > 0) {
     const avg = Math.round(pastRecords.reduce((s,r) => s + r.score, 0) / total);
     // streak calc
@@ -2536,8 +2572,9 @@ function updateStats() {
       if (pastRecords.find(r => r.date === ds)) streak++;
       else if (i > 0) break;
     }
-    document.querySelectorAll('.stat-v')[0].textContent = '🔥 ' + streak;
-    document.querySelectorAll('.stat-v')[2].textContent = avg;
+    var svs = document.querySelectorAll('.stat-v');
+    if(svs[0]) { var img0 = svs[0].querySelector('img'); svs[0].textContent = ' ' + streak; if(img0) svs[0].prepend(img0); }
+    if(svs[2]) { var img2 = svs[2].querySelector('img'); svs[2].textContent = ' ' + avg; if(img2) svs[2].prepend(img2); }
   }
 }
 
