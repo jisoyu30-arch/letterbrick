@@ -3384,31 +3384,87 @@ function submitHealingSogam() {
 }
 
 function generateHealingCoachResponse(sogam, passage) {
-  // 규칙 기반 따뜻한 응답 생성
   var responses = [];
-  var hasEmotion = /슬[프펐]|기[쁘뻤]|그리[운웠]|외[로롭]|편안|따뜻|행복|감사|힘[들든]|지[치친]|울[었컥]/.test(sogam);
-  var hasMemory = /기억|생각|떠올|추억|그때|예전|어릴/.test(sogam);
-  var hasResolution = /다짐|노력|시작|해보|하겠|해야|가보|걸어/.test(sogam);
-  var hasCalm = /고요|평온|잔잔|차분|조용|쉬[어었]|머물/.test(sogam);
+  // 소감에서 키워드 추출
+  var hasEmotion = /슬[프펐]|기[쁘뻤]|그리[운웠]|외[로롭]|편안|따뜻|행복|감사|힘[들든]|지[치친]|울[었컥]|아[프팠]|좋[았은]|나[빴쁜]|무[서섭겁]/.test(sogam);
+  var hasMemory = /기억|생각|떠올|추억|그때|예전|어릴|옛날|돌아|어머니|아버지|친구|사람/.test(sogam);
+  var hasResolution = /다짐|노력|시작|해보|하겠|해야|가보|걸어|변화|바꾸|도전|용기/.test(sogam);
+  var hasCalm = /고요|평온|잔잔|차분|조용|쉬[어었]|머물|편[안하]|가라앉|내려놓/.test(sogam);
+  var hasWriting = /쓰[기는면며]|필사|문장|글|펜|타이핑|손글씨/.test(sogam);
+  var hasSelf = /나[는를에]|자신|스스로|내[가게]/.test(sogam);
 
-  if (hasEmotion) {
-    responses.push('소감에서 진솔한 감정이 느껴져요. 이렇게 자신의 마음을 있는 그대로 들여다보는 것, 그것만으로도 오늘 필사는 충분한 의미가 있었어요.');
-  }
-  if (hasMemory) {
-    responses.push('오늘 문장이 어떤 기억을 불러왔군요. 필사를 하면서 과거의 한 장면이 떠오르는 건, 그 문장이 당신에게 진짜로 닿았다는 뜻이에요. 그 기억을 소중히 품어두세요.');
-  }
-  if (hasResolution) {
-    responses.push('다짐이 담긴 소감이네요. 거창하지 않아도, 이렇게 한 줄 쓰는 것 자체가 이미 실천의 시작이에요. 내일도 여기서 만나요.');
-  }
-  if (hasCalm) {
-    responses.push('고요한 시간을 잘 보내셨군요. 필사를 하면서 마음이 가라앉는 경험, 그것이 바로 이 시간의 선물이에요. 이 평온함을 오늘 밤까지 가져가세요.');
+  // 오늘 문장에서 핵심 문구 추출 (공유 카드에서도 쓰임)
+  var passageSentences = passage ? passage.match(/[^.!?。]+[.!?。]+/g) || [] : [];
+  var shortPassage = passageSentences.length > 0 ? passageSentences[0].trim() : '';
+
+  // 소감 길이에 따른 깊이
+  var isLong = sogam.length > 50;
+  var isMedium = sogam.length > 20;
+
+  // ── 소감 내용 + 오늘 문장을 연결한 맞춤 응답 ──
+  if (hasEmotion && hasMemory) {
+    responses.push(
+      '소감을 읽으면서, 오늘 필사한 문장이 어떤 기억의 문을 열어준 것 같다는 느낌을 받았어요. ' +
+      (shortPassage ? '오늘 문장 중 "' + shortPassage.substring(0,30) + '…" 이 부분이 특히 당신의 마음에 닿았을 것 같아요. ' : '') +
+      '감정과 기억이 함께 올라오는 건, 그 문장이 단순한 글자가 아니라 경험이 되었다는 뜻이에요. ' +
+      '이런 순간들이 쌓여서 당신만의 언어가 만들어져요.'
+    );
+  } else if (hasEmotion) {
+    responses.push(
+      '솔직한 감정을 글로 꺼내셨네요. ' +
+      (isLong ? '긴 소감 속에서 마음이 움직인 흔적이 보여요. ' : '') +
+      '필사를 하는 동안 문장이 단순히 손끝을 지나가는 게 아니라, 마음을 한 번 건드리고 지나간 것 같아요. ' +
+      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" — 이 문장이 오늘 당신에게 거울이 되어준 것 같습니다. ' : '') +
+      '그 감정을 억누르지 않아도 돼요. 느끼는 것 자체가 살아있다는 증거니까요.'
+    );
+  } else if (hasMemory) {
+    responses.push(
+      '어떤 기억이 떠오르셨군요. ' +
+      '좋은 필사는 단순히 손이 움직이는 게 아니라, 마음이 어딘가를 다녀오는 거예요. ' +
+      (shortPassage ? '오늘 문장의 "' + shortPassage.substring(0,25) + '…" 부분이 그 여행의 출발점이 된 것 같아요. ' : '') +
+      '지금 떠오른 그 장면을, 오늘은 그냥 품고 계세요. ' +
+      '나중에 다시 꺼내볼 때, 오늘과는 또 다르게 보일 거예요.'
+    );
+  } else if (hasCalm) {
+    responses.push(
+      '고요한 시간을 보내셨군요. ' +
+      '필사를 하면서 마음이 가라앉는 경험 — 그게 바로 이 시간이 주는 가장 큰 선물이에요. ' +
+      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" 이 문장의 리듬이 당신의 호흡을 천천히 맞춰준 것 같아요. ' : '') +
+      '이 평온함을 오늘 밤까지 가져가세요. 내일은 내일의 문장이 기다리고 있을 거예요.'
+    );
+  } else if (hasResolution) {
+    responses.push(
+      '다짐이 느껴지는 소감이네요. ' +
+      '오늘 필사한 문장이 당신 안에서 무언가를 움직이게 한 것 같아요. ' +
+      (isLong ? '이렇게 구체적으로 자기 마음을 쓸 수 있다는 것 자체가 이미 변화의 시작이에요. ' : '') +
+      '거창한 변화가 아니어도 돼요. 오늘 이 한 줄이 내일의 한 걸음이 됩니다. ' +
+      '내일도 여기서 만나요.'
+    );
+  } else if (hasWriting) {
+    responses.push(
+      '글에 대한 생각을 나눠주셨네요. ' +
+      '필사를 하면서 글쓰기 자체에 대해 생각하게 되었다면, 오늘 문장이 단순한 연습을 넘어 당신의 글쓰기 감각에 영향을 준 거예요. ' +
+      (shortPassage ? '특히 "' + shortPassage.substring(0,25) + '…" 같은 문장의 리듬과 구조가 손끝에 남아있을 거예요. ' : '') +
+      '그 감각을 기억해두세요. 그게 점점 당신의 문체가 됩니다.'
+    );
+  } else if (hasSelf) {
+    responses.push(
+      '자기 자신에 대한 이야기를 써주셨네요. ' +
+      '필사는 결국 남의 글을 빌려 나를 들여다보는 시간이에요. ' +
+      '오늘 쓴 소감 속에서 당신이 스스로를 어떻게 바라보고 있는지가 느껴져요. ' +
+      (isLong ? '이만큼 솔직하게 쓸 수 있다는 건, 이미 많은 것을 알고 있다는 뜻이에요. ' : '') +
+      '내일 다시 올 때, 오늘의 나와 내일의 내가 어떻게 다른지 한번 비교해보세요.'
+    );
   }
 
   if (responses.length === 0) {
+    // 소감 내용을 반영한 맞춤 기본 응답
+    var sogamPreview = sogam.length > 15 ? sogam.substring(0,15)+'…' : sogam;
     var defaults = [
-      '오늘 쓰신 소감을 읽었어요. 필사를 마치고 이렇게 자신의 마음을 돌아보는 시간까지 가지셨다는 게 정말 멋져요. 오늘 이 순간을 기억해두세요.',
-      '소감을 써주셔서 감사해요. 글을 따라 쓰고, 자기 마음을 들여다보고, 그것을 다시 글로 남기는 것 — 이 세 단계를 모두 해내셨어요. 대단합니다.',
-      '오늘의 문장이 당신에게 어떤 의미였는지, 소감을 통해 느낄 수 있었어요. 이런 시간을 자신에게 허락하는 것, 그것이 힐링의 시작이에요.'
+      '"' + sogamPreview + '" — 이 소감을 읽으면서, 오늘 필사가 단순한 베껴쓰기가 아니었다는 걸 느꼈어요. 문장을 따라 쓰면서 자기 안의 무언가와 대화한 시간이었네요. 이런 순간이 쌓여서 어느 날 당신만의 문장이 태어나요.',
+      '소감을 읽었어요. 오늘 필사한 문장이 당신의 하루 어딘가에 조용히 남아있길 바라요. ' +
+        (shortPassage ? '"' + shortPassage.substring(0,25) + '…" — 이 문장이 오늘 밤, 불현듯 다시 떠오를지도 몰라요. 그때 한 번 더 곱씹어보세요.' : '내일 또 만나요.'),
+      '필사를 마치고 소감까지 남기셨어요. 글을 따라 쓰고, 자기 마음을 들여다보고, 그것을 다시 글로 남기는 것 — 이 세 단계를 모두 해내신 거예요. 오늘은 충분히 잘 머물렀습니다.'
     ];
     responses.push(defaults[Math.floor(Math.random() * defaults.length)]);
   }
@@ -3449,17 +3505,55 @@ function generateHashtags() {
 
 function openHealingShare() {
   if(!healingPassage) return;
-  var rec = {
-    date: new Date().toISOString().split('T')[0],
-    edition: 'healing',
-    score: 0,
-    starsEarned: 1,
-    sentence: healingPassage.text.substring(0,80)+'…',
-    author: healingPassage.author,
-    source: '',
-    creative: document.getElementById('healingTa').value || '[손글씨 필사]'
-  };
-  openShare(rec);
+  // 주요 표현 3줄 추출 (문장 단위로 쪼개서 인상적인 3개)
+  var sentences = healingPassage.text.match(/[^.!?。]+[.!?。]+/g) || [healingPassage.text];
+  var keyLines = [];
+  // 짧고 인상적인 문장 우선 (15~50자)
+  var scored = sentences.map(function(s){ var t=s.trim(); return {t:t, score: (t.length>=15&&t.length<=50?2:0) + (/[다요니까]$/.test(t)?1:0)}; });
+  scored.sort(function(a,b){return b.score-a.score;});
+  for(var i=0;i<Math.min(3,scored.length);i++) keyLines.push(scored[i].t);
+  var keyText = keyLines.join('\n');
+
+  var sogam = (document.getElementById('healingSogamTa')||{}).value || '';
+  var coachText = (document.getElementById('healingCoachText')||{}).textContent || '';
+
+  // 공유 카드 직접 구성 (기존 openShare 대신)
+  var now = new Date();
+  var dateStr = now.getFullYear()+'.'+(now.getMonth()+1)+'.'+now.getDate();
+  document.getElementById('scSent').innerHTML =
+    '<div style="font-size:11px;color:var(--ink3);margin-bottom:6px;">오늘의 문장에서</div>' +
+    '<div style="font-family:\'Gowun Batang\',serif;font-size:14px;line-height:1.8;color:var(--ink);">' +
+    keyLines.map(function(l){return '"'+l+'"';}).join('<br>') + '</div>';
+  document.getElementById('scAuthor').textContent = '— ' + healingPassage.inspiration;
+
+  // 나의 소감
+  if(sogam){
+    document.getElementById('scCreative').innerHTML =
+      '<div style="font-size:10px;color:var(--ink3);margin-bottom:4px;">나의 소감</div>' +
+      '<div style="font-style:italic;color:var(--ink2);">"' + sogam + '"</div>';
+  } else {
+    document.getElementById('scCreative').textContent = '';
+  }
+
+  // AI 코치 코멘트
+  if(coachText){
+    document.getElementById('scFeedback').innerHTML =
+      '<div style="font-size:10px;color:var(--brick);margin-bottom:3px;">AI 코치</div>' +
+      '<div style="font-size:11px;line-height:1.6;">' + coachText.substring(0,80) + (coachText.length>80?'…':'') + '</div>';
+  } else {
+    document.getElementById('scFeedback').textContent = '';
+  }
+
+  document.getElementById('scScore').innerHTML = '<span style="font-size:18px;color:#FFD700;">★</span>';
+  document.getElementById('scDate').textContent = dateStr;
+  document.getElementById('scTag').textContent = '#레터브릭 #힐링필사 #letterbrick #오늘의필사';
+
+  // 스트릭
+  var stars = loadStars();
+  document.getElementById('scStreak').textContent = '🧱 ' + stars.healing.total + '번째 벽돌';
+
+  document.getElementById('shareOverlay').classList.remove('hide');
+  document.body.style.overflow = 'hidden';
 }
 
 /* ══════════════════════════════
