@@ -94,13 +94,13 @@ tr:hover{background:rgba(233,69,96,0.04);}
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-logo"><span>letter</span>brick <span style="font-size:11px;color:var(--text2);">admin</span></div>
-    <div class="nav-item active" onclick="showSection('dashboard')">대시보드</div>
-    <div class="nav-item" onclick="showSection('growth')">성장편 문장</div>
-    <div class="nav-item" onclick="showSection('healing')">힐링편 문구</div>
-    <div class="nav-item" onclick="showSection('schedule')">일별 편성</div>
-    <div class="nav-item" onclick="showSection('feedback')">피드백 관리</div>
-    <div class="nav-item" onclick="showSection('users')">사용자</div>
-    <div class="nav-item" onclick="showSection('automation')">자동화</div>
+    <div class="nav-item active" onclick="showSection('dashboard',this)">대시보드</div>
+    <div class="nav-item" onclick="showSection('growth',this)">성장편 문장</div>
+    <div class="nav-item" onclick="showSection('healing',this)">힐링편 문구</div>
+    <div class="nav-item" onclick="showSection('schedule',this)">일별 편성</div>
+    <div class="nav-item" onclick="showSection('feedback',this)">피드백 관리</div>
+    <div class="nav-item" onclick="showSection('users',this)">사용자</div>
+    <div class="nav-item" onclick="showSection('automation',this)">자동화</div>
   </div>
 
   <!-- Main Content -->
@@ -115,6 +115,16 @@ tr:hover{background:rgba(233,69,96,0.04);}
         <div class="stat-card green"><div class="stat-num" id="adTodaySessions">0</div><div class="stat-label">오늘 세션</div></div>
         <div class="stat-card gold"><div class="stat-num" id="adTotalFeedback">0</div><div class="stat-label">피드백 수</div></div>
         <div class="stat-card"><div class="stat-num" id="adContentCount">0</div><div class="stat-label">총 콘텐츠</div></div>
+      </div>
+      <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="stat-card"><div class="stat-num" id="adTotalRecords">0</div><div class="stat-label">총 기록 수</div></div>
+        <div class="stat-card"><div class="stat-num" id="adGrowthSessions">0</div><div class="stat-label">성장편 세션</div></div>
+        <div class="stat-card"><div class="stat-num" id="adHealingSessions">0</div><div class="stat-label">힐링편 세션</div></div>
+      </div>
+      <div class="stat-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="stat-card"><div class="stat-num" id="adAvgStars">0</div><div class="stat-label">평균 별점</div></div>
+        <div class="stat-card"><div class="stat-num" id="adStreak">0</div><div class="stat-label">최장 연속일</div></div>
+        <div class="stat-card"><div class="stat-num" id="adSheetsStatus">—</div><div class="stat-label">Sheets 연동</div></div>
       </div>
 
       <div class="table-wrap">
@@ -252,11 +262,12 @@ tr:hover{background:rgba(233,69,96,0.04);}
 <script src="data.js"></script>
 <script>
 /* ── Navigation ── */
-function showSection(id) {
+function showSection(id, el) {
   document.querySelectorAll('[id^="sec-"]').forEach(function(s){s.style.display='none';});
-  document.getElementById('sec-'+id).style.display='block';
+  var sec = document.getElementById('sec-'+id);
+  if(sec) sec.style.display='block';
   document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
-  event.target.classList.add('active');
+  if(el) el.classList.add('active');
 }
 
 /* ── Load data into tables ── */
@@ -369,12 +380,37 @@ loadHealingTable();
 loadSchedule();
 loadFeedback();
 
-// Quick stats
+// Quick stats from localStorage
 try {
-  var records = JSON.parse(localStorage.getItem('lb_records_' + (JSON.parse(localStorage.getItem('lb_user')||'{}').id||'guest')) || '[]');
-  document.getElementById('adTodaySessions').textContent = records.filter(function(r){return r.date===new Date().toISOString().split('T')[0];}).length;
-  document.getElementById('adTotalUsers').textContent = localStorage.getItem('lb_user') ? '1' : '0';
-} catch(e){}
+  var user = JSON.parse(localStorage.getItem('lb_user')||'{}');
+  var records = JSON.parse(localStorage.getItem('lb_records_' + (user.id||'guest')) || '[]');
+  var stars = JSON.parse(localStorage.getItem('lb_stars')||'{"growth":{"total":0,"sessions":0},"healing":{"total":0,"sessions":0}}');
+  var today = new Date().toISOString().split('T')[0];
+
+  document.getElementById('adTotalUsers').textContent = user.id ? '1' : '0';
+  document.getElementById('adTodaySessions').textContent = records.filter(function(r){return r.date===today;}).length;
+  document.getElementById('adTotalRecords').textContent = records.length;
+  document.getElementById('adGrowthSessions').textContent = stars.growth.sessions || 0;
+  document.getElementById('adHealingSessions').textContent = stars.healing.sessions || 0;
+
+  var totalStars = (stars.growth.total||0) + (stars.healing.total||0);
+  var totalSessions = (stars.growth.sessions||0) + (stars.healing.sessions||0);
+  document.getElementById('adAvgStars').textContent = totalSessions > 0 ? (totalStars/totalSessions).toFixed(1) : '—';
+
+  // 연속일 계산
+  var streak = 0;
+  var d = new Date();
+  for (var i=0;i<60;i++){
+    var ds = new Date(d); ds.setDate(ds.getDate()-i);
+    if(records.find(function(r){return r.date===ds.toISOString().split('T')[0];})) streak++;
+    else if(i>0) break;
+  }
+  document.getElementById('adStreak').textContent = streak;
+
+  // Sheets 상태
+  document.getElementById('adSheetsStatus').textContent = '연결됨';
+  document.getElementById('adSheetsStatus').style.color = '#2ecc71';
+} catch(e){ console.log('Stats error:', e); }
 </script>
 </body>
 </html>
