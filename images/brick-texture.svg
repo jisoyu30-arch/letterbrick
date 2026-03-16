@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+  <defs>
+    <!-- 벽돌 표면 질감 -->
+    <filter id="brickGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="4" stitchTiles="stitch" seed="5"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.08"/>
+      </feComponentTransfer>
+    </filter>
+    <!-- 모르타르(줄눈) 질감 -->
+    <filter id="mortarGrain">
+      <feTurbulence type="fractalNoise" baseFrequency="2" numOctaves="3" stitchTiles="stitch" seed="8"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.06"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- 줄눈 배경 -->
+  <rect width="300" height="200" fill="#EDE3D4"/>
+  <rect width="300" height="200" filter="url(#mortarGrain)" opacity="0.4"/>
+
+  <!-- Row 1 (홀수 줄) -->
+  <rect x="2" y="2" width="88" height="36" rx="2" fill="#C47A50" opacity="0.85"/>
+  <rect x="94" y="2" width="88" height="36" rx="2" fill="#B86E44" opacity="0.9"/>
+  <rect x="186" y="2" width="88" height="36" rx="2" fill="#C98560" opacity="0.8"/>
+  <rect x="278" y="2" width="20" height="36" rx="2" fill="#BA7248" opacity="0.85"/>
+
+  <!-- Row 2 (짝수 줄 — 반칸 오프셋) -->
+  <rect x="2" y="42" width="42" height="36" rx="2" fill="#BD7550" opacity="0.88"/>
+  <rect x="48" y="42" width="88" height="36" rx="2" fill="#C88558" opacity="0.82"/>
+  <rect x="140" y="42" width="88" height="36" rx="2" fill="#B56A3E" opacity="0.92"/>
+  <rect x="232" y="42" width="66" height="36" rx="2" fill="#C27B4C" opacity="0.86"/>
+
+  <!-- Row 3 -->
+  <rect x="2" y="82" width="88" height="36" rx="2" fill="#CB8A62" opacity="0.83"/>
+  <rect x="94" y="82" width="88" height="36" rx="2" fill="#B97348" opacity="0.88"/>
+  <rect x="186" y="82" width="88" height="36" rx="2" fill="#C07850" opacity="0.85"/>
+  <rect x="278" y="82" width="20" height="36" rx="2" fill="#C58258" opacity="0.82"/>
+
+  <!-- Row 4 (오프셋) -->
+  <rect x="2" y="122" width="42" height="36" rx="2" fill="#B87044" opacity="0.9"/>
+  <rect x="48" y="122" width="88" height="36" rx="2" fill="#C47E54" opacity="0.84"/>
+  <rect x="140" y="122" width="88" height="36" rx="2" fill="#CD8E66" opacity="0.8"/>
+  <rect x="232" y="122" width="66" height="36" rx="2" fill="#BA7348" opacity="0.87"/>
+
+  <!-- Row 5 -->
+  <rect x="2" y="162" width="88" height="36" rx="2" fill="#C17A4E" opacity="0.86"/>
+  <rect x="94" y="162" width="88" height="36" rx="2" fill="#C68558" opacity="0.82"/>
+  <rect x="186" y="162" width="88" height="36" rx="2" fill="#B46C40" opacity="0.9"/>
+  <rect x="278" y="162" width="20" height="36" rx="2" fill="#C07650" opacity="0.84"/>
+
+  <!-- 전체 질감 오버레이 -->
+  <rect width="300" height="200" filter="url(#brickGrain)" opacity="0.5"/>
+</svg>
