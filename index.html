@@ -195,7 +195,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   transition:all .3s ease;
 }
 .sticky-sent.pinned{
-  position:sticky;top:56px;z-index:50;
+  position:sticky;top:56px;z-index:99;
   border-radius:0 0 12px 12px;margin-top:0;padding:8px 14px;
   box-shadow:0 4px 16px rgba(0,0,0,0.3);
 }
@@ -2049,12 +2049,13 @@ function initSplash(){
 
 function handleSplashEnter() {
   const splash = document.getElementById('splash');
+  if(!splash) return;
   splash.classList.add('hide');
   setTimeout(() => {
     splash.style.display = 'none';
     if (!currentUser) {
-      document.getElementById('app').classList.add('show');
-      document.getElementById('userModal').classList.remove('hide');
+      var app=document.getElementById('app'); if(app) app.classList.add('show');
+      var um=document.getElementById('userModal'); if(um) um.classList.remove('hide');
     } else {
       // 기존 사용자 — 가이드 본 적 없으면 한 번 표시
       if (!localStorage.getItem('lb_guide_seen')) {
@@ -2082,8 +2083,9 @@ function enterApp(){
 }
 
 function toggleSticky(){
-  const txt=document.getElementById('stickySentText');
-  const btn=document.getElementById('stickyToggle');
+  var txt=document.getElementById('stickySentText');
+  var btn=document.getElementById('stickyToggle');
+  if(!txt||!btn)return;
   stickyOpen=!stickyOpen;
   if(stickyOpen){txt.style.display='block';btn.textContent='▾ 접기';}
   else{txt.style.display='none';btn.textContent='▸ 펼치기';}
@@ -2570,8 +2572,7 @@ function saveNickname() {
 function applyUser() {
   if (!currentUser) return;
   const badge = document.getElementById('userBadge');
-  badge.textContent = currentUser.nickname;
-  badge.classList.add('show');
+  if(badge) { badge.textContent = currentUser.nickname; badge.classList.add('show'); }
   loadUserRecords();
 }
 
