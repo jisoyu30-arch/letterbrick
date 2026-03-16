@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="레터브릭 — AI 시대의 문장력 훈련 루틴. 크라우드펀딩으로 함께 만들어요.">
+<meta property="og:title" content="레터브릭 · Letterbrick — 크라우드펀딩">
+<meta property="og:description" content="매일 한 문장, 벽돌처럼 쌓는 문장력. AI 코치와 함께하는 필사 훈련 서비스.">
+<title>레터브릭 · Letterbrick — 크라우드펀딩</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F2E8;--paper2:#EDE7D6;--paper3:#FAF7F2;
+  --ink:#2E2A26;--ink2:#5C5248;--ink3:#9A9089;
+  --brick:#B65E3C;--brick-d:#8F4A2E;--brick-l:#F2E4DA;--brick-p:#FAF0EB;
+  --line:#D8D0C0;--gold:#A07828;--gold-p:#F5EDD0;
+  --green:#3D6B50;--green-p:#D8EADF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px;position:relative;
+  background:linear-gradient(180deg,var(--ink) 0%,#3A302A 60%,var(--brick-d) 100%);
+}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(transparent,var(--paper));}
+.hero-bricks{display:flex;gap:4px;margin-bottom:24px;animation:fadeUp .8s .2s ease both;}
+.hero-b{width:18px;height:12px;border-radius:2px;background:var(--brick);}
+.hero-b:nth-child(2){opacity:.6;margin-top:6px;}
+.hero-b:nth-child(4){opacity:.5;margin-top:6px;}
+.hero-logo{font-family:'Gowun Batang',serif;font-size:42px;color:var(--paper);letter-spacing:3px;
+  margin-bottom:8px;animation:fadeUp .8s .3s ease both;}
+.hero-logo em{color:var(--brick);font-style:normal;}
+.hero-tagline{font-family:'Noto Serif KR',serif;font-size:16px;color:rgba(247,242,232,0.5);
+  font-weight:300;letter-spacing:1px;margin-bottom:40px;animation:fadeUp .8s .4s ease both;}
+.hero-headline{font-family:'Gowun Batang',serif;font-size:28px;line-height:1.6;
+  color:var(--paper);margin-bottom:16px;animation:fadeUp .8s .5s ease both;}
+.hero-sub{font-size:15px;color:rgba(247,242,232,0.6);line-height:1.8;max-width:480px;
+  margin-bottom:48px;animation:fadeUp .8s .6s ease both;}
+.hero-cta{display:inline-block;padding:16px 48px;background:var(--brick);color:var(--paper);
+  border:none;border-radius:40px;font-family:'Noto Sans KR',sans-serif;font-size:16px;
+  font-weight:600;cursor:pointer;letter-spacing:.5px;text-decoration:none;
+  transition:all .25s;animation:fadeUp .8s .7s ease both;position:relative;z-index:2;}
+.hero-cta:hover{background:#C96A45;transform:translateY(-3px);box-shadow:0 12px 32px rgba(182,94,60,0.4);}
+.hero-scroll{position:absolute;bottom:140px;font-size:12px;color:rgba(247,242,232,0.3);
+  letter-spacing:2px;animation:fadeUp .8s .9s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── SECTION ── */
+.section{padding:80px 24px;max-width:720px;margin:0 auto;}
+.sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--brick);margin-bottom:12px;}
+.sec-title{font-family:'Gowun Batang',serif;font-size:26px;line-height:1.5;color:var(--ink);
+  margin-bottom:20px;}
+.sec-body{font-size:15px;color:var(--ink2);line-height:2;margin-bottom:24px;}
+.sec-divider{width:40px;height:2px;background:var(--line);margin:60px auto;}
+
+/* ── PROBLEM ── */
+.problem-quote{
+  font-family:'Gowun Batang',serif;font-size:20px;line-height:1.8;color:var(--ink);
+  text-align:center;padding:40px 20px;
+  border-left:3px solid var(--brick);background:var(--paper3);border-radius:0 16px 16px 0;
+  margin-bottom:32px;
+}
+
+/* ── FEATURES ── */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.feat-card{background:var(--paper3);border:1px solid var(--line);border-radius:16px;padding:24px 20px;}
+.feat-icon{font-size:20px;margin-bottom:10px;opacity:.6;}
+.feat-name{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.feat-desc{font-size:13px;color:var(--ink3);line-height:1.7;}
+
+/* ── HOW IT WORKS ── */
+.steps{margin:32px 0;}
+.step{display:flex;gap:16px;margin-bottom:24px;align-items:flex-start;}
+.step-num{width:36px;height:36px;border-radius:10px;background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;}
+.step-content{flex:1;}
+.step-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.step-desc{font-size:13px;color:var(--ink3);line-height:1.7;}
+
+/* ── EDITIONS ── */
+.editions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.edition{border-radius:18px;padding:28px 22px;position:relative;overflow:hidden;}
+.edition.growth{background:linear-gradient(135deg,var(--ink),#3A302A);color:var(--paper);}
+.edition.healing{background:linear-gradient(135deg,#3D352C,#2A2520);color:var(--paper);}
+.ed-badge{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--brick);margin-bottom:12px;}
+.ed-title{font-family:'Gowun Batang',serif;font-size:20px;margin-bottom:8px;}
+.ed-desc{font-size:12px;color:rgba(247,242,232,0.55);line-height:1.7;}
+.ed-list{list-style:none;margin-top:14px;}
+.ed-list li{font-size:12px;color:rgba(247,242,232,0.7);padding:4px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);}
+.ed-list li::before{content:'·';margin-right:8px;color:var(--brick);}
+
+/* ── PRICING / TIERS ── */
+.tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:32px 0;}
+.tier{background:var(--paper3);border:1.5px solid var(--line);border-radius:16px;
+  padding:24px 18px;text-align:center;transition:all .2s;position:relative;}
+.tier:hover{border-color:var(--brick);box-shadow:0 8px 24px rgba(182,94,60,0.12);}
+.tier.popular{border-color:var(--brick);background:var(--brick-p);}
+.tier.popular::before{content:'BEST';position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  background:var(--brick);color:#fff;font-size:10px;font-weight:700;padding:3px 12px;
+  border-radius:10px;letter-spacing:1px;}
+.tier-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.tier-price{font-family:'Gowun Batang',serif;font-size:28px;color:var(--brick);margin-bottom:2px;}
+.tier-price span{font-size:13px;color:var(--ink3);font-family:'Noto Sans KR',sans-serif;}
+.tier-period{font-size:11px;color:var(--ink3);margin-bottom:14px;}
+.tier-list{list-style:none;text-align:left;margin-bottom:16px;}
+.tier-list li{font-size:12px;color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--line);}
+.tier-list li::before{content:'✓';margin-right:6px;color:var(--green);font-weight:700;}
+.tier-btn{width:100%;padding:12px;border:none;border-radius:10px;font-family:'Noto Sans KR',sans-serif;
+  font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;}
+.tier-btn.primary{background:var(--ink);color:var(--paper);}
+.tier-btn.primary:hover{background:var(--brick);}
+.tier-btn.secondary{background:transparent;border:1.5px solid var(--line);color:var(--ink2);}
+.tier-btn.secondary:hover{border-color:var(--brick);color:var(--brick);}
+
+/* ── TIMELINE ── */
+.timeline{margin:32px 0;position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--line);}
+.tl-item{margin-bottom:24px;position:relative;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;
+  background:var(--line);border:2px solid var(--paper);}
+.tl-item.done .tl-dot{background:var(--brick);}
+.tl-item.current .tl-dot{background:var(--green);box-shadow:0 0 0 4px var(--green-p);}
+.tl-date{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:.5px;margin-bottom:3px;}
+.tl-text{font-size:14px;color:var(--ink);line-height:1.6;}
+
+/* ── FAQ ── */
+.faq-item{border-bottom:1px solid var(--line);padding:18px 0;}
+.faq-q{font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;
+  justify-content:space-between;align-items:center;}
+.faq-q::after{content:'+';font-size:20px;color:var(--ink3);transition:transform .2s;}
+.faq-q.open::after{transform:rotate(45deg);}
+.faq-a{font-size:13px;color:var(--ink2);line-height:1.8;max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s;}
+.faq-a.open{max-height:200px;padding-top:12px;}
+
+/* ── CTA BOTTOM ── */
+.cta-section{
+  text-align:center;padding:80px 24px;
+  background:linear-gradient(135deg,var(--ink),#3A302A);
+}
+.cta-title{font-family:'Gowun Batang',serif;font-size:26px;color:var(--paper);
+  margin-bottom:12px;line-height:1.5;}
+.cta-sub{font-size:14px;color:rgba(247,242,232,0.5);margin-bottom:32px;line-height:1.7;}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:32px 24px;font-size:11px;color:var(--ink3);}
+footer a{color:var(--brick);text-decoration:none;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero-headline{font-size:22px;}
+  .hero-logo{font-size:32px;}
+  .features,.editions{grid-template-columns:1fr;}
+  .tiers{grid-template-columns:1fr;}
+  .tier.popular{order:-1;}
+  .section{padding:48px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-bricks">
+    <div class="hero-b"></div><div class="hero-b"></div><div class="hero-b"></div>
+    <div class="hero-b"></div><div class="hero-b"></div>
+  </div>
+  <div class="hero-logo">letter<em>brick</em></div>
+  <div class="hero-tagline">AI 시대의 문장력 훈련 루틴</div>
+  <div class="hero-headline">매일 한 문장,<br>벽돌처럼 쌓는 문장력.</div>
+  <div class="hero-sub">
+    좋은 문장을 따라 쓰고, 구조를 배우고, 나만의 글을 완성하세요.<br>
+    AI 코치가 매일 당신의 문장에 소감을 들려줍니다.
+  </div>
+  <a href="#tiers" class="hero-cta">얼리버드 후원하기</a>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- ══════ PROBLEM ══════ -->
+<div class="sec-divider"></div>
+<section class="section">
+  <div class="sec-eyebrow">Why Letterbrick</div>
+  <div class="problem-quote">
+    "글을 잘 쓰고 싶은데<br>어디서부터 시작해야 할지 모르겠어요."
+  </div>
+  <div class="sec-body">
+    글쓰기 강의를 듣고, 책을 사고, 노트를 펼쳐도 — 빈 페이지 앞에서는 매번 멈춥니다.<br><br>
+    레터브릭은 <b>매일 15분, 하루 한 문장</b>으로 시작합니다.<br>
+    좋은 문장을 따라 쓰고, 왜 좋은지 배우고, 내 방식으로 다시 쓰는 것.<br>
+    이 세 단계를 반복하면, 문장력은 근육처럼 자랍니다.
+  </div>
+</section>
+
+<!-- ══════ HOW IT WORKS ══════ -->
+<div class="sec-divider"></div>
+<section class="section">
+  <div class="sec-eyebrow">How It Works</div>
+  <div class="sec-title">세 단계로 완성되는<br>하루 15분 문장 훈련</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">따라쓰기</div>
+        <div class="step-desc">오늘의 문장을 천천히 따라 씁니다. 좋은 문장의 리듬이 손끝에 새겨집니다. 틀린 부분은 실시간으로 표시됩니다.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">구조 배우기 + 변형</div>
+        <div class="step-desc">이 문장이 왜 좋은지, 어떤 구조인지 학습합니다. 그리고 같은 구조로 자신만의 문장을 만듭니다. AI가 구체적으로 분석해줍니다.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">창의적 글쓰기</div>
+        <div class="step-desc">오늘 배운 기법에 영감을 받아 자유롭게 씁니다. AI 코치가 따뜻한 소감과 별점을 들려줍니다.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TWO EDITIONS ══════ -->
+<div class="sec-divider"></div>
+<section class="section">
+  <div class="sec-eyebrow">Two Editions</div>
+  <div class="sec-title">당신의 오늘에 맞는<br>두 가지 필사</div>
+  <div class="editions">
+    <div class="edition growth">
+      <div class="ed-badge">성장 에디션</div>
+      <div class="ed-title">문장력을 훈련하는 시간</div>
+      <div class="ed-desc">짧은 문장을 따라 쓰고, 구조를 배우고, 변형하고, 창작합니다.</div>
+      <ul class="ed-list">
+        <li>오늘의 문장 A/B 선택</li>
+        <li>구조 분석 + 변형 채점 (★5)</li>
+        <li>창의적 글쓰기 + AI 소감 (★5)</li>
+        <li>오타/띄어쓰기 자동 검수</li>
+      </ul>
+    </div>
+    <div class="edition healing">
+      <div class="ed-badge">힐링 에디션</div>
+      <div class="ed-title">마음을 다독이는 시간</div>
+      <div class="ed-desc">600자 장문을 낭독과 BGM과 함께 천천히 따라 씁니다.</div>
+      <ul class="ed-list">
+        <li>다짐 / 힐링 / 여운 테마 선택</li>
+        <li>AI 낭독 + 앰비언트 BGM</li>
+        <li>소감 입력 → AI 코치 답변</li>
+        <li>매일 1벽돌 출석 기록</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FEATURES ══════ -->
+<div class="sec-divider"></div>
+<section class="section">
+  <div class="sec-eyebrow">Features</div>
+  <div class="sec-title">레터브릭이 특별한 이유</div>
+  <div class="features">
+    <div class="feat-card">
+      <div class="feat-icon"><img src="images/icon_star.svg" width="22" height="22" style="opacity:.5;"></div>
+      <div class="feat-name">AI 코치 채점</div>
+      <div class="feat-desc">아무 말이나 쓰면 차단. 진짜 노력한 문장에만 별점과 구체적 피드백을 드립니다.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><img src="images/icon_pen_tool.svg" width="22" height="22" style="opacity:.5;"></div>
+      <div class="feat-name">손글씨 지원</div>
+      <div class="feat-desc">타이핑 또는 손글씨 사진 업로드. 한 세션 = 한 입력 방식.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><img src="images/icon_telescope.svg" width="22" height="22" style="opacity:.5;"></div>
+      <div class="feat-name">저작권 검증 문장</div>
+      <div class="feat-desc">공개 도메인 작품만 사용. 출처와 번역을 모두 명기합니다.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><img src="images/icon_sparkles.svg" width="22" height="22" style="opacity:.5;"></div>
+      <div class="feat-name">SNS 공유 카드</div>
+      <div class="feat-desc">오늘의 필사를 예쁜 카드 이미지로 만들어 바로 공유할 수 있습니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRICING ══════ -->
+<div class="sec-divider"></div>
+<section class="section" id="tiers">
+  <div class="sec-eyebrow">Crowdfunding</div>
+  <div class="sec-title">얼리버드 후원 혜택</div>
+  <div class="sec-body" style="font-size:13px;">
+    정식 출시 전, 크라우드펀딩 후원자에게만 드리는 특별 가격입니다.<br>
+    모든 후원자에게 정식 출시 시 우선 초대권이 제공됩니다.
+  </div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-name">응원</div>
+      <div class="tier-price">5,000<span>원</span></div>
+      <div class="tier-period">일회성</div>
+      <ul class="tier-list">
+        <li>감사 이메일</li>
+        <li>정식 출시 우선 초대</li>
+        <li>후원자 명단 등재</li>
+      </ul>
+      <button class="tier-btn secondary">후원하기</button>
+    </div>
+    <div class="tier popular">
+      <div class="tier-name">얼리버드</div>
+      <div class="tier-price">29,000<span>원</span></div>
+      <div class="tier-period">6개월 구독</div>
+      <ul class="tier-list">
+        <li>성장 + 힐링 에디션 모두</li>
+        <li>AI 코치 무제한</li>
+        <li>손글씨 OCR 기능</li>
+        <li>정가 대비 50% 할인</li>
+      </ul>
+      <button class="tier-btn primary">얼리버드 후원</button>
+    </div>
+    <div class="tier">
+      <div class="tier-name">프리미엄</div>
+      <div class="tier-price">49,000<span>원</span></div>
+      <div class="tier-period">12개월 구독</div>
+      <ul class="tier-list">
+        <li>얼리버드 혜택 전부</li>
+        <li>월간 문장력 리포트</li>
+        <li>비공개 커뮤니티 초대</li>
+        <li>정가 대비 60% 할인</li>
+      </ul>
+      <button class="tier-btn secondary">프리미엄 후원</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TIMELINE ══════ -->
+<div class="sec-divider"></div>
+<section class="section">
+  <div class="sec-eyebrow">Roadmap</div>
+  <div class="sec-title">개발 일정</div>
+  <div class="timeline">
+    <div class="tl-item done">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2026년 3월</div>
+      <div class="tl-text">MVP 완성 — 성장편 + 힐링편 데모 공개</div>
+    </div>
+    <div class="tl-item current">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2026년 4월</div>
+      <div class="tl-text">크라우드펀딩 시작 — 얼리버드 모집</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2026년 5월</div>
+      <div class="tl-text">데모 기간 종료 — 피드백 반영 개선</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2026년 6월</div>
+      <div class="tl-text">정식 출시 — 30일 콘텐츠 + AI 채점 풀 버전</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2026년 하반기</div>
+      <div class="tl-text">모바일 앱 출시 — iOS / Android</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<div class="sec-divider"></div>
+<section class="section">
+  <div class="sec-eyebrow">FAQ</div>
+  <div class="sec-title">자주 묻는 질문</div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+      글쓰기를 전혀 안 해본 사람도 할 수 있나요?
+    </div>
+    <div class="faq-a">
+      네, 레터브릭은 처음 글을 쓰는 분들을 위해 설계되었습니다. 좋은 문장을 따라 쓰는 것부터 시작하니까요. 빈 페이지 앞에서 막막할 필요가 없어요. 매일 문장이 준비되어 있고, AI 코치가 옆에서 도와줍니다.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+      하루에 몇 분이나 걸리나요?
+    </div>
+    <div class="faq-a">
+      성장편은 약 10~15분, 힐링편은 약 15~20분 정도입니다. 출퇴근길에, 잠들기 전에, 점심시간에 — 언제든 짧게 할 수 있습니다.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+      AI 채점은 어떤 방식인가요?
+    </div>
+    <div class="faq-a">
+      Claude AI가 당신이 쓴 문장의 구조, 독창성, 기법 활용을 분석합니다. 점수만 주는 게 아니라 "어떤 부분이 좋았고, 어떻게 하면 더 좋아질 수 있는지" 따뜻한 소감을 들려줍니다. 구조변형은 최대 2회, 창의적 글쓰기는 최대 3회까지 채점받을 수 있습니다.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+      필사 문장의 저작권은 괜찮은 건가요?
+    </div>
+    <div class="faq-a">
+      모든 문장은 저작자 사망 후 70년이 경과한 공개 도메인 작품에서 선별합니다. 출처, 원문, 번역 상태를 모두 명기하며, 번역문은 자체 번역으로 표시합니다.
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+      환불 정책이 어떻게 되나요?
+    </div>
+    <div class="faq-a">
+      정식 출시 전까지는 언제든 100% 환불 가능합니다. 정식 출시 후에는 7일 이내 환불을 지원합니다.
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA BOTTOM ══════ -->
+<section class="cta-section">
+  <div style="max-width:500px;margin:0 auto;">
+    <div class="cta-title">문장 하나는<br>벽돌 한 장입니다.</div>
+    <div class="cta-sub">
+      벽돌이 쌓이면 집이 되고, 집은 성이 되고,<br>
+      결국 당신만의 도서관이 됩니다.<br><br>
+      레터브릭과 함께 매일 한 장씩 쌓아보세요.
+    </div>
+    <a href="#tiers" class="hero-cta" style="animation:none;">얼리버드 후원하기</a>
+    <div style="margin-top:20px;">
+      <a href="https://jisoyu30-arch.github.io/letterbrick/" style="font-size:13px;color:rgba(247,242,232,0.4);text-decoration:underline;">
+        무료 데모 먼저 체험하기 →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <p>letter<em style="color:var(--brick);font-style:normal;">brick</em> · 스튜디오 온:사유</p>
+  <p style="margin-top:4px;">문의: <a href="mailto:hello@letterbrick.com">hello@letterbrick.com</a></p>
+</footer>
+
+</body>
+</html>
