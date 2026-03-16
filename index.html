@@ -754,7 +754,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       </div>
       <div class="sc-footer">
         <div class="sc-date" id="scDate"></div>
-        <div class="sc-tag">#레터브릭 #필사</div>
+        <div class="sc-tag" id="scTag">#레터브릭 #필사</div>
       </div>
     </div>
   </div>
@@ -1178,19 +1178,19 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <p style="font-size:12px;color:var(--ink3);margin-bottom:14px;">세 가지 주제 중 하나를 골라 오늘의 힐링 필사를 시작하세요.</p>
       <div class="healing-theme-grid">
         <button class="healing-theme-btn" onclick="selectHealingTheme('다짐')">
-          <span class="ht-icon">🌅</span>
+          <span class="ht-icon" style="font-size:24px;opacity:0.7;">◇</span>
           <span class="ht-name">다짐</span>
-          <span class="ht-desc">새로운 시작</span>
+          <span class="ht-desc">조용한 결심</span>
         </button>
         <button class="healing-theme-btn" onclick="selectHealingTheme('힐링')">
-          <span class="ht-icon">🍃</span>
+          <span class="ht-icon" style="font-size:24px;opacity:0.7;">○</span>
           <span class="ht-name">힐링</span>
-          <span class="ht-desc">위로와 쉼</span>
+          <span class="ht-desc">머무는 시간</span>
         </button>
         <button class="healing-theme-btn" onclick="selectHealingTheme('여운')">
-          <span class="ht-icon">🌙</span>
+          <span class="ht-icon" style="font-size:24px;opacity:0.7;">◠</span>
           <span class="ht-name">여운</span>
-          <span class="ht-desc">기억과 감성</span>
+          <span class="ht-desc">남겨진 것들</span>
         </button>
       </div>
     </div>
@@ -3186,47 +3186,117 @@ analyzeCreative = function(original, userText) {
   var sim = textSimilarity(original, userText);
   var wov = wordOverlap(userText, original);
   var words = userText.split(/\s+/);
-  var score=0, impressions=[];
+  var score = 0;
 
-  // 항상 좋은 점부터
-  if(words.length>=15){score+=1;impressions.push('글이 풍성해요. 생각을 충분히 펼쳐주셨어요.');}
-  else if(words.length>=8){score+=0.5;impressions.push('짧지만 핵심이 담겨있어요. 한 문장만 더 보태면 더 풍성해질 거예요.');}
-  else{impressions.push('짧은 글에도 마음이 담겨있어요. 떠오르는 장면을 하나 더 써보면 어떨까요?');}
-
-  if(sim>0.8){
-    result.stars=1;
+  // ── 1단계: 기본 검증 ──
+  if(sim > 0.8){
+    result.stars = 1;
     result.sections.push({lbl:'소감',txt:'원문의 좋은 점을 잘 포착하셨어요. 여기에 자기만의 경험이나 장면을 하나 더하면 완전히 다른 글이 됩니다.'});
-    result.tip='나만 겪은 순간 하나를 떠올려서 한 문장 넣어보세요.';
+    result.tip = '나만 겪은 순간 하나를 떠올려서 한 문장 넣어보세요.';
     return result;
   }
 
-  if(wov>0.1&&wov<0.5){score+=1;impressions.push('오늘 배운 문장의 여운이 글 안에 자연스럽게 녹아있어요.');}
-  else if(wov<=0.1){score+=0.5;impressions.push('자유로운 발상이 돋보여요! 오늘 배운 기법을 살짝 얹으면 더 깊어질 거예요.');}
-  else{score+=0.5;impressions.push('오늘 문장의 정서를 잘 이어가고 있어요. 자기만의 소재를 하나 더 섞어보세요.');}
+  // ── 2단계: 기법 정보 추출 ──
+  var techMatch = todaySent.learn.technique.match(/<b>([^<]+)<\/b>/);
+  var techName = techMatch ? techMatch[1] : '';
+  // 기법 설명 추출 (▶ 이전까지, HTML 태그 제거)
+  var techExplain = todaySent.learn.technique
+    .replace(/<b>[^<]+<\/b><br>/,'')
+    .replace(/▶[\s\S]*/,'')
+    .replace(/<br>/g,' ')
+    .replace(/<[^>]+>/g,'')
+    .trim();
+  // ▶ 연습 부분 추출
+  var exerciseMatch = todaySent.learn.technique.match(/▶\s*연습[：:]\s*([^<]+)/);
+  var exercise = exerciseMatch ? exerciseMatch[1].replace(/<[^>]+>/g,'').trim() : '';
 
-  if(/[.!?。…]$/.test(userText.trim())){score+=0.5;impressions.push('마무리가 깔끔해요.');}
+  // ── 3단계: 사용자 문장 구체 분석 ──
+  var impressions = [];
+  var techApplied = [];
 
-  var concrete=/[가-힣]+(소리|빛|냄새|바람|하늘|바다|길|방|창|문|손|눈|입|마음|시간|밤|아침|봄|여름|가을|겨울|비|눈물|웃음|목소리|거리|골목|커피|차|노래)/;
-  if(concrete.test(userText)){score+=1;impressions.push('구체적인 이미지가 있어서 읽는 사람이 장면을 그릴 수 있어요. 이런 감각이 좋은 글의 핵심이에요.');}
-  else{impressions.push('한 가지 사물이나 감각(소리, 냄새, 빛 등)을 넣으면 글이 훨씬 생생해질 거예요.');}
+  // 길이 평가
+  if(words.length >= 15){ score += 1; impressions.push('생각을 충분히 펼쳐주셨어요.'); }
+  else if(words.length >= 8){ score += 0.5; impressions.push('핵심이 담겨있어요.'); }
 
-  if(sim<0.3&&words.length>=10){score+=1;impressions.push('독창적인 시각이 인상적이에요. 이런 글은 오래 기억에 남습니다.');}
+  // 구체적 이미지
+  var concreteWords = userText.match(/[가-힣]+(소리|빛|냄새|바람|하늘|바다|길|방|창|문|손|눈|입|시간|밤|아침|봄|여름|가을|겨울|비|눈물|웃음|목소리|거리|골목|커피|노래|얼굴|어깨|발걸음|마음)/g);
+  if(concreteWords && concreteWords.length > 0){
+    score += 1;
+    impressions.push("'" + concreteWords[0] + "' 같은 구체적 이미지가 글에 생동감을 줍니다.");
+  }
 
-  result.stars=Math.min(5,Math.max(1,Math.round(score)));
+  // 문장 완성도
+  if(/[.!?。…]$/.test(userText.trim())){ score += 0.5; }
 
-  // 소감 형태로 정리
-  var lbl = result.stars>=4?'오늘의 소감 — 멋진 글이에요':result.stars>=3?'오늘의 소감 — 좋은 시도예요':'오늘의 소감 — 써주신 것 자체가 대단해요';
-  result.sections.push({lbl:lbl, txt:impressions.join(' ')});
+  // 독창성
+  if(sim < 0.3 && words.length >= 10){ score += 1; impressions.push('원문에서 벗어나 자기만의 세계를 열었어요.'); }
+  else if(wov > 0.1 && wov < 0.5){ score += 0.5; impressions.push('원문의 정서를 이어가면서도 자기 색깔을 냈어요.'); }
 
-  var techMatch=todaySent.learn.technique.match(/<b>([^<]+)<\/b>/);
-  var techName=techMatch?techMatch[1]:'오늘의 기법';
-  result.sections.push({lbl:'기법 연결',txt:'오늘 배운 <b>'+techName+'</b>'+(score>=3?' — 이 기법이 글 안에서 자연스럽게 살아있어요. 이 감각을 기억해두세요.':' — 다음에 이 기법을 의식적으로 한 번 써보면, 글이 한 단계 더 깊어질 거예요.')});
+  // ── 4단계: 기법 적용 여부 구체 분석 ──
+  // 기법별 적용 체크 (사용자 문장에서 해당 패턴 탐지)
+  var hasContrast = /[만지]는|그러나|하지만|그런데|않|없|못/.test(userText); // 역접/대비
+  var hasRepeat = (function(){ var ws=userText.split(/[.,!?\s]+/).filter(function(w){return w.length>1;}); var seen={}; for(var i=0;i<ws.length;i++){if(seen[ws[i]])return true; seen[ws[i]]=1;} return false; })(); // 반복 구조
+  var hasMetaphor = /처럼|같[은이다]|닮[아은]/.test(userText); // 비유
+  var hasNegation = /아니[라다]|않는|없[는다]|못[하한]/.test(userText); // 부정 구문
+  var hasQuestion = /[?]|인가|는가|을까|는지/.test(userText); // 의문형
+  var hasCommand = /하[라자]|[으세]세요|십시오/.test(userText); // 명령/권유형
 
-  var advisory=errs.filter(function(e){return e.type==='advisory';});
-  if(advisory.length>0) result.sections.push({lbl:'살짝 다듬으면 좋을 곳',txt:advisory.map(function(e){return e.msg;}).join(' ')});
+  if(techName.indexOf('역설') >= 0 || techName.indexOf('역접') >= 0 || techName.indexOf('양보') >= 0){
+    if(hasContrast){ score += 1; techApplied.push('대비/역접 구조를 사용하셨어요.'); }
+    else techApplied.push('대비나 반전 구조를 넣으면 더 깊어질 수 있어요.');
+  } else if(techName.indexOf('반복') >= 0 || techName.indexOf('병치') >= 0 || techName.indexOf('클라이맥스') >= 0){
+    if(hasRepeat){ score += 1; techApplied.push('반복/병치 구조가 잘 적용됐어요.'); }
+    else techApplied.push('같은 구조를 반복해서 리듬을 만들어보면 좋겠어요.');
+  } else if(techName.indexOf('부정') >= 0 || techName.indexOf('확장') >= 0){
+    if(hasNegation){ score += 1; techApplied.push('부정을 통한 확장이 잘 드러나요.'); }
+    else techApplied.push("'~이 아니라', '~만을 뜻하지 않는다' 같은 부정문을 시도해보세요.");
+  } else if(techName.indexOf('공백') >= 0 || techName.indexOf('명명') >= 0){
+    if(/못 할|알 수 없|이름 모를|무엇/.test(userText)){ score += 1; techApplied.push('이름 붙이지 않고 남겨두는 방식이 잘 적용됐어요.'); }
+    else techApplied.push("감정에 이름을 붙이지 않고 '말 못 할 무엇'처럼 비워두는 걸 시도해보세요.");
+  } else if(techName.indexOf('주어') >= 0 || techName.indexOf('이동') >= 0){
+    if(/스스로|저절로|그것[이은]/.test(userText)){ score += 1; techApplied.push('주어가 전환되는 구조가 잘 적용됐어요.'); }
+    else techApplied.push("문장 후반에서 주어를 '나'에서 '대상'으로 바꿔보세요.");
+  } else if(techName.indexOf('거주') >= 0 || techName.indexOf('명령') >= 0){
+    if(hasCommand){ score += 1; techApplied.push('명령/권유형 문장이 잘 활용됐어요.'); }
+    else techApplied.push("'~하십시오', '~해보세요' 같은 명령형으로 끝내보는 건 어떨까요?");
+  } else if(techName.indexOf('현재진행') >= 0){
+    if(/하고 있|되고 있|살아 있|흐르고/.test(userText)){ score += 1; techApplied.push('현재진행형이 글에 생동감을 주고 있어요.'); }
+    else techApplied.push("'~하고 있다'처럼 현재진행형으로 바꾸면 독자가 지금 함께 있는 느낌이 들어요.");
+  } else {
+    // 기법명을 특정 못한 경우 일반 분석
+    if(hasContrast || hasMetaphor || hasNegation){
+      score += 0.5;
+      techApplied.push('문학적 기법이 자연스럽게 녹아있어요.');
+    }
+  }
 
-  var tips=['오늘 쓴 글에서 가장 마음에 드는 한 문장을 기억해두세요. 그게 내일의 씨앗이 됩니다.','이 글을 소리 내어 읽어보세요. 자신의 목소리로 들으면 또 다르게 느껴져요.','지금 이 감정을 내일도 기억할 수 있도록, 오늘의 글을 공유해보는 건 어떨까요?'];
-  result.tip=tips[Math.floor(Math.random()*tips.length)];
+  result.stars = Math.min(5, Math.max(1, Math.round(score)));
+
+  // ── 소감 섹션 (따뜻하게) ──
+  var lblText = result.stars >= 4 ? '읽고 나서 — 인상적인 글이에요'
+              : result.stars >= 3 ? '읽고 나서 — 좋은 흐름이에요'
+              : '읽고 나서 — 쓴 것 자체가 의미 있어요';
+  result.sections.push({lbl: lblText, txt: impressions.join(' ')});
+
+  // ── 기법 정리 + 적용 분석 섹션 ──
+  if(techName){
+    var techSummary = '<b>오늘의 기법: ' + techName + '</b><br>';
+    if(techExplain) techSummary += '<span style="color:var(--ink2);">' + techExplain + '</span><br><br>';
+    techSummary += '<b>당신의 글에서:</b> ' + (techApplied.length > 0 ? techApplied.join(' ') : '이 기법을 다음 시도에서 의식적으로 한 번 넣어보세요.');
+    result.sections.push({lbl: '기법 적용 분석', txt: techSummary});
+  }
+
+  // ── 표기 검수 ──
+  var advisory = errs.filter(function(e){return e.type==='advisory';});
+  if(advisory.length > 0) result.sections.push({lbl:'살짝 다듬으면 좋을 곳', txt: advisory.map(function(e){return e.msg;}).join(' ')});
+
+  // ── 팁 ──
+  var tips = [
+    '오늘 쓴 글에서 가장 마음에 드는 한 문장을 기억해두세요.',
+    '이 글을 소리 내어 읽어보세요. 리듬이 느껴질 거예요.',
+    exercise ? '다음엔 이렇게 해보세요: ' + exercise : '내일은 오늘과 다른 소재로 같은 기법을 써보세요.'
+  ];
+  result.tip = tips[Math.floor(Math.random() * tips.length)];
   return result;
 };
 
@@ -3249,6 +3319,9 @@ openShare = function(rec) {
   var starHTML = '';
   for(var i=0;i<maxStars;i++) starHTML += (i<totalStars)?'<span style="color:#FFD700;">★</span>':'<span style="color:rgba(200,190,170,0.3);">☆</span>';
   document.getElementById('scScore').innerHTML = '<span style="font-size:18px;letter-spacing:1px;">'+starHTML+'</span>';
+  // 해시태그 업데이트
+  var tagEl = document.getElementById('scTag');
+  if(tagEl) tagEl.textContent = generateHashtags();
 };
 
 var _origCopyShareText = copyShareText;
@@ -3258,16 +3331,17 @@ copyShareText = function() {
   var creative=document.getElementById('scCreative').textContent;
   var streak=document.getElementById('scStreak').textContent;
   var date=document.getElementById('scDate').textContent;
-  // Use stars instead of numeric score
   var totalStars = (structScore||0)+(creativeScore||0);
   var starStr = '';
   for(var i=0;i<totalStars;i++) starStr+='★';
   if(totalStars===0) starStr = '★';
+  // 문장 관련 해시태그 생성
+  var tags = generateHashtags();
   var text=[
     '📖 오늘의 문장','"'+sent+'"',author,'',
     '✍️ 나의 글','"'+creative+'"','',
     starStr+'  |  '+streak, date,'',
-    '#레터브릭 #필사 #letterbrick'
+    tags
   ].join('\n');
   navigator.clipboard.writeText(text).then(function(){
     var btn=document.querySelector('.share-act-btn.copy');
@@ -3347,6 +3421,30 @@ function showHealingCoachResponse(text) {
   document.getElementById('healingCoachText').textContent = text;
   document.getElementById('healingCoachResponse').style.display = 'block';
   document.getElementById('healingShareSection').style.display = 'block';
+}
+
+/* ── 해시태그 생성 ── */
+function generateHashtags() {
+  var base = '#레터브릭 #필사 #letterbrick';
+  if (!todaySent) return base;
+  var tags = [];
+  // 작가 해시태그
+  if(todaySent.author) tags.push('#' + todaySent.author.replace(/\s/g,''));
+  // 기법 해시태그
+  var techMatch = todaySent.learn && todaySent.learn.technique ? todaySent.learn.technique.match(/<b>([^<]+)<\/b>/) : null;
+  if(techMatch){
+    var tech = techMatch[1].replace(/\s*\(.*\)\s*/,'').replace(/\s+/g,'');
+    if(tech.length <= 10) tags.push('#' + tech);
+  }
+  // 장르/주제 해시태그
+  var src = todaySent.source || '';
+  if(/시/.test(src)) tags.push('#시필사');
+  else if(/편지|서한/.test(src)) tags.push('#편지필사');
+  else if(/일기/.test(src)) tags.push('#일기필사');
+  else if(/소설|단편/.test(src)) tags.push('#소설필사');
+  else if(/수필|에세이/.test(src)) tags.push('#에세이필사');
+  else tags.push('#문장연습');
+  return base + ' ' + tags.slice(0,3).join(' ');
 }
 
 function openHealingShare() {
