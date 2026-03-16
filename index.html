@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2E2A26">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
 <meta name="description" content="레터브릭 — AI 시대의 문장력 훈련 루틴">
 <meta property="og:title" content="레터브릭 · Letterbrick">
 <meta property="og:description" content="AI 시대의 문장력 훈련 루틴. 하루 15분, 따라 쓰기에서 내 문장까지.">
@@ -652,6 +656,20 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 /* ══════ AI STARS ══════ */
 .air-star-filled{color:#FFD700;}.air-star-empty{color:rgba(200,190,170,0.3);}
 
+/* ══════ RECORD FILTER ══════ */
+.rec-filter{
+  padding:4px 10px;border-radius:12px;border:1px solid var(--line);
+  background:none;font-family:'Noto Sans KR',sans-serif;font-size:10px;
+  color:var(--ink3);cursor:pointer;transition:all .15s;
+}
+.rec-filter.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+/* ══════ WORLD STAGE BAR ══════ */
+.ec-world{margin-top:6px;}
+.ew-bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden;}
+.ew-fill{height:100%;background:var(--brick);border-radius:2px;width:0%;transition:width .6s ease;}
+.ew-label{font-size:10px;color:var(--ink3);margin-top:3px;display:flex;justify-content:space-between;}
+
 /* ══════ BRICK WALL VISUAL ══════ */
 .brick-wall{text-align:center;margin:20px auto;max-width:240px;}
 .bw-label{
@@ -1026,7 +1044,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <div class="stat-card"><span class="stat-v"><img src="images/icon_star.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;"> 84</span><span class="stat-l">평균 점수</span></div>
     </div>
 
-    <!-- Edition Cards -->
+    <!-- Edition Cards + World Stage -->
     <div class="edition-cards">
       <button class="edition-card growth-card" onclick="showPage('growth',document.querySelectorAll('.nav-tab')[1])">
         <div class="ec-header">
@@ -1040,6 +1058,10 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
           <span class="ec-star-count">★ 0</span>
           <span class="ec-star-label">누적 별점</span>
         </div>
+        <div class="ec-world" id="ecGrowthWorld">
+          <div class="ew-bar"><div class="ew-fill" id="ewGrowthFill"></div></div>
+          <div class="ew-label" id="ewGrowthLabel">벽돌</div>
+        </div>
       </button>
       <button class="edition-card healing-card" onclick="showPage('healing',document.querySelectorAll('.nav-tab')[2])">
         <div class="ec-header">
@@ -1052,6 +1074,10 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
         <div class="ec-stars" id="ecHealingStars">
           <span class="ec-star-count" id="ecHealingCount">★ 0</span>
           <span class="ec-star-label">누적 기록</span>
+        </div>
+        <div class="ec-world" id="ecHealingWorld">
+          <div class="ew-bar"><div class="ew-fill" id="ewHealingFill"></div></div>
+          <div class="ew-label" id="ewHealingLabel">벽돌</div>
         </div>
       </button>
     </div>
@@ -1073,7 +1099,14 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <span class="cta-icon"><img src="images/icon_pen_tool.svg" width="28" height="28" style="filter:brightness(2);"></span>
     </button>
 
-    <div class="sec-ttl">최근 기록</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <div class="sec-ttl" style="margin:0;">최근 기록</div>
+      <div style="display:flex;gap:4px;">
+        <button class="rec-filter active" onclick="filterRecords('all',this)">전체</button>
+        <button class="rec-filter" onclick="filterRecords('growth',this)">성장</button>
+        <button class="rec-filter" onclick="filterRecords('healing',this)">힐링</button>
+      </div>
+    </div>
     <div id="recList"></div>
   </div>
 
@@ -2103,7 +2136,7 @@ function renderRecords(){
     const d=new Date(rec.date);
     const dateStr=`${d.getMonth()+1}월 ${d.getDate()}일`;
     const sc=rec.score>=88?'hi':'mid';
-    const card=document.createElement('div');card.className='rec-card';
+    const card=document.createElement('div');card.className='rec-card';card.setAttribute('data-edition',rec.edition||'growth');
     card.innerHTML=`
       <div class="rec-meta">
         <div><span class="rec-date">${dateStr}</span> <span class="rec-author">${rec.author||''} 「${rec.source||''}」</span></div>
@@ -2926,11 +2959,21 @@ function detectErrors(text) {
   var shortWords = words.filter(function(w){ return w.length <= 1; });
   if(words.length > 3 && shortWords.length / words.length > 0.7) errors.push({type:'blocking', msg:'의미 있는 문장을 써주세요.'});
 
+  // 영타 오타 감지 (한글 자리에 영어 섞임)
+  if(/[가-힣]+[a-zA-Z]+[가-힣]+/.test(t)) errors.push({type:'blocking', msg:'한글 사이에 영문자가 섞여 있어요. 영타가 켜져 있었는지 확인해주세요.'});
+  // 자모 분리 (ㅎㅏㄴㄱㅜㄱ 같은)
+  var jamoRatio = (t.match(/[ㄱ-ㅎㅏ-ㅣ]/g)||[]).length / Math.max(1, t.replace(/\s/g,'').length);
+  if(jamoRatio > 0.3 && t.length > 5) errors.push({type:'blocking', msg:'자음/모음이 많이 분리되어 있어요. 완성된 글자로 써주세요.'});
+
   // advisory — 수정 권장
   if(/\s{2,}/.test(t)) errors.push({type:'advisory', msg:'연속 공백이 있어요. 띄어쓰기를 한 번만 다듬어볼까요?'});
   if(t.length > 10 && !/[.!?。…'"」』)\n]$/.test(t)) errors.push({type:'advisory', msg:'문장 끝에 마침표가 없어요.'});
   // 조사 띄어쓰기 (매우 기본적)
   if(/[가-힣]\s[은는이가을를의와과에서로](?:\s|$)/.test(t)) errors.push({type:'advisory', msg:'조사가 앞 단어와 떨어져 있는 곳이 있어요.'});
+  // 쉼표 뒤 공백 없음
+  if(/,[가-힣]/.test(t)) errors.push({type:'advisory', msg:'쉼표 뒤에 공백이 없는 곳이 있어요.'});
+  // 물음표/느낌표 뒤 이어쓰기
+  if(/[?!][가-힣]/.test(t)) errors.push({type:'advisory', msg:'물음표/느낌표 뒤에 공백이 필요해요.'});
   return errors;
 }
 
@@ -3207,12 +3250,79 @@ enterApp = function() {
 /* ── lb_stars ── */
 function loadStars(){try{var r=localStorage.getItem('lb_stars');if(r)return JSON.parse(r);}catch(e){}return{growth:{total:0,sessions:0},healing:{total:0,sessions:0}};}
 function saveStars(d){localStorage.setItem('lb_stars',JSON.stringify(d));}
+/* ── 기록 필터 ── */
+var currentRecFilter = 'all';
+function filterRecords(type, btn) {
+  currentRecFilter = type;
+  document.querySelectorAll('.rec-filter').forEach(function(b){b.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  var cards = document.querySelectorAll('.rec-card');
+  cards.forEach(function(card){
+    var edition = card.getAttribute('data-edition') || 'growth';
+    card.style.display = (type==='all' || edition===type) ? 'block' : 'none';
+  });
+}
+
+/* ── 세계관 단계 계산 ── */
+var WORLD_STAGES = {
+  growth: [
+    {name:'벽돌',at:0},{name:'집의 기초',at:10},{name:'집',at:60},
+    {name:'정원',at:150,hidden:true},{name:'탑',at:300,hidden:true},{name:'예배당',at:500,hidden:true},
+    {name:'대저택',at:800},{name:'성',at:2500},{name:'도서관',at:6000},{name:'우주도서관',at:12000}
+  ],
+  healing: [
+    {name:'벽돌',at:0},{name:'집의 기초',at:7,streak:true},{name:'집',at:30},
+    {name:'대저택',at:100},{name:'성',at:300},{name:'도서관',at:700},{name:'우주도서관',at:1500}
+  ]
+};
+
+function getWorldStage(edition, total) {
+  var stages = WORLD_STAGES[edition] || WORLD_STAGES.growth;
+  var current = stages[0], next = stages[1] || null;
+  for (var i = stages.length - 1; i >= 0; i--) {
+    if (total >= stages[i].at) {
+      current = stages[i];
+      next = stages[i+1] || null;
+      break;
+    }
+  }
+  return {current:current, next:next, total:total};
+}
+
 function renderEditionCards(){
   var stars=loadStars();
+  // Growth
   var g=document.getElementById('ecGrowthStars');
   if(g){g.querySelector('.ec-star-count').textContent='★ '+stars.growth.total;}
+  var gw = getWorldStage('growth', stars.growth.total);
+  var gwFill = document.getElementById('ewGrowthFill');
+  var gwLabel = document.getElementById('ewGrowthLabel');
+  if(gwFill && gwLabel){
+    if(gw.next){
+      var pct = Math.min(100, Math.round((gw.total / gw.next.at) * 100));
+      gwFill.style.width = pct + '%';
+      gwLabel.innerHTML = '<span>' + gw.current.name + '</span><span>' + gw.total + ' / ' + gw.next.at + ' → ' + gw.next.name + '</span>';
+    } else {
+      gwFill.style.width = '100%';
+      gwLabel.innerHTML = '<span>' + gw.current.name + '</span><span>최고 단계</span>';
+    }
+  }
+  // Healing
   var h=document.getElementById('ecHealingCount');
   if(h)h.textContent='★ '+stars.healing.total;
+  var hw = getWorldStage('healing', stars.healing.total);
+  var hwFill = document.getElementById('ewHealingFill');
+  var hwLabel = document.getElementById('ewHealingLabel');
+  if(hwFill && hwLabel){
+    if(hw.next){
+      var pct2 = Math.min(100, Math.round((hw.total / hw.next.at) * 100));
+      hwFill.style.width = pct2 + '%';
+      hwLabel.innerHTML = '<span>' + hw.current.name + '</span><span>' + hw.total + ' / ' + hw.next.at + ' → ' + hw.next.name + '</span>';
+    } else {
+      hwFill.style.width = '100%';
+      hwLabel.innerHTML = '<span>' + hw.current.name + '</span><span>최고 단계</span>';
+    }
+  }
 }
 
 /* ══════════════════════════════
@@ -3894,6 +4004,9 @@ function dismissFeedback() {
 }
 
 /* ── Init ── */
+// PWA Service Worker
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
+
 initUser();
 initSplash();
 renderCal();

@@ -1,0 +1,13 @@
+{
+  "name": "레터브릭 · Letterbrick",
+  "short_name": "레터브릭",
+  "description": "AI 시대의 문장력 훈련 루틴",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F2E8",
+  "theme_color": "#2E2A26",
+  "orientation": "portrait",
+  "icons": [
+    {"src": "images/icon_pen_tool.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}
