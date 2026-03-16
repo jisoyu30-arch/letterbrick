@@ -790,7 +790,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
     <div class="modal-field-lbl" style="margin-top:14px;">이메일</div>
     <input class="modal-inp" id="emailInp" type="email" placeholder="you@email.com"
       onkeydown="if(event.key==='Enter')saveNickname()">
-    <div class="modal-inp-hint">피드백 추첨 및 리포트 발송에 사용돼요</div>
+    <div class="modal-inp-hint">데모 기간 종료 후 이벤트 당첨자에게 이메일로 안내드립니다</div>
 
     <button class="modal-btn" onclick="saveNickname()">무료 체험 시작하기 →</button>
 
@@ -959,8 +959,9 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
     <button class="btn-s" onclick="dismissFeedback()" style="margin-top:6px;width:100%;text-align:center;">나중에 할게요</button>
 
     <div style="text-align:center;margin-top:10px;font-size:11px;color:var(--ink3);line-height:1.6;">
-      피드백을 보내주신 분들 중 추첨을 통해<br>
-      <b>1년 구독권</b> 또는 <b>아메리카노 커피 쿠폰</b>을 드려요 ☕
+      소중한 피드백을 주시는 분들 중 추첨을 통해<br>
+      <b>1년 구독권</b> 또는 <b>커피 쿠폰</b>을 드립니다.<br>
+      당첨자에게는 가입 시 이메일로 안내드려요 ☕
     </div>
   </div>
 </div>
@@ -2469,10 +2470,6 @@ function saveNickname() {
   const inp = document.getElementById('nicknameInp').value.trim();
   if (!inp) { document.getElementById('nicknameInp').focus(); return; }
   const email = document.getElementById('emailInp').value.trim();
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert('피드백 추첨을 위해 이메일 주소를 입력해주세요.');
-    document.getElementById('emailInp').focus(); return;
-  }
   currentUser = {
     nickname: inp,
     email: email || '',
