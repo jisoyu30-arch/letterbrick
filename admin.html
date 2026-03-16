@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>레터브릭 관리자</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1a2e;--surface:#16213e;--surface2:#0f3460;--text:#e0e0e0;--text2:#8892a0;
+  --accent:#e94560;--accent2:#533483;--green:#2ecc71;--gold:#f39c12;--line:#2a2a4a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* Layout */
+.admin-shell{display:flex;min-height:100vh;}
+.sidebar{width:220px;background:var(--surface);border-right:1px solid var(--line);padding:20px 0;flex-shrink:0;}
+.sidebar-logo{font-size:16px;font-weight:700;padding:0 20px 20px;border-bottom:1px solid var(--line);color:var(--accent);}
+.sidebar-logo span{color:var(--text);font-weight:400;}
+.nav-item{padding:12px 20px;font-size:13px;color:var(--text2);cursor:pointer;transition:all .15s;border-left:3px solid transparent;}
+.nav-item:hover{background:rgba(233,69,96,0.08);color:var(--text);}
+.nav-item.active{background:rgba(233,69,96,0.12);color:var(--accent);border-left-color:var(--accent);font-weight:600;}
+.main{flex:1;padding:24px 32px;overflow-y:auto;}
+.page-title{font-size:22px;font-weight:700;margin-bottom:6px;}
+.page-sub{font-size:13px;color:var(--text2);margin-bottom:24px;}
+
+/* Cards */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;}
+.stat-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;}
+.stat-num{font-size:28px;font-weight:700;color:var(--text);}
+.stat-label{font-size:11px;color:var(--text2);margin-top:4px;}
+.stat-card.accent .stat-num{color:var(--accent);}
+.stat-card.green .stat-num{color:var(--green);}
+.stat-card.gold .stat-num{color:var(--gold);}
+
+/* Table */
+.table-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:24px;}
+.table-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line);}
+.table-title{font-size:14px;font-weight:700;}
+.table-actions{display:flex;gap:8px;}
+.btn{padding:7px 16px;border-radius:8px;border:none;font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:#d63851;}
+.btn-secondary{background:transparent;border:1px solid var(--line);color:var(--text2);}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
+table{width:100%;border-collapse:collapse;}
+th{padding:10px 18px;text-align:left;font-size:11px;font-weight:700;color:var(--text2);
+  letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid var(--line);}
+td{padding:12px 18px;font-size:13px;border-bottom:1px solid var(--line);color:var(--text);}
+tr:hover{background:rgba(233,69,96,0.04);}
+.badge{display:inline-block;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700;}
+.badge-growth{background:rgba(233,69,96,0.15);color:var(--accent);}
+.badge-healing{background:rgba(83,52,131,0.2);color:#a78bfa;}
+.badge-approved{background:rgba(46,204,113,0.15);color:var(--green);}
+.badge-draft{background:rgba(243,156,18,0.15);color:var(--gold);}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;margin-bottom:20px;}
+.tab{padding:8px 18px;border-radius:8px;font-size:12px;font-weight:500;color:var(--text2);
+  cursor:pointer;transition:all .15s;background:transparent;}
+.tab.active{background:var(--accent);color:#fff;}
+.tab:hover:not(.active){background:rgba(233,69,96,0.1);}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:100;}
+.modal-bg.show{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;}
+.modal-title{font-size:18px;font-weight:700;margin-bottom:16px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.5px;margin-bottom:5px;}
+.field input,.field textarea,.field select{width:100%;padding:10px 12px;background:var(--bg);border:1px solid var(--line);
+  border-radius:8px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:13px;outline:none;}
+.field input:focus,.field textarea:focus{border-color:var(--accent);}
+.field textarea{resize:vertical;min-height:80px;}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px;}
+
+/* Feedback list */
+.fb-card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+.fb-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:8px;}
+.fb-stars{color:var(--gold);}
+.fb-text{font-size:13px;line-height:1.7;}
+.fb-label{font-size:10px;color:var(--text2);font-weight:700;margin-top:8px;}
+
+/* Responsive */
+@media(max-width:768px){
+  .sidebar{display:none;}
+  .stat-grid{grid-template-columns:1fr 1fr;}
+  .main{padding:16px;}
+}
+</style>
+</head>
+<body>
+<div class="admin-shell">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-logo"><span>letter</span>brick <span style="font-size:11px;color:var(--text2);">admin</span></div>
+    <div class="nav-item active" onclick="showSection('dashboard')">대시보드</div>
+    <div class="nav-item" onclick="showSection('growth')">성장편 문장</div>
+    <div class="nav-item" onclick="showSection('healing')">힐링편 문구</div>
+    <div class="nav-item" onclick="showSection('schedule')">일별 편성</div>
+    <div class="nav-item" onclick="showSection('feedback')">피드백 관리</div>
+    <div class="nav-item" onclick="showSection('users')">사용자</div>
+    <div class="nav-item" onclick="showSection('automation')">자동화</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- ══════ DASHBOARD ══════ -->
+    <div id="sec-dashboard">
+      <div class="page-title">대시보드</div>
+      <div class="page-sub">레터브릭 운영 현황</div>
+      <div class="stat-grid">
+        <div class="stat-card accent"><div class="stat-num" id="adTotalUsers">0</div><div class="stat-label">총 가입자</div></div>
+        <div class="stat-card green"><div class="stat-num" id="adTodaySessions">0</div><div class="stat-label">오늘 세션</div></div>
+        <div class="stat-card gold"><div class="stat-num" id="adTotalFeedback">0</div><div class="stat-label">피드백 수</div></div>
+        <div class="stat-card"><div class="stat-num" id="adContentCount">0</div><div class="stat-label">총 콘텐츠</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-title">최근 활동</div>
+        </div>
+        <table>
+          <tr><th>시간</th><th>사용자</th><th>에디션</th><th>활동</th></tr>
+          <tr><td>방금</td><td>—</td><td><span class="badge badge-growth">성장</span></td><td>데모 데이터</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════ GROWTH CONTENT ══════ -->
+    <div id="sec-growth" style="display:none;">
+      <div class="page-title">성장편 문장 관리</div>
+      <div class="page-sub">일별 A/B 문장 쌍과 학습 포인트</div>
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-title">문장 목록</div>
+          <div class="table-actions">
+            <button class="btn btn-primary" onclick="openModal('growth')">+ 문장 추가</button>
+          </div>
+        </div>
+        <table>
+          <tr><th>DAY</th><th>문장 A</th><th>문장 B</th><th>상태</th><th></th></tr>
+          <tbody id="growthTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════ HEALING CONTENT ══════ -->
+    <div id="sec-healing" style="display:none;">
+      <div class="page-title">힐링편 문구 관리</div>
+      <div class="page-sub">일별 장문 필사 문구</div>
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-title">문구 목록</div>
+          <div class="table-actions">
+            <button class="btn btn-primary" onclick="openModal('healing')">+ 문구 추가</button>
+          </div>
+        </div>
+        <table>
+          <tr><th>DAY</th><th>테마</th><th>내용 (미리보기)</th><th>글자 수</th><th>상태</th></tr>
+          <tbody id="healingTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════ SCHEDULE ══════ -->
+    <div id="sec-schedule" style="display:none;">
+      <div class="page-title">일별 편성</div>
+      <div class="page-sub">날짜별 콘텐츠 자동 로테이션 + 수동 고정</div>
+      <div class="table-wrap">
+        <div class="table-header">
+          <div class="table-title">이번 주 편성</div>
+        </div>
+        <table>
+          <tr><th>날짜</th><th>성장편</th><th>힐링편</th><th>고정</th></tr>
+          <tbody id="scheduleTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════ FEEDBACK ══════ -->
+    <div id="sec-feedback" style="display:none;">
+      <div class="page-title">피드백 관리</div>
+      <div class="page-sub">7일 / 15일 / 30일 사용자 피드백</div>
+      <div class="tabs">
+        <div class="tab active" onclick="filterFB('all',this)">전체</div>
+        <div class="tab" onclick="filterFB('7',this)">7일</div>
+        <div class="tab" onclick="filterFB('15',this)">15일</div>
+        <div class="tab" onclick="filterFB('30',this)">30일</div>
+      </div>
+      <div id="feedbackList"></div>
+    </div>
+
+    <!-- ══════ USERS ══════ -->
+    <div id="sec-users" style="display:none;">
+      <div class="page-title">사용자 관리</div>
+      <div class="page-sub">가입자 목록 및 활동 현황</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>닉네임</th><th>이메일</th><th>가입일</th><th>세션 수</th><th>별점 합계</th></tr>
+          <tbody id="usersTable">
+            <tr><td colspan="5" style="text-align:center;color:var(--text2);padding:24px;">Google Sheets 연동 시 데이터가 표시됩니다</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══════ AUTOMATION ══════ -->
+    <div id="sec-automation" style="display:none;">
+      <div class="page-title">콘텐츠 자동화</div>
+      <div class="page-sub">GitHub Actions + Claude API 파이프라인</div>
+
+      <div class="stat-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="stat-card">
+          <div class="stat-label" style="margin-bottom:8px;">파이프라인 상태</div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:10px;height:10px;border-radius:50%;background:var(--green);"></div>
+            <span style="font-size:13px;">구성 완료 — 실행 대기</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" style="margin-bottom:8px;">마지막 실행</div>
+          <div style="font-size:13px;">아직 실행 전</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header"><div class="table-title">자동화 작업 목록</div></div>
+        <table>
+          <tr><th>작업</th><th>주기</th><th>상태</th><th>설명</th></tr>
+          <tr><td>후보 문장 생성</td><td>매월 25일</td><td><span class="badge badge-approved">활성</span></td><td>Claude API로 다음달 30일분 후보 생성</td></tr>
+          <tr><td>저작권 검증</td><td>생성 후 자동</td><td><span class="badge badge-approved">활성</span></td><td>저작자 사망일 + 출처 확인</td></tr>
+          <tr><td>학습 분석 생성</td><td>검증 후 자동</td><td><span class="badge badge-approved">활성</span></td><td>why/structure/technique + 예문</td></tr>
+          <tr><td>TTS 낭독 생성</td><td>힐링 문구 확정 후</td><td><span class="badge badge-approved">활성</span></td><td>Edge TTS (SunHi, -20%, -4Hz)</td></tr>
+          <tr><td>리포트 생성</td><td>매월 말</td><td><span class="badge badge-draft">대기</span></td><td>큐레이션 리포트 MD 생성</td></tr>
+        </table>
+      </div>
+
+      <button class="btn btn-primary" onclick="runAutomation()" style="margin-top:12px;">수동 실행 (테스트)</button>
+      <div id="autoLog" style="margin-top:16px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;font-family:monospace;font-size:12px;color:var(--text2);max-height:300px;overflow-y:auto;display:none;"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════ MODAL ══════ -->
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ── Navigation ── */
+function showSection(id) {
+  document.querySelectorAll('[id^="sec-"]').forEach(function(s){s.style.display='none';});
+  document.getElementById('sec-'+id).style.display='block';
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  event.target.classList.add('active');
+}
+
+/* ── Load data into tables ── */
+function loadGrowthTable() {
+  var tb = document.getElementById('growthTable');
+  if (!tb || typeof GROWTH_DAYS === 'undefined') return;
+  tb.innerHTML = '';
+  GROWTH_DAYS.forEach(function(day, i) {
+    var previewA = day.A.t.length > 40 ? day.A.t.substring(0,40)+'…' : day.A.t;
+    var previewB = day.B.t.length > 40 ? day.B.t.substring(0,40)+'…' : day.B.t;
+    tb.innerHTML += '<tr><td>DAY '+(i+1)+'</td><td>'+previewA+'<br><span style="font-size:11px;color:var(--text2);">— '+day.A.a+'</span></td><td>'+previewB+'<br><span style="font-size:11px;color:var(--text2);">— '+day.B.a+'</span></td><td><span class="badge badge-approved">승인</span></td><td><button class="btn btn-secondary" onclick="editGrowth('+i+')">편집</button></td></tr>';
+  });
+  document.getElementById('adContentCount').textContent = GROWTH_DAYS.length + (typeof HEALING_DAYS !== 'undefined' ? HEALING_DAYS.length : 0);
+}
+
+function loadHealingTable() {
+  var tb = document.getElementById('healingTable');
+  if (!tb || typeof HEALING_DAYS === 'undefined') return;
+  tb.innerHTML = '';
+  HEALING_DAYS.forEach(function(d, i) {
+    var preview = d.t.length > 60 ? d.t.substring(0,60)+'…' : d.t;
+    var themeClass = d.theme === '힐링' ? 'badge-healing' : d.theme === '다짐' ? 'badge-growth' : 'badge-draft';
+    tb.innerHTML += '<tr><td>DAY '+d.day+'</td><td><span class="badge '+themeClass+'">'+d.theme+'</span></td><td>'+preview+'</td><td>'+d.t.length+'자</td><td><span class="badge badge-approved">승인</span></td></tr>';
+  });
+}
+
+function loadSchedule() {
+  var tb = document.getElementById('scheduleTable');
+  if (!tb) return;
+  tb.innerHTML = '';
+  var today = new Date();
+  for (var i = 0; i < 7; i++) {
+    var d = new Date(today); d.setDate(d.getDate() + i);
+    var ds = (d.getMonth()+1) + '/' + d.getDate();
+    var isToday = i === 0 ? ' <span class="badge badge-growth">오늘</span>' : '';
+    var dayIdx = Math.floor((d - new Date('2026-03-11')) / (1000*60*60*24));
+    var gIdx = ((dayIdx % (typeof GROWTH_DAYS !== 'undefined' ? GROWTH_DAYS.length : 1)) + 100) % (typeof GROWTH_DAYS !== 'undefined' ? GROWTH_DAYS.length : 1);
+    var hIdx = ((dayIdx % (typeof HEALING_DAYS !== 'undefined' ? HEALING_DAYS.length : 1)) + 100) % (typeof HEALING_DAYS !== 'undefined' ? HEALING_DAYS.length : 1);
+    tb.innerHTML += '<tr><td>'+ds+isToday+'</td><td>DAY '+(gIdx+1)+'</td><td>DAY '+(hIdx+1)+'</td><td><input type="checkbox" title="수동 고정"></td></tr>';
+  }
+}
+
+function loadFeedback() {
+  var list = document.getElementById('feedbackList');
+  if (!list) return;
+  try {
+    var fb = JSON.parse(localStorage.getItem('lb_feedback_history') || '[]');
+    document.getElementById('adTotalFeedback').textContent = fb.length;
+    if (fb.length === 0) {
+      list.innerHTML = '<div style="text-align:center;color:var(--text2);padding:32px;">아직 피드백이 없습니다</div>';
+      return;
+    }
+    list.innerHTML = '';
+    fb.forEach(function(f) {
+      var stars = '';
+      for(var i=0;i<5;i++) stars += i < f.stars ? '★' : '☆';
+      list.innerHTML += '<div class="fb-card" data-round="'+f.round+'"><div class="fb-meta"><span>'+f.nickname+' · '+f.round+'차 ('+f.daysSinceJoin+'일차)</span><span class="fb-stars">'+stars+'</span></div>'+(f.good?'<div class="fb-label">좋았던 점</div><div class="fb-text">'+f.good+'</div>':'')+(f.improve?'<div class="fb-label">개선점</div><div class="fb-text">'+f.improve+'</div>':'')+(f.overall?'<div class="fb-label">전체 소감</div><div class="fb-text">'+f.overall+'</div>':'')+'</div>';
+    });
+  } catch(e) { list.innerHTML = '<div style="color:var(--text2);">로드 실패</div>'; }
+}
+
+function filterFB(round, btn) {
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.fb-card').forEach(function(c) {
+    c.style.display = (round === 'all' || c.getAttribute('data-round') === round) ? 'block' : 'none';
+  });
+}
+
+/* ── Modal ── */
+function openModal(type) {
+  var m = document.getElementById('modalContent');
+  if (type === 'growth') {
+    m.innerHTML = '<div class="modal-title">성장편 문장 추가</div><div class="field"><label>문장 A</label><textarea id="mGrowthA" placeholder="문장 텍스트"></textarea></div><div class="field"><label>작가 A</label><input id="mAuthorA" placeholder="작가명"></div><div class="field"><label>출처 A</label><input id="mSourceA" placeholder="출처"></div><hr style="border-color:var(--line);margin:14px 0;"><div class="field"><label>문장 B</label><textarea id="mGrowthB" placeholder="문장 텍스트"></textarea></div><div class="field"><label>작가 B</label><input id="mAuthorB" placeholder="작가명"></div><div class="field"><label>출처 B</label><input id="mSourceB" placeholder="출처"></div><div class="field"><label>학습 포인트</label><input id="mLP" placeholder="A — 기법명 / B — 기법명"></div><div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal()">취소</button><button class="btn btn-primary" onclick="saveGrowth()">저장</button></div>';
+  } else if (type === 'healing') {
+    m.innerHTML = '<div class="modal-title">힐링편 문구 추가</div><div class="field"><label>테마</label><select id="mTheme"><option>힐링</option><option>다짐</option><option>여운</option></select></div><div class="field"><label>본문 (500~800자)</label><textarea id="mHealingText" rows="8" placeholder="필사 문구 전문"></textarea></div><div class="field"><label>영감 출처</label><input id="mInspiration" placeholder="예: 오정희 소설의 밤 풍경"></div><div class="modal-actions"><button class="btn btn-secondary" onclick="closeModal()">취소</button><button class="btn btn-primary" onclick="saveHealing()">저장</button></div>';
+  }
+  document.getElementById('modalBg').classList.add('show');
+}
+function closeModal() { document.getElementById('modalBg').classList.remove('show'); }
+
+function saveGrowth() { alert('저장됨 (실제로는 data.js에 반영 필요)'); closeModal(); }
+function saveHealing() { alert('저장됨 (실제로는 data.js에 반영 필요)'); closeModal(); }
+function editGrowth(i) { alert('DAY '+(i+1)+' 편집 (추후 구현)'); }
+
+/* ── Automation ── */
+function runAutomation() {
+  var log = document.getElementById('autoLog');
+  log.style.display = 'block';
+  log.textContent = '';
+  var steps = [
+    '[1/5] 후보 문장 생성 요청 중...',
+    '[2/5] 저작권 검증 (사망일 + 출처)...',
+    '[3/5] 학습 분석 생성 (why/structure/technique)...',
+    '[4/5] TTS 낭독 파일 생성...',
+    '[5/5] 리포트 생성 완료!'
+  ];
+  steps.forEach(function(s, i) {
+    setTimeout(function() {
+      log.textContent += s + '\n';
+      if (i === steps.length - 1) log.textContent += '\n✓ 자동화 테스트 완료 (실제 실행은 GitHub Actions에서)';
+      log.scrollTop = log.scrollHeight;
+    }, (i+1) * 800);
+  });
+}
+
+/* ── Init ── */
+loadGrowthTable();
+loadHealingTable();
+loadSchedule();
+loadFeedback();
+
+// Quick stats
+try {
+  var records = JSON.parse(localStorage.getItem('lb_records_' + (JSON.parse(localStorage.getItem('lb_user')||'{}').id||'guest')) || '[]');
+  document.getElementById('adTodaySessions').textContent = records.filter(function(r){return r.date===new Date().toISOString().split('T')[0];}).length;
+  document.getElementById('adTotalUsers').textContent = localStorage.getItem('lb_user') ? '1' : '0';
+} catch(e){}
+</script>
+</body>
+</html>

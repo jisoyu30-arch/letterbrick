@@ -1,0 +1,44 @@
+name: LetterBrick Content Pipeline
+
+on:
+  schedule:
+    - cron: '0 15 25 * *'  # 매월 25일 자정(KST)
+  workflow_dispatch:  # 수동 실행 가능
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install edge-tts
+
+      - name: Generate next month content
+        env:
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+        run: python scripts/generate_content.py
+
+      - name: Generate TTS narration
+        run: python scripts/generate_tts.py
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "auto: 다음달 콘텐츠 후보 생성"
+          title: "📝 다음달 콘텐츠 후보 (자동 생성)"
+          body: |
+            ## 자동 생성 콘텐츠
+            - 성장편 후보 문장
+            - 힐링편 후보 문구
+            - TTS 낭독 파일
+
+            **사람 검수 필요:**
+            - [ ] 저작권/출처 확인
+            - [ ] 문장 품질 검토
+            - [ ] 최종 승인 후 머지
+          branch: content/auto-generate
