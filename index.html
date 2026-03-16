@@ -1333,7 +1333,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <div class="today-why">
         <div class="tw-eyebrow">
           <div class="tw-bricks"><div class="tw-b"></div><div class="tw-b"></div><div class="tw-b"></div></div>
-          오늘의 힐링 필사
+          이 글이 좋은 이유
         </div>
         <div class="tw-reason" id="healingReason"></div>
       </div>
@@ -2711,7 +2711,9 @@ function selectHealingTheme(theme) {
   document.getElementById('healingThemeLabel').textContent = theme + ' · 오늘의 필사';
   document.getElementById('healingText').textContent = healingPassage.text;
   document.getElementById('healingAuthor').textContent = '— ' + healingPassage.author;
-  document.getElementById('healingReason').textContent = healingPassage.reason;
+  // why가 있으면 "이 글이 좋은 이유" 표시, 없으면 reason으로 fallback
+  var reasonText = healingPassage.why || healingPassage.reason || '';
+  document.getElementById('healingReason').textContent = reasonText;
   document.getElementById('healingThemes').style.display = 'none';
   document.getElementById('healingFlow').style.display = 'block';
 }
@@ -3496,11 +3498,23 @@ analyzeCreative = function(original, userText) {
 
   result.stars = Math.min(5, Math.max(1, Math.round(score)));
 
-  // ── 소감 섹션 (따뜻하게) ──
-  var lblText = result.stars >= 4 ? '읽고 나서 — 인상적인 글이에요'
-              : result.stars >= 3 ? '읽고 나서 — 좋은 흐름이에요'
-              : '읽고 나서 — 쓴 것 자체가 의미 있어요';
-  result.sections.push({lbl: lblText, txt: impressions.join(' ')});
+  // ── AI 코치의 진솔한 감상문 ──
+  var lblText = 'AI 코치의 감상';
+  // 감상문 톤으로 재구성
+  var review = '';
+  if(result.stars >= 4) {
+    review = '이 글을 읽으면서 잠시 멈추게 됐어요. ' + impressions[0] + ' ';
+    if(impressions.length > 1) review += impressions[1] + ' ';
+    review += '이런 문장을 쓸 수 있다는 건, 이미 자기만의 눈이 있다는 뜻이에요.';
+  } else if(result.stars >= 3) {
+    review = '글에서 쓰고 싶은 마음이 느껴져요. ' + impressions[0] + ' ';
+    if(impressions.length > 1) review += impressions[1] + ' ';
+    review += '이 감각을 잊지 마세요. 다음 글은 분명 더 선명해질 거예요.';
+  } else {
+    review = '글을 쓰기로 한 것 자체가 용기예요. ' + impressions[0] + ' ';
+    review += '지금은 조금 서툴러도 괜찮아요. 매일 한 문장씩 쓰다 보면 어느 날 자기도 모르게 달라져 있을 거예요.';
+  }
+  result.sections.push({lbl: lblText, txt: review});
 
   // ── 기법 정리 + 적용 분석 섹션 ──
   if(techName){
