@@ -325,11 +325,13 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   border-radius:9px;padding:12px 14px;border-left:3px solid var(--gold);}
 
 /* Compare */
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
-.cmp-side{background:var(--paper);border-radius:10px;padding:12px 13px;}
-.cmp-lbl{font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:1px;margin-bottom:7px;}
-.cmp-txt{font-family:'Noto Serif KR',serif;font-size:12px;color:var(--ink);
-  line-height:1.8;font-weight:300;}
+.cmp{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px;}
+.cmp-side{background:var(--paper);border-radius:12px;padding:16px 16px 14px;border:1px solid var(--line);}
+.cmp-lbl{font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.cmp-num{width:18px;height:18px;border-radius:4px;background:var(--brick);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;}
+.cmp-txt{font-family:'Gowun Batang',serif;font-size:15px;color:var(--ink);
+  line-height:1.85;font-weight:400;border-left:3px solid var(--brick-l);padding-left:12px;margin-bottom:8px;}
+.cmp-tech{font-size:11px;color:var(--ink3);line-height:1.6;font-style:italic;}
 
 /* AI result */
 .air{background:var(--paper3);border:1px solid var(--line);border-radius:14px;
@@ -2046,22 +2048,27 @@ function buildLearnContent(){
     <div class="lb-body">${l.technique}</div></div>`;
 }
 function buildCmp(){
-  const s = todaySent;
-  // technique에서 예시 문장 추출
-  const techMatch = s.learn.technique.match(/예시:\s*[''"]?([^''<"\n]+)/);
-  const ex2 = techMatch ? techMatch[1].trim().replace(/[''"]$/, '') : s.example;
-  const techName = (s.learn.technique.match(/^<b>([^<]+)<\/b>/) || [])[1] || '오늘의 기법';
-  document.getElementById('cmpBox').innerHTML=`
-    <div class="cmp-side ex1">
-      <div class="cmp-lbl"><div class="cmp-num">1</div>구조 변형 예시</div>
-      <div class="cmp-txt">${s.example}</div>
-      <div class="cmp-tech">📌 ${techName}</div>
-    </div>
-    <div class="cmp-side ex2">
-      <div class="cmp-lbl"><div class="cmp-num">2</div>다른 소재로 응용</div>
-      <div class="cmp-txt">${ex2}</div>
-      <div class="cmp-tech">💡 같은 구조, 다른 이야기</div>
-    </div>`;
+  var s = todaySent;
+  // technique에서 ▶ 연습 부분 추출
+  var exerciseMatch = s.learn.technique.match(/▶\s*연습[：:]\s*([^<]+)/);
+  var exercise = exerciseMatch ? exerciseMatch[1].trim() : '';
+  // technique에서 기법 설명 추출 (▶ 이전까지)
+  var techDesc = s.learn.technique.replace(/<b>[^<]+<\/b><br>/,'').replace(/▶[\s\S]*/,'').replace(/<br>/g,' ').trim();
+  document.getElementById('cmpBox').innerHTML=
+    '<div class="cmp-side ex1">'+
+      '<div class="cmp-lbl"><div class="cmp-num">✍</div>이런 식으로 바꿔볼 수 있어요</div>'+
+      '<div class="cmp-txt">' + s.example + '</div>'+
+      '<div class="cmp-tech">↑ 원문의 구조를 빌려, 다른 소재로 쓴 예시입니다.</div>'+
+    '</div>'+
+    (exercise ?
+    '<div class="cmp-side ex2" style="background:var(--brick-p);border-color:var(--brick-l);">'+
+      '<div class="cmp-lbl"><div class="cmp-num" style="background:var(--gold);">💡</div>연습 힌트</div>'+
+      '<div style="font-size:13px;color:var(--ink2);line-height:1.8;">' + exercise + '</div>'+
+    '</div>' : '')+
+    (techDesc ?
+    '<div style="font-size:11px;color:var(--ink3);line-height:1.7;margin-top:4px;padding:0 4px;">' +
+      '<b style="color:var(--ink2);">오늘의 포인트:</b> ' + techDesc +
+    '</div>' : '');
 }
 
 /* ══════════════════════════════
