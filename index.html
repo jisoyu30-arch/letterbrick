@@ -1258,12 +1258,33 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <div style="margin:8px 0;font-size:12px;color:rgba(247,242,232,0.4);">
         <span id="healingDuration">—</span> 동안 머물렀어요
       </div>
-      <button class="btn-p" onclick="openHealingShare()" style="margin-top:16px;background:transparent;border:1.5px solid rgba(247,242,232,0.25);color:var(--paper);width:100%;">
-        📤 오늘의 힐링 공유하기
-      </button>
-      <button class="btn-s" onclick="resetHealingFlow();showPage('home',document.querySelectorAll('.nav-tab')[0])" style="margin-top:8px;color:rgba(247,242,232,0.4);border-color:rgba(247,242,232,0.1);">
-        기록으로 돌아가기
-      </button>
+
+      <!-- 소감 입력 -->
+      <div id="healingSogamSection" style="margin-top:20px;text-align:left;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">오늘의 소감</div>
+        <textarea id="healingSogamTa" placeholder="오늘 필사하면서 떠오른 생각이나 감정을 자유롭게 써보세요..." rows="3"
+          style="width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(247,242,232,0.15);border-radius:10px;padding:12px 14px;font-family:'Noto Serif KR',serif;font-size:14px;line-height:1.8;color:var(--paper);resize:none;outline:none;"
+          oninput="this.style.borderColor=this.value.length>0?'rgba(247,242,232,0.3)':'rgba(247,242,232,0.15)'"></textarea>
+        <button class="btn-p" id="healingSogamBtn" onclick="submitHealingSogam()" style="margin-top:10px;width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(247,242,232,0.2);">
+          AI 코치에게 보내기 →
+        </button>
+      </div>
+
+      <!-- AI 코치 답변 -->
+      <div id="healingCoachResponse" style="display:none;margin-top:16px;text-align:left;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--brick);margin-bottom:8px;">AI 코치의 답변</div>
+        <div id="healingCoachText" style="font-size:13px;color:rgba(247,242,232,0.8);line-height:1.9;font-family:'Noto Serif KR',serif;font-weight:300;background:rgba(182,94,60,0.1);border-left:3px solid var(--brick);border-radius:0 10px 10px 0;padding:14px 16px;"></div>
+      </div>
+
+      <!-- 공유 + 돌아가기 (소감 후 표시) -->
+      <div id="healingShareSection" style="display:none;margin-top:16px;">
+        <button class="btn-p" onclick="openHealingShare()" style="background:transparent;border:1.5px solid rgba(247,242,232,0.25);color:var(--paper);width:100%;">
+          📤 오늘의 힐링 공유하기
+        </button>
+        <button class="btn-s" onclick="resetHealingFlow();showPage('home',document.querySelectorAll('.nav-tab')[0])" style="margin-top:8px;color:rgba(247,242,232,0.4);border-color:rgba(247,242,232,0.1);">
+          기록으로 돌아가기
+        </button>
+      </div>
     </div>
 
   </div>
@@ -2788,12 +2809,29 @@ function getSentenceType(text) {
 }
 
 function detectErrors(text) {
-  const errors = [];
-  if(text.trim().length < 10) errors.push({type:'blocking', msg:'내용이 너무 짧아요. 10자 이상 써주세요.'});
-  if(/(.)\1{4,}/.test(text)) errors.push({type:'blocking', msg:'같은 글자가 너무 많이 반복돼요.'});
-  if(/^[ㄱ-ㅎㅏ-ㅣ\s]+$/.test(text.trim())) errors.push({type:'blocking', msg:'완성된 문장을 써주세요.'});
-  if(/\s{2,}/.test(text)) errors.push({type:'advisory', msg:'연속 공백이 있어요. 띄어쓰기를 한 번만 다듬어볼까요?'});
-  if(text.trim().length>10 && !/[.!?。…'"」』)\n]$/.test(text.trim())) errors.push({type:'advisory', msg:'문장 끝에 마침표가 없어요.'});
+  var errors = [];
+  var t = text.trim();
+  // blocking — 이것들이 있으면 채점 자체를 거부
+  if(t.length < 10) errors.push({type:'blocking', msg:'내용이 너무 짧아요. 10자 이상 써주세요.'});
+  if(/(.)\1{4,}/.test(t)) errors.push({type:'blocking', msg:'같은 글자가 너무 많이 반복돼요.'});
+  if(/^[ㄱ-ㅎㅏ-ㅣ\s]+$/.test(t)) errors.push({type:'blocking', msg:'완성된 글자로 문장을 써주세요.'});
+  // 의미 없는 입력 감지 (자음/모음만, 숫자만, 알파벳만)
+  if(/^[a-zA-Z0-9\s.,!?]+$/.test(t) && t.length < 30) errors.push({type:'blocking', msg:'한국어 문장을 써주세요.'});
+  // 같은 단어 3번 이상 반복
+  var words = t.split(/\s+/);
+  var wordCount = {};
+  words.forEach(function(w){ wordCount[w] = (wordCount[w]||0)+1; });
+  var maxRepeat = Math.max.apply(null, Object.values(wordCount));
+  if(maxRepeat >= 4 && words.length < 15) errors.push({type:'blocking', msg:'같은 단어를 너무 많이 반복했어요. 다양한 표현을 써보세요.'});
+  // 너무 짧은 단어들만 (의미 없는 나열)
+  var shortWords = words.filter(function(w){ return w.length <= 1; });
+  if(words.length > 3 && shortWords.length / words.length > 0.7) errors.push({type:'blocking', msg:'의미 있는 문장을 써주세요.'});
+
+  // advisory — 수정 권장
+  if(/\s{2,}/.test(t)) errors.push({type:'advisory', msg:'연속 공백이 있어요. 띄어쓰기를 한 번만 다듬어볼까요?'});
+  if(t.length > 10 && !/[.!?。…'"」』)\n]$/.test(t)) errors.push({type:'advisory', msg:'문장 끝에 마침표가 없어요.'});
+  // 조사 띄어쓰기 (매우 기본적)
+  if(/[가-힣]\s[은는이가을를의와과에서로](?:\s|$)/.test(t)) errors.push({type:'advisory', msg:'조사가 앞 단어와 떨어져 있는 곳이 있어요.'});
   return errors;
 }
 
@@ -3235,6 +3273,75 @@ copyShareText = function() {
 /* ══════════════════════════════
    FIX: 힐링 완료 — 공유하기 추가
 ══════════════════════════════ */
+/* ══════════════════════════════
+   힐링 소감 → AI 코치 답변
+══════════════════════════════ */
+function submitHealingSogam() {
+  var sogam = document.getElementById('healingSogamTa').value.trim();
+  if (!sogam) { document.getElementById('healingSogamTa').focus(); return; }
+  if (sogam.length < 5) { alert('소감을 조금 더 써주세요.'); return; }
+
+  var btn = document.getElementById('healingSogamBtn');
+  btn.textContent = '코치가 읽고 있어요...';
+  btn.style.opacity = '.5';
+  btn.style.pointerEvents = 'none';
+
+  // API 시도, 실패시 규칙 기반
+  var passageText = healingPassage ? healingPassage.text : '';
+  callAI('creative', passageText, sogam, '힐링 필사 소감').then(function(result) {
+    var response;
+    if (result && result.impression) {
+      response = result.impression;
+      if (result.encouragement) response += ' ' + result.encouragement;
+    } else {
+      response = generateHealingCoachResponse(sogam, passageText);
+    }
+    showHealingCoachResponse(response);
+  }).catch(function() {
+    showHealingCoachResponse(generateHealingCoachResponse(sogam, passageText));
+  });
+}
+
+function generateHealingCoachResponse(sogam, passage) {
+  // 규칙 기반 따뜻한 응답 생성
+  var responses = [];
+  var hasEmotion = /슬[프펐]|기[쁘뻤]|그리[운웠]|외[로롭]|편안|따뜻|행복|감사|힘[들든]|지[치친]|울[었컥]/.test(sogam);
+  var hasMemory = /기억|생각|떠올|추억|그때|예전|어릴/.test(sogam);
+  var hasResolution = /다짐|노력|시작|해보|하겠|해야|가보|걸어/.test(sogam);
+  var hasCalm = /고요|평온|잔잔|차분|조용|쉬[어었]|머물/.test(sogam);
+
+  if (hasEmotion) {
+    responses.push('소감에서 진솔한 감정이 느껴져요. 이렇게 자신의 마음을 있는 그대로 들여다보는 것, 그것만으로도 오늘 필사는 충분한 의미가 있었어요.');
+  }
+  if (hasMemory) {
+    responses.push('오늘 문장이 어떤 기억을 불러왔군요. 필사를 하면서 과거의 한 장면이 떠오르는 건, 그 문장이 당신에게 진짜로 닿았다는 뜻이에요. 그 기억을 소중히 품어두세요.');
+  }
+  if (hasResolution) {
+    responses.push('다짐이 담긴 소감이네요. 거창하지 않아도, 이렇게 한 줄 쓰는 것 자체가 이미 실천의 시작이에요. 내일도 여기서 만나요.');
+  }
+  if (hasCalm) {
+    responses.push('고요한 시간을 잘 보내셨군요. 필사를 하면서 마음이 가라앉는 경험, 그것이 바로 이 시간의 선물이에요. 이 평온함을 오늘 밤까지 가져가세요.');
+  }
+
+  if (responses.length === 0) {
+    var defaults = [
+      '오늘 쓰신 소감을 읽었어요. 필사를 마치고 이렇게 자신의 마음을 돌아보는 시간까지 가지셨다는 게 정말 멋져요. 오늘 이 순간을 기억해두세요.',
+      '소감을 써주셔서 감사해요. 글을 따라 쓰고, 자기 마음을 들여다보고, 그것을 다시 글로 남기는 것 — 이 세 단계를 모두 해내셨어요. 대단합니다.',
+      '오늘의 문장이 당신에게 어떤 의미였는지, 소감을 통해 느낄 수 있었어요. 이런 시간을 자신에게 허락하는 것, 그것이 힐링의 시작이에요.'
+    ];
+    responses.push(defaults[Math.floor(Math.random() * defaults.length)]);
+  }
+
+  return responses[0];
+}
+
+function showHealingCoachResponse(text) {
+  document.getElementById('healingSogamSection').querySelector('button').style.display = 'none';
+  document.getElementById('healingCoachText').textContent = text;
+  document.getElementById('healingCoachResponse').style.display = 'block';
+  document.getElementById('healingShareSection').style.display = 'block';
+}
+
 function openHealingShare() {
   if(!healingPassage) return;
   var rec = {
