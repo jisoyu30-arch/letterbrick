@@ -2469,6 +2469,10 @@ function saveNickname() {
   const inp = document.getElementById('nicknameInp').value.trim();
   if (!inp) { document.getElementById('nicknameInp').focus(); return; }
   const email = document.getElementById('emailInp').value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('피드백 추첨을 위해 이메일 주소를 입력해주세요.');
+    document.getElementById('emailInp').focus(); return;
+  }
   currentUser = {
     nickname: inp,
     email: email || '',
