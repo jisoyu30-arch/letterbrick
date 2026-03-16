@@ -2172,14 +2172,12 @@ function renderRecords(){
    LEARN
 ══════════════════════════════ */
 function buildLearnContent(){
-  const l=todaySent.learn;
-  document.getElementById('learnContent').innerHTML=`
-    <div class="lb"><div class="lb-ttl"><div class="lb-num">①</div>이 문장이 특별한 이유</div>
-    <div class="lb-body">${l.why}</div></div>
-    <div class="lb"><div class="lb-ttl"><div class="lb-num">②</div>문장 구조 분석</div>
-    <div class="lb-body">${l.structure}</div></div>
-    <div class="lb"><div class="lb-ttl"><div class="lb-num">③</div>오늘 배울 기법</div>
-    <div class="lb-body">${l.technique}</div></div>`;
+  var l=todaySent.learn;
+  document.getElementById('learnContent').innerHTML=
+    '<div class="lb"><div class="lb-ttl"><div class="lb-num">①</div>문장 구조 뜯어보기</div>'+
+    '<div class="lb-body">'+l.structure+'</div></div>'+
+    '<div class="lb"><div class="lb-ttl"><div class="lb-num">②</div>오늘의 글쓰기 기법</div>'+
+    '<div class="lb-body">'+l.technique+'</div></div>';
 }
 function buildCmp(){
   var s = todaySent;
