@@ -3258,15 +3258,17 @@ if (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS.length > 0) {
   SENTENCES.length = 0;
   GROWTH_DAYS.forEach(function(day, i) {
     function makeSent(v, dayNum) {
+      // 새 데이터는 v.learn이 완전한 객체 (why/structure/technique)
+      var learnObj = v.learn || {
+        why: v.pt,
+        structure: '원문의 구조를 자세히 살펴보세요.',
+        technique: '<b>' + v.pt + '</b>'
+      };
       return {
         text: v.t, author: v.a, source: v.s,
         authorNote: '', reason: v.pt,
-        learn: {
-          why: v.pt,
-          structure: '원문의 구조를 자세히 살펴보세요.',
-          technique: '<b>' + v.pt.split(/로|을|의|이/)[0] + '</b> — ' + v.pt
-        },
-        example: '오늘 배운 기법으로 자신만의 문장을 써보세요.',
+        learn: learnObj,
+        example: v.example || '오늘 배운 기법으로 자신만의 문장을 써보세요.',
         day: dayNum, variant: null
       };
     }
