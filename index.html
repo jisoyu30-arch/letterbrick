@@ -194,14 +194,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   position:relative;overflow:hidden;
   transition:all .3s ease;
 }
-.sticky-sent.pinned{
-  position:sticky;top:56px;z-index:99;
-  border-radius:0 0 12px 12px;margin-top:0;padding:8px 14px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.3);
+/* pinned는 모바일에서만 축소 */
+@media(max-width:600px){
+  .sticky-sent.pinned{
+    position:sticky;top:56px;z-index:99;
+    border-radius:0 0 12px 12px;margin-top:0;padding:8px 14px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.3);
+  }
+  .sticky-sent.pinned .sticky-text{font-size:13px !important;line-height:1.5 !important;max-height:55px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
+  .sticky-sent.pinned::before{display:none;}
 }
-.sticky-sent.pinned .sticky-text{font-size:13px !important;line-height:1.5 !important;max-height:55px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
-.sticky-sent.pinned::before{display:none;}
 .sticky-sent::before{
   content:'';position:absolute;top:-20px;right:-20px;
   width:80px;height:80px;
