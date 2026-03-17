@@ -449,10 +449,24 @@ body::before{
 
       <div class="reco-section" id="recoSection"></div>
 
+      <!-- 에디션 상세 소개 -->
+      <div id="editionGuide" style="margin-top:20px;"></div>
+
       <div class="result-actions">
         <button class="btn-cta" onclick="goToDemo()">레터브릭 시작하기</button>
         <button class="btn-share" onclick="shareResult()">결과 공유하기</button>
         <button class="btn-retry" onclick="retryQuiz()">다시 테스트하기</button>
+      </div>
+
+      <!-- 출처 -->
+      <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--line2);font-size:10px;color:var(--ink3);line-height:1.8;">
+        <div style="font-weight:700;margin-bottom:6px;letter-spacing:.5px;">테스트 설계 참고 문헌</div>
+        <div>① 감성-논리 차원 — Baron-Cohen, S. (2009). "The Empathizing–Systemizing (E-S) Theory." <i>Annals of the New York Academy of Sciences</i>, 1156(1), 68–80.</div>
+        <div>② 글쓰기와 정서 — Pennebaker, J. W. (2018). "Expressive Writing in Psychological Science." <i>Perspectives on Psychological Science</i>, 13(2), 226–229.</div>
+        <div>③ 시간 지향성 — Zimbardo, P. G. & Boyd, J. N. (1999). "Putting Time in Perspective." <i>Journal of Personality and Social Psychology</i>, 77(6), 1271–1288.</div>
+        <div>④ 독자 반응 — Whiteley, S. & Canning, P. (2017). "Reader Response Research in Stylistics." <i>Language and Literature</i>, 26(2), 71–87.</div>
+        <div>⑤ 문체와 선호 — Miall, D. S. & Kuiken, D. (1994). "Foregrounding, Defamiliarization, and Affect." <i>Poetics</i>, 22(5), 389–407.</div>
+        <div style="margin-top:6px;font-style:italic;">※ 본 테스트는 학술 검사가 아닌 문장 선호도 탐색 도구입니다. 결과는 참고용이며, 실제 사용 패턴에 따라 달라질 수 있습니다.</div>
       </div>
     </div>
   </div>
@@ -761,6 +775,67 @@ function showResult() {
       ${info.themes.map(t => `<span class="reco-theme">${t}</span>`).join('')}
     </div>
   `;
+
+  // 에디션 상세 가이드
+  var guideEl = document.getElementById('editionGuide');
+  if(guideEl) {
+    var guides = {
+      healing: '<div style="background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:16px;padding:22px 20px;margin-top:16px;color:var(--paper);">'+
+        '<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:10px;">힐링 에디션 이용 가이드</div>'+
+        '<div style="font-family:\'Gowun Batang\',serif;font-size:17px;margin-bottom:12px;">마음을 다독이는<br>나만의 필사 시간</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.65);line-height:1.8;margin-bottom:14px;">매일 500~600자의 따뜻한 글이 준비됩니다. 낭독을 듣고, BGM을 틀고, 천천히 따라 쓰는 15분의 힐링 루틴이에요.</div>'+
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">🎧</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">AI 낭독</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">듣고 따라쓰기</div>'+
+          '</div>'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">🎵</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">앰비언트 BGM</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">12곡 랜덤 재생</div>'+
+          '</div>'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">💬</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">AI 코치 대화</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">소감에 답변</div>'+
+          '</div>'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">🧱</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">매일 1벽돌</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">출석형 기록</div>'+
+          '</div>'+
+        '</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.5);line-height:1.7;">'+
+          '<b style="color:rgba(247,242,232,0.8);">이용 방법:</b><br>'+
+          '1. 다짐 / 힐링 / 여운 중 오늘의 주제 선택<br>'+
+          '2. 오늘의 글이 왜 좋은지 읽기<br>'+
+          '3. 낭독 또는 BGM 켜기 (선택)<br>'+
+          '4. 타이핑 또는 손글씨로 따라쓰기<br>'+
+          '5. 소감 쓰기 → AI 코치 답변 받기<br>'+
+          '6. 공유 카드로 SNS에 기록 남기기'+
+        '</div>'+
+      '</div>',
+      growth: '<div style="background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:16px;padding:22px 20px;margin-top:16px;color:var(--paper);">'+
+        '<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:10px;">성장 에디션 이용 가이드</div>'+
+        '<div style="font-family:\'Gowun Batang\',serif;font-size:17px;margin-bottom:12px;">문장력을 키우는<br>하루 15분 훈련</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.65);line-height:1.8;margin-bottom:14px;">매일 명문장을 따라 쓰고, 구조를 배우고, 변형하고, 창작합니다. AI 코치가 별점과 함께 따뜻한 피드백을 드려요.</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.5);line-height:1.7;">'+
+          '<b style="color:rgba(247,242,232,0.8);">4단계 훈련:</b><br>'+
+          '1단계. 따라쓰기 — 명문장을 그대로 따라 쓰기<br>'+
+          '2단계. 구조 배우기 — 왜 좋은 문장인지 분석<br>'+
+          '3단계. 구조 변형 — 같은 뼈대로 내 문장 만들기 (AI 채점 ★5, 최대 2회)<br>'+
+          '4단계. 창의적 글쓰기 — 자유롭게 쓰기 (AI 감상 ★5, 최대 3회)'+
+        '</div>'+
+      '</div>',
+      both: '<div style="background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:16px;padding:22px 20px;margin-top:16px;color:var(--paper);">'+
+        '<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:10px;">통합 이용 가이드</div>'+
+        '<div style="font-family:\'Gowun Batang\',serif;font-size:17px;margin-bottom:12px;">위로와 도전을<br>번갈아 경험하세요</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.65);line-height:1.8;">힐링편으로 마음을 다독이고, 성장편으로 문장력을 키워보세요. 기분에 따라 에디션을 자유롭게 오가면 됩니다.</div>'+
+      '</div>'
+    };
+    guideEl.innerHTML = guides[profile.edition] || guides.both;
+  }
 
   showScreen('screenResult');
 
