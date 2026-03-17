@@ -312,7 +312,7 @@ body::before{
 }
 .reco-desc{
   font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300;
-  margin-bottom:16px;
+  margin-bottom:16px;word-break:keep-all;overflow-wrap:break-word;
 }
 .reco-themes{
   display:flex;flex-wrap:wrap;gap:8px;
@@ -433,7 +433,7 @@ body::before{
 
   <!-- RESULT -->
   <div class="screen" id="screenResult">
-    <div class="result-wrap result-animate">
+    <div class="result-wrap result-animate" style="word-break:keep-all;overflow-wrap:break-word;">
       <div class="result-header fade-up">
         <div class="result-overline">당신의 문장 취향</div>
         <h2 class="result-title" id="resultTitle"></h2>
@@ -450,7 +450,7 @@ body::before{
       <div class="reco-section" id="recoSection"></div>
 
       <!-- 에디션 상세 소개 -->
-      <div id="editionGuide" style="margin-top:20px;"></div>
+      <div id="editionGuide" style="margin-top:20px;word-break:keep-all;overflow-wrap:break-word;"></div>
 
       <!-- SNS 공유 카드 (캡처용) -->
       <div id="shareCard" style="background:var(--paper);border-radius:18px;padding:28px 24px;margin-top:20px;border:1px solid var(--line2);">
