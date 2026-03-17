@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2E2A26">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="레터브릭 — 문장 취향 테스트. 나에게 맞는 문장 스타일을 찾아보세요.">
+<meta property="og:title" content="문장 취향 테스트 · 레터브릭">
+<meta property="og:description" content="6개의 문장 중 마음에 드는 쪽을 골라보세요. 당신의 문장 취향을 알려드립니다.">
+<title>문장 취향 테스트 · 레터브릭</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:#F7F2E8;--paper2:#EDE7D6;--paper3:#FAF7F2;
+  --ink:#2E2A26;--ink2:#5C5248;--ink3:#9A9089;
+  --brick:#B65E3C;--brick-d:#8F4A2E;--brick-l:#F2E4DA;--brick-p:#FAF0EB;
+  --line:#D8D0C0;--line2:#EAE3D6;
+  --gold:#A07828;--gold-p:#F5EDD0;
+  --green:#3D6B50;--green-p:#D8EADF;
+  --shadow:rgba(46,42,38,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+  display:flex;
+  justify-content:center;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+#app{
+  width:100%;max-width:500px;
+  min-height:100vh;
+  padding:0 24px;
+  position:relative;
+}
+
+/* ══════ SCREENS ══════ */
+.screen{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:48px 0;
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+.screen.active{display:flex;}
+.screen.visible{opacity:1;}
+
+/* ══════ INTRO ══════ */
+.intro-bricks{
+  display:flex;gap:3px;margin-bottom:32px;
+}
+.ib{
+  width:14px;height:10px;border-radius:2px;
+  background:var(--brick);
+}
+.ib:nth-child(1){opacity:0.6;}
+.ib:nth-child(2){opacity:0.4;margin-top:5px;}
+.ib:nth-child(3){opacity:0.9;}
+.ib:nth-child(4){opacity:0.5;margin-top:5px;}
+.ib:nth-child(5){opacity:0.7;}
+
+.intro-logo{
+  font-family:'Gowun Batang',serif;font-size:18px;letter-spacing:1px;
+  color:var(--ink3);margin-bottom:48px;
+}
+.intro-logo em{color:var(--brick);font-style:normal;}
+
+.intro-title{
+  font-family:'Gowun Batang',serif;
+  font-size:24px;font-weight:700;line-height:1.6;
+  text-align:center;color:var(--ink);
+  margin-bottom:12px;
+}
+.intro-sub{
+  font-size:14px;color:var(--ink3);text-align:center;
+  line-height:1.7;margin-bottom:48px;font-weight:300;
+}
+
+.btn-start{
+  padding:16px 48px;
+  background:var(--ink);color:var(--paper);
+  border:none;border-radius:40px;
+  font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+}
+.btn-start:hover{
+  background:var(--brick);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px var(--shadow);
+}
+.btn-start:active{transform:translateY(0);}
+
+.intro-note{
+  margin-top:20px;font-size:12px;color:var(--ink3);font-weight:300;
+}
+
+/* ══════ PROGRESS ══════ */
+.progress-bar{
+  position:fixed;top:0;left:0;right:0;
+  display:flex;justify-content:center;
+  padding:24px 0 16px;
+  background:linear-gradient(180deg,var(--paper) 60%,transparent);
+  z-index:100;
+  opacity:0;transition:opacity 0.4s ease;
+}
+.progress-bar.show{opacity:1;}
+
+.progress-dots{
+  display:flex;gap:10px;align-items:center;
+}
+.pdot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--line);
+  transition:all 0.4s ease;
+}
+.pdot.done{
+  background:var(--brick);
+  transform:scale(1.1);
+}
+.pdot.current{
+  background:var(--brick);
+  width:24px;border-radius:4px;
+  animation:dotPulse 1.5s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{opacity:0.7;}50%{opacity:1;}
+}
+
+.round-label{
+  font-size:11px;color:var(--ink3);letter-spacing:1px;
+  text-align:center;margin-top:8px;font-weight:400;
+}
+
+/* ══════ QUIZ SCREEN ══════ */
+.quiz-header{
+  text-align:center;margin-bottom:36px;
+  width:100%;
+}
+.quiz-round{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ink3);font-weight:500;margin-bottom:8px;
+}
+.quiz-question{
+  font-family:'Gowun Batang',serif;
+  font-size:18px;font-weight:700;color:var(--ink);
+  line-height:1.5;
+}
+
+.cards{
+  width:100%;display:flex;flex-direction:column;gap:16px;
+}
+
+.card{
+  width:100%;
+  padding:28px 24px;
+  background:var(--paper3);
+  border:1.5px solid var(--line2);
+  border-radius:16px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;
+  background:var(--brick-p);
+  opacity:0;transition:opacity 0.3s ease;
+  border-radius:16px;
+}
+.card:hover{
+  border-color:var(--brick);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px var(--shadow);
+}
+.card:hover::before{opacity:1;}
+.card:active{transform:translateY(0);}
+
+.card.selected{
+  border-color:var(--brick);
+  background:var(--brick-p);
+  transform:scale(0.97);
+}
+.card.selected::before{opacity:1;}
+.card.not-selected{
+  opacity:0.3;
+  transform:scale(0.95);
+}
+
+.card-label{
+  position:relative;z-index:1;
+  font-size:11px;letter-spacing:1px;
+  color:var(--brick);font-weight:500;
+  margin-bottom:14px;display:block;
+}
+.card-text{
+  position:relative;z-index:1;
+  font-family:'Noto Serif KR',serif;
+  font-size:15px;line-height:1.8;
+  color:var(--ink);font-weight:300;
+}
+
+/* card fade animation */
+.cards-enter{animation:cardsIn 0.5s ease both;}
+.cards-exit{animation:cardsOut 0.35s ease both;}
+@keyframes cardsIn{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes cardsOut{
+  from{opacity:1;transform:translateY(0);}
+  to{opacity:0;transform:translateY(-16px);}
+}
+
+/* ══════ RESULT ══════ */
+.result-wrap{
+  width:100%;text-align:center;
+}
+
+.result-header{
+  margin-bottom:40px;
+}
+.result-overline{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--ink3);font-weight:500;margin-bottom:12px;
+}
+.result-title{
+  font-family:'Gowun Batang',serif;
+  font-size:26px;font-weight:700;color:var(--ink);
+  line-height:1.5;margin-bottom:8px;
+}
+.result-subtitle{
+  font-size:14px;color:var(--ink2);font-weight:300;line-height:1.6;
+}
+
+/* taste tags */
+.taste-tags{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:10px;margin-bottom:36px;
+}
+.taste-tag{
+  padding:8px 20px;
+  background:var(--brick-p);
+  border:1px solid var(--brick-l);
+  border-radius:20px;
+  font-family:'Noto Serif KR',serif;
+  font-size:14px;color:var(--brick-d);font-weight:400;
+}
+
+/* profile bars */
+.profile-section{
+  width:100%;margin-bottom:40px;
+  text-align:left;
+}
+.profile-section-title{
+  font-size:12px;letter-spacing:1px;color:var(--ink3);
+  font-weight:500;margin-bottom:16px;text-transform:uppercase;
+  text-align:center;
+}
+.profile-item{
+  display:flex;align-items:center;
+  margin-bottom:12px;
+}
+.profile-label{
+  font-size:13px;color:var(--ink2);width:64px;
+  text-align:right;padding-right:12px;
+  flex-shrink:0;font-weight:400;
+}
+.profile-bar-bg{
+  flex:1;height:6px;background:var(--line2);border-radius:3px;
+  overflow:hidden;
+}
+.profile-bar{
+  height:100%;background:var(--brick);border-radius:3px;
+  transition:width 1s ease;width:0;
+}
+.profile-pct{
+  font-size:12px;color:var(--ink3);width:40px;
+  text-align:left;padding-left:10px;font-weight:300;
+}
+
+/* recommendation */
+.reco-section{
+  width:100%;margin-bottom:36px;
+  padding:28px 24px;
+  background:var(--paper3);
+  border:1px solid var(--line2);
+  border-radius:16px;
+  text-align:left;
+}
+.reco-label{
+  font-size:11px;letter-spacing:1px;color:var(--brick);
+  font-weight:500;margin-bottom:12px;
+}
+.reco-edition{
+  font-family:'Gowun Batang',serif;
+  font-size:20px;font-weight:700;color:var(--ink);
+  margin-bottom:8px;
+}
+.reco-desc{
+  font-size:13px;color:var(--ink2);line-height:1.7;font-weight:300;
+  margin-bottom:16px;
+}
+.reco-themes{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.reco-theme{
+  padding:5px 14px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  font-size:12px;color:var(--ink2);font-weight:400;
+}
+
+/* buttons */
+.result-actions{
+  display:flex;flex-direction:column;align-items:center;
+  gap:12px;width:100%;margin-top:8px;
+}
+.btn-cta{
+  width:100%;padding:16px 0;
+  background:var(--ink);color:var(--paper);
+  border:none;border-radius:40px;
+  font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:500;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+}
+.btn-cta:hover{
+  background:var(--brick);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px var(--shadow);
+}
+.btn-share{
+  width:100%;padding:14px 0;
+  background:transparent;color:var(--ink2);
+  border:1.5px solid var(--line);border-radius:40px;
+  font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:400;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+}
+.btn-share:hover{
+  border-color:var(--brick);color:var(--brick);
+  transform:translateY(-1px);
+}
+.btn-retry{
+  margin-top:8px;
+  background:none;border:none;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;
+  color:var(--ink3);cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;
+  transition:color 0.2s;
+}
+.btn-retry:hover{color:var(--brick);}
+
+.share-toast{
+  position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+  padding:12px 28px;
+  background:var(--ink);color:var(--paper);
+  border-radius:24px;font-size:13px;font-weight:400;
+  opacity:0;transition:all 0.3s ease;
+  z-index:200;pointer-events:none;
+}
+.share-toast.show{
+  opacity:1;transform:translateX(-50%) translateY(0);
+}
+
+/* ══════ ANIMATIONS ══════ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.fade-up{animation:fadeUp 0.6s ease both;}
+.fade-up-d1{animation:fadeUp 0.6s 0.1s ease both;}
+.fade-up-d2{animation:fadeUp 0.6s 0.2s ease both;}
+.fade-up-d3{animation:fadeUp 0.6s 0.3s ease both;}
+.fade-up-d4{animation:fadeUp 0.6s 0.4s ease both;}
+.fade-up-d5{animation:fadeUp 0.6s 0.5s ease both;}
+
+/* result specific animations */
+.result-animate .taste-tags{animation:fadeUp 0.6s 0.2s ease both;}
+.result-animate .profile-section{animation:fadeUp 0.6s 0.35s ease both;}
+.result-animate .reco-section{animation:fadeUp 0.6s 0.5s ease both;}
+.result-animate .result-actions{animation:fadeUp 0.6s 0.65s ease both;}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar">
+    <div>
+      <div class="progress-dots" id="progressDots"></div>
+      <div class="round-label" id="roundLabel"></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="screen active" id="screenIntro">
+    <div class="intro-bricks fade-up">
+      <div class="ib"></div><div class="ib"></div><div class="ib"></div><div class="ib"></div><div class="ib"></div>
+    </div>
+    <div class="intro-logo fade-up-d1">Letter<em>Brick</em></div>
+    <h1 class="intro-title fade-up-d2">당신의 문장 취향을<br>찾아볼까요?</h1>
+    <p class="intro-sub fade-up-d3">
+      6개의 문장 쌍 중 마음이 가는 쪽을 골라주세요.<br>
+      당신에게 맞는 문장 스타일을 알려드릴게요.
+    </p>
+    <button class="btn-start fade-up-d4" onclick="startQuiz()">시작하기</button>
+    <p class="intro-note fade-up-d5">약 1분 소요</p>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="screenQuiz">
+    <div class="quiz-header">
+      <div class="quiz-round" id="quizRound"></div>
+      <div class="quiz-question" id="quizQuestion"></div>
+    </div>
+    <div class="cards" id="quizCards"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="screen" id="screenResult">
+    <div class="result-wrap result-animate">
+      <div class="result-header fade-up">
+        <div class="result-overline">당신의 문장 취향</div>
+        <h2 class="result-title" id="resultTitle"></h2>
+        <p class="result-subtitle" id="resultSubtitle"></p>
+      </div>
+
+      <div class="taste-tags" id="tasteTags"></div>
+
+      <div class="profile-section">
+        <div class="profile-section-title">취향 프로필</div>
+        <div id="profileBars"></div>
+      </div>
+
+      <div class="reco-section" id="recoSection"></div>
+
+      <div class="result-actions">
+        <button class="btn-cta" onclick="goToDemo()">레터브릭 시작하기</button>
+        <button class="btn-share" onclick="shareResult()">결과 공유하기</button>
+        <button class="btn-retry" onclick="retryQuiz()">다시 테스트하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="share-toast" id="shareToast">결과가 클립보드에 복사되었어요</div>
+
+<script>
+const ROUNDS = [
+  {
+    id: 'emotional',
+    dimension: '감성 vs 논리',
+    question: '어떤 문장에 더 끌리나요?',
+    labelA: 'A',
+    labelB: 'B',
+    textA: '비가 오는 날이면 창가에 앉아 빗소리를 듣는다. 빗방울이 유리창을 두드리는 소리는 누군가 조용히 노크하는 것 같다.',
+    textB: '재능이란 오랜 인내이다. 충분히 오래, 같은 것을 바라보면 그것은 스스로 말하기 시작한다.',
+    traitA: '감성적',
+    traitB: '논리적'
+  },
+  {
+    id: 'length',
+    dimension: '짧은 문장 vs 긴 문장',
+    question: '어떤 길이의 문장이 좋으세요?',
+    labelA: 'A',
+    labelB: 'B',
+    textA: '사랑은 죽음보다 강하다.',
+    textB: '어떤 기억은 상자에 담기지 않는다. 서랍에 넣어두어도, 잠그고 돌아서면 어느새 방 한가운데 나와 앉아 있다.',
+    traitA: '간결한',
+    traitB: '서사적'
+  },
+  {
+    id: 'comfort',
+    dimension: '위로 vs 도전',
+    question: '지금 더 필요한 문장은?',
+    labelA: 'A',
+    labelB: 'B',
+    textA: '괜찮다. 이 밤도 반드시 끝난다. 새벽은 꼭 온다.',
+    textB: '나는 내가 옳다고 확신할 때가 가장 위험하다는 것을 배웠다.',
+    traitA: '위로하는',
+    traitB: '도전하는'
+  },
+  {
+    id: 'style',
+    dimension: '일상적 vs 문학적',
+    question: '어떤 분위기가 더 좋으세요?',
+    labelA: 'A',
+    labelB: 'B',
+    textA: '하루가 끝날 때 좋았던 것 한 가지를 찾는 습관이 생겼다.',
+    textB: '봄은 왔건만 그에게는 봄이 없었다. 꽃은 피었건만 그는 꽃이 보이지 않았다.',
+    traitA: '일상적',
+    traitB: '문학적'
+  },
+  {
+    id: 'energy',
+    dimension: '고요함 vs 에너지',
+    question: '문장에서 느끼고 싶은 에너지는?',
+    labelA: 'A',
+    labelB: 'B',
+    textA: '아무것도 하지 않아도 되는 오후가 가끔 있다.',
+    textB: '파도가 바위를 이기는 건 힘이 세서가 아니라 멈추지 않아서다.',
+    traitA: '고요한',
+    traitB: '역동적'
+  },
+  {
+    id: 'time',
+    dimension: '과거 회상 vs 현재 다짐',
+    question: '어떤 시선의 문장이 끌리나요?',
+    labelA: 'A',
+    labelB: 'B',
+    textA: '돌아갈 수 없는 곳이 있다. 물리적으로는 갈 수 있어도, 그때의 그 공간으로는 돌아갈 수 없는 곳.',
+    textB: '오늘 잘하지 않아도 된다. 다만 어제와 똑같이 하지는 않으려 한다.',
+    traitA: '회상적',
+    traitB: '실천적'
+  }
+];
+
+const PROFILES = {
+  healing: {
+    name: '치유의 문장가',
+    edition: '힐링 에디션',
+    editionDesc: '따뜻한 위로와 잔잔한 공감이 담긴 문장들로 하루를 채워보세요. 마음을 어루만지는 글쓰기 루틴을 추천드려요.',
+    themes: ['위로와 공감', '자기 돌봄', '계절과 감성', '일상 속 작은 행복']
+  },
+  growth: {
+    name: '성장의 문장가',
+    edition: '성장 에디션',
+    editionDesc: '생각을 확장하고 새로운 시각을 여는 문장들과 함께하세요. 도전적인 글쓰기 루틴을 추천드려요.',
+    themes: ['자기 성찰', '도전과 변화', '관계와 소통', '미래 설계']
+  },
+  both: {
+    name: '균형의 문장가',
+    edition: '힐링 + 성장 에디션',
+    editionDesc: '위로와 도전을 균형 있게 담은 문장들이 어울려요. 두 에디션을 번갈아 경험해보세요.',
+    themes: ['자기 이해', '일상 관찰', '감정 표현', '새로운 시도']
+  }
+};
+
+let currentRound = 0;
+let answers = [];
+let isTransitioning = false;
+
+function startQuiz() {
+  currentRound = 0;
+  answers = [];
+  showScreen('screenQuiz');
+  document.getElementById('progressBar').classList.add('show');
+  renderRound();
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active', 'visible');
+  });
+  const screen = document.getElementById(id);
+  screen.classList.add('active');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      screen.classList.add('visible');
+    });
+  });
+}
+
+function renderProgressDots() {
+  const container = document.getElementById('progressDots');
+  container.innerHTML = '';
+  for (let i = 0; i < ROUNDS.length; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'pdot';
+    if (i < currentRound) dot.classList.add('done');
+    if (i === currentRound) dot.classList.add('current');
+    container.appendChild(dot);
+  }
+  document.getElementById('roundLabel').textContent = ROUNDS[currentRound].dimension;
+}
+
+function renderRound() {
+  const round = ROUNDS[currentRound];
+  renderProgressDots();
+
+  document.getElementById('quizRound').textContent = `ROUND ${currentRound + 1} / ${ROUNDS.length}`;
+  document.getElementById('quizQuestion').textContent = round.question;
+
+  const cardsEl = document.getElementById('quizCards');
+  cardsEl.className = 'cards cards-enter';
+  cardsEl.innerHTML = `
+    <div class="card" onclick="selectCard('A', this)" data-choice="A">
+      <span class="card-label">${round.labelA}</span>
+      <p class="card-text">${round.textA}</p>
+    </div>
+    <div class="card" onclick="selectCard('B', this)" data-choice="B">
+      <span class="card-label">${round.labelB}</span>
+      <p class="card-text">${round.textB}</p>
+    </div>
+  `;
+
+  // Reset animation
+  void cardsEl.offsetWidth;
+  cardsEl.className = 'cards cards-enter';
+}
+
+function selectCard(choice, el) {
+  if (isTransitioning) return;
+  isTransitioning = true;
+
+  const round = ROUNDS[currentRound];
+  answers.push({
+    roundId: round.id,
+    choice: choice,
+    trait: choice === 'A' ? round.traitA : round.traitB
+  });
+
+  // Visual feedback
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(c => {
+    if (c === el) {
+      c.classList.add('selected');
+    } else {
+      c.classList.add('not-selected');
+    }
+  });
+
+  setTimeout(() => {
+    currentRound++;
+    if (currentRound < ROUNDS.length) {
+      const cardsEl = document.getElementById('quizCards');
+      cardsEl.className = 'cards cards-exit';
+      setTimeout(() => {
+        isTransitioning = false;
+        renderRound();
+      }, 350);
+    } else {
+      document.getElementById('progressBar').classList.remove('show');
+      isTransitioning = false;
+      showResult();
+    }
+  }, 600);
+}
+
+function calculateProfile() {
+  // Score dimensions
+  const dims = {};
+  answers.forEach(a => {
+    dims[a.roundId] = a.choice;
+  });
+
+  // Healing indicators: emotional-A, comfort-A, energy-A, time-A
+  // Growth indicators: emotional-B, comfort-B, energy-B, time-B
+  let healingScore = 0;
+  let growthScore = 0;
+
+  if (dims.emotional === 'A') healingScore += 2; else growthScore += 2;
+  if (dims.comfort === 'A') healingScore += 2; else growthScore += 2;
+  if (dims.energy === 'A') healingScore += 1.5; else growthScore += 1.5;
+  if (dims.time === 'A') healingScore += 1; else growthScore += 1;
+  if (dims.style === 'A') healingScore += 0.5; else growthScore += 0.5;
+  if (dims.length === 'A') growthScore += 0.5; else healingScore += 0.5;
+
+  const total = healingScore + growthScore;
+  const healingPct = Math.round((healingScore / total) * 100);
+  const growthPct = 100 - healingPct;
+
+  // Determine edition
+  let edition;
+  if (healingPct >= 60) edition = 'healing';
+  else if (growthPct >= 60) edition = 'growth';
+  else edition = 'both';
+
+  // Collect top traits
+  const traits = answers.map(a => a.trait);
+
+  // Build dimension percentages for display
+  const dimScores = [
+    { label: '감성', pct: dims.emotional === 'A' ? 80 : 30 },
+    { label: '간결', pct: dims.length === 'A' ? 85 : 25 },
+    { label: '위로', pct: dims.comfort === 'A' ? 80 : 25 },
+    { label: '문학', pct: dims.style === 'B' ? 80 : 30 },
+    { label: '고요', pct: dims.energy === 'A' ? 80 : 25 },
+    { label: '회상', pct: dims.time === 'A' ? 75 : 30 }
+  ];
+
+  // Pick top 3 traits for tags
+  const tagMap = {
+    emotional: { A: '감성적', B: '사색적' },
+    length: { A: '간결한', B: '서사적' },
+    comfort: { A: '따뜻한', B: '도전적' },
+    style: { A: '일상적', B: '문학적' },
+    energy: { A: '고요한', B: '역동적' },
+    time: { A: '회상적', B: '실천적' }
+  };
+
+  // Pick most distinctive 3 tags
+  const primaryRounds = ['emotional', 'comfort', 'style'];
+  const topTags = primaryRounds.map(r => tagMap[r][dims[r]]);
+
+  return { edition, healingPct, growthPct, dimScores, topTags, traits, dims };
+}
+
+function showResult() {
+  const profile = calculateProfile();
+  const info = PROFILES[profile.edition];
+
+  // Save to localStorage
+  const savedProfile = {
+    edition: profile.edition,
+    editionName: info.edition,
+    healingPct: profile.healingPct,
+    growthPct: profile.growthPct,
+    tags: profile.topTags,
+    traits: profile.traits,
+    themes: info.themes,
+    dims: profile.dims,
+    timestamp: new Date().toISOString()
+  };
+  localStorage.setItem('lb_taste_profile', JSON.stringify(savedProfile));
+
+  // Render result
+  document.getElementById('resultTitle').textContent = info.name;
+  document.getElementById('resultSubtitle').textContent =
+    `힐링 ${profile.healingPct}% · 성장 ${profile.growthPct}%`;
+
+  // Tags
+  const tagsEl = document.getElementById('tasteTags');
+  tagsEl.innerHTML = profile.topTags.map(t => `<span class="taste-tag">${t}</span>`).join('');
+
+  // Profile bars
+  const barsEl = document.getElementById('profileBars');
+  barsEl.innerHTML = profile.dimScores.map(d => `
+    <div class="profile-item">
+      <span class="profile-label">${d.label}</span>
+      <div class="profile-bar-bg">
+        <div class="profile-bar" data-pct="${d.pct}"></div>
+      </div>
+      <span class="profile-pct">${d.pct}%</span>
+    </div>
+  `).join('');
+
+  // Recommendation
+  const recoEl = document.getElementById('recoSection');
+  recoEl.innerHTML = `
+    <div class="reco-label">추천 에디션</div>
+    <div class="reco-edition">${info.edition}</div>
+    <div class="reco-desc">${info.editionDesc}</div>
+    <div class="reco-label" style="margin-top:8px;">추천 테마</div>
+    <div class="reco-themes">
+      ${info.themes.map(t => `<span class="reco-theme">${t}</span>`).join('')}
+    </div>
+  `;
+
+  showScreen('screenResult');
+
+  // Animate bars after screen is visible
+  setTimeout(() => {
+    document.querySelectorAll('.profile-bar').forEach(bar => {
+      bar.style.width = bar.dataset.pct + '%';
+    });
+  }, 600);
+}
+
+function goToDemo() {
+  window.location.href = 'demo.html';
+}
+
+function shareResult() {
+  const saved = JSON.parse(localStorage.getItem('lb_taste_profile') || '{}');
+  const text = `[레터브릭 문장 취향 테스트]\n\n나의 문장 취향: ${saved.tags ? saved.tags.join(', ') : ''}\n추천 에디션: ${saved.editionName || ''}\n힐링 ${saved.healingPct || 0}% · 성장 ${saved.growthPct || 0}%\n\n나도 테스트하기 → ${window.location.href}`;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => showToast());
+  } else {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast();
+  }
+}
+
+function showToast() {
+  const toast = document.getElementById('shareToast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function retryQuiz() {
+  localStorage.removeItem('lb_taste_profile');
+  document.getElementById('progressBar').classList.remove('show');
+  showScreen('screenIntro');
+  // Re-trigger intro animations
+  const intro = document.getElementById('screenIntro');
+  intro.querySelectorAll('[class*="fade-up"]').forEach(el => {
+    const cls = el.className;
+    el.className = '';
+    void el.offsetWidth;
+    el.className = cls;
+  });
+}
+
+// Init: show intro with animation
+document.addEventListener('DOMContentLoaded', () => {
+  const intro = document.getElementById('screenIntro');
+  requestAnimationFrame(() => {
+    intro.classList.add('visible');
+  });
+});
+</script>
+</body>
+</html>
