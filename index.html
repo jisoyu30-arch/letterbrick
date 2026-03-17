@@ -2041,10 +2041,9 @@ const pastRecords=[
 function initSplash(){
   const now=new Date();
   const days=['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
-  document.getElementById('splashDay').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 ${days[now.getDay()]}`;
+  var sd=document.getElementById('splashDay'); if(sd) sd.textContent=`${now.getMonth()+1}월 ${now.getDate()}일 ${days[now.getDay()]}`;
   const g=GREETINGS[(now.getDate()+now.getMonth())%GREETINGS.length];
-  document.getElementById('splashGreeting').innerHTML=
-    g.main.replace(/\n/g,'<br>')+`<em>${g.sub}</em>`;
+  var sg=document.getElementById('splashGreeting'); if(sg) sg.innerHTML=g.main.replace(/\n/g,'<br>')+`<em>${g.sub}</em>`;
 }
 
 function handleSplashEnter() {
@@ -2106,7 +2105,7 @@ function showPage(id,btn){
    CALENDAR
 ══════════════════════════════ */
 function renderCal(){
-  const grid=document.getElementById('calGrid');grid.innerHTML='';
+  const grid=document.getElementById('calGrid');if(!grid)return;grid.innerHTML='';
   ['일','월','화','수','목','금','토'].forEach(d=>{
     const el=document.createElement('div');el.className='cal-dow';el.textContent=d;grid.appendChild(el);
   });
@@ -2142,7 +2141,7 @@ function changeMonth(dir){
    RECORDS
 ══════════════════════════════ */
 function renderRecords(){
-  const list=document.getElementById('recList');list.innerHTML='';
+  const list=document.getElementById('recList');if(!list)return;list.innerHTML='';
   var tc=document.getElementById('totalCount'); var tcImg=tc?tc.querySelector('img'):null;
   if(tc){tc.textContent=' '+pastRecords.length; if(tcImg)tc.prepend(tcImg);}
   pastRecords.forEach((rec,i)=>{
