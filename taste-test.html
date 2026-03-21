@@ -876,7 +876,34 @@ function showResult() {
       both: '<div style="background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:16px;padding:22px 20px;margin-top:16px;color:var(--paper);">'+
         '<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:10px;">통합 이용 가이드</div>'+
         '<div style="font-family:\'Gowun Batang\',serif;font-size:17px;margin-bottom:12px;">위로와 도전을<br>번갈아 경험하세요</div>'+
-        '<div style="font-size:12px;color:rgba(247,242,232,0.65);line-height:1.8;">힐링편으로 마음을 다독이고, 성장편으로 문장력을 키워보세요. 기분에 따라 에디션을 자유롭게 오가면 됩니다.</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.65);line-height:1.8;margin-bottom:14px;">힐링편으로 마음을 다독이고, 성장편으로 문장력을 키워보세요. 기분에 따라 에디션을 자유롭게 오가면 됩니다.</div>'+
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">🎧</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">힐링 필사</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">낭독 + BGM + 따라쓰기</div>'+
+          '</div>'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">✍️</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">성장 훈련</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">구조 분석 + 변형 + 창작</div>'+
+          '</div>'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">🤖</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">AI 코치</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">채점 + 피드백 + 대화</div>'+
+          '</div>'+
+          '<div style="background:rgba(255,255,255,0.06);border-radius:10px;padding:12px 10px;text-align:center;">'+
+            '<div style="font-size:16px;margin-bottom:4px;">🧱</div>'+
+            '<div style="font-size:11px;color:rgba(247,242,232,0.7);">벽돌 쌓기</div>'+
+            '<div style="font-size:10px;color:rgba(247,242,232,0.4);">두 에디션 통합 기록</div>'+
+          '</div>'+
+        '</div>'+
+        '<div style="font-size:12px;color:rgba(247,242,232,0.5);line-height:1.7;">'+
+          '<b style="color:rgba(247,242,232,0.8);">추천 루틴:</b><br>'+
+          '평일 → 성장편으로 문장력 훈련 (15분)<br>'+
+          '주말 → 힐링편으로 마음 충전 (15분)'+
+        '</div>'+
       '</div>'
     };
     guideEl.innerHTML = guides[profile.edition] || guides.both;
