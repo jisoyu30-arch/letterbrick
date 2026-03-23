@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LetterBrick — My Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="edition-nav">
+      <a href="index.html" class="back-link">&larr; Home</a>
+      <span class="edition-label">My Library</span>
+    </nav>
+    <h1>LetterBrick</h1>
+    <p class="tagline">Your writing journey.</p>
+  </header>
+
+  <main>
+    <!-- Summary -->
+    <section class="progress-bar">
+      <div class="stat">
+        <span class="stat-value" id="totalBricksAll">0</span>
+        <span class="stat-label">Total Bricks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="totalSessions">0</span>
+        <span class="stat-label">Sessions</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="totalTime">0m</span>
+        <span class="stat-label">Total Time</span>
+      </div>
+    </section>
+
+    <!-- Edition Summaries -->
+    <section class="card">
+      <h2>Growth</h2>
+      <p id="growthSummary" class="hint">No sessions yet.</p>
+    </section>
+
+    <section class="card">
+      <h2>Healing</h2>
+      <p id="healingSummary" class="hint">No sessions yet.</p>
+    </section>
+
+    <!-- Recent Sessions -->
+    <section class="card">
+      <h2>Recent Sessions</h2>
+      <div id="recentSessions">
+        <p class="hint">Complete a session to see your history here.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>LetterBrick &mdash; My Library</p>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

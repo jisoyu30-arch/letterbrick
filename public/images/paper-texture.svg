@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <defs>
+    <!-- 종이 기본 색 -->
+    <linearGradient id="paperBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F7F2E8;stop-opacity:1"/>
+      <stop offset="30%" style="stop-color:#F5EFE2;stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:#F2EBDD;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#F7F2E8;stop-opacity:1"/>
+    </linearGradient>
+    <!-- 미세한 노이즈 (종이 결) -->
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="5" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.12"/>
+      </feComponentTransfer>
+    </filter>
+    <!-- 종이 섬유 느낌 -->
+    <filter id="fiber">
+      <feTurbulence type="turbulence" baseFrequency="0.015 0.4" numOctaves="3" seed="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.03"/>
+      </feComponentTransfer>
+    </filter>
+    <!-- 가장자리 비네팅 -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:transparent;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#D8D0C0;stop-opacity:0.08"/>
+    </radialGradient>
+  </defs>
+  <!-- 배경 -->
+  <rect width="400" height="400" fill="url(#paperBase)"/>
+  <!-- 노이즈 레이어 -->
+  <rect width="400" height="400" filter="url(#grain)" opacity="0.5"/>
+  <!-- 섬유 레이어 -->
+  <rect width="400" height="400" filter="url(#fiber)" opacity="0.6"/>
+  <!-- 미세한 점 (먼지 느낌) -->
+  <circle cx="67" cy="123" r="0.5" fill="#C8B89A" opacity="0.3"/>
+  <circle cx="234" cy="67" r="0.4" fill="#C8B89A" opacity="0.2"/>
+  <circle cx="156" cy="289" r="0.6" fill="#C8B89A" opacity="0.25"/>
+  <circle cx="312" cy="178" r="0.3" fill="#C8B89A" opacity="0.2"/>
+  <circle cx="89" cy="345" r="0.5" fill="#C8B89A" opacity="0.15"/>
+  <circle cx="378" cy="312" r="0.4" fill="#C8B89A" opacity="0.2"/>
+  <!-- 비네팅 -->
+  <rect width="400" height="400" fill="url(#vignette)"/>
+</svg>

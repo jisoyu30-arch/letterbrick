@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LetterBrick — Growth Edition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="edition-nav">
+      <a href="index.html" class="back-link">&larr; Home</a>
+      <span class="edition-label">Growth Edition</span>
+    </nav>
+    <h1>LetterBrick</h1>
+    <p class="tagline">Build your writing, one brick at a time.</p>
+  </header>
+
+  <main>
+    <!-- World Stage -->
+    <section class="world-stage" id="worldStage">
+      <span class="stage-name" id="stageName">Brick</span>
+      <div class="stage-progress">
+        <div class="stage-bar">
+          <div class="stage-fill" id="stageFill"></div>
+        </div>
+        <span class="stage-label" id="stageLabel">0 bricks</span>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <section class="progress-bar">
+      <div class="stat">
+        <span class="stat-value" id="totalBricks">0</span>
+        <span class="stat-label">Today's Bricks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="streakDays">0</span>
+        <span class="stat-label">Streak Days</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="writingTime">0m</span>
+        <span class="stat-label">Writing Time</span>
+      </div>
+    </section>
+
+    <!-- Step 0: Pick a Quote -->
+    <section id="quoteSelection" class="card">
+      <h2>Today's Quotes</h2>
+      <p class="hint">Choose one to begin your brick.</p>
+      <div id="quoteList" class="quote-list"></div>
+    </section>
+
+    <!-- Step 1: Copy -->
+    <section id="step1" class="card hidden">
+      <div class="step-header">
+        <span class="step-badge">Step 1</span>
+        <h2>Copy</h2>
+      </div>
+      <blockquote id="selectedQuote"></blockquote>
+      <p class="quote-meta" id="quoteMeta"></p>
+      <p class="hint">Type the quote exactly as shown.</p>
+      <textarea id="copyInput" rows="3" placeholder="Type the quote here..."></textarea>
+      <div class="match-indicator" id="copyMatch"></div>
+      <button id="copyNext" class="btn" disabled>Next</button>
+    </section>
+
+    <!-- Step 2: Transform -->
+    <section id="step2" class="card hidden">
+      <div class="step-header">
+        <span class="step-badge">Step 2</span>
+        <h2>Transform</h2>
+      </div>
+      <blockquote id="transformQuote"></blockquote>
+      <p class="hint">Rewrite this sentence with a different structure. Keep the meaning, change the form.</p>
+      <textarea id="transformInput" rows="3" placeholder="Rewrite the sentence..."></textarea>
+      <button id="transformNext" class="btn" disabled>Next</button>
+    </section>
+
+    <!-- Step 3: Create -->
+    <section id="step3" class="card hidden">
+      <div class="step-header">
+        <span class="step-badge">Step 3</span>
+        <h2>Create</h2>
+      </div>
+      <blockquote id="createQuote"></blockquote>
+      <p class="hint">Write your own original sentence inspired by this quote.</p>
+      <textarea id="createInput" rows="3" placeholder="Write your creative sentence..."></textarea>
+      <button id="submitBrick" class="btn" disabled>Finish Brick</button>
+    </section>
+
+    <!-- Feedback -->
+    <section id="feedback" class="card hidden">
+      <h2>Your Brick Report</h2>
+
+      <div class="feedback-section">
+        <h3>Brick Score</h3>
+        <div class="score-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="score-bg" cx="50" cy="50" r="42"/>
+            <circle class="score-fill" id="scoreCircle" cx="50" cy="50" r="42"/>
+          </svg>
+          <span class="score-number" id="brickScore">0</span>
+        </div>
+      </div>
+
+      <div class="feedback-section">
+        <h3>Analysis</h3>
+        <ul id="analysisList" class="analysis-list"></ul>
+      </div>
+
+      <div class="feedback-section">
+        <h3>AI Coach</h3>
+        <p id="coachComment" class="coach-comment"></p>
+      </div>
+
+      <button id="newBrick" class="btn">Lay Another Brick</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>LetterBrick &mdash; Growth Edition</p>
+  </footer>
+
+  <script src="data/quotes-growth.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/growth.js"></script>
+</body>
+</html>

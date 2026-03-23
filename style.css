@@ -1,0 +1,583 @@
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --text: #2c2c2c;
+  --text-light: #7a7a7a;
+  --accent: #5b7f95;
+  --accent-light: #dbe8ef;
+  --success: #6a9f6b;
+  --warn: #c9a34e;
+  --border: #e8e6e1;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+  text-align: center;
+  padding: 2.5rem 1rem 1rem;
+}
+
+header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Layout ── */
+main {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+/* ── Progress Bar ── */
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.15rem;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+  animation: fadeIn 0.35s ease;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Step Header ── */
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* ── Quote List ── */
+.quote-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.quote-option {
+  padding: 1rem 1.25rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border-color 0.2s, background 0.2s;
+  text-align: left;
+  font-family: inherit;
+  color: var(--text);
+}
+
+.quote-option:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.quote-option.selected {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* ── Blockquote ── */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  background: var(--bg);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* ── Hint ── */
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Textarea ── */
+textarea {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  resize: vertical;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── Match Indicator ── */
+.match-indicator {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  min-height: 1.2em;
+}
+
+.match-indicator.perfect {
+  color: var(--success);
+}
+
+.match-indicator.partial {
+  color: var(--warn);
+}
+
+/* ── Button ── */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.65rem 1.75rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Feedback ── */
+.feedback-section {
+  margin-bottom: 1.5rem;
+}
+
+.feedback-section h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-light);
+  margin-bottom: 0.6rem;
+}
+
+/* Score Ring */
+.score-ring {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.score-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.score-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 6;
+}
+
+.score-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 264;
+  stroke-dashoffset: 264;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.score-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Analysis */
+.analysis-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.analysis-list li {
+  padding: 0.6rem 0.9rem;
+  background: var(--bg);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.analysis-list li span:last-child {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Coach */
+.coach-comment {
+  background: var(--bg);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--success);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ── Edition Nav (back link + label on edition pages) ── */
+.edition-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 620px;
+  margin: 0 auto 0.5rem;
+  padding: 0 1rem;
+}
+
+.back-link {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  opacity: 0.7;
+}
+
+.edition-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+}
+
+/* ── Landing Page Edition Cards ── */
+.edition-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.edition-card {
+  display: block;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  animation: fadeIn 0.35s ease;
+}
+
+.edition-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.edition-card h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.edition-desc {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.edition-stats {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.edition-bricks {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.edition-stage {
+  color: var(--text-light);
+}
+
+.edition-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.landing-footer-links {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.dashboard-link {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem;
+  transition: color 0.2s;
+}
+
+.dashboard-link:hover {
+  color: var(--accent);
+}
+
+/* ── World Stage (shown on edition pages) ── */
+.world-stage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.stage-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.stage-progress {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stage-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stage-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  width: 0%;
+  transition: width 0.6s ease;
+}
+
+.stage-label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+/* ── Quote Metadata (author, reason) ── */
+.quote-text {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.quote-author {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.quote-reason {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.quote-meta {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Dashboard Session Entries ── */
+.session-entry {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.session-entry:last-child {
+  border-bottom: none;
+}
+
+.session-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.session-date {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.session-edition {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+.session-bricks {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.session-preview {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .progress-bar {
+    gap: 1rem;
+  }
+  .stat-value {
+    font-size: 1.25rem;
+  }
+  .card {
+    padding: 1.25rem;
+  }
+  .edition-card {
+    padding: 1.25rem;
+  }
+  .world-stage {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
