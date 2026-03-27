@@ -3406,7 +3406,6 @@ function checkWhitespaceRealtime(textarea) {
   // 앞뒤 공백
   if(v.length > 0 && v !== v.trim()) {
     if(v.startsWith(' ') || v.startsWith('\t')) warnings.push('앞쪽 공백');
-    if(v.endsWith(' ') || v.endsWith('\t')) warnings.push('뒤쪽 공백');
   }
   // 이중 공백
   var doubleSpaces = (v.match(/  +/g) || []);
@@ -4349,7 +4348,9 @@ analyzeCreative = function(original, userText) {
   var tips = [
     '오늘 쓴 글에서 가장 마음에 드는 한 문장을 기억해두세요.',
     '이 글을 소리 내어 읽어보세요. 리듬이 느껴질 거예요.',
-    exercise ? '다음엔 이렇게 해보세요: ' + exercise : '내일은 오늘과 다른 소재로 같은 기법을 써보세요.'
+    '내일은 오늘과 다른 소재로, 같은 기법을 한 번 더 써보세요.',
+    '오늘 쓴 문장을 다른 시제나 시점으로 바꿔보면 새로운 글이 됩니다.',
+    '오늘의 문장을 가까운 사람에게 읽어주고 반응을 들어보세요.'
   ];
   result.tip = tips[Math.floor(Math.random() * tips.length)];
   return result;
