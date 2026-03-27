@@ -2430,7 +2430,7 @@ function checkCopy(){
   document.getElementById('matchOk').style.display=match?'block':'none';
   const btn=document.getElementById('s1Btn');
   const finBtn=document.getElementById('s1Finish');
-  if(v.length>15||document.getElementById('p1').files.length>0){
+  if(match||v.length>15||document.getElementById('p1').files.length>0){
     btn.style.opacity='1';btn.style.pointerEvents='auto';
     // P0-3: 필사 완료 시 "여기서 마치기" 표시
     if(match || v.length > clean.length * 0.8) finBtn.style.display='block';
@@ -4797,5 +4797,7 @@ renderCal();
 renderRecords();
 renderEditionCards();
 </script>
+
+
 </body>
 </html>
