@@ -2220,7 +2220,7 @@ function checkCopy(){
   const match=v.includes(clean)||v.replace(/["""]/g,'').trim()===clean;
   document.getElementById('matchOk').style.display=match?'block':'none';
   const btn=document.getElementById('s1Btn');
-  if(v.length>15||document.getElementById('p1').files.length>0){
+  if(match||v.length>15||document.getElementById('p1').files.length>0){
     btn.style.opacity='1';btn.style.pointerEvents='auto';
   } else{btn.style.opacity='.4';btn.style.pointerEvents='none';}
 }
