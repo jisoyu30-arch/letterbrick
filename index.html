@@ -3712,8 +3712,8 @@ function lockInputMode(){
   else document.getElementById('imTyping').classList.add('locked');
 }
 
-/* ── Override runStruct ── */
-runStruct = function() {
+/* ── Override runStruct ── Hattie Process 레벨 피드백 (callAI → 규칙 기반 폴백) ── */
+runStruct = async function() {
   if(ocrInProgress){alert('손글씨 인식 중입니다. 잠시 후 다시 시도해주세요.');return;}
   // P0-2: 공백 경고
   var wsWarns = checkWhitespaceRealtime(document.getElementById('structTa'));
@@ -3736,25 +3736,48 @@ runStruct = function() {
   document.getElementById('sAtt').textContent='채점 기회 '+structAttempts+'번 남음';
   document.getElementById('sBtn').style.display='none';
   document.getElementById('sLd').style.display='block';
-  setTimeout(function(){
-    document.getElementById('sLd').style.display='none';
-    var analysis=analyzeStructure(todaySent.text,v);
-    structScore=analysis.stars;
-    var secs=analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    var errH=analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
-    document.getElementById('sRes').innerHTML=
-      '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span><span class="air-score" style="font-size:18px;">'+renderStarsHTML(analysis.stars,5)+'</span></div>'+
-      '<div class="air-body"><div style="text-align:center;font-size:13px;color:rgba(247,242,232,0.5);margin:-2px 0 10px;">★ '+analysis.stars+' / 5</div>'+secs+errH+
-      '<div class="air-tip">💡 '+analysis.tip+'</div></div></div>';
-    if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
-    document.getElementById('sNext').style.display='block';
-    document.getElementById('s3Finish').style.display='block'; // P0-3
-  },1500);
+
+  // AI 우선, 실패 시 규칙 기반 폴백
+  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + todaySent.learn.technique : '');
+  var aiResult = await callAI('structure', todaySent.text, v, learningPoint);
+  document.getElementById('sLd').style.display='none';
+
+  var stars, secs, errH, tip;
+  if(aiResult && aiResult.stars) {
+    // ── API 결과 렌더링 ──
+    stars = aiResult.stars;
+    var sections = [];
+    if(aiResult.structureAnalysis) sections.push({lbl:'구조 분석', txt: aiResult.structureAnalysis});
+    if(aiResult.strengths) sections.push({lbl:'잘 작동한 변형', txt: aiResult.strengths});
+    if(aiResult.improvement) sections.push({lbl:'개선 방향', txt: aiResult.improvement});
+    secs = sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
+    var errs = [];
+    (aiResult.spellingErrors||[]).forEach(function(e){errs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
+    (aiResult.spacingErrors||[]).forEach(function(e){errs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
+    errH = errs.join('');
+    tip = aiResult.tip || '';
+  } else {
+    // ── 규칙 기반 폴백 ──
+    var analysis = analyzeStructure(todaySent.text, v);
+    stars = analysis.stars;
+    secs = analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
+    errH = analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
+    tip = analysis.tip;
+  }
+
+  structScore = stars;
+  document.getElementById('sRes').innerHTML=
+    '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span><span class="air-score" style="font-size:18px;">'+renderStarsHTML(stars,5)+'</span></div>'+
+    '<div class="air-body"><div style="text-align:center;font-size:13px;color:rgba(247,242,232,0.5);margin:-2px 0 10px;">★ '+stars+' / 5</div>'+secs+errH+
+    '<div class="air-tip">💡 '+tip+'</div></div></div>';
+  if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
+  document.getElementById('sNext').style.display='block';
+  document.getElementById('s3Finish').style.display='block'; // P0-3
 };
 
-/* ── Override runCreative ── */
+/* ── Override runCreative ── Hattie Self-regulation 레벨 피드백 (callAI → 규칙 기반 폴백) ── */
 creativeAttempts = 3;
-runCreative = function() {
+runCreative = async function() {
   if(ocrInProgress){alert('손글씨 인식 중입니다. 잠시 후 다시 시도해주세요.');return;}
   // P0-2: 공백 경고
   var wsWarnsC = checkWhitespaceRealtime(document.getElementById('creativeTa'));
@@ -3777,21 +3800,45 @@ runCreative = function() {
   document.getElementById('cAtt').textContent='평가 기회 '+creativeAttempts+'번 남음';
   document.getElementById('cBtn').style.display='none';
   document.getElementById('cLd').style.display='block';
-  setTimeout(function(){
-    document.getElementById('cLd').style.display='none';
-    var analysis=analyzeCreative(todaySent.text,v);
-    creativeScore=analysis.stars;
-    var secs=analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    var errH=analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
-    // P1-6: 창작은 코멘트 중심, 별점 축소
-    document.getElementById('cRes').innerHTML=
-      '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
-      '<div class="air-body">'+secs+errH+
-      '<div style="text-align:right;font-size:11px;color:rgba(247,242,232,0.35);margin-top:8px;">'+renderStarsHTML(analysis.stars,5)+' (참고용)</div>'+
-      '<div class="air-tip">💡 '+analysis.tip+'</div></div></div>';
-    if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
-    document.getElementById('cNext').style.display='block';
-  },1800);
+
+  // AI 우선, 실패 시 규칙 기반 폴백
+  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + todaySent.learn.technique : '');
+  var aiResult = await callAI('creative', todaySent.text, v, learningPoint);
+  document.getElementById('cLd').style.display='none';
+
+  var secs, errH, tip, refStars;
+  if(aiResult && aiResult.impression) {
+    // ── API 결과 렌더링 (Self-regulation 레벨) ──
+    var sections = [];
+    if(aiResult.impression) sections.push({lbl:'AI 코치의 감상', txt: aiResult.impression});
+    if(aiResult.techniqueConnection) sections.push({lbl:'기법 연결', txt: aiResult.techniqueConnection});
+    if(aiResult.highlight) sections.push({lbl:'주목한 표현', txt: '\u201c' + aiResult.highlight + '\u201d'});
+    secs = sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
+    var errs = [];
+    (aiResult.spellingErrors||[]).forEach(function(e){errs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
+    (aiResult.spacingErrors||[]).forEach(function(e){errs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
+    errH = errs.join('');
+    tip = aiResult.encouragement || ''; // Self-reg: 격려 대신 자기 점검 질문
+    refStars = 0; // 창작은 별점 참고용 표시 안 함
+    creativeScore = 3; // 저장용 기본값
+  } else {
+    // ── 규칙 기반 폴백 ──
+    var analysis = analyzeCreative(todaySent.text, v);
+    creativeScore = analysis.stars;
+    refStars = analysis.stars;
+    secs = analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
+    errH = analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
+    tip = analysis.tip;
+  }
+
+  // P1-6: 창작은 코멘트 중심, 별점 참고용만
+  document.getElementById('cRes').innerHTML=
+    '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
+    '<div class="air-body">'+secs+errH+
+    (refStars ? '<div style="text-align:right;font-size:11px;color:rgba(247,242,232,0.35);margin-top:8px;">'+renderStarsHTML(refStars,5)+' (참고용)</div>' : '')+
+    '<div class="air-tip">💡 '+tip+'</div></div></div>';
+  if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
+  document.getElementById('cNext').style.display='block';
 };
 
 /* ── P0-3: 단계별 조기 완료 ── */
