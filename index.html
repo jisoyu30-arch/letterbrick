@@ -3836,12 +3836,11 @@ runStruct = async function() {
     errH = errs.join('');
     tip = aiResult.tip || '';
   } else {
-    // ── 규칙 기반 폴백 ──
-    var analysis = analyzeStructure(todaySent.text, v);
-    stars = analysis.stars;
-    secs = analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    errH = analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
-    tip = analysis.tip;
+    // ── 폴백: AI 서버 연결 안내 ──
+    stars = 3;
+    secs = '<div class="air-section"><div class="air-section-lbl">안내</div><div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(247,242,232,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>';
+    errH = '';
+    tip = '쓴 문장을 소리 내어 읽어보세요. 어색한 부분이 자연스럽게 보입니다.';
   }
 
   structScore = stars;
@@ -3901,13 +3900,12 @@ runCreative = async function() {
     refStars = 0; // 창작은 별점 참고용 표시 안 함
     creativeScore = 3; // 저장용 기본값
   } else {
-    // ── 규칙 기반 폴백 ──
-    var analysis = analyzeCreative(todaySent.text, v);
-    creativeScore = analysis.stars;
-    refStars = analysis.stars;
-    secs = analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    errH = analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
-    tip = analysis.tip;
+    // ── 폴백: AI 서버 연결 안내 ──
+    creativeScore = 3;
+    refStars = 0;
+    secs = '<div class="air-section"><div class="air-section-lbl">안내</div><div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(247,242,232,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>';
+    errH = '';
+    tip = '쓴 문장을 소리 내어 읽어보세요. 마음에 걸리는 부분이 보이면 그게 다음 고칠 곳입니다.';
   }
 
   // P1-6: 창작은 코멘트 중심, 별점 참고용만
@@ -4529,16 +4527,16 @@ analyzeCreative = function(original, userText) {
   var lblText = 'AI 코치의 감상';
   // 감상문 톤으로 재구성
   var review = '';
+  var imp0 = impressions.length > 0 ? impressions[0] + ' ' : '';
+  var imp1 = impressions.length > 1 ? impressions[1] + ' ' : '';
   if(result.stars >= 4) {
-    review = '이 글을 읽으면서 잠시 멈추게 됐어요. ' + impressions[0] + ' ';
-    if(impressions.length > 1) review += impressions[1] + ' ';
+    review = '이 글을 읽으면서 잠시 멈추게 됐어요. ' + imp0 + imp1;
     review += '이런 문장을 쓸 수 있다는 건, 이미 자기만의 눈이 있다는 뜻이에요.';
   } else if(result.stars >= 3) {
-    review = '글에서 쓰고 싶은 마음이 느껴져요. ' + impressions[0] + ' ';
-    if(impressions.length > 1) review += impressions[1] + ' ';
+    review = '글에서 쓰고 싶은 마음이 느껴져요. ' + imp0 + imp1;
     review += '이 감각을 잊지 마세요. 다음 글은 분명 더 선명해질 거예요.';
   } else {
-    review = '글을 쓰기로 한 것 자체가 용기예요. ' + impressions[0] + ' ';
+    review = imp0 || '오늘 한 문장을 완성했어요. ';
     review += '지금은 조금 서툴러도 괜찮아요. 매일 한 문장씩 쓰다 보면 어느 날 자기도 모르게 달라져 있을 거예요.';
   }
   result.sections.push({lbl: lblText, txt: review});
