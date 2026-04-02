@@ -927,21 +927,32 @@ const fbDb = firebase.firestore();
 
     <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
       <div style="flex:1;height:1px;background:var(--line);"></div>
-      <div style="font-size:11px;color:var(--ink3);">또는</div>
+      <div style="font-size:11px;color:var(--ink3);">또는 이메일로</div>
       <div style="flex:1;height:1px;background:var(--line);"></div>
     </div>
 
-    <div class="modal-field-lbl">필명 (닉네임)</div>
-    <input class="modal-inp" id="nicknameInp" type="text" placeholder="예: 소유작가, 글쓰는사람" maxlength="12"
-      onkeydown="if(event.key==='Enter')saveNickname()">
-    <div class="modal-inp-hint">12자 이내 · 나중에 변경 가능해요</div>
+    <!-- 이메일 로그인/회원가입 탭 -->
+    <div style="display:flex;gap:0;margin-bottom:14px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;">
+      <button id="tabSignin" onclick="switchAuthTab('signin')" style="flex:1;padding:9px;font-size:13px;font-weight:600;background:var(--ink);color:#fff;border:none;cursor:pointer;">로그인</button>
+      <button id="tabSignup" onclick="switchAuthTab('signup')" style="flex:1;padding:9px;font-size:13px;font-weight:600;background:transparent;color:var(--ink3);border:none;cursor:pointer;">회원가입</button>
+    </div>
 
-    <input class="modal-inp" id="emailInp" type="email" placeholder="이메일 (선택)" style="margin-top:10px;"
-      onkeydown="if(event.key==='Enter')saveNickname()">
+    <!-- 회원가입 전용: 닉네임 -->
+    <div id="signupNicknameWrap" style="display:none;">
+      <div class="modal-field-lbl">필명 (닉네임)</div>
+      <input class="modal-inp" id="nicknameInp" type="text" placeholder="예: 소유작가, 글쓰는사람" maxlength="12">
+      <div class="modal-inp-hint" style="margin-bottom:10px;">12자 이내 · 나중에 변경 가능해요</div>
+    </div>
 
-    <button class="modal-btn" onclick="saveNickname()" style="margin-top:10px;">닉네임으로 시작하기 →</button>
+    <input class="modal-inp" id="emailInp" type="email" placeholder="이메일" style="margin-bottom:8px;">
+    <input class="modal-inp" id="passwordInp" type="password" placeholder="비밀번호 (6자 이상)" style="margin-bottom:4px;"
+      onkeydown="if(event.key==='Enter')submitEmailAuth()">
 
-    <div class="modal-privacy">Google 로그인 시 기기 간 기록이 동기화됩니다</div>
+    <div id="authErrMsg" style="font-size:12px;color:#c0392b;min-height:18px;margin-bottom:6px;"></div>
+
+    <button class="modal-btn" id="emailAuthBtn" onclick="submitEmailAuth()" style="margin-top:4px;">로그인 →</button>
+
+    <div class="modal-privacy" style="margin-top:12px;">로그인 시 기기 간 기록이 동기화됩니다</div>
   </div>
 </div>
 
@@ -2190,23 +2201,7 @@ function getDayIndex(){
 let todayIdx=getDayIndex();
 let todaySent=SENTENCES[todayIdx];
 
-const pastRecords=[
-  {date:'2026-03-10',score:91,sentence:SENTENCES[(9)%SENTENCES.length].text,
-   author:SENTENCES[(9)%SENTENCES.length].author,source:SENTENCES[(9)%SENTENCES.length].source,
-   creative:'나도 그런 봄이 있었다. 달력은 4월이었는데 내 안은 아직 2월이었던 그 해가.',
-   structFb:'역설 구조를 자연스럽게 활용했어요. 대비가 선명합니다.',
-   creativeFb:'감각적인 시간의 어긋남을 잘 포착했어요. 달력과 내면의 대비가 인상적입니다.'},
-  {date:'2026-03-09',score:88,sentence:SENTENCES[(8)%SENTENCES.length].text,
-   author:SENTENCES[(8)%SENTENCES.length].author,source:SENTENCES[(8)%SENTENCES.length].source,
-   creative:'어머니는 항상 말이 없었다. 그런데 이제야 알겠다, 어머니는 말을 아끼고 있었던 것을.',
-   structFb:'부정-긍정 전환을 깔끔하게 변형했어요.',
-   creativeFb:'짧은 문장 안에 통찰이 압축돼 있어요. 여운이 좋습니다.'},
-  {date:'2026-03-08',score:82,sentence:SENTENCES[(7)%SENTENCES.length].text,
-   author:SENTENCES[(7)%SENTENCES.length].author,source:SENTENCES[(7)%SENTENCES.length].source,
-   creative:'기다리고 있었는데 알고 보니 이미 거기 있었다. 내 발 아래에, 처음부터.',
-   structFb:'명사절 구조를 유지하면서 의미를 전환했어요.',
-   creativeFb:'공간적 이미지로 추상적 감정을 잡아냈어요.'}
-];
+const pastRecords=[];
 
 /* ══════════════════════════════
    SPLASH
@@ -2838,6 +2833,57 @@ function copyShareText() {
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxOnUm9vyv2k49CeCB-3XWyEhgSvm8xrF3YXL5zTMkdQ1isC7jkrQB2cN_5Uz31vzCA/exec';
 
 let currentUser = null;
+
+// ── 이메일 탭 전환 ──
+var authTabMode = 'signin';
+function switchAuthTab(mode) {
+  authTabMode = mode;
+  document.getElementById('tabSignin').style.background = mode==='signin' ? 'var(--ink)' : 'transparent';
+  document.getElementById('tabSignin').style.color = mode==='signin' ? '#fff' : 'var(--ink3)';
+  document.getElementById('tabSignup').style.background = mode==='signup' ? 'var(--ink)' : 'transparent';
+  document.getElementById('tabSignup').style.color = mode==='signup' ? '#fff' : 'var(--ink3)';
+  document.getElementById('signupNicknameWrap').style.display = mode==='signup' ? 'block' : 'none';
+  document.getElementById('emailAuthBtn').textContent = mode==='signin' ? '로그인 →' : '회원가입 →';
+  document.getElementById('authErrMsg').textContent = '';
+}
+
+// ── 이메일 로그인 / 회원가입 ──
+async function submitEmailAuth() {
+  const email = document.getElementById('emailInp').value.trim();
+  const password = document.getElementById('passwordInp').value;
+  const errEl = document.getElementById('authErrMsg');
+  const btn = document.getElementById('emailAuthBtn');
+
+  if (!email || !password) { errEl.textContent = '이메일과 비밀번호를 입력해주세요.'; return; }
+  if (password.length < 6) { errEl.textContent = '비밀번호는 6자 이상이어야 합니다.'; return; }
+
+  btn.disabled = true;
+  btn.textContent = '처리 중...';
+  errEl.textContent = '';
+
+  try {
+    if (authTabMode === 'signin') {
+      await fbAuth.signInWithEmailAndPassword(email, password);
+    } else {
+      const nickname = (document.getElementById('nicknameInp').value || '').trim();
+      if (!nickname) { errEl.textContent = '필명을 입력해주세요.'; btn.disabled=false; btn.textContent='회원가입 →'; return; }
+      const cred = await fbAuth.createUserWithEmailAndPassword(email, password);
+      await cred.user.updateProfile({ displayName: nickname });
+    }
+    // onAuthStateChanged가 이후 처리
+  } catch(e) {
+    const msgs = {
+      'auth/user-not-found': '등록되지 않은 이메일입니다.',
+      'auth/wrong-password': '비밀번호가 틀렸습니다.',
+      'auth/email-already-in-use': '이미 사용 중인 이메일입니다.',
+      'auth/invalid-email': '이메일 형식이 올바르지 않습니다.',
+      'auth/invalid-credential': '이메일 또는 비밀번호가 올바르지 않습니다.'
+    };
+    errEl.textContent = msgs[e.code] || '오류가 발생했습니다. 다시 시도해주세요.';
+    btn.disabled = false;
+    btn.textContent = authTabMode==='signin' ? '로그인 →' : '회원가입 →';
+  }
+}
 
 // ── Firebase Google 로그인 ──
 // 모바일: signInWithRedirect / 데스크톱: signInWithPopup
