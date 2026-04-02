@@ -156,10 +156,16 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .cal-summary{display:flex;justify-content:space-between;font-size:11px;color:var(--ink3);padding:8px 4px;margin-top:4px;border-top:1px solid var(--line2);}
 
 /* ══════ MY PAGE ══════ */
-.mp-profile{display:flex;align-items:center;gap:14px;padding:20px 0 16px;}
-.mp-avatar{width:48px;height:48px;border-radius:50%;background:var(--brick-l);display:flex;align-items:center;justify-content:center;font-size:24px;}
+.mp-profile{padding:20px 0 16px;}
+.mp-profile-top{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.mp-avatar{width:56px;height:56px;border-radius:50%;background:var(--brick-l);display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden;flex-shrink:0;}
+.mp-avatar img{width:100%;height:100%;object-fit:cover;}
 .mp-name{font-family:'Gowun Batang',serif;font-size:18px;font-weight:700;color:var(--ink);}
 .mp-since{font-size:11px;color:var(--ink3);margin-top:2px;}
+.mp-bio{font-size:13px;color:var(--ink2);line-height:1.7;padding:10px 14px;background:var(--paper3);border:1px solid var(--line);border-radius:10px;cursor:pointer;min-height:36px;}
+.mp-bio-edit{width:100%;font-size:13px;color:var(--ink);line-height:1.7;padding:10px 14px;background:var(--paper3);border:1.5px solid var(--brick);border-radius:10px;resize:none;min-height:60px;font-family:'Noto Sans KR',sans-serif;box-sizing:border-box;}
+.mp-bio-hint{font-size:11px;color:var(--ink3);margin-top:4px;}
+.mp-reset-btn{font-size:11px;color:#c0392b;background:none;border:1px solid #e8c5c5;border-radius:8px;padding:5px 12px;cursor:pointer;margin-top:12px;}
 .mp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
 .mp-stat-card{background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center;}
 .mp-stat-v{font-family:'Gowun Batang',serif;font-size:20px;color:var(--ink);display:block;}
@@ -1547,13 +1553,20 @@ const fbDb = firebase.firestore();
 
   <!-- ══════ MY PAGE ══════ -->
   <div id="mypage" class="page">
-    <!-- 프로필 요약 -->
+    <!-- 프로필 -->
     <div class="mp-profile" id="mpProfile">
-      <div class="mp-avatar" id="mpAvatar">📝</div>
-      <div class="mp-info">
-        <div class="mp-name" id="mpName">필사러</div>
-        <div class="mp-since" id="mpSince">시작한 날: —</div>
+      <div class="mp-profile-top">
+        <div class="mp-avatar" id="mpAvatar">📝</div>
+        <div class="mp-info">
+          <div class="mp-name" id="mpName">필사러</div>
+          <div class="mp-since" id="mpSince">시작한 날: —</div>
+        </div>
       </div>
+      <!-- 자기소개 -->
+      <div id="mpBioWrap">
+        <div class="mp-bio" id="mpBioText" onclick="editBio()" title="탭해서 편집">글쓰기를 좋아합니다.</div>
+      </div>
+      <button class="mp-reset-btn" onclick="confirmResetMyData()">내 기록 전체 초기화</button>
     </div>
 
     <!-- 종합 통계 -->
@@ -4074,6 +4087,26 @@ function renderMyPage() {
       var joined = new Date(currentUser.joinedAt);
       document.getElementById('mpSince').textContent = joined.getFullYear()+'년 '+(joined.getMonth()+1)+'월 '+joined.getDate()+'일부터';
     }
+    // 프로필 사진
+    var avatarEl = document.getElementById('mpAvatar');
+    var fbUser = fbAuth.currentUser;
+    if (fbUser && fbUser.photoURL) {
+      avatarEl.innerHTML = '<img src="'+fbUser.photoURL+'" alt="프로필" onerror="this.parentElement.textContent=\'📝\'">';
+    } else {
+      avatarEl.textContent = '📝';
+    }
+    // 자기소개 불러오기
+    var bioEl = document.getElementById('mpBioText');
+    if (fbUser) {
+      fbDb.collection('users').doc(fbUser.uid).get().then(function(doc) {
+        if (doc.exists && doc.data().bio) {
+          bioEl.textContent = doc.data().bio;
+        } else {
+          bioEl.textContent = '한 줄 소개를 적어보세요. (탭해서 편집)';
+          bioEl.style.color = 'var(--ink3)';
+        }
+      }).catch(function(){});
+    }
   }
   // 통계
   var totalStars = stars.growth.total + stars.healing.total;
@@ -4100,6 +4133,71 @@ function renderMyPage() {
   mpCurrentCount = 0;
   document.getElementById('mpRecordList').innerHTML = '';
   loadMoreRecords();
+}
+
+// ── 자기소개 편집 ──
+function editBio() {
+  var bioWrap = document.getElementById('mpBioWrap');
+  var current = document.getElementById('mpBioText').textContent;
+  if (current === '한 줄 소개를 적어보세요. (탭해서 편집)') current = '';
+  bioWrap.innerHTML =
+    '<textarea class="mp-bio-edit" id="mpBioInput" maxlength="80" placeholder="한 줄 소개 (80자 이내)">' + current + '</textarea>' +
+    '<div class="mp-bio-hint">Enter로 저장 · 80자 이내</div>';
+  var ta = document.getElementById('mpBioInput');
+  ta.focus();
+  ta.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); saveBio(); }
+    if (e.key === 'Escape') { renderMyPage(); }
+  });
+  ta.addEventListener('blur', function() { setTimeout(saveBio, 150); });
+}
+
+function saveBio() {
+  var ta = document.getElementById('mpBioInput');
+  if (!ta) return;
+  var bio = ta.value.trim();
+  var fbUser = fbAuth.currentUser;
+  if (fbUser && bio) {
+    fbDb.collection('users').doc(fbUser.uid).set({ bio: bio }, { merge: true })
+      .catch(function(e) { console.warn('bio save error:', e); });
+  }
+  var bioWrap = document.getElementById('mpBioWrap');
+  if (bioWrap) {
+    bioWrap.innerHTML = '<div class="mp-bio" id="mpBioText" onclick="editBio()" title="탭해서 편집">' +
+      (bio || '한 줄 소개를 적어보세요. (탭해서 편집)') + '</div>';
+    if (!bio) document.getElementById('mpBioText').style.color = 'var(--ink3)';
+  }
+}
+
+// ── 내 기록 초기화 ──
+function confirmResetMyData() {
+  if (!confirm('내 기록을 전체 삭제합니다. 되돌릴 수 없습니다.\n계속하시겠습니까?')) return;
+  var fbUser = fbAuth.currentUser;
+  // localStorage 초기화
+  if (currentUser) {
+    localStorage.removeItem('lb_records_' + currentUser.id);
+    localStorage.removeItem('lb_records_' + (fbUser ? fbUser.uid : ''));
+  }
+  localStorage.removeItem('lb_stars');
+  // Firestore 초기화
+  if (fbUser) {
+    fbDb.collection('records').doc(fbUser.uid).collection('entries').get()
+      .then(function(snap) {
+        var batch = fbDb.batch();
+        snap.forEach(function(doc) { batch.delete(doc.ref); });
+        return batch.commit();
+      })
+      .then(function() {
+        pastRecords.length = 0;
+        renderRecords(); renderCal(); updateStats(); renderMyPage();
+        alert('초기화가 완료됐습니다.');
+      })
+      .catch(function(e) { alert('오류: ' + e.message); });
+  } else {
+    pastRecords.length = 0;
+    renderRecords(); renderCal(); updateStats(); renderMyPage();
+    alert('초기화가 완료됐습니다.');
+  }
 }
 
 function getFilteredRecords() {
