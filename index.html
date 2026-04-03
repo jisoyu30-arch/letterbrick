@@ -2661,7 +2661,7 @@ async function runOCR(dataUrl, textarea, type){
   if(type==='copy'&&todaySent) context=todaySent.text;
 
   try{
-    var resp=await fetch('/api/ocr',{
+    var resp=await fetch('https://letter-brick.vercel.app/api/ocr',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({image:dataUrl, context:context})
@@ -4885,7 +4885,7 @@ if (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS.length > 0) {
 ══════════════════════════════ */
 async function callAI(type, original, userText, learningPoint) {
   try {
-    var resp = await fetch('/api/score', {
+    var resp = await fetch('https://letter-brick.vercel.app/api/score', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ type: type, original: original, userText: userText, learningPoint: learningPoint || '' })
