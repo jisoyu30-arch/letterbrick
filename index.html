@@ -243,6 +243,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   box-shadow:0 4px 16px rgba(0,0,0,0.3);
 }
 .sticky-sent.pinned .sticky-text{font-size:13px !important;line-height:1.5 !important;max-height:55px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+@media(min-width:768px){.sticky-sent.pinned .sticky-text{font-size:15px !important;line-height:1.6 !important;max-height:80px;}}
 .sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
 .sticky-sent.pinned::before{display:none;}
 .sticky-sent::before{
@@ -1084,6 +1085,28 @@ const fbDb = firebase.firestore();
   </div>
 </div>
 
+<!-- ══════ SIMILAR TEXT GUIDE MODAL ══════ -->
+<div class="modal-overlay hide" id="similarGuideModal" onclick="closeSimilarGuide(event)">
+  <div class="modal-box" style="max-width:360px;">
+    <div style="font-size:28px;margin-bottom:8px;">✍️</div>
+    <div class="modal-ttl" id="sgTitle">예시와 너무 비슷해요</div>
+    <div style="font-size:13px;color:var(--ink2);line-height:1.8;margin:12px 0 16px;">
+      예시 문장은 참고용이에요.<br>
+      오늘 배운 <b>구조와 기법</b>은 그대로 쓰되,<br>
+      소재·장면·인물은 <b>완전히 나만의 것</b>으로 바꿔보세요.
+    </div>
+    <div style="background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:left;margin-bottom:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--ink3);margin-bottom:10px;">이렇게 해보세요</div>
+      <div style="font-size:13px;color:var(--ink2);line-height:2;" id="sgTips">
+        <div>① 예시의 <b>주어</b>를 나만의 인물·장소로 바꿔보세요</div>
+        <div>② 예시의 <b>동사·형용사</b> 중 하나를 다른 단어로 바꿔보세요</div>
+        <div>③ 예시에 없는 <b>구체적인 감각</b>(냄새·소리·촉감)을 추가해보세요</div>
+      </div>
+    </div>
+    <button class="modal-btn" onclick="closeSimilarGuide(null)">다시 써볼게요 →</button>
+  </div>
+</div>
+
 <!-- ══════ FEEDBACK REVIEW MODAL ══════ -->
 <div class="modal-overlay hide" id="feedbackModal">
   <div class="modal-box" style="text-align:left;max-width:400px;">
@@ -1240,7 +1263,7 @@ const fbDb = firebase.firestore();
     <div class="today-why" id="todayWhy" style="display:none;">
       <div class="tw-eyebrow">
         <div class="tw-bricks"><div class="tw-b"></div><div class="tw-b"></div><div class="tw-b"></div></div>
-        오늘의 문장을 선택한 이유
+        오늘의 글쓰기 포인트
       </div>
       <div class="tw-reason" id="twReason"></div>
     </div>
@@ -1291,7 +1314,7 @@ const fbDb = firebase.firestore();
           위 문장을 천천히 따라 써보세요.
         </p>
         <div class="iw">
-          <textarea id="copyTa" placeholder="위 문장을 그대로 따라 써보세요..." rows="4" oninput="checkCopy()" onpaste="return blockPaste(event, this)"></textarea>
+          <textarea id="copyTa" placeholder="위 문장을 그대로 따라 써보세요..." rows="4" spellcheck="false" oninput="checkCopy()" onpaste="return blockPaste(event, this)"></textarea>
         </div>
         <div class="match-ok" id="matchOk">✓ 정확하게 따라 썼어요!</div>
         <div id="copyDiff" style="display:none;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:8px;"></div>
@@ -1331,7 +1354,7 @@ const fbDb = firebase.firestore();
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 배운 기법을 써서 원문의 구조를 바꿔보세요.
       </p>
-      <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4"></textarea></div>
+      <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4" spellcheck="false"></textarea></div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
       <div class="pzone" onclick="document.getElementById('sp').click()">
         <input type="file" id="sp" accept="image/*" onchange="prevPhoto(this,'spp','structTa','struct')">
@@ -1356,7 +1379,7 @@ const fbDb = firebase.firestore();
         지금 마음에 떠오르는 것을 그대로 써보세요. 형식도, 길이도 없어요.
       </p>
       <div class="iw">
-        <textarea id="creativeTa" placeholder="자유롭게 써보세요..." rows="6" oninput="updateCC()"></textarea>
+        <textarea id="creativeTa" placeholder="자유롭게 써보세요..." rows="6" spellcheck="false" oninput="updateCC()"></textarea>
         <div class="char-hint" id="ccHint">0자</div>
       </div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
@@ -1485,7 +1508,7 @@ const fbDb = firebase.firestore();
 
       <div id="healingTypingZone">
         <div class="iw">
-          <textarea id="healingTa" placeholder="위 글을 천천히 따라 써보세요..." rows="10" oninput="checkHealingCopy()" onpaste="return blockPaste(event, this)" style="font-size:15px;line-height:2;"></textarea>
+          <textarea id="healingTa" placeholder="위 글을 천천히 따라 써보세요..." rows="10" spellcheck="false" oninput="checkHealingCopy()" onpaste="return blockPaste(event, this)" style="font-size:15px;line-height:2;"></textarea>
           <div class="char-hint" id="healingProgress">0자 / 0자 (0%)</div>
         </div>
       </div>
@@ -1524,7 +1547,7 @@ const fbDb = firebase.firestore();
       <!-- 소감 입력 -->
       <div id="healingSogamSection" style="margin-top:20px;text-align:left;">
         <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">오늘의 소감</div>
-        <textarea id="healingSogamTa" placeholder="오늘 필사하면서 떠오른 생각이나 감정을 자유롭게 써보세요..." rows="3"
+        <textarea id="healingSogamTa" placeholder="오늘 필사하면서 떠오른 생각이나 감정을 자유롭게 써보세요..." rows="3" spellcheck="false"
           style="width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(247,242,232,0.15);border-radius:10px;padding:12px 14px;font-family:'Noto Serif KR',serif;font-size:14px;line-height:1.8;color:var(--paper);resize:none;outline:none;"
           oninput="this.style.borderColor=this.value.length>0?'rgba(247,242,232,0.3)':'rgba(247,242,232,0.15)'"></textarea>
         <button class="btn-p" id="healingSogamBtn" onclick="submitHealingSogam()" style="margin-top:10px;width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(247,242,232,0.2);">
@@ -1556,9 +1579,15 @@ const fbDb = firebase.firestore();
     <!-- 프로필 -->
     <div class="mp-profile" id="mpProfile">
       <div class="mp-profile-top">
-        <div class="mp-avatar" id="mpAvatar">📝</div>
+        <div style="position:relative;flex-shrink:0;">
+          <div class="mp-avatar" id="mpAvatar" onclick="document.getElementById('avatarFileInp').click()" title="사진 변경" style="cursor:pointer;">📝</div>
+          <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:var(--brick);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;pointer-events:none;">✏️</div>
+          <input type="file" id="avatarFileInp" accept="image/*" style="display:none;" onchange="uploadAvatar(this)">
+        </div>
         <div class="mp-info">
-          <div class="mp-name" id="mpName">필사러</div>
+          <div id="mpNameWrap">
+            <div class="mp-name" id="mpName" onclick="editNickname()" title="탭해서 닉네임 변경" style="cursor:pointer;">필사러</div>
+          </div>
           <div class="mp-since" id="mpSince">시작한 날: —</div>
         </div>
       </div>
@@ -2497,8 +2526,7 @@ function runStruct(){
     const _isEx1=_v===_ex1||_v.includes(_ex1)||_ex1.includes(_v)&&_v.length>10;
     const _isEx2=_ex2&&(_v===_ex2||_v.includes(_ex2)||_ex2.includes(_v)&&_v.length>10);
     if(_isOrig||_isEx1||_isEx2){
-      document.getElementById('sRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요.<br>타이핑이든 사진이든, 예시를 그대로 쓰면 채점이 되지 않아요.<br>오늘 배운 구조로 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
-      document.getElementById('sRes').style.display='block';
+      showSimilarGuide('structure');
       return;
     }
   }
@@ -2546,7 +2574,7 @@ function runCreative(){
     const _cisEx1=_cv===_cex1||_cv.includes(_cex1)||_cex1.includes(_cv)&&_cv.length>10;
     const _cisEx2=_cex2&&(_cv===_cex2||_cv.includes(_cex2)||_cex2.includes(_cv)&&_cv.length>10);
     if(_cisOrig||_cisEx1||_cisEx2){
-      document.getElementById('cRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요.<br>타이핑이든 사진이든, 예시를 그대로 쓰면 평가가 되지 않아요.<br>이 문장에서 영감을 받아 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
+      showSimilarGuide('creative');
       document.getElementById('cRes').style.display='block';
       return;
     }
@@ -3806,7 +3834,7 @@ runStruct = async function() {
   if(v){
     var _v=v.replace(/\s+/g,''),_orig=todaySent.text.replace(/\s+/g,''),_ex1=todaySent.example.replace(/\s+/g,'');
     if(_v===_orig||_v.includes(_orig)||(_orig.includes(_v)&&_v.length>10)||_v===_ex1||_v.includes(_ex1)||(_ex1.includes(_v)&&_v.length>10)){
-      document.getElementById('sRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요. 오늘 배운 구조로 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
+      showSimilarGuide('structure');
       return;
     }
   }
@@ -3869,7 +3897,7 @@ runCreative = async function() {
   if(v){
     var _cv=v.replace(/\s+/g,''),_corig=todaySent.text.replace(/\s+/g,''),_cex1=todaySent.example.replace(/\s+/g,'');
     if(_cv===_corig||_cv.includes(_corig)||(_corig.includes(_cv)&&_cv.length>10)||_cv===_cex1||_cv.includes(_cex1)||(_cex1.includes(_cv)&&_cv.length>10)){
-      document.getElementById('cRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요. 오늘 배운 기법에서 영감을 받아 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
+      showSimilarGuide('creative');
       return;
     }
   }
@@ -4080,30 +4108,38 @@ function renderMyPage() {
   var stars = loadStars();
   // 프로필
   if(currentUser) {
-    document.getElementById('mpName').textContent = currentUser.nickname;
     if(currentUser.joinedAt) {
       var joined = new Date(currentUser.joinedAt);
       document.getElementById('mpSince').textContent = joined.getFullYear()+'년 '+(joined.getMonth()+1)+'월 '+joined.getDate()+'일부터';
     }
-    // 프로필 사진
+    // 프로필 사진 + 자기소개 (Firestore 우선)
     var avatarEl = document.getElementById('mpAvatar');
     var fbUser = fbAuth.currentUser;
-    if (fbUser && fbUser.photoURL) {
-      avatarEl.innerHTML = '<img src="'+fbUser.photoURL+'" alt="프로필" onerror="this.parentElement.textContent=\'📝\'">';
-    } else {
-      avatarEl.textContent = '📝';
-    }
-    // 자기소개 불러오기
-    var bioEl = document.getElementById('mpBioText');
     if (fbUser) {
       fbDb.collection('users').doc(fbUser.uid).get().then(function(doc) {
-        if (doc.exists && doc.data().bio) {
-          bioEl.textContent = doc.data().bio;
+        var d = doc.exists ? doc.data() : {};
+        // 사진: Firestore photoDataUrl > Firebase Auth photoURL > 기본 이모지
+        if (d.photoDataUrl) {
+          avatarEl.innerHTML = '<img src="'+d.photoDataUrl+'" alt="프로필" style="width:100%;height:100%;object-fit:cover;">';
+        } else if (fbUser.photoURL) {
+          avatarEl.innerHTML = '<img src="'+fbUser.photoURL+'" alt="프로필" onerror="this.parentElement.textContent=\'📝\'">';
         } else {
-          bioEl.textContent = '한 줄 소개를 적어보세요. (탭해서 편집)';
-          bioEl.style.color = 'var(--ink3)';
+          avatarEl.textContent = '📝';
         }
-      }).catch(function(){});
+        // 닉네임 (Firestore > Auth)
+        var nick = d.nickname || fbUser.displayName || (currentUser && currentUser.nickname) || '필사러';
+        var mpName = document.getElementById('mpName');
+        if (mpName) mpName.textContent = nick;
+        if (currentUser) currentUser.nickname = nick;
+        // 자기소개
+        var bioEl = document.getElementById('mpBioText');
+        if (bioEl) {
+          if (d.bio) { bioEl.textContent = d.bio; }
+          else { bioEl.textContent = '한 줄 소개를 적어보세요. (탭해서 편집)'; bioEl.style.color = 'var(--ink3)'; }
+        }
+      }).catch(function() { avatarEl.textContent = '📝'; });
+    } else {
+      avatarEl.textContent = '📝';
     }
   }
   // 통계
@@ -4165,6 +4201,74 @@ function saveBio() {
       (bio || '한 줄 소개를 적어보세요. (탭해서 편집)') + '</div>';
     if (!bio) document.getElementById('mpBioText').style.color = 'var(--ink3)';
   }
+}
+
+// ── 닉네임 편집 ──
+function editNickname() {
+  var wrap = document.getElementById('mpNameWrap');
+  var current = document.getElementById('mpName').textContent;
+  wrap.innerHTML =
+    '<input id="mpNickInp" type="text" maxlength="12" value="' + current.replace(/"/g,'&quot;') + '" ' +
+    'style="font-family:\'Gowun Batang\',serif;font-size:18px;font-weight:700;color:var(--ink);background:var(--paper3);border:1.5px solid var(--brick);border-radius:8px;padding:2px 8px;width:160px;outline:none;" />' +
+    '<div style="font-size:11px;color:var(--ink3);margin-top:3px;">Enter로 저장 · 12자 이내</div>';
+  var inp = document.getElementById('mpNickInp');
+  inp.focus(); inp.select();
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); saveNickname(); }
+    if (e.key === 'Escape') { renderMyPage(); }
+  });
+  inp.addEventListener('blur', function() { setTimeout(saveNickname, 150); });
+}
+
+function saveNickname() {
+  var inp = document.getElementById('mpNickInp');
+  if (!inp) return;
+  var nick = inp.value.trim();
+  if (!nick) { renderMyPage(); return; }
+  var wrap = document.getElementById('mpNameWrap');
+  if (wrap) {
+    wrap.innerHTML = '<div class="mp-name" id="mpName" onclick="editNickname()" title="탭해서 닉네임 변경" style="cursor:pointer;">' + nick + '</div>';
+  }
+  // 로컬 업데이트
+  if (currentUser) currentUser.nickname = nick;
+  var badge = document.querySelector('.user-badge');
+  if (badge) badge.textContent = nick;
+  // Firebase 저장
+  var fbUser = fbAuth.currentUser;
+  if (fbUser) {
+    fbUser.updateProfile({ displayName: nick }).catch(function(){});
+    fbDb.collection('users').doc(fbUser.uid).set({ nickname: nick }, { merge: true }).catch(function(){});
+  }
+}
+
+// ── 프로필 사진 업로드 ──
+function uploadAvatar(input) {
+  var file = input.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = 160; canvas.height = 160;
+      var ctx = canvas.getContext('2d');
+      // 정사각형 크롭 후 리사이즈
+      var size = Math.min(img.width, img.height);
+      var ox = (img.width - size) / 2, oy = (img.height - size) / 2;
+      ctx.drawImage(img, ox, oy, size, size, 0, 0, 160, 160);
+      var dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+      // 아바타 즉시 반영
+      var avatarEl = document.getElementById('mpAvatar');
+      if (avatarEl) avatarEl.innerHTML = '<img src="' + dataUrl + '" alt="프로필" style="width:100%;height:100%;object-fit:cover;">';
+      // Firestore 저장
+      var fbUser = fbAuth.currentUser;
+      if (fbUser) {
+        fbDb.collection('users').doc(fbUser.uid).set({ photoDataUrl: dataUrl }, { merge: true }).catch(function(){});
+      }
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
 }
 
 // ── 내 기록 초기화 ──
@@ -4953,6 +5057,31 @@ function closeGuide() {
   if (document.getElementById('guideNoShow') && document.getElementById('guideNoShow').checked) {
     localStorage.setItem('lb_guide_dismissed', 'true');
   }
+}
+
+// ── 유사 텍스트 가이드 모달 ──
+function showSimilarGuide(type) {
+  var m = document.getElementById('similarGuideModal');
+  var title = document.getElementById('sgTitle');
+  if (type === 'creative') {
+    title.textContent = '영감을 받되, 나만의 이야기로 써보세요';
+    document.getElementById('sgTips').innerHTML =
+      '<div>① 오늘 배운 <b>기법(구조·리듬)</b>은 그대로 가져오세요</div>' +
+      '<div>② 소재·인물·장면은 <b>완전히 내 경험</b>으로 바꿔보세요</div>' +
+      '<div>③ 예시에 없는 <b>구체적인 감각</b>(냄새·소리·촉감)을 넣어보세요</div>';
+  } else {
+    title.textContent = '예시와 너무 비슷해요';
+    document.getElementById('sgTips').innerHTML =
+      '<div>① 예시의 <b>주어</b>를 나만의 인물·장소로 바꿔보세요</div>' +
+      '<div>② 예시의 <b>동사·형용사</b> 중 하나를 다른 단어로 바꿔보세요</div>' +
+      '<div>③ 예시에 없는 <b>구체적인 감각</b>(냄새·소리·촉감)을 추가해보세요</div>';
+  }
+  m.classList.remove('hide');
+}
+
+function closeSimilarGuide(e) {
+  if (e && e.target !== document.getElementById('similarGuideModal')) return;
+  document.getElementById('similarGuideModal').classList.add('hide');
 }
 
 function guideNav(dir) {
