@@ -4177,6 +4177,15 @@ function confirmResetMyData() {
     localStorage.removeItem('lb_records_' + (fbUser ? fbUser.uid : ''));
   }
   localStorage.removeItem('lb_stars');
+  localStorage.removeItem('lb_feedback_history');
+  localStorage.removeItem('lb_feedback_dismissed');
+  // 별점 UI 즉시 초기화
+  var zeroStars = {growth:{total:0,sessions:0},healing:{total:0,sessions:0}};
+  saveStars(zeroStars);
+  var mpG = document.getElementById('mpGrowthStars'); if(mpG) mpG.textContent = '★ 0';
+  var mpH = document.getElementById('mpHealingStars'); if(mpH) mpH.textContent = '★ 0';
+  var mpT = document.getElementById('mpTotalStars'); if(mpT) mpT.textContent = '0';
+  var mpS = document.getElementById('mpTotalSessions'); if(mpS) mpS.textContent = '0';
   // Firestore 초기화
   if (fbUser) {
     fbDb.collection('records').doc(fbUser.uid).collection('entries').get()
