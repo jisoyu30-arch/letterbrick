@@ -4,3 +4,4 @@ node_modules/
 .vercel
 serviceAccount.json
 delete-demo-records.js
+migrate-to-firestore.js

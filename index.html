@@ -4936,53 +4936,106 @@ function openHealingShare() {
 }
 
 /* ══════════════════════════════
-   DATA.JS 연결: GROWTH_DAYS → SENTENCES 변환
+   FIRESTORE 문장 로드 → GROWTH_DAYS / HEALING_DAYS 재구성
+   실패 시 data.js 폴백
 ══════════════════════════════ */
-if (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS.length > 0) {
-  // GROWTH_DAYS를 기존 SENTENCES 형식으로 변환
-  SENTENCES.length = 0;
-  GROWTH_DAYS.forEach(function(day, i) {
-    function makeSent(v, dayNum) {
-      // 새 데이터는 v.learn이 완전한 객체 (why/structure/technique)
-      var learnObj = v.learn || {
-        why: v.pt,
-        structure: '원문의 구조를 자세히 살펴보세요.',
-        technique: '<b>' + v.pt + '</b>'
-      };
-      return {
-        text: v.t, author: v.a, source: v.s,
-        authorNote: '', reason: v.pt,
-        learn: learnObj,
-        example: v.example || '오늘 배운 기법으로 자신만의 문장을 써보세요.',
-        day: dayNum, variant: null
-      };
+async function loadSentencesFromFirestore() {
+  try {
+    var snap = await fbDb.collection('sentences').get();
+    if (snap.empty) return false;
+
+    var growthMap = {}; // {day: {A:..., B:..., lp:...}}
+    var healingArr = [];
+
+    snap.forEach(function(doc) {
+      var d = doc.data();
+      if (d.edition === 'growth') {
+        if (!growthMap[d.day]) growthMap[d.day] = { lp: d.lp || '' };
+        growthMap[d.day][d.variant] = {
+          t: d.text, a: d.author, s: d.source,
+          pt: d.pt, example: d.example, learn: d.learn
+        };
+        if (d.lp) growthMap[d.day].lp = d.lp;
+      } else if (d.edition === 'healing') {
+        healingArr.push({
+          day: d.day, theme: d.theme, inspiration: d.inspiration,
+          source: d.source, why: d.why, t: d.text
+        });
+      }
+    });
+
+    // GROWTH_DAYS 재구성
+    var days = Object.keys(growthMap).map(Number).sort(function(a,b){return a-b;});
+    var newGrowth = days.map(function(day) {
+      return { A: growthMap[day].A, B: growthMap[day].B, lp: growthMap[day].lp };
+    });
+
+    // HEALING_DAYS 재구성
+    healingArr.sort(function(a,b){return a.day-b.day;});
+
+    if (newGrowth.length > 0) {
+      window.GROWTH_DAYS = newGrowth;
+      window.HEALING_DAYS = healingArr;
+      console.log('[LetterBrick] Firestore에서 문장 로드:', newGrowth.length + '일 성장, ' + healingArr.length + '일 힐링');
+      return true;
     }
-    var sA = makeSent(day.A, i+1); sA.variant = 'A';
-    var sB = makeSent(day.B, i+1); sB.variant = 'B';
-    sA._lp = day.lp; sB._lp = day.lp;
-    SENTENCES.push(sA);
-    SENTENCES.push(sB);
-  });
-  // getDayIndex 기반으로 오늘 페어 찾기
-  todayIdx = (getDayIndex() * 2) % SENTENCES.length;
-  todaySent = SENTENCES[todayIdx];
+    return false;
+  } catch(e) {
+    console.warn('[LetterBrick] Firestore 문장 로드 실패, data.js 폴백:', e.message);
+    return false;
+  }
 }
 
-// HEALING_DAYS → HEALING_PASSAGES 변환
-if (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS.length > 0) {
-  HEALING_PASSAGES['다짐'] = []; HEALING_PASSAGES['힐링'] = []; HEALING_PASSAGES['여운'] = [];
-  HEALING_DAYS.forEach(function(d) {
-    var entry = {
-      id: 'h_' + d.day,
-      text: d.t,
-      author: d.source || '레터브릭 오리지널',
-      reason: '영감: ' + d.inspiration,
-      why: d.why || null,
-      inspiration: d.inspiration
-    };
-    if (HEALING_PASSAGES[d.theme]) HEALING_PASSAGES[d.theme].push(entry);
-  });
+function applyDataToApp() {
+  // GROWTH_DAYS → SENTENCES 변환
+  if (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS && GROWTH_DAYS.length > 0) {
+    SENTENCES.length = 0;
+    GROWTH_DAYS.forEach(function(day, i) {
+      function makeSent(v, dayNum) {
+        var learnObj = v.learn || {
+          why: v.pt,
+          structure: '원문의 구조를 자세히 살펴보세요.',
+          technique: '<b>' + v.pt + '</b>'
+        };
+        return {
+          text: v.t, author: v.a, source: v.s,
+          authorNote: '', reason: v.pt,
+          learn: learnObj,
+          example: v.example || '오늘 배운 기법으로 자신만의 문장을 써보세요.',
+          day: dayNum, variant: null
+        };
+      }
+      var sA = makeSent(day.A, i+1); sA.variant = 'A';
+      var sB = makeSent(day.B, i+1); sB.variant = 'B';
+      sA._lp = day.lp; sB._lp = day.lp;
+      SENTENCES.push(sA);
+      SENTENCES.push(sB);
+    });
+    todayIdx = (getDayIndex() * 2) % SENTENCES.length;
+    todaySent = SENTENCES[todayIdx];
+  }
+
+  // HEALING_DAYS → HEALING_PASSAGES 변환
+  if (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS && HEALING_DAYS.length > 0) {
+    HEALING_PASSAGES['다짐'] = []; HEALING_PASSAGES['힐링'] = []; HEALING_PASSAGES['여운'] = [];
+    HEALING_DAYS.forEach(function(d) {
+      var entry = {
+        id: 'h_' + d.day,
+        text: d.t,
+        author: d.source || '레터브릭 오리지널',
+        reason: '영감: ' + d.inspiration,
+        why: d.why || null,
+        inspiration: d.inspiration
+      };
+      if (HEALING_PASSAGES[d.theme]) HEALING_PASSAGES[d.theme].push(entry);
+    });
+  }
 }
+
+// Firestore 우선 로드, 실패 시 data.js 폴백
+loadSentencesFromFirestore().then(function(loaded) {
+  applyDataToApp();
+});
 
 /* ══════════════════════════════
    API 채점: callAI() → /api/score fetch
