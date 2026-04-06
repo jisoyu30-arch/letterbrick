@@ -103,6 +103,29 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 @media(min-width:768px){.shell{max-width:660px;}}
 @media(min-width:1024px){.shell{max-width:780px;}}
 
+/* ── 힐링편 데스크톱: 원문 좌 / 글쓰기 우 나란히 배치 ── */
+@media(min-width:1024px){
+  #healingWritingSection{display:flex;gap:24px;align-items:flex-start;}
+  #healingStickySent{
+    flex:0 0 340px;position:sticky;top:70px;
+    max-height:calc(100vh - 100px);overflow-y:auto;
+    border-radius:14px;margin-bottom:0;
+  }
+  /* 데스크톱에서는 sticky pinned 스타일 무효화 */
+  #healingStickySent.pinned{
+    position:sticky !important;top:70px !important;
+    border-radius:14px !important;padding:16px 18px !important;
+    box-shadow:none !important;margin-top:0 !important;
+  }
+  #healingStickySent.pinned .sticky-text{
+    font-size:16px !important;line-height:1.7 !important;
+    max-height:none !important;overflow-y:visible !important;
+  }
+  #healingStickySent.pinned .sticky-lbl,
+  #healingStickySent.pinned .sticky-meta{display:flex !important;}
+  .healing-right-col{flex:1;min-width:0;}
+}
+
 /* ══════ TOPNAV ══════ */
 .topnav{
   display:flex;align-items:center;justify-content:space-between;
@@ -1488,43 +1511,47 @@ const fbDb = firebase.firestore();
         <div class="tw-reason" id="healingReason"></div>
       </div>
 
-      <div class="sticky-sent" id="healingStickySent">
-        <div class="sticky-lbl" id="healingThemeLabel"></div>
-        <div class="sticky-text" id="healingText"></div>
-        <div class="sticky-meta">
-          <div class="sticky-author" id="healingAuthor"></div>
+      <div id="healingWritingSection">
+        <div class="sticky-sent" id="healingStickySent">
+          <div class="sticky-lbl" id="healingThemeLabel"></div>
+          <div class="sticky-text" id="healingText"></div>
+          <div class="sticky-meta">
+            <div class="sticky-author" id="healingAuthor"></div>
+          </div>
+        </div>
+
+        <div class="healing-right-col">
+          <div class="audio-controls">
+            <button class="audio-btn" id="ttsBtn" onclick="toggleTTS()">🔊 낭독</button>
+            <button class="audio-btn" id="bgmBtn" onclick="toggleBGM()">🎵 BGM</button>
+          </div>
+
+          <div class="input-mode-bar">
+            <button class="im-btn active" id="himTyping" onclick="selectHealingInputMode('typing')">⌨️ 타이핑</button>
+            <button class="im-btn" id="himHandwriting" onclick="selectHealingInputMode('handwriting')">✏️ 손글씨</button>
+          </div>
+
+          <div id="healingTypingZone">
+            <div class="iw">
+              <textarea id="healingTa" placeholder="위 글을 천천히 따라 써보세요..." rows="10" spellcheck="false" oninput="checkHealingCopy()" onpaste="return blockPaste(event, this)" style="font-size:15px;line-height:2;"></textarea>
+              <div class="char-hint" id="healingProgress">0자 / 0자 (0%)</div>
+            </div>
+          </div>
+
+          <div id="healingHandwritingZone" style="display:none;">
+            <div class="pzone" onclick="document.getElementById('hp1').click()">
+              <input type="file" id="hp1" accept="image/*" multiple onchange="healingPhotoUpload(this)">
+              <div class="pz-ico">📷</div>
+              <div class="pz-txt">손글씨 사진 업로드 (최대 3장)<br><b>탭해서 선택</b></div>
+            </div>
+            <div id="healingPhotoPreviews"></div>
+          </div>
+
+          <button class="btn-p" id="healingFinishBtn" onclick="finishHealing()" style="opacity:.4;pointer-events:none;">
+            오늘의 힐링 필사 완성 →
+          </button>
         </div>
       </div>
-
-      <div class="audio-controls">
-        <button class="audio-btn" id="ttsBtn" onclick="toggleTTS()">🔊 낭독</button>
-        <button class="audio-btn" id="bgmBtn" onclick="toggleBGM()">🎵 BGM</button>
-      </div>
-
-      <div class="input-mode-bar">
-        <button class="im-btn active" id="himTyping" onclick="selectHealingInputMode('typing')">⌨️ 타이핑</button>
-        <button class="im-btn" id="himHandwriting" onclick="selectHealingInputMode('handwriting')">✏️ 손글씨</button>
-      </div>
-
-      <div id="healingTypingZone">
-        <div class="iw">
-          <textarea id="healingTa" placeholder="위 글을 천천히 따라 써보세요..." rows="10" spellcheck="false" oninput="checkHealingCopy()" onpaste="return blockPaste(event, this)" style="font-size:15px;line-height:2;"></textarea>
-          <div class="char-hint" id="healingProgress">0자 / 0자 (0%)</div>
-        </div>
-      </div>
-
-      <div id="healingHandwritingZone" style="display:none;">
-        <div class="pzone" onclick="document.getElementById('hp1').click()">
-          <input type="file" id="hp1" accept="image/*" multiple onchange="healingPhotoUpload(this)">
-          <div class="pz-ico">📷</div>
-          <div class="pz-txt">손글씨 사진 업로드 (최대 3장)<br><b>탭해서 선택</b></div>
-        </div>
-        <div id="healingPhotoPreviews"></div>
-      </div>
-
-      <button class="btn-p" id="healingFinishBtn" onclick="finishHealing()" style="opacity:.4;pointer-events:none;">
-        오늘의 힐링 필사 완성 →
-      </button>
     </div>
 
     <!-- Healing done -->
@@ -2491,8 +2518,8 @@ function buildCmp(){
 ══════════════════════════════ */
 function checkCopy(){
   const v=document.getElementById('copyTa').value;
-  const clean=todaySent.text.replace(/["""]/g,'').trim();
-  const match=v.includes(clean)||v.replace(/["""]/g,'').trim()===clean;
+  const clean=todaySent.text.replace(/["""]/g,'').trim().normalize('NFC');
+  const match=v.normalize('NFC').includes(clean)||v.replace(/["""]/g,'').trim().normalize('NFC')===clean;
   document.getElementById('matchOk').style.display=match?'block':'none';
   const btn=document.getElementById('s1Btn');
   const finBtn=document.getElementById('s1Finish');
@@ -4511,8 +4538,8 @@ var _origCheckCopy = checkCopy;
 checkCopy = function(){
   _origCheckCopy();
   var v = document.getElementById('copyTa').value;
-  var clean = todaySent.text.replace(/["""]/g,'').trim();
-  var userClean = v.replace(/["""]/g,'').trim();
+  var clean = todaySent.text.replace(/["""]/g,'').trim().normalize('NFC');
+  var userClean = v.replace(/["""]/g,'').trim().normalize('NFC');
   var diffEl = document.getElementById('copyDiff');
   if(!diffEl) return;
   if(userClean === clean){diffEl.style.display='none';return;}
