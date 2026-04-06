@@ -4746,19 +4746,32 @@ function submitHealingSogam() {
   btn.style.opacity = '.5';
   btn.style.pointerEvents = 'none';
 
-  // API 시도, 실패시 규칙 기반
   var passageText = healingPassage ? healingPassage.text : '';
-  callAI('creative', passageText, sogam, '힐링 필사 소감').then(function(result) {
+
+  // 감정 분석 (Gemma) + 코치 응답 (Claude) 병렬 실행
+  var emotionPromise = fetch('https://letter-brick.vercel.app/api/emotion', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: sogam })
+  }).then(function(r) { return r.json(); }).catch(function() { return null; });
+
+  var coachPromise = callAI('creative', passageText, sogam, '힐링 필사 소감')
+    .catch(function() { return null; });
+
+  Promise.all([emotionPromise, coachPromise]).then(function(results) {
+    var emotionResult = results[0];
+    var aiResult = results[1];
+
+    // 코치 응답 텍스트
     var response;
-    if (result && result.impression) {
-      response = result.impression;
-      if (result.encouragement) response += ' ' + result.encouragement;
+    if (aiResult && aiResult.impression) {
+      response = aiResult.impression;
+      if (aiResult.encouragement) response += ' ' + aiResult.encouragement;
     } else {
       response = generateHealingCoachResponse(sogam, passageText);
     }
-    showHealingCoachResponse(response);
-  }).catch(function() {
-    showHealingCoachResponse(generateHealingCoachResponse(sogam, passageText));
+
+    showHealingCoachResponse(response, emotionResult);
   });
 }
 
@@ -4851,11 +4864,33 @@ function generateHealingCoachResponse(sogam, passage) {
   return responses[0];
 }
 
-function showHealingCoachResponse(text) {
-  var sogamSec=document.getElementById('healingSogamSection'); if(sogamSec){var sogamBtn=sogamSec.querySelector('button'); if(sogamBtn)sogamBtn.style.display='none';}
+function showHealingCoachResponse(text, emotion) {
+  var sogamSec=document.getElementById('healingSogamSection');
+  if(sogamSec){var sogamBtn=sogamSec.querySelector('button'); if(sogamBtn)sogamBtn.style.display='none';}
   document.getElementById('healingCoachText').textContent = text;
   document.getElementById('healingCoachResponse').style.display = 'block';
   document.getElementById('healingShareSection').style.display = 'block';
+
+  // 감정 분석 결과 표시
+  if (emotion && emotion.ok && !emotion.fallback) {
+    var emotionMap = {
+      '평온':'🌿','불안':'🌊','슬픔':'🌧️','기쁨':'☀️',
+      '다짐':'🔥','그리움':'🌙','피로':'🍂','설렘':'✨'
+    };
+    var icon = emotionMap[emotion.emotion] || '💭';
+    var el = document.getElementById('healingEmotionTag');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'healingEmotionTag';
+      el.style.cssText = 'margin-top:12px;padding:10px 14px;background:rgba(247,242,232,0.06);border:1px solid rgba(247,242,232,0.12);border-radius:12px;font-size:12px;color:rgba(247,242,232,0.7);line-height:1.8;';
+      document.getElementById('healingCoachResponse').appendChild(el);
+    }
+    el.innerHTML =
+      '<span style="font-size:16px;margin-right:6px;">'+icon+'</span>' +
+      '<b style="color:rgba(247,242,232,0.9);">'+emotion.emotion+'</b>' +
+      ' · ' + emotion.summary +
+      '<br><span style="font-size:11px;opacity:.6;">다음 추천: ' + emotion.nextTheme + ' — ' + emotion.nextReason + '</span>';
+  }
 }
 
 /* ── 해시태그 생성 ── */
