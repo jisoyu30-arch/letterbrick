@@ -739,6 +739,29 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 /* ══════ AI STARS ══════ */
 .air-star-filled{color:#FFD700;}.air-star-empty{color:rgba(200,190,170,0.3);}
 
+/* ══════ BRICK FEEDBACK UI ══════ */
+.bf-world{background:var(--ink);color:var(--paper);border-radius:10px;
+  padding:12px 16px;margin-bottom:14px;text-align:center;}
+.bf-world-bricks{font-size:22px;letter-spacing:2px;margin-bottom:4px;}
+.bf-world-msg{font-size:12px;color:rgba(247,242,232,0.7);font-family:'Noto Serif KR',serif;}
+.bf-criteria{margin-bottom:14px;}
+.bf-criterion{display:flex;align-items:flex-start;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--line2);}
+.bf-criterion:last-child{border-bottom:none;}
+.bf-crit-bricks{font-size:16px;min-width:52px;letter-spacing:1px;padding-top:1px;}
+.bf-crit-body{flex:1;}
+.bf-crit-name{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--ink3);margin-bottom:3px;}
+.bf-crit-comment{font-size:12px;color:var(--ink2);line-height:1.7;font-family:'Noto Serif KR',serif;font-weight:300;}
+.bf-lacking{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
+  padding:10px 13px;margin-bottom:10px;}
+.bf-lacking-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--brick-d);margin-bottom:4px;}
+.bf-lacking-txt{font-size:12px;color:var(--brick-d);line-height:1.75;font-family:'Noto Serif KR',serif;}
+.bf-improved{background:var(--paper2);border-radius:8px;padding:10px 13px;margin-bottom:10px;}
+.bf-improved-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--ink3);margin-bottom:6px;}
+.bf-improved-txt{font-size:12px;color:var(--ink2);line-height:1.8;font-family:'Noto Serif KR',serif;}
+.bf-impression{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line2);}
+.bf-errors{margin-top:4px;}
+
 /* ══════ RECORD FILTER ══════ */
 .rec-filter{
   padding:4px 10px;border-radius:12px;border:1px solid var(--line);
@@ -3876,33 +3899,49 @@ runStruct = async function() {
   var aiResult = await callAI('structure', todaySent.text, v, learningPoint);
   document.getElementById('sLd').style.display='none';
 
-  var stars, secs, errH, tip;
-  if(aiResult && aiResult.stars) {
-    // ── API 결과 렌더링 ──
-    stars = aiResult.stars;
-    var sections = [];
-    if(aiResult.structureAnalysis) sections.push({lbl:'구조 분석', txt: aiResult.structureAnalysis});
-    if(aiResult.strengths) sections.push({lbl:'잘 작동한 변형', txt: aiResult.strengths});
-    if(aiResult.improvement) sections.push({lbl:'개선 방향', txt: aiResult.improvement});
-    secs = sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
+  var bricks, html;
+  if(aiResult && typeof aiResult.bricks === 'number') {
+    // ── 벽돌 기반 API 결과 렌더링 ──
+    bricks = aiResult.bricks;
+    var maxB = aiResult.maxBricks || 5;
+    var brickStr = '🧱'.repeat(bricks) + '░'.repeat(maxB - bricks);
+    var criteriaH = (aiResult.criteria||[]).map(function(c){
+      var cb = '🧱'.repeat(c.bricks) + '░'.repeat(c.max - c.bricks);
+      return '<div class="bf-criterion">'+
+        '<div class="bf-crit-bricks">'+cb+'</div>'+
+        '<div class="bf-crit-body">'+
+          '<div class="bf-crit-name">'+c.name+'</div>'+
+          '<div class="bf-crit-comment">'+c.comment+'</div>'+
+        '</div></div>';
+    }).join('');
     var errs = [];
     (aiResult.spellingErrors||[]).forEach(function(e){errs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
     (aiResult.spacingErrors||[]).forEach(function(e){errs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
-    errH = errs.join('');
-    tip = aiResult.tip || '';
+    var errH = errs.length ? '<div class="bf-errors">'+errs.join('')+'</div>' : '';
+    var lackingH = aiResult.lacking ? '<div class="bf-lacking"><div class="bf-lacking-lbl">아쉬운 점</div><div class="bf-lacking-txt">'+aiResult.lacking+'</div></div>' : '';
+    var improvedH = aiResult.improvedExample ? '<div class="bf-improved"><div class="bf-improved-lbl">이렇게 바꾸면 벽돌이 늘어요</div><div class="bf-improved-txt">'+aiResult.improvedExample+'</div></div>' : '';
+    html = '<div class="air">'+
+      '<div class="air-head"><span class="air-lbl">구조 연습 — 오늘 획득</span></div>'+
+      '<div class="air-body">'+
+        '<div class="bf-world">'+
+          '<div class="bf-world-bricks">'+brickStr+'</div>'+
+          '<div class="bf-world-msg">'+(aiResult.worldMessage||'벽돌 '+bricks+'개')+'</div>'+
+        '</div>'+
+        '<div class="bf-criteria">'+criteriaH+'</div>'+
+        lackingH+improvedH+errH+
+      '</div></div>';
   } else {
     // ── 폴백: AI 서버 연결 안내 ──
-    stars = 3;
-    secs = '<div class="air-section"><div class="air-section-lbl">안내</div><div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(247,242,232,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>';
-    errH = '';
-    tip = '쓴 문장을 소리 내어 읽어보세요. 어색한 부분이 자연스럽게 보입니다.';
+    bricks = 3;
+    html = '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span></div>'+
+      '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
+      '<div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br>'+
+      '<span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>'+
+      '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 어색한 부분이 자연스럽게 보입니다.</div></div></div>';
   }
 
-  structScore = stars;
-  document.getElementById('sRes').innerHTML=
-    '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span><span class="air-score" style="font-size:18px;">'+renderStarsHTML(stars,5)+'</span></div>'+
-    '<div class="air-body"><div style="text-align:center;font-size:13px;color:rgba(247,242,232,0.5);margin:-2px 0 10px;">★ '+stars+' / 5</div>'+secs+errH+
-    '<div class="air-tip">💡 '+tip+'</div></div></div>';
+  structScore = bricks;
+  document.getElementById('sRes').innerHTML = html;
   if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
   document.getElementById('sNext').style.display='block';
   document.getElementById('s3Finish').style.display='block'; // P0-3
@@ -3939,36 +3978,53 @@ runCreative = async function() {
   var aiResult = await callAI('creative', todaySent.text, v, learningPoint);
   document.getElementById('cLd').style.display='none';
 
-  var secs, errH, tip, refStars;
-  if(aiResult && aiResult.impression) {
-    // ── API 결과 렌더링 (Self-regulation 레벨) ──
-    var sections = [];
-    if(aiResult.impression) sections.push({lbl:'AI 코치의 감상', txt: aiResult.impression});
-    if(aiResult.techniqueConnection) sections.push({lbl:'기법 연결', txt: aiResult.techniqueConnection});
-    if(aiResult.highlight) sections.push({lbl:'주목한 표현', txt: '\u201c' + aiResult.highlight + '\u201d'});
-    secs = sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    var errs = [];
-    (aiResult.spellingErrors||[]).forEach(function(e){errs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
-    (aiResult.spacingErrors||[]).forEach(function(e){errs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
-    errH = errs.join('');
-    tip = aiResult.encouragement || ''; // Self-reg: 격려 대신 자기 점검 질문
-    refStars = 0; // 창작은 별점 참고용 표시 안 함
-    creativeScore = 3; // 저장용 기본값
+  var cBricks, cHtml;
+  if(aiResult && typeof aiResult.bricks === 'number') {
+    // ── 벽돌 기반 API 결과 렌더링 ──
+    cBricks = aiResult.bricks;
+    var cMaxB = aiResult.maxBricks || 5;
+    var cBrickStr = '🧱'.repeat(cBricks) + '░'.repeat(cMaxB - cBricks);
+    var cCriteriaH = (aiResult.criteria||[]).map(function(c){
+      var cb = '🧱'.repeat(c.bricks) + '░'.repeat(c.max - c.bricks);
+      return '<div class="bf-criterion">'+
+        '<div class="bf-crit-bricks">'+cb+'</div>'+
+        '<div class="bf-crit-body">'+
+          '<div class="bf-crit-name">'+c.name+'</div>'+
+          '<div class="bf-crit-comment">'+c.comment+'</div>'+
+        '</div></div>';
+    }).join('');
+    var cErrs = [];
+    (aiResult.spellingErrors||[]).forEach(function(e){cErrs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
+    (aiResult.spacingErrors||[]).forEach(function(e){cErrs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
+    var cErrH = cErrs.length ? '<div class="bf-errors">'+cErrs.join('')+'</div>' : '';
+    var impressionH = aiResult.impression ? '<div class="bf-impression"><div class="air-section-lbl">코치의 감상</div><div class="air-txt">'+aiResult.impression+'</div></div>' : '';
+    var cLackingH = aiResult.lacking ? '<div class="bf-lacking"><div class="bf-lacking-lbl">아쉬운 점</div><div class="bf-lacking-txt">'+aiResult.lacking+'</div></div>' : '';
+    var cImprovedH = aiResult.improvedExample ? '<div class="bf-improved"><div class="bf-improved-lbl">이렇게 바꾸면 벽돌이 늘어요</div><div class="bf-improved-txt">'+aiResult.improvedExample+'</div></div>' : '';
+    var encH = aiResult.encouragement ? '<div class="air-tip">💡 '+aiResult.encouragement+'</div>' : '';
+    cHtml = '<div class="air">'+
+      '<div class="air-head"><span class="air-lbl">창의적 글쓰기 — 오늘 획득</span></div>'+
+      '<div class="air-body">'+
+        '<div class="bf-world">'+
+          '<div class="bf-world-bricks">'+cBrickStr+'</div>'+
+          '<div class="bf-world-msg">'+(aiResult.worldMessage||'벽돌 '+cBricks+'개')+'</div>'+
+        '</div>'+
+        impressionH+
+        '<div class="bf-criteria">'+cCriteriaH+'</div>'+
+        cLackingH+cImprovedH+cErrH+encH+
+      '</div></div>';
+    creativeScore = cBricks;
   } else {
     // ── 폴백: AI 서버 연결 안내 ──
+    cBricks = 3;
     creativeScore = 3;
-    refStars = 0;
-    secs = '<div class="air-section"><div class="air-section-lbl">안내</div><div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(247,242,232,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>';
-    errH = '';
-    tip = '쓴 문장을 소리 내어 읽어보세요. 마음에 걸리는 부분이 보이면 그게 다음 고칠 곳입니다.';
+    cHtml = '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
+      '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
+      '<div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br>'+
+      '<span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>'+
+      '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 마음에 걸리는 부분이 보이면 그게 다음 고칠 곳입니다.</div></div></div>';
   }
 
-  // P1-6: 창작은 코멘트 중심, 별점 참고용만
-  document.getElementById('cRes').innerHTML=
-    '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
-    '<div class="air-body">'+secs+errH+
-    (refStars ? '<div style="text-align:right;font-size:11px;color:rgba(247,242,232,0.35);margin-top:8px;">'+renderStarsHTML(refStars,5)+' (참고용)</div>' : '')+
-    '<div class="air-tip">💡 '+tip+'</div></div></div>';
+  document.getElementById('cRes').innerHTML = cHtml;
   if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
   document.getElementById('cNext').style.display='block';
 };
@@ -4020,7 +4076,7 @@ function finishEarly(stage) {
     sentence:todaySent.text, author:todaySent.author, source:todaySent.source,
     copyText: copyText, structText: structText, structScore: structScore || 0,
     creative:'('+stageNames[stage]+'까지 완료)', creativeScore:0,
-    structFb: stage === 'struct' ? '구조 연습 ★'+structScore : '',
+    structFb: stage === 'struct' ? '구조 연습 🧱'+structScore : '',
     creativeFb: stageNames[stage] + '까지 완료',
     completedSteps: completedSteps,
     inputMode:currentInputMode, durationSeconds:elapsed
@@ -4036,9 +4092,9 @@ finish = function() {
   var sStars=structScore||0, cStars=creativeScore||0, totalStars=sStars+cStars;
   document.getElementById('finalScore').textContent=totalStars;
 
-  // 별점 요약 (작게)
-  document.getElementById('dbStructStars').innerHTML=renderStarsHTML(sStars,5);
-  document.getElementById('dbCreativeStars').innerHTML=renderStarsHTML(cStars,5);
+  // 벽돌 요약 (작게)
+  document.getElementById('dbStructStars').innerHTML='🧱'.repeat(sStars)||'—';
+  document.getElementById('dbCreativeStars').innerHTML='🧱'.repeat(cStars)||'—';
 
   // 벽돌 비주얼
   var stars=loadStars();
@@ -4085,7 +4141,7 @@ finish = function() {
     copyText:document.getElementById('copyTa').value||'',
     structText:document.getElementById('structTa').value||'',structScore:sStars,
     creative:document.getElementById('creativeTa').value||'(미작성)',creativeScore:cStars,
-    structFb:'구조 연습 ★'+sStars,creativeFb:'창의적 글쓰기 ★'+cStars,
+    structFb:'구조 연습 🧱'+sStars,creativeFb:'창의적 글쓰기 🧱'+cStars,
     completedSteps:['copy','struct','creative'],
     inputMode:currentInputMode,durationSeconds:elapsed};
   pastRecords.unshift(newRec); saveRecord(newRec);

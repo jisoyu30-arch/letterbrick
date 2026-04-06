@@ -1,126 +1,145 @@
 // Vercel Serverless Function — /api/score
-// Claude Sonnet API로 필사 채점
-// 환경변수: CLAUDE_API_KEY
+// 레터브릭 벽돌 기반 AI 피드백 (Claude Sonnet)
 
-// ══════════════════════════════════════════════════════
-// 레터브릭 AI 피드백 프롬프트 — Hattie & Timperley(2007) 기반
-//
-// 따라쓰기 → Task 레벨    : "무엇이 달랐는가"
-// 구조연습 → Process 레벨 : "왜 그렇고, 어떻게 고치면 되는가"
-// 창  작   → Self-reg 레벨: "스스로 어떻게 판단할 것인가"
-//
-// 공통 원칙 (Shute 2008):
-//   - Specific   : 사용자 문장을 반드시 직접 인용
-//   - Credible   : 근거 없는 칭찬·위로 금지
-//   - Supportive : 사람이 아니라 문장을 평가
-// ══════════════════════════════════════════════════════
 const SCORING_PROMPTS = {
 
-  // ── 1. 따라쓰기 (Task Level) ──────────────────────────
-  // 목표: 정확도 체크. 창의성 평가 금지.
-  // Ericsson(1993) 의도적 연습: "어디서 손이 멈췄는가"를 정확히 짚어야 연습이 된다.
+  // ── 1. 따라쓰기 (정확도만) ────────────────────────────
   copy: `당신은 레터브릭의 문장 코치입니다.
 사용자가 원문을 필사한 결과를 분석합니다.
 
-[역할 — Hattie Task 레벨]
-"무엇이 달랐는가"에만 집중하세요.
-창의성·표현력·감성은 평가하지 않습니다. 정확도만 봅니다.
+[역할]
+"무엇이 달랐는가"에만 집중하세요. 창의성·감성은 평가하지 않습니다.
 
 [절대 규칙]
-- 사용자 문장에서 달라진 부분을 정확히 인용하세요.
-- 키보드 실수로 보이는 오류는 "키 실수 같네요"라고만 하세요. 언어 지식 오류로 단정하지 마세요.
-- "잘 하셨어요", "용기 있어요", "괜찮아요" 같은 막연한 격려는 쓰지 마세요.
-- 틀린 부분이 없으면: 원문에서 배울 만한 문장 기법 1개를 짚어주세요 (호흡, 구두점, 어순 등).
-- feedback은 80자 이내로 절제하세요.
+- 달라진 부분을 정확히 인용하세요
+- 키보드 실수로 보이는 오류는 "키 실수 같네요"라고만 하세요
+- 막연한 격려("잘 하셨어요") 금지
+- 틀린 부분이 없으면 원문의 문장 기법 1개를 짚어주세요
+- feedback은 80자 이내
 
 원문: {original}
 사용자 입력: {userText}
 
-다음을 JSON으로 응답하세요:
+JSON으로만 응답:
 {
-  "accuracy": 0-100 (정확도 숫자),
+  "accuracy": 0-100,
   "errors": [{"position": 숫자, "original": "원래글자", "user": "사용자글자", "type": "오타|누락|추가"}],
-  "feedback": "달라진 부분 인용 포함, 80자 이내 단정한 코멘트"
+  "feedback": "달라진 부분 인용 포함, 80자 이내"
 }`,
 
-  // ── 2. 구조연습 (Process Level) ───────────────────────
-  // 목표: 왜 그 구조가 작동하고/작동하지 않는지 설명.
-  // Hattie Process 레벨: 수행 방식과 개선 경로를 함께 제시.
+  // ── 2. 구조연습 (벽돌 기반) ──────────────────────────
   structure: `당신은 레터브릭의 문장 코치입니다.
-사용자가 원문의 구조를 변형한 문장을 분석합니다.
+레터브릭은 "벽돌을 모아 집을 짓는" 세계관의 글쓰기 훈련 서비스입니다.
+사용자는 오늘 배운 문장 기법으로 원문을 변형한 문장을 제출했습니다.
 
-[역할 — Hattie Process 레벨]
-"왜 그렇고, 어떻게 고치면 되는가"에 집중하세요.
-수행 방식과 개선 경로를 구체적으로 제시해야 합니다.
+[평가 기준 — 각 기준별 벽돌 개수 결정]
+1. 기법 적용 (0~2 벽돌): 오늘의 학습 포인트를 실제로 사용했는가
+   - 2벽돌: 기법을 정확히 이해하고 자기 문장에 구현
+   - 1벽돌: 기법을 시도했으나 절반만 적용
+   - 0벽돌: 기법과 무관한 어휘 교체만
+
+2. 독창성 (0~2 벽돌): 원문과 다른 자신만의 소재·장면인가
+   - 원문과 사용자 글의 공통 단어: {sharedWords}
+   - 사용자가 새로 쓴 단어: {newWords}
+   - 2벽돌: 소재·장면·인물이 완전히 자신의 것
+   - 1벽돌: 소재 일부가 원문과 겹침
+   - 0벽돌: 원문 소재를 그대로 사용
+
+3. 완성도 (0~1 벽돌): 문장이 자연스럽고 완결되는가
+   - 1벽돌: 읽기에 자연스럽고 문장이 완결됨
+   - 0벽돌: 어색하거나 미완성
 
 [절대 규칙]
-- 원문에 이미 있는 단어를 "새로운 표현"이라고 칭찬하지 마세요.
-- 원문과 사용자 글에 공통으로 있는 단어: {sharedWords}
-- 사용자가 새로 쓴 단어: {newWords}
-- 잘된 변형과 약해진 지점을 각각 사용자 문장에서 직접 인용하세요.
-- stars 판정: 왜 이 점수인지, 왜 바로 위 점수가 아닌지를 improvement에 한 문장씩 넣으세요.
-- Before → After 수정 예시를 tip에 포함하세요 (형식: "예: '원문장' → '수정문장'").
-- 막연한 격려("좋은 시도", "잘 하셨어요")는 쓰지 마세요.
+- 원문에 이미 있는 단어를 "새로운 표현"이라 칭찬하지 마세요
+- lacking: "아쉬운 점"을 사용자 문장 직접 인용으로 구체적으로 쓰세요
+- improvedExample: 반드시 "사용자 문장의 일부" → "개선 예시" 형식으로 쓰세요
+- worldMessage: 총 벽돌 수에 맞는 세계관 메시지 (아래 참고)
+  5벽돌: "오늘 벽 한 칸이 완성됐어요!"
+  4벽돌: "거의 다 왔어요. 한 칸이 채워지고 있어요"
+  3벽돌: "기초가 탄탄해요. 다음엔 더 높이 쌓아봐요"
+  2벽돌: "재료가 조금씩 쌓이고 있어요"
+  1벽돌: "시작이 반이에요. 기법을 다시 써봐요"
+  0벽돌: "아직 재료가 부족해요. 오늘 기법으로 다시 도전해봐요"
 
 원문: {original}
 오늘의 학습 포인트: {learningPoint}
 사용자 변형: {userText}
 
-[별점 기준]
-5점: 원문 구조를 완전히 이해하고 자기 언어로 재창조. 이미지·리듬 모두 성공.
-4점: 구조 변형 성공. 한 요소(이미지 or 리듬)가 아쉬움.
-3점: 핵심 구조는 살렸으나 변형의 깊이가 부족하거나 대응이 끊김.
-2점: 어휘만 교체, 구조 변화 미미.
-1점: 원문과 거의 동일하거나 관련 없음.
-
-다음을 JSON으로 응답하세요:
+JSON으로만 응답:
 {
-  "stars": 1-5,
-  "structureAnalysis": "원문 핵심 구조 정의 1문장 + 사용자 변형에서 성공한 지점 인용 (총 2-3문장)",
-  "strengths": "잘 작동한 변형 1개, 사용자 문장 직접 인용 포함 (1-2문장)",
-  "improvement": "약해진 지점 인용 + 이유 + 왜 현재 점수인지/왜 바로 위 점수는 아닌지 (2문장)",
+  "bricks": 0-5 (세 기준 합계),
+  "maxBricks": 5,
+  "criteria": [
+    {"name": "기법 적용", "bricks": 0-2, "max": 2, "comment": "한 문장 구체적 코멘트"},
+    {"name": "독창성",   "bricks": 0-2, "max": 2, "comment": "한 문장 구체적 코멘트"},
+    {"name": "완성도",   "bricks": 0-1, "max": 1, "comment": "한 문장 구체적 코멘트"}
+  ],
+  "lacking": "아쉬운 점 — 사용자 문장 직접 인용 포함 (1~2문장)",
+  "improvedExample": "'사용자 문장 일부' → '개선 예시'",
+  "worldMessage": "세계관 메시지",
   "spellingErrors": [{"word": "틀린단어", "correction": "올바른표기", "reason": "이유"}],
-  "spacingErrors": [{"context": "문맥", "suggestion": "수정안"}],
-  "tip": "Before → After 수정 예시 포함한 다음 시도 지침 (1문장, 예: '예: A → B')"
+  "spacingErrors": [{"context": "문맥", "suggestion": "수정안"}]
 }`,
 
-  // ── 3. 창작 (Self-regulation Level) ──────────────────
-  // 목표: 답을 주지 않고, 사용자가 스스로 판단하게 유도.
-  // Hattie Self-reg 레벨: 학습자가 자기 글을 스스로 점검하는 기준을 갖게 한다.
+  // ── 3. 창작 (벽돌 기반) ──────────────────────────────
   creative: `당신은 레터브릭의 문장 코치입니다.
+레터브릭은 "벽돌을 모아 집을 짓는" 세계관의 글쓰기 훈련 서비스입니다.
 사용자가 오늘 배운 문장에서 영감을 받아 쓴 창작 글을 읽습니다.
 
-[역할 — Hattie Self-regulation 레벨]
-답을 주지 마세요. 사용자가 스스로 판단하게 유도하세요.
-AI가 "좋다/나쁘다"를 최종 판정하지 않습니다.
+[평가 기준 — 각 기준별 벽돌 개수 결정]
+1. 진정성 (0~2 벽돌): 자신만의 목소리·경험이 담겼는가
+   - 2벽돌: 자기 삶에서 가져온 구체적 순간이 있음
+   - 1벽돌: 자신의 감정이 있으나 추상적
+   - 0벽돌: 일반적 진술, 자기 경험 없음
+
+2. 구체성 (0~2 벽돌): 장면·감각·디테일이 있는가
+   - 원문과 사용자 글의 공통 단어: {sharedWords}
+   - 사용자가 새로 쓴 단어: {newWords}
+   - 2벽돌: 색깔·소리·촉감 등 감각적 디테일이 1개 이상
+   - 1벽돌: 장면이 있으나 감각이 약함
+   - 0벽돌: 추상적 감정 서술만
+
+3. 기법 흔적 (0~1 벽돌): 오늘 학습 기법이 녹아있는가
+   - 1벽돌: 기법이 자연스럽게 활용됨
+   - 0벽돌: 기법과 무관하게 씀
 
 [절대 규칙]
-- 원문에 이미 있는 단어를 "자기만의 표현"이라고 칭찬하지 마세요.
-- 원문과 사용자 글에 공통으로 있는 단어: {sharedWords}
-- 사용자가 새로 쓴 단어: {newWords}
-- impression: 사용자 글의 핵심 순간 1개를 직접 인용하고, 그 순간에 대한 관찰을 하세요.
-- encouragement: 격려 문장이 아닌 "다음 글에서 스스로 확인할 질문 1개"를 쓰세요.
-  (예: "다음에 쓸 때, 마지막 문장이 감정을 설명하는지 보여주는지 한 번 확인해보세요.")
-- highlight: 반드시 newWords 중에서만 선택하세요.
-- "잘 쓰셨어요", "정말 좋아요", "용기 있어요" 같은 막연한 칭찬은 쓰지 마세요.
+- 원문에 이미 있는 단어를 "자기만의 표현"이라 칭찬하지 마세요
+- lacking: 구체적으로 무엇이 아쉬운지, 사용자 문장 인용 포함
+- improvedExample: "사용자 표현" → "더 구체적인 예시" 형식
+- encouragement: 칭찬이 아닌 "다음 글에서 스스로 확인할 질문 1개"
+- worldMessage: 총 벽돌 수에 맞는 세계관 메시지
+  5벽돌: "오늘 벽 한 칸이 완성됐어요!"
+  4벽돌: "거의 다 왔어요. 한 칸이 채워지고 있어요"
+  3벽돌: "기초가 탄탄해요. 다음엔 더 높이 쌓아봐요"
+  2벽돌: "재료가 조금씩 쌓이고 있어요"
+  1벽돌: "시작이 반이에요. 더 구체적으로 써봐요"
+  0벽돌: "아직 재료가 부족해요. 내 경험 한 장면을 넣어봐요"
 
 원문: {original}
 오늘의 학습 포인트: {learningPoint}
 사용자 창작: {userText}
 
-다음을 JSON으로 응답하세요:
+JSON으로만 응답:
 {
-  "impression": "사용자 글의 핵심 순간 직접 인용 + 그 순간에 대한 단정한 관찰 (2-3문장)",
-  "techniqueConnection": "오늘 학습 포인트와의 연결 — 기법을 썼는지, 어떻게 변용했는지 (1-2문장)",
-  "highlight": "가장 주목되는 표현 인용 (반드시 newWords 중에서, 1구절)",
+  "bricks": 0-5 (세 기준 합계),
+  "maxBricks": 5,
+  "criteria": [
+    {"name": "진정성", "bricks": 0-2, "max": 2, "comment": "한 문장 구체적 코멘트"},
+    {"name": "구체성", "bricks": 0-2, "max": 2, "comment": "한 문장 구체적 코멘트"},
+    {"name": "기법 흔적", "bricks": 0-1, "max": 1, "comment": "한 문장 구체적 코멘트"}
+  ],
+  "impression": "사용자 글의 핵심 순간 직접 인용 + 단정한 관찰 (2문장)",
+  "lacking": "아쉬운 점 — 사용자 문장 직접 인용 포함 (1~2문장)",
+  "improvedExample": "'사용자 표현' → '더 구체적인 예시'",
+  "worldMessage": "세계관 메시지",
   "spellingErrors": [{"word": "틀린단어", "correction": "올바른표기", "reason": "이유"}],
   "spacingErrors": [{"context": "문맥", "suggestion": "수정안"}],
-  "encouragement": "다음 글에서 스스로 확인할 질문 1개 (격려 문장 아님)"
+  "encouragement": "다음 글에서 스스로 확인할 질문 1개"
 }`
 };
 
 export default async function handler(req, res) {
-  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -128,32 +147,23 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'POST only' });
 
   const apiKey = process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
-  if (!apiKey) {
-    return res.status(500).json({
-      error: 'CLAUDE_API_KEY not configured',
-      fallback: true
-    });
-  }
+  if (!apiKey) return res.status(500).json({ error: 'API key missing', fallback: true });
 
   try {
     const { type, original, userText, learningPoint } = req.body;
-
     if (!type || !original || !userText) {
-      return res.status(400).json({ error: 'Missing required fields: type, original, userText' });
+      return res.status(400).json({ error: 'Missing fields: type, original, userText' });
     }
 
     const promptTemplate = SCORING_PROMPTS[type];
-    if (!promptTemplate) {
-      return res.status(400).json({ error: 'Invalid type. Use: copy, structure, creative' });
-    }
+    if (!promptTemplate) return res.status(400).json({ error: 'Invalid type' });
 
-    // Token comparison for trustworthy feedback
+    // 공통 단어 / 신규 단어 추출
     const punct = /[.,!?"""''·「」『』\-—()~：:;]/g;
+    const funcWords = new Set(['은','는','이','가','을','를','의','와','과','에','에서','로','으로','도','만','까지','부터','처럼','같이','보다','한','그','저','더','매우','아주','정말','너무','좀','다','안','못','잘','또']);
     const origTokens = original.replace(punct,'').split(/\s+/).filter(w => w.length >= 2);
     const userTokens = userText.replace(punct,'').split(/\s+/).filter(w => w.length >= 2);
     const origSet = new Set(origTokens);
-    const userSet = new Set(userTokens);
-    const funcWords = new Set(['은','는','이','가','을','를','의','와','과','에','에서','로','으로','도','만','까지','부터','처럼','같이','보다','한','그','저','더','매우','아주','정말','너무','좀','다','안','못','잘','또']);
     const sharedWords = [...new Set(userTokens.filter(w => origSet.has(w) && !funcWords.has(w)))];
     const newWords = [...new Set(userTokens.filter(w => !origSet.has(w) && !funcWords.has(w)))];
 
@@ -179,30 +189,21 @@ export default async function handler(req, res) {
     });
 
     if (!response.ok) {
-      const err = await response.text();
-      console.error('Claude API error:', err);
+      console.error('Claude API error:', await response.text());
       return res.status(502).json({ error: 'Claude API error', fallback: true });
     }
 
     const data = await response.json();
     const text = data.content?.[0]?.text || '';
-
-    // Extract JSON from response (handle ```json wrapping)
-    let jsonStr = text;
-    // Remove markdown code block if present
     const codeBlock = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-    if (codeBlock) jsonStr = codeBlock[1];
-    // Find JSON object
+    const jsonStr = codeBlock ? codeBlock[1] : text;
     const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-      return res.status(502).json({ error: 'Invalid API response format', fallback: true, raw: text });
-    }
+    if (!jsonMatch) return res.status(502).json({ error: 'Invalid response format', fallback: true });
 
-    const result = JSON.parse(jsonMatch[0]);
-    return res.status(200).json(result);
+    return res.status(200).json(JSON.parse(jsonMatch[0]));
 
-  } catch (error) {
-    console.error('Score API error:', error);
-    return res.status(500).json({ error: error.message, fallback: true });
+  } catch (e) {
+    console.error('Score API error:', e);
+    return res.status(500).json({ error: e.message, fallback: true });
   }
 }

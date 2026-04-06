@@ -1,5 +1,5 @@
 // LetterBrick Service Worker — 오프라인 캐싱
-const CACHE_NAME = 'letterbrick-v6';
+const CACHE_NAME = 'letterbrick-v7';
 const ASSETS = [
   '/',
   '/demo.html',
