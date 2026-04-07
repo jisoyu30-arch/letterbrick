@@ -5273,10 +5273,17 @@ async function loadSentencesFromFirestore() {
 function applyDataToApp() {
   // GROWTH_DAYS → SENTENCES 변환
   if (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS && GROWTH_DAYS.length > 0) {
+    // 로컬 SENTENCES의 learn 데이터 보존 (text 기준 매핑)
+    var localLearnMap = {};
+    SENTENCES.forEach(function(s) {
+      if (s.learn && s.learn.coreSkill) {
+        localLearnMap[s.text.trim()] = s.learn;
+      }
+    });
     SENTENCES.length = 0;
     GROWTH_DAYS.forEach(function(day, i) {
       function makeSent(v, dayNum) {
-        var learnObj = v.learn || {
+        var learnObj = localLearnMap[v.t && v.t.trim()] || v.learn || {
           why: v.pt,
           structure: '원문의 구조를 자세히 살펴보세요.',
           technique: '<b>' + v.pt + '</b>'
