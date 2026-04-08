@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="레터브릭 — AI 시대의 문장 훈련 루틴. 와디즈 오픈 특별가로 시작하세요.">
+<meta property="og:title" content="레터브릭 · letterBrick — 와디즈 오픈">
+<meta property="og:description" content="매일 한 문장, 벽돌처럼 쌓는 문장력. 지금이 가장 좋은 조건입니다.">
+<title>레터브릭 · letterBrick — 와디즈 오픈</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F2E8;--paper2:#EDE7D6;--paper3:#FAF7F2;
+  --ink:#2E2A26;--ink2:#5C5248;--ink3:#9A9089;
+  --brick:#B65E3C;--brick-d:#8F4A2E;--brick-l:#F2E4DA;--brick-p:#FAF0EB;
+  --line:#D8D0C0;--gold:#A07828;--gold-p:#F5EDD0;
+  --green:#3D6B50;--green-p:#D8EADF;
+  --red:#C0392B;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ── GLOBAL ── */
+.section{padding:64px 20px;max-width:680px;margin:0 auto;}
+.section-dark{padding:64px 20px;color:#fff;}
+.section-dark .inner{max-width:680px;margin:0 auto;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brick);margin-bottom:12px;}
+.eyebrow-light{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brick);margin-bottom:12px;}
+.stitle{font-family:'Gowun Batang',serif;font-size:24px;line-height:1.55;margin-bottom:16px;}
+.sbody{font-size:14px;line-height:1.95;margin-bottom:20px;}
+.divider{width:40px;height:2px;background:var(--line);margin:0 auto;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.cta-btn{display:inline-block;padding:16px 44px;background:var(--brick);color:var(--paper);border:none;border-radius:40px;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s;}
+.cta-btn:hover{background:#C96A45;transform:translateY(-2px);box-shadow:0 12px 32px rgba(182,94,60,.4);}
+.card{background:var(--paper3);border:1px solid var(--line);border-radius:16px;padding:24px 20px;}
+.card-dark{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 18px;}
+
+/* ── STICKY BANNER ── */
+.top-banner{background:var(--brick);color:#fff;text-align:center;padding:10px 20px;font-size:12px;font-weight:600;letter-spacing:.3px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:center;gap:12px;}
+.top-banner b{font-weight:800;}
+.top-banner .banner-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:18px;cursor:pointer;padding:0 4px;line-height:1;flex-shrink:0;}
+.top-banner .banner-close:hover{color:#fff;}
+.top-banner.hidden{display:none;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 20px 80px;position:relative;background:linear-gradient(180deg,var(--ink) 0%,#3A302A 55%,var(--brick-d) 100%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,var(--paper));}
+.hero-brand{font-size:11px;font-weight:600;letter-spacing:2px;color:rgba(247,242,232,.35);margin-bottom:24px;animation:fadeUp .7s .1s ease both;}
+.hero h1{font-family:'Gowun Batang',serif;font-size:26px;line-height:1.6;color:var(--paper);margin-bottom:16px;animation:fadeUp .7s .25s ease both;}
+.hero h1 em{color:var(--brick);font-style:normal;}
+.hero-sub{font-size:14px;color:rgba(247,242,232,.55);line-height:1.85;max-width:420px;margin:0 auto 32px;animation:fadeUp .7s .4s ease both;}
+.hero-cta-wrap{animation:fadeUp .7s .55s ease both;position:relative;z-index:2;}
+.hero-badge{margin-top:14px;animation:fadeUp .7s .65s ease both;}
+.hero-badge span{display:inline-block;background:rgba(255,255,255,.12);color:rgba(247,242,232,.8);font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;letter-spacing:.3px;border:1px solid rgba(255,255,255,.15);}
+
+/* ── SOLUTION ── */
+.flow-card{background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:20px;padding:32px 24px;text-align:center;margin:24px 0;}
+.flow-pills{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:16px 0;}
+.flow-pills .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 14px;font-size:12px;color:rgba(247,242,232,.75);white-space:nowrap;}
+.flow-pills .pill.accent{border-color:var(--brick);color:var(--brick);}
+.flow-pills .arrow{color:var(--brick);font-size:14px;}
+
+/* ── STORY PANELS ── */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.story-panel{border-radius:14px;padding:22px 18px;text-align:center;}
+.story-panel .sp-icon{font-size:32px;margin-bottom:10px;}
+.story-panel .sp-text{font-family:'Gowun Batang',serif;font-size:14px;line-height:1.6;}
+.story-light{background:var(--paper3);border:1px solid var(--line);color:var(--ink);}
+.story-dark{background:linear-gradient(135deg,var(--ink),#3A302A);color:var(--paper);}
+
+/* ── PROBLEM / INSIGHT ── */
+.insight-section{background:var(--ink);padding:64px 20px;color:#fff;}
+.insight-inner{max-width:680px;margin:0 auto;}
+.data-card{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px;padding:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;}
+.data-card .dc-icon{font-size:24px;flex-shrink:0;width:40px;text-align:center;}
+.data-card .dc-text{font-size:13px;color:rgba(247,242,232,.7);line-height:1.8;}
+.data-card .dc-text b{color:var(--paper);}
+.data-card .dc-src{font-size:10px;color:rgba(247,242,232,.3);margin-top:4px;display:block;}
+
+/* ── SCIENCE ── */
+.science-section{background:linear-gradient(180deg,#2A2520,var(--ink));padding:64px 20px;color:#fff;}
+.science-inner{max-width:680px;margin:0 auto;}
+.sci-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 18px;margin-bottom:14px;}
+.sci-badge{font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:8px;display:inline-block;margin-bottom:10px;}
+.sci-badge.am{background:var(--gold-p);color:var(--gold);box-shadow:0 0 12px rgba(160,120,40,.15);}
+.sci-badge.pm{background:rgba(100,149,237,.2);color:#6495ED;box-shadow:0 0 12px rgba(100,149,237,.15);}
+.sci-card h4{font-size:15px;font-weight:700;color:var(--paper);margin-bottom:6px;}
+.sci-card p{font-size:12px;color:rgba(247,242,232,.6);line-height:1.8;}
+.sci-card .ref{font-size:10px;color:rgba(247,242,232,.3);margin-top:6px;}
+.rhythm-box{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:24px 0;padding:20px;background:rgba(182,94,60,.1);border:1px solid rgba(182,94,60,.2);border-radius:14px;}
+.rhythm-box .ri{text-align:center;}
+.rhythm-box .ri-time{font-size:10px;color:var(--brick);font-weight:700;margin-bottom:2px;}
+.rhythm-box .ri-label{font-size:13px;color:var(--paper);font-weight:600;}
+.rhythm-box .ri-desc{font-size:10px;color:rgba(247,242,232,.4);}
+.rhythm-box .ri-arrow{color:var(--brick);font-size:16px;}
+
+/* ── REWARD SECTION ── */
+.reward-section{background:var(--paper2);padding:64px 20px;}
+.reward-inner{max-width:720px;margin:0 auto;}
+.price-anchor{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:24px;}
+.price-anchor .pa-label{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:1px;margin-bottom:12px;}
+.pa-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--ink2);}
+.pa-row:last-child{border-bottom:none;}
+.pa-row .val{font-weight:700;color:var(--ink);}
+.pa-row.total{font-weight:700;color:var(--ink);font-size:14px;background:var(--paper3);margin:8px -8px -8px;padding:12px 8px;border-radius:0 0 12px 12px;}
+.pa-row.total .val{color:var(--brick);}
+
+/* Day1 bonus */
+.d1-banner{background:linear-gradient(135deg,var(--gold),#C69832);color:#fff;font-size:13px;font-weight:700;padding:16px 18px;border-radius:14px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden;}
+.d1-banner::before{content:'🎁';position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:22px;}
+.d1-banner .d1-main{margin-left:24px;}
+.d1-banner .d1-sub{font-size:10px;font-weight:400;opacity:.8;margin-top:4px;}
+
+/* Reward cards */
+.rw-grid{display:grid;gap:16px;margin:24px 0;}
+.rw-card{background:#fff;border:2px solid var(--line);border-radius:18px;padding:24px 20px;position:relative;transition:all .3s ease;}
+.rw-card:hover{border-color:var(--brick);box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-4px);}
+.rw-card.hero-card{border-color:var(--brick);border-width:3px;background:linear-gradient(180deg,var(--brick-p) 0%,#fff 40%);box-shadow:0 12px 40px rgba(182,94,60,.2);transform:scale(1.02);}
+.rw-card.hero-card:hover{transform:scale(1.04);box-shadow:0 16px 48px rgba(182,94,60,.3);}
+.rw-card.hero-card::before{content:'BEST';position:absolute;top:-12px;left:20px;background:linear-gradient(135deg,var(--brick),#D4724A);color:#fff;font-size:10px;font-weight:800;padding:4px 16px;border-radius:10px;letter-spacing:1.5px;box-shadow:0 4px 12px rgba(182,94,60,.3);}
+.rw-card .rw-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 10px;border-radius:8px;margin-bottom:10px;}
+.rw-badge.super{background:var(--gold-p);color:var(--gold);}
+.rw-badge.early{background:var(--green-p);color:var(--green);}
+.rw-badge.fund{background:var(--paper2);color:var(--ink3);}
+.rw-badge.trial{background:var(--brick-l);color:var(--brick-d);}
+.rw-card .rw-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.rw-card .rw-period{font-size:12px;color:var(--ink3);margin-bottom:14px;}
+.rw-card .rw-prices{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;}
+.rw-card .rw-org{font-size:14px;color:var(--ink3);text-decoration:line-through;}
+.rw-card .rw-price{font-family:'Gowun Batang',serif;font-size:30px;color:var(--brick);font-weight:700;}
+.rw-card .rw-price span{font-size:14px;font-family:'Noto Sans KR',sans-serif;font-weight:400;}
+.rw-card .rw-save{font-size:12px;font-weight:600;color:var(--red);margin-bottom:6px;}
+.rw-card .rw-monthly{font-size:12px;color:var(--ink3);margin-bottom:14px;padding:6px 12px;background:var(--paper3);border-radius:8px;display:inline-block;}
+.rw-card .rw-list{list-style:none;margin-bottom:16px;}
+.rw-card .rw-list li{font-size:12px;color:var(--ink2);padding:5px 0;border-bottom:1px solid rgba(0,0,0,.04);}
+.rw-card .rw-list li::before{content:'✓';margin-right:8px;color:var(--green);font-weight:700;}
+.rw-card .rw-list li.highlight{color:var(--ink);font-weight:600;}
+.rw-card .rw-list li.highlight::before{color:var(--brick);}
+.rw-card .rw-limit{font-size:11px;color:var(--ink3);text-align:center;margin-bottom:12px;}
+.rw-btn{width:100%;padding:14px;border:none;border-radius:12px;font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;}
+.rw-btn.primary{background:var(--brick);color:#fff;}
+.rw-btn.primary:hover{background:var(--brick-d);}
+.rw-btn.secondary{background:var(--ink);color:var(--paper);}
+.rw-btn.secondary:hover{background:var(--brick);}
+.rw-btn.outline{background:transparent;border:2px solid var(--line);color:var(--ink2);}
+.rw-btn.outline:hover{border-color:var(--brick);color:var(--brick);}
+.rw-section-label{text-align:center;margin:20px 0 8px;font-size:13px;font-weight:700;color:var(--ink);letter-spacing:1px;}
+
+/* ── COMPANION ── */
+.companion-card{border-radius:16px;padding:22px 20px;display:flex;gap:16px;align-items:flex-start;margin-bottom:14px;}
+.companion-card .cc-icon{font-size:32px;flex-shrink:0;}
+.companion-card h4{font-size:15px;font-weight:700;margin-bottom:6px;}
+.companion-card p{font-size:13px;line-height:1.8;}
+.cc-kakao{background:linear-gradient(135deg,#FEE500,#F5D800);color:var(--ink);}
+.cc-event{background:linear-gradient(135deg,var(--brick-p),var(--brick-l));border:1.5px solid var(--brick);color:var(--ink);}
+.habit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.habit-item{text-align:center;padding:16px 10px;background:var(--paper3);border-radius:12px;border:1px solid var(--line);}
+.habit-item .hi-icon{font-size:22px;margin-bottom:6px;}
+.habit-item .hi-title{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.habit-item .hi-desc{font-size:11px;color:var(--ink3);}
+
+/* ── HOW IT WORKS ── */
+.step-list{display:grid;gap:12px;margin:24px 0;}
+.step-item{display:flex;gap:14px;align-items:flex-start;background:var(--paper3);border:1px solid var(--line);border-radius:14px;padding:18px 16px;}
+.step-num{width:32px;height:32px;border-radius:10px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.step-num.accent{background:var(--brick);}
+.step-item h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.step-item p{font-size:12px;color:var(--ink3);line-height:1.7;}
+
+/* ── EDITIONS ── */
+.edition-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.edition-card{border-radius:18px;padding:28px 22px;color:var(--paper);}
+.edition-card.growth{background:linear-gradient(135deg,var(--ink),#3A302A);}
+.edition-card.healing{background:linear-gradient(135deg,#3D352C,#2A2520);}
+.edition-card .ec-badge{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:12px;}
+.edition-card h3{font-family:'Gowun Batang',serif;font-size:18px;margin-bottom:8px;}
+.edition-card .ec-desc{font-size:12px;color:rgba(247,242,232,.55);line-height:1.7;margin-bottom:14px;}
+.edition-card ul{list-style:none;}
+.edition-card li{font-size:12px;color:rgba(247,242,232,.7);padding:4px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.edition-card li::before{content:'·';margin-right:8px;color:var(--brick);}
+
+/* ── FEATURES ── */
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.feat-card{background:var(--paper3);border:1px solid var(--line);border-radius:16px;padding:24px 20px;}
+.feat-card .fc-icon{font-size:24px;margin-bottom:10px;}
+.feat-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.feat-card p{font-size:13px;color:var(--ink3);line-height:1.7;}
+
+/* ── AI DIFF TABLE ── */
+.diff-table{width:100%;border-collapse:collapse;font-size:12px;margin:20px 0;}
+.diff-table th{padding:10px 12px;text-align:center;}
+.diff-table td{padding:8px 12px;border-bottom:1px solid var(--line);}
+.diff-table .col-lb{font-weight:600;color:var(--ink);}
+.diff-table .col-other{color:var(--ink3);text-align:center;}
+
+/* ── TIMELINE ── */
+.timeline{margin:24px 0;position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--line);}
+.tl-item{margin-bottom:24px;position:relative;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;border:2px solid var(--paper);}
+.tl-dot.done{background:var(--brick);}
+.tl-dot.now{background:var(--green);box-shadow:0 0 0 4px var(--green-p);}
+.tl-dot.soon{background:var(--line);}
+.tl-date{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:.5px;margin-bottom:3px;}
+.tl-text{font-size:14px;color:var(--ink);line-height:1.6;}
+
+/* ── TARGET ── */
+.target-list{list-style:none;margin:20px 0;}
+.target-list li{font-size:14px;color:var(--ink2);line-height:1.7;padding:10px 0;border-bottom:1px solid var(--line);}
+.target-list li::before{content:'✓';margin-right:10px;color:var(--brick);font-weight:700;font-size:16px;}
+
+/* ── FOUNDER ── */
+.founder-card{background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:18px;padding:28px 22px;margin:20px 0;color:var(--paper);}
+.founder-card .f-badge{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:12px;}
+.founder-card h3{font-family:'Gowun Batang',serif;font-size:18px;line-height:1.5;margin-bottom:14px;}
+.founder-card p{font-size:13px;color:rgba(247,242,232,.6);line-height:1.9;}
+
+/* ── FAQ ── */
+.faq-item{border-bottom:1px solid var(--line);padding:16px 0;}
+.faq-q{font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-q::after{content:'+';font-size:20px;color:var(--ink3);transition:transform .2s;flex-shrink:0;}
+.faq-q.open::after{transform:rotate(45deg);}
+.faq-a{font-size:13px;color:var(--ink2);line-height:1.85;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;}
+.faq-a.open{max-height:400px;padding-top:10px;}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{text-align:center;padding:72px 20px;background:linear-gradient(135deg,var(--ink),#3A302A);}
+.bottom-cta h2{font-family:'Gowun Batang',serif;font-size:24px;color:var(--paper);margin-bottom:12px;line-height:1.5;}
+.bottom-cta p{font-size:13px;color:rgba(247,242,232,.45);margin-bottom:28px;line-height:1.7;}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:28px 20px;font-size:11px;color:var(--ink3);}
+footer a{color:var(--brick);text-decoration:none;}
+
+/* ── IMG PLACEHOLDERS ── */
+.img-placeholder{background:var(--paper2);border:2px dashed var(--line);border-radius:16px;padding:40px 20px;text-align:center;margin:20px 0;color:var(--ink3);font-size:12px;line-height:1.7;}
+.img-placeholder.dark{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:rgba(247,242,232,.35);}
+.img-placeholder .ip-title{font-size:13px;font-weight:700;color:var(--ink2);margin-bottom:6px;}
+.img-placeholder.dark .ip-title{color:rgba(247,242,232,.6);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero h1{font-size:22px;}
+  .stitle{font-size:21px;}
+  .edition-grid,.feat-grid{grid-template-columns:1fr;}
+  .rw-card.hero-card{order:-1;}
+  .story-grid{gap:10px;}
+  .story-panel{padding:18px 14px;}
+  .story-panel .sp-text{font-size:13px;}
+  .diff-table{font-size:11px;}
+}
+@media(min-width:600px){
+  .rw-grid{grid-template-columns:1fr 1fr;}
+  .rw-card.full-w{grid-column:1/-1;}
+  .hero h1{font-size:32px;}
+  .stitle{font-size:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     레터브릭 와디즈 펀딩 상세페이지
+     7막 스토리 아크 구조
+     1막: 공감 → 2막: 자각 → 3막: 전환점(기획자 스토리)
+     → 4막: 해결책 → 5막: 증거 → 6막: 제안 → 7막: 결심
+     ═══════════════════════════════════════════════════════════════ -->
+
+<!-- STICKY BANNER -->
+<div class="top-banner" id="topBanner">
+  <span>🎁 오픈 첫날 참여자 한정 — <b>어휘력 전자책 추가 증정</b> (22,000원 상당)</span>
+  <button class="banner-close" onclick="document.getElementById('topBanner').classList.add('hidden')" aria-label="닫기">&times;</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SEC 1 · HERO
+     배경: 어두운 그라데이션 (문제 인식 톤)
+     일러스트: 빈 노트 앞 실루엣 + AI 말풍선
+     ═══════════════════════════════════════════ -->
+<!-- ══════ 1막: 공감 — "이거 나잖아" ══════ -->
+<section class="hero">
+  <div class="hero-brand">STUDIO ON:SEOSA · 스튜디오 온:서사</div>
+  <h1>
+    오늘도 숏폼을 2시간 봤습니다.<br>
+    AI에게 이메일을 맡겼습니다.<br><br>
+    <em>내가 마지막으로 내 문장을 쓴 게<br>언제였지?</em>
+  </h1>
+  <p class="hero-sub">
+    좋은 문장을 보면 저장은 하는데, 다시 꺼내본 적은 없고.<br>
+    무언가 쓰고 싶지만 막상 첫 문장이 나오지 않고.<br>
+    AI에게 맡기다 보니, 내 말투가 점점 흐려지고.<br><br>
+    이 이야기가 당신의 이야기라면,<br>
+    레터브릭은 당신을 위해 만들어졌습니다.
+  </p>
+  <div class="hero-cta-wrap">
+    <a href="#rewards" class="cta-btn">지금 가장 좋은 조건으로 시작하기</a>
+  </div>
+  <div class="hero-badge">
+    <span>⚡ 슈퍼얼리버드 100명 한정 · 30% 할인 · 워크북 포함</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 3 · STORY PANELS
+     배경: 밝은 페이퍼 (따뜻한 톤 유지)
+     일러스트: 4컷 만화 패널 (선화 웹툰)
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">STORY</div>
+  <h2 class="stitle" style="color:var(--ink);">이런 경험, 한 번쯤 있으셨나요?</h2>
+  <div class="story-grid">
+    <div class="story-panel story-light">
+      <div class="sp-icon">📱</div>
+      <div class="sp-text">좋은 문장을 보면 저장은 하는데,<br>다시 꺼내본 적은 없다</div>
+    </div>
+    <div class="story-panel story-light">
+      <div class="sp-icon">😶</div>
+      <div class="sp-text">무언가 쓰고 싶지만<br>막상 첫 문장이 나오지 않는다</div>
+    </div>
+    <div class="story-panel story-light">
+      <div class="sp-icon">🤖</div>
+      <div class="sp-text">AI에게 맡기다 보니<br>내 말투가 점점 흐려진다</div>
+    </div>
+    <div class="story-panel story-dark">
+      <div class="sp-icon">✨</div>
+      <div class="sp-text">매일 한 문장씩 쓰고 바꿔보니,<br><b>어느 날 내 문장이 생겼다</b></div>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:var(--ink3);line-height:1.8;">
+    레터브릭은 바로 이 지점에서 시작했습니다.<br>
+    빈 페이지의 공포를 없애고, 매일 좋은 문장이 준비되어 있는 곳.
+  </p>
+  <!-- 웹툰형 일러스트 4컷 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;">
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);">
+      <img src="images/firefly_story_1_shortform.png" alt="숏폼 스크롤" style="width:100%;height:auto;display:block;">
+    </div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);">
+      <img src="images/firefly_story_2_blankpage.png" alt="빈 페이지 공포" style="width:100%;height:auto;display:block;">
+    </div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);">
+      <img src="images/firefly_story_3_ai_dependency.png" alt="AI가 대신 쓰는 장면" style="width:100%;height:auto;display:block;">
+    </div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);">
+      <img src="images/firefly_story_4_writing.png" alt="레터브릭으로 쓰기 시작" style="width:100%;height:auto;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 해결책 미리보기 (스토리 패널 → 인사이트 사이) ══════ -->
+<section class="section">
+  <div class="eyebrow">WHAT IS LETTERBRICK</div>
+  <h2 class="stitle" style="color:var(--ink);">
+    레터브릭은 문장을 소비하는 서비스가 아닙니다.<br>
+    <span style="color:var(--brick);">문장을 훈련하는 서비스입니다.</span>
+  </h2>
+  <p class="sbody" style="color:var(--ink2);">
+    좋은 문장을 읽는 것만으로는 내 문장이 생기지 않습니다.<br>
+    레터브릭은 다섯 단계를 통해 문장을 내 것으로 바꾸는 루틴을 만듭니다.
+  </p>
+  <div class="flow-card">
+    <div class="flow-pills">
+      <span class="pill">따라쓰기</span><span class="arrow">→</span>
+      <span class="pill">구조 이해</span><span class="arrow">→</span>
+      <span class="pill">문장 변형</span><span class="arrow">→</span>
+      <span class="pill">창의적 확장</span><span class="arrow">→</span>
+      <span class="pill accent">AI 피드백</span>
+    </div>
+    <p style="font-size:12px;color:rgba(247,242,232,.5);line-height:1.7;margin-top:14px;">
+      19년 경력 방송작가가 큐레이션한 명문장 365일 코퍼스.<br>
+      저작권 검증 완료. 빈 페이지의 공포 없이 바로 시작.
+    </p>
+  </div>
+  <div style="margin:20px 0;border-radius:16px;overflow:hidden;">
+    <img src="images/firefly_library.png" alt="벽돌이 쌓여 만들어진 나만의 도서관" style="width:100%;height:auto;display:block;">
+  </div>
+</section>
+
+<!-- ══════ 2막: 자각 — "이러면 안 되겠다" ══════ -->
+<!-- ═══════════════════════════════════════════
+     SEC 4 · INSIGHT (문제 인식 — 과하지 않게)
+     배경: 어두운 배경 (잠깐의 전환)
+     일러스트: ChatGPT 앞 사람 + 숏폼 무한스크롤
+     ═══════════════════════════════════════════ -->
+<section class="insight-section">
+  <div class="insight-inner">
+    <div class="eyebrow-light" style="color:var(--brick);">WHY NOW</div>
+    <h2 class="stitle" style="color:var(--paper);">
+      지금 우리에게 필요한 건<br>더 많은 문장이 아니라,<br>더 많은 <span style="color:var(--brick);">'직접 쓰기'</span>입니다.
+    </h2>
+    <p style="font-size:13px;color:rgba(247,242,232,.55);line-height:1.8;margin-bottom:24px;">
+      AI는 빠르게 써주지만, 생각까지 대신해주지는 못합니다.<br>
+      숏폼에 익숙해진 뇌는 깊이 생각하는 걸 점점 견디지 못하게 됩니다.
+    </p>
+    <div class="data-card">
+      <div class="dc-icon">📊</div>
+      <div class="dc-text">
+        AI에 의존하는 학생들의 <b>비판적 사고, 작문, 이해력이 동시에 저하.</b>
+        <span class="dc-src">Cogent Education, 2025 — 248명 대상 연구</span>
+      </div>
+    </div>
+    <div class="data-card">
+      <div class="dc-icon">📊</div>
+      <div class="dc-text">
+        숏폼 과다 소비 → <b>주의력 저하, 충동 조절 약화, 정서 건강 악화.</b>
+        <span class="dc-src">Psychological Bulletin, 2025 — 10만 명 메타분석</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px;font-size:14px;color:rgba(247,242,232,.7);line-height:2;">
+      결국 가장 필요한 건 <b style="color:var(--paper);">내 언어로 정리하고 표현하는 힘</b>입니다.<br>
+      AI를 잘 쓰려면, 먼저 <b style="color:var(--brick);">내 사고력과 문장력</b>이 있어야 합니다.
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <a href="#rewards" class="cta-btn">하루 10분, 지금 시작하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ 3막: 전환점 — 기획자의 이야기 (페이지의 심장) ══════ -->
+<section class="section" style="padding-top:0;">
+  <div class="divider" style="margin-bottom:48px;"></div>
+  <div class="eyebrow">WHY I BUILT THIS</div>
+  <h2 class="stitle" style="color:var(--ink);">왜 이 서비스를 만들게 되었을까요?</h2>
+
+  <div style="font-family:'Noto Serif KR',serif;font-size:15px;color:var(--ink);line-height:2.2;">
+
+    <p style="margin-bottom:24px;">
+      저는 글쓰기로 거의 20년을 살아왔습니다.<br>
+      18년 동안 방송작가로 일하며 KBS, SBS, CJ E&M, 아리랑TV 등에서<br>
+      남의 이야기를 문장으로 만드는 일을 했습니다.
+    </p>
+
+    <!-- 포트폴리오 갤러리 -->
+    <div class="img-placeholder" style="margin:20px 0;min-height:80px;padding:20px;">
+      <div class="ip-title">포트폴리오 이미지 자리</div>
+      KBS / Mnet / CJ E&M / OCN 등 대표 프로그램 포스터 + 녹화장 현장<br>
+      <span style="font-size:10px;">이미지 준비 후 교체 예정</span>
+    </div>
+
+    <p style="margin-bottom:24px;">
+      그런데 어느 날 깨달았습니다.<br>
+      <b>정작 내 자신의 문장은 사라져 있었다는 것을요.</b>
+    </p>
+
+    <p style="margin-bottom:24px;">
+      웹소설에 도전했습니다.<br>
+      방송을 기획하듯 구조를 짜고, 성실하게 써보려 했습니다.<br>
+      그런데 이상하게도 제 안의 이야기는 좀처럼 나오지 않았습니다.<br>
+      몇 달을 그렇게 보냈습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      겸업이 문제라고 생각했습니다.<br>
+      돈 나올 구석이 있으니 절박하지 않은 거라고.<br>
+      그래서 과감하게 <b>방송작가 휴업까지 선언</b>했습니다.
+    </p>
+
+    <p style="margin-bottom:24px;color:var(--ink3);">
+      그래도 안 됐습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      AI로 웹소설을 쓸 수 있다는 강의도 들었습니다.<br>
+      하지만 제 AI는 영상 속 누군가의 AI처럼 움직여주지 않았습니다.<br>
+      제 말을 척척 알아듣는 조력자가 아니라,<br>
+      <b>사람 말을 처음 들은 외계인처럼 느껴졌습니다.</b>
+    </p>
+
+    <p style="margin-bottom:24px;">
+      루틴도 만들어봤습니다.<br>
+      새벽 달리기, 카페에서 책 읽기.<br>
+      좋다는 건 다 해보려 했습니다.<br>
+      그런데 의욕보다 핑계가 더 빨랐습니다.
+    </p>
+
+    <div style="background:var(--paper3);border-left:3px solid var(--line);padding:16px 20px;margin:24px 0;font-size:14px;color:var(--ink3);line-height:2;font-family:'Noto Sans KR',sans-serif;">
+      오늘은 10분 늦게 일어나서.<br>
+      오늘은 비가 와서.<br>
+      오늘은 날이 너무 좋아서.<br>
+      오늘은 책이 너무 두꺼워서.
+    </div>
+
+    <p style="margin-bottom:24px;">
+      하고 싶은 마음보다<br>
+      <b>하지 않을 이유를 만드는 데 더 익숙해져 있었습니다.</b>
+    </p>
+
+    <div style="height:2px;background:var(--line);width:40px;margin:40px auto;"></div>
+
+    <p style="margin-bottom:24px;">
+      그때 문득, 예전에 저를 바꿔준 방법이 떠올랐습니다.<br>
+      <b style="color:var(--brick);">필사</b>였습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      대학 시절, 저는 필사로 글을 배웠습니다.<br>
+      좋은 문장을 따라 쓰고, 고쳐 쓰고, 다시 써보는 과정을 반복하면서<br>
+      글은 재능만이 아니라 훈련으로도 달라질 수 있다는 걸 처음 알게 됐습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      20년이 지나 다시 같은 자리에 섰을 때,<br>
+      제가 다시 꺼낸 방법도 결국 필사였습니다.
+    </p>
+
+    <div style="height:2px;background:var(--line);width:40px;margin:40px auto;"></div>
+
+    <p style="margin-bottom:24px;">
+      그러다 중국 시안에 갔습니다.<br>
+      10년째 중국에 살고 있는 동생을 만나러 간 길이었습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      그때도 저는 아침마다 필사를 하고 있었습니다.<br>
+      동생이 그 모습을 보더니 말했습니다.
+    </p>
+
+    <div style="background:var(--paper3);border-left:3px solid var(--brick);padding:16px 20px;margin:24px 0;font-family:'Gowun Batang',serif;font-size:16px;color:var(--ink);line-height:1.8;">
+      "누나는 놀러 와서도 글을 쓰네."
+    </div>
+
+    <p style="margin-bottom:24px;">
+      그러더니 이렇게 물었습니다.
+    </p>
+
+    <div style="background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:16px;padding:28px 24px;margin:24px 0;text-align:center;">
+      <div style="font-family:'Gowun Batang',serif;font-size:20px;color:var(--paper);line-height:1.7;">
+        "나도 글 잘 쓰고 싶은데,<br>
+        따라 쓰는 것만으로도 정말 도움이 돼?"
+      </div>
+    </div>
+
+    <p style="margin-bottom:24px;">
+      저는 저도 잘 쓰기 위해 필사를 한다고 말했습니다.<br>
+      좋은 문장을 따라 쓰고,<br>
+      그 구조와 리듬을 익히고,<br>
+      조금씩 내 문장으로 바꿔보는 훈련이라고요.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      동생도 해보고 싶어 했지만<br>
+      막상 어떻게 해야 할지는 모르겠다고 했습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      그래서 제가 한 달 정도,<br>
+      <b>매일 아침 카카오톡으로 필사할 문장을 보내주기 시작</b>했습니다.
+    </p>
+
+    <div style="background:var(--brick-p);border:1.5px solid var(--brick);border-radius:16px;padding:22px 20px;margin:24px 0;">
+      <div style="font-size:14px;font-weight:700;color:var(--brick-d);margin-bottom:10px;">매일 정해진 시간에 자동으로 옵니다</div>
+      <div style="display:flex;gap:16px;">
+        <div style="flex:1;text-align:center;padding:12px;background:#fff;border-radius:10px;">
+          <div style="font-size:20px;margin-bottom:4px;">☀️</div>
+          <div style="font-size:14px;font-weight:700;color:var(--ink);">아침 7시</div>
+          <div style="font-size:12px;color:var(--ink3);">성장편</div>
+        </div>
+        <div style="flex:1;text-align:center;padding:12px;background:#fff;border-radius:10px;">
+          <div style="font-size:20px;margin-bottom:4px;">🌙</div>
+          <div style="font-size:14px;font-weight:700;color:var(--ink);">저녁 9시</div>
+          <div style="font-size:12px;color:var(--ink3);">힐링편</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--ink2);line-height:1.8;margin-top:12px;text-align:center;">
+        정해진 시간에 문장이 도착하니까<br>
+        미루기보다 먼저 시작하게 되고,<br>
+        짧게라도 계속 쓰게 됩니다.<br><br>
+        <b>"해야지"가 아니라 "왔네"</b>가 됩니다.
+      </div>
+    </div>
+
+    <p style="margin-bottom:24px;">
+      동생은 직접 해보더니 생각보다 훨씬 좋다고 했습니다.<br>
+      그러다 장난처럼 이렇게 말했습니다.
+    </p>
+
+    <div style="background:var(--paper3);border-left:3px solid var(--brick);padding:16px 20px;margin:24px 0;font-family:'Gowun Batang',serif;font-size:16px;color:var(--ink);line-height:1.8;">
+      "누나, 이거 사업해도 되겠다."
+    </div>
+
+    <p style="margin-bottom:24px;">
+      그 말을 듣는 순간<br>
+      스쳐 지나가던 생각이 붙잡혔습니다.
+    </p>
+
+    <p style="margin-bottom:24px;">
+      <b>아, 이건 되는구나.</b><br>
+      사람은 의지만으로 바뀌지 않는구나.<br>
+      <b style="color:var(--brick);">계속 쓰게 만드는 구조가 있으면, 달라질 수 있구나.</b>
+    </p>
+  </div>
+
+  <!-- 실물 증거: 카톡 + 손글씨 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;">
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;">
+      <img src="images/kakao_d5.jpg" alt="카톡 필사 알림 D5" style="width:100%;height:auto;display:block;">
+      <div style="padding:8px 12px;font-size:11px;color:var(--ink3);">D5 — 아침 7시 자동 전송</div>
+    </div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;">
+      <img src="images/kakao_d15.jpg" alt="카톡 필사 알림 D15" style="width:100%;height:auto;display:block;">
+      <div style="padding:8px 12px;font-size:11px;color:var(--ink3);">D15 — 필사 + Q&A 질문</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 24px;">
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;">
+      <img src="images/handwriting_d24.jpg" alt="손글씨 필사 D24" style="width:100%;height:auto;display:block;">
+      <div style="padding:8px 12px;font-size:11px;color:var(--ink3);">D24 — 빅 매직 손글씨 필사</div>
+    </div>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;">
+      <img src="images/handwriting_d23.jpg" alt="손글씨 필사 D23" style="width:100%;height:auto;display:block;">
+      <div style="padding:8px 12px;font-size:11px;color:var(--ink3);">D23 — 회복탄력성 필사 + 피드백</div>
+    </div>
+  </div>
+
+  <!-- 전환 메시지 -->
+  <div style="font-family:'Noto Serif KR',serif;font-size:15px;color:var(--ink);line-height:2.2;">
+    <p style="margin-bottom:24px;">
+      <b>그렇게 레터브릭이 시작됐습니다.</b>
+    </p>
+    <p style="margin-bottom:24px;">
+      카카오톡으로 시작한 작은 필사 루틴을<br>
+      이제는 더 많은 사람들이<br>
+      자기 문장을 되찾는 서비스로 만들고 싶습니다.
+    </p>
+  </div>
+
+  <div style="text-align:right;margin-top:20px;">
+    <div style="font-size:13px;color:var(--ink3);line-height:1.6;">
+      <b style="color:var(--ink);">지소유</b> | 19년차 방송작가 · 레터브릭 창업자<br>
+      스튜디오 온:서사 대표
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════ 4막: 해결책 — "이렇게 작동합니다" ══════ -->
+
+<!-- ═══════════════════════════════════════════
+     SEC 5 · SCIENCE (아침 성장 + 저녁 힐링)
+     배경: 어두운→밝은 전환 그라데이션
+     일러스트: 아침 창가 + 저녁 스탠드
+     ═══════════════════════════════════════════ -->
+<section class="science-section">
+  <div class="science-inner">
+    <div class="eyebrow-light" style="color:var(--brick);">SCIENCE-BACKED</div>
+    <h2 class="stitle" style="color:var(--paper);">
+      아침 5분 성장, 저녁 5분 힐링.<br>
+      하루 10분이 바꾸는 것들.
+    </h2>
+    <p style="font-size:13px;color:rgba(247,242,232,.5);line-height:1.8;margin-bottom:28px;">
+      레터브릭의 루틴은 감이 아니라 연구에 기반합니다.
+    </p>
+    <div class="sci-card">
+      <span class="sci-badge am">☀️ 아침 — 성장</span>
+      <h4>쓰면 뇌가 더 넓게 연결됩니다</h4>
+      <p>직접 쓸 때 뇌의 운동·감각·인지 영역이 동시 활성화.<br>아침 글쓰기는 업무 수행 능력을 <b style="color:var(--paper);">23% 향상</b>시킵니다.</p>
+      <div class="ref">Frontiers in Psychology, 2024 · 인지심리학 연구 종합</div>
+    </div>
+    <div class="sci-card">
+      <span class="sci-badge pm">🌙 저녁 — 힐링</span>
+      <h4>저녁 글쓰기는 스트레스를 낮춥니다</h4>
+      <p>코르티솔 감소, 불안·우울 완화, 수면의 질 개선.<br>잠들기 전 <b style="color:var(--paper);">5분 글쓰기로 더 빨리, 더 깊이</b> 잠듭니다.</p>
+      <div class="ref">Pennebaker 이후 400+ 연구 · Journal of Experimental Psychology, 2018</div>
+    </div>
+    <div class="rhythm-box">
+      <div class="ri"><div class="ri-time">AM</div><div class="ri-label">☀️ 성장</div><div class="ri-desc">사고력·문장력</div></div>
+      <div class="ri-arrow">+</div>
+      <div class="ri"><div class="ri-time">PM</div><div class="ri-label">🌙 힐링</div><div class="ri-desc">정서 회복·수면</div></div>
+      <div class="ri-arrow">=</div>
+      <div class="ri"><div class="ri-time">DAILY</div><div class="ri-label">🧱 10분</div><div class="ri-desc">벽돌 1개</div></div>
+    </div>
+    <div style="text-align:center;padding:20px;background:rgba(182,94,60,.1);border:1px solid rgba(182,94,60,.2);border-radius:14px;margin:20px 0;">
+      <div style="font-family:'Gowun Batang',serif;font-size:24px;color:var(--brick);">1.01³⁶⁵ = <b>37.8</b></div>
+      <div style="font-size:13px;color:rgba(247,242,232,.6);line-height:1.7;margin-top:6px;">매일 1%씩 나아지면 1년 후 <b style="color:var(--paper);">37배</b>.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;">
+      <div style="border-radius:14px;overflow:hidden;">
+        <img src="images/firefly_morning.png" alt="아침 성장 루틴" style="width:100%;height:auto;display:block;">
+        <div style="text-align:center;padding:8px;font-size:11px;color:var(--gold);font-weight:600;">☀️ 아침 — 성장</div>
+      </div>
+      <div style="border-radius:14px;overflow:hidden;">
+        <img src="images/firefly_evening.png" alt="저녁 힐링 루틴" style="width:100%;height:auto;display:block;">
+        <div style="text-align:center;padding:8px;font-size:11px;color:#6495ED;font-weight:600;">🌙 저녁 — 힐링</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 6 · PRODUCT PREVIEW + DEMO
+     배경: 밝은 페이퍼 (따뜻한 톤 복귀)
+     ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="eyebrow">PRODUCT PREVIEW</div>
+  <h2 class="stitle" style="color:var(--ink);">
+    아이디어만 있는 서비스가 아닙니다.<br>
+    <span style="color:var(--brick);">이미 구현 중인 레터브릭을 직접 확인해보세요.</span>
+  </h2>
+  <!-- 앱 스크린샷 슬라이드 -->
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;display:flex;gap:14px;padding:8px 4px 18px;">
+    <div style="flex:0 0 auto;scroll-snap-align:start;width:220px;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);">
+      <img src="images/demo_splash.jpg" alt="레터브릭 스플래시" style="width:100%;display:block;">
+      <div style="background:var(--ink);padding:10px 14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--paper);">스플래시</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.5);margin-top:2px;">레터브릭 첫 화면</div>
+      </div>
+    </div>
+    <div style="flex:0 0 auto;scroll-snap-align:start;width:220px;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);">
+      <img src="images/demo_dashboard.jpg" alt="대시보드" style="width:100%;display:block;">
+      <div style="background:var(--ink);padding:10px 14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--paper);">대시보드</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.5);margin-top:2px;">오늘의 필사 현황</div>
+      </div>
+    </div>
+    <div style="flex:0 0 auto;scroll-snap-align:start;width:220px;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);">
+      <img src="images/demo_select.jpg" alt="문장 선택" style="width:100%;display:block;">
+      <div style="background:var(--ink);padding:10px 14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--paper);">문장 선택</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.5);margin-top:2px;">A/B 중 택 1</div>
+      </div>
+    </div>
+    <div style="flex:0 0 auto;scroll-snap-align:start;width:220px;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);">
+      <img src="images/demo_writing.jpg" alt="필사하기" style="width:100%;display:block;">
+      <div style="background:var(--ink);padding:10px 14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--paper);">필사하기</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.5);margin-top:2px;">AI 코치 실시간 피드백</div>
+      </div>
+    </div>
+    <div style="flex:0 0 auto;scroll-snap-align:start;width:220px;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.18);">
+      <img src="images/demo_healing.jpg" alt="힐링 모드" style="width:100%;display:block;">
+      <div style="background:var(--ink);padding:10px 14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--paper);">힐링 모드</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.5);margin-top:2px;">저녁 감정 글쓰기</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:8px;">
+    <a href="https://letterbrick.vercel.app/" target="_blank" style="display:inline-block;padding:10px 28px;background:var(--brick);border-radius:20px;font-size:13px;color:#fff;text-decoration:none;transition:all .2s;font-weight:600;">
+      데모 체험하기 →
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 6.5 · 전자책 2종 상세 + 실물 증거
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">BOOKS INCLUDED</div>
+  <h2 class="stitle" style="color:var(--ink);">
+    펀딩 서포터에게 드리는 전자책,<br>
+    <span style="color:var(--brick);">단순 부록이 아닙니다.</span>
+  </h2>
+  <p class="sbody" style="color:var(--ink2);">
+    펀딩 서포터에게 전자책으로 함께 드리는 두 권의 책입니다.
+  </p>
+
+  <!-- 워크북 -->
+  <div style="background:linear-gradient(135deg,var(--ink),#3A302A);border-radius:20px;padding:28px 22px;margin-bottom:20px;color:var(--paper);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+      <img src="images/cover_harussakgi.jpg" alt="하루쌓기 표지" style="width:64px;height:90px;object-fit:cover;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.4);">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--brick);margin-bottom:4px;">기본 포함 · 전 구독 리워드</div>
+        <div style="font-family:'Gowun Batang',serif;font-size:18px;color:var(--paper);">《하루쌓기, 나를 단단하게 만드는 기록》</div>
+        <div style="font-size:12px;color:rgba(247,242,232,.5);margin-top:4px;">종이책 24,000원 · 전자책 18,000원</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:rgba(247,242,232,.65);line-height:1.9;margin-bottom:16px;">
+      AI 시대의 핵심 문해력, '질문하는 힘'을 기르는 100일 필사 실용서.<br>
+      좋은 문장을 따라 쓰고, 나만의 언어로 바꾸고, 질문에 답하며<br>
+      사고력·표현력·감정 회복력을 동시에 키웁니다.
+    </p>
+    <!-- 3단계 구조 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:14px 10px;text-align:center;">
+        <div style="font-size:18px;margin-bottom:4px;">🧱</div>
+        <div style="font-size:11px;font-weight:700;color:var(--paper);margin-bottom:2px;">1단계 전사</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.45);">좋은 문장을<br>그대로 필사</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:14px 10px;text-align:center;">
+        <div style="font-size:18px;margin-bottom:4px;">✍️</div>
+        <div style="font-size:11px;font-weight:700;color:var(--paper);margin-bottom:2px;">2단계 변사</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.45);">나만의 문장으로<br>다시 쓰기</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border-radius:10px;padding:14px 10px;text-align:center;">
+        <div style="font-size:18px;margin-bottom:4px;">💬</div>
+        <div style="font-size:11px;font-weight:700;color:var(--paper);margin-bottom:2px;">3단계 감사</div>
+        <div style="font-size:10px;color:rgba(247,242,232,.45);">Q&A로 사유의<br>깊이 확장</div>
+      </div>
+    </div>
+    <!-- 4파트 목차 -->
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:14px;">
+      <div style="font-size:11px;font-weight:700;color:var(--brick);margin-bottom:10px;">100일 4파트 구성</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="font-size:11px;color:rgba(247,242,232,.6);line-height:1.6;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;">
+          <b style="color:var(--paper);">PART 1</b> 마음을 정리하는 문장들<br>
+          <span style="font-size:10px;color:rgba(247,242,232,.35);">감정 회복 · 자기 인식 · 25일</span>
+        </div>
+        <div style="font-size:11px;color:rgba(247,242,232,.6);line-height:1.6;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;">
+          <b style="color:var(--paper);">PART 2</b> 생각을 확장하는 문장들<br>
+          <span style="font-size:10px;color:rgba(247,242,232,.35);">사유력 · 논리적 사고 · 25일</span>
+        </div>
+        <div style="font-size:11px;color:rgba(247,242,232,.6);line-height:1.6;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;">
+          <b style="color:var(--paper);">PART 3</b> 질문을 배우는 문장들<br>
+          <span style="font-size:10px;color:rgba(247,242,232,.35);">질문력 · 자기 성찰 · 25일</span>
+        </div>
+        <div style="font-size:11px;color:rgba(247,242,232,.6);line-height:1.6;padding:8px;background:rgba(255,255,255,.04);border-radius:8px;">
+          <b style="color:var(--paper);">PART 4</b> 창의로 확장하는 문장들<br>
+          <span style="font-size:10px;color:rgba(247,242,232,.35);">창의적 사고 · AI 활용 · 25일</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;font-size:11px;color:rgba(247,242,232,.35);line-height:1.6;">
+      ※ 종이책은 예스24, 교보문고, 알라딘 등 온라인 서점 유통 예정
+    </div>
+  </div>
+
+  <!-- 어휘력 책 -->
+  <div style="background:linear-gradient(135deg,#1a2332,#2a3a4a);border-radius:20px;padding:28px 22px;color:var(--paper);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+      <img src="images/cover_gamjung.jpg" alt="감정은 장면이 된다 표지" style="width:64px;height:90px;object-fit:cover;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.4);">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#6495ED;margin-bottom:4px;">첫날 보너스 · 오픈 당일 결제자 한정</div>
+        <div style="font-family:'Gowun Batang',serif;font-size:18px;color:var(--paper);">《감정은 장면이 된다》 (가제)</div>
+        <div style="font-size:12px;color:rgba(247,242,232,.5);margin-top:4px;">종이책 27,000원 · 전자책 22,000원</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:rgba(247,242,232,.65);line-height:1.9;margin-bottom:16px;">
+      감정을 '설명'하는 문장과 감정을 '보여주는' 문장은 완전히 다릅니다.<br>
+      이 책은 감정을 장면으로 전환하는 기술을 다룹니다.<br>
+      1부에서 원리를 배우고, 2부에서 10가지 감정별 실전 문장을 훈련합니다.
+    </p>
+    <!-- 목차 구조 -->
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:14px;">
+      <div style="font-size:11px;font-weight:700;color:#6495ED;margin-bottom:10px;">목차 구성</div>
+      <div style="margin-bottom:10px;">
+        <div style="font-size:12px;font-weight:700;color:var(--paper);margin-bottom:6px;">1부 — 감정을 문장으로 바꾸는 기술</div>
+        <div style="font-size:11px;color:rgba(247,242,232,.5);line-height:1.7;padding-left:12px;">
+          1장. 정보 문장 vs 경험 문장<br>
+          2장. 독자는 마음보다 반응에 멈춘다<br>
+          3장. 좋은 단어보다 맞는 단어<br>
+          4장. 프레임은 설명을 줄여준다
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--paper);margin-bottom:6px;">2부 — 감정의 결 사전 (10가지 감정)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;">
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">슬픔</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">분노</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">수치심</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">불안</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">질투</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">안도</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">체념</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">그리움</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">경외</span>
+          <span style="font-size:10px;background:rgba(100,149,237,.15);color:#6495ED;padding:3px 10px;border-radius:12px;">수치심</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px;padding:12px 16px;background:rgba(100,149,237,.1);border:1px solid rgba(100,149,237,.2);border-radius:10px;font-size:12px;color:rgba(247,242,232,.6);line-height:1.7;">
+      프롤로그부터 2부 10장까지 완성.<br>
+      오픈 첫날 펀딩 서포터에게 전자책으로 드립니다.
+    </div>
+    <div style="margin-top:16px;text-align:center;font-size:11px;color:rgba(247,242,232,.3);">
+      ※ 종이책은 온라인 서점 유통 예정
+    </div>
+  </div>
+
+  <!-- 앱과 책의 연결 -->
+  <div style="margin-top:24px;padding:20px;background:var(--brick-p);border:1.5px solid var(--brick);border-radius:16px;text-align:center;">
+    <div style="font-size:14px;font-weight:700;color:var(--brick-d);margin-bottom:8px;">📕 책으로 원리를 배우고, 📱 앱으로 매일 실천합니다</div>
+    <div style="font-size:12px;color:var(--ink2);line-height:1.8;">
+      《하루쌓기》의 전사→변사→감사 = 레터브릭 앱의 따라쓰기→변형→확장→AI피드백<br>
+      같은 훈련 철학, 두 가지 형태. 책과 앱이 하나의 루틴으로 연결됩니다.
+    </div>
+  </div>
+</section>
+
+<!-- SEC 6.7 실물 증거 → 3막으로 이동 완료 -->
+<!-- SEC 7 REWARDS → 6막(FOR YOU 뒤)으로 이동 예정 -->
+
+
+<!-- ═══════════════════════════════════════════
+     SEC 8 · COMPANION (카톡 + 이벤트)
+     배경: 밝은 페이퍼 (따뜻한 톤)
+     ═══════════════════════════════════════════ -->
+<section class="section">
+  <div class="eyebrow">NEVER ALONE</div>
+  <h2 class="stitle" style="color:var(--ink);">
+    혼자 결심하고 끝나는 서비스가 아닙니다.<br>
+    <span style="color:var(--brick);">레터브릭이 매일 함께합니다.</span>
+  </h2>
+  <p class="sbody" style="color:var(--ink2);">
+    습관이 무너지는 건 의지력 때문이 아닙니다.<br>
+    자연스럽게 연결해주는 구조가 없어서입니다.
+  </p>
+  <div class="companion-card cc-kakao">
+    <div class="cc-icon">💬</div>
+    <div>
+      <h4>카카오톡 알림 서비스</h4>
+      <p>매일 정해진 시간에 오늘의 문장과 루틴을 연결해드립니다.<br>"오늘의 문장이 기다리고 있어요" — 아침에 성장편, 저녁에 힐링편.<br><span style="font-size:11px;color:var(--ink3);">알림 시간은 직접 설정할 수 있습니다.</span></p>
+    </div>
+  </div>
+  <div class="companion-card cc-event">
+    <div class="cc-icon">🏆</div>
+    <div>
+      <h4 style="color:var(--brick-d);">매월 베스트 문구 선정 이벤트</h4>
+      <p>매달 가장 빛나는 문장을 쓴 분을 선정합니다.<br>당신의 문장이 그 달의 주인공이 될 수 있습니다.<br>베스트 문구는 레터브릭에 영구 기록됩니다.</p>
+    </div>
+  </div>
+  <div class="habit-grid">
+    <div class="habit-item"><div class="hi-icon">💬</div><div class="hi-title">카톡 리마인드</div><div class="hi-desc">잊지 않게 매일 톡톡</div></div>
+    <div class="habit-item"><div class="hi-icon">🔥</div><div class="hi-title">스트릭 시스템</div><div class="hi-desc">연속 기록의 쾌감</div></div>
+    <div class="habit-item"><div class="hi-icon">🧱</div><div class="hi-title">벽돌 성장맵</div><div class="hi-desc">쌓이는 게 보인다</div></div>
+    <div class="habit-item"><div class="hi-icon">🏆</div><div class="hi-title">베스트 문구</div><div class="hi-desc">매달 동기부여</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 9 · HOW IT WORKS (5단계)
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">HOW IT WORKS</div>
+  <h2 class="stitle" style="color:var(--ink);">레터브릭은 이렇게 작동합니다</h2>
+  <p class="sbody" style="color:var(--ink2);">하루 10분, 다섯 단계. 읽는 사람에서 쓰는 사람으로.</p>
+  <div class="step-list">
+    <div class="step-item"><div class="step-num">1</div><div><h4>오늘의 문장을 만난다</h4><p>매일 새로운 명문장이 준비됩니다. 19년 경력 방송작가가 큐레이션.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div><h4>그대로 써보며 리듬을 익힌다</h4><p>좋은 문장을 천천히 따라 씁니다. 리듬, 호흡, 구조가 손끝에 새겨집니다.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div><h4>구조를 이해하고 바꿔본다</h4><p>이 문장이 왜 좋은지 배우고, 같은 뼈대로 나만의 문장을 만듭니다.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div><h4>내 문장으로 확장해본다</h4><p>오늘 배운 기법으로 한 문장을 더 씁니다.</p></div></div>
+    <div class="step-item"><div class="step-num accent">5</div><div><h4>AI 피드백과 기록으로 이어간다</h4><p>AI 코치가 구체적 소감을 들려주고, 모든 기록이 아카이브에 쌓입니다.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 10 · TWO MODES
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">TWO MODES</div>
+  <h2 class="stitle" style="color:var(--ink);">하나의 서비스 안에서,<br>두 가지 방식으로 사용합니다.</h2>
+  <p class="sbody" style="color:var(--ink2);">별도의 상품이 아닙니다. 오늘의 리듬에 맞게 선택하세요.</p>
+  <div class="edition-grid">
+    <div class="edition-card growth">
+      <div class="ec-badge">☀️ 성장 모드</div>
+      <h3>문장력을 훈련하는 시간</h3>
+      <div class="ec-desc">사고력, 표현력, 문장 구조를 키우는 훈련 중심</div>
+      <ul>
+        <li>오늘의 문장 A/B 선택</li>
+        <li>구조 분석 + 변형 채점 (★5)</li>
+        <li>창의적 글쓰기 + AI 소감</li>
+        <li>오타/띄어쓰기 자동 검수</li>
+      </ul>
+    </div>
+    <div class="edition-card healing">
+      <div class="ec-badge">🌙 힐링 모드</div>
+      <h3>마음을 다독이는 시간</h3>
+      <div class="ec-desc">감정 정리, 몰입형 필사, 하루 마무리 중심</div>
+      <ul>
+        <li>다짐 / 힐링 / 여운 테마</li>
+        <li>AI 낭독 + 앰비언트 BGM</li>
+        <li>소감 입력 → AI 코치 답변</li>
+        <li>매일 1벽돌 출석 기록</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 11 · FEATURES
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">FEATURES</div>
+  <h2 class="stitle" style="color:var(--ink);">문장을 더 깊게 쓰기 위해 필요한 것들</h2>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="fc-icon">⭐</div><h4>AI 채점 / 피드백</h4><p>점수만이 아닌, 왜 좋은지·어떻게 더 좋아질 수 있는지 소감까지.</p></div>
+    <div class="feat-card"><div class="fc-icon">✍️</div><h4>손글씨 업로드</h4><p>타이핑뿐 아니라 손으로 쓰는 루틴까지 연결. 당신에게 맞는 방식으로.</p></div>
+    <div class="feat-card"><div class="fc-icon">🔍</div><h4>저작권 안심 구조</h4><p>공개 도메인 작품만 사용. 출처와 번역을 모두 명기합니다.</p></div>
+    <div class="feat-card"><div class="fc-icon">📱</div><h4>SNS 공유 카드</h4><p>오늘 쓴 문장을 예쁜 카드로 만들어 공유. 혼자 간직할 수도, 나눌 수도.</p></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 12 · AI DIFFERENCE + TABLE
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">AI DIFFERENCE</div>
+  <h2 class="stitle" style="color:var(--ink);">
+    레터브릭은 '대신 써주는 AI'가 아닙니다.<br>
+    <span style="color:var(--brick);">'내가 더 잘 쓰게 돕는 AI'입니다.</span>
+  </h2>
+  <div style="overflow-x:auto;">
+    <table class="diff-table">
+      <tr style="background:var(--ink);color:var(--paper);">
+        <th style="text-align:left;border-radius:8px 0 0 0;padding:10px 12px;">비교</th>
+        <th>범용 AI</th>
+        <th>명언 구독</th>
+        <th>기록 앱</th>
+        <th style="border-radius:0 8px 0 0;color:var(--brick);">레터브릭</th>
+      </tr>
+      <tr style="background:var(--paper3);"><td style="padding:8px 12px;font-weight:600;">핵심</td><td class="col-other">대신 생성</td><td class="col-other">읽기</td><td class="col-other">저장</td><td class="col-lb">쓰기+훈련+피드백</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">역할</td><td class="col-other">지시자</td><td class="col-other">소비자</td><td class="col-other">기록자</td><td class="col-lb">창작 주체</td></tr>
+      <tr style="background:var(--paper3);"><td style="padding:8px 12px;font-weight:600;">피드백</td><td class="col-other">일회성</td><td class="col-other">없음</td><td class="col-other">없음</td><td class="col-lb">누적 학습</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;border-radius:0 0 0 8px;">자산</td><td class="col-other">대화 로그</td><td class="col-other">없음</td><td class="col-other">메모</td><td class="col-lb" style="border-radius:0 0 8px 0;">아카이브+벽돌</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 13 · ROADMAP
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">ROADMAP</div>
+  <h2 class="stitle" style="color:var(--ink);">레터브릭은 여기서 멈추지 않습니다</h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-date">2026년 3월</div><div class="tl-text">MVP 완성 — 성장편 + 힐링편 데모 공개</div></div>
+    <div class="tl-item"><div class="tl-dot now"></div><div class="tl-date">2026년 4~5월</div><div class="tl-text">와디즈 펀딩 — 초기 사용자 모집</div></div>
+    <div class="tl-item"><div class="tl-dot soon"></div><div class="tl-date">2026년 6월</div><div class="tl-text">정식 출시 — 풀 버전 오픈</div></div>
+    <div class="tl-item"><div class="tl-dot soon"></div><div class="tl-date">2026년 하반기</div><div class="tl-text">AI 고도화 · 모바일 앱 출시</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 14 · FOR YOU
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">FOR YOU</div>
+  <h2 class="stitle" style="color:var(--ink);">이런 분께 특히 추천합니다</h2>
+  <ul class="target-list">
+    <li>글을 잘 쓰고 싶지만 어디서 시작할지 막막한 분</li>
+    <li>생각은 많은데 문장으로 정리가 어려운 분</li>
+    <li>AI를 잘 쓰고 싶지만, 내 언어도 잃고 싶지 않은 분</li>
+    <li>짧게라도 매일 쓰는 루틴을 만들고 싶은 분</li>
+    <li>창작과 자기표현을 조금씩 회복하고 싶은 분</li>
+  </ul>
+</section>
+
+
+<!-- ══════ 6막: 제안 — "지금이 가장 좋은 조건입니다" ══════ -->
+
+<!-- REWARDS_CUT_START ═══════════════════
+     SEC 7 · REWARDS + PRICING
+     배경: paper2 (가격 섹션 전용 배경)
+     정가 → 특별가 → 첫날 보너스 흐름
+     12개월 슈퍼얼리 = BEST 최강 카드
+     ═══════════════════════════════════════════ -->
+<section class="reward-section" id="rewards">
+  <div class="reward-inner">
+    <div class="eyebrow">와디즈 오픈 특별가</div>
+    <h2 class="stitle" style="color:var(--ink);">
+      정가가 있는 서비스를,<br>지금 와디즈 오픈 혜택가로 먼저 시작하세요.
+    </h2>
+
+    <!-- STEP 1: 정가 앵커 -->
+    <div class="price-anchor">
+      <div class="pa-label">STEP 1 · 정식 출시 후 일반가</div>
+      <div class="pa-row"><span>통합형 서비스 (성장+힐링)</span><span class="val">월 9,900원</span></div>
+      <div class="pa-row"><span>필사 워크북 전자책</span><span class="val">18,000원</span></div>
+      <div class="pa-row"><span>어휘력 전자책</span><span class="val">22,000원</span></div>
+      <div class="pa-row total"><span>6개월 구독 일반가</span><span class="val">59,400원</span></div>
+      <div class="pa-row total"><span>12개월 구독 일반가</span><span class="val">118,800원</span></div>
+    </div>
+
+    <!-- STEP 2: 와디즈 특별가 안내 -->
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;">STEP 2 · 와디즈 오픈 특별가</div>
+      <div style="font-size:12px;color:var(--ink3);">
+        슈퍼얼리버드 <b style="color:var(--brick);">30%</b> · 얼리버드 <b style="color:var(--green);">20%</b> · 펀딩가 10% 할인<br>
+        모든 구독 리워드에 <b>필사 워크북 전자책</b>(18,000원 상당) 기본 포함
+      </div>
+    </div>
+
+    <!-- STEP 3: 첫날 보너스 -->
+    <div class="d1-banner">
+      <div class="d1-main">
+        오픈 첫날 결제 시 — <b>어휘력 전자책 1권 추가 증정</b> (22,000원 상당)
+      </div>
+      <div class="d1-sub">24시간 한정. 구독 + 워크북 + 어휘력 책, 세 가지를 한 번에.</div>
+    </div>
+
+    <!-- REWARD CARDS -->
+    <div class="rw-grid">
+
+      <!-- 체험 -->
+      <div class="rw-card full-w">
+        <span class="rw-badge trial">체험 리워드 · 50명 한정</span>
+        <div class="rw-title">15일 체험 이용권</div>
+        <div class="rw-period">먼저 써보고, 습관 들이고, 결정하세요</div>
+        <div class="rw-prices">
+          <span class="rw-org">9,900원</span>
+          <span class="rw-price">5,000<span>원</span></span>
+        </div>
+        <ul class="rw-list">
+          <li>통합형 15일 체험 (성장+힐링)</li>
+          <li>AI 코치 피드백 포함</li>
+          <li>14일 완주 + 리뷰 → 전원 구독 10% 할인 쿠폰</li>
+          <li class="highlight">베스트 리뷰 10명 → 6개월 이용권 증정</li>
+        </ul>
+        <div class="rw-limit">50명 한정</div>
+        <button class="rw-btn outline">체험 후원하기</button>
+      </div>
+
+      <!-- ── 6개월 ── -->
+      <div class="rw-section-label" style="grid-column:1/-1;">── 6개월 구독 ──</div>
+
+      <div class="rw-card">
+        <span class="rw-badge super">슈퍼얼리버드 · 6개월</span>
+        <div class="rw-title">6개월 구독 + 워크북</div>
+        <div class="rw-period">통합형 6개월 + 필사 워크북 전자책</div>
+        <div class="rw-prices">
+          <span class="rw-org">59,400원</span>
+          <span class="rw-price">49,000<span>원</span></span>
+        </div>
+        <div class="rw-save">10,400원 절약 · 30% 할인</div>
+        <div class="rw-monthly">월 8,167원</div>
+        <ul class="rw-list">
+          <li>성장+힐링 통합 이용</li>
+          <li>AI 코치 피드백 무제한</li>
+          <li class="highlight">📕 워크북 전자책 포함 (18,000원)</li>
+          <li>카톡 알림 + 베스트 문구 이벤트</li>
+          <li>아카이브 · 벽돌 시스템</li>
+        </ul>
+        <div class="rw-limit">🔥 100명 한정</div>
+        <button class="rw-btn secondary">슈퍼얼리버드 후원</button>
+      </div>
+
+      <div class="rw-card">
+        <span class="rw-badge early">얼리버드 · 6개월</span>
+        <div class="rw-title">6개월 구독 + 워크북</div>
+        <div class="rw-prices">
+          <span class="rw-org">59,400원</span>
+          <span class="rw-price">54,000<span>원</span></span>
+        </div>
+        <div class="rw-save">5,400원 절약 · 20% 할인</div>
+        <div class="rw-monthly">월 9,000원</div>
+        <ul class="rw-list">
+          <li>성장+힐링 통합 이용</li>
+          <li>AI 코치 피드백 무제한</li>
+          <li class="highlight">📕 워크북 전자책 포함 (18,000원)</li>
+          <li>카톡 알림 + 베스트 문구 이벤트</li>
+        </ul>
+        <div class="rw-limit">200명 한정</div>
+        <button class="rw-btn outline">얼리버드 후원</button>
+      </div>
+
+      <div class="rw-card full-w" style="opacity:.85;">
+        <span class="rw-badge fund">펀딩가 · 6개월</span>
+        <div class="rw-title">6개월 구독 + 워크북</div>
+        <div class="rw-prices">
+          <span class="rw-org">59,400원</span>
+          <span class="rw-price">59,000<span>원</span></span>
+        </div>
+        <div class="rw-monthly">월 9,833원</div>
+        <ul class="rw-list">
+          <li>성장+힐링 통합 이용</li>
+          <li class="highlight">📕 워크북 전자책 포함 (18,000원)</li>
+        </ul>
+        <div class="rw-limit">무제한</div>
+        <button class="rw-btn outline">펀딩가 후원</button>
+      </div>
+
+      <!-- ── 12개월 ── -->
+      <div class="rw-section-label" style="grid-column:1/-1;">── 12개월 구독 ──</div>
+
+      <!-- ★ 12개월 슈퍼얼리 = BEST 최강 카드 ★ -->
+      <div class="rw-card hero-card full-w">
+        <span class="rw-badge super">슈퍼얼리버드 · 12개월</span>
+        <div class="rw-title" style="font-size:18px;">12개월 구독 + 워크북</div>
+        <div class="rw-period">통합형 12개월 + 필사 워크북 전자책</div>
+        <div class="rw-prices">
+          <span class="rw-org" style="font-size:16px;">118,800원</span>
+          <span class="rw-price" style="font-size:36px;">89,000<span>원</span></span>
+        </div>
+        <div class="rw-save" style="font-size:14px;">29,800원 절약 · 30% 할인</div>
+        <div class="rw-monthly" style="font-size:14px;background:var(--brick-l);color:var(--brick-d);font-weight:600;">
+          월 7,417원 — 커피 한 잔 값!
+        </div>
+        <ul class="rw-list" style="font-size:13px;">
+          <li>성장+힐링 통합 이용</li>
+          <li>AI 코치 피드백 무제한</li>
+          <li class="highlight">📕 필사 워크북 전자책 포함 (18,000원)</li>
+          <li>카톡 알림 서비스 · 매일 리마인드</li>
+          <li>매월 베스트 문구 선정 이벤트</li>
+          <li>아카이브 · 성장 기록 · 벽돌 시스템</li>
+          <li class="highlight">향후 확장 기능 추가 비용 없음</li>
+        </ul>
+        <div class="rw-limit" style="font-size:13px;color:var(--brick);font-weight:700;">🔥 100명 한정 · 가장 추천</div>
+        <button class="rw-btn primary" style="font-size:16px;padding:16px;">슈퍼얼리버드 후원하기</button>
+      </div>
+
+      <div class="rw-card">
+        <span class="rw-badge early">얼리버드 · 12개월</span>
+        <div class="rw-title">12개월 구독 + 워크북</div>
+        <div class="rw-prices">
+          <span class="rw-org">118,800원</span>
+          <span class="rw-price">99,000<span>원</span></span>
+        </div>
+        <div class="rw-save">19,800원 절약 · 20% 할인</div>
+        <div class="rw-monthly">월 8,250원</div>
+        <ul class="rw-list">
+          <li>성장+힐링 통합 이용</li>
+          <li>AI 코치 피드백 무제한</li>
+          <li class="highlight">📕 워크북 전자책 포함 (18,000원)</li>
+          <li>카톡 알림 + 베스트 문구 이벤트</li>
+          <li>아카이브 · 벽돌 시스템</li>
+        </ul>
+        <div class="rw-limit">200명 한정</div>
+        <button class="rw-btn secondary">얼리버드 후원</button>
+      </div>
+
+      <div class="rw-card" style="opacity:.85;">
+        <span class="rw-badge fund">펀딩가 · 12개월</span>
+        <div class="rw-title">12개월 구독 + 워크북</div>
+        <div class="rw-prices">
+          <span class="rw-org">118,800원</span>
+          <span class="rw-price">109,000<span>원</span></span>
+        </div>
+        <div class="rw-monthly">월 9,083원</div>
+        <ul class="rw-list">
+          <li>성장+힐링 통합 이용</li>
+          <li class="highlight">📕 워크북 전자책 포함 (18,000원)</li>
+        </ul>
+        <div class="rw-limit">무제한</div>
+        <button class="rw-btn outline">펀딩가 후원</button>
+      </div>
+
+    </div>
+
+    <!-- 안내사항 -->
+    <div style="font-size:11px;color:var(--ink3);line-height:1.8;margin-top:16px;">
+      ※ 모든 구독 리워드에 필사 워크북 전자책(18,000원 상당)이 기본 포함됩니다.<br>
+      ※ 오픈 첫날 결제 시 어휘력 전자책(22,000원 상당)이 추가 증정됩니다.<br>
+      ※ 서비스 이용권은 정식 출시일(2026년 6월 예정)부터 시작됩니다.<br>
+      ※ 전자책은 결제 완료 후 이메일로 발송됩니다.
+    </div>
+  </div>
+</section>
+
+<!-- SEC 15 FOUNDER → 3막으로 이동 완료 -->
+
+<!-- ═══════════════════════════════════════════
+     SEC 16 · FAQ
+     ═══════════════════════════════════════════ -->
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">FAQ</div>
+  <h2 class="stitle" style="color:var(--ink);">자주 묻는 질문</h2>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">AI가 있는데 왜 직접 써야 하나요?</div>
+    <div class="faq-a">AI는 결과물을 빠르게 생성하지만, 생각하는 힘과 표현하는 힘은 직접 쓸 때만 자랍니다. AI를 잘 쓰려면, 먼저 내 사고력과 문장력이 있어야 합니다.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">일반 필사와 무엇이 다른가요?</div>
+    <div class="faq-a">일반 필사는 따라 쓰기에서 끝납니다. 레터브릭은 따라쓰기 → 구조 이해 → 변형 → 확장 → AI 피드백의 5단계로, 문장을 내 것으로 만드는 훈련 루틴입니다.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">성장과 힐링은 어떻게 함께 쓰나요?</div>
+    <div class="faq-a">하나의 통합 서비스 안에서 두 가지 모드를 선택할 수 있습니다. 아침에는 성장 모드로 사고력을 키우고, 저녁에는 힐링 모드로 하루를 정리하세요.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">워크북과 어휘력 책은 어떤 형태인가요?</div>
+    <div class="faq-a">모두 PDF 전자책입니다. 결제 완료 후 이메일로 발송됩니다. 워크북에는 필사 가이드와 엄선된 문구 모음이, 어휘력 책에는 표현력을 넓히는 어휘 훈련이 담겨 있습니다.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">첫날 보너스는 누구에게 제공되나요?</div>
+    <div class="faq-a">와디즈 오픈 당일(첫 24시간) 내 결제를 완료한 모든 서포터에게 어휘력 전자책이 추가 증정됩니다.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">데모만 써봐도 되나요?</div>
+    <div class="faq-a">네, 데모는 누구나 무료로 체험할 수 있습니다. 데모에서 흐름을 확인한 뒤 펀딩 참여를 결정하셔도 됩니다.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">카카오톡 알림은 어떻게 활용되나요?</div>
+    <div class="faq-a">매일 설정한 시간에 "오늘의 문장이 기다리고 있어요" 알림이 옵니다. 아침/저녁 각각 설정 가능합니다.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">환불 정책이 어떻게 되나요?</div>
+    <div class="faq-a">정식 출시 전까지는 언제든 100% 환불 가능합니다. 정식 출시 후에는 7일 이내 환불을 지원합니다.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEC 17 · BOTTOM CTA
+     ═══════════════════════════════════════════ -->
+<section class="bottom-cta">
+  <div style="max-width:480px;margin:0 auto;">
+    <h2>당신의 문장을,<br>다시 당신의 것으로.</h2>
+    <p>
+      AI가 대신 써주는 시대에도,<br>
+      결국 나를 가장 멀리 데려가는 건<br>
+      내가 직접 쓰는 힘입니다.<br><br>
+      지금 레터브릭을 가장 좋은 조건으로 시작해보세요.
+    </p>
+    <a href="#rewards" class="cta-btn" style="animation:none;">와디즈 오픈 혜택으로 시작하기</a>
+    <div style="margin-top:16px;">
+      <a href="https://letterbrick.vercel.app/" target="_blank" style="font-size:12px;color:rgba(247,242,232,.4);text-decoration:underline;">데모 먼저 체험하기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer>
+  <p>letter<em style="color:var(--brick);font-style:normal;">Brick</em> · 스튜디오 온:서사</p>
+  <p style="margin-top:4px;">문의: <a href="mailto:hello@letterbrick.com">hello@letterbrick.com</a></p>
+</footer>
+
+</body>
+</html>
