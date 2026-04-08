@@ -100,6 +100,31 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 #app.show{opacity:1;pointer-events:auto;}
 #app.show{opacity:1;pointer-events:auto;}
 .shell{max-width:500px;margin:0 auto;padding-bottom:110px;}
+@media(min-width:768px){.shell{max-width:660px;}}
+@media(min-width:1024px){.shell{max-width:780px;}}
+
+/* ── 힐링편 데스크톱: 원문 좌 / 글쓰기 우 나란히 배치 ── */
+@media(min-width:1024px){
+  #healingWritingSection{display:flex;gap:24px;align-items:flex-start;}
+  #healingStickySent{
+    flex:0 0 340px;position:sticky;top:70px;
+    max-height:calc(100vh - 100px);overflow-y:auto;
+    border-radius:14px;margin-bottom:0;
+  }
+  /* 데스크톱에서는 sticky pinned 스타일 무효화 */
+  #healingStickySent.pinned{
+    position:sticky !important;top:70px !important;
+    border-radius:14px !important;padding:16px 18px !important;
+    box-shadow:none !important;margin-top:0 !important;
+  }
+  #healingStickySent.pinned .sticky-text{
+    font-size:16px !important;line-height:1.7 !important;
+    max-height:none !important;overflow-y:visible !important;
+  }
+  #healingStickySent.pinned .sticky-lbl,
+  #healingStickySent.pinned .sticky-meta{display:flex !important;}
+  .healing-right-col{flex:1;min-width:0;}
+}
 
 /* ══════ TOPNAV ══════ */
 .topnav{
@@ -149,6 +174,47 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .cal-cell.done{background:var(--paper3);border:1px solid var(--line);}
 .cal-cell.done::after{content:'';position:absolute;bottom:3px;width:4px;height:4px;
   border-radius:50%;background:var(--brick);}
+.cal-cell.future{color:var(--ink3);opacity:0.4;}
+.cal-bricks{font-size:6px;display:block;line-height:1;margin-top:1px;}
+.cal-summary{display:flex;justify-content:space-between;font-size:11px;color:var(--ink3);padding:8px 4px;margin-top:4px;border-top:1px solid var(--line2);}
+
+/* ══════ MY PAGE ══════ */
+.mp-profile{padding:20px 0 16px;}
+.mp-profile-top{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.mp-avatar{width:56px;height:56px;border-radius:50%;background:var(--brick-l);display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden;flex-shrink:0;}
+.mp-avatar img{width:100%;height:100%;object-fit:cover;}
+.mp-name{font-family:'Gowun Batang',serif;font-size:18px;font-weight:700;color:var(--ink);}
+.mp-since{font-size:11px;color:var(--ink3);margin-top:2px;}
+.mp-bio{font-size:13px;color:var(--ink2);line-height:1.7;padding:10px 14px;background:var(--paper3);border:1px solid var(--line);border-radius:10px;cursor:pointer;min-height:36px;}
+.mp-bio-edit{width:100%;font-size:13px;color:var(--ink);line-height:1.7;padding:10px 14px;background:var(--paper3);border:1.5px solid var(--brick);border-radius:10px;resize:none;min-height:60px;font-family:'Noto Sans KR',sans-serif;box-sizing:border-box;}
+.mp-bio-hint{font-size:11px;color:var(--ink3);margin-top:4px;}
+.mp-reset-btn{font-size:11px;color:#c0392b;background:none;border:1px solid #e8c5c5;border-radius:8px;padding:5px 12px;cursor:pointer;margin-top:12px;}
+.mp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
+.mp-stat-card{background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center;}
+.mp-stat-v{font-family:'Gowun Batang',serif;font-size:20px;color:var(--ink);display:block;}
+.mp-stat-l{font-size:10px;color:var(--ink3);font-weight:500;margin-top:2px;}
+.mp-edition-row{display:flex;gap:10px;margin-bottom:8px;}
+.mp-edition{flex:1;background:var(--paper3);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;}
+.mp-ed-label{font-size:12px;font-weight:600;color:var(--ink2);}
+.mp-ed-val{font-size:13px;color:var(--brick);font-weight:700;}
+.mp-load-more{width:100%;padding:10px;margin-top:10px;background:var(--paper3);border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--ink3);cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
+.mp-load-more:hover{border-color:var(--brick);color:var(--ink);}
+.mp-empty{text-align:center;padding:40px 20px;color:var(--ink3);font-size:13px;line-height:1.8;}
+/* 기록 카드 (마이페이지용) */
+.mp-rec{background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:all .2s;}
+.mp-rec:hover{border-color:var(--brick);box-shadow:0 2px 12px var(--shadow);}
+.mp-rec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.mp-rec-date{font-size:12px;font-weight:600;color:var(--ink);}
+.mp-rec-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px;}
+.mp-rec-badge.growth{background:rgba(91,127,149,0.1);color:var(--accent);}
+.mp-rec-badge.healing{background:rgba(61,107,80,0.1);color:var(--green);}
+.mp-rec-sentence{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink);line-height:1.7;font-weight:300;margin-bottom:6px;}
+.mp-rec-steps{font-size:10px;color:var(--ink3);letter-spacing:.3px;}
+.mp-rec-detail{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+.mp-rec-detail.open{display:block;}
+.mp-rec-stage{margin-bottom:10px;}
+.mp-rec-stage-label{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--ink3);text-transform:uppercase;margin-bottom:4px;}
+.mp-rec-stage-text{font-size:13px;color:var(--ink2);line-height:1.8;font-family:'Noto Serif KR',serif;font-weight:300;}
 .cal-cell.empty{cursor:default;}
 .cal-cell.selected{background:var(--brick-l);border:1.5px solid var(--brick);}
 
@@ -194,17 +260,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   position:relative;overflow:hidden;
   transition:all .3s ease;
 }
-/* pinned는 모바일에서만 축소 */
-@media(max-width:600px){
-  .sticky-sent.pinned{
-    position:sticky;top:56px;z-index:99;
-    border-radius:0 0 12px 12px;margin-top:0;padding:8px 14px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.3);
-  }
-  .sticky-sent.pinned .sticky-text{font-size:13px !important;line-height:1.5 !important;max-height:55px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-  .sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
-  .sticky-sent.pinned::before{display:none;}
+.sticky-sent.pinned{
+  position:sticky;top:56px;z-index:99;
+  border-radius:0 0 12px 12px;margin-top:0;padding:8px 14px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.3);
 }
+.sticky-sent.pinned .sticky-text{font-size:13px !important;line-height:1.5 !important;max-height:55px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+@media(min-width:768px){.sticky-sent.pinned .sticky-text{font-size:15px !important;line-height:1.6 !important;max-height:80px;}}
+.sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
+.sticky-sent.pinned::before{display:none;}
 .sticky-sent::before{
   content:'';position:absolute;top:-20px;right:-20px;
   width:80px;height:80px;
@@ -283,6 +347,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 
 /* Textarea */
 .iw{position:relative;margin-bottom:12px;}
+/* 공백 감지 경고 */
+.ws-warn{display:none;align-items:center;gap:6px;font-size:11px;color:#C97A2E;background:rgba(201,163,78,0.1);border:1px solid rgba(201,163,78,0.25);border-radius:8px;padding:5px 10px;position:absolute;bottom:10px;left:10px;z-index:10;animation:fadeIn 0.3s ease;}
+.ws-icon{font-size:14px;}
+textarea.has-ws-issue{border-color:rgba(201,163,78,0.5) !important;}
+/* 조기 완료 버튼 */
+.btn-finish-early{display:none;width:100%;margin-top:8px;padding:10px 16px;background:transparent;border:1.5px solid rgba(160,120,40,0.3);border-radius:10px;color:var(--gold);font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-align:center;}
+.btn-finish-early:hover{background:rgba(160,120,40,0.08);border-color:var(--gold);}
 textarea{
   width:100%;background:var(--paper);border:1.5px solid var(--line);
   border-radius:12px;padding:15px 15px 38px;
@@ -668,6 +739,87 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 /* ══════ AI STARS ══════ */
 .air-star-filled{color:#FFD700;}.air-star-empty{color:rgba(200,190,170,0.3);}
 
+/* ══════ STEP 2 NEW LEARN CARDS ══════ */
+.sl2-card{background:var(--paper3);border:1px solid var(--line);border-radius:12px;
+  margin-bottom:10px;overflow:hidden;}
+.sl2-card-head{padding:9px 14px;display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--line2);
+  font-size:10px;font-weight:700;letter-spacing:1px;color:var(--ink3);}
+.sl2-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.sl2-card-body{padding:14px;}
+.sl2-core{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--ink);
+  line-height:1.85;font-weight:400;}
+.sl2-anatomy-row{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--line2);}
+.sl2-anatomy-row:last-child{border-bottom:none;}
+.sl2-anatomy-label{font-size:10px;font-weight:700;color:var(--ink3);min-width:44px;
+  padding-top:2px;flex-shrink:0;letter-spacing:.3px;}
+.sl2-anatomy-value{font-size:12px;color:var(--ink2);line-height:1.75;
+  font-family:'Noto Serif KR',serif;font-weight:300;}
+.sl2-rhetoric{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.sl2-rhetoric-badge{font-size:11px;color:var(--brick-d);background:var(--brick-l);
+  border-radius:4px;padding:3px 8px;font-weight:500;line-height:1.5;}
+.sl2-rhythm{font-size:11px;color:var(--ink3);margin-top:10px;padding-top:10px;
+  border-top:1px solid var(--line2);font-style:italic;}
+.sl2-effect{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink2);
+  line-height:1.9;font-weight:300;}
+.sl2-pitfall-item{font-size:12px;color:#8B5E3C;line-height:1.75;padding:7px 0;
+  border-bottom:1px solid var(--line2);}
+.sl2-pitfall-item:last-child{border-bottom:none;padding-bottom:0;}
+.sl2-mission{border:1.5px solid var(--brick) !important;background:var(--brick-p) !important;}
+.sl2-mission .sl2-card-head{border-bottom-color:rgba(182,94,60,0.15);background:transparent;}
+.sl2-mission-text{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--ink);
+  line-height:1.85;font-weight:400;margin-bottom:12px;}
+.sl2-good-example{background:var(--paper);border-radius:8px;padding:10px 12px;
+  border-left:3px solid var(--brick-l);}
+.sl2-good-example-lbl{font-size:10px;color:var(--ink3);font-weight:700;
+  letter-spacing:.8px;display:block;margin-bottom:6px;}
+.sl2-good-example-txt{font-size:13px;color:var(--ink2);line-height:1.8;
+  font-family:'Noto Serif KR',serif;font-weight:300;}
+
+/* ══════ 관찰→근거→개선→예시 FEEDBACK ══════ */
+.fb-grid{display:grid;grid-template-columns:1fr;gap:6px;margin-top:2px;}
+.fb-section{border-radius:8px;padding:10px 13px;}
+.fb-section-lbl{font-size:9px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;margin-bottom:5px;}
+.fb-section-txt{font-size:12px;line-height:1.8;font-family:'Noto Serif KR',serif;font-weight:300;}
+.fb-obs{background:var(--paper2);border-left:3px solid var(--ink3);}
+.fb-obs .fb-section-lbl{color:var(--ink3);}
+.fb-obs .fb-section-txt{color:var(--ink2);}
+.fb-evd{background:var(--brick-l);border-left:3px solid var(--brick);}
+.fb-evd .fb-section-lbl{color:var(--brick-d);}
+.fb-evd .fb-section-txt{color:var(--brick-d);}
+.fb-imp{background:var(--paper2);border-left:3px solid var(--gold);}
+.fb-imp .fb-section-lbl{color:#9A7A30;}
+.fb-imp .fb-section-txt{color:var(--ink2);}
+.fb-ex{background:var(--ink);border-left:3px solid var(--brick);}
+.fb-ex .fb-section-lbl{color:rgba(247,242,232,0.45);}
+.fb-ex .fb-section-txt{color:var(--paper);}
+.fb-enc{background:var(--paper2);border-radius:8px;padding:10px 13px;margin-top:6px;
+  font-size:12px;color:var(--ink3);line-height:1.7;font-style:italic;}
+
+/* ══════ BRICK FEEDBACK UI ══════ */
+.bf-world{background:var(--ink);color:var(--paper);border-radius:10px;
+  padding:12px 16px;margin-bottom:14px;text-align:center;}
+.bf-world-bricks{font-size:22px;letter-spacing:2px;margin-bottom:4px;}
+.bf-world-msg{font-size:12px;color:rgba(247,242,232,0.7);font-family:'Noto Serif KR',serif;}
+.bf-criteria{margin-bottom:14px;}
+.bf-criterion{display:flex;align-items:flex-start;gap:10px;
+  padding:10px 0;border-bottom:1px solid var(--line2);}
+.bf-criterion:last-child{border-bottom:none;}
+.bf-crit-bricks{font-size:16px;min-width:52px;letter-spacing:1px;padding-top:1px;}
+.bf-crit-body{flex:1;}
+.bf-crit-name{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--ink3);margin-bottom:3px;}
+.bf-crit-comment{font-size:12px;color:var(--ink2);line-height:1.7;font-family:'Noto Serif KR',serif;font-weight:300;}
+.bf-lacking{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
+  padding:10px 13px;margin-bottom:10px;}
+.bf-lacking-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--brick-d);margin-bottom:4px;}
+.bf-lacking-txt{font-size:12px;color:var(--brick-d);line-height:1.75;font-family:'Noto Serif KR',serif;}
+.bf-improved{background:var(--paper2);border-radius:8px;padding:10px 13px;margin-bottom:10px;}
+.bf-improved-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--ink3);margin-bottom:6px;}
+.bf-improved-txt{font-size:12px;color:var(--ink2);line-height:1.8;font-family:'Noto Serif KR',serif;}
+.bf-impression{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line2);}
+.bf-errors{margin-top:4px;}
+
 /* ══════ RECORD FILTER ══════ */
 .rec-filter{
   padding:4px 10px;border-radius:12px;border:1px solid var(--line);
@@ -682,34 +834,50 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .ew-fill{height:100%;background:var(--brick);border-radius:2px;width:0%;transition:width .6s ease;}
 .ew-label{font-size:10px;color:var(--ink3);margin-top:3px;display:flex;justify-content:space-between;}
 
-/* ══════ BRICK WALL VISUAL ══════ */
-.brick-wall{text-align:center;margin:20px auto;max-width:240px;}
+/* ══════ BRICK WALL VISUAL (P2-7 강화) ══════ */
+.brick-wall{text-align:center;margin:20px auto;max-width:280px;}
 .bw-label{
-  font-family:'Gowun Batang',serif;font-size:22px;color:var(--paper);
+  font-family:'Gowun Batang',serif;font-size:24px;color:var(--paper);
   margin-bottom:12px;animation:fu .5s ease both;
 }
 .bw-grid{
   display:flex;flex-wrap:wrap;justify-content:center;gap:3px;
-  padding:12px;background:rgba(255,255,255,0.04) url('images/brick-texture.svg');
+  padding:14px;background:rgba(255,255,255,0.04) url('images/brick-texture.svg');
   background-size:120px 80px;background-blend-mode:overlay;
-  border-radius:12px;min-height:40px;
+  border-radius:14px;min-height:48px;
+  border:1px solid rgba(182,94,60,0.15);
 }
 .bw-brick{
   width:28px;height:16px;border-radius:3px;
   opacity:0;transform:scale(0) translateY(10px);
   animation:brickDrop .4s ease forwards;
 }
-.bw-brick.earned{background:var(--brick);}
+.bw-brick.earned{background:var(--brick);box-shadow:0 0 8px rgba(182,94,60,0.5);}
 .bw-brick.old{background:rgba(182,94,60,0.25);opacity:1;transform:none;animation:none;}
+/* 특별 벽돌 */
+.bw-brick.gold{background:linear-gradient(135deg,#D4A836,#F5D36E) !important;box-shadow:0 0 10px rgba(212,168,54,0.6);}
+.bw-brick.rose{background:linear-gradient(135deg,#C76B8F,#E8A0B8) !important;box-shadow:0 0 10px rgba(199,107,143,0.5);}
+.bw-brick.rainbow{background:linear-gradient(90deg,#E8675A,#F5C842,#4CAF50,#5B7FD6,#9C6BD4) !important;}
 @keyframes brickDrop{
   0%{opacity:0;transform:scale(0) translateY(-20px);}
-  60%{opacity:1;transform:scale(1.15) translateY(2px);}
+  50%{opacity:1;transform:scale(1.2) translateY(2px);}
+  70%{transform:scale(0.95) translateY(0);}
   100%{opacity:1;transform:scale(1) translateY(0);}
 }
 .bw-total{
   font-size:12px;color:rgba(247,242,232,0.4);margin-top:10px;
   letter-spacing:.3px;
 }
+/* 마일스톤 미리보기 */
+.bw-milestone{
+  margin-top:10px;padding:8px 14px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(247,242,232,0.08);
+  border-radius:10px;font-size:11px;color:rgba(247,242,232,0.5);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.bw-milestone-bar{flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;}
+.bw-milestone-fill{height:100%;background:var(--brick);border-radius:2px;transition:width 1s ease;}
+.bw-milestone-label{white-space:nowrap;}
 .brick-detail{
   margin:14px auto;max-width:200px;
 }
@@ -767,6 +935,24 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 
 </style>
+
+<!-- Firebase SDK (compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBPzmE-iGxHcBoifKJwWUtpMwBDGcH3h64",
+  authDomain: "letterbrick.firebaseapp.com",
+  projectId: "letterbrick",
+  storageBucket: "letterbrick.firebasestorage.app",
+  messagingSenderId: "702996495709",
+  appId: "1:702996495709:web:ef9443cbed4d5042b67cb4"
+};
+firebase.initializeApp(firebaseConfig);
+const fbAuth = firebase.auth();
+const fbDb = firebase.firestore();
+</script>
 </head>
 <body>
 
@@ -845,19 +1031,39 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       </div>
     </div>
 
-    <div class="modal-field-lbl">필명 (닉네임)</div>
-    <input class="modal-inp" id="nicknameInp" type="text" placeholder="예: 하담작가, 글쓰는사람" maxlength="12"
-      onkeydown="if(event.key==='Enter')saveNickname()">
-    <div class="modal-inp-hint">12자 이내 · 나중에 변경 가능해요</div>
+    <button class="modal-btn" id="googleLoginBtn" onclick="signInWithGoogle()" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:#2E2A26;border:1.5px solid #D8D0C0;">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.962L3.964 6.294C4.672 4.169 6.656 3.58 9 3.58z"/></svg>
+      Google로 계속하기
+    </button>
 
-    <div class="modal-field-lbl" style="margin-top:14px;">이메일</div>
-    <input class="modal-inp" id="emailInp" type="email" placeholder="you@email.com"
-      onkeydown="if(event.key==='Enter')saveNickname()">
-    <div class="modal-inp-hint">데모 기간 종료 후 이벤트 당첨자에게 이메일로 안내드립니다</div>
+    <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
+      <div style="flex:1;height:1px;background:var(--line);"></div>
+      <div style="font-size:11px;color:var(--ink3);">또는 이메일로</div>
+      <div style="flex:1;height:1px;background:var(--line);"></div>
+    </div>
 
-    <button class="modal-btn" onclick="saveNickname()">무료 체험 시작하기 →</button>
+    <!-- 이메일 로그인/회원가입 탭 -->
+    <div style="display:flex;gap:0;margin-bottom:14px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;">
+      <button id="tabSignin" onclick="switchAuthTab('signin')" style="flex:1;padding:9px;font-size:13px;font-weight:600;background:var(--ink);color:#fff;border:none;cursor:pointer;">로그인</button>
+      <button id="tabSignup" onclick="switchAuthTab('signup')" style="flex:1;padding:9px;font-size:13px;font-weight:600;background:transparent;color:var(--ink3);border:none;cursor:pointer;">회원가입</button>
+    </div>
 
-    <div class="modal-privacy">이메일은 이 기기에 저장되며,<br>피드백 추첨 외 목적으로 사용되지 않아요.</div>
+    <!-- 회원가입 전용: 닉네임 -->
+    <div id="signupNicknameWrap" style="display:none;">
+      <div class="modal-field-lbl">필명 (닉네임)</div>
+      <input class="modal-inp" id="nicknameInp" type="text" placeholder="예: 하담작가, 글쓰는사람" maxlength="12">
+      <div class="modal-inp-hint" style="margin-bottom:10px;">12자 이내 · 나중에 변경 가능해요</div>
+    </div>
+
+    <input class="modal-inp" id="emailInp" type="email" placeholder="이메일" style="margin-bottom:8px;">
+    <input class="modal-inp" id="passwordInp" type="password" placeholder="비밀번호 (6자 이상)" style="margin-bottom:4px;"
+      onkeydown="if(event.key==='Enter')submitEmailAuth()">
+
+    <div id="authErrMsg" style="font-size:12px;color:#c0392b;min-height:18px;margin-bottom:6px;"></div>
+
+    <button class="modal-btn" id="emailAuthBtn" onclick="submitEmailAuth()" style="margin-top:4px;">로그인 →</button>
+
+    <div class="modal-privacy" style="margin-top:12px;">로그인 시 기기 간 기록이 동기화됩니다</div>
   </div>
 </div>
 
@@ -887,7 +1093,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
         </div>
         <div class="gs-text">
           <div class="gs-title">두 가지 에디션</div>
-          <div class="gs-desc">성장편에서 문장력을 훈련하고<br>힐링편에서 마음을 다독여보세요</div>
+          <div class="gs-desc">성장편: 짧은 문장을 바꾸고 확장하며 훈련<br>힐링편: 긴 글을 천천히 따라 쓰며 머무는 시간</div>
         </div>
       </div>
 
@@ -983,6 +1189,28 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   </div>
 </div>
 
+<!-- ══════ SIMILAR TEXT GUIDE MODAL ══════ -->
+<div class="modal-overlay hide" id="similarGuideModal" onclick="closeSimilarGuide(event)">
+  <div class="modal-box" style="max-width:360px;">
+    <div style="font-size:28px;margin-bottom:8px;">✍️</div>
+    <div class="modal-ttl" id="sgTitle">예시와 너무 비슷해요</div>
+    <div style="font-size:13px;color:var(--ink2);line-height:1.8;margin:12px 0 16px;">
+      예시 문장은 참고용이에요.<br>
+      오늘 배운 <b>구조와 기법</b>은 그대로 쓰되,<br>
+      소재·장면·인물은 <b>완전히 나만의 것</b>으로 바꿔보세요.
+    </div>
+    <div style="background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:left;margin-bottom:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--ink3);margin-bottom:10px;">이렇게 해보세요</div>
+      <div style="font-size:13px;color:var(--ink2);line-height:2;" id="sgTips">
+        <div>① 예시의 <b>주어</b>를 나만의 인물·장소로 바꿔보세요</div>
+        <div>② 예시의 <b>동사·형용사</b> 중 하나를 다른 단어로 바꿔보세요</div>
+        <div>③ 예시에 없는 <b>구체적인 감각</b>(냄새·소리·촉감)을 추가해보세요</div>
+      </div>
+    </div>
+    <button class="modal-btn" onclick="closeSimilarGuide(null)">다시 써볼게요 →</button>
+  </div>
+</div>
+
 <!-- ══════ FEEDBACK REVIEW MODAL ══════ -->
 <div class="modal-overlay hide" id="feedbackModal">
   <div class="modal-box" style="text-align:left;max-width:400px;">
@@ -1042,9 +1270,10 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
     </div>
     <div class="user-badge" id="userBadge"></div>
     <div class="nav-tabs">
-      <button class="nav-tab active" onclick="showPage('home',this)">기록</button>
+      <button class="nav-tab active" onclick="showPage('home',this)">홈</button>
       <button class="nav-tab" onclick="showPage('growth',this)">성장</button>
       <button class="nav-tab" onclick="showPage('healing',this)">힐링</button>
+      <button class="nav-tab" onclick="showPage('mypage',this);renderMyPage();">내 기록</button>
     </div>
   </div>
 
@@ -1063,15 +1292,15 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
           <div class="ec-icon"><img src="images/icon_pen_tool.svg" width="24" height="24" style="opacity:0.7;" alt="pen tool"></div>
           <div class="ec-info">
             <div class="ec-name">성장 에디션</div>
-            <div class="ec-desc">문장 구조 훈련</div>
+            <div class="ec-desc">짧은 문장을 바꾸고 확장하며 훈련</div>
           </div>
         </div>
         <div class="ec-stars" id="ecGrowthStars">
           <span class="ec-star-count">★ 0</span>
           <span class="ec-star-label">누적 별점</span>
         </div>
-        <!-- 세계관 (나중에 활성화) -->
-        <div class="ec-world" id="ecGrowthWorld" style="display:none;">
+        <!-- P2-7: 세계관 활성화 -->
+        <div class="ec-world" id="ecGrowthWorld">
           <div class="ew-bar"><div class="ew-fill" id="ewGrowthFill"></div></div>
           <div class="ew-label" id="ewGrowthLabel">벽돌</div>
         </div>
@@ -1081,15 +1310,15 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
           <div class="ec-icon"><img src="images/icon_leaf.svg" width="24" height="24" style="opacity:0.7;" alt="leaf"></div>
           <div class="ec-info">
             <div class="ec-name">힐링 에디션</div>
-            <div class="ec-desc">몰입형 장문 필사</div>
+            <div class="ec-desc">긴 글을 천천히 따라 쓰며 머무는 시간</div>
           </div>
         </div>
         <div class="ec-stars" id="ecHealingStars">
           <span class="ec-star-count" id="ecHealingCount">★ 0</span>
           <span class="ec-star-label">누적 기록</span>
         </div>
-        <!-- 세계관 (나중에 활성화) -->
-        <div class="ec-world" id="ecHealingWorld" style="display:none;">
+        <!-- P2-7: 세계관 활성화 -->
+        <div class="ec-world" id="ecHealingWorld">
           <div class="ew-bar"><div class="ew-fill" id="ewHealingFill"></div></div>
           <div class="ew-label" id="ewHealingLabel">벽돌</div>
         </div>
@@ -1138,7 +1367,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
     <div class="today-why" id="todayWhy" style="display:none;">
       <div class="tw-eyebrow">
         <div class="tw-bricks"><div class="tw-b"></div><div class="tw-b"></div><div class="tw-b"></div></div>
-        오늘의 문장을 선택한 이유
+        오늘의 글쓰기 포인트
       </div>
       <div class="tw-reason" id="twReason"></div>
     </div>
@@ -1189,7 +1418,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
           위 문장을 천천히 따라 써보세요.
         </p>
         <div class="iw">
-          <textarea id="copyTa" placeholder="위 문장을 그대로 따라 써보세요..." rows="4" oninput="checkCopy()" onpaste="return blockPaste(event, this)"></textarea>
+          <textarea id="copyTa" placeholder="위 문장을 그대로 따라 써보세요..." rows="4" spellcheck="false" oninput="checkCopy()" onpaste="return blockPaste(event, this)"></textarea>
         </div>
         <div class="match-ok" id="matchOk">✓ 정확하게 따라 썼어요!</div>
         <div id="copyDiff" style="display:none;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:8px;"></div>
@@ -1210,6 +1439,9 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <button class="btn-p" id="s1Btn" onclick="goS2()" style="opacity:.4;pointer-events:none;">
         다음 — 문장 학습하기 →
       </button>
+      <button class="btn-finish-early" id="s1Finish" onclick="finishEarly('copy')" style="display:none;">
+        ⭐ 오늘은 필사만 할래요
+      </button>
     </div>
 
     <!-- ── STEP 2 학습 ── -->
@@ -1226,7 +1458,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 배운 기법을 써서 원문의 구조를 바꿔보세요.
       </p>
-      <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4"></textarea></div>
+      <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4" spellcheck="false"></textarea></div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
       <div class="pzone" onclick="document.getElementById('sp').click()">
         <input type="file" id="sp" accept="image/*" onchange="prevPhoto(this,'spp','structTa','struct')">
@@ -1239,6 +1471,9 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <button class="btn-p" id="sBtn" onclick="runStruct()">AI 채점 받기 →</button>
       <div class="att-left" id="sAtt">채점 기회 2번 남음</div>
       <button class="btn-s" id="sNext" onclick="goS4()" style="display:none;">다음 — 창의적 글쓰기 →</button>
+      <button class="btn-finish-early" id="s3Finish" onclick="finishEarly('struct')" style="display:none;">
+        ⭐ 여기서 마치기
+      </button>
     </div>
 
     <!-- ── STEP 4 창작 ── -->
@@ -1248,7 +1483,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
         지금 마음에 떠오르는 것을 그대로 써보세요. 형식도, 길이도 없어요.
       </p>
       <div class="iw">
-        <textarea id="creativeTa" placeholder="자유롭게 써보세요..." rows="6" oninput="updateCC()"></textarea>
+        <textarea id="creativeTa" placeholder="자유롭게 써보세요..." rows="6" spellcheck="false" oninput="updateCC()"></textarea>
         <div class="char-hint" id="ccHint">0자</div>
       </div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
@@ -1277,6 +1512,11 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
         <div class="bw-label" id="bwLabel">+0 벽돌</div>
         <div class="bw-grid" id="bwGrid"></div>
         <div class="bw-total" id="bwTotal">누적 0개</div>
+        <div class="bw-milestone" id="bwMilestone" style="display:none;">
+          <div class="bw-milestone-label" id="bwMsLabel">→ 집</div>
+          <div class="bw-milestone-bar"><div class="bw-milestone-fill" id="bwMsFill"></div></div>
+          <div class="bw-milestone-label" id="bwMsCount">0/60</div>
+        </div>
       </div>
 
       <!-- 별점 요약 (작게) -->
@@ -1308,27 +1548,38 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   <!-- ══════ HEALING ══════ -->
   <div id="healing" class="page">
 
-    <!-- Theme selection -->
+    <!-- Theme selection (P1-5: 단순화) -->
     <div id="healingThemes" style="margin-top:18px;">
-      <div class="ctag" style="margin-bottom:4px;">오늘의 주제를 선택하세요</div>
-      <p style="font-size:12px;color:var(--ink3);margin-bottom:14px;">세 가지 주제 중 하나를 골라 오늘의 힐링 필사를 시작하세요.</p>
-      <div class="healing-theme-grid">
-        <button class="healing-theme-btn" onclick="selectHealingTheme('다짐')">
-          <span class="ht-icon"><img src="images/icon_sun.svg" width="26" height="26" style="opacity:0.6;" alt="sun"></span>
-          <span class="ht-name">다짐</span>
-          <span class="ht-desc">조용한 결심</span>
-        </button>
-        <button class="healing-theme-btn" onclick="selectHealingTheme('힐링')">
-          <span class="ht-icon"><img src="images/icon_leaf.svg" width="26" height="26" style="opacity:0.6;" alt="leaf"></span>
-          <span class="ht-name">힐링</span>
-          <span class="ht-desc">머무는 시간</span>
-        </button>
-        <button class="healing-theme-btn" onclick="selectHealingTheme('여운')">
-          <span class="ht-icon"><img src="images/icon_moon.svg" width="26" height="26" style="opacity:0.6;" alt="moon"></span>
-          <span class="ht-name">여운</span>
-          <span class="ht-desc">남겨진 것들</span>
-        </button>
-      </div>
+      <div class="ctag" style="margin-bottom:4px;">오늘의 힐링 필사</div>
+      <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:16px;">
+        긴 글을 천천히 따라 쓰며 머무는 시간.<br>
+        <span style="color:var(--ink3);font-size:12px;">오늘의 추천 글이 준비되어 있어요.</span>
+      </p>
+      <!-- 추천 바로 시작 버튼 -->
+      <button class="btn-p" onclick="startRecommendedHealing()" style="width:100%;margin-bottom:16px;">
+        오늘의 추천 글로 시작하기 →
+      </button>
+      <!-- 주제 직접 고르기 (접힌 상태) -->
+      <details style="margin-top:4px;">
+        <summary style="font-size:12px;color:var(--ink3);cursor:pointer;padding:6px 0;">주제를 직접 고르고 싶다면</summary>
+        <div class="healing-theme-grid" style="margin-top:10px;">
+          <button class="healing-theme-btn" onclick="selectHealingTheme('다짐')">
+            <span class="ht-icon"><img src="images/icon_sun.svg" width="26" height="26" style="opacity:0.6;" alt="sun"></span>
+            <span class="ht-name">다짐</span>
+            <span class="ht-desc">조용한 결심</span>
+          </button>
+          <button class="healing-theme-btn" onclick="selectHealingTheme('힐링')">
+            <span class="ht-icon"><img src="images/icon_leaf.svg" width="26" height="26" style="opacity:0.6;" alt="leaf"></span>
+            <span class="ht-name">힐링</span>
+            <span class="ht-desc">머무는 시간</span>
+          </button>
+          <button class="healing-theme-btn" onclick="selectHealingTheme('여운')">
+            <span class="ht-icon"><img src="images/icon_moon.svg" width="26" height="26" style="opacity:0.6;" alt="moon"></span>
+            <span class="ht-name">여운</span>
+            <span class="ht-desc">남겨진 것들</span>
+          </button>
+        </div>
+      </details>
     </div>
 
     <!-- Healing flow -->
@@ -1341,43 +1592,47 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
         <div class="tw-reason" id="healingReason"></div>
       </div>
 
-      <div class="sticky-sent" id="healingStickySent">
-        <div class="sticky-lbl" id="healingThemeLabel"></div>
-        <div class="sticky-text" id="healingText"></div>
-        <div class="sticky-meta">
-          <div class="sticky-author" id="healingAuthor"></div>
+      <div id="healingWritingSection">
+        <div class="sticky-sent" id="healingStickySent">
+          <div class="sticky-lbl" id="healingThemeLabel"></div>
+          <div class="sticky-text" id="healingText"></div>
+          <div class="sticky-meta">
+            <div class="sticky-author" id="healingAuthor"></div>
+          </div>
+        </div>
+
+        <div class="healing-right-col">
+          <div class="audio-controls">
+            <button class="audio-btn" id="ttsBtn" onclick="toggleTTS()">🔊 낭독</button>
+            <button class="audio-btn" id="bgmBtn" onclick="toggleBGM()">🎵 BGM</button>
+          </div>
+
+          <div class="input-mode-bar">
+            <button class="im-btn active" id="himTyping" onclick="selectHealingInputMode('typing')">⌨️ 타이핑</button>
+            <button class="im-btn" id="himHandwriting" onclick="selectHealingInputMode('handwriting')">✏️ 손글씨</button>
+          </div>
+
+          <div id="healingTypingZone">
+            <div class="iw">
+              <textarea id="healingTa" placeholder="위 글을 천천히 따라 써보세요..." rows="10" spellcheck="false" oninput="checkHealingCopy()" onpaste="return blockPaste(event, this)" style="font-size:15px;line-height:2;"></textarea>
+              <div class="char-hint" id="healingProgress">0자 / 0자 (0%)</div>
+            </div>
+          </div>
+
+          <div id="healingHandwritingZone" style="display:none;">
+            <div class="pzone" onclick="document.getElementById('hp1').click()">
+              <input type="file" id="hp1" accept="image/*" multiple onchange="healingPhotoUpload(this)">
+              <div class="pz-ico">📷</div>
+              <div class="pz-txt">손글씨 사진 업로드 (최대 3장)<br><b>탭해서 선택</b></div>
+            </div>
+            <div id="healingPhotoPreviews"></div>
+          </div>
+
+          <button class="btn-p" id="healingFinishBtn" onclick="finishHealing()" style="opacity:.4;pointer-events:none;">
+            오늘의 힐링 필사 완성 →
+          </button>
         </div>
       </div>
-
-      <div class="audio-controls">
-        <button class="audio-btn" id="ttsBtn" onclick="toggleTTS()">🔊 낭독</button>
-        <button class="audio-btn" id="bgmBtn" onclick="toggleBGM()">🎵 BGM</button>
-      </div>
-
-      <div class="input-mode-bar">
-        <button class="im-btn active" id="himTyping" onclick="selectHealingInputMode('typing')">⌨️ 타이핑</button>
-        <button class="im-btn" id="himHandwriting" onclick="selectHealingInputMode('handwriting')">✏️ 손글씨</button>
-      </div>
-
-      <div id="healingTypingZone">
-        <div class="iw">
-          <textarea id="healingTa" placeholder="위 글을 천천히 따라 써보세요..." rows="10" oninput="checkHealingCopy()" onpaste="return blockPaste(event, this)" style="font-size:15px;line-height:2;"></textarea>
-          <div class="char-hint" id="healingProgress">0자 / 0자 (0%)</div>
-        </div>
-      </div>
-
-      <div id="healingHandwritingZone" style="display:none;">
-        <div class="pzone" onclick="document.getElementById('hp1').click()">
-          <input type="file" id="hp1" accept="image/*" multiple onchange="healingPhotoUpload(this)">
-          <div class="pz-ico">📷</div>
-          <div class="pz-txt">손글씨 사진 업로드 (최대 3장)<br><b>탭해서 선택</b></div>
-        </div>
-        <div id="healingPhotoPreviews"></div>
-      </div>
-
-      <button class="btn-p" id="healingFinishBtn" onclick="finishHealing()" style="opacity:.4;pointer-events:none;">
-        오늘의 힐링 필사 완성 →
-      </button>
     </div>
 
     <!-- Healing done -->
@@ -1400,7 +1655,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
       <!-- 소감 입력 -->
       <div id="healingSogamSection" style="margin-top:20px;text-align:left;">
         <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">오늘의 소감</div>
-        <textarea id="healingSogamTa" placeholder="오늘 필사하면서 떠오른 생각이나 감정을 자유롭게 써보세요..." rows="3"
+        <textarea id="healingSogamTa" placeholder="오늘 필사하면서 떠오른 생각이나 감정을 자유롭게 써보세요..." rows="3" spellcheck="false"
           style="width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(247,242,232,0.15);border-radius:10px;padding:12px 14px;font-family:'Noto Serif KR',serif;font-size:14px;line-height:1.8;color:var(--paper);resize:none;outline:none;"
           oninput="this.style.borderColor=this.value.length>0?'rgba(247,242,232,0.3)':'rgba(247,242,232,0.15)'"></textarea>
         <button class="btn-p" id="healingSogamBtn" onclick="submitHealingSogam()" style="margin-top:10px;width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(247,242,232,0.2);">
@@ -1427,6 +1682,82 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 
   </div>
 
+  <!-- ══════ MY PAGE ══════ -->
+  <div id="mypage" class="page">
+    <!-- 프로필 -->
+    <div class="mp-profile" id="mpProfile">
+      <div class="mp-profile-top">
+        <div style="position:relative;flex-shrink:0;">
+          <div class="mp-avatar" id="mpAvatar" onclick="document.getElementById('avatarFileInp').click()" title="사진 변경" style="cursor:pointer;">📝</div>
+          <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:var(--brick);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;pointer-events:none;">✏️</div>
+          <input type="file" id="avatarFileInp" accept="image/*" style="display:none;" onchange="uploadAvatar(this)">
+        </div>
+        <div class="mp-info">
+          <div id="mpNameWrap">
+            <div class="mp-name" id="mpName" onclick="editNickname()" title="탭해서 닉네임 변경" style="cursor:pointer;">필사러</div>
+          </div>
+          <div class="mp-since" id="mpSince">시작한 날: —</div>
+        </div>
+      </div>
+      <!-- 자기소개 -->
+      <div id="mpBioWrap">
+        <div class="mp-bio" id="mpBioText" onclick="editBio()" title="탭해서 편집">글쓰기를 좋아합니다.</div>
+      </div>
+      <button class="mp-reset-btn" onclick="confirmResetMyData()">내 기록 전체 초기화</button>
+    </div>
+
+    <!-- 종합 통계 -->
+    <div class="mp-stats">
+      <div class="mp-stat-card">
+        <div class="mp-stat-v" id="mpTotalStars">0</div>
+        <div class="mp-stat-l">누적 ⭐</div>
+      </div>
+      <div class="mp-stat-card">
+        <div class="mp-stat-v" id="mpTotalSessions">0</div>
+        <div class="mp-stat-l">총 필사</div>
+      </div>
+      <div class="mp-stat-card">
+        <div class="mp-stat-v" id="mpStreak">0</div>
+        <div class="mp-stat-l">연속일</div>
+      </div>
+      <div class="mp-stat-card">
+        <div class="mp-stat-v" id="mpWorldStage">벽돌</div>
+        <div class="mp-stat-l">세계관</div>
+      </div>
+    </div>
+
+    <!-- 에디션별 요약 -->
+    <div class="mp-edition-row">
+      <div class="mp-edition">
+        <div class="mp-ed-label">성장</div>
+        <div class="mp-ed-val" id="mpGrowthStars">★ 0</div>
+      </div>
+      <div class="mp-edition">
+        <div class="mp-ed-label">힐링</div>
+        <div class="mp-ed-val" id="mpHealingStars">★ 0</div>
+      </div>
+    </div>
+
+    <!-- 전체 기록 목록 -->
+    <div style="margin-top:20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <div class="sec-ttl" style="margin:0;">전체 기록</div>
+        <div style="display:flex;gap:4px;">
+          <button class="rec-filter active" onclick="filterMyRecords('all',this)">전체</button>
+          <button class="rec-filter" onclick="filterMyRecords('growth',this)">성장</button>
+          <button class="rec-filter" onclick="filterMyRecords('healing',this)">힐링</button>
+        </div>
+      </div>
+      <div id="mpRecordList"></div>
+      <button class="mp-load-more" id="mpLoadMore" onclick="loadMoreRecords()" style="display:none;">
+        더 보기
+      </button>
+      <div class="mp-empty" id="mpEmpty" style="display:none;">
+        아직 기록이 없어요.<br>첫 필사를 시작해보세요!
+      </div>
+    </div>
+  </div>
+
 </div>
 </div>
 
@@ -1444,9 +1775,32 @@ const SENTENCES = [
     author: "윤동주", source: "별 헤는 밤 (1941)", authorNote: "1917–1945, 저작권 만료",
     reason: "이름을 하나씩 불러가며 그리움을 쌓는 방식 — 감정을 직접 말하지 않아도 이렇게 선명하게 전달할 수 있다는 걸 보여주는 문장이에요. 열거라는 기법이 어떻게 감동이 되는지, 오늘 손으로 써보면 느껴질 거예요.",
     learn:{
-      why:"이름을 하나씩 불러가는 리듬이 독자를 그 기억 속으로 데려갑니다. 사람도, 동물도, 시인도 — 같은 방식으로 나열될 때 모두가 동등한 그리움의 대상이 됩니다.",
-      structure:"<b>[호명 선언]</b> 별 하나에 아름다운 말 한마디씩 불러봅니다<br><b>[열거 확장]</b> 아이들 이름, 소녀들 이름, 사람들 이름, 동물 이름, 시인 이름",
-      technique:"<b>이름 열거법</b> — 구체적인 이름들을 나열해 추상적인 그리움을 눈앞의 장면으로 만들기<br>예시: '나는 오늘도 기억한다. 그 골목, 그 냄새, 그 계절, 그 사람의 목소리를.'"
+      coreSkill:"구체적인 이름들을 하나씩 열거해 추상적인 그리움을 눈앞의 장면으로 만드는 이름 열거법",
+      anatomy:{
+        grammar:[
+          {label:"주어", value:"나는 (화자)"},
+          {label:"서술어", value:"불러봅니다 (행위 반복)"},
+          {label:"수식어", value:"아름다운 말 한마디씩 (방법 한정)"},
+          {label:"열거 구조", value:"이름1과, 이름2와, 이름3과 … (동격 나열)"},
+          {label:"호흡", value:"긴 단일 문장 — 이름이 쌓일수록 리듬 강화"}
+        ],
+        rhetoric:["이름 열거 — 구체적 고유명사가 추상을 장면으로 전환","점층 확장 — 사람 → 동물 → 시인으로 대상이 넓어짐","반복 — '이름과' 구조가 리듬을 만듦"],
+        effect:"이름 하나하나가 불릴 때마다 독자는 자기 기억 속 누군가를 떠올린다. 사람도, 동물도, 시인도 같은 방식으로 나열될 때 모두가 동등한 그리움의 대상이 된다. 감정을 직접 말하지 않아도 선명하게 전달되는 이유가 여기에 있다.",
+        rhythm:"상승형 — 이름이 쌓일수록 감정이 쌓이고, 마지막 '시인의 이름'에서 정점"
+      },
+      practiceMission:"'별 하나에 ___씩'처럼 반복 구조를 만들고, 그 안에 기억 속 이름·장소·장면을 5개 이상 나열해보세요. 감정을 직접 쓰지 말고 이름과 장면만으로.",
+      pitfalls:["감정 단어를 직접 쓰면 열거의 효과가 사라짐 (예: '슬픔과, 그리움과' → 이미지가 아닌 설명)","열거 항목들이 너무 비슷한 범주에 머물면 리듬이 단조로워짐","마지막 항목이 앞 항목들보다 약하면 문장이 흐지부지 끝남"],
+      goodExample:"할머니, 나는 기억 하나에 풍경 하나씩 얹어봅니다. 쪽마루에서 먹던 수박 냄새와, 삐걱이던 대문 소리와, 여름 저녁 손바닥만 한 선풍기 바람과, 늦게까지 불 켜진 골목 가로등 이름을.",
+      step3Rubric:[
+        {name:"구조 재현도", weight:2, desc:"'반복 틀 + 열거 확장' 패턴이 살아 있는가 — 같은 접속형으로 이어지는가"},
+        {name:"이미지 구체성", weight:2, desc:"추상어 없이 이름·장면·감각으로만 나열했는가"},
+        {name:"완성도", weight:1, desc:"마지막 열거 항목이 앞 항목들보다 무겁거나 강하게 느껴지는가"}
+      ],
+      step4Rubric:[
+        {name:"생각의 선명성", weight:2, desc:"무엇을 기억하는지·그리워하는지가 열거만으로 전달되는가"},
+        {name:"구체성", weight:1, desc:"고유명사·감각·장면이 1개 이상 있는가"},
+        {name:"마무리 여운", weight:2, desc:"마지막 항목이 읽고 나서도 머릿속에 남는가"}
+      ]
     },
     example:"할머니, 나는 기억 하나에 풍경 하나씩 얹어봅니다. 쪽마루에서 먹던 수박 냄새와, 삐걱이던 대문 소리와, 여름 저녁 손바닥만 한 선풍기 바람과, 늦게까지 불 켜진 골목 가로등 이름을."
   },
@@ -1455,9 +1809,31 @@ const SENTENCES = [
     author: "윤동주", source: "자화상 (1939)", authorNote: "1917–1945, 저작권 만료",
     reason: "자기 자신을 들여다보는 일을 추상으로 쓰지 않고 구체적인 장면으로 담았어요. 홀로, 천천히, 가만히 — 부사 세 개가 만드는 고독의 온도를 배우면서, 오늘 당신만의 고요한 장면을 한 줄 써보세요.",
     learn:{
-      why:"'홀로', '가만히'라는 부사가 고요하고 내밀한 분위기를 만듭니다. 여정(돌아, 찾아가선)과 정지(가만히 들여다봅니다)의 대비도 효과적입니다.",
-      structure:"<b>[이동]</b> 산모퉁이를 돌아 논가 외딴 우물을 홀로 찾아가선<br><b>[행위]</b> 가만히 들여다봅니다",
-      technique:"<b>행위 치환법</b> — 내면의 추상적 상태를 구체적 신체 행위로 표현하기<br>예시: '내 안을 들여다보고 싶을 때마다 나는 빈 컵을 꺼내 오래 바라보았다.'"
+      coreSkill:"내면의 추상적 상태를 구체적 신체 행위와 장소로 치환하는 행위 치환법",
+      anatomy:{
+        grammar:[
+          {label:"동사 구조", value:"돌아(이동) → 찾아가선(도착) → 들여다봅니다(행위) — 3단계 동작 연결"},
+          {label:"부사", value:"홀로, 가만히 — 고독과 내밀함의 밀도를 결정하는 핵심 수식어"},
+          {label:"수식어", value:"외딴 — 고립감 강화"},
+          {label:"호흡", value:"긴 이동 절 + 짧은 행위 절 — 긴 여정 뒤 고요한 정지"}
+        ],
+        rhetoric:["행위 치환 — '자기 성찰'이라는 추상을 '우물 들여다보기'로 치환","여정-정지 대비 — 긴 이동 후 짧은 행위로 집중","감각 장면화 — 장소(산모퉁이, 우물)로 내면 공간을 외부로 투영"],
+        effect:"독자는 화자가 자기 자신을 들여다보고 있다는 것을 설명 없이 안다. 구체적 장소와 행위가 추상적 감정보다 훨씬 선명하게 내면을 전달한다.",
+        rhythm:"느린 하강형 — 이동의 긴 호흡이 끝나고 '가만히'에서 완전히 멈춤"
+      },
+      practiceMission:"당신의 내면 상태(불안, 그리움, 결심 등)를 직접 쓰지 말고, 그 상태일 때 하는 구체적 행위와 장소로만 표현해보세요. '나는 ___을 찾아가 ___ 했다' 구조를 빌려도 좋아요.",
+      pitfalls:["행위를 쓰고도 감정을 다시 설명하면 치환의 효과가 사라짐","장소가 너무 평범하면 장면이 밋밋해짐 (예: 방에 들어가서 앉았다)","부사를 너무 많이 쓰면 오히려 밀도가 낮아짐"],
+      goodExample:"나는 새벽 세 시, 불 끄지 않은 방에 홀로 앉아 가만히 창밖을 내다보았다. 유리 너머로 잠든 거리가 있었다. 그 고요함이 가끔 나보다 더 편안해 보여서, 부러웠다.",
+      step3Rubric:[
+        {name:"구조 재현도", weight:2, desc:"이동(여정) → 행위(정지) 2단계 구조를 지켰는가"},
+        {name:"행위의 구체성", weight:2, desc:"추상 감정 없이 신체 행위와 장소만으로 내면을 표현했는가"},
+        {name:"완성도", weight:1, desc:"부사 선택이 장면의 밀도를 높이는가"}
+      ],
+      step4Rubric:[
+        {name:"생각의 선명성", weight:2, desc:"행위와 장소만으로 내면이 전달되는가"},
+        {name:"구체성", weight:1, desc:"고유한 장소·감각·행위가 있는가"},
+        {name:"마무리 여운", weight:2, desc:"마지막 문장이 행위 묘사를 넘어 여운을 남기는가"}
+      ]
     },
     example:"나는 새벽 세 시, 불 끄지 않은 방에 홀로 앉아 가만히 창밖을 내다보았다. 유리 너머로 잠든 거리가 있었다. 그 고요함이 가끔 나보다 더 편안해 보여서, 부러웠다."
   },
@@ -1466,9 +1842,31 @@ const SENTENCES = [
     author: "윤동주", source: "별 헤는 밤 (1941)", authorNote: "1917–1945, 저작권 만료",
     reason: "'별 하나에 ___'라는 반복 구조가 리듬을 만들고, 마지막에 '어머니'를 두 번 부르며 감정을 터트립니다. 열거를 통해 쌓인 긴장이 마지막 한 단어에서 풀리는 방식을 배울 수 있습니다.",
     learn:{
-      why:"같은 구조를 반복해 독자의 호흡을 조율하다가, 마지막에서 예상을 깨는 방식입니다. '어머니'를 두 번 쓴 것은 반복이 아니라 감정의 무게입니다.",
-      structure:"<b>[반복 열거]</b> 별 하나에 추억과 / 사랑과 / 쓸쓸함과 / 동경과 / 시와<br><b>[감정 폭발]</b> 어머니, 어머니",
-      technique:"<b>열거-폭발 구조</b> — 같은 구조를 반복해 리듬을 만들다가, 마지막에 감정의 정점 배치<br>예시: '한 걸음에 후회가, 한 걸음에 그리움이, 한 걸음에 부끄러움이, 그리고 한 걸음에 당신이.'"
+      coreSkill:"같은 구조를 반복해 리듬을 만들다가 마지막에 형식을 깨고 감정의 정점을 터트리는 열거-폭발 구조",
+      anatomy:{
+        grammar:[
+          {label:"반복 틀", value:"별 하나에 _과 — 동일 형식 5회 반복"},
+          {label:"열거 항목", value:"추억·사랑·쓸쓸함·동경·시 — 추상명사 나열"},
+          {label:"파격 종결", value:"어머니, 어머니 — 형식 이탈, 호칭 반복"},
+          {label:"호흡", value:"짧은 단위가 쌓이며 기대감 상승 → 마지막에서 폭발"}
+        ],
+        rhetoric:["반복 — '별 하나에 ~과' 구조 5회로 리듬 형성","파격 — 마지막에서 형식을 이탈해 충격 극대화","정서 압축 — 5개의 추상명사 뒤 단 두 글자 '어머니'로 모든 감정 수렴"],
+        effect:"독자는 반복 리듬에 익숙해지다가 마지막에 형식이 깨지는 순간 충격을 받는다. '어머니'가 두 번 반복되는 것은 단순 반복이 아니라 울음처럼 들린다.",
+        rhythm:"상승 후 폭발형 — 5개 항목이 쌓이며 기대감이 올라가고, '어머니, 어머니'에서 한 번에 터짐"
+      },
+      practiceMission:"'___ 하나에 ___와' 구조를 4~5번 반복해 리듬을 만든 뒤, 마지막에 그 형식을 완전히 깨는 한 단어나 한 구절을 배치해보세요. 마지막이 앞의 모든 항목을 흡수해야 해요.",
+      pitfalls:["마지막 항목이 앞 항목들과 같은 형식이면 폭발이 일어나지 않음","열거 항목들이 너무 이질적이면 리듬이 흐트러짐","마지막 단어/구절이 너무 평범하면 충격이 사라짐 (예: '그리움' → 앞 항목들과 다를 바 없음)"],
+      goodExample:"서랍 하나에 접힌 편지와, 서랍 하나에 바랜 사진과, 서랍 하나에 지켜지지 못한 약속과, 서랍 하나에 아직 말하지 못한 이름.",
+      step3Rubric:[
+        {name:"구조 재현도", weight:2, desc:"반복 틀을 4회 이상 유지하다가 마지막에 형식을 이탈했는가"},
+        {name:"파격의 강도", weight:2, desc:"마지막 항목이 앞 항목들과 분명히 다른 형식이고 감정적 무게가 더 큰가"},
+        {name:"완성도", weight:1, desc:"반복 리듬이 끊기지 않고 자연스럽게 마지막까지 이어지는가"}
+      ],
+      step4Rubric:[
+        {name:"생각의 선명성", weight:2, desc:"열거 항목들이 하나의 감정·주제를 향해 수렴하는가"},
+        {name:"구체성", weight:1, desc:"열거 항목에 추상어 대신 장면·사물·감각이 있는가"},
+        {name:"마무리 여운", weight:2, desc:"마지막 파격 구절이 읽고 난 후 머릿속에 남는가"}
+      ]
     },
     example:"서랍 하나에 접힌 편지와, 서랍 하나에 바랜 사진과, 서랍 하나에 지켜지지 못한 약속과, 서랍 하나에 아직 말하지 못한 이름."
   },
@@ -2020,23 +2418,7 @@ function getDayIndex(){
 let todayIdx=getDayIndex();
 let todaySent=SENTENCES[todayIdx];
 
-const pastRecords=[
-  {date:'2026-03-10',score:91,sentence:SENTENCES[(9)%SENTENCES.length].text,
-   author:SENTENCES[(9)%SENTENCES.length].author,source:SENTENCES[(9)%SENTENCES.length].source,
-   creative:'나도 그런 봄이 있었다. 달력은 4월이었는데 내 안은 아직 2월이었던 그 해가.',
-   structFb:'역설 구조를 자연스럽게 활용했어요. 대비가 선명합니다.',
-   creativeFb:'감각적인 시간의 어긋남을 잘 포착했어요. 달력과 내면의 대비가 인상적입니다.'},
-  {date:'2026-03-09',score:88,sentence:SENTENCES[(8)%SENTENCES.length].text,
-   author:SENTENCES[(8)%SENTENCES.length].author,source:SENTENCES[(8)%SENTENCES.length].source,
-   creative:'어머니는 항상 말이 없었다. 그런데 이제야 알겠다, 어머니는 말을 아끼고 있었던 것을.',
-   structFb:'부정-긍정 전환을 깔끔하게 변형했어요.',
-   creativeFb:'짧은 문장 안에 통찰이 압축돼 있어요. 여운이 좋습니다.'},
-  {date:'2026-03-08',score:82,sentence:SENTENCES[(7)%SENTENCES.length].text,
-   author:SENTENCES[(7)%SENTENCES.length].author,source:SENTENCES[(7)%SENTENCES.length].source,
-   creative:'기다리고 있었는데 알고 보니 이미 거기 있었다. 내 발 아래에, 처음부터.',
-   structFb:'명사절 구조를 유지하면서 의미를 전환했어요.',
-   creativeFb:'공간적 이미지로 추상적 감정을 잡아냈어요.'}
-];
+const pastRecords=[];
 
 /* ══════════════════════════════
    SPLASH
@@ -2116,21 +2498,64 @@ function renderCal(){
   const dim=new Date(calYear,calMonth+1,0).getDate();
   const today=new Date();
   const isCurr=today.getFullYear()===calYear&&today.getMonth()===calMonth;
-  const doneDays=new Set(pastRecords.map(r=>{
+  // P2-8: 날짜별 기록 수 집계 (누적형)
+  const dayRecords={};
+  pastRecords.forEach(r=>{
     const d=new Date(r.date);
-    if(d.getFullYear()===calYear&&d.getMonth()===calMonth)return d.getDate();
-    return null;
-  }).filter(Boolean));
+    if(d.getFullYear()===calYear&&d.getMonth()===calMonth){
+      const day=d.getDate();
+      dayRecords[day]=(dayRecords[day]||0)+1;
+    }
+  });
+  // 누적 벽돌 수 계산
+  var runningTotal = 0;
+  var sortedRecs = pastRecords.slice().sort((a,b)=>new Date(a.date)-new Date(b.date));
+  var dailyTotals = {};
+  sortedRecs.forEach(r=>{
+    runningTotal += (r.starsEarned || 1);
+    var d = new Date(r.date);
+    if(d.getFullYear()===calYear && d.getMonth()===calMonth){
+      dailyTotals[d.getDate()] = runningTotal;
+    }
+  });
+
   for(let i=0;i<first;i++){const el=document.createElement('div');el.className='cal-cell empty';grid.appendChild(el);}
   for(let d=1;d<=dim;d++){
-    const el=document.createElement('div');el.textContent=d;
+    const el=document.createElement('div');
     let cls='cal-cell';
-    if(isCurr&&d===today.getDate())cls+=' today';
-    else if(doneDays.has(d))cls+=' done';
+    const isToday = isCurr && d===today.getDate();
+    const isFuture = isCurr && d > today.getDate();
+    const count = dayRecords[d] || 0;
+
+    if(isToday){
+      cls+=' today';
+    } else if(count > 0){
+      cls+=' done';
+    } else if(isFuture){
+      cls+=' future'; // P2-8: 미래 날짜는 중립
+    }
+    // P2-8: 과거 빈 날짜는 그냥 빈 채로 (실패 느낌 제거)
+
     el.className=cls;
+    // 날짜 + 벽돌 개수 표시
+    if(count > 0){
+      el.innerHTML = '<span>'+d+'</span><span class="cal-bricks">'+('🧱'.repeat(Math.min(count,3)))+'</span>';
+    } else {
+      el.textContent = d;
+    }
     el.onclick=()=>{document.querySelectorAll('.cal-cell').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');};
     grid.appendChild(el);
   }
+  // P2-8: 캘린더 아래에 누적 요약
+  var totalDone = Object.keys(dayRecords).length;
+  var totalRecs = Object.values(dayRecords).reduce((a,b)=>a+b,0);
+  var calSummary = grid.parentElement.querySelector('.cal-summary');
+  if(!calSummary){
+    calSummary = document.createElement('div');
+    calSummary.className = 'cal-summary';
+    grid.parentElement.insertBefore(calSummary, grid.nextSibling);
+  }
+  calSummary.innerHTML = '<span>이번 달 '+totalDone+'일 필사</span><span>'+totalRecs+'개 기록</span>';
 }
 function changeMonth(dir){
   calMonth+=dir;
@@ -2152,17 +2577,42 @@ function renderRecords(){
     const dateStr=`${d.getMonth()+1}월 ${d.getDate()}일`;
     const sc=rec.score>=88?'hi':'mid';
     const card=document.createElement('div');card.className='rec-card';card.setAttribute('data-edition',rec.edition||'growth');
+    // P0-4: 단계별 결과 표시
+    var stepsHtml = '';
+    // 필사 결과
+    if(rec.copyText) {
+      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">📝 필사</div><div class="exp-txt" style="font-family:\'Noto Serif KR\',serif;color:var(--ink);font-weight:300;line-height:1.8;">' + rec.copyText.substring(0,200) + (rec.copyText.length>200?'…':'') + '</div></div>';
+    }
+    // 구조변형 결과
+    if(rec.structText) {
+      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">🔄 구조 변형' + (rec.structScore ? ' ★'+rec.structScore : '') + '</div><div class="exp-txt" style="font-family:\'Noto Serif KR\',serif;color:var(--ink);font-weight:300;line-height:1.8;">"' + rec.structText + '"</div></div>';
+    }
+    if(rec.structFb) {
+      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">구조 연습 피드백</div><div class="exp-txt">' + rec.structFb + '</div></div>';
+    }
+    // 창작 결과
+    if(rec.creative && rec.creative !== '(미작성)' && !rec.creative.startsWith('(')) {
+      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">✨ 창의적 글쓰기' + (rec.creativeScore ? ' ★'+rec.creativeScore : '') + '</div><div class="exp-txt" style="font-family:\'Noto Serif KR\',serif;font-style:italic;color:var(--ink);">"' + rec.creative + '"</div></div>';
+    }
+    if(rec.creativeFb) {
+      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">AI 코치 평가</div><div class="exp-txt">' + rec.creativeFb + '</div></div>';
+    }
+    // 완료 단계 표시
+    var stepsLabel = '';
+    if(rec.completedSteps) {
+      var stepNames = {copy:'필사',struct:'구조',creative:'창작'};
+      stepsLabel = rec.completedSteps.map(function(s){return stepNames[s]||s;}).join(' → ');
+    }
     card.innerHTML=`
       <div class="rec-meta">
         <div><span class="rec-date">${dateStr}</span> <span class="rec-author">${rec.author||''} 「${rec.source||''}」</span></div>
         <span class="score-badge ${sc}">${rec.score}점</span>
       </div>
       <div class="rec-sentence">${rec.sentence.substring(0,80)}${rec.sentence.length>80?'…':''}</div>
-      <div class="rec-preview">"${rec.creative.substring(0,35)}…"</div>
+      ${stepsLabel ? '<div style="font-size:10px;color:var(--ink3);margin-top:4px;letter-spacing:.5px;">'+stepsLabel+'</div>' : ''}
+      <div class="rec-preview">"${(rec.creative||'').substring(0,35)}${(rec.creative||'').length>35?'…':''}"</div>
       <div class="rec-expand" id="re${i}">
-        <div class="exp-sec"><div class="exp-lbl">구조 연습 피드백</div><div class="exp-txt">${rec.structFb}</div></div>
-        <div class="exp-sec"><div class="exp-lbl">창의적 글쓰기</div><div class="exp-txt" style="font-family:'Noto Serif KR',serif;font-style:italic;color:var(--ink);">"${rec.creative}"</div></div>
-        <div class="exp-sec"><div class="exp-lbl">AI 코치 평가</div><div class="exp-txt">${rec.creativeFb}</div></div>
+        ${stepsHtml}
         <button class="rec-share-btn" onclick="event.stopPropagation();openShareByIdx(${i})">
           📤 공유 카드 만들기
         </button>
@@ -2176,12 +2626,55 @@ function renderRecords(){
    LEARN
 ══════════════════════════════ */
 function buildLearnContent(){
-  var l=todaySent.learn;
-  document.getElementById('learnContent').innerHTML=
-    '<div class="lb"><div class="lb-ttl"><div class="lb-num">①</div>문장 구조 뜯어보기</div>'+
-    '<div class="lb-body">'+l.structure+'</div></div>'+
-    '<div class="lb"><div class="lb-ttl"><div class="lb-num">②</div>오늘의 글쓰기 기법</div>'+
-    '<div class="lb-body">'+l.technique+'</div></div>';
+  var l = todaySent.learn;
+  // 구버전 데이터 폴백
+  if (!l.coreSkill) {
+    document.getElementById('learnContent').innerHTML=
+      '<div class="lb"><div class="lb-ttl"><div class="lb-num">①</div>문장 구조 뜯어보기</div>'+
+      '<div class="lb-body">'+(l.structure||'')+'</div></div>'+
+      '<div class="lb"><div class="lb-ttl"><div class="lb-num">②</div>오늘의 글쓰기 기법</div>'+
+      '<div class="lb-body">'+(l.technique||'')+'</div></div>';
+    return;
+  }
+  var a = l.anatomy || {};
+  // ① 핵심 기법
+  var coreH = '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>오늘의 기법</div>' +
+    '<div class="sl2-card-body"><div class="sl2-core">' + l.coreSkill + '</div></div>' +
+    '</div>';
+  // ② 문장 해부
+  var grammarRows = (a.grammar||[]).map(function(g){
+    return '<div class="sl2-anatomy-row"><div class="sl2-anatomy-label">'+g.label+'</div><div class="sl2-anatomy-value">'+g.value+'</div></div>';
+  }).join('');
+  var rhetoricBadges = (a.rhetoric||[]).map(function(r){
+    return '<span class="sl2-rhetoric-badge">'+r+'</span>';
+  }).join('');
+  var anatomyH = '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--gold)"></div>문장 해부</div>' +
+    '<div class="sl2-card-body">' +
+      (grammarRows ? '<div style="margin-bottom:12px;">'+grammarRows+'</div>' : '') +
+      (rhetoricBadges ? '<div class="sl2-rhetoric">'+rhetoricBadges+'</div>' : '') +
+      (a.rhythm ? '<div class="sl2-rhythm">리듬: '+a.rhythm+'</div>' : '') +
+    '</div></div>';
+  // ③ 이 구조의 효과
+  var effectH = a.effect ? '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--green,#5B8A6F)"></div>이 구조가 만드는 효과</div>' +
+    '<div class="sl2-card-body"><div class="sl2-effect">'+a.effect+'</div></div>' +
+    '</div>' : '';
+  // ④ 자주 하는 실수
+  var pitfallsH = (l.pitfalls && l.pitfalls.length) ? '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:#C97A2E"></div>자주 하는 실수</div>' +
+    '<div class="sl2-card-body">' +
+      l.pitfalls.map(function(p){ return '<div class="sl2-pitfall-item">⚠ '+p+'</div>'; }).join('') +
+    '</div></div>' : '';
+  // ⑤ 오늘 미션 + 예시
+  var missionH = l.practiceMission ? '<div class="sl2-card sl2-mission">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>오늘 미션</div>' +
+    '<div class="sl2-card-body">' +
+      '<div class="sl2-mission-text">'+l.practiceMission+'</div>' +
+      (l.goodExample ? '<div class="sl2-good-example"><span class="sl2-good-example-lbl">예시 문장</span><div class="sl2-good-example-txt">'+l.goodExample+'</div></div>' : '') +
+    '</div></div>' : '';
+  document.getElementById('learnContent').innerHTML = coreH + anatomyH + effectH + pitfallsH + missionH;
 }
 function buildCmp(){
   var s = todaySent;
@@ -2216,13 +2709,17 @@ function buildCmp(){
 ══════════════════════════════ */
 function checkCopy(){
   const v=document.getElementById('copyTa').value;
-  const clean=todaySent.text.replace(/["""]/g,'').trim();
-  const match=v.includes(clean)||v.replace(/["""]/g,'').trim()===clean;
+  const clean=todaySent.text.replace(/["""]/g,'').trim().normalize('NFC');
+  const match=v.normalize('NFC').includes(clean)||v.replace(/["""]/g,'').trim().normalize('NFC')===clean;
   document.getElementById('matchOk').style.display=match?'block':'none';
   const btn=document.getElementById('s1Btn');
-  if(v.length>15||document.getElementById('p1').files.length>0){
+  const finBtn=document.getElementById('s1Finish');
+  if(match||v.length>15||document.getElementById('p1').files.length>0){
     btn.style.opacity='1';btn.style.pointerEvents='auto';
-  } else{btn.style.opacity='.4';btn.style.pointerEvents='none';}
+    // P0-3: 필사 완료 시 "여기서 마치기" 표시
+    if(match || v.length > clean.length * 0.8) finBtn.style.display='block';
+    else finBtn.style.display='none';
+  } else{btn.style.opacity='.4';btn.style.pointerEvents='none';finBtn.style.display='none';}
 }
 function goS2(){document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';updateSB(2);window.scrollTo(0,0);}
 function goS3(){document.getElementById('s2').style.display='none';document.getElementById('s3').style.display='block';updateSB(3);window.scrollTo(0,0);}
@@ -2247,8 +2744,7 @@ function runStruct(){
     const _isEx1=_v===_ex1||_v.includes(_ex1)||_ex1.includes(_v)&&_v.length>10;
     const _isEx2=_ex2&&(_v===_ex2||_v.includes(_ex2)||_ex2.includes(_v)&&_v.length>10);
     if(_isOrig||_isEx1||_isEx2){
-      document.getElementById('sRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요.<br>타이핑이든 사진이든, 예시를 그대로 쓰면 채점이 되지 않아요.<br>오늘 배운 구조로 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
-      document.getElementById('sRes').style.display='block';
+      showSimilarGuide('structure');
       return;
     }
   }
@@ -2296,7 +2792,7 @@ function runCreative(){
     const _cisEx1=_cv===_cex1||_cv.includes(_cex1)||_cex1.includes(_cv)&&_cv.length>10;
     const _cisEx2=_cex2&&(_cv===_cex2||_cv.includes(_cex2)||_cex2.includes(_cv)&&_cv.length>10);
     if(_cisOrig||_cisEx1||_cisEx2){
-      document.getElementById('cRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요.<br>타이핑이든 사진이든, 예시를 그대로 쓰면 평가가 되지 않아요.<br>이 문장에서 영감을 받아 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
+      showSimilarGuide('creative');
       document.getElementById('cRes').style.display='block';
       return;
     }
@@ -2411,7 +2907,7 @@ async function runOCR(dataUrl, textarea, type){
   if(type==='copy'&&todaySent) context=todaySent.text;
 
   try{
-    var resp=await fetch('/api/ocr',{
+    var resp=await fetch('https://letter-brick.vercel.app/api/ocr',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({image:dataUrl, context:context})
@@ -2597,13 +3093,133 @@ const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxOnUm9vyv2k49CeCB-3
 
 let currentUser = null;
 
-function initUser() {
-  const saved = localStorage.getItem('lb_user');
-  if (saved) {
-    currentUser = JSON.parse(saved);
-    applyUser();
+// ── 이메일 탭 전환 ──
+var authTabMode = 'signin';
+function switchAuthTab(mode) {
+  authTabMode = mode;
+  document.getElementById('tabSignin').style.background = mode==='signin' ? 'var(--ink)' : 'transparent';
+  document.getElementById('tabSignin').style.color = mode==='signin' ? '#fff' : 'var(--ink3)';
+  document.getElementById('tabSignup').style.background = mode==='signup' ? 'var(--ink)' : 'transparent';
+  document.getElementById('tabSignup').style.color = mode==='signup' ? '#fff' : 'var(--ink3)';
+  document.getElementById('signupNicknameWrap').style.display = mode==='signup' ? 'block' : 'none';
+  document.getElementById('emailAuthBtn').textContent = mode==='signin' ? '로그인 →' : '회원가입 →';
+  document.getElementById('authErrMsg').textContent = '';
+}
+
+// ── 이메일 로그인 / 회원가입 ──
+async function submitEmailAuth() {
+  const email = document.getElementById('emailInp').value.trim();
+  const password = document.getElementById('passwordInp').value;
+  const errEl = document.getElementById('authErrMsg');
+  const btn = document.getElementById('emailAuthBtn');
+
+  if (!email || !password) { errEl.textContent = '이메일과 비밀번호를 입력해주세요.'; return; }
+  if (password.length < 6) { errEl.textContent = '비밀번호는 6자 이상이어야 합니다.'; return; }
+
+  btn.disabled = true;
+  btn.textContent = '처리 중...';
+  errEl.textContent = '';
+
+  try {
+    if (authTabMode === 'signin') {
+      await fbAuth.signInWithEmailAndPassword(email, password);
+    } else {
+      const nickname = (document.getElementById('nicknameInp').value || '').trim();
+      if (!nickname) { errEl.textContent = '필명을 입력해주세요.'; btn.disabled=false; btn.textContent='회원가입 →'; return; }
+      const cred = await fbAuth.createUserWithEmailAndPassword(email, password);
+      await cred.user.updateProfile({ displayName: nickname });
+    }
+    // onAuthStateChanged가 이후 처리
+  } catch(e) {
+    const msgs = {
+      'auth/user-not-found': '등록되지 않은 이메일입니다.',
+      'auth/wrong-password': '비밀번호가 틀렸습니다.',
+      'auth/email-already-in-use': '이미 사용 중인 이메일입니다.',
+      'auth/invalid-email': '이메일 형식이 올바르지 않습니다.',
+      'auth/invalid-credential': '이메일 또는 비밀번호가 올바르지 않습니다.'
+    };
+    errEl.textContent = msgs[e.code] || '오류가 발생했습니다. 다시 시도해주세요.';
+    btn.disabled = false;
+    btn.textContent = authTabMode==='signin' ? '로그인 →' : '회원가입 →';
   }
-  // userModal starts hidden; splash button decides whether to show it
+}
+
+// ── Firebase Google 로그인 ──
+// 모바일: signInWithRedirect / 데스크톱: signInWithPopup
+async function signInWithGoogle() {
+  const btn = document.getElementById('googleLoginBtn');
+  if (btn) { btn.textContent = '로그인 중...'; btn.disabled = true; }
+  const provider = new firebase.auth.GoogleAuthProvider();
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  try {
+    if (isMobile) {
+      await fbAuth.signInWithRedirect(provider);
+      // redirect 후 페이지 이동 — 리턴 없음
+    } else {
+      await fbAuth.signInWithPopup(provider);
+      // onAuthStateChanged가 이후 처리
+    }
+  } catch(e) {
+    console.error('Google login error:', e);
+    const gIcon = '<svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/><path fill="#FBBC05" d="M3.964 10.706A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.038l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.962L3.964 6.294C4.672 4.169 6.656 3.58 9 3.58z"/></svg>';
+    if (btn) { btn.innerHTML = gIcon + ' Google로 계속하기'; btn.disabled = false; }
+  }
+}
+
+// ── 리다이렉트 로그인 결과 처리 (페이지 로드 시) ──
+async function handleRedirectResult() {
+  try {
+    const result = await fbAuth.getRedirectResult();
+    // 리다이렉트 결과 있으면 onAuthStateChanged가 자동 처리
+  } catch(e) {
+    console.error('Redirect result error:', e);
+  }
+}
+
+// ── Firebase Auth 상태 감지 ──
+function initUser() {
+  // 모바일 리다이렉트 로그인 결과 처리
+  handleRedirectResult();
+  // Firebase auth 상태 감지 (로그인/로그아웃)
+  fbAuth.onAuthStateChanged(async (fbUser) => {
+    if (fbUser) {
+      // Google 로그인 성공
+      currentUser = {
+        nickname: fbUser.displayName || fbUser.email.split('@')[0],
+        email: fbUser.email,
+        id: fbUser.uid,
+        photo: fbUser.photoURL,
+        joinedAt: fbUser.metadata.creationTime
+      };
+      localStorage.setItem('lb_user', JSON.stringify(currentUser));
+      // Firestore에 사용자 정보 upsert
+      try {
+        await fbDb.collection('users').doc(fbUser.uid).set({
+          nickname: currentUser.nickname,
+          email: currentUser.email,
+          photo: currentUser.photo || '',
+          joinedAt: currentUser.joinedAt,
+          updatedAt: new Date().toISOString()
+        }, { merge: true });
+      } catch(e) { console.warn('User upsert failed:', e); }
+      // 모달 닫기
+      const um = document.getElementById('userModal');
+      if (um && !um.classList.contains('hide')) {
+        um.classList.add('hide');
+        applyUser();
+        showGuide();
+      } else {
+        applyUser();
+      }
+    } else {
+      // 로그아웃 or 미로그인 — localStorage 폴백
+      const saved = localStorage.getItem('lb_user');
+      if (saved) {
+        currentUser = JSON.parse(saved);
+        applyUser();
+      }
+    }
+  });
 }
 
 function saveNickname() {
@@ -2632,24 +3248,30 @@ function applyUser() {
   loadUserRecords();
 }
 
-/* ── localStorage record storage ── */
+/* ── Record storage: localStorage + Firestore ── */
 function saveRecord(rec) {
   const key = 'lb_records_' + (currentUser ? currentUser.id : 'guest');
   const existing = JSON.parse(localStorage.getItem(key) || '[]');
-  // Prevent duplicate for same date
   const filtered = existing.filter(r => r.date !== rec.date);
   filtered.unshift(rec);
-  // Keep max 90 records (3 months)
   localStorage.setItem(key, JSON.stringify(filtered.slice(0, 90)));
-  // Also try to sync to Google Sheets
   if (SHEETS_URL) syncToSheets(rec);
+  // Firestore 저장 (로그인한 경우)
+  const fbUser = fbAuth.currentUser;
+  if (fbUser) {
+    const docId = rec.date.replace(/-/g,'') + '_' + (rec.phase||'copy');
+    fbDb.collection('records').doc(fbUser.uid).collection('entries').doc(docId).set({
+      ...rec,
+      uid: fbUser.uid,
+      savedAt: new Date().toISOString()
+    }).catch(e => console.warn('Firestore save error:', e));
+  }
 }
 
 function loadUserRecords() {
   const key = 'lb_records_' + (currentUser ? currentUser.id : 'guest');
   const saved = JSON.parse(localStorage.getItem(key) || '[]');
   if (saved.length > 0) {
-    // Merge with demo data, saved takes priority
     saved.forEach(r => {
       const exists = pastRecords.find(p => p.date === r.date);
       if (!exists) pastRecords.push(r);
@@ -2658,6 +3280,31 @@ function loadUserRecords() {
     renderRecords();
     renderCal();
     updateStats();
+  }
+  // Firestore에서 추가 기록 불러오기 (로그인 사용자)
+  const fbUser = fbAuth.currentUser;
+  if (fbUser) {
+    fbDb.collection('records').doc(fbUser.uid).collection('entries')
+      .orderBy('date', 'desc').limit(90)
+      .get()
+      .then(snap => {
+        let changed = false;
+        snap.forEach(doc => {
+          const r = doc.data();
+          const exists = pastRecords.find(p => p.date === r.date && p.phase === r.phase);
+          if (!exists) { pastRecords.push(r); changed = true; }
+        });
+        if (changed) {
+          pastRecords.sort((a,b) => new Date(b.date) - new Date(a.date));
+          renderRecords();
+          renderCal();
+          updateStats();
+          // 로컬에도 캐시
+          const key2 = 'lb_records_' + fbUser.uid;
+          localStorage.setItem(key2, JSON.stringify(pastRecords.slice(0,90)));
+        }
+      })
+      .catch(e => console.warn('Firestore load error:', e));
   }
 }
 
@@ -2761,6 +3408,14 @@ let healingInputMode = 'typing';
 let healingInputLocked = false;
 let bgmCtx = null;
 let ttsActive = false;
+
+/* P1-5: 추천 힐링 자동 선택 */
+function startRecommendedHealing() {
+  var themes = ['힐링','다짐','여운'];
+  var dayIdx = getDayIndex();
+  var theme = themes[dayIdx % themes.length];
+  selectHealingTheme(theme);
+}
 
 function selectHealingTheme(theme) {
   const passages = HEALING_PASSAGES[theme];
@@ -3025,12 +3680,89 @@ function wordOverlap(userText, original) {
   let ov=0; wa.forEach(function(w){if(wb.has(w))ov++;}); return ov/wa.length;
 }
 
+/* ── 토큰 비교 엔진 (P0: 신뢰도 핵심) ── */
+function tokenCompare(original, userText) {
+  var punct = /[.,!?"""''·「」『』\-—()~：:;]/g;
+  var origTokens = original.replace(punct,'').split(/\s+/).filter(function(w){return w.length>=1;});
+  var userTokens = userText.replace(punct,'').split(/\s+/).filter(function(w){return w.length>=1;});
+  var origSet = new Set(origTokens);
+  var userSet = new Set(userTokens);
+  // 예시문도 포함하여 비교
+  var exampleTokens = [];
+  if(typeof todaySent!=='undefined' && todaySent && todaySent.example){
+    exampleTokens = todaySent.example.replace(punct,'').split(/\s+/).filter(function(w){return w.length>=1;});
+  }
+  var exampleSet = new Set(exampleTokens);
+  var sharedWords = []; // 원문과 공통
+  var newWords = [];    // 사용자만의 진짜 새로운 단어
+  var removedWords = []; // 원문에만 있는 단어
+  // 조사/어미 등 기능어 필터
+  var funcWords = new Set(['은','는','이','가','을','를','의','와','과','에','에서','로','으로','도','만','까지','부터','처럼','같이','보다','한','그','저','이런','그런','더','덜','매우','아주','정말','참','너무','좀','다','안','못','잘','또','및']);
+  userTokens.forEach(function(w){
+    if(origSet.has(w)){
+      sharedWords.push(w);
+    } else if(!funcWords.has(w) && w.length >= 2){
+      newWords.push(w);
+    }
+  });
+  origTokens.forEach(function(w){
+    if(!userSet.has(w) && !funcWords.has(w) && w.length >= 2){
+      removedWords.push(w);
+    }
+  });
+  // 중복 제거
+  newWords = Array.from(new Set(newWords));
+  sharedWords = Array.from(new Set(sharedWords));
+  removedWords = Array.from(new Set(removedWords));
+  return {sharedWords:sharedWords, newWords:newWords, removedWords:removedWords, origTokens:origTokens, userTokens:userTokens};
+}
+
 function getSentenceType(text) {
   const t = text.trim();
   if(t.endsWith('?')||/[는은]가$/.test(t)||/을까$/.test(t)||/인가$/.test(t)) return 'question';
   if(t.endsWith('!')||/하라$/.test(t)||/하자$/.test(t)||/하세요$/.test(t)) return 'command';
   return 'statement';
 }
+
+/* ── 실시간 공백 감지 UI (P0-2) ── */
+function checkWhitespaceRealtime(textarea) {
+  var v = textarea.value;
+  var warnings = [];
+  // 앞뒤 공백
+  if(v.length > 0 && v !== v.trim()) {
+    if(v.startsWith(' ') || v.startsWith('\t')) warnings.push('앞쪽 공백');
+  }
+  // 이중 공백
+  var doubleSpaces = (v.match(/  +/g) || []);
+  if(doubleSpaces.length > 0) warnings.push('연속 공백 ' + doubleSpaces.length + '곳');
+  // 탭
+  if(/\t/.test(v)) warnings.push('탭 문자');
+  // 표시
+  var container = textarea.closest('.iw') || textarea.parentElement;
+  var existing = container.querySelector('.ws-warn');
+  if(warnings.length > 0) {
+    if(!existing) {
+      existing = document.createElement('div');
+      existing.className = 'ws-warn';
+      container.appendChild(existing);
+    }
+    existing.innerHTML = '<span class="ws-icon">⚠</span> ' + warnings.join(' · ');
+    existing.style.display = 'flex';
+    textarea.classList.add('has-ws-issue');
+  } else {
+    if(existing) existing.style.display = 'none';
+    textarea.classList.remove('has-ws-issue');
+  }
+  return warnings;
+}
+
+// 실시간 감지 연결
+document.addEventListener('input', function(e) {
+  var ta = e.target;
+  if(ta.tagName === 'TEXTAREA' && (ta.id === 'structTa' || ta.id === 'creativeTa' || ta.id === 'copyTa' || ta.id === 'healingTa')) {
+    checkWhitespaceRealtime(ta);
+  }
+});
 
 function detectErrors(text) {
   var errors = [];
@@ -3135,16 +3867,28 @@ function analyzeStructure(original, userText) {
     review += typeMsgs[Math.floor(Math.random()*typeMsgs.length)] + ' ';
   }
 
-  // 어휘 변화
+  // 어휘 변화 — tokenCompare로 정확한 비교
+  var tc = tokenCompare(original, userText);
   if(wov < 0.4){
     score += 1.5;
-    var vocab1 = userKeywords.length > 2 ? userKeywords[Math.floor(Math.random()*userKeywords.length)] : '';
-    review += '어휘를 과감하게 바꿨어요.' + (vocab1 ? ' 특히 "'+vocab1+'"이라는 표현이 원문에 없는 자기만의 단어라서 좋아요.' : '') + ' ';
+    // 진짜 새로운 단어만 인용
+    var genuineNew = tc.newWords.filter(function(w){return w.length>=2;});
+    if(genuineNew.length > 0){
+      var pick = genuineNew[Math.floor(Math.random()*genuineNew.length)];
+      review += '어휘를 과감하게 바꿨어요. 특히 "'+pick+'"은 원문에 없는, 당신만의 표현이에요. ';
+    } else {
+      review += '어휘를 과감하게 바꿨어요. 자기만의 색깔이 느껴져요. ';
+    }
   } else if(wov < 0.6){
     score += 1;
-    review += '일부 단어를 바꾸면서 자기 색깔을 넣었어요. 더 과감하게 바꿔도 괜찮아요 — 의미만 통하면 단어는 자유롭게! ';
+    var newInTransform = tc.newWords.filter(function(w){return w.length>=2;});
+    if(newInTransform.length > 0){
+      review += '"'+newInTransform[0]+'" 같은 표현이 새로 들어왔네요. 이런 식으로 단어를 더 바꿔보세요! ';
+    } else {
+      review += '일부 단어를 바꾸면서 자기 색깔을 넣었어요. 더 과감하게 바꿔도 괜찮아요 — 의미만 통하면 단어는 자유롭게! ';
+    }
   } else {
-    review += '원문의 단어가 꽤 남아있어요. 핵심 명사나 동사 하나를 완전히 다른 단어로 바꿔보세요. ';
+    review += '원문의 단어가 꽤 남아있어요 ('+tc.sharedWords.length+'개 공통). 핵심 명사나 동사 하나를 완전히 다른 단어로 바꿔보세요. ';
   }
 
   // 길이 적절성
@@ -3217,9 +3961,21 @@ function analyzeCreative(original, userText) {
   else if(words.length>=8){score+=0.5;details.push('조금 더 길게 써보면 좋겠어요.');}
   else details.push('글이 짧아요. 생각을 좀 더 펼쳐보세요.');
 
-  if(wov>0.1&&wov<0.5){score+=1;details.push('원문의 주제와 연결되면서도 자기만의 관점이 보여요.');}
+  // tokenCompare로 정확한 비교
+  var tc = tokenCompare(original, userText);
+  if(wov>0.1&&wov<0.5){
+    score+=1;
+    var genuineNewC = tc.newWords.filter(function(w){return w.length>=2;});
+    if(genuineNewC.length >= 2){
+      details.push('원문의 주제와 연결되면서도 "'+genuineNewC[0]+'", "'+genuineNewC[1]+'" 같은 자기만의 표현이 돋보여요.');
+    } else {
+      details.push('원문의 주제와 연결되면서도 자기만의 관점이 보여요.');
+    }
+  }
   else if(wov<=0.1){score+=0.5;details.push('원문과의 연결이 약해요. 오늘 배운 기법을 반영해보세요.');}
-  else details.push('원문의 표현을 많이 가져왔어요. 자기만의 소재로 바꿔보세요.');
+  else {
+    details.push('원문의 표현을 많이 가져왔어요 ('+tc.sharedWords.length+'개 공통). 자기만의 소재로 바꿔보세요.');
+  }
 
   if(/[.!?。…]$/.test(userText.trim())){score+=0.5;details.push('문장이 깔끔하게 마무리됐어요.');}
 
@@ -3227,7 +3983,11 @@ function analyzeCreative(original, userText) {
   if(concrete.test(userText)){score+=1;details.push('구체적인 이미지가 글에 생동감을 줘요.');}
   else details.push('구체적인 사물이나 감각 표현을 넣으면 글이 더 선명해져요.');
 
-  if(sim<0.3&&words.length>=10){score+=1;details.push('독창적인 시각이 돋보입니다.');}
+  if(sim<0.3&&words.length>=10){
+    score+=1;
+    var novelHighlight = tc.newWords.length>=3 ? ' "'+tc.newWords.slice(0,3).join('", "')+'" 등 원문에 없는 표현이 많아요.' : '';
+    details.push('독창적인 시각이 돋보입니다.'+novelHighlight);
+  }
 
   result.stars=Math.min(5,Math.max(1,Math.round(score)));
   result.sections.push({lbl:'감정·이미지 분석',txt:details.join(' ')});
@@ -3277,9 +4037,12 @@ function lockInputMode(){
   else document.getElementById('imTyping').classList.add('locked');
 }
 
-/* ── Override runStruct ── */
-runStruct = function() {
+/* ── Override runStruct ── Hattie Process 레벨 피드백 (callAI → 규칙 기반 폴백) ── */
+runStruct = async function() {
   if(ocrInProgress){alert('손글씨 인식 중입니다. 잠시 후 다시 시도해주세요.');return;}
+  // P0-2: 공백 경고
+  var wsWarns = checkWhitespaceRealtime(document.getElementById('structTa'));
+  if(wsWarns.length > 0 && !confirm('공백 문제가 있어요: ' + wsWarns.join(', ') + '\n\n이대로 채점할까요?')) return;
   var v=document.getElementById('structTa').value.trim();
   // OCR 로딩 텍스트 무시
   if(v==='🔍 손글씨 인식 중...')v='';
@@ -3289,7 +4052,7 @@ runStruct = function() {
   if(v){
     var _v=v.replace(/\s+/g,''),_orig=todaySent.text.replace(/\s+/g,''),_ex1=todaySent.example.replace(/\s+/g,'');
     if(_v===_orig||_v.includes(_orig)||(_orig.includes(_v)&&_v.length>10)||_v===_ex1||_v.includes(_ex1)||(_ex1.includes(_v)&&_v.length>10)){
-      document.getElementById('sRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요. 오늘 배운 구조로 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
+      showSimilarGuide('structure');
       return;
     }
   }
@@ -3298,25 +4061,67 @@ runStruct = function() {
   document.getElementById('sAtt').textContent='채점 기회 '+structAttempts+'번 남음';
   document.getElementById('sBtn').style.display='none';
   document.getElementById('sLd').style.display='block';
-  setTimeout(function(){
-    document.getElementById('sLd').style.display='none';
-    var analysis=analyzeStructure(todaySent.text,v);
-    structScore=analysis.stars;
-    var secs=analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    var errH=analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
-    document.getElementById('sRes').innerHTML=
-      '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span><span class="air-score" style="font-size:18px;">'+renderStarsHTML(analysis.stars,5)+'</span></div>'+
-      '<div class="air-body"><div style="text-align:center;font-size:13px;color:rgba(247,242,232,0.5);margin:-2px 0 10px;">★ '+analysis.stars+' / 5</div>'+secs+errH+
-      '<div class="air-tip">💡 '+analysis.tip+'</div></div></div>';
-    if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
-    document.getElementById('sNext').style.display='block';
-  },1500);
+
+  // AI 우선, 실패 시 규칙 기반 폴백
+  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + todaySent.learn.technique : '');
+  var aiResult = await callAI('structure', todaySent.text, v, learningPoint);
+  document.getElementById('sLd').style.display='none';
+
+  var bricks, html;
+  if(aiResult && typeof aiResult.bricks === 'number') {
+    bricks = aiResult.bricks;
+    var maxB = aiResult.maxBricks || 5;
+    var brickStr = '🧱'.repeat(bricks) + '░'.repeat(maxB - bricks);
+    var criteriaH = (aiResult.criteria||[]).map(function(c){
+      var cb = '🧱'.repeat(c.bricks) + '░'.repeat(c.max - c.bricks);
+      return '<div class="bf-criterion">'+
+        '<div class="bf-crit-bricks">'+cb+'</div>'+
+        '<div class="bf-crit-body">'+
+          '<div class="bf-crit-name">'+c.name+'</div>'+
+          '<div class="bf-crit-comment">'+c.comment+'</div>'+
+        '</div></div>';
+    }).join('');
+    var errs = [];
+    (aiResult.spellingErrors||[]).forEach(function(e){errs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
+    (aiResult.spacingErrors||[]).forEach(function(e){errs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
+    var errH = errs.length ? '<div class="bf-errors" style="margin-top:8px;">'+errs.join('')+'</div>' : '';
+    // 관찰→근거→개선→예시 구조
+    var fbH = '<div class="fb-grid">';
+    if(aiResult.observation) fbH += '<div class="fb-section fb-obs"><div class="fb-section-lbl">관찰</div><div class="fb-section-txt">'+aiResult.observation+'</div></div>';
+    if(aiResult.evidence)    fbH += '<div class="fb-section fb-evd"><div class="fb-section-lbl">근거</div><div class="fb-section-txt">'+aiResult.evidence+'</div></div>';
+    if(aiResult.improvement) fbH += '<div class="fb-section fb-imp"><div class="fb-section-lbl">개선</div><div class="fb-section-txt">'+aiResult.improvement+'</div></div>';
+    if(aiResult.example)     fbH += '<div class="fb-section fb-ex"><div class="fb-section-lbl">예시</div><div class="fb-section-txt">'+aiResult.example+'</div></div>';
+    fbH += '</div>';
+    html = '<div class="air">'+
+      '<div class="air-head"><span class="air-lbl">구조 연습 — 오늘 획득</span></div>'+
+      '<div class="air-body">'+
+        '<div class="bf-world"><div class="bf-world-bricks">'+brickStr+'</div><div class="bf-world-msg">'+(aiResult.worldMessage||'벽돌 '+bricks+'개')+'</div></div>'+
+        '<div class="bf-criteria" style="margin-bottom:12px;">'+criteriaH+'</div>'+
+        fbH + errH +
+      '</div></div>';
+  } else {
+    bricks = 3;
+    html = '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span></div>'+
+      '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
+      '<div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br>'+
+      '<span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>'+
+      '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 어색한 부분이 자연스럽게 보입니다.</div></div></div>';
+  }
+
+  structScore = bricks;
+  document.getElementById('sRes').innerHTML = html;
+  if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
+  document.getElementById('sNext').style.display='block';
+  document.getElementById('s3Finish').style.display='block'; // P0-3
 };
 
-/* ── Override runCreative ── */
+/* ── Override runCreative ── Hattie Self-regulation 레벨 피드백 (callAI → 규칙 기반 폴백) ── */
 creativeAttempts = 3;
-runCreative = function() {
+runCreative = async function() {
   if(ocrInProgress){alert('손글씨 인식 중입니다. 잠시 후 다시 시도해주세요.');return;}
+  // P0-2: 공백 경고
+  var wsWarnsC = checkWhitespaceRealtime(document.getElementById('creativeTa'));
+  if(wsWarnsC.length > 0 && !confirm('공백 문제가 있어요: ' + wsWarnsC.join(', ') + '\n\n이대로 평가할까요?')) return;
   var v=document.getElementById('creativeTa').value.trim();
   // OCR 로딩 텍스트 무시
   if(v==='🔍 손글씨 인식 중...')v='';
@@ -3326,7 +4131,7 @@ runCreative = function() {
   if(v){
     var _cv=v.replace(/\s+/g,''),_corig=todaySent.text.replace(/\s+/g,''),_cex1=todaySent.example.replace(/\s+/g,'');
     if(_cv===_corig||_cv.includes(_corig)||(_corig.includes(_cv)&&_cv.length>10)||_cv===_cex1||_cv.includes(_cex1)||(_cex1.includes(_cv)&&_cv.length>10)){
-      document.getElementById('cRes').innerHTML='<div class="air" style="border-color:var(--gold)"><div class="air-head" style="background:var(--gold)"><span class="air-lbl">잠깐요 ✋</span></div><div class="air-body"><div class="air-txt" style="color:var(--ink);">원문이나 예시 문장이에요. 오늘 배운 기법에서 영감을 받아 <b>완전히 나만의 이야기</b>를 써보세요.</div></div></div>';
+      showSimilarGuide('creative');
       return;
     }
   }
@@ -3335,20 +4140,117 @@ runCreative = function() {
   document.getElementById('cAtt').textContent='평가 기회 '+creativeAttempts+'번 남음';
   document.getElementById('cBtn').style.display='none';
   document.getElementById('cLd').style.display='block';
-  setTimeout(function(){
-    document.getElementById('cLd').style.display='none';
-    var analysis=analyzeCreative(todaySent.text,v);
-    creativeScore=analysis.stars;
-    var secs=analysis.sections.map(function(s){return '<div class="air-section"><div class="air-section-lbl">'+s.lbl+'</div><div class="air-txt">'+s.txt+'</div></div>';}).join('');
-    var errH=analysis.errors.filter(function(e){return e.type!=='blocking';}).map(function(e){return '<div class="err-'+e.type+'">'+e.msg+'</div>';}).join('');
-    document.getElementById('cRes').innerHTML=
-      '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치 평가</span><span class="air-score" style="font-size:18px;">'+renderStarsHTML(analysis.stars,5)+'</span></div>'+
-      '<div class="air-body"><div style="text-align:center;font-size:13px;color:rgba(247,242,232,0.5);margin:-2px 0 10px;">★ '+analysis.stars+' / 5</div>'+secs+errH+
-      '<div class="air-tip">💡 '+analysis.tip+'</div></div></div>';
-    if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
-    document.getElementById('cNext').style.display='block';
-  },1800);
+
+  // AI 우선, 실패 시 규칙 기반 폴백
+  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + todaySent.learn.technique : '');
+  var aiResult = await callAI('creative', todaySent.text, v, learningPoint);
+  document.getElementById('cLd').style.display='none';
+
+  var cBricks, cHtml;
+  if(aiResult && typeof aiResult.bricks === 'number') {
+    cBricks = aiResult.bricks;
+    var cMaxB = aiResult.maxBricks || 5;
+    var cBrickStr = '🧱'.repeat(cBricks) + '░'.repeat(cMaxB - cBricks);
+    var cCriteriaH = (aiResult.criteria||[]).map(function(c){
+      var cb = '🧱'.repeat(c.bricks) + '░'.repeat(c.max - c.bricks);
+      return '<div class="bf-criterion">'+
+        '<div class="bf-crit-bricks">'+cb+'</div>'+
+        '<div class="bf-crit-body">'+
+          '<div class="bf-crit-name">'+c.name+'</div>'+
+          '<div class="bf-crit-comment">'+c.comment+'</div>'+
+        '</div></div>';
+    }).join('');
+    var cErrs = [];
+    (aiResult.spellingErrors||[]).forEach(function(e){cErrs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
+    (aiResult.spacingErrors||[]).forEach(function(e){cErrs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
+    var cErrH = cErrs.length ? '<div class="bf-errors" style="margin-top:8px;">'+cErrs.join('')+'</div>' : '';
+    // 관찰→근거→개선→예시 구조
+    var cFbH = '<div class="fb-grid">';
+    if(aiResult.observation) cFbH += '<div class="fb-section fb-obs"><div class="fb-section-lbl">관찰</div><div class="fb-section-txt">'+aiResult.observation+'</div></div>';
+    if(aiResult.evidence)    cFbH += '<div class="fb-section fb-evd"><div class="fb-section-lbl">근거</div><div class="fb-section-txt">'+aiResult.evidence+'</div></div>';
+    if(aiResult.improvement) cFbH += '<div class="fb-section fb-imp"><div class="fb-section-lbl">개선</div><div class="fb-section-txt">'+aiResult.improvement+'</div></div>';
+    if(aiResult.example)     cFbH += '<div class="fb-section fb-ex"><div class="fb-section-lbl">예시</div><div class="fb-section-txt">'+aiResult.example+'</div></div>';
+    cFbH += '</div>';
+    var encH = aiResult.encouragement ? '<div class="fb-enc">'+aiResult.encouragement+'</div>' : '';
+    cHtml = '<div class="air">'+
+      '<div class="air-head"><span class="air-lbl">창의적 글쓰기 — 오늘 획득</span></div>'+
+      '<div class="air-body">'+
+        '<div class="bf-world"><div class="bf-world-bricks">'+cBrickStr+'</div><div class="bf-world-msg">'+(aiResult.worldMessage||'벽돌 '+cBricks+'개')+'</div></div>'+
+        '<div class="bf-criteria" style="margin-bottom:12px;">'+cCriteriaH+'</div>'+
+        cFbH + cErrH + encH +
+      '</div></div>';
+    creativeScore = cBricks;
+  } else {
+    cBricks = 3;
+    creativeScore = 3;
+    cHtml = '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
+      '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
+      '<div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br>'+
+      '<span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>'+
+      '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 마음에 걸리는 부분이 보이면 그게 다음 고칠 곳입니다.</div></div></div>';
+  }
+
+  document.getElementById('cRes').innerHTML = cHtml;
+  if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
+  document.getElementById('cNext').style.display='block';
 };
+
+/* ── P0-3: 단계별 조기 완료 ── */
+function finishEarly(stage) {
+  var stageNames = {copy:'필사', struct:'구조연습'};
+  var elapsed = sessionStartTime ? Math.round((Date.now()-sessionStartTime)/1000) : 0;
+  var copyText = document.getElementById('copyTa').value || '';
+  var structText = stage === 'struct' ? (document.getElementById('structTa').value || '') : '';
+
+  // 현재 단계 숨기기
+  if(stage === 'copy') document.getElementById('s1').style.display='none';
+  else if(stage === 'struct') document.getElementById('s3').style.display='none';
+
+  // 별표 1개 보상
+  var stars = loadStars();
+  var prevTotal = stars.growth.total;
+  var earnedStars = 1; // 필사만 = 1별, 구조까지 = 1별 (구조 별점은 이미 기록됨)
+  if(stage === 'struct' && structScore > 0) earnedStars = structScore;
+  var newTotal = prevTotal + earnedStars;
+
+  // 완료 배너 표시
+  var doneCard = document.getElementById('doneCard');
+  document.getElementById('dbStructStars').innerHTML = stage === 'struct' ? renderStarsHTML(structScore,5) : '<span style="color:rgba(247,242,232,0.4);">—</span>';
+  document.getElementById('dbCreativeStars').innerHTML = '<span style="color:rgba(247,242,232,0.4);">—</span>';
+  document.getElementById('bwLabel').textContent = earnedStars > 0 ? '+'+earnedStars+' 벽돌' : '⭐ 필사 완료';
+  document.getElementById('db-ttl') && (document.getElementById('db-ttl').textContent = '오늘의 ' + stageNames[stage] + ' 완료!');
+  var dbTtl = doneCard.querySelector('.db-ttl');
+  if(dbTtl) dbTtl.textContent = '오늘의 ' + stageNames[stage] + ' 완료!';
+  var dbSub = doneCard.querySelector('.db-sub');
+  if(dbSub) dbSub.textContent = '여기까지만 해도 충분해요. 내일 이어서 더 해볼 수도 있어요.';
+
+  // 벽돌 비주얼
+  var grid = document.getElementById('bwGrid'); grid.innerHTML='';
+  var showOld = Math.min(prevTotal, 20);
+  for(var i=0;i<showOld;i++){var ob=document.createElement('div');ob.className='bw-brick old';grid.appendChild(ob);}
+  for(var j=0;j<earnedStars;j++){var nb=document.createElement('div');nb.className='bw-brick earned';nb.style.animationDelay=(j*0.15+0.3)+'s';grid.appendChild(nb);}
+  document.getElementById('bwTotal').textContent='누적 '+newTotal+'개';
+
+  doneCard.style.display='block';
+  updateSB(5);
+
+  // 기록 저장
+  var completedSteps = stage === 'copy' ? ['copy'] : ['copy','struct'];
+  var newRec = {
+    date:new Date().toISOString().split('T')[0], edition:'growth',
+    score: earnedStars*10, starsEarned: earnedStars,
+    sentence:todaySent.text, author:todaySent.author, source:todaySent.source,
+    copyText: copyText, structText: structText, structScore: structScore || 0,
+    creative:'('+stageNames[stage]+'까지 완료)', creativeScore:0,
+    structFb: stage === 'struct' ? '구조 연습 🧱'+structScore : '',
+    creativeFb: stageNames[stage] + '까지 완료',
+    completedSteps: completedSteps,
+    inputMode:currentInputMode, durationSeconds:elapsed
+  };
+  pastRecords.unshift(newRec); saveRecord(newRec);
+  stars.growth.total=newTotal; stars.growth.sessions++; saveStars(stars);
+  renderRecords(); renderCal(); updateStats(); renderEditionCards();
+}
 
 /* ── Override finish ── */
 finish = function() {
@@ -3356,9 +4258,9 @@ finish = function() {
   var sStars=structScore||0, cStars=creativeScore||0, totalStars=sStars+cStars;
   document.getElementById('finalScore').textContent=totalStars;
 
-  // 별점 요약 (작게)
-  document.getElementById('dbStructStars').innerHTML=renderStarsHTML(sStars,5);
-  document.getElementById('dbCreativeStars').innerHTML=renderStarsHTML(cStars,5);
+  // 벽돌 요약 (작게)
+  document.getElementById('dbStructStars').innerHTML='🧱'.repeat(sStars)||'—';
+  document.getElementById('dbCreativeStars').innerHTML='🧱'.repeat(cStars)||'—';
 
   // 벽돌 비주얼
   var stars=loadStars();
@@ -3380,15 +4282,33 @@ finish = function() {
   }
   document.getElementById('bwTotal').textContent='누적 '+newTotal+'개';
 
+  // P2-7: 마일스톤 미리보기
+  var ws = getWorldStage('growth', newTotal);
+  var msEl = document.getElementById('bwMilestone');
+  if(ws.next) {
+    msEl.style.display = 'flex';
+    document.getElementById('bwMsLabel').textContent = '→ ' + ws.next.name;
+    document.getElementById('bwMsCount').textContent = newTotal + '/' + ws.next.at;
+    var msPct = Math.min(100, Math.round((newTotal / ws.next.at) * 100));
+    setTimeout(function(){document.getElementById('bwMsFill').style.width = msPct + '%';}, 500);
+  } else {
+    msEl.style.display = 'flex';
+    document.getElementById('bwMsLabel').textContent = '🏆 ' + ws.current.name;
+    document.getElementById('bwMsCount').textContent = '최고 단계!';
+    document.getElementById('bwMsFill').style.width = '100%';
+  }
+
   var doneCard=document.getElementById('doneCard'); doneCard.style.display='block';
   updateSB(5);
 
   var elapsed=sessionStartTime?Math.round((Date.now()-sessionStartTime)/1000):0;
   var newRec={date:new Date().toISOString().split('T')[0],edition:'growth',score:totalStars*10,starsEarned:totalStars,
     sentence:todaySent.text,author:todaySent.author,source:todaySent.source,
+    copyText:document.getElementById('copyTa').value||'',
     structText:document.getElementById('structTa').value||'',structScore:sStars,
     creative:document.getElementById('creativeTa').value||'(미작성)',creativeScore:cStars,
-    structFb:'구조 연습 ★'+sStars,creativeFb:'창의적 글쓰기 ★'+cStars,
+    structFb:'구조 연습 🧱'+sStars,creativeFb:'창의적 글쓰기 🧱'+cStars,
+    completedSteps:['copy','struct','creative'],
     inputMode:currentInputMode,durationSeconds:elapsed};
   pastRecords.unshift(newRec); saveRecord(newRec);
 
@@ -3425,6 +4345,320 @@ enterApp = function() {
 /* ── lb_stars ── */
 function loadStars(){try{var r=localStorage.getItem('lb_stars');if(r)return JSON.parse(r);}catch(e){}return{growth:{total:0,sessions:0},healing:{total:0,sessions:0}};}
 function saveStars(d){localStorage.setItem('lb_stars',JSON.stringify(d));}
+
+/* ══════════════════════════════
+   MY PAGE — 내 기록
+══════════════════════════════ */
+var mpPageSize = 15;
+var mpCurrentCount = 0;
+var mpFilter = 'all';
+
+function renderMyPage() {
+  var stars = loadStars();
+  // 프로필
+  if(currentUser) {
+    if(currentUser.joinedAt) {
+      var joined = new Date(currentUser.joinedAt);
+      document.getElementById('mpSince').textContent = joined.getFullYear()+'년 '+(joined.getMonth()+1)+'월 '+joined.getDate()+'일부터';
+    }
+    // 프로필 사진 + 자기소개 (Firestore 우선)
+    var avatarEl = document.getElementById('mpAvatar');
+    var fbUser = fbAuth.currentUser;
+    if (fbUser) {
+      fbDb.collection('users').doc(fbUser.uid).get().then(function(doc) {
+        var d = doc.exists ? doc.data() : {};
+        // 사진: Firestore photoDataUrl > Firebase Auth photoURL > 기본 이모지
+        if (d.photoDataUrl) {
+          avatarEl.innerHTML = '<img src="'+d.photoDataUrl+'" alt="프로필" style="width:100%;height:100%;object-fit:cover;">';
+        } else if (fbUser.photoURL) {
+          avatarEl.innerHTML = '<img src="'+fbUser.photoURL+'" alt="프로필" onerror="this.parentElement.textContent=\'📝\'">';
+        } else {
+          avatarEl.textContent = '📝';
+        }
+        // 닉네임 (Firestore > Auth)
+        var nick = d.nickname || fbUser.displayName || (currentUser && currentUser.nickname) || '필사러';
+        var mpName = document.getElementById('mpName');
+        if (mpName) mpName.textContent = nick;
+        if (currentUser) currentUser.nickname = nick;
+        // 자기소개
+        var bioEl = document.getElementById('mpBioText');
+        if (bioEl) {
+          if (d.bio) { bioEl.textContent = d.bio; }
+          else { bioEl.textContent = '한 줄 소개를 적어보세요. (탭해서 편집)'; bioEl.style.color = 'var(--ink3)'; }
+        }
+      }).catch(function() { avatarEl.textContent = '📝'; });
+    } else {
+      avatarEl.textContent = '📝';
+    }
+  }
+  // 통계
+  var totalStars = stars.growth.total + stars.healing.total;
+  var totalSessions = stars.growth.sessions + stars.healing.sessions;
+  document.getElementById('mpTotalStars').textContent = totalStars;
+  document.getElementById('mpTotalSessions').textContent = totalSessions;
+  // 연속일
+  var streak = 0;
+  var today = new Date();
+  for(var i=0;i<60;i++){
+    var d=new Date(today);d.setDate(d.getDate()-i);
+    var ds=d.toISOString().split('T')[0];
+    if(pastRecords.find(function(r){return r.date===ds;})) streak++;
+    else if(i>0) break;
+  }
+  document.getElementById('mpStreak').textContent = streak;
+  // 세계관
+  var ws = getWorldStage('growth', stars.growth.total);
+  document.getElementById('mpWorldStage').textContent = ws.current.name;
+  // 에디션별
+  document.getElementById('mpGrowthStars').textContent = '★ ' + stars.growth.total;
+  document.getElementById('mpHealingStars').textContent = '★ ' + stars.healing.total;
+  // 기록 목록
+  mpCurrentCount = 0;
+  document.getElementById('mpRecordList').innerHTML = '';
+  loadMoreRecords();
+}
+
+// ── 자기소개 편집 ──
+function editBio() {
+  var bioWrap = document.getElementById('mpBioWrap');
+  var current = document.getElementById('mpBioText').textContent;
+  if (current === '한 줄 소개를 적어보세요. (탭해서 편집)') current = '';
+  bioWrap.innerHTML =
+    '<textarea class="mp-bio-edit" id="mpBioInput" maxlength="80" placeholder="한 줄 소개 (80자 이내)">' + current + '</textarea>' +
+    '<div class="mp-bio-hint">Enter로 저장 · 80자 이내</div>';
+  var ta = document.getElementById('mpBioInput');
+  ta.focus();
+  ta.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); saveBio(); }
+    if (e.key === 'Escape') { renderMyPage(); }
+  });
+  ta.addEventListener('blur', function() { setTimeout(saveBio, 150); });
+}
+
+function saveBio() {
+  var ta = document.getElementById('mpBioInput');
+  if (!ta) return;
+  var bio = ta.value.trim();
+  var fbUser = fbAuth.currentUser;
+  if (fbUser && bio) {
+    fbDb.collection('users').doc(fbUser.uid).set({ bio: bio }, { merge: true })
+      .catch(function(e) { console.warn('bio save error:', e); });
+  }
+  var bioWrap = document.getElementById('mpBioWrap');
+  if (bioWrap) {
+    bioWrap.innerHTML = '<div class="mp-bio" id="mpBioText" onclick="editBio()" title="탭해서 편집">' +
+      (bio || '한 줄 소개를 적어보세요. (탭해서 편집)') + '</div>';
+    if (!bio) document.getElementById('mpBioText').style.color = 'var(--ink3)';
+  }
+}
+
+// ── 닉네임 편집 ──
+function editNickname() {
+  var wrap = document.getElementById('mpNameWrap');
+  var current = document.getElementById('mpName').textContent;
+  wrap.innerHTML =
+    '<input id="mpNickInp" type="text" maxlength="12" value="' + current.replace(/"/g,'&quot;') + '" ' +
+    'style="font-family:\'Gowun Batang\',serif;font-size:18px;font-weight:700;color:var(--ink);background:var(--paper3);border:1.5px solid var(--brick);border-radius:8px;padding:2px 8px;width:160px;outline:none;" />' +
+    '<div style="font-size:11px;color:var(--ink3);margin-top:3px;">Enter로 저장 · 12자 이내</div>';
+  var inp = document.getElementById('mpNickInp');
+  inp.focus(); inp.select();
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); saveNickname(); }
+    if (e.key === 'Escape') { renderMyPage(); }
+  });
+  inp.addEventListener('blur', function() { setTimeout(saveNickname, 150); });
+}
+
+function saveNickname() {
+  var inp = document.getElementById('mpNickInp');
+  if (!inp) return;
+  var nick = inp.value.trim();
+  if (!nick) { renderMyPage(); return; }
+  var wrap = document.getElementById('mpNameWrap');
+  if (wrap) {
+    wrap.innerHTML = '<div class="mp-name" id="mpName" onclick="editNickname()" title="탭해서 닉네임 변경" style="cursor:pointer;">' + nick + '</div>';
+  }
+  // 로컬 업데이트
+  if (currentUser) currentUser.nickname = nick;
+  var badge = document.querySelector('.user-badge');
+  if (badge) badge.textContent = nick;
+  // Firebase 저장
+  var fbUser = fbAuth.currentUser;
+  if (fbUser) {
+    fbUser.updateProfile({ displayName: nick }).catch(function(){});
+    fbDb.collection('users').doc(fbUser.uid).set({ nickname: nick }, { merge: true }).catch(function(){});
+  }
+}
+
+// ── 프로필 사진 업로드 ──
+function uploadAvatar(input) {
+  var file = input.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = 160; canvas.height = 160;
+      var ctx = canvas.getContext('2d');
+      // 정사각형 크롭 후 리사이즈
+      var size = Math.min(img.width, img.height);
+      var ox = (img.width - size) / 2, oy = (img.height - size) / 2;
+      ctx.drawImage(img, ox, oy, size, size, 0, 0, 160, 160);
+      var dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+      // 아바타 즉시 반영
+      var avatarEl = document.getElementById('mpAvatar');
+      if (avatarEl) avatarEl.innerHTML = '<img src="' + dataUrl + '" alt="프로필" style="width:100%;height:100%;object-fit:cover;">';
+      // Firestore 저장
+      var fbUser = fbAuth.currentUser;
+      if (fbUser) {
+        fbDb.collection('users').doc(fbUser.uid).set({ photoDataUrl: dataUrl }, { merge: true }).catch(function(){});
+      }
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── 내 기록 초기화 ──
+function confirmResetMyData() {
+  if (!confirm('내 기록을 전체 삭제합니다. 되돌릴 수 없습니다.\n계속하시겠습니까?')) return;
+  var fbUser = fbAuth.currentUser;
+  // localStorage 초기화
+  if (currentUser) {
+    localStorage.removeItem('lb_records_' + currentUser.id);
+    localStorage.removeItem('lb_records_' + (fbUser ? fbUser.uid : ''));
+  }
+  localStorage.removeItem('lb_stars');
+  localStorage.removeItem('lb_feedback_history');
+  localStorage.removeItem('lb_feedback_dismissed');
+  // 별점 UI 즉시 초기화
+  var zeroStars = {growth:{total:0,sessions:0},healing:{total:0,sessions:0}};
+  saveStars(zeroStars);
+  var mpG = document.getElementById('mpGrowthStars'); if(mpG) mpG.textContent = '★ 0';
+  var mpH = document.getElementById('mpHealingStars'); if(mpH) mpH.textContent = '★ 0';
+  var mpT = document.getElementById('mpTotalStars'); if(mpT) mpT.textContent = '0';
+  var mpS = document.getElementById('mpTotalSessions'); if(mpS) mpS.textContent = '0';
+  // Firestore 초기화
+  if (fbUser) {
+    fbDb.collection('records').doc(fbUser.uid).collection('entries').get()
+      .then(function(snap) {
+        var batch = fbDb.batch();
+        snap.forEach(function(doc) { batch.delete(doc.ref); });
+        return batch.commit();
+      })
+      .then(function() {
+        pastRecords.length = 0;
+        renderRecords(); renderCal(); updateStats(); renderMyPage();
+        alert('초기화가 완료됐습니다.');
+      })
+      .catch(function(e) { alert('오류: ' + e.message); });
+  } else {
+    pastRecords.length = 0;
+    renderRecords(); renderCal(); updateStats(); renderMyPage();
+    alert('초기화가 완료됐습니다.');
+  }
+}
+
+function getFilteredRecords() {
+  if(mpFilter === 'all') return pastRecords;
+  return pastRecords.filter(function(r){return r.edition === mpFilter;});
+}
+
+function loadMoreRecords() {
+  var filtered = getFilteredRecords();
+  var list = document.getElementById('mpRecordList');
+  var end = Math.min(mpCurrentCount + mpPageSize, filtered.length);
+
+  for(var i=mpCurrentCount; i<end; i++){
+    var rec = filtered[i];
+    var card = document.createElement('div');
+    card.className = 'mp-rec';
+    card.setAttribute('data-edition', rec.edition || 'growth');
+    var d = new Date(rec.date);
+    var dateStr = (d.getMonth()+1)+'월 '+d.getDate()+'일';
+    var edition = rec.edition || 'growth';
+    var edLabel = edition==='healing'?'힐링':'성장';
+
+    // 단계 요약
+    var steps = '';
+    if(rec.completedSteps){
+      var stepNames={copy:'필사',struct:'구조',creative:'창작'};
+      steps = rec.completedSteps.map(function(s){return stepNames[s]||s;}).join(' → ');
+    } else if(rec.creative && rec.creative !== '(미작성)' && !rec.creative.startsWith('(')) {
+      steps = '필사 → 구조 → 창작';
+    } else if(rec.structText) {
+      steps = '필사 → 구조';
+    } else {
+      steps = edition==='healing'?'필사':'필사';
+    }
+
+    // 상세 내용
+    var detailHtml = '';
+    // 원문
+    detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📖 원문</div><div class="mp-rec-stage-text">"'+rec.sentence+'"</div><div style="font-size:11px;color:var(--ink3);margin-top:3px;">— '+(rec.author||'')+' 「'+(rec.source||'')+'」</div></div>';
+    // 필사
+    if(rec.copyText){
+      detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📝 내가 따라 쓴 문장</div><div class="mp-rec-stage-text">'+rec.copyText.substring(0,300)+(rec.copyText.length>300?'…':'')+'</div></div>';
+    }
+    // 구조변형
+    if(rec.structText){
+      detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">🔄 구조 변형'+(rec.structScore?' ★'+rec.structScore:'')+'</div><div class="mp-rec-stage-text">"'+rec.structText+'"</div></div>';
+    }
+    // 창작
+    if(rec.creative && rec.creative!=='(미작성)' && !rec.creative.startsWith('(')){
+      detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">✨ 창의적 글쓰기'+(rec.creativeScore?' ★'+rec.creativeScore:'')+'</div><div class="mp-rec-stage-text">"'+rec.creative+'"</div></div>';
+    }
+    // 힐링 필사 (creative에 저장됨)
+    if(edition==='healing' && rec.creative && rec.creative!=='(미작성)'){
+      detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">🍃 힐링 필사</div><div class="mp-rec-stage-text">'+rec.creative.substring(0,300)+(rec.creative.length>300?'…':'')+'</div></div>';
+    }
+    // 소요 시간
+    if(rec.durationSeconds){
+      var m=Math.floor(rec.durationSeconds/60),s=rec.durationSeconds%60;
+      var timeStr=m>0?m+'분 '+s+'초':s+'초';
+      detailHtml += '<div style="font-size:11px;color:var(--ink3);margin-top:6px;">⏱ '+timeStr+'</div>';
+    }
+
+    var idx = i;
+    card.innerHTML =
+      '<div class="mp-rec-head">'+
+        '<span class="mp-rec-date">'+dateStr+'</span>'+
+        '<span class="mp-rec-badge '+edition+'">'+edLabel+(rec.starsEarned?' ★'+rec.starsEarned:'')+'</span>'+
+      '</div>'+
+      '<div class="mp-rec-sentence">"'+rec.sentence.substring(0,60)+(rec.sentence.length>60?'…':'')+'"</div>'+
+      '<div class="mp-rec-steps">'+steps+'</div>'+
+      '<div class="mp-rec-detail" id="mpd'+idx+'">'+detailHtml+'</div>';
+
+    card.onclick = (function(idx){return function(){
+      document.getElementById('mpd'+idx).classList.toggle('open');
+    };})(idx);
+    list.appendChild(card);
+  }
+
+  mpCurrentCount = end;
+
+  // 더보기 버튼
+  var loadMore = document.getElementById('mpLoadMore');
+  if(mpCurrentCount < filtered.length){
+    loadMore.style.display = 'block';
+    loadMore.textContent = '더 보기 ('+(filtered.length - mpCurrentCount)+'개 남음)';
+  } else {
+    loadMore.style.display = 'none';
+  }
+
+  // 빈 상태
+  document.getElementById('mpEmpty').style.display = filtered.length === 0 ? 'block' : 'none';
+}
+
+function filterMyRecords(type, btn) {
+  mpFilter = type;
+  document.querySelectorAll('#mypage .rec-filter').forEach(function(b){b.classList.remove('active');});
+  if(btn) btn.classList.add('active');
+  mpCurrentCount = 0;
+  document.getElementById('mpRecordList').innerHTML = '';
+  loadMoreRecords();
+}
 /* ── 기록 필터 ── */
 var currentRecFilter = 'all';
 function filterRecords(type, btn) {
@@ -3526,8 +4760,8 @@ var _origCheckCopy = checkCopy;
 checkCopy = function(){
   _origCheckCopy();
   var v = document.getElementById('copyTa').value;
-  var clean = todaySent.text.replace(/["""]/g,'').trim();
-  var userClean = v.replace(/["""]/g,'').trim();
+  var clean = todaySent.text.replace(/["""]/g,'').trim().normalize('NFC');
+  var userClean = v.replace(/["""]/g,'').trim().normalize('NFC');
   var diffEl = document.getElementById('copyDiff');
   if(!diffEl) return;
   if(userClean === clean){diffEl.style.display='none';return;}
@@ -3655,16 +4889,16 @@ analyzeCreative = function(original, userText) {
   var lblText = 'AI 코치의 감상';
   // 감상문 톤으로 재구성
   var review = '';
+  var imp0 = impressions.length > 0 ? impressions[0] + ' ' : '';
+  var imp1 = impressions.length > 1 ? impressions[1] + ' ' : '';
   if(result.stars >= 4) {
-    review = '이 글을 읽으면서 잠시 멈추게 됐어요. ' + impressions[0] + ' ';
-    if(impressions.length > 1) review += impressions[1] + ' ';
+    review = '이 글을 읽으면서 잠시 멈추게 됐어요. ' + imp0 + imp1;
     review += '이런 문장을 쓸 수 있다는 건, 이미 자기만의 눈이 있다는 뜻이에요.';
   } else if(result.stars >= 3) {
-    review = '글에서 쓰고 싶은 마음이 느껴져요. ' + impressions[0] + ' ';
-    if(impressions.length > 1) review += impressions[1] + ' ';
+    review = '글에서 쓰고 싶은 마음이 느껴져요. ' + imp0 + imp1;
     review += '이 감각을 잊지 마세요. 다음 글은 분명 더 선명해질 거예요.';
   } else {
-    review = '글을 쓰기로 한 것 자체가 용기예요. ' + impressions[0] + ' ';
+    review = imp0 || '오늘 한 문장을 완성했어요. ';
     review += '지금은 조금 서툴러도 괜찮아요. 매일 한 문장씩 쓰다 보면 어느 날 자기도 모르게 달라져 있을 거예요.';
   }
   result.sections.push({lbl: lblText, txt: review});
@@ -3685,7 +4919,9 @@ analyzeCreative = function(original, userText) {
   var tips = [
     '오늘 쓴 글에서 가장 마음에 드는 한 문장을 기억해두세요.',
     '이 글을 소리 내어 읽어보세요. 리듬이 느껴질 거예요.',
-    exercise ? '다음엔 이렇게 해보세요: ' + exercise : '내일은 오늘과 다른 소재로 같은 기법을 써보세요.'
+    '내일은 오늘과 다른 소재로, 같은 기법을 한 번 더 써보세요.',
+    '오늘 쓴 문장을 다른 시제나 시점으로 바꿔보면 새로운 글이 됩니다.',
+    '오늘의 문장을 가까운 사람에게 읽어주고 반응을 들어보세요.'
   ];
   result.tip = tips[Math.floor(Math.random() * tips.length)];
   return result;
@@ -3759,19 +4995,32 @@ function submitHealingSogam() {
   btn.style.opacity = '.5';
   btn.style.pointerEvents = 'none';
 
-  // API 시도, 실패시 규칙 기반
   var passageText = healingPassage ? healingPassage.text : '';
-  callAI('creative', passageText, sogam, '힐링 필사 소감').then(function(result) {
+
+  // 감정 분석 (Gemma) + 코치 응답 (Claude) 병렬 실행
+  var emotionPromise = fetch('https://letter-brick.vercel.app/api/emotion', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: sogam })
+  }).then(function(r) { return r.json(); }).catch(function() { return null; });
+
+  var coachPromise = callAI('creative', passageText, sogam, '힐링 필사 소감')
+    .catch(function() { return null; });
+
+  Promise.all([emotionPromise, coachPromise]).then(function(results) {
+    var emotionResult = results[0];
+    var aiResult = results[1];
+
+    // 코치 응답 텍스트
     var response;
-    if (result && result.impression) {
-      response = result.impression;
-      if (result.encouragement) response += ' ' + result.encouragement;
+    if (aiResult && aiResult.impression) {
+      response = aiResult.impression;
+      if (aiResult.encouragement) response += ' ' + aiResult.encouragement;
     } else {
       response = generateHealingCoachResponse(sogam, passageText);
     }
-    showHealingCoachResponse(response);
-  }).catch(function() {
-    showHealingCoachResponse(generateHealingCoachResponse(sogam, passageText));
+
+    showHealingCoachResponse(response, emotionResult);
   });
 }
 
@@ -3864,11 +5113,33 @@ function generateHealingCoachResponse(sogam, passage) {
   return responses[0];
 }
 
-function showHealingCoachResponse(text) {
-  var sogamSec=document.getElementById('healingSogamSection'); if(sogamSec){var sogamBtn=sogamSec.querySelector('button'); if(sogamBtn)sogamBtn.style.display='none';}
+function showHealingCoachResponse(text, emotion) {
+  var sogamSec=document.getElementById('healingSogamSection');
+  if(sogamSec){var sogamBtn=sogamSec.querySelector('button'); if(sogamBtn)sogamBtn.style.display='none';}
   document.getElementById('healingCoachText').textContent = text;
   document.getElementById('healingCoachResponse').style.display = 'block';
   document.getElementById('healingShareSection').style.display = 'block';
+
+  // 감정 분석 결과 표시
+  if (emotion && emotion.ok && !emotion.fallback) {
+    var emotionMap = {
+      '평온':'🌿','불안':'🌊','슬픔':'🌧️','기쁨':'☀️',
+      '다짐':'🔥','그리움':'🌙','피로':'🍂','설렘':'✨'
+    };
+    var icon = emotionMap[emotion.emotion] || '💭';
+    var el = document.getElementById('healingEmotionTag');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'healingEmotionTag';
+      el.style.cssText = 'margin-top:12px;padding:10px 14px;background:rgba(247,242,232,0.06);border:1px solid rgba(247,242,232,0.12);border-radius:12px;font-size:12px;color:rgba(247,242,232,0.7);line-height:1.8;';
+      document.getElementById('healingCoachResponse').appendChild(el);
+    }
+    el.innerHTML =
+      '<span style="font-size:16px;margin-right:6px;">'+icon+'</span>' +
+      '<b style="color:rgba(247,242,232,0.9);">'+emotion.emotion+'</b>' +
+      ' · ' + emotion.summary +
+      '<br><span style="font-size:11px;opacity:.6;">다음 추천: ' + emotion.nextTheme + ' — ' + emotion.nextReason + '</span>';
+  }
 }
 
 /* ── 해시태그 생성 ── */
@@ -3949,72 +5220,141 @@ function openHealingShare() {
 }
 
 /* ══════════════════════════════
-   DATA.JS 연결: GROWTH_DAYS → SENTENCES 변환
+   FIRESTORE 문장 로드 → GROWTH_DAYS / HEALING_DAYS 재구성
+   실패 시 data.js 폴백
 ══════════════════════════════ */
-if (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS.length > 0) {
-  // GROWTH_DAYS를 기존 SENTENCES 형식으로 변환
-  SENTENCES.length = 0;
-  GROWTH_DAYS.forEach(function(day, i) {
-    function makeSent(v, dayNum) {
-      // 새 데이터는 v.learn이 완전한 객체 (why/structure/technique)
-      var learnObj = v.learn || {
-        why: v.pt,
-        structure: '원문의 구조를 자세히 살펴보세요.',
-        technique: '<b>' + v.pt + '</b>'
-      };
-      return {
-        text: v.t, author: v.a, source: v.s,
-        authorNote: '', reason: v.pt,
-        learn: learnObj,
-        example: v.example || '오늘 배운 기법으로 자신만의 문장을 써보세요.',
-        day: dayNum, variant: null
-      };
+async function loadSentencesFromFirestore() {
+  try {
+    var snap = await fbDb.collection('sentences').get();
+    if (snap.empty) return false;
+
+    var growthMap = {}; // {day: {A:..., B:..., lp:...}}
+    var healingArr = [];
+
+    snap.forEach(function(doc) {
+      var d = doc.data();
+      if (d.edition === 'growth') {
+        if (!growthMap[d.day]) growthMap[d.day] = { lp: d.lp || '' };
+        growthMap[d.day][d.variant] = {
+          t: d.text, a: d.author, s: d.source,
+          pt: d.pt, example: d.example, learn: d.learn
+        };
+        if (d.lp) growthMap[d.day].lp = d.lp;
+      } else if (d.edition === 'healing') {
+        healingArr.push({
+          day: d.day, theme: d.theme, inspiration: d.inspiration,
+          source: d.source, why: d.why, t: d.text
+        });
+      }
+    });
+
+    // GROWTH_DAYS 재구성
+    var days = Object.keys(growthMap).map(Number).sort(function(a,b){return a-b;});
+    var newGrowth = days.map(function(day) {
+      return { A: growthMap[day].A, B: growthMap[day].B, lp: growthMap[day].lp };
+    });
+
+    // HEALING_DAYS 재구성
+    healingArr.sort(function(a,b){return a.day-b.day;});
+
+    if (newGrowth.length > 0) {
+      window.GROWTH_DAYS = newGrowth;
+      window.HEALING_DAYS = healingArr;
+      console.log('[LetterBrick] Firestore에서 문장 로드:', newGrowth.length + '일 성장, ' + healingArr.length + '일 힐링');
+      return true;
     }
-    var sA = makeSent(day.A, i+1); sA.variant = 'A';
-    var sB = makeSent(day.B, i+1); sB.variant = 'B';
-    sA._lp = day.lp; sB._lp = day.lp;
-    SENTENCES.push(sA);
-    SENTENCES.push(sB);
-  });
-  // getDayIndex 기반으로 오늘 페어 찾기
-  todayIdx = (getDayIndex() * 2) % SENTENCES.length;
-  todaySent = SENTENCES[todayIdx];
+    return false;
+  } catch(e) {
+    console.warn('[LetterBrick] Firestore 문장 로드 실패, data.js 폴백:', e.message);
+    return false;
+  }
 }
 
-// HEALING_DAYS → HEALING_PASSAGES 변환
-if (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS.length > 0) {
-  HEALING_PASSAGES['다짐'] = []; HEALING_PASSAGES['힐링'] = []; HEALING_PASSAGES['여운'] = [];
-  HEALING_DAYS.forEach(function(d) {
-    var entry = {
-      id: 'h_' + d.day,
-      text: d.t,
-      author: d.source || '레터브릭 오리지널',
-      reason: '영감: ' + d.inspiration,
-      why: d.why || null,
-      inspiration: d.inspiration
-    };
-    if (HEALING_PASSAGES[d.theme]) HEALING_PASSAGES[d.theme].push(entry);
-  });
+function applyDataToApp() {
+  // GROWTH_DAYS → SENTENCES 변환
+  if (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS && GROWTH_DAYS.length > 0) {
+    // 로컬 SENTENCES의 learn 데이터 보존 (text 기준 매핑)
+    var localLearnMap = {};
+    SENTENCES.forEach(function(s) {
+      if (s.learn && s.learn.coreSkill) {
+        localLearnMap[s.text.trim()] = s.learn;
+      }
+    });
+    SENTENCES.length = 0;
+    GROWTH_DAYS.forEach(function(day, i) {
+      function makeSent(v, dayNum) {
+        var learnObj = localLearnMap[v.t && v.t.trim()] || v.learn || {
+          why: v.pt,
+          structure: '원문의 구조를 자세히 살펴보세요.',
+          technique: '<b>' + v.pt + '</b>'
+        };
+        return {
+          text: v.t, author: v.a, source: v.s,
+          authorNote: '', reason: v.pt,
+          learn: learnObj,
+          example: v.example || '오늘 배운 기법으로 자신만의 문장을 써보세요.',
+          day: dayNum, variant: null
+        };
+      }
+      var sA = makeSent(day.A, i+1); sA.variant = 'A';
+      var sB = makeSent(day.B, i+1); sB.variant = 'B';
+      sA._lp = day.lp; sB._lp = day.lp;
+      SENTENCES.push(sA);
+      SENTENCES.push(sB);
+    });
+    todayIdx = (getDayIndex() * 2) % SENTENCES.length;
+    todaySent = SENTENCES[todayIdx];
+  }
+
+  // HEALING_DAYS → HEALING_PASSAGES 변환
+  if (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS && HEALING_DAYS.length > 0) {
+    HEALING_PASSAGES['다짐'] = []; HEALING_PASSAGES['힐링'] = []; HEALING_PASSAGES['여운'] = [];
+    HEALING_DAYS.forEach(function(d) {
+      var entry = {
+        id: 'h_' + d.day,
+        text: d.t,
+        author: d.source || '레터브릭 오리지널',
+        reason: '영감: ' + d.inspiration,
+        why: d.why || null,
+        inspiration: d.inspiration
+      };
+      if (HEALING_PASSAGES[d.theme]) HEALING_PASSAGES[d.theme].push(entry);
+    });
+  }
 }
+
+// Firestore 우선 로드, 실패 시 data.js 폴백
+loadSentencesFromFirestore().then(function(loaded) {
+  applyDataToApp();
+});
 
 /* ══════════════════════════════
    API 채점: callAI() → /api/score fetch
 ══════════════════════════════ */
 async function callAI(type, original, userText, learningPoint) {
   try {
-    var resp = await fetch('/api/score', {
+    // 새 데이터 구조에서 루브릭 추출
+    var rubric = null;
+    if (todaySent && todaySent.learn) {
+      if (type === 'structure' && todaySent.learn.step3Rubric) rubric = todaySent.learn.step3Rubric;
+      if (type === 'creative'  && todaySent.learn.step4Rubric) rubric = todaySent.learn.step4Rubric;
+    }
+    var resp = await fetch('https://letter-brick.vercel.app/api/score', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: type, original: original, userText: userText, learningPoint: learningPoint || '' })
+      body: JSON.stringify({
+        type: type,
+        original: original,
+        userText: userText,
+        learningPoint: learningPoint || '',
+        rubric: rubric || []
+      })
     });
     var data = await resp.json();
-    if (data.error && data.fallback) {
-      // API 키 없음 → 규칙 기반 폴백
-      return null;
-    }
+    if (data.error && data.fallback) return null;
     return data;
   } catch (e) {
-    console.log('API call failed, using rule-based fallback:', e.message);
+    console.log('API call failed:', e.message);
     return null;
   }
 }
@@ -4070,6 +5410,31 @@ function closeGuide() {
   if (document.getElementById('guideNoShow') && document.getElementById('guideNoShow').checked) {
     localStorage.setItem('lb_guide_dismissed', 'true');
   }
+}
+
+// ── 유사 텍스트 가이드 모달 ──
+function showSimilarGuide(type) {
+  var m = document.getElementById('similarGuideModal');
+  var title = document.getElementById('sgTitle');
+  if (type === 'creative') {
+    title.textContent = '영감을 받되, 나만의 이야기로 써보세요';
+    document.getElementById('sgTips').innerHTML =
+      '<div>① 오늘 배운 <b>기법(구조·리듬)</b>은 그대로 가져오세요</div>' +
+      '<div>② 소재·인물·장면은 <b>완전히 내 경험</b>으로 바꿔보세요</div>' +
+      '<div>③ 예시에 없는 <b>구체적인 감각</b>(냄새·소리·촉감)을 넣어보세요</div>';
+  } else {
+    title.textContent = '예시와 너무 비슷해요';
+    document.getElementById('sgTips').innerHTML =
+      '<div>① 예시의 <b>주어</b>를 나만의 인물·장소로 바꿔보세요</div>' +
+      '<div>② 예시의 <b>동사·형용사</b> 중 하나를 다른 단어로 바꿔보세요</div>' +
+      '<div>③ 예시에 없는 <b>구체적인 감각</b>(냄새·소리·촉감)을 추가해보세요</div>';
+  }
+  m.classList.remove('hide');
+}
+
+function closeSimilarGuide(e) {
+  if (e && e.target !== document.getElementById('similarGuideModal')) return;
+  document.getElementById('similarGuideModal').classList.add('hide');
 }
 
 function guideNav(dir) {
@@ -4242,5 +5607,7 @@ renderCal();
 renderRecords();
 renderEditionCards();
 </script>
+
+
 </body>
 </html>
