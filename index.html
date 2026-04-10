@@ -355,6 +355,8 @@ textarea.has-ws-issue{border-color:rgba(201,163,78,0.5) !important;}
 /* 조기 완료 버튼 */
 .btn-finish-early{display:none;width:100%;margin-top:8px;padding:10px 16px;background:transparent;border:1.5px solid rgba(160,120,40,0.3);border-radius:10px;color:var(--gold);font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-align:center;}
 .btn-finish-early:hover{background:rgba(160,120,40,0.08);border-color:var(--gold);}
+.btn-back{display:inline-flex;align-items:center;gap:4px;background:none;border:none;color:var(--ink3);font-size:12px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;padding:4px 0 12px;opacity:.7;transition:opacity .15s;}
+.btn-back:hover{opacity:1;color:var(--ink2);}
 textarea{
   width:100%;background:var(--paper);border:1.5px solid var(--line);
   border-radius:12px;padding:15px 15px 38px;
@@ -1457,6 +1459,7 @@ const fbDb = firebase.firestore();
 
     <!-- ── STEP 2 학습 ── -->
     <div id="s2" class="sc" style="display:none;">
+      <button class="btn-back" onclick="goBack(2)">← 따라쓰기로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s2"></div>Step 2 — 문장 학습</div>
       <div id="learnContent"></div>
       <button class="btn-p" onclick="goS3()">다음 — 구조 바꿔보기 →</button>
@@ -1464,6 +1467,7 @@ const fbDb = firebase.firestore();
 
     <!-- ── STEP 3 구조연습 ── -->
     <div id="s3" class="sc" style="display:none;">
+      <button class="btn-back" onclick="goBack(3)">← 문장 학습으로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s3"></div>Step 3 — 구조 바꿔보기</div>
       <div class="cmp" id="cmpBox"></div>
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
@@ -1489,6 +1493,7 @@ const fbDb = firebase.firestore();
 
     <!-- ── STEP 4 창작 ── -->
     <div id="s4" class="sc" style="display:none;">
+      <button class="btn-back" onclick="goBack(4)">← 구조 연습으로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s4"></div>Step 4 — 창의적 글쓰기</div>
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 익힌 문장 구조를 떠올리며, 나만의 창의적인 문장을 만들어보세요.
@@ -2773,6 +2778,17 @@ function checkCopy(){
 function goS2(){document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';updateSB(2);window.scrollTo(0,0);}
 function goS3(){document.getElementById('s2').style.display='none';document.getElementById('s3').style.display='block';updateSB(3);window.scrollTo(0,0);}
 function goS4(){document.getElementById('s3').style.display='none';document.getElementById('s4').style.display='block';updateSB(4);window.scrollTo(0,0);}
+// AI 회차는 그대로 — 그냥 화면만 전환
+function goBack(fromStep){
+  var steps = {2:'s1', 3:'s2', 4:'s3'};
+  var sbIdx = {2:1, 3:2, 4:3};
+  var cur = document.getElementById('s'+fromStep);
+  var prev = document.getElementById(steps[fromStep]);
+  if(cur) cur.style.display='none';
+  if(prev) prev.style.display='block';
+  updateSB(sbIdx[fromStep]);
+  window.scrollTo(0,0);
+}
 
 /* ══════════════════════════════
    STRUCT AI
