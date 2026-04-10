@@ -261,12 +261,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   transition:all .3s ease;
 }
 .sticky-sent.pinned{
-  position:sticky;top:56px;z-index:99;
-  border-radius:0 0 12px 12px;margin-top:0;padding:8px 14px;
+  position:fixed;top:56px;left:0;right:0;z-index:999;
+  border-radius:0 0 12px 12px;margin-top:0;padding:10px 16px;
   box-shadow:0 4px 16px rgba(0,0,0,0.3);
+  max-width:100vw;
 }
-.sticky-sent.pinned .sticky-text{font-size:13px !important;line-height:1.5 !important;max-height:55px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-@media(min-width:768px){.sticky-sent.pinned .sticky-text{font-size:15px !important;line-height:1.6 !important;max-height:80px;}}
+.sticky-sent.pinned .sticky-text{font-size:14px !important;line-height:1.5 !important;max-height:80px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+@media(min-width:768px){.sticky-sent.pinned .sticky-text{font-size:15px !important;line-height:1.6 !important;max-height:100px;}}
 .sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
 .sticky-sent.pinned::before{display:none;}
 .sticky-sent::before{
@@ -804,6 +805,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .fb-ex .fb-section-txt{color:var(--paper);}
 .fb-enc{background:var(--paper2);border-radius:8px;padding:10px 13px;margin-top:6px;
   font-size:14px;color:var(--ink3);line-height:1.8;font-style:italic;}
+.err-spelling{font-size:12px;color:#7A5C2E;background:#FEF3E8;border-radius:6px;
+  padding:6px 10px;margin-top:6px;line-height:1.6;}
 
 /* ══════ BRICK FEEDBACK UI ══════ */
 .bf-world{background:var(--ink);color:var(--paper);border-radius:10px;
@@ -1474,7 +1477,7 @@ const fbDb = firebase.firestore();
         <div class="pz-txt">손글씨 사진 업로드<br><b>탭해서 선택</b></div>
       </div>
       <div class="ppreview" id="spp"><img id="sppImg" src="" alt="미리보기"></div>
-      <div class="ld" id="sLd"><div class="ld-txt">채점 중이에요...</div><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
+      <div class="ld" id="sLd"><div class="ld-txt">평가 중이에요...</div><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
       <div id="sRes"></div>
       <button class="btn-p" id="sBtn" onclick="runStruct()">AI 채점 받기 →</button>
       <div class="att-left" id="sAtt">채점 기회 2번 남음</div>
@@ -2694,13 +2697,41 @@ function buildLearnContent(){
     '</div></div>' : '';
   document.getElementById('learnContent').innerHTML = coreH + anatomyH + effectH + pitfallsH + missionH;
 }
+/* ── learn 호환 헬퍼: 신버전(coreSkill)과 구버전(technique) 모두 지원 ── */
+function getTechnique(learn) {
+  if (!learn) return '';
+  if (learn.technique) return learn.technique;
+  // 신버전: coreSkill + practiceMission으로 technique 흉내
+  var parts = [];
+  if (learn.coreSkill) parts.push('<b>' + learn.coreSkill + '</b>');
+  if (learn.anatomy && learn.anatomy.effect) parts.push(learn.anatomy.effect);
+  if (learn.practiceMission) parts.push('▶ 연습: ' + learn.practiceMission);
+  return parts.join('<br>');
+}
+function getTechName(learn) {
+  if (!learn) return '오늘의 기법';
+  if (learn.coreSkill) return learn.coreSkill;
+  if (learn.technique) {
+    var m = learn.technique.match(/<b>([^<]+)<\/b>/);
+    return m ? m[1] : '오늘의 기법';
+  }
+  return '오늘의 기법';
+}
+function getExercise(learn) {
+  if (!learn) return '';
+  if (learn.practiceMission) return learn.practiceMission;
+  if (learn.technique) {
+    var m = learn.technique.match(/▶\s*연습[：:]\s*([^<]+)/);
+    return m ? m[1].trim() : '';
+  }
+  return '';
+}
+
 function buildCmp(){
   var s = todaySent;
-  // technique에서 ▶ 연습 부분 추출
-  var exerciseMatch = s.learn.technique.match(/▶\s*연습[：:]\s*([^<]+)/);
-  var exercise = exerciseMatch ? exerciseMatch[1].trim() : '';
-  // technique에서 기법 설명 추출 (▶ 이전까지)
-  var techDesc = s.learn.technique.replace(/<b>[^<]+<\/b><br>/,'').replace(/▶[\s\S]*/,'').replace(/<br>/g,' ').trim();
+  var exercise = getExercise(s.learn);
+  var techStr = getTechnique(s.learn);
+  var techDesc = techStr.replace(/<b>[^<]+<\/b><br>/,'').replace(/▶[\s\S]*/,'').replace(/<br>/g,' ').trim();
   document.getElementById('cmpBox').innerHTML=
     '<div class="cmp-side ex1">'+
       '<div class="cmp-lbl"><div class="cmp-num">✍</div>이런 식으로 바꿔볼 수 있어요</div>'+
@@ -2755,7 +2786,8 @@ function runStruct(){
     const _v=v.replace(/\s+/g,'');
     const _orig=todaySent.text.replace(/\s+/g,'');
     const _ex1=todaySent.example.replace(/\s+/g,'');
-    const _tm=(todaySent.learn.technique.match(/예시[：:]\s*[\u2018\u2019"']?([^\u2018\u2019"'<\n]+)/)||[]);
+    const _techStr = getTechnique(todaySent.learn);
+    const _tm=(_techStr.match(/예시[：:]\s*[\u2018\u2019"']?([^\u2018\u2019"'<\n]+)/)||[]);
     const _ex2=_tm[1]?_tm[1].trim().replace(/[\u2018\u2019"']$/,'').replace(/\s+/g,''):'';
     // 완전일치 + 원문이 입력값에 포함된 경우도 차단 (부분 복붙)
     const _isOrig=_v===_orig||_v.includes(_orig)||_orig.includes(_v)&&_v.length>10;
@@ -2803,7 +2835,8 @@ function runCreative(){
     const _cv=v.replace(/\s+/g,'');
     const _corig=todaySent.text.replace(/\s+/g,'');
     const _cex1=todaySent.example.replace(/\s+/g,'');
-    const _ctm=(todaySent.learn.technique.match(/예시[：:]\s*[\u2018\u2019"']?([^\u2018\u2019"'<\n]+)/)||[]);
+    const _ctechStr = getTechnique(todaySent.learn);
+    const _ctm=(_ctechStr.match(/예시[：:]\s*[\u2018\u2019"']?([^\u2018\u2019"'<\n]+)/)||[]);
     const _cex2=_ctm[1]?_ctm[1].trim().replace(/[\u2018\u2019"']$/,'').replace(/\s+/g,''):'';
     // 완전일치 + 부분 복붙도 차단
     const _cisOrig=_cv===_corig||_cv.includes(_corig)||_corig.includes(_cv)&&_cv.length>10;
@@ -3933,8 +3966,7 @@ function analyzeStructure(original, userText) {
   result.sections.push({lbl:'AI 코치의 구조 분석', txt: review});
 
   // 기법 연결
-  var techMatch = todaySent.learn.technique.match(/<b>([^<]+)<\/b>/);
-  var techName = techMatch ? techMatch[1] : '오늘의 기법';
+  var techName = getTechName(todaySent.learn);
   var techMsgs = score >= 3
     ? ['오늘 배운 <b>'+techName+'</b>이 문장에 자연스럽게 녹아있어요. 이 감각을 기억해두세요!',
        '<b>'+techName+'</b> — 이 기법의 핵심을 잘 포착했어요. 다른 소재에도 이 구조를 써보세요.']
@@ -4010,8 +4042,7 @@ function analyzeCreative(original, userText) {
   result.stars=Math.min(5,Math.max(1,Math.round(score)));
   result.sections.push({lbl:'감정·이미지 분석',txt:details.join(' ')});
 
-  var techMatch=todaySent.learn.technique.match(/<b>([^<]+)<\/b>/);
-  var techName=techMatch?techMatch[1]:'오늘의 기법';
+  var techName=getTechName(todaySent.learn);
   result.sections.push({lbl:'기법 활용',txt:'오늘 배운 <b>'+techName+'</b>'+(score>=3?'이 글 안에서 자연스럽게 녹아있어요.':'을 의식적으로 한 번 더 적용해보면 좋겠어요.')});
 
   var advisory=errs.filter(function(e){return e.type==='advisory';});
@@ -4081,7 +4112,7 @@ runStruct = async function() {
   document.getElementById('sLd').style.display='block';
 
   // AI 우선, 실패 시 규칙 기반 폴백
-  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + todaySent.learn.technique : '');
+  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + getTechnique(todaySent.learn) : '');
   var aiResult = await callAI('structure', todaySent.text, v, learningPoint);
   document.getElementById('sLd').style.display='none';
 
@@ -4160,7 +4191,7 @@ runCreative = async function() {
   document.getElementById('cLd').style.display='block';
 
   // AI 우선, 실패 시 규칙 기반 폴백
-  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + todaySent.learn.technique : '');
+  var learningPoint = (todaySent.reason || '') + (todaySent.learn ? ' ' + getTechnique(todaySent.learn) : '');
   var aiResult = await callAI('creative', todaySent.text, v, learningPoint);
   document.getElementById('cLd').style.display='none';
 
@@ -4757,7 +4788,10 @@ function renderEditionCards(){
 ══════════════════════════════ */
 function blockPaste(e, el) {
   e.preventDefault();
-  // 부드러운 안내 — 입력 필드 아래에 메시지 표시
+  showPasteWarn(el);
+  return false;
+}
+function showPasteWarn(el) {
   var msg = el.parentElement.querySelector('.paste-warn');
   if (!msg) {
     msg = document.createElement('div');
@@ -4767,8 +4801,26 @@ function blockPaste(e, el) {
   }
   msg.textContent = '✋ 붙여넣기는 할 수 없어요. 직접 따라 써주세요.';
   setTimeout(function(){ msg.textContent = ''; }, 3000);
-  return false;
 }
+// 모바일 키보드 클립보드 붙여넣기 방어 (한번에 3자 이상 입력되면 차단)
+(function(){
+  var lastLen = {};
+  ['copyTa','healingTa'].forEach(function(id){
+    var ta = document.getElementById(id);
+    if(!ta) return;
+    lastLen[id] = 0;
+    ta.addEventListener('input', function(e){
+      var cur = ta.value.length;
+      var diff = cur - lastLen[id];
+      if(diff > 3 && e.inputType && e.inputType.indexOf('insertFromPaste') !== -1){
+        ta.value = ta.value.substring(0, lastLen[id]);
+        showPasteWarn(ta);
+      }
+      lastLen[id] = ta.value.length;
+    });
+    ta.addEventListener('drop', function(e){ e.preventDefault(); showPasteWarn(ta); });
+  });
+})();
 
 /* ══════════════════════════════
    FIX: 따라쓰기 틀린 부분 표시
@@ -4783,7 +4835,8 @@ checkCopy = function(){
   var diffEl = document.getElementById('copyDiff');
   if(!diffEl) return;
   if(userClean === clean){diffEl.style.display='none';return;}
-  if(userClean.length < 5){diffEl.style.display='none';return;}
+  // 원문의 80% 이상 써야 틀린 부분 표시 (다 쓴 후에만 보여주기)
+  if(userClean.length < clean.length * 0.8){diffEl.style.display='none';return;}
   var html='', errs=0, minLen=Math.min(userClean.length, clean.length);
   for(var i=0;i<minLen;i++){
     if(userClean[i]===clean[i]) html+='<span style="color:var(--green);">'+escHtml(userClean[i])+'</span>';
@@ -4828,18 +4881,15 @@ analyzeCreative = function(original, userText) {
   }
 
   // ── 2단계: 기법 정보 추출 ──
-  var techMatch = todaySent.learn.technique.match(/<b>([^<]+)<\/b>/);
-  var techName = techMatch ? techMatch[1] : '';
-  // 기법 설명 추출 (▶ 이전까지, HTML 태그 제거)
-  var techExplain = todaySent.learn.technique
+  var techName = getTechName(todaySent.learn);
+  var _techStr = getTechnique(todaySent.learn);
+  var techExplain = _techStr
     .replace(/<b>[^<]+<\/b><br>/,'')
     .replace(/▶[\s\S]*/,'')
     .replace(/<br>/g,' ')
     .replace(/<[^>]+>/g,'')
     .trim();
-  // ▶ 연습 부분 추출
-  var exerciseMatch = todaySent.learn.technique.match(/▶\s*연습[：:]\s*([^<]+)/);
-  var exercise = exerciseMatch ? exerciseMatch[1].replace(/<[^>]+>/g,'').trim() : '';
+  var exercise = getExercise(todaySent.learn);
 
   // ── 3단계: 사용자 문장 구체 분석 ──
   var impressions = [];
@@ -5168,10 +5218,9 @@ function generateHashtags() {
   // 작가 해시태그
   if(todaySent.author) tags.push('#' + todaySent.author.replace(/\s/g,''));
   // 기법 해시태그
-  var techMatch = todaySent.learn && todaySent.learn.technique ? todaySent.learn.technique.match(/<b>([^<]+)<\/b>/) : null;
-  if(techMatch){
-    var tech = techMatch[1].replace(/\s*\(.*\)\s*/,'').replace(/\s+/g,'');
-    if(tech.length <= 10) tags.push('#' + tech);
+  if(todaySent.learn){
+    var tech = getTechName(todaySent.learn).replace(/\s*\(.*\)\s*/,'').replace(/\s+/g,'');
+    if(tech && tech.length <= 12) tags.push('#' + tech);
   }
   // 장르/주제 해시태그
   var src = todaySent.source || '';
