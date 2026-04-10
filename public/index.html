@@ -1469,7 +1469,7 @@ const fbDb = firebase.firestore();
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 배운 기법을 써서 원문의 구조를 바꿔보세요.
       </p>
-      <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4" spellcheck="false"></textarea></div>
+      <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4" spellcheck="false" onpaste="return blockPaste(event, this)"></textarea></div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
       <div class="pzone" onclick="document.getElementById('sp').click()">
         <input type="file" id="sp" accept="image/*" onchange="prevPhoto(this,'spp','structTa','struct')">
@@ -1494,7 +1494,7 @@ const fbDb = firebase.firestore();
         오늘 익힌 문장 구조를 떠올리며, 나만의 창의적인 문장을 만들어보세요.
       </p>
       <div class="iw">
-        <textarea id="creativeTa" placeholder="오늘 배운 기법을 활용해 나만의 문장을 써보세요..." rows="6" spellcheck="false" oninput="updateCC()"></textarea>
+        <textarea id="creativeTa" placeholder="오늘 배운 기법을 활용해 나만의 문장을 써보세요..." rows="6" spellcheck="false" oninput="updateCC()" onpaste="return blockPaste(event, this)"></textarea>
         <div class="char-hint" id="ccHint">0자</div>
       </div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
