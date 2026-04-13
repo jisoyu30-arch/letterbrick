@@ -2420,7 +2420,7 @@ const CREATIVE_FB = [
 /* ══════════════════════════════
    STATE
 ══════════════════════════════ */
-let calYear=2026, calMonth=2;
+let now=new Date(); let calYear=now.getFullYear(), calMonth=now.getMonth();
 let structAttempts=2, creativeAttempts=2;
 let structScore=0, creativeScore=0;
 let stickyOpen=true;
@@ -2643,6 +2643,7 @@ function renderRecords(){
 ══════════════════════════════ */
 function buildLearnContent(){
   var l = todaySent.learn;
+  if (!l) { document.getElementById('learnContent').innerHTML=''; return; }
   // 구버전 데이터 폴백
   if (!l.coreSkill) {
     document.getElementById('learnContent').innerHTML=
@@ -2820,7 +2821,30 @@ function runStruct(){
   document.getElementById('sAtt').textContent=`채점 기회 ${structAttempts}번 남음`;
   document.getElementById('sBtn').style.display='none';
   document.getElementById('sLd').style.display='block';
-  setTimeout(()=>{
+
+  const userText = v || '(손글씨 제출)';
+  callAI('structure', todaySent.text, userText, todaySent.reason).then(function(aiResult) {
+    document.getElementById('sLd').style.display='none';
+    let fb;
+    if (aiResult && aiResult.sections && aiResult.sections.length > 0) {
+      fb = { score: aiResult.score || 70, sections: aiResult.sections, tip: aiResult.tip || '' };
+    } else {
+      fb = STRUCT_FB[attempt] || STRUCT_FB[1];
+    }
+    structScore=fb.score;
+    const sections=fb.sections.map(s=>`
+      <div class="air-section">
+        <div class="air-section-lbl">${s.lbl}</div>
+        <div class="air-txt">${s.txt}</div>
+      </div>`).join('');
+    document.getElementById('sRes').innerHTML=`
+      <div class="air">
+        <div class="air-head"><span class="air-lbl">구조 연습 채점</span><span class="air-score">${fb.score}<span style="font-size:12px;opacity:.5">/100</span></span></div>
+        <div class="air-body">${sections}${fb.tip ? '<div class="air-tip">💡 '+fb.tip+'</div>' : ''}</div>
+      </div>`;
+    if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
+    document.getElementById('sNext').style.display='block';
+  }).catch(function() {
     document.getElementById('sLd').style.display='none';
     const fb=STRUCT_FB[attempt]||STRUCT_FB[1];
     structScore=fb.score;
@@ -2836,7 +2860,7 @@ function runStruct(){
       </div>`;
     if(structAttempts>0){document.getElementById('sBtn').textContent='다시 써서 채점받기 →';document.getElementById('sBtn').style.display='block';}
     document.getElementById('sNext').style.display='block';
-  },1800);
+  });
 }
 
 /* ══════════════════════════════
@@ -2870,7 +2894,30 @@ function runCreative(){
   document.getElementById('cAtt').textContent=`평가 기회 ${creativeAttempts}번 남음`;
   document.getElementById('cBtn').style.display='none';
   document.getElementById('cLd').style.display='block';
-  setTimeout(()=>{
+
+  const userText = v || '(손글씨 제출)';
+  callAI('creative', todaySent.text, userText, todaySent.reason).then(function(aiResult) {
+    document.getElementById('cLd').style.display='none';
+    let fb;
+    if (aiResult && aiResult.sections && aiResult.sections.length > 0) {
+      fb = { score: aiResult.score || 70, sections: aiResult.sections, tip: aiResult.tip || '' };
+    } else {
+      fb = CREATIVE_FB[attempt] || CREATIVE_FB[1];
+    }
+    creativeScore=fb.score;
+    const sections=fb.sections.map(s=>`
+      <div class="air-section">
+        <div class="air-section-lbl">${s.lbl}</div>
+        <div class="air-txt">${s.txt}</div>
+      </div>`).join('');
+    document.getElementById('cRes').innerHTML=`
+      <div class="air">
+        <div class="air-head"><span class="air-lbl">AI 코치 평가</span><span class="air-score">${fb.score}<span style="font-size:12px;opacity:.5">/100</span></span></div>
+        <div class="air-body">${sections}${fb.tip ? '<div class="air-tip">💡 '+fb.tip+'</div>' : ''}</div>
+      </div>`;
+    if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
+    document.getElementById('cNext').style.display='block';
+  }).catch(function() {
     document.getElementById('cLd').style.display='none';
     const fb=CREATIVE_FB[attempt]||CREATIVE_FB[1];
     creativeScore=fb.score;
@@ -2886,7 +2933,7 @@ function runCreative(){
       </div>`;
     if(creativeAttempts>0){document.getElementById('cBtn').textContent='다시 써서 평가받기 →';document.getElementById('cBtn').style.display='block';}
     document.getElementById('cNext').style.display='block';
-  },2000);
+  });
 }
 
 function updateCC(){document.getElementById('ccHint').textContent=document.getElementById('creativeTa').value.length+'자';}
@@ -3090,6 +3137,7 @@ function downloadCard() {
     const s = document.createElement('script');
     s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
     s.onload = () => _doDownload(card);
+    s.onerror = () => { alert('이미지 저장 기능을 불러올 수 없습니다'); };
     document.head.appendChild(s);
   } else {
     _doDownload(card);
@@ -3154,9 +3202,19 @@ function copyShareText() {
 ══════════════════════════════ */
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // Google Sheets 연동 설정
-// Apps Script 배포 후 아래에 URL 붙여넣기
+// URL 분할 구성 — 단순 스크래핑/봇 호출 방지
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxOnUm9vyv2k49CeCB-3XWyEhgSvm8xrF3YXL5zTMkdQ1isC7jkrQB2cN_5Uz31vzCA/exec';
+const _SP = ['AKfycbx','OnUm9vyv2k49CeC','B-3XWyEhgSvm8xrF','3YXL5zTMkdQ1isC7','jkrQB2cN_5Uz31vzCA'];
+const SHEETS_URL = 'https://scr' + 'ipt.goo' + 'gle.com/macros/s/' + _SP.join('') + '/exec';
+// 타임스탬프 기반 토큰 — Apps Script doPost()에서 동일 로직으로 검증 가능
+const _SHEETS_KEY = 'LB2026x';
+function _sheetsToken() {
+  var ts = Math.floor(Date.now() / 30000); // 30초 윈도우
+  var raw = _SHEETS_KEY + ':' + ts;
+  var h = 5381;
+  for (var i = 0; i < raw.length; i++) { h = ((h << 5) + h) + raw.charCodeAt(i); h = h & 0x7fffffff; }
+  return { _ts: ts, _tok: h };
+}
 
 let currentUser = null;
 
@@ -3435,6 +3493,10 @@ async function syncToSheets(rec) {
         creative: rec.creative || ''
       };
     }
+    var token = _sheetsToken();
+    payload._ts = token._ts;
+    payload._tok = token._tok;
+    payload._origin = location.hostname;
     await fetch(SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -3629,9 +3691,15 @@ function toggleTTS() {
   narrationAudio.onerror = function() {
     // 파일 없으면 TTS 폴백
     narrationAudio = null;
+    if (!('speechSynthesis' in window)) {
+      alert('음성을 불러올 수 없습니다');
+      ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독';
+      return;
+    }
     var u = new SpeechSynthesisUtterance(healingPassage.text);
     u.lang = 'ko-KR'; u.rate = 0.85;
     u.onend = function() { ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독'; };
+    u.onerror = function() { alert('음성을 불러올 수 없습니다'); ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독'; };
     speechSynthesis.speak(u);
   };
   narrationAudio.play().catch(function() { narrationAudio.onerror(); });
@@ -4821,7 +4889,7 @@ function showPasteWarn(el) {
 // 모바일 키보드 클립보드 붙여넣기 방어 (한번에 3자 이상 입력되면 차단)
 (function(){
   var lastLen = {};
-  ['copyTa','healingTa'].forEach(function(id){
+  ['copyTa','healingTa','structTa','creativeTa'].forEach(function(id){
     var ta = document.getElementById(id);
     if(!ta) return;
     lastLen[id] = 0;
@@ -5081,6 +5149,16 @@ function submitHealingSogam() {
 
   var passageText = healingPassage ? healingPassage.text : '';
 
+  // 30초 타임아웃
+  var timeoutId;
+  var timedOut = false;
+  var timeoutPromise = new Promise(function(_, reject) {
+    timeoutId = setTimeout(function() {
+      timedOut = true;
+      reject(new Error('timeout'));
+    }, 30000);
+  });
+
   // 감정 분석 (Gemma) + 코치 응답 (Claude) 병렬 실행
   var emotionPromise = fetch('https://letter-brick.vercel.app/api/emotion', {
     method: 'POST',
@@ -5091,7 +5169,11 @@ function submitHealingSogam() {
   var coachPromise = callAI('creative', passageText, sogam, '힐링 필사 소감')
     .catch(function() { return null; });
 
-  Promise.all([emotionPromise, coachPromise]).then(function(results) {
+  Promise.race([
+    Promise.all([emotionPromise, coachPromise]),
+    timeoutPromise
+  ]).then(function(results) {
+    clearTimeout(timeoutId);
     var emotionResult = results[0];
     var aiResult = results[1];
 
@@ -5105,6 +5187,12 @@ function submitHealingSogam() {
     }
 
     showHealingCoachResponse(response, emotionResult);
+  }).catch(function() {
+    clearTimeout(timeoutId);
+    btn.textContent = '코치에게 보내기';
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+    alert('응답 시간이 초과되었습니다. 다시 시도해주세요.');
   });
 }
 
@@ -5620,10 +5708,11 @@ function submitFeedback() {
 
   // Google Sheets 전송
   if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
+    var fbTok = _sheetsToken();
     fetch(SHEETS_URL, {
       method: 'POST', mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(Object.assign({ type: 'feedback' }, feedback))
+      body: JSON.stringify(Object.assign({ type: 'feedback', _ts: fbTok._ts, _tok: fbTok._tok, _origin: location.hostname }, feedback))
     }).catch(function(){});
   }
 
