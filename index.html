@@ -3314,12 +3314,18 @@ function initUser() {
   // Firebase auth 상태 감지 (로그인/로그아웃)
   fbAuth.onAuthStateChanged(async (fbUser) => {
     if (fbUser) {
-      // Google 로그인 성공
+      if (fbUser.isAnonymous) {
+        // 익명 사용자 — Firestore 저장만 활성화, UI는 localStorage 기반
+        const saved = localStorage.getItem('lb_user');
+        if (saved) { currentUser = JSON.parse(saved); applyUser(); }
+        return;
+      }
+      // Google / 이메일 로그인 성공
       currentUser = {
-        nickname: fbUser.displayName || fbUser.email.split('@')[0],
-        email: fbUser.email,
+        nickname: fbUser.displayName || (fbUser.email ? fbUser.email.split('@')[0] : '사용자'),
+        email: fbUser.email || '',
         id: fbUser.uid,
-        photo: fbUser.photoURL,
+        photo: fbUser.photoURL || '',
         joinedAt: fbUser.metadata.creationTime
       };
       localStorage.setItem('lb_user', JSON.stringify(currentUser));
@@ -3343,7 +3349,11 @@ function initUser() {
         applyUser();
       }
     } else {
-      // 로그아웃 or 미로그인 — localStorage 폴백
+      // 미로그인 → 익명 로그인으로 Firestore 데이터 수집 활성화
+      fbAuth.signInAnonymously().catch(function(e) {
+        console.log('Anonymous auth skipped:', e.code);
+      });
+      // UI는 localStorage 기반
       const saved = localStorage.getItem('lb_user');
       if (saved) {
         currentUser = JSON.parse(saved);
@@ -3379,23 +3389,26 @@ function applyUser() {
   loadUserRecords();
 }
 
-/* ── Record storage: localStorage + Firestore ── */
+/* ── Record storage: localStorage + Firestore (익명 포함 전체 저장) ── */
 function saveRecord(rec) {
   const key = 'lb_records_' + (currentUser ? currentUser.id : 'guest');
   const existing = JSON.parse(localStorage.getItem(key) || '[]');
-  const filtered = existing.filter(r => r.date !== rec.date);
+  // 힐링은 edition, 성장은 date 기준 중복 제거
+  const filtered = existing.filter(r => !(r.date === rec.date && (r.edition || 'growth') === (rec.edition || 'growth')));
   filtered.unshift(rec);
   localStorage.setItem(key, JSON.stringify(filtered.slice(0, 90)));
   if (SHEETS_URL) syncToSheets(rec);
-  // Firestore 저장 (로그인한 경우)
+  // Firestore 저장 — 로그인 + 익명 모두 저장
   const fbUser = fbAuth.currentUser;
   if (fbUser) {
-    const docId = rec.date.replace(/-/g,'') + '_' + (rec.phase||'copy');
+    const docId = rec.date.replace(/-/g,'') + '_' + (rec.edition || rec.phase || 'growth');
     fbDb.collection('records').doc(fbUser.uid).collection('entries').doc(docId).set({
       ...rec,
       uid: fbUser.uid,
+      isAnonymous: fbUser.isAnonymous || false,
+      nickname: currentUser ? currentUser.nickname : '비로그인',
       savedAt: new Date().toISOString()
-    }).catch(e => console.warn('Firestore save error:', e));
+    }, { merge: true }).catch(e => console.warn('Firestore save error:', e));
   }
 }
 
@@ -3471,11 +3484,10 @@ function updateStatEl(id, value) {
 /* ── Google Sheets sync ── */
 async function syncToSheets(rec) {
   if (!SHEETS_URL) return;
-  if (!currentUser && rec.type !== 'signup') return;
   try {
+    const fbUser = fbAuth.currentUser;
     let payload;
     if (rec.type === 'signup') {
-      // 신규 가입 이벤트
       payload = {
         type: 'signup',
         nickname: rec.nickname,
@@ -3484,19 +3496,27 @@ async function syncToSheets(rec) {
         id: rec.id || ''
       };
     } else {
-      // 필사 완료 기록
+      // 모든 사용자 기록 전송 (비로그인 포함)
       payload = {
         type: 'record',
-        userId: currentUser ? currentUser.id : '',
-        nickname: currentUser ? currentUser.nickname : '',
+        userId: currentUser ? currentUser.id : (fbUser ? fbUser.uid : 'guest_' + Date.now()),
+        nickname: currentUser ? currentUser.nickname : '비로그인',
         email: currentUser ? (currentUser.email || '') : '',
+        isAnonymous: !currentUser || (fbUser ? fbUser.isAnonymous : true),
         date: rec.date,
+        edition: rec.edition || 'growth',
+        sentence: (rec.sentence || '').substring(0, 100),
         author: rec.author || '',
         source: rec.source || '',
         structScore: rec.structScore || 0,
         creativeScore: rec.creativeScore || 0,
         finalScore: rec.score || 0,
-        creative: rec.creative || ''
+        structText: (rec.structText || '').substring(0, 200),
+        creative: (rec.creative || '').substring(0, 200),
+        sogam: (rec.sogam || '').substring(0, 300),
+        coachResponse: (rec.coachResponse || '').substring(0, 400),
+        durationSeconds: rec.durationSeconds || 0,
+        inputMode: rec.inputMode || 'typing'
       };
     }
     var token = _sheetsToken();
@@ -5324,6 +5344,13 @@ function showHealingCoachResponse(text, emotion) {
   document.getElementById('healingCoachText').textContent = text;
   document.getElementById('healingCoachResponse').style.display = 'block';
   document.getElementById('healingShareSection').style.display = 'block';
+  // 코치 답변을 오늘 힐링 레코드에 저장
+  var today = new Date().toISOString().split('T')[0];
+  var healRec = pastRecords.find(function(r){ return r.edition === 'healing' && r.date === today; });
+  if (healRec) {
+    healRec.coachResponse = text;
+    saveRecord(healRec);
+  }
 
   // 감정 분석 결과 표시
   if (emotion && emotion.ok && !emotion.fallback) {
