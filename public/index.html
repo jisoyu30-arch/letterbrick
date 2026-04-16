@@ -753,20 +753,42 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 
 /* ══════ STEP 2 NEW LEARN CARDS ══════ */
 .sl2-card{background:var(--paper3);border:1px solid var(--line);border-radius:12px;
-  margin-bottom:10px;overflow:hidden;}
-.sl2-card-head{padding:9px 14px;display:flex;align-items:center;gap:8px;
+  margin-bottom:12px;overflow:hidden;}
+.sl2-card-head{padding:10px 14px;display:flex;align-items:center;gap:8px;
   border-bottom:1px solid var(--line2);
-  font-size:10px;font-weight:700;letter-spacing:1px;color:var(--ink3);}
+  font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--ink2);}
+.sl2-card-head-sub{font-size:10px;color:var(--ink3);margin-left:auto;font-weight:400;letter-spacing:0;}
 .sl2-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
-.sl2-card-body{padding:14px;}
-.sl2-core{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--ink);
-  line-height:1.85;font-weight:400;}
-.sl2-anatomy-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--line2);}
-.sl2-anatomy-row:last-child{border-bottom:none;}
-.sl2-anatomy-label{font-size:10px;font-weight:700;min-width:54px;max-width:54px;
-  padding:3px 7px;border-radius:10px;flex-shrink:0;letter-spacing:.2px;text-align:center;line-height:1.5;}
-.sl2-anatomy-value{font-size:12px;color:var(--ink2);line-height:1.75;
-  font-family:'Noto Serif KR',serif;font-weight:300;padding-top:2px;}
+.sl2-card-body{padding:16px;}
+/* ── 문장 쪼개기 칩 ── */
+.learn-chips{display:flex;flex-direction:column;gap:10px;}
+.learn-chip-wrap{display:flex;flex-direction:column;gap:5px;}
+.learn-chip{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;gap:10px;}
+.learn-chip-phrase{font-family:'Gowun Batang',serif;font-size:15px;font-weight:700;flex:1;line-height:1.5;}
+.learn-chip-label{font-size:10px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(255,255,255,0.55);white-space:nowrap;flex-shrink:0;}
+.learn-chip-desc{font-size:12px;color:var(--ink3);line-height:1.65;padding-left:2px;}
+.learn-rhythm-note{font-size:11px;color:var(--ink3);margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--line2);font-style:italic;}
+/* ── 수사법 ── */
+.learn-rhetoric-list{display:flex;flex-direction:column;gap:12px;margin-bottom:14px;}
+.learn-rhetoric-item{display:flex;flex-direction:column;gap:5px;}
+.sl2-rhetoric-badge{font-size:11px;color:var(--brick-d);background:var(--brick-l);
+  border-radius:4px;padding:3px 9px;font-weight:600;line-height:1.5;align-self:flex-start;}
+.learn-rhetoric-desc{font-size:12px;color:var(--ink2);line-height:1.7;padding-left:2px;}
+/* ── 효과 박스 ── */
+.learn-effect-box{background:var(--green-p);border-radius:9px;padding:12px 14px;margin-top:6px;}
+.learn-effect-label{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.5px;margin-bottom:6px;}
+.sl2-effect{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink2);line-height:1.9;font-weight:300;}
+.sl2-rhythm{font-size:11px;color:var(--ink3);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--line2);font-style:italic;}
+/* ── 글쓰기 기법 ── */
+.learn-core-name{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:600;
+  color:var(--brick);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line2);}
+.learn-pitfalls{margin-top:4px;}
+.learn-pitfalls-lbl{font-size:11px;font-weight:700;color:#8B5E3C;margin-bottom:8px;}
+.sl2-pitfall-item{font-size:12px;color:#8B5E3C;line-height:1.75;padding:7px 0;
+  border-bottom:1px solid var(--line2);}
+.sl2-pitfall-item:last-child{border-bottom:none;padding-bottom:0;}
 /* 문법 태그 색상 */
 .gtag-subject{background:#E8F0FE;color:#1a56db;}
 .gtag-verb{background:#FDE8E8;color:#b91c1c;}
@@ -775,16 +797,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .gtag-struct{background:#FEF3E8;color:#92400e;}
 .gtag-rhythm{background:#E8F7F7;color:#0e6b6b;}
 .gtag-other{background:#F5F0EB;color:#6b5744;}
-.sl2-rhetoric{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
-.sl2-rhetoric-badge{font-size:11px;color:var(--brick-d);background:var(--brick-l);
-  border-radius:4px;padding:3px 8px;font-weight:500;line-height:1.5;}
-.sl2-rhythm{font-size:11px;color:var(--ink3);margin-top:10px;padding-top:10px;
-  border-top:1px solid var(--line2);font-style:italic;}
-.sl2-effect{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink2);
-  line-height:1.9;font-weight:300;}
-.sl2-pitfall-item{font-size:12px;color:#8B5E3C;line-height:1.75;padding:7px 0;
-  border-bottom:1px solid var(--line2);}
-.sl2-pitfall-item:last-child{border-bottom:none;padding-bottom:0;}
+/* ── 미션 ── */
 .sl2-mission{border:1.5px solid var(--brick) !important;background:var(--brick-p) !important;}
 .sl2-mission .sl2-card-head{border-bottom-color:rgba(182,94,60,0.15);background:transparent;}
 .sl2-mission-text{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--ink);
@@ -2653,6 +2666,7 @@ function renderRecords(){
 function buildLearnContent(){
   var l = todaySent.learn;
   if (!l) { document.getElementById('learnContent').innerHTML=''; return; }
+
   // 구버전 데이터 폴백
   if (!l.coreSkill) {
     document.getElementById('learnContent').innerHTML=
@@ -2662,55 +2676,89 @@ function buildLearnContent(){
       '<div class="lb-body">'+(l.technique||'')+'</div></div>';
     return;
   }
+
   var a = l.anatomy || {};
-  // ① 핵심 기법
-  var coreH = '<div class="sl2-card">' +
-    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>오늘의 기법</div>' +
-    '<div class="sl2-card-body"><div class="sl2-core">' + l.coreSkill + '</div></div>' +
-    '</div>';
-  // ② 문장 해부
+
   function grammarTagClass(label){
-    var l = label;
-    if(/주어|화자|주인공/.test(l)) return 'gtag-subject';
-    if(/서술어|동사|술어|행위/.test(l)) return 'gtag-verb';
-    if(/부사|방식|속도/.test(l)) return 'gtag-adverb';
-    if(/형용사|수식어|꾸밈|관형/.test(l)) return 'gtag-adj';
-    if(/구조|반복|틀|열거|파격|종결/.test(l)) return 'gtag-struct';
-    if(/호흡|리듬|박자/.test(l)) return 'gtag-rhythm';
+    if(/주어|화자|주인공/.test(label)) return 'gtag-subject';
+    if(/서술어|동사|술어|행위/.test(label)) return 'gtag-verb';
+    if(/부사|방식|속도|목적|대상/.test(label)) return 'gtag-adverb';
+    if(/형용사|수식어|꾸밈|관형/.test(label)) return 'gtag-adj';
+    if(/구조|반복|틀|열거|파격|종결/.test(label)) return 'gtag-struct';
+    if(/호흡|리듬|박자/.test(label)) return 'gtag-rhythm';
     return 'gtag-other';
   }
-  var grammarRows = (a.grammar||[]).map(function(g){
-    return '<div class="sl2-anatomy-row"><div class="sl2-anatomy-label '+grammarTagClass(g.label)+'">'+g.label+'</div><div class="sl2-anatomy-value">'+g.value+'</div></div>';
+
+  // ① 문장 쪼개보기 — 어절/구 단위 색칩
+  var grammarItems = (a.grammar||[]).filter(function(g){ return !/호흡|리듬|박자/.test(g.label); });
+  var rhythmItem   = (a.grammar||[]).find(function(g){  return  /호흡|리듬|박자/.test(g.label); });
+
+  var segmentChips = grammarItems.map(function(g){
+    var parts  = g.value.split(/\s*[—–]\s*/);
+    var phrase = parts[0].trim();
+    var desc   = parts.slice(1).join(' ').trim();
+    var cls    = grammarTagClass(g.label);
+    return '<div class="learn-chip-wrap">' +
+      '<div class="learn-chip ' + cls + '">' +
+        '<div class="learn-chip-phrase">' + phrase + '</div>' +
+        '<div class="learn-chip-label">' + g.label + '</div>' +
+      '</div>' +
+      (desc ? '<div class="learn-chip-desc">↳ ' + desc + '</div>' : '') +
+    '</div>';
   }).join('');
-  var rhetoricBadges = (a.rhetoric||[]).map(function(r){
-    return '<span class="sl2-rhetoric-badge">'+r+'</span>';
-  }).join('');
-  var anatomyH = '<div class="sl2-card">' +
-    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--gold)"></div>문장 해부</div>' +
+
+  var morphH = '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:#1a56db"></div>' +
+    '① 문장 쪼개보기<span class="sl2-card-head-sub">각 부분이 하는 역할</span></div>' +
     '<div class="sl2-card-body">' +
-      (grammarRows ? '<div style="margin-bottom:12px;">'+grammarRows+'</div>' : '') +
-      (rhetoricBadges ? '<div class="sl2-rhetoric">'+rhetoricBadges+'</div>' : '') +
-      (a.rhythm ? '<div class="sl2-rhythm">리듬: '+a.rhythm+'</div>' : '') +
+      '<div class="learn-chips">' + segmentChips + '</div>' +
+      (rhythmItem ? '<div class="learn-rhythm-note">🎵 ' + rhythmItem.value + '</div>' : '') +
     '</div></div>';
-  // ③ 이 구조의 효과
-  var effectH = a.effect ? '<div class="sl2-card">' +
-    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--green,#5B8A6F)"></div>이 구조가 만드는 효과</div>' +
-    '<div class="sl2-card-body"><div class="sl2-effect">'+a.effect+'</div></div>' +
+
+  // ② 문장 구조 분석 — 수사법 + 효과
+  var rhetoricItems = (a.rhetoric||[]).map(function(r){
+    var parts = r.split(/\s*[—–]\s*/);
+    var name  = parts[0].trim();
+    var desc  = parts.slice(1).join(' ').trim();
+    return '<div class="learn-rhetoric-item">' +
+      '<span class="sl2-rhetoric-badge">' + name + '</span>' +
+      (desc ? '<div class="learn-rhetoric-desc">' + desc + '</div>' : '') +
+    '</div>';
+  }).join('');
+
+  var structH = '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--gold)"></div>' +
+    '② 문장 구조 분석<span class="sl2-card-head-sub">어떤 장치로 의미를 전달하는가</span></div>' +
+    '<div class="sl2-card-body">' +
+      (rhetoricItems ? '<div class="learn-rhetoric-list">' + rhetoricItems + '</div>' : '') +
+      (a.effect ? '<div class="learn-effect-box"><div class="learn-effect-label">💡 이 구조가 만드는 효과</div><div class="sl2-effect">' + a.effect + '</div></div>' : '') +
+      (a.rhythm ? '<div class="sl2-rhythm">🎼 ' + a.rhythm + '</div>' : '') +
+    '</div></div>';
+
+  // ③ 글쓰기 기법 — 기법명 + 주의사항
+  var pitfallsInner = (l.pitfalls && l.pitfalls.length) ?
+    '<div class="learn-pitfalls">' +
+    '<div class="learn-pitfalls-lbl">⚠️ 이런 실수 조심하세요</div>' +
+    l.pitfalls.map(function(p){ return '<div class="sl2-pitfall-item">' + p + '</div>'; }).join('') +
     '</div>' : '';
-  // ④ 자주 하는 실수
-  var pitfallsH = (l.pitfalls && l.pitfalls.length) ? '<div class="sl2-card">' +
-    '<div class="sl2-card-head"><div class="sl2-dot" style="background:#C97A2E"></div>자주 하는 실수</div>' +
+
+  var techH = '<div class="sl2-card">' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>' +
+    '③ 오늘의 글쓰기 기법<span class="sl2-card-head-sub">배워서 바로 써먹는 법</span></div>' +
     '<div class="sl2-card-body">' +
-      l.pitfalls.map(function(p){ return '<div class="sl2-pitfall-item">⚠ '+p+'</div>'; }).join('') +
-    '</div></div>' : '';
-  // ⑤ 오늘 미션 + 예시
+      '<div class="learn-core-name">' + l.coreSkill + '</div>' +
+      pitfallsInner +
+    '</div></div>';
+
+  // ④ 오늘 미션
   var missionH = l.practiceMission ? '<div class="sl2-card sl2-mission">' +
-    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>오늘 미션</div>' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>✏️ 오늘 미션</div>' +
     '<div class="sl2-card-body">' +
-      '<div class="sl2-mission-text">'+l.practiceMission+'</div>' +
-      (l.goodExample ? '<div class="sl2-good-example"><span class="sl2-good-example-lbl">예시 문장</span><div class="sl2-good-example-txt">'+l.goodExample+'</div></div>' : '') +
+      '<div class="sl2-mission-text">' + l.practiceMission + '</div>' +
+      (l.goodExample ? '<div class="sl2-good-example"><span class="sl2-good-example-lbl">예시 문장</span><div class="sl2-good-example-txt">' + l.goodExample + '</div></div>' : '') +
     '</div></div>' : '';
-  document.getElementById('learnContent').innerHTML = coreH + anatomyH + effectH + pitfallsH + missionH;
+
+  document.getElementById('learnContent').innerHTML = morphH + structH + techH + missionH;
 }
 /* ── learn 호환 헬퍼: 신버전(coreSkill)과 구버전(technique) 모두 지원 ── */
 function getTechnique(learn) {
