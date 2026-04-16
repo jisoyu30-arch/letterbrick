@@ -1,6 +1,10 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/taste-test.html", "destination": "/public/taste-test.html" },
+    { "source": "/admin.html", "destination": "/public/admin.html" },
+    { "source": "/crowdfunding-wadiz.html", "destination": "/public/crowdfunding-wadiz.html" },
+    { "source": "/demo.html", "destination": "/public/demo.html" }
   ],
   "headers": [
     {
