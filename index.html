@@ -802,6 +802,12 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .sl2-mission .sl2-card-head{border-bottom-color:rgba(182,94,60,0.15);background:transparent;}
 .sl2-mission-text{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--ink);
   line-height:1.85;font-weight:400;margin-bottom:12px;}
+.learn-vocab-card{border-left:3px solid #6d28d9 !important;}
+.learn-vocab-item{padding:10px 0;border-bottom:1px solid var(--line2);}
+.learn-vocab-item:last-child{border-bottom:none;padding-bottom:0;}
+.learn-vocab-word{font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;color:#6d28d9;display:block;margin-bottom:4px;}
+.learn-vocab-meaning{font-size:13px;color:var(--ink2);line-height:1.7;}
+.learn-vocab-modern{font-size:11px;color:var(--ink3);margin-top:3px;font-style:italic;}
 .sl2-good-example{background:var(--paper);border-radius:8px;padding:10px 12px;
   border-left:3px solid var(--brick-l);}
 .sl2-good-example-lbl{font-size:10px;color:var(--ink3);font-weight:700;
@@ -2689,6 +2695,23 @@ function buildLearnContent(){
     return 'gtag-other';
   }
 
+  // ⓪ 어휘 설명 (vocab 있을 때만)
+  var vocabH = '';
+  if (l.vocab && l.vocab.length) {
+    var vocabItems = l.vocab.map(function(v) {
+      return '<div class="learn-vocab-item">' +
+        '<span class="learn-vocab-word">' + v.word + '</span>' +
+        '<div class="learn-vocab-meaning">' + v.meaning + '</div>' +
+        (v.modern ? '<div class="learn-vocab-modern">' + v.modern + '</div>' : '') +
+      '</div>';
+    }).join('');
+    vocabH = '<div class="sl2-card learn-vocab-card">' +
+      '<div class="sl2-card-head"><div class="sl2-dot" style="background:#6d28d9"></div>' +
+      '📖 어려운 단어 먼저 확인해요<span class="sl2-card-head-sub">모르는 단어가 있으면 여기서 확인하세요</span></div>' +
+      '<div class="sl2-card-body">' + vocabItems + '</div>' +
+    '</div>';
+  }
+
   // ① 문장 쪼개보기 — 어절/구 단위 색칩
   var grammarItems = (a.grammar||[]).filter(function(g){ return !/호흡|리듬|박자/.test(g.label); });
   var rhythmItem   = (a.grammar||[]).find(function(g){  return  /호흡|리듬|박자/.test(g.label); });
@@ -2709,10 +2732,10 @@ function buildLearnContent(){
 
   var morphH = '<div class="sl2-card">' +
     '<div class="sl2-card-head"><div class="sl2-dot" style="background:#1a56db"></div>' +
-    '① 문장 쪼개보기<span class="sl2-card-head-sub">각 부분이 하는 역할</span></div>' +
+    '① 문장을 쪼개볼게요<span class="sl2-card-head-sub">각 부분이 문장에서 어떤 역할을 하는지 살펴봐요</span></div>' +
     '<div class="sl2-card-body">' +
       '<div class="learn-chips">' + segmentChips + '</div>' +
-      (rhythmItem ? '<div class="learn-rhythm-note">🎵 ' + rhythmItem.value + '</div>' : '') +
+      (rhythmItem ? '<div class="learn-rhythm-note">읽는 호흡: 🎵 ' + rhythmItem.value + '</div>' : '') +
     '</div></div>';
 
   // ② 문장 구조 분석 — 수사법 + 효과
@@ -2728,10 +2751,10 @@ function buildLearnContent(){
 
   var structH = '<div class="sl2-card">' +
     '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--gold)"></div>' +
-    '② 문장 구조 분석<span class="sl2-card-head-sub">어떤 장치로 의미를 전달하는가</span></div>' +
+    '② 문장 구조를 분석해볼게요<span class="sl2-card-head-sub">어떤 장치로 의미를 전달하고 있는지 알아봐요</span></div>' +
     '<div class="sl2-card-body">' +
       (rhetoricItems ? '<div class="learn-rhetoric-list">' + rhetoricItems + '</div>' : '') +
-      (a.effect ? '<div class="learn-effect-box"><div class="learn-effect-label">💡 이 구조가 만드는 효과</div><div class="sl2-effect">' + a.effect + '</div></div>' : '') +
+      (a.effect ? '<div class="learn-effect-box"><div class="learn-effect-label">💡 이 구조가 만드는 효과예요</div><div class="sl2-effect">' + a.effect + '</div></div>' : '') +
       (a.rhythm ? '<div class="sl2-rhythm">🎼 ' + a.rhythm + '</div>' : '') +
     '</div></div>';
 
@@ -2744,7 +2767,7 @@ function buildLearnContent(){
 
   var techH = '<div class="sl2-card">' +
     '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>' +
-    '③ 오늘의 글쓰기 기법<span class="sl2-card-head-sub">배워서 바로 써먹는 법</span></div>' +
+    '③ 오늘의 글쓰기 기법<span class="sl2-card-head-sub">오늘 배운 기법을 바로 써먹어 봐요</span></div>' +
     '<div class="sl2-card-body">' +
       '<div class="learn-core-name">' + l.coreSkill + '</div>' +
       pitfallsInner +
@@ -2752,13 +2775,13 @@ function buildLearnContent(){
 
   // ④ 오늘 미션
   var missionH = l.practiceMission ? '<div class="sl2-card sl2-mission">' +
-    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>✏️ 오늘 미션</div>' +
+    '<div class="sl2-card-head"><div class="sl2-dot" style="background:var(--brick)"></div>✏️ 오늘의 미션이에요</div>' +
     '<div class="sl2-card-body">' +
       '<div class="sl2-mission-text">' + l.practiceMission + '</div>' +
       (l.goodExample ? '<div class="sl2-good-example"><span class="sl2-good-example-lbl">예시 문장</span><div class="sl2-good-example-txt">' + l.goodExample + '</div></div>' : '') +
     '</div></div>' : '';
 
-  document.getElementById('learnContent').innerHTML = morphH + structH + techH + missionH;
+  document.getElementById('learnContent').innerHTML = vocabH + morphH + structH + techH + missionH;
 }
 /* ── learn 호환 헬퍼: 신버전(coreSkill)과 구버전(technique) 모두 지원 ── */
 function getTechnique(learn) {
@@ -2821,8 +2844,8 @@ function buildCmp(){
 ══════════════════════════════ */
 function checkCopy(){
   const v=document.getElementById('copyTa').value;
-  const clean=todaySent.text.replace(/["""]/g,'').trim().normalize('NFC');
-  const match=v.normalize('NFC').includes(clean)||v.replace(/["""]/g,'').trim().normalize('NFC')===clean;
+  const clean=todaySent.text.replace(/["""]/g,'').replace(/[。．.]\s*$/,'').replace(/\s+/g,' ').trim().normalize('NFC');
+  const match=v.normalize('NFC').replace(/[。．.]\s*$/,'').replace(/\s+/g,' ').includes(clean)||v.replace(/["""]/g,'').replace(/[。．.]\s*$/,'').replace(/\s+/g,' ').trim().normalize('NFC')===clean;
   document.getElementById('matchOk').style.display=match?'block':'none';
   const btn=document.getElementById('s1Btn');
   const finBtn=document.getElementById('s1Finish');
@@ -4972,37 +4995,67 @@ function showPasteWarn(el) {
 })();
 
 /* ══════════════════════════════
-   FIX: 따라쓰기 틀린 부분 표시
+   FIX: 따라쓰기 틀린 부분 표시 (단어 단위 비교 — 공백 차이 오류 방지)
 ══════════════════════════════ */
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function normText(s){
+  return s.replace(/["""]/g,'').replace(/[。．.]\s*$/,'')
+          .replace(/\u200B|\uFEFF|\u00A0|\u3000/g,' ')  // 영폭·전각 공백 → 일반 공백
+          .replace(/\s+/g,' ').trim().normalize('NFC');
+}
 var _origCheckCopy = checkCopy;
 checkCopy = function(){
   _origCheckCopy();
   var v = document.getElementById('copyTa').value;
-  var clean = todaySent.text.replace(/["""]/g,'').trim().normalize('NFC');
-  var userClean = v.replace(/["""]/g,'').trim().normalize('NFC');
+  var clean = normText(todaySent.text);
+  var userClean = normText(v);
   var diffEl = document.getElementById('copyDiff');
   if(!diffEl) return;
+  // 완전 일치
   if(userClean === clean){diffEl.style.display='none';return;}
-  // 원문의 80% 이상 써야 틀린 부분 표시 (다 쓴 후에만 보여주기)
+  // 공백 제거 후 비교 — 공백만 다른 경우 오타 없음으로 처리
+  if(userClean.replace(/\s+/g,'') === clean.replace(/\s+/g,'')){diffEl.style.display='none';return;}
+  // 원문의 80% 이상 써야 틀린 부분 표시
   if(userClean.length < clean.length * 0.8){diffEl.style.display='none';return;}
-  var html='', errs=0, minLen=Math.min(userClean.length, clean.length);
-  for(var i=0;i<minLen;i++){
-    if(userClean[i]===clean[i]) html+='<span style="color:var(--green);">'+escHtml(userClean[i])+'</span>';
-    else{html+='<span style="color:#D44;font-weight:700;text-decoration:underline;">'+escHtml(userClean[i])+'</span>';errs++;}
+
+  // ── 단어 단위 비교 (공백 차이가 다른 단어를 오염시키지 않도록) ──
+  var cleanWords = clean.split(' ');
+  var userWords  = userClean.split(' ');
+  var html='', errs=0;
+  var maxLen = Math.max(cleanWords.length, userWords.length);
+  for(var i=0;i<maxLen;i++){
+    if(i>0) html+=' ';
+    var cw = cleanWords[i]||'';
+    var uw = userWords[i]||'';
+    if(!uw){ // 아직 안 쓴 단어
+      html+='<span style="color:var(--ink3);opacity:.35;">'+escHtml(cw)+'</span>';
+    } else if(uw===cw){ // 정확
+      html+='<span style="color:var(--green);">'+escHtml(uw)+'</span>';
+    } else { // 틀린 단어 — 글자 단위로 세부 표시
+      errs++;
+      var minC=Math.min(uw.length,cw.length);
+      var wHtml='';
+      for(var j=0;j<minC;j++){
+        if(uw[j]===cw[j]) wHtml+='<span style="color:var(--green);">'+escHtml(uw[j])+'</span>';
+        else wHtml+='<span style="color:#D44;font-weight:700;text-decoration:underline;">'+escHtml(uw[j])+'</span>';
+      }
+      if(uw.length>cw.length) wHtml+='<span style="color:#D44;opacity:.7;">'+escHtml(uw.substring(cw.length))+'</span>';
+      html+=wHtml;
+    }
   }
-  if(userClean.length>clean.length){html+='<span style="color:#D44;opacity:.6;">'+escHtml(userClean.substring(clean.length))+'</span>';errs+=userClean.length-clean.length;}
-  if(userClean.length<clean.length&&userClean.length>clean.length*0.3){
-    var remaining=clean.length-userClean.length;
-    html+='<span style="color:var(--ink3);opacity:.4;"> ···'+remaining+'자 남음</span>';
+  // 남은 글자 수 표시
+  if(userWords.length < cleanWords.length){
+    var rem = cleanWords.slice(userWords.length).join(' ');
+    html+=' <span style="color:var(--ink3);opacity:.35;">'+escHtml(rem)+'</span>';
   }
+
   if(errs>0){
-    diffEl.innerHTML='<div style="font-size:11px;color:#D44;margin-bottom:4px;font-weight:500;">'+errs+'개의 글자가 달라요 — 빨간 부분을 확인해보세요</div>'+
-      '<div style="font-size:14px;line-height:2;font-family:\'Noto Serif KR\',serif;">'+html+'</div>';
+    diffEl.innerHTML='<div style="font-size:11px;color:#D44;margin-bottom:4px;font-weight:500;">'+errs+'개의 단어가 달라요 — 빨간 부분을 확인해보세요</div>'+
+      '<div style="font-size:14px;line-height:2;font-family:\'Noto Serif KR\',serif;word-break:keep-all;">'+html+'</div>';
     diffEl.style.display='block';
   } else if(userClean.length<clean.length){
     diffEl.innerHTML='<div style="font-size:11px;color:var(--green);margin-bottom:4px;">여기까지 정확해요! 계속 써주세요.</div>'+
-      '<div style="font-size:14px;line-height:2;font-family:\'Noto Serif KR\',serif;color:var(--green);">'+html+'</div>';
+      '<div style="font-size:14px;line-height:2;font-family:\'Noto Serif KR\',serif;word-break:keep-all;">'+html+'</div>';
     diffEl.style.display='block';
   } else {diffEl.style.display='none';}
 };
