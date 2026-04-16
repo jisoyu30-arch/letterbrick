@@ -945,6 +945,25 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   padding:8px 12px;margin:6px 0;font-size:12px;color:var(--gold);}
 
 /* ══════ INPUT MODE TOGGLE ══════ */
+/* ══════ COPY REF CARD (Step 1 원문 참고) ══════ */
+.copy-ref-card{
+  background:linear-gradient(135deg,#2E2A26 0%,#3D332A 100%);
+  border-radius:14px;padding:16px 18px 14px;margin-bottom:4px;
+  border-left:4px solid var(--gold);
+}
+.copy-ref-label{
+  font-size:11px;font-weight:700;letter-spacing:.07em;
+  color:var(--gold);opacity:.8;margin-bottom:8px;text-transform:uppercase;
+}
+.copy-ref-text{
+  font-family:'Gowun Batang',serif;font-size:17px;line-height:1.85;
+  color:#f5ede0;word-break:keep-all;
+}
+@media(min-width:768px){.copy-ref-text{font-size:19px;}}
+.copy-ref-author{
+  margin-top:8px;font-size:11px;color:#c9b89a;opacity:.7;text-align:right;
+}
+
 .input-mode-bar{
   display:flex;gap:6px;margin-bottom:14px;
 }
@@ -1455,7 +1474,13 @@ const fbDb = firebase.firestore();
 
       <!-- Typing zone -->
       <div id="typingZone">
-        <p style="font-size:13px;color:var(--ink3);line-height:1.7;margin-bottom:12px;">
+        <!-- 원문 참고 카드 -->
+        <div class="copy-ref-card" id="copyRefCard">
+          <div class="copy-ref-label">📜 원문</div>
+          <div class="copy-ref-text" id="copyRefText"></div>
+          <div class="copy-ref-author" id="copyRefAuthor"></div>
+        </div>
+        <p style="font-size:13px;color:var(--ink3);line-height:1.7;margin:12px 0;">
           위 문장을 천천히 따라 써보세요.
         </p>
         <div class="iw">
@@ -2502,6 +2527,11 @@ function enterApp(){
   const s=todaySent;
   document.getElementById('stickySentText').textContent=s.text;
   document.getElementById('stickySentAuthor').textContent=`— ${s.author} 「${s.source}」`;
+  // Step 1 원문 참고 카드 채우기
+  var refText = document.getElementById('copyRefText');
+  var refAuthor = document.getElementById('copyRefAuthor');
+  if(refText) refText.textContent = s.text;
+  if(refAuthor) refAuthor.textContent = '— ' + s.author + ' ' + (s.source ? '「' + s.source + '」' : '');
   // Populate top WHY card
   document.getElementById('twReason').textContent=s.reason;
   buildLearnContent();
