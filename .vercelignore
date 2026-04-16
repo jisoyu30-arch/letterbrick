@@ -1,0 +1,11 @@
+node_modules
+.git
+.claude
+docs
+serviceAccount.json
+migrate-to-firestore.js
+delete-demo-records.js
+server.js
+모두의*
+*.mp4
+package-lock.json

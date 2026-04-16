@@ -2,5 +2,8 @@
   "name": "letterbrick",
   "version": "1.0.0",
   "private": true,
-  "description": "레터브릭 — AI 시대의 문장력 훈련 루틴"
+  "description": "레터브릭 — AI 시대의 문장력 훈련 루틴",
+  "devDependencies": {
+    "firebase-admin": "^13.7.0"
+  }
 }

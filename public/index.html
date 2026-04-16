@@ -266,6 +266,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   box-shadow:0 4px 16px rgba(0,0,0,0.3);
   max-width:100vw;
 }
+@media(min-width:520px){
+  .sticky-sent.pinned{left:50%;right:auto;transform:translateX(-50%);width:500px;border-radius:0 0 12px 12px;}
+}
+@media(min-width:768px){
+  .sticky-sent.pinned{width:660px;}
+}
 .sticky-sent.pinned .sticky-text{font-size:14px !important;line-height:1.5 !important;max-height:80px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 @media(min-width:768px){.sticky-sent.pinned .sticky-text{font-size:15px !important;line-height:1.6 !important;max-height:100px;}}
 .sticky-sent.pinned .sticky-lbl,.sticky-sent.pinned .sticky-meta{display:none;}
@@ -1590,7 +1596,7 @@ const fbDb = firebase.firestore();
             <span class="ht-desc">머무는 시간</span>
           </button>
           <button class="healing-theme-btn" onclick="selectHealingTheme('여운')">
-            <span class="ht-icon"><img src="images/icon_moon.svg" width="26" height="26" style="opacity:0.6;" alt="moon"></span>
+            <span class="ht-icon" style="font-size:24px;opacity:0.7;">🌙</span>
             <span class="ht-name">여운</span>
             <span class="ht-desc">남겨진 것들</span>
           </button>
@@ -1653,7 +1659,7 @@ const fbDb = firebase.firestore();
 
     <!-- Healing done -->
     <div id="healingDone" style="display:none;" class="done-banner">
-      <span class="db-emoji"><img src="images/icon_moon.svg" width="36" height="36" style="filter:brightness(2);" alt="moon"></span>
+      <span class="db-emoji" style="font-size:36px;">🌙</span>
       <div class="db-ttl">오늘도 잘 머물렀어요</div>
       <div class="db-sub">고요한 시간이 당신을 채웠습니다.</div>
 
@@ -5132,15 +5138,51 @@ copyShareText = function() {
 };
 
 /* ══════════════════════════════
-   FIX: 힐링 완료 — 공유하기 추가
-══════════════════════════════ */
-/* ══════════════════════════════
    힐링 소감 → AI 코치 답변
 ══════════════════════════════ */
+
+// 과거 힐링 기록에서 컨텍스트 문자열 생성
+function getHealingHistory() {
+  var healRecs = pastRecords.filter(function(r) {
+    return r.edition === 'healing';
+  });
+  var totalCount = healRecs.length;
+  var withSogam = healRecs.filter(function(r) { return r.sogam && r.sogam.length > 2; }).slice(0, 3);
+
+  var lines = [];
+  lines.push('힐링 필사 누적 ' + totalCount + '회차');
+
+  if (withSogam.length > 0) {
+    lines.push('\n[이전 소감 기록]');
+    withSogam.forEach(function(r, i) {
+      var label = i === 0 ? '가장 최근' : (i + 1) + '번 전';
+      var preview = (r.sogam || '').substring(0, 80) + (r.sogam && r.sogam.length > 80 ? '…' : '');
+      lines.push(label + ' (' + r.date + '): "' + preview + '"');
+    });
+  } else {
+    lines.push('(아직 소감 기록 없음 — 오늘이 첫 소감)');
+  }
+  return lines.join('\n');
+}
+
+// 오늘 힐링 레코드에 sogam 업데이트
+function saveHealingSogam(sogam) {
+  var today = new Date().toISOString().split('T')[0];
+  // pastRecords에서 오늘 힐링 기록 찾아 업데이트
+  var rec = pastRecords.find(function(r) { return r.edition === 'healing' && r.date === today; });
+  if (rec) {
+    rec.sogam = sogam;
+    saveRecord(rec); // localStorage + Firestore 동기화
+  }
+}
+
 function submitHealingSogam() {
   var sogam = document.getElementById('healingSogamTa').value.trim();
   if (!sogam) { document.getElementById('healingSogamTa').focus(); return; }
   if (sogam.length < 5) { alert('소감을 조금 더 써주세요.'); return; }
+
+  // 소감 즉시 저장 (AI 응답 기다리지 않고)
+  saveHealingSogam(sogam);
 
   var btn = document.getElementById('healingSogamBtn');
   btn.textContent = '코치가 읽고 있어요...';
@@ -5148,25 +5190,23 @@ function submitHealingSogam() {
   btn.style.pointerEvents = 'none';
 
   var passageText = healingPassage ? healingPassage.text : '';
+  var historyContext = getHealingHistory();
 
-  // 30초 타임아웃
+  // 20초 타임아웃
   var timeoutId;
-  var timedOut = false;
   var timeoutPromise = new Promise(function(_, reject) {
-    timeoutId = setTimeout(function() {
-      timedOut = true;
-      reject(new Error('timeout'));
-    }, 30000);
+    timeoutId = setTimeout(function() { reject(new Error('timeout')); }, 20000);
   });
 
-  // 감정 분석 (Gemma) + 코치 응답 (Claude) 병렬 실행
+  // 감정 분석 + 힐링 코치 응답 병렬 실행
   var emotionPromise = fetch('https://letter-brick.vercel.app/api/emotion', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text: sogam })
   }).then(function(r) { return r.json(); }).catch(function() { return null; });
 
-  var coachPromise = callAI('creative', passageText, sogam, '힐링 필사 소감')
+  // healing 전용 타입으로 호출, 과거 컨텍스트 포함
+  var coachPromise = callAI('healing', passageText, sogam, historyContext)
     .catch(function() { return null; });
 
   Promise.race([
@@ -5177,112 +5217,105 @@ function submitHealingSogam() {
     var emotionResult = results[0];
     var aiResult = results[1];
 
-    // 코치 응답 텍스트
     var response;
     if (aiResult && aiResult.impression) {
       response = aiResult.impression;
-      if (aiResult.encouragement) response += ' ' + aiResult.encouragement;
     } else {
-      response = generateHealingCoachResponse(sogam, passageText);
+      // 폴백: 과거 기록 활용한 개인화 응답
+      response = generateHealingCoachResponse(sogam, passageText, historyContext);
     }
 
     showHealingCoachResponse(response, emotionResult);
   }).catch(function() {
     clearTimeout(timeoutId);
-    btn.textContent = '코치에게 보내기';
-    btn.style.opacity = '1';
-    btn.style.pointerEvents = 'auto';
-    alert('응답 시간이 초과되었습니다. 다시 시도해주세요.');
+    // 타임아웃 시에도 로컬 폴백으로 응답 (에러 메시지 대신)
+    var response = generateHealingCoachResponse(sogam, passageText, getHealingHistory());
+    showHealingCoachResponse(response, null);
   });
 }
 
-function generateHealingCoachResponse(sogam, passage) {
-  var responses = [];
-  // 소감에서 키워드 추출
-  var hasEmotion = /슬[프펐]|기[쁘뻤]|그리[운웠]|외[로롭]|편안|따뜻|행복|감사|힘[들든]|지[치친]|울[었컥]|아[프팠]|좋[았은]|나[빴쁜]|무[서섭겁]/.test(sogam);
-  var hasMemory = /기억|생각|떠올|추억|그때|예전|어릴|옛날|돌아|어머니|아버지|친구|사람/.test(sogam);
-  var hasResolution = /다짐|노력|시작|해보|하겠|해야|가보|걸어|변화|바꾸|도전|용기/.test(sogam);
-  var hasCalm = /고요|평온|잔잔|차분|조용|쉬[어었]|머물|편[안하]|가라앉|내려놓/.test(sogam);
-  var hasWriting = /쓰[기는면며]|필사|문장|글|펜|타이핑|손글씨/.test(sogam);
-  var hasSelf = /나[는를에]|자신|스스로|내[가게]/.test(sogam);
+function generateHealingCoachResponse(sogam, passage, historyContext) {
+  // 소감에서 핵심 표현 추출 (앞 20자 인용)
+  var sogamQuote = '"' + sogam.substring(0, 20) + (sogam.length > 20 ? '…' : '') + '"';
 
-  // 오늘 문장에서 핵심 문구 추출 (공유 카드에서도 쓰임)
+  // 오늘 문장 첫 문장 추출
   var passageSentences = passage ? passage.match(/[^.!?。]+[.!?。]+/g) || [] : [];
   var shortPassage = passageSentences.length > 0 ? passageSentences[0].trim() : '';
 
-  // 소감 길이에 따른 깊이
-  var isLong = sogam.length > 50;
-  var isMedium = sogam.length > 20;
+  // 과거 기록 파싱
+  var totalCount = 0;
+  var prevSogams = [];
+  if (historyContext) {
+    var countMatch = historyContext.match(/누적\s*(\d+)회/);
+    if (countMatch) totalCount = parseInt(countMatch[1], 10);
+    var lines = historyContext.split('\n');
+    lines.forEach(function(line) {
+      var m = line.match(/"(.+)"/);
+      if (m && m[1]) prevSogams.push(m[1]);
+    });
+  }
 
-  // ── 소감 내용 + 오늘 문장을 연결한 맞춤 응답 ──
+  var isFirst = totalCount <= 1;
+  var isLong = sogam.length > 40;
+  var hasPrev = prevSogams.length > 0;
+
+  // 소감 감정 분류
+  var hasEmotion   = /슬[프펐]|기[쁘뻤]|그리[운웠]|외[로롭]|편안|따뜻|행복|감사|힘[들든]|지[치친]|울[었컥]|아[프팠]/.test(sogam);
+  var hasMemory    = /기억|생각|떠올|추억|그때|예전|어릴|옛날|돌아|어머니|아버지|친구/.test(sogam);
+  var hasResolution= /다짐|노력|시작|해보|하겠|해야|변화|바꾸|도전|용기/.test(sogam);
+  var hasCalm      = /고요|평온|잔잔|차분|조용|쉬[어었]|머물|편[안하]|가라앉|내려놓/.test(sogam);
+
+  // 연속/횟수 컨텍스트 문구
+  var streakLine = '';
+  if (isFirst) {
+    streakLine = '처음 소감을 남겨주셨네요. ';
+  } else if (totalCount >= 10) {
+    streakLine = totalCount + '번째 필사까지 왔네요. ';
+  } else if (totalCount >= 3) {
+    streakLine = totalCount + '번째 힐링 필사예요. ';
+  }
+
+  // 이전 소감과 비교 문구
+  var compareLine = '';
+  if (hasPrev && prevSogams[0]) {
+    var prevPreview = prevSogams[0].substring(0, 20);
+    if (hasCalm && /힘|지[치쳤]|아[프팠]|우울/.test(prevSogams[0])) {
+      compareLine = '지난번엔 "' + prevPreview + '…" 이라고 쓰셨는데, 오늘은 한결 가라앉은 느낌이에요. ';
+    } else if (hasEmotion && !/힘|지[치쳤]|아[프팠]/.test(prevSogams[0])) {
+      compareLine = '지난번과 다르게 오늘은 감정이 더 선명하게 올라온 것 같아요. ';
+    } else if (isLong && prevSogams[0].length < 20) {
+      compareLine = '처음보다 훨씬 더 구체적으로 쓰고 계세요. ';
+    }
+  }
+
+  // 본문 조합
+  var body = '';
   if (hasEmotion && hasMemory) {
-    responses.push(
-      '소감을 읽으면서, 오늘 필사한 문장이 어떤 기억의 문을 열어준 것 같다는 느낌을 받았어요. ' +
-      (shortPassage ? '오늘 문장 중 "' + shortPassage.substring(0,30) + '…" 이 부분이 특히 당신의 마음에 닿았을 것 같아요. ' : '') +
-      '감정과 기억이 함께 올라오는 건, 그 문장이 단순한 글자가 아니라 경험이 되었다는 뜻이에요. ' +
-      '이런 순간들이 쌓여서 당신만의 언어가 만들어져요.'
-    );
+    body = sogamQuote + ' — 소감에서 감정과 기억이 함께 올라오는 게 느껴져요. ' +
+      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" 이 문장이 그 기억의 문을 건드린 것 같아요. ' : '') +
+      '그 순간을 억누르지 않아도 됩니다. 오늘 그것을 느꼈다는 것 자체가 의미 있어요.';
   } else if (hasEmotion) {
-    responses.push(
-      '솔직한 감정을 글로 꺼내셨네요. ' +
-      (isLong ? '긴 소감 속에서 마음이 움직인 흔적이 보여요. ' : '') +
-      '필사를 하는 동안 문장이 단순히 손끝을 지나가는 게 아니라, 마음을 한 번 건드리고 지나간 것 같아요. ' +
-      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" — 이 문장이 오늘 당신에게 거울이 되어준 것 같습니다. ' : '') +
-      '그 감정을 억누르지 않아도 돼요. 느끼는 것 자체가 살아있다는 증거니까요.'
-    );
+    body = sogamQuote + ' — 솔직한 감정이 담겨있어요. ' +
+      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" 이 문장과 오늘 당신의 마음이 어딘가 맞닿은 것 같아요. ' : '') +
+      '느끼는 것 자체로 충분한 날이 있어요. 오늘이 그런 날이에요.';
   } else if (hasMemory) {
-    responses.push(
-      '어떤 기억이 떠오르셨군요. ' +
-      '좋은 필사는 단순히 손이 움직이는 게 아니라, 마음이 어딘가를 다녀오는 거예요. ' +
-      (shortPassage ? '오늘 문장의 "' + shortPassage.substring(0,25) + '…" 부분이 그 여행의 출발점이 된 것 같아요. ' : '') +
-      '지금 떠오른 그 장면을, 오늘은 그냥 품고 계세요. ' +
-      '나중에 다시 꺼내볼 때, 오늘과는 또 다르게 보일 거예요.'
-    );
+    body = sogamQuote + ' — 어떤 장면이 떠오르셨군요. ' +
+      '필사가 마음을 어딘가로 데려다 놓는 시간이 됐네요. ' +
+      '지금 떠오른 그 장면을 오늘 밤 한번 더 떠올려보세요.';
   } else if (hasCalm) {
-    responses.push(
-      '고요한 시간을 보내셨군요. ' +
-      '필사를 하면서 마음이 가라앉는 경험 — 그게 바로 이 시간이 주는 가장 큰 선물이에요. ' +
-      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" 이 문장의 리듬이 당신의 호흡을 천천히 맞춰준 것 같아요. ' : '') +
-      '이 평온함을 오늘 밤까지 가져가세요. 내일은 내일의 문장이 기다리고 있을 거예요.'
-    );
+    body = sogamQuote + ' — 고요하게 머무른 시간이 느껴져요. ' +
+      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" 이 문장의 리듬이 오늘 저녁 당신과 잘 맞았던 것 같아요. ' : '') +
+      '이 평온함을 그대로 안고 오늘 밤을 보내세요.';
   } else if (hasResolution) {
-    responses.push(
-      '다짐이 느껴지는 소감이네요. ' +
-      '오늘 필사한 문장이 당신 안에서 무언가를 움직이게 한 것 같아요. ' +
-      (isLong ? '이렇게 구체적으로 자기 마음을 쓸 수 있다는 것 자체가 이미 변화의 시작이에요. ' : '') +
-      '거창한 변화가 아니어도 돼요. 오늘 이 한 줄이 내일의 한 걸음이 됩니다. ' +
-      '내일도 여기서 만나요.'
-    );
-  } else if (hasWriting) {
-    responses.push(
-      '글에 대한 생각을 나눠주셨네요. ' +
-      '필사를 하면서 글쓰기 자체에 대해 생각하게 되었다면, 오늘 문장이 단순한 연습을 넘어 당신의 글쓰기 감각에 영향을 준 거예요. ' +
-      (shortPassage ? '특히 "' + shortPassage.substring(0,25) + '…" 같은 문장의 리듬과 구조가 손끝에 남아있을 거예요. ' : '') +
-      '그 감각을 기억해두세요. 그게 점점 당신의 문체가 됩니다.'
-    );
-  } else if (hasSelf) {
-    responses.push(
-      '자기 자신에 대한 이야기를 써주셨네요. ' +
-      '필사는 결국 남의 글을 빌려 나를 들여다보는 시간이에요. ' +
-      '오늘 쓴 소감 속에서 당신이 스스로를 어떻게 바라보고 있는지가 느껴져요. ' +
-      (isLong ? '이만큼 솔직하게 쓸 수 있다는 건, 이미 많은 것을 알고 있다는 뜻이에요. ' : '') +
-      '내일 다시 올 때, 오늘의 나와 내일의 내가 어떻게 다른지 한번 비교해보세요.'
-    );
+    body = sogamQuote + ' — 무언가를 해보려는 마음이 보여요. ' +
+      '거창한 계획이 아니어도 괜찮아요. ' +
+      '오늘 이 한 줄이 내일의 한 걸음이 됩니다.';
+  } else {
+    body = '소감을 읽었어요. ' + sogamQuote + ' — 이 문장 속에 오늘 당신이 어디 있었는지가 담겨있어요. ' +
+      (shortPassage ? '"' + shortPassage.substring(0,25) + '…" 이 문장이 오늘 밤 불현듯 다시 떠오를지도 몰라요.' : '내일 또 만나요.');
   }
 
-  if (responses.length === 0) {
-    // 소감 내용을 반영한 맞춤 기본 응답
-    var sogamPreview = sogam.length > 15 ? sogam.substring(0,15)+'…' : sogam;
-    var defaults = [
-      '"' + sogamPreview + '" — 이 소감을 읽으면서, 오늘 필사가 단순한 베껴쓰기가 아니었다는 걸 느꼈어요. 문장을 따라 쓰면서 자기 안의 무언가와 대화한 시간이었네요. 이런 순간이 쌓여서 어느 날 당신만의 문장이 태어나요.',
-      '소감을 읽었어요. 오늘 필사한 문장이 당신의 하루 어딘가에 조용히 남아있길 바라요. ' +
-        (shortPassage ? '"' + shortPassage.substring(0,25) + '…" — 이 문장이 오늘 밤, 불현듯 다시 떠오를지도 몰라요. 그때 한 번 더 곱씹어보세요.' : '내일 또 만나요.'),
-      '필사를 마치고 소감까지 남기셨어요. 글을 따라 쓰고, 자기 마음을 들여다보고, 그것을 다시 글로 남기는 것 — 이 세 단계를 모두 해내신 거예요. 오늘은 충분히 잘 머물렀습니다.'
-    ];
-    responses.push(defaults[Math.floor(Math.random() * defaults.length)]);
-  }
-
-  return responses[0];
+  return streakLine + compareLine + body;
 }
 
 function showHealingCoachResponse(text, emotion) {
@@ -5510,6 +5543,8 @@ async function callAI(type, original, userText, learningPoint) {
       if (type === 'structure' && todaySent.learn.step3Rubric) rubric = todaySent.learn.step3Rubric;
       if (type === 'creative'  && todaySent.learn.step4Rubric) rubric = todaySent.learn.step4Rubric;
     }
+    var controller = new AbortController();
+    var timer = setTimeout(function(){ controller.abort(); }, 12000);
     var resp = await fetch('https://letter-brick.vercel.app/api/score', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -5519,8 +5554,10 @@ async function callAI(type, original, userText, learningPoint) {
         userText: userText,
         learningPoint: learningPoint || '',
         rubric: rubric || []
-      })
+      }),
+      signal: controller.signal
     });
+    clearTimeout(timer);
     var data = await resp.json();
     if (data.error && data.fallback) return null;
     return data;

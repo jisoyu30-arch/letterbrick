@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하루쌓기 — 표지 C안: 기록의 파동</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#888;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Noto Sans KR',sans-serif;}
+
+.cover{
+  width:420px;height:600px;
+  background:#E8ECF0;
+  position:relative;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+/* 동심원 파동 — 하단 중앙 */
+.ripple-container{
+  position:absolute;
+  bottom:80px;
+  left:50%;
+  transform:translateX(-50%);
+}
+.ripple{
+  position:absolute;
+  border:1px solid rgba(45,74,62,.12);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+.r1{width:60px;height:60px;border-color:rgba(45,74,62,.25);}
+.r2{width:120px;height:120px;border-color:rgba(45,74,62,.18);}
+.r3{width:190px;height:190px;border-color:rgba(45,74,62,.12);}
+.r4{width:270px;height:270px;border-color:rgba(45,74,62,.07);}
+.r5{width:360px;height:360px;border-color:rgba(45,74,62,.03);}
+
+/* 중심점 */
+.center-dot{
+  position:absolute;
+  width:4px;height:4px;
+  background:#2D4A3E;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* 텍스트 영역 — 상단 */
+.text-area{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:360px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:60px 40px 0;
+}
+
+.main-title{
+  font-family:'Gowun Batang',serif;
+  font-size:46px;font-weight:700;
+  color:#1A1A1A;
+  letter-spacing:5px;
+  margin-bottom:10px;
+  line-height:1;
+}
+
+.sub-title{
+  font-family:'Gowun Batang',serif;
+  font-size:15px;font-weight:400;
+  color:#2D4A3E;
+  letter-spacing:1.5px;
+  line-height:1.6;
+  text-align:center;
+  margin-bottom:24px;
+}
+
+.divider-dot{
+  width:4px;height:4px;
+  background:#2D4A3E;
+  border-radius:50%;
+  margin-bottom:24px;
+}
+
+.tagline{
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:11px;font-weight:300;
+  color:#6B8A7A;
+  letter-spacing:2.5px;
+  text-align:center;
+  line-height:1.8;
+}
+
+/* 저자명 — 파동 아래 */
+.author{
+  position:absolute;
+  bottom:28px;
+  left:0;right:0;
+  text-align:center;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:10px;font-weight:400;
+  color:#6B8A7A;
+  letter-spacing:4px;
+}
+
+/* 상단 작은 라인 */
+.top-line{
+  position:absolute;
+  top:40px;left:50%;transform:translateX(-50%);
+  width:20px;height:1px;
+  background:#2D4A3E;
+  opacity:.3;
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <!-- 상단 장식 -->
+  <div class="top-line"></div>
+
+  <!-- 텍스트 영역 -->
+  <div class="text-area">
+    <div class="main-title">하루쌓기</div>
+    <div class="sub-title">나를 단단하게 만드는 기록</div>
+    <div class="divider-dot"></div>
+    <div class="tagline">질문하는 힘을 기르는<br>100일 필사 루틴북</div>
+  </div>
+
+  <!-- 파동 -->
+  <div class="ripple-container">
+    <div class="center-dot"></div>
+    <div class="ripple r1"></div>
+    <div class="ripple r2"></div>
+    <div class="ripple r3"></div>
+    <div class="ripple r4"></div>
+    <div class="ripple r5"></div>
+  </div>
+
+  <!-- 저자명 -->
+  <div class="author">지 소 유</div>
+</div>
+
+</body>
+</html>

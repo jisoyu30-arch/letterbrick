@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하루쌓기 — 표지 A안: 축적의 지층</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#888;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Noto Sans KR',sans-serif;}
+
+.cover{
+  width:420px;height:600px;
+  background:#F5F0E4;
+  position:relative;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+/* 지층 레이어 — 하단 */
+.strata{position:absolute;bottom:0;left:0;right:0;height:200px;}
+.strata-layer{position:absolute;left:0;right:0;}
+.s1{bottom:0;height:40px;background:#0D1B2A;}
+.s2{bottom:40px;height:28px;background:#1B2838;}
+.s3{bottom:68px;height:22px;background:#2C3E50;}
+.s4{bottom:90px;height:18px;background:#3D5166;}
+.s5{bottom:108px;height:14px;background:#5C7A94;}
+.s6{bottom:122px;height:10px;background:#8BA4B8;}
+.s7{bottom:132px;height:6px;background:#B8C9D6;}
+.s8{bottom:138px;height:3px;background:#D4DDE4;}
+
+/* 지층 위 얇은 선 */
+.strata-line{position:absolute;bottom:142px;left:40px;right:40px;height:1px;background:rgba(13,27,42,.08);}
+
+/* 텍스트 영역 — 상단 */
+.text-area{
+  position:absolute;top:0;left:0;right:0;bottom:200px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 40px 20px;
+}
+
+.main-title{
+  font-family:'Gowun Batang',serif;
+  font-size:48px;font-weight:700;
+  color:#0D1B2A;
+  letter-spacing:6px;
+  margin-bottom:8px;
+  line-height:1;
+}
+
+.sub-title{
+  font-family:'Gowun Batang',serif;
+  font-size:15px;font-weight:400;
+  color:#3D5166;
+  letter-spacing:2px;
+  line-height:1.6;
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.divider-line{
+  width:24px;height:1px;
+  background:#0D1B2A;
+  margin-bottom:28px;
+}
+
+.tagline{
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:11px;font-weight:300;
+  color:#8BA4B8;
+  letter-spacing:3px;
+  text-align:center;
+  line-height:1.8;
+}
+
+/* 저자명 — 지층 바로 위 */
+.author{
+  position:absolute;
+  bottom:160px;
+  left:0;right:0;
+  text-align:center;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:10px;font-weight:400;
+  color:#5C7A94;
+  letter-spacing:4px;
+}
+
+/* 브랜드 — 최하단 */
+.brand{
+  position:absolute;
+  bottom:12px;
+  left:0;right:0;
+  text-align:center;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:8px;font-weight:300;
+  color:rgba(245,240,228,.4);
+  letter-spacing:2px;
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <!-- 텍스트 영역 -->
+  <div class="text-area">
+    <div class="main-title">하루쌓기</div>
+    <div class="sub-title">나를 단단하게 만드는 기록</div>
+    <div class="divider-line"></div>
+    <div class="tagline">질문하는 힘을 기르는<br>100일 필사 루틴북</div>
+  </div>
+
+  <!-- 저자명 -->
+  <div class="author">지 소 유</div>
+
+  <!-- 지층 -->
+  <div class="strata">
+    <div class="strata-layer s8"></div>
+    <div class="strata-layer s7"></div>
+    <div class="strata-layer s6"></div>
+    <div class="strata-layer s5"></div>
+    <div class="strata-layer s4"></div>
+    <div class="strata-layer s3"></div>
+    <div class="strata-layer s2"></div>
+    <div class="strata-layer s1"></div>
+    <div class="strata-line"></div>
+  </div>
+
+  <!-- 브랜드 -->
+  <div class="brand">스튜디오 온:서사</div>
+</div>
+
+</body>
+</html>
