@@ -258,13 +258,6 @@ footer a{color:var(--accent);}
       <a href="https://letter-brick.vercel.app/" target="_blank" class="btn btn-outline" style="color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.15);">데모 체험하기</a>
     </div>
 
-    <!-- 실제 서비스 화면 미리보기 -->
-    <div style="display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:40px 0 8px;position:relative;z-index:2;">
-      <div style="flex:0 0 auto;scroll-snap-align:start;width:180px;border-radius:var(--r-sm);overflow:hidden;box-shadow:var(--sh-l);"><img src="images/demo_dashboard.jpg" alt="레터브릭 대시보드" style="width:100%;display:block;"></div>
-      <div style="flex:0 0 auto;scroll-snap-align:start;width:180px;border-radius:var(--r-sm);overflow:hidden;box-shadow:var(--sh-l);"><img src="images/demo_writing.jpg" alt="필사하기 화면" style="width:100%;display:block;"></div>
-      <div style="flex:0 0 auto;scroll-snap-align:start;width:180px;border-radius:var(--r-sm);overflow:hidden;box-shadow:var(--sh-l);"><img src="images/demo_healing.jpg" alt="힐링 모드" style="width:100%;display:block;"></div>
-      <div style="flex:0 0 auto;scroll-snap-align:start;width:180px;border-radius:var(--r-sm);overflow:hidden;box-shadow:var(--sh-l);"><img src="images/kakao_d5.jpg" alt="카카오톡 문장 배송" style="width:100%;display:block;"></div>
-    </div>
   </div>
 </section>
 
@@ -338,36 +331,11 @@ footer a{color:var(--accent);}
     <h2 class="h2">아이디어만 있는 서비스가 아닙니다.<br><span class="accent">이미 작동하는 레터브릭을 확인하세요.</span></h2>
     <p class="body-sm" style="margin-top:8px;">오늘의 문장, 따라쓰기, 구조 변형, 창의적 확장, AI 피드백, 기록 아카이브까지.<br>이미 훈련 흐름이 구현된 서비스입니다.</p>
     <div class="gap-lg"></div>
-    <!-- 실제 MVT 캡처 기반 카드 -->
     <div class="grid grid-2">
-      <div class="card" style="padding:0;overflow:hidden;">
-        <img src="images/demo_select.jpg" alt="성장 모드 — 문장 선택 화면" style="width:100%;display:block;">
-        <div style="padding:16px 18px;">
-          <h4 style="font-size:14px;font-weight:700;">☀️ 성장 모드</h4>
-          <p class="caption">문장 선택 → 구조 분석 → 변형 → AI 피드백</p>
-        </div>
-      </div>
-      <div class="card" style="padding:0;overflow:hidden;">
-        <img src="images/demo_healing.jpg" alt="힐링 모드 — 감정 필사 화면" style="width:100%;display:block;">
-        <div style="padding:16px 18px;">
-          <h4 style="font-size:14px;font-weight:700;">🌙 힐링 모드</h4>
-          <p class="caption">감정 필사 → 소감 → AI 코치 답변</p>
-        </div>
-      </div>
-      <div class="card" style="padding:0;overflow:hidden;">
-        <img src="images/demo_writing.jpg" alt="AI 피드백 화면" style="width:100%;display:block;">
-        <div style="padding:16px 18px;">
-          <h4 style="font-size:14px;font-weight:700;">🧱 AI 피드백</h4>
-          <p class="caption">구조·표현·개선 방향까지 구체적 코칭</p>
-        </div>
-      </div>
-      <div class="card" style="padding:0;overflow:hidden;">
-        <img src="images/cover_harussakgi.jpg" alt="워크북 표지" style="width:100%;display:block;max-height:200px;object-fit:cover;">
-        <div style="padding:16px 18px;">
-          <h4 style="font-size:14px;font-weight:700;">📕 워크북 포함</h4>
-          <p class="caption">《하루쌓기》 100일 필사 실용서</p>
-        </div>
-      </div>
+      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">☀️</div><h4 style="font-size:15px;font-weight:700;">성장 모드</h4><p class="caption">문장 선택 → 구조 분석 → 변형 → AI 피드백</p></div>
+      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">🌙</div><h4 style="font-size:15px;font-weight:700;">힐링 모드</h4><p class="caption">감정 필사 → 소감 → AI 코치 답변</p></div>
+      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">🧱</div><h4 style="font-size:15px;font-weight:700;">AI 피드백</h4><p class="caption">구조·표현·개선 방향까지 구체적 코칭</p></div>
+      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">📕</div><h4 style="font-size:15px;font-weight:700;">워크북 포함</h4><p class="caption">《하루쌓기》 100일 필사 실용서</p></div>
     </div>
     <div class="gap-md"></div>
     <div class="text-center">
@@ -385,18 +353,6 @@ footer a{color:var(--accent);}
     <span class="eyebrow">Daily Routine</span>
     <h2 class="h2">카카오톡으로 문장이 배송됩니다.<br>아침 7시, 저녁 9시.</h2>
     <p class="body-sm" style="margin-top:8px;">알림이 오면 열고, 쓰고, 피드백을 받습니다. 그게 전부입니다.</p>
-
-    <!-- 실제 카톡 캡처 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;">
-      <div style="border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border);background:#fff;">
-        <img src="images/kakao_d5.jpg" alt="카카오톡 필사 알림 D5" style="width:100%;display:block;">
-        <div style="padding:10px 14px;font-size:11px;color:var(--muted);">D5 — 아침 7시 자동 배송</div>
-      </div>
-      <div style="border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border);background:#fff;">
-        <img src="images/kakao_d15.jpg" alt="카카오톡 필사 알림 D15" style="width:100%;display:block;">
-        <div style="padding:10px 14px;font-size:11px;color:var(--muted);">D15 — 필사 + Q&A 질문</div>
-      </div>
-    </div>
 
     <!-- 아침 블록 -->
     <div style="margin-top:36px;padding:24px 20px;background:linear-gradient(135deg,#FAF6F0,#F0E8DC);border:1px solid var(--border);border-radius:var(--r);">
@@ -483,10 +439,6 @@ footer a{color:var(--accent);}
     <div style="margin-top:28px;padding:14px 20px;background:linear-gradient(135deg,#A07828,#C69832);color:#fff;border-radius:var(--r-sm);text-align:center;font-size:14px;font-weight:600;">
       🎁 오픈 첫날 참여자에게는 <b>어휘력 전자책 1권을 추가</b>로 드립니다.<br>
       <span style="font-size:12px;font-weight:400;opacity:.8;">같은 시작이라도 더 좋은 출발선은 분명히 존재합니다.</span>
-      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:12px;">
-        <img src="images/cover_harussakgi.jpg" alt="하루쌓기 표지" style="width:48px;height:68px;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.3);">
-        <img src="images/cover_gamjung.jpg" alt="감정은 장면이 된다 표지" style="width:48px;height:68px;object-fit:cover;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.3);">
-      </div>
     </div>
 
     <div class="price-grid" style="margin-top:28px;">
@@ -609,18 +561,6 @@ footer a{color:var(--accent);}
       </div>
 
       <p>그래서 저는 동생에게<br>매일 필사 문구를 보내기 시작했습니다.<br>문장을 그냥 따라 쓰는 데서 끝내지 않고,<br>제가 다시 시작한 그 방식대로<br>읽고, 분석하고, 바꿔 쓰는 방법을 함께 전했습니다.</p>
-
-      <!-- 실물 증거: 손글씨 + 카톡 -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0;">
-        <div style="border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border);background:#fff;">
-          <img src="images/handwriting_d24.jpg" alt="손글씨 필사" style="width:100%;display:block;">
-          <div style="padding:8px 12px;font-size:11px;color:var(--muted);">D24 — 손글씨 필사</div>
-        </div>
-        <div style="border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border);background:#fff;">
-          <img src="images/handwriting_d23.jpg" alt="필사 + 피드백" style="width:100%;display:block;">
-          <div style="padding:8px 12px;font-size:11px;color:var(--muted);">D23 — 필사 + 피드백</div>
-        </div>
-      </div>
 
       <p>글쓰기와 거리가 멀다고 생각했던 동생도<br>조금씩 문장에 흥미를 붙이기 시작했습니다.</p>
 
