@@ -3313,13 +3313,7 @@ function initUser() {
   handleRedirectResult();
   // Firebase auth 상태 감지 (로그인/로그아웃)
   fbAuth.onAuthStateChanged(async (fbUser) => {
-    if (fbUser) {
-      if (fbUser.isAnonymous) {
-        // 익명 사용자 — Firestore 저장만 활성화, UI는 localStorage 기반
-        const saved = localStorage.getItem('lb_user');
-        if (saved) { currentUser = JSON.parse(saved); applyUser(); }
-        return;
-      }
+    if (fbUser && !fbUser.isAnonymous) {
       // Google / 이메일 로그인 성공
       currentUser = {
         nickname: fbUser.displayName || (fbUser.email ? fbUser.email.split('@')[0] : '사용자'),
@@ -3349,11 +3343,7 @@ function initUser() {
         applyUser();
       }
     } else {
-      // 미로그인 → 익명 로그인으로 Firestore 데이터 수집 활성화
-      fbAuth.signInAnonymously().catch(function(e) {
-        console.log('Anonymous auth skipped:', e.code);
-      });
-      // UI는 localStorage 기반
+      // 미로그인 — localStorage 기반 UI
       const saved = localStorage.getItem('lb_user');
       if (saved) {
         currentUser = JSON.parse(saved);
@@ -3398,15 +3388,14 @@ function saveRecord(rec) {
   filtered.unshift(rec);
   localStorage.setItem(key, JSON.stringify(filtered.slice(0, 90)));
   if (SHEETS_URL) syncToSheets(rec);
-  // Firestore 저장 — 로그인 + 익명 모두 저장
+  // Firestore 저장 — 로그인 사용자만
   const fbUser = fbAuth.currentUser;
-  if (fbUser) {
+  if (fbUser && !fbUser.isAnonymous) {
     const docId = rec.date.replace(/-/g,'') + '_' + (rec.edition || rec.phase || 'growth');
     fbDb.collection('records').doc(fbUser.uid).collection('entries').doc(docId).set({
       ...rec,
       uid: fbUser.uid,
-      isAnonymous: fbUser.isAnonymous || false,
-      nickname: currentUser ? currentUser.nickname : '비로그인',
+      nickname: currentUser ? currentUser.nickname : '',
       savedAt: new Date().toISOString()
     }, { merge: true }).catch(e => console.warn('Firestore save error:', e));
   }
@@ -3484,8 +3473,9 @@ function updateStatEl(id, value) {
 /* ── Google Sheets sync ── */
 async function syncToSheets(rec) {
   if (!SHEETS_URL) return;
+  // 로그인 사용자 + 회원가입 이벤트만 전송
+  if (!currentUser && rec.type !== 'signup') return;
   try {
-    const fbUser = fbAuth.currentUser;
     let payload;
     if (rec.type === 'signup') {
       payload = {
@@ -3496,13 +3486,11 @@ async function syncToSheets(rec) {
         id: rec.id || ''
       };
     } else {
-      // 모든 사용자 기록 전송 (비로그인 포함)
       payload = {
         type: 'record',
-        userId: currentUser ? currentUser.id : (fbUser ? fbUser.uid : 'guest_' + Date.now()),
-        nickname: currentUser ? currentUser.nickname : '비로그인',
-        email: currentUser ? (currentUser.email || '') : '',
-        isAnonymous: !currentUser || (fbUser ? fbUser.isAnonymous : true),
+        userId: currentUser.id,
+        nickname: currentUser.nickname,
+        email: currentUser.email || '',
         date: rec.date,
         edition: rec.edition || 'growth',
         sentence: (rec.sentence || '').substring(0, 100),
