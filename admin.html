@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>레터브릭 어드민</title>
+<style>
+:root{--ink:#2E2A26;--paper:#F7F2E8;--brick:#B65E3C;--line:#D8D0C0;--green:#3D6B50;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0ece4;color:var(--ink);min-height:100vh;}
+#loginWrap{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;}
+.login-card{background:#fff;border-radius:16px;padding:48px 40px;max-width:380px;width:100%;text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.12);}
+.login-card h1{font-size:24px;font-weight:700;margin-bottom:8px;}
+.login-card p{color:#777;margin-bottom:32px;}
+.btn-google{display:flex;align-items:center;gap:12px;padding:14px 24px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:15px;width:100%;justify-content:center;transition:background 0.2s;}
+.btn-google:hover{background:#f5f5f5;}
+#adminWrap{display:none;padding:24px 32px;max-width:1200px;margin:0 auto;}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid var(--line);}
+.admin-header h1{font-size:22px;font-weight:700;}
+.admin-header small{color:#999;margin-left:8px;}
+.btn-out{padding:8px 16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:transparent;font-size:13px;}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px;}
+.stat-card{background:#fff;border-radius:12px;padding:20px 24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.stat-card .num{font-size:32px;font-weight:700;color:var(--brick);}
+.stat-card .label{font-size:13px;color:#888;margin-top:4px;}
+.section{background:#fff;border-radius:12px;padding:24px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.section h2{font-size:16px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{text-align:left;padding:8px 10px;background:#f8f5f0;font-weight:600;border-bottom:1px solid var(--line);}
+td{padding:8px 10px;border-bottom:1px solid #f0ede8;vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;}
+.tag-growth{background:#d8eadf;color:var(--green);}
+.tag-healing{background:#f2e4da;color:var(--brick);}
+.tag-anon{background:#eee;color:#888;}
+.sogam-box{background:#f8f5f0;border-radius:8px;padding:12px;margin-bottom:12px;font-size:13px;line-height:1.6;}
+.sogam-box .meta{font-size:11px;color:#999;margin-bottom:4px;}
+.sogam-box .coach{color:var(--brick);margin-top:6px;font-style:italic;}
+.chart-wrap{height:160px;display:flex;align-items:flex-end;gap:4px;padding:8px 0;}
+.chart-bar-group{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.chart-bar-growth{background:var(--green);border-radius:3px 3px 0 0;width:100%;}
+.chart-bar-healing{background:var(--brick);border-radius:3px 3px 0 0;width:100%;}
+.chart-label{font-size:10px;color:#aaa;margin-top:4px;white-space:nowrap;}
+.chart-legend{display:flex;gap:16px;margin-bottom:8px;font-size:12px;}
+.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;}
+#loadingMsg{text-align:center;padding:48px;color:#aaa;font-size:15px;}
+.no-access{text-align:center;padding:64px;color:#999;}
+.no-access h2{color:var(--brick);margin-bottom:12px;}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="loginWrap">
+  <div class="login-card">
+    <h1>🧱 레터브릭 어드민</h1>
+    <p>관리자 계정으로 로그인하세요</p>
+    <button class="btn-google" id="btnLogin">
+      <svg width="18" height="18" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+      </svg>
+      Google로 로그인
+    </button>
+  </div>
+</div>
+
+<div id="adminWrap">
+  <div class="admin-header">
+    <h1>🧱 레터브릭 어드민 <small id="adminEmail"></small></h1>
+    <button class="btn-out" id="btnLogout">로그아웃</button>
+  </div>
+  <div id="loadingMsg">데이터 불러오는 중...</div>
+  <div id="dashboard" style="display:none">
+    <div class="stats-row">
+      <div class="stat-card"><div class="num" id="statTotal">-</div><div class="label">전체 기록</div></div>
+      <div class="stat-card"><div class="num" id="statUsers">-</div><div class="label">고유 사용자</div></div>
+      <div class="stat-card"><div class="num" id="statToday">-</div><div class="label">오늘 기록</div></div>
+      <div class="stat-card"><div class="num" id="statSogam">-</div><div class="label">소감 작성</div></div>
+      <div class="stat-card"><div class="num" id="statAnon">-</div><div class="label">비로그인</div></div>
+    </div>
+
+    <div class="section">
+      <h2>📅 14일 활동 차트</h2>
+      <div class="chart-legend">
+        <span><span class="legend-dot" style="background:var(--green)"></span>성장 필사</span>
+        <span><span class="legend-dot" style="background:var(--brick)"></span>힐링 필사</span>
+      </div>
+      <div class="chart-wrap" id="chartWrap"></div>
+    </div>
+
+    <div class="section">
+      <h2>👤 사용자별 현황</h2>
+      <table>
+        <thead><tr>
+          <th>닉네임</th><th>이메일</th><th>총 기록</th><th>성장</th><th>힐링</th><th>마지막 활동</th><th>타입</th>
+        </tr></thead>
+        <tbody id="userTbody"></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>📝 최근 필사 기록 (50개)</h2>
+      <table>
+        <thead><tr>
+          <th>날짜</th><th>닉네임</th><th>에디션</th><th>문장</th><th>점수</th>
+        </tr></thead>
+        <tbody id="recTbody"></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>💬 소감 모음</h2>
+      <div id="sogamList"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+const ADMIN_EMAILS = ['njell@kakao.com', 'jisoyu30@gmail.com'];
+const firebaseConfig = {
+  apiKey: "AIzaSyBPzmE-iGxHcBoifKJwWUtpMwBDGcH3h64",
+  authDomain: "letterbrick.firebaseapp.com",
+  projectId: "letterbrick",
+  storageBucket: "letterbrick.firebasestorage.app",
+  messagingSenderId: "702996495709",
+  appId: "1:702996495709:web:ef9443cbed4d5042b67cb4"
+};
+firebase.initializeApp(firebaseConfig);
+const fbAuth = firebase.auth();
+const fbDb = firebase.firestore();
+
+document.getElementById('btnLogin').addEventListener('click', function() {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  fbAuth.signInWithPopup(provider).catch(function(e) { alert('로그인 실패: ' + e.message); });
+});
+document.getElementById('btnLogout').addEventListener('click', function() { fbAuth.signOut(); });
+
+fbAuth.onAuthStateChanged(function(user) {
+  if (user && !user.isAnonymous) {
+    if (!ADMIN_EMAILS.includes(user.email)) {
+      document.getElementById('loginWrap').style.display = 'none';
+      document.getElementById('adminWrap').style.display = 'block';
+      document.getElementById('loadingMsg').innerHTML =
+        '<div class="no-access"><h2>접근 권한 없음</h2><p>' + user.email + ' 계정은 관리자가 아닙니다.</p></div>';
+      return;
+    }
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('adminWrap').style.display = 'block';
+    document.getElementById('adminEmail').textContent = user.email;
+    loadDashboard();
+  } else {
+    document.getElementById('loginWrap').style.display = 'flex';
+    document.getElementById('adminWrap').style.display = 'none';
+  }
+});
+
+async function loadDashboard() {
+  try {
+    var snap = await fbDb.collectionGroup('entries').orderBy('savedAt', 'desc').limit(500).get();
+    var entries = snap.docs.map(function(d) { return d.data(); });
+    document.getElementById('loadingMsg').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    var today = new Date().toISOString().split('T')[0];
+    var uids = new Set(entries.map(function(e) { return e.uid; }));
+    var todayCount = entries.filter(function(e) { return e.date === today; }).length;
+    var sogamEntries = entries.filter(function(e) { return e.sogam && e.sogam.length > 2; });
+    var anonCount = entries.filter(function(e) { return e.isAnonymous; }).length;
+    document.getElementById('statTotal').textContent = entries.length;
+    document.getElementById('statUsers').textContent = uids.size;
+    document.getElementById('statToday').textContent = todayCount;
+    document.getElementById('statSogam').textContent = sogamEntries.length;
+    document.getElementById('statAnon').textContent = anonCount;
+    buildChart(entries);
+    buildUserTable(entries);
+    buildRecTable(entries);
+    buildSogamList(sogamEntries);
+  } catch(e) {
+    document.getElementById('loadingMsg').innerHTML =
+      '<div class="no-access"><h2>데이터 로드 오류</h2><p>' + e.message + '</p>' +
+      '<p style="margin-top:8px;font-size:12px;color:#bbb">Firestore collectionGroup 인덱스가 필요할 수 있습니다.</p></div>';
+  }
+}
+
+function buildChart(entries) {
+  var wrap = document.getElementById('chartWrap');
+  wrap.innerHTML = '';
+  var days = [];
+  for (var i = 13; i >= 0; i--) {
+    var d = new Date(); d.setDate(d.getDate() - i);
+    days.push(d.toISOString().split('T')[0]);
+  }
+  var maxVal = 1;
+  days.forEach(function(day) {
+    var cnt = entries.filter(function(e) { return e.date === day; }).length;
+    if (cnt > maxVal) maxVal = cnt;
+  });
+  days.forEach(function(day) {
+    var g = entries.filter(function(e) { return e.date === day && e.edition !== 'healing'; }).length;
+    var h = entries.filter(function(e) { return e.date === day && e.edition === 'healing'; }).length;
+    var total = g + h;
+    var totalPx = total ? Math.max(4, Math.round((total / maxVal) * 140)) : 2;
+    var gPx = total ? Math.round((g / total) * totalPx) : 1;
+    var hPx = totalPx - gPx;
+    var grp = document.createElement('div');
+    grp.className = 'chart-bar-group';
+    grp.title = day + ': 성장 ' + g + ', 힐링 ' + h;
+    grp.innerHTML = '<div class="chart-bar-healing" style="height:' + hPx + 'px"></div>' +
+      '<div class="chart-bar-growth" style="height:' + gPx + 'px"></div>' +
+      '<div class="chart-label">' + day.slice(5) + '</div>';
+    wrap.appendChild(grp);
+  });
+}
+
+function buildUserTable(entries) {
+  var userMap = {};
+  entries.forEach(function(e) {
+    var uid = e.uid || 'unknown';
+    if (!userMap[uid]) userMap[uid] = { nickname: e.nickname || '(없음)', email: e.email || '', total: 0, growth: 0, healing: 0, last: '', isAnon: e.isAnonymous };
+    userMap[uid].total++;
+    if (e.edition === 'healing') userMap[uid].healing++; else userMap[uid].growth++;
+    if (!userMap[uid].last || (e.date || '') > userMap[uid].last) userMap[uid].last = e.date || '';
+  });
+  var users = Object.values(userMap).sort(function(a, b) { return b.total - a.total; });
+  var tbody = document.getElementById('userTbody');
+  tbody.innerHTML = '';
+  users.slice(0, 50).forEach(function(u) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + esc(u.nickname) + '</td>' +
+      '<td style="color:#aaa;font-size:12px">' + esc(u.email) + '</td>' +
+      '<td style="font-weight:700">' + u.total + '</td>' +
+      '<td>' + u.growth + '</td><td>' + u.healing + '</td>' +
+      '<td style="font-size:12px">' + u.last + '</td>' +
+      '<td>' + (u.isAnon ? '<span class="tag tag-anon">비로그인</span>' : '<span class="tag tag-growth">로그인</span>') + '</td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function buildRecTable(entries) {
+  var tbody = document.getElementById('recTbody');
+  tbody.innerHTML = '';
+  entries.slice(0, 50).forEach(function(e) {
+    var edition = e.edition || 'growth';
+    var score = (e.finalScore !== undefined && e.finalScore !== null) ? e.finalScore : (e.structScore || '-');
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td style="font-size:12px">' + (e.date || '') + '</td>' +
+      '<td>' + esc(e.nickname || '') + '</td>' +
+      '<td><span class="tag tag-' + edition + '">' + (edition === 'healing' ? '힐링' : '성장') + '</span></td>' +
+      '<td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px">' +
+        esc((e.sentence || '').substring(0, 60)) + '</td>' +
+      '<td>' + score + '</td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function buildSogamList(sogamEntries) {
+  var list = document.getElementById('sogamList');
+  list.innerHTML = '';
+  if (!sogamEntries.length) {
+    list.innerHTML = '<p style="color:#aaa;text-align:center;padding:24px">아직 소감이 없어요</p>';
+    return;
+  }
+  sogamEntries.slice(0, 30).forEach(function(e) {
+    var edition = e.edition || 'growth';
+    var div = document.createElement('div');
+    div.className = 'sogam-box';
+    div.innerHTML = '<div class="meta">' + (e.date || '') + ' · ' + esc(e.nickname || '(없음)') +
+      ' · <span class="tag tag-' + edition + '">' + (edition === 'healing' ? '힐링' : '성장') + '</span></div>' +
+      '<div>' + esc(e.sogam || '') + '</div>' +
+      (e.coachResponse ? '<div class="coach">AI 코치: ' + esc(e.coachResponse) + '</div>' : '');
+    list.appendChild(div);
+  });
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
