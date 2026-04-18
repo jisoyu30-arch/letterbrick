@@ -97,40 +97,42 @@ body{background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--crea
 .step-desc{font-size:12px;color:var(--cream2);line-height:1.8;font-weight:300;}
 .step-sep{width:1px;background:var(--line);flex-shrink:0;margin:4px 0;}
 .step-fx{
-  width:180px;flex-shrink:0;padding-left:16px;
+  width:192px;flex-shrink:0;padding-left:18px;
   display:flex;flex-direction:column;justify-content:center;
 }
-.step-fx-lbl{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.38;margin-bottom:6px;font-weight:700;}
-.step-fx-txt{font-size:12px;font-weight:500;line-height:1.6;margin-bottom:7px;}
-.step-fx-tag{
-  display:inline-block;font-size:10px;padding:3px 9px;
-  border-radius:20px;font-weight:500;letter-spacing:-.01em;width:fit-content;
+.step-fx-lbl{
+  font-size:8px;letter-spacing:.18em;text-transform:uppercase;
+  opacity:.4;margin-bottom:7px;font-weight:700;
+}
+.step-fx-txt{
+  font-size:12px;font-weight:400;line-height:1.75;
+  color:var(--cream2);
 }
 
 /* color themes */
 .t-gold .step-icon-ring{border-color:var(--gold);color:var(--gold);}
-.t-gold .step-en,.t-gold .step-fx-txt{color:var(--gold2);}
-.t-gold .step-fx-tag{background:rgba(201,169,110,.12);color:var(--gold);}
+.t-gold .step-en{color:var(--gold2);}
+.t-gold .step-fx{border-left:2px solid rgba(201,169,110,.3);}
 
 .t-brick .step-icon-ring{border-color:#D4845A;color:#D4845A;}
-.t-brick .step-en,.t-brick .step-fx-txt{color:#E8A880;}
-.t-brick .step-fx-tag{background:rgba(181,97,42,.2);color:#E8A880;}
+.t-brick .step-en{color:#E8A880;}
+.t-brick .step-fx{border-left:2px solid rgba(212,132,90,.3);}
 
 .t-purple .step-icon-ring{border-color:#9B7FD4;color:#9B7FD4;}
-.t-purple .step-en,.t-purple .step-fx-txt{color:#B8A0E8;}
-.t-purple .step-fx-tag{background:rgba(123,95,191,.18);color:#B8A0E8;}
+.t-purple .step-en{color:#B8A0E8;}
+.t-purple .step-fx{border-left:2px solid rgba(155,127,212,.3);}
 
 .t-blue .step-icon-ring{border-color:#6499C8;color:#6499C8;}
-.t-blue .step-en,.t-blue .step-fx-txt{color:#8AB5DC;}
-.t-blue .step-fx-tag{background:rgba(77,127,175,.18);color:#8AB5DC;}
+.t-blue .step-en{color:#8AB5DC;}
+.t-blue .step-fx{border-left:2px solid rgba(100,153,200,.3);}
 
 .t-green .step-icon-ring{border-color:#5A9B6E;color:#5A9B6E;}
-.t-green .step-en,.t-green .step-fx-txt{color:#7BB88A;}
-.t-green .step-fx-tag{background:rgba(90,155,110,.16);color:#7BB88A;}
+.t-green .step-en{color:#7BB88A;}
+.t-green .step-fx{border-left:2px solid rgba(90,155,110,.3);}
 
 .t-red .step-icon-ring{border-color:#C07070;color:#C07070;}
-.t-red .step-en,.t-red .step-fx-txt{color:#D89898;}
-.t-red .step-fx-tag{background:rgba(192,112,112,.16);color:#D89898;}
+.t-red .step-en{color:#D89898;}
+.t-red .step-fx{border-left:2px solid rgba(192,112,112,.3);}
 
 /* ── OUTCOME ── */
 .outcome{
@@ -218,9 +220,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">좋은 글과 매일 만나는 독서 습관</div>
-        <div class="step-fx-tag">감수성 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">하루 한 편 좋은 문장과 만나는 것만으로, 무엇이 '잘 쓴 글'인지 느끼는 감각이 자라요.</div>
       </div>
     </div>
   </div>
@@ -245,9 +246,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">눈이 아닌 손으로 기억하는 문장</div>
-        <div class="step-fx-tag">집중력 · 기억력 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">눈으로만 읽는 것과 달리, 직접 써보면 문장의 리듬과 호흡까지 몸에 함께 새겨져요.</div>
       </div>
     </div>
   </div>
@@ -274,9 +274,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">고급 어휘가 쌓이고 표현이 풍부해짐</div>
-        <div class="step-fx-tag">어휘력 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">어려운 단어를 문맥 안에서 배우면, 억지로 외우지 않아도 자연스럽게 어휘가 쌓여요.</div>
       </div>
     </div>
   </div>
@@ -306,9 +305,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">문장이 왜 좋은지 설명할 수 있게 됨</div>
-        <div class="step-fx-tag">문장 이해력 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">구조와 기법을 분석하고 나면, 비로소 "이 문장이 왜 좋은지" 말로 설명할 수 있게 돼요.</div>
       </div>
     </div>
   </div>
@@ -334,9 +332,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">배운 기법을 즉시 내 글에 적용하는 훈련</div>
-        <div class="step-fx-tag">응용력 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">배운 구조를 즉시 내 글에 적용하는 훈련이 반복되면, 어떤 상황에도 쓸 수 있는 문장 응용력이 생겨요.</div>
       </div>
     </div>
   </div>
@@ -362,9 +359,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">내 언어로 표현하는 창의적 힘 성장</div>
-        <div class="step-fx-tag">표현력 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">정해진 틀 없이 나만의 문장을 만들다 보면, 내 언어로 세상을 표현하는 힘이 조금씩 자라요.</div>
       </div>
     </div>
   </div>
@@ -389,9 +385,8 @@ svg{display:block;}
       </div>
       <div class="step-sep"></div>
       <div class="step-fx">
-        <div class="step-fx-lbl">효과</div>
-        <div class="step-fx-txt">매일의 기록이 가시적인 성장으로 보임</div>
-        <div class="step-fx-tag">지속 동기 ↑</div>
+        <div class="step-fx-lbl">이런 효과가 생겨요</div>
+        <div class="step-fx-txt">매일의 기록이 쌓이면 눈에 보이는 성장이 되고, 내일도 열고 싶은 동기가 저절로 생겨요.</div>
       </div>
     </div>
   </div>
