@@ -103,27 +103,40 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 @media(min-width:768px){.shell{max-width:660px;}}
 @media(min-width:1024px){.shell{max-width:780px;}}
 
-/* ── 힐링편 데스크톱: 원문 좌 / 글쓰기 우 나란히 배치 ── */
-@media(min-width:1024px){
-  #healingWritingSection{display:flex;gap:24px;align-items:flex-start;}
+/* ── 힐링편 데스크톱(768px+): 원문 좌 / 글쓰기 우 2열 배치 ── */
+@media(min-width:768px){
+  #healingWritingSection{
+    display:flex;gap:28px;align-items:flex-start;
+  }
   #healingStickySent{
-    flex:0 0 340px;position:sticky;top:70px;
-    max-height:calc(100vh - 100px);overflow-y:auto;
+    flex:0 0 300px;
+    position:sticky;top:70px;
+    max-height:calc(100vh - 90px);overflow-y:auto;
     border-radius:14px;margin-bottom:0;
+    /* pinned 스타일 완전 무효화 */
+    position:sticky !important;
+    left:auto !important;right:auto !important;
+    transform:none !important;
+    width:auto !important;
+    box-shadow:none !important;
+    background:var(--paper3) !important;
+    border-radius:14px !important;
+    padding:16px 18px !important;
+    margin-top:0 !important;
   }
-  /* 데스크톱에서는 sticky pinned 스타일 무효화 */
-  #healingStickySent.pinned{
-    position:sticky !important;top:70px !important;
-    border-radius:14px !important;padding:16px 18px !important;
-    box-shadow:none !important;margin-top:0 !important;
-  }
-  #healingStickySent.pinned .sticky-text{
-    font-size:16px !important;line-height:1.7 !important;
+  #healingStickySent .sticky-text{
+    font-size:15px !important;line-height:1.85 !important;
     max-height:none !important;overflow-y:visible !important;
+    display:block !important;
   }
-  #healingStickySent.pinned .sticky-lbl,
-  #healingStickySent.pinned .sticky-meta{display:flex !important;}
+  #healingStickySent .sticky-lbl{display:block !important;}
+  #healingStickySent .sticky-meta{display:flex !important;}
+  #healingStickySent .sticky-toggle{display:none !important;}
+  #healingStickySent::before{display:none !important;}
   .healing-right-col{flex:1;min-width:0;}
+}
+@media(min-width:1024px){
+  #healingStickySent{flex:0 0 360px;}
 }
 
 /* ══════ TOPNAV ══════ */
@@ -10869,10 +10882,12 @@ function dismissFeedback() {
     });
   });
 
-  // 힐링편: healingTa → healingStickySent 고정
+  // 힐링편: healingTa → healingStickySent 고정 (모바일 전용)
   var hta = document.getElementById('healingTa');
   if (hta) {
     hta.addEventListener('focus', function() {
+      // 데스크톱(768px 이상)에서는 flex 2열 레이아웃 사용 → pinned 불필요
+      if (window.innerWidth >= 768) return;
       var s = document.getElementById('healingStickySent');
       if (s) s.classList.add('pinned');
     });
