@@ -139,6 +139,30 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   #healingStickySent{flex:0 0 360px;}
 }
 
+/* ── 성장편 데스크톱(768px+): 원문 좌 / 단계 우 2열 배치 ── */
+@media(min-width:768px){
+  #growthWritingSection{
+    display:flex;gap:28px;align-items:flex-start;
+  }
+  #stickySent{
+    flex:0 0 300px;
+    position:sticky !important;
+    top:70px;
+    left:auto !important;right:auto !important;
+    transform:none !important;
+    width:auto !important;
+    box-shadow:none !important;
+    border-radius:14px !important;
+    padding:16px 18px !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+  .growth-right-col{flex:1;min-width:0;}
+}
+@media(min-width:1024px){
+  #stickySent{flex:0 0 360px;}
+}
+
 /* ══════ TOPNAV ══════ */
 .topnav{
   display:flex;align-items:center;justify-content:space-between;
@@ -1445,7 +1469,9 @@ const fbDb = firebase.firestore();
       <div class="tw-reason" id="twReason"></div>
     </div>
 
-    <!-- ② 오늘의 문장 -->
+    <!-- ② 오늘의 문장 + 단계별 컨텐츠 (데스크톱: 2열 레이아웃) -->
+    <div id="growthWritingSection">
+
     <div class="sticky-sent" id="stickySent" style="display:none;">
       <div class="sticky-lbl">오늘의 문장</div>
       <div class="sticky-text" id="stickySentText"></div>
@@ -1455,6 +1481,7 @@ const fbDb = firebase.firestore();
       </div>
     </div>
 
+    <div class="growth-right-col">
     <!-- Step bar -->
     <div class="step-bar" id="growthStepBar" style="display:none;">
       <div class="si active" id="si0">
@@ -1581,6 +1608,9 @@ const fbDb = firebase.firestore();
       <div class="att-left" id="cAtt">평가 기회 2번 남음</div>
       <button class="btn-s" id="cNext" onclick="finish()" style="display:none;">오늘 필사 완성! 🎉</button>
     </div>
+
+    </div><!-- /growth-right-col -->
+    </div><!-- /growthWritingSection -->
 
     <!-- COMPLETE -->
     <div id="doneCard" style="display:none;" class="done-banner">
@@ -10863,11 +10893,13 @@ function dismissFeedback() {
 /* ── Init ── */
 /* ── 모바일: 타이핑 시 원문 고정 ── */
 (function() {
-  // 성장편: copyTa, structTa, creativeTa → stickySent 고정
+  // 성장편: copyTa, structTa, creativeTa → stickySent 고정 (모바일 전용)
   ['copyTa','structTa','creativeTa'].forEach(function(id) {
     var ta = document.getElementById(id);
     if (!ta) return;
     ta.addEventListener('focus', function() {
+      // 데스크톱(768px 이상)에서는 flex 2열 레이아웃 사용 → pinned 불필요
+      if (window.innerWidth >= 768) return;
       var s = document.getElementById('stickySent');
       if (s) s.classList.add('pinned');
     });
