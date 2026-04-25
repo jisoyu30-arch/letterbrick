@@ -248,10 +248,11 @@ JSON으로만 응답:
 
     const data = await response.json();
     const text = data.content?.[0]?.text || '';
+    console.log('AI raw response:', text.slice(0, 500));
     const codeBlock = text.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonStr = codeBlock ? codeBlock[1] : text;
     const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) return res.status(502).json({ error: 'Invalid response format', fallback: true });
+    if (!jsonMatch) return res.status(502).json({ error: 'Invalid response format', rawText: text.slice(0, 300), fallback: true });
 
     const result = JSON.parse(jsonMatch[0]);
     // worldMessage 보정 (AI가 틀릴 경우)
