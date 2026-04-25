@@ -1070,6 +1070,106 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 #shareModal .sm-btn-close:hover{color:var(--paper);border-color:rgba(247,242,232,0.5) !important;}
 
+/* ══════ EDITION INTRO ══════ */
+.edition-intro{
+  font-size:13px;color:var(--ink2);line-height:1.75;
+  padding:10px 14px;background:var(--paper3);
+  border-left:3px solid var(--brick);border-radius:0 10px 10px 0;
+  margin-bottom:16px;font-family:'Noto Serif KR',serif;font-weight:300;
+}
+.healing-edition-intro{
+  font-size:13px;color:var(--ink2);line-height:1.75;
+  padding:10px 14px;background:var(--paper3);
+  border-left:3px solid var(--green);border-radius:0 10px 10px 0;
+  margin-bottom:16px;font-family:'Noto Serif KR',serif;font-weight:300;
+}
+
+/* ══════ STEP PURPOSE ══════ */
+.step-purpose{
+  font-size:12px;color:var(--ink3);line-height:1.7;
+  background:rgba(46,42,38,0.04);border-radius:8px;
+  padding:8px 12px;margin-bottom:16px;
+  font-family:'Noto Serif KR',serif;font-weight:300;
+  border-left:2px solid var(--line);
+}
+
+/* ══════ GROWTH GOAL CARD ══════ */
+.growth-goal-card{
+  background:var(--paper3);border:1px solid var(--line);
+  border-radius:14px;padding:14px 16px;margin-bottom:12px;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.ggc-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.ggc-body{}
+.ggc-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--brick);margin-bottom:5px;}
+.ggc-text{font-size:13px;color:var(--ink);line-height:1.75;
+  font-family:'Noto Serif KR',serif;font-weight:400;}
+
+/* ══════ HEALING FLOW INDICATOR ══════ */
+.healing-flow-steps{
+  display:flex;align-items:center;gap:0;
+  margin:0 0 20px;overflow-x:auto;padding:2px 0;
+}
+.hfs-item{
+  display:flex;align-items:center;gap:0;flex-shrink:0;
+}
+.hfs-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--line);flex-shrink:0;
+  transition:background .3s;
+}
+.hfs-dot.active{background:var(--green);}
+.hfs-dot.done{background:var(--ink2);}
+.hfs-label{
+  font-size:11px;color:var(--ink3);font-weight:400;
+  padding:0 8px 0 5px;white-space:nowrap;letter-spacing:.2px;
+}
+.hfs-label.active{color:var(--green);font-weight:600;}
+.hfs-label.done{color:var(--ink2);}
+.hfs-line{width:14px;height:1px;background:var(--line);flex-shrink:0;}
+.hfs-line.done{background:var(--ink2);}
+
+/* ══════ HEALING QUESTION CARD ══════ */
+.healing-question-card{
+  margin:0 0 20px;text-align:left;
+  animation:fu .45s ease both;
+}
+.hqc-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:rgba(247,242,232,0.45);margin-bottom:14px;
+  display:flex;align-items:center;gap:7px;
+}
+.hqc-eyebrow::before{
+  content:'';display:inline-block;width:6px;height:6px;
+  border-radius:50%;background:var(--green);flex-shrink:0;
+}
+.hqc-question{
+  font-family:'Noto Serif KR',serif;font-size:17px;
+  line-height:1.9;color:var(--paper);font-weight:300;
+  letter-spacing:.3px;
+}
+
+/* ══════ DONE MY SENTENCE ══════ */
+.done-my-sentence{
+  margin:16px 0 0;text-align:left;
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(247,242,232,0.14);
+  border-radius:12px;padding:16px 16px 14px;
+}
+.dms-label{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--brick);margin-bottom:10px;
+}
+.dms-text{
+  font-family:'Noto Serif KR',serif;font-size:15px;
+  line-height:1.95;color:var(--paper);font-weight:300;
+  font-style:italic;
+}
+.dms-empty{
+  font-size:13px;color:rgba(247,242,232,0.3);font-style:normal;
+}
+
 </style>
 
 <!-- Firebase SDK (compat) -->
@@ -1494,18 +1594,30 @@ const fbDb = firebase.firestore();
 
     <!-- ⓪ 문장 선택 -->
     <div id="quoteSelect" style="margin-top:18px;">
+      <div class="edition-intro">좋은 문장을 따라 쓰고, 구조를 읽고, 내 문장으로 다시 쓰는 문장력 훈련입니다.</div>
       <div class="ctag" style="margin-bottom:4px;">오늘의 문장을 선택하세요</div>
       <p style="font-size:12px;color:var(--ink3);margin-bottom:14px;">세 문장 중 하나를 골라 오늘의 훈련을 시작하세요.</p>
       <div id="quoteOptions"></div>
     </div>
 
-    <!-- ① 선정 이유 — 최상단 -->
-    <div class="today-why" id="todayWhy" style="display:none;">
-      <div class="tw-eyebrow">
-        <div class="tw-bricks"><div class="tw-b"></div><div class="tw-b"></div><div class="tw-b"></div></div>
-        오늘의 글쓰기 포인트
+    <!-- ① 훈련 목표 카드 + 선정 이유 -->
+    <div id="todayWhy" style="display:none;">
+      <!-- 오늘의 훈련 목표 -->
+      <div class="growth-goal-card">
+        <div class="ggc-icon">🎯</div>
+        <div class="ggc-body">
+          <div class="ggc-label">오늘의 훈련 목표</div>
+          <div class="ggc-text" id="twGoal">—</div>
+        </div>
       </div>
-      <div class="tw-reason" id="twReason"></div>
+      <!-- 글쓰기 포인트 (접힌 스타일) -->
+      <div class="today-why" style="margin-top:0;">
+        <div class="tw-eyebrow">
+          <div class="tw-bricks"><div class="tw-b"></div><div class="tw-b"></div><div class="tw-b"></div></div>
+          오늘의 글쓰기 포인트
+        </div>
+        <div class="tw-reason" id="twReason"></div>
+      </div>
     </div>
 
     <!-- ② 오늘의 문장 + 단계별 컨텐츠 (데스크톱: 2열 레이아웃) -->
@@ -1544,6 +1656,7 @@ const fbDb = firebase.firestore();
     <!-- ── STEP 1 따라쓰기 ── -->
     <div id="s1" class="sc" style="display:none;">
       <div class="ctag"><div class="ctag-dot s1"></div>Step 1 — 따라쓰기</div>
+      <div class="step-purpose">문장을 손으로 통과시키는 단계예요.</div>
 
       <!-- Input mode toggle -->
       <div class="input-mode-bar" id="inputModeBar">
@@ -1593,6 +1706,7 @@ const fbDb = firebase.firestore();
     <div id="s2" class="sc" style="display:none;">
       <button class="btn-back" onclick="goBack(2)">← 따라쓰기로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s2"></div>Step 2 — 문장 학습</div>
+      <div class="step-purpose">문장의 구조와 표현 방식을 읽는 단계예요.</div>
       <div id="learnContent"></div>
       <button class="btn-p" onclick="goS3()">다음 — 구조 바꿔보기 →</button>
     </div>
@@ -1601,6 +1715,7 @@ const fbDb = firebase.firestore();
     <div id="s3" class="sc" style="display:none;">
       <button class="btn-back" onclick="goBack(3)">← 문장 학습으로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s3"></div>Step 3 — 구조 바꿔보기</div>
+      <div class="step-purpose">좋은 문장의 뼈대를 내 말로 옮기는 단계예요.</div>
       <div class="cmp" id="cmpBox"></div>
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 배운 기법을 써서 원문의 구조를 바꿔보세요.
@@ -1627,6 +1742,7 @@ const fbDb = firebase.firestore();
     <div id="s4" class="sc" style="display:none;">
       <button class="btn-back" onclick="goBack(4)">← 구조 연습으로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s4"></div>Step 4 — 창의적 글쓰기</div>
+      <div class="step-purpose">오늘 배운 구조로 나만의 문장을 완성하는 단계예요.</div>
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 익힌 문장 구조를 떠올리며, 나만의 창의적인 문장을 만들어보세요.
       </p>
@@ -1656,6 +1772,12 @@ const fbDb = firebase.firestore();
       <span class="db-emoji"><img src="images/icon_sparkles.svg" width="36" height="36" style="filter:brightness(5) sepia(1) saturate(3) hue-rotate(10deg);" alt="sparkles"></span>
       <div class="db-ttl">오늘 필사 완성!</div>
       <div class="db-sub">오늘도 벽돌을 쌓았어요.</div>
+
+      <!-- 오늘 완성한 내 문장 -->
+      <div class="done-my-sentence" id="doneMySentence">
+        <div class="dms-label">오늘 완성한 내 문장</div>
+        <div class="dms-text" id="doneMySentenceText"><span class="dms-empty">창의 글쓰기를 완성하면 여기에 표시돼요.</span></div>
+      </div>
 
       <!-- 벽돌 쌓기 비주얼 -->
       <div id="dbBricks" style="display:none;"></div>
@@ -1701,6 +1823,34 @@ const fbDb = firebase.firestore();
 
     <!-- Theme selection (P1-5: 단순화) -->
     <div id="healingThemes" style="margin-top:18px;">
+      <div class="healing-edition-intro">하루를 마무리하며 좋은 문단을 천천히 따라 쓰고, 질문 하나에 답하는 사유 루틴입니다.</div>
+      <!-- 조용한 흐름 표시기 -->
+      <div class="healing-flow-steps">
+        <div class="hfs-item">
+          <div class="hfs-dot active"></div>
+          <div class="hfs-label active">오늘의 문단</div>
+        </div>
+        <div class="hfs-line"></div>
+        <div class="hfs-item">
+          <div class="hfs-dot"></div>
+          <div class="hfs-label">손으로 머무르기</div>
+        </div>
+        <div class="hfs-line"></div>
+        <div class="hfs-item">
+          <div class="hfs-dot"></div>
+          <div class="hfs-label">오늘의 질문</div>
+        </div>
+        <div class="hfs-line"></div>
+        <div class="hfs-item">
+          <div class="hfs-dot"></div>
+          <div class="hfs-label">나의 답</div>
+        </div>
+        <div class="hfs-line"></div>
+        <div class="hfs-item">
+          <div class="hfs-dot"></div>
+          <div class="hfs-label">오늘을 닫기</div>
+        </div>
+      </div>
       <div class="ctag" style="margin-bottom:4px;">오늘의 힐링 필사</div>
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:16px;">
         긴 글을 천천히 따라 쓰며 머무는 시간.<br>
@@ -1789,7 +1939,7 @@ const fbDb = firebase.firestore();
     <!-- Healing done -->
     <div id="healingDone" style="display:none;" class="done-banner">
       <span class="db-emoji" style="font-size:36px;">🌙</span>
-      <div class="db-ttl">오늘도 잘 머물렀어요</div>
+      <div class="db-ttl">오늘의 마음을 저장했어요</div>
       <div class="db-sub">고요한 시간이 당신을 채웠습니다.</div>
 
       <!-- 힐링 벽돌 비주얼 -->
@@ -1803,14 +1953,20 @@ const fbDb = firebase.firestore();
         <span id="healingDuration">—</span> 동안 머물렀어요
       </div>
 
-      <!-- 소감 입력 -->
-      <div id="healingSogamSection" style="margin-top:20px;text-align:left;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">오늘의 소감</div>
-        <textarea id="healingSogamTa" placeholder="오늘 필사하면서 떠오른 생각이나 감정을 자유롭게 써보세요..." rows="3" spellcheck="false"
+      <!-- 오늘의 질문 카드 -->
+      <div class="healing-question-card" id="healingQuestionCard">
+        <div class="hqc-eyebrow">오늘의 질문</div>
+        <div class="hqc-question" id="healingQuestionText">이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?</div>
+      </div>
+
+      <!-- 나의 답 (소감 입력) -->
+      <div id="healingSogamSection" style="margin-top:4px;text-align:left;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">나의 답</div>
+        <textarea id="healingSogamTa" placeholder="몇 줄이면 충분해요. 떠오르는 것을 그대로 써보세요..." rows="3" spellcheck="false"
           style="width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(247,242,232,0.15);border-radius:10px;padding:12px 14px;font-family:'Noto Serif KR',serif;font-size:14px;line-height:1.8;color:var(--paper);resize:none;outline:none;"
           oninput="this.style.borderColor=this.value.length>0?'rgba(247,242,232,0.3)':'rgba(247,242,232,0.15)'"></textarea>
         <button class="btn-p" id="healingSogamBtn" onclick="submitHealingSogam()" style="margin-top:10px;width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(247,242,232,0.2);">
-          AI 코치에게 보내기 →
+          오늘의 사유 저장하기 →
         </button>
       </div>
 
@@ -8071,6 +8227,17 @@ function finish(){
   document.getElementById('finalScore').textContent=fs;
   const doneCard=document.getElementById('doneCard');
   doneCard.style.display='block';
+
+  // 오늘 완성한 내 문장 강조
+  var creativeVal = (document.getElementById('creativeTa').value || '').replace('🔍 손글씨 인식 중...','').trim();
+  var dmsText = document.getElementById('doneMySentenceText');
+  if (dmsText) {
+    if (creativeVal) {
+      dmsText.innerHTML = '';
+      dmsText.textContent = creativeVal;
+    }
+    // else: 기본 메시지 유지
+  }
   // Animate bricks
   const bricks=document.getElementById('dbBricks');
   bricks.innerHTML='';
@@ -8640,6 +8807,37 @@ async function syncToSheets(rec) {
 
 
 /* ══════════════════════════════
+   HEALING QUESTIONS DATA
+══════════════════════════════ */
+const HEALING_QUESTIONS = {
+  '다짐': [
+    "오늘 이 글이 떠올리게 한 다짐이 있다면 무엇인가요?",
+    "이 문단에서 가장 오래 마음에 남은 문장은 어느 것인가요?",
+    "내일의 나에게 이 글로 전하고 싶은 말은 무엇인가요?"
+  ],
+  '힐링': [
+    "오늘 이 글이 당신에게 닿은 이유는 무엇인가요?",
+    "이 문단에서 가장 위로가 된 부분은 어느 문장인가요?",
+    "오늘 하루, 이 글 없이는 느끼지 못했을 것이 있다면?"
+  ],
+  '여운': [
+    "이 글이 남긴 여운을 한 문장으로 표현한다면?",
+    "오늘 이 문단이 당신에게 말을 건다면, 그 말은 무엇일까요?",
+    "이 글을 따라 쓰면서 가장 오래 머문 순간은 언제였나요?"
+  ],
+  '_default': [
+    "이 문단에서 가장 오래 마음에 남은 문장은 무엇인가요?",
+    "오늘 이 글이 당신에게 닿은 이유는 무엇인가요?",
+    "이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?"
+  ]
+};
+
+function pickHealingQuestion(theme) {
+  var pool = HEALING_QUESTIONS[theme] || HEALING_QUESTIONS['_default'];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+/* ══════════════════════════════
    HEALING PASSAGES DATA
 ══════════════════════════════ */
 const HEALING_PASSAGES = {
@@ -8683,7 +8881,7 @@ function selectHealingTheme(theme) {
   trackHealingTheme(theme); // 취향 기록
   const passages = HEALING_PASSAGES[theme];
   const dayIdx = getDayIndex() % passages.length;
-  healingPassage = passages[dayIdx];
+  healingPassage = Object.assign({}, passages[dayIdx], { _theme: theme });
   healingStartTime = Date.now();
   document.getElementById('healingThemeLabel').textContent = theme + ' · 오늘의 필사';
   document.getElementById('healingText').textContent = healingPassage.text;
@@ -8713,6 +8911,15 @@ function finishHealing() {
   var m = Math.floor(elapsed / 60), s = elapsed % 60;
   document.getElementById('healingDuration').textContent = m > 0 ? m + '분 ' + s + '초' : s + '초';
   stopTTS(); stopBGM();
+
+  // 오늘의 질문 카드 채우기
+  var currentTheme = (healingPassage && healingPassage._theme) || '_default';
+  var q = pickHealingQuestion(currentTheme);
+  var qEl = document.getElementById('healingQuestionText');
+  if (qEl) qEl.textContent = q;
+  // 소감 textarea 초기화
+  var ta = document.getElementById('healingSogamTa');
+  if (ta) { ta.value = ''; ta.style.borderColor = 'rgba(247,242,232,0.15)'; }
 
   // 힐링 벽돌 비주얼
   var stars = loadStars();
@@ -8750,6 +8957,11 @@ function resetHealingFlow() {
   document.getElementById('healingTa').value = '';
   document.getElementById('healingPhotoPreviews').innerHTML = '';
   const hp1 = document.getElementById('hp1'); if(hp1) hp1.value = '';
+  // 소감/답 초기화
+  var sogamTa = document.getElementById('healingSogamTa'); if (sogamTa) sogamTa.value = '';
+  var sogamSection = document.getElementById('healingSogamSection'); if (sogamSection) sogamSection.style.display = 'block';
+  var coachResp = document.getElementById('healingCoachResponse'); if (coachResp) coachResp.style.display = 'none';
+  var shareSection = document.getElementById('healingShareSection'); if (shareSection) shareSection.style.display = 'none';
   healingPassage = null; healingStartTime = null;
   healingInputMode = 'typing'; healingInputLocked = false;
   const tb = document.getElementById('himTyping'), hb = document.getElementById('himHandwriting');
@@ -8913,6 +9125,11 @@ function selectGrowthQuote(idx) {
   document.getElementById('stickySentText').textContent = todaySent.text;
   document.getElementById('stickySentAuthor').textContent = '— '+todaySent.author+' 「'+todaySent.source+'」';
   document.getElementById('twReason').textContent = todaySent.reason;
+  // 훈련 목표 = coreSkill (있으면) 또는 reason 첫 문장
+  var coreSkill = (todaySent.learn && todaySent.learn.coreSkill) ? todaySent.learn.coreSkill : '';
+  var goalText = coreSkill ? coreSkill + '을 훈련합니다.' : (todaySent.reason || '오늘의 문장 구조를 익힙니다.');
+  var twGoalEl = document.getElementById('twGoal');
+  if (twGoalEl) twGoalEl.textContent = goalText;
   buildLearnContent(); buildCmp();
   sessionStartTime = Date.now();
   structAttempts = 2; creativeAttempts = 3;
