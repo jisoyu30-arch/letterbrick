@@ -431,6 +431,17 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   border:1px solid var(--line);}
 .ppreview img{width:100%;display:block;}
 
+/* Photo action row (camera + gallery) */
+.photo-action-row{display:flex;gap:8px;margin-bottom:0;}
+.photo-action-row .pzone{flex:1;margin:0;}
+.pz-cam-btn{
+  flex:1;border:2px solid var(--brick);border-radius:12px;
+  padding:18px;text-align:center;cursor:pointer;transition:all .2s;
+  background:var(--brick-p);
+}
+.pz-cam-btn:hover{background:var(--brick);}
+.pz-cam-btn:hover .pz-txt,.pz-cam-btn:hover .pz-ico{color:#fff;}
+
 /* input section label */
 .or-divider{display:flex;align-items:center;gap:10px;margin:10px 0;}
 .or-line{flex:1;height:1px;background:var(--line);}
@@ -1908,10 +1919,16 @@ const fbDb = firebase.firestore();
         <p style="font-size:13px;color:var(--ink3);line-height:1.7;margin-bottom:12px;">
           손글씨로 따라 쓴 사진을 올려주세요.
         </p>
-        <div class="pzone" onclick="document.getElementById('p1').click()">
-          <input type="file" id="p1" accept="image/*" onchange="prevPhoto(this,'pp1','copyTa','copy')">
-          <div class="pz-ico">📷</div>
-          <div class="pz-txt">손글씨 사진 업로드<br><b>탭해서 선택</b></div>
+        <div class="photo-action-row">
+          <div class="pz-cam-btn" onclick="openCamera('p1','pp1','copyTa','copy')">
+            <div class="pz-ico">📸</div>
+            <div class="pz-txt">카메라<br><b>바로 찍기</b></div>
+          </div>
+          <div class="pzone" onclick="document.getElementById('p1').click()">
+            <input type="file" id="p1" accept="image/*" onchange="prevPhoto(this,'pp1','copyTa','copy')">
+            <div class="pz-ico">🖼️</div>
+            <div class="pz-txt">갤러리<br><b>앨범 선택</b></div>
+          </div>
         </div>
         <div class="ppreview" id="pp1"><img id="pp1Img" src="" alt="미리보기"></div>
       </div>
@@ -1943,10 +1960,16 @@ const fbDb = firebase.firestore();
       </p>
       <div class="iw"><textarea id="structTa" placeholder="구조를 바꾼 문장을 써보세요..." rows="4" spellcheck="false" onpaste="return blockPaste(event, this)"></textarea></div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
-      <div class="pzone" onclick="document.getElementById('sp').click()">
-        <input type="file" id="sp" accept="image/*" onchange="prevPhoto(this,'spp','structTa','struct')">
-        <div class="pz-ico">📷</div>
-        <div class="pz-txt">손글씨 사진 업로드<br><b>탭해서 선택</b></div>
+      <div class="photo-action-row">
+        <div class="pz-cam-btn" onclick="openCamera('sp','spp','structTa','struct')">
+          <div class="pz-ico">📸</div>
+          <div class="pz-txt">카메라<br><b>바로 찍기</b></div>
+        </div>
+        <div class="pzone" onclick="document.getElementById('sp').click()">
+          <input type="file" id="sp" accept="image/*" onchange="prevPhoto(this,'spp','structTa','struct')">
+          <div class="pz-ico">🖼️</div>
+          <div class="pz-txt">갤러리<br><b>앨범 선택</b></div>
+        </div>
       </div>
       <div class="ppreview" id="spp"><img id="sppImg" src="" alt="미리보기"></div>
       <div class="ld" id="sLd"><div class="ld-txt">평가 중이에요...</div><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
@@ -1972,10 +1995,16 @@ const fbDb = firebase.firestore();
         <div class="char-hint" id="ccHint">0자</div>
       </div>
       <div class="or-divider"><div class="or-line"></div><div class="or-txt">또는 손글씨 사진</div><div class="or-line"></div></div>
-      <div class="pzone" onclick="document.getElementById('cp').click()">
-        <input type="file" id="cp" accept="image/*" onchange="prevPhoto(this,'cpp','creativeTa','creative')">
-        <div class="pz-ico">📷</div>
-        <div class="pz-txt">손글씨 사진 업로드<br><b>탭해서 선택</b></div>
+      <div class="photo-action-row">
+        <div class="pz-cam-btn" onclick="openCamera('cp','cpp','creativeTa','creative')">
+          <div class="pz-ico">📸</div>
+          <div class="pz-txt">카메라<br><b>바로 찍기</b></div>
+        </div>
+        <div class="pzone" onclick="document.getElementById('cp').click()">
+          <input type="file" id="cp" accept="image/*" onchange="prevPhoto(this,'cpp','creativeTa','creative')">
+          <div class="pz-ico">🖼️</div>
+          <div class="pz-txt">갤러리<br><b>앨범 선택</b></div>
+        </div>
       </div>
       <div class="ppreview" id="cpp"><img id="cppImg" src="" alt="미리보기"></div>
       <div class="ld" id="cLd"><div class="ld-txt">읽고 있어요...</div><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
@@ -2142,10 +2171,16 @@ const fbDb = firebase.firestore();
           </div>
 
           <div id="healingHandwritingZone" style="display:none;">
-            <div class="pzone" onclick="document.getElementById('hp1').click()">
-              <input type="file" id="hp1" accept="image/*" multiple onchange="healingPhotoUpload(this)">
-              <div class="pz-ico">📷</div>
-              <div class="pz-txt">손글씨 사진 업로드 (최대 3장)<br><b>탭해서 선택</b></div>
+            <div class="photo-action-row">
+              <div class="pz-cam-btn" onclick="openCameraHealing()">
+                <div class="pz-ico">📸</div>
+                <div class="pz-txt">카메라<br><b>바로 찍기</b></div>
+              </div>
+              <div class="pzone" onclick="document.getElementById('hp1').click()">
+                <input type="file" id="hp1" accept="image/*" multiple onchange="healingPhotoUpload(this)">
+                <div class="pz-ico">🖼️</div>
+                <div class="pz-txt">갤러리<br><b>앨범 선택</b></div>
+              </div>
             </div>
             <div id="healingPhotoPreviews"></div>
           </div>
@@ -8561,6 +8596,58 @@ function updateSB(a){
 /* ══════════════════════════════
    PHOTO PREVIEW + OCR
 ══════════════════════════════ */
+
+/* ── 카메라 직접 촬영 (capture="environment") ── */
+function openCamera(inputId, prevId, taId, type) {
+  var tmp = document.createElement('input');
+  tmp.type = 'file'; tmp.accept = 'image/*';
+  tmp.setAttribute('capture', 'environment');
+  tmp.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;pointer-events:none;';
+  document.body.appendChild(tmp);
+  tmp.onchange = function() {
+    if (!tmp.files || !tmp.files[0]) { if(tmp.parentNode) document.body.removeChild(tmp); return; }
+    // 원본 input에도 파일 복사 (hasPhoto 체크용)
+    var orig = document.getElementById(inputId);
+    if (orig && window.DataTransfer) {
+      try { var dt = new DataTransfer(); dt.items.add(tmp.files[0]); orig.files = dt.files; } catch(e){}
+    }
+    prevPhoto(tmp, prevId, taId, type);
+    setTimeout(function(){ if(tmp.parentNode) document.body.removeChild(tmp); }, 300);
+  };
+  tmp.click();
+}
+
+function openCameraHealing() {
+  var tmp = document.createElement('input');
+  tmp.type = 'file'; tmp.accept = 'image/*';
+  tmp.setAttribute('capture', 'environment');
+  tmp.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;pointer-events:none;';
+  document.body.appendChild(tmp);
+  tmp.onchange = function() {
+    if (!tmp.files || !tmp.files[0]) { if(tmp.parentNode) document.body.removeChild(tmp); return; }
+    // 기존 hp1 파일 + 새 파일 합치기 (최대 3장)
+    var orig = document.getElementById('hp1');
+    if (orig && window.DataTransfer) {
+      try {
+        var dt = new DataTransfer();
+        var existingCount = orig.files ? orig.files.length : 0;
+        if (existingCount < 3) {
+          Array.from(orig.files||[]).forEach(function(f){ dt.items.add(f); });
+          dt.items.add(tmp.files[0]);
+          orig.files = dt.files;
+          healingPhotoUpload(orig);
+        } else {
+          alert('최대 3장까지만 올릴 수 있어요.');
+        }
+      } catch(e){ healingPhotoUpload(tmp); }
+    } else {
+      healingPhotoUpload(tmp);
+    }
+    setTimeout(function(){ if(tmp.parentNode) document.body.removeChild(tmp); }, 300);
+  };
+  tmp.click();
+}
+
 function prevPhoto(input,prevId,taId,type){
   const file=input.files[0];if(!file)return;
   const reader=new FileReader();
