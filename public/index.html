@@ -9019,6 +9019,7 @@ function enterGuestMode() {
   // 모달 닫고 앱 표시
   document.getElementById('userModal').classList.add('hide');
   applyUser();
+  enterApp();   // 성장편 문장 세팅 (todaySent, learnContent 등 초기화)
   // 게스트 배너 (3초 후 사라짐)
   var banner = document.createElement('div');
   banner.style.cssText = 'position:fixed;bottom:72px;left:50%;transform:translateX(-50%);' +
