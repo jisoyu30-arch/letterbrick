@@ -128,7 +128,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     font-size:15px !important;line-height:1.85 !important;
     max-height:none !important;overflow-y:visible !important;
     display:block !important;
+    color:var(--ink) !important;
   }
+  #healingStickySent .sticky-lbl{color:var(--ink3) !important;}
+  #healingStickySent .sticky-author{color:var(--brick) !important;}
   #healingStickySent .sticky-lbl{display:block !important;}
   #healingStickySent .sticky-meta{display:flex !important;}
   #healingStickySent .sticky-toggle{display:none !important;}
@@ -2106,7 +2109,7 @@ const fbDb = firebase.firestore();
       <div class="today-why">
         <div class="tw-eyebrow">
           <div class="tw-bricks"><div class="tw-b"></div><div class="tw-b"></div><div class="tw-b"></div></div>
-          이 글이 좋은 이유
+          오늘의 문장 앞에서
         </div>
         <div class="tw-reason" id="healingReason"></div>
       </div>
