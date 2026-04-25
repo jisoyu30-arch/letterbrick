@@ -9678,11 +9678,40 @@ function toggleTTS() {
       ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독';
       return;
     }
-    var u = new SpeechSynthesisUtterance(healingPassage.text);
-    u.lang = 'ko-KR'; u.rate = 0.85;
-    u.onend = function() { ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독'; };
-    u.onerror = function() { alert('음성을 불러올 수 없습니다'); ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독'; };
-    speechSynthesis.speak(u);
+    function speakWithBestVoice() {
+      var u = new SpeechSynthesisUtterance(healingPassage.text);
+      u.lang = 'ko-KR';
+      u.rate = 0.80;   // 조금 천천히 — 더 자연스럽게
+      u.pitch = 1.0;
+      u.volume = 1.0;
+      // 가장 자연스러운 한국어 음성 우선 선택
+      var voices = speechSynthesis.getVoices();
+      var priority = [
+        'Google 한국어',           // Chrome Android/Desktop
+        'Microsoft SunHi Online (Natural) - Korean (Korea)', // Edge
+        'Microsoft Heami Online (Natural) - Korean (Korea)',
+        'Yuna',                    // macOS/iOS
+        'Google Korean',
+      ];
+      var picked = null;
+      for (var p = 0; p < priority.length; p++) {
+        picked = voices.find(function(v){ return v.name === priority[p]; });
+        if (picked) break;
+      }
+      // 위 목록에 없으면 ko-KR 중 첫 번째
+      if (!picked) picked = voices.find(function(v){ return v.lang === 'ko-KR' || v.lang === 'ko_KR'; });
+      if (picked) u.voice = picked;
+      u.onend = function() { ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독'; };
+      u.onerror = function() { ttsActive = false; btn.classList.remove('active'); btn.textContent = '🔊 낭독'; };
+      speechSynthesis.speak(u);
+    }
+    // 음성 목록이 아직 로드 안 됐을 경우 대기
+    var voices = speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      speakWithBestVoice();
+    } else {
+      speechSynthesis.onvoiceschanged = function() { speakWithBestVoice(); };
+    }
   };
   narrationAudio.play().catch(function() { narrationAudio.onerror(); });
 }
