@@ -831,6 +831,21 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .mpop-btn:hover{background:var(--brick);}
 
+/* ══════ MYPAGE MILESTONE SECTION ══════ */
+.mp-milestone-section{margin:20px 0 24px;}
+.mp-milestone-head{
+  display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;
+}
+.mp-milestone-next{font-size:11px;color:var(--ink3);}
+.mp-milestone-next span{color:var(--brick);font-weight:700;}
+.mp-milestone-progress{
+  height:5px;background:var(--line2);border-radius:4px;margin-bottom:14px;overflow:hidden;
+}
+.mp-milestone-bar{
+  height:100%;background:linear-gradient(90deg,var(--brick),var(--gold));
+  border-radius:4px;transition:width .6s ease;
+}
+
 /* ══════ TECHNIQUE COLLECTION ══════ */
 .tech-collection{margin:20px 0 24px;}
 .tech-coll-head{
@@ -2249,6 +2264,18 @@ const fbDb = firebase.firestore();
         <div class="mp-ed-label">힐링</div>
         <div class="mp-ed-val" id="mpHealingStars">★ 0</div>
       </div>
+    </div>
+
+    <!-- ── 마일스톤 달성 현황 ── -->
+    <div class="mp-milestone-section">
+      <div class="mp-milestone-head">
+        <div class="sec-ttl" style="margin:0;">마일스톤</div>
+        <div class="mp-milestone-next" id="mpMilestoneNext"></div>
+      </div>
+      <div class="mp-milestone-progress">
+        <div class="mp-milestone-bar" id="mpMilestoneBar" style="width:0%"></div>
+      </div>
+      <div class="milestone-strip" id="mpMilestoneBadges"></div>
     </div>
 
     <!-- ── 기법 카드 컬렉션 ── -->
@@ -9232,9 +9259,7 @@ var MILESTONES = [
 ];
 
 function renderMilestoneBadges(streak) {
-  var strip = document.getElementById('milestoneBadges');
-  if (!strip) return;
-  strip.innerHTML = MILESTONES.map(function(m) {
+  var html = MILESTONES.map(function(m) {
     var earned = streak >= m.days;
     return '<div class="mbadge' + (earned ? ' earned' : '') + '">' +
       '<span class="mbadge-icon">' + m.icon + '</span>' +
@@ -9246,6 +9271,28 @@ function renderMilestoneBadges(streak) {
       '</div>' +
     '</div>';
   }).join('');
+
+  // 홈 + 마이페이지 두 곳에 동시 렌더
+  ['milestoneBadges', 'mpMilestoneBadges'].forEach(function(id) {
+    var el = document.getElementById(id); if (el) el.innerHTML = html;
+  });
+
+  // 마이페이지 진행률 바 + 다음 마일스톤 텍스트
+  var next = MILESTONES.find(function(m) { return streak < m.days; });
+  var prev = next ? MILESTONES[MILESTONES.indexOf(next) - 1] : MILESTONES[MILESTONES.length - 1];
+  var bar = document.getElementById('mpMilestoneBar');
+  var label = document.getElementById('mpMilestoneNext');
+  if (bar && label) {
+    if (next) {
+      var from = prev ? prev.days : 0;
+      var pct = Math.min(100, Math.round((streak - from) / (next.days - from) * 100));
+      bar.style.width = pct + '%';
+      label.innerHTML = next.icon + ' ' + next.name + '까지 <span>' + (next.days - streak) + '일</span>';
+    } else {
+      bar.style.width = '100%';
+      label.innerHTML = '🏛️ <span>모든 마일스톤 달성!</span>';
+    }
+  }
 }
 
 function checkMilestoneUnlock(streak) {
@@ -10484,6 +10531,8 @@ function renderMyPage() {
   // 에디션별
   document.getElementById('mpGrowthStars').textContent = '★ ' + stars.growth.total;
   document.getElementById('mpHealingStars').textContent = '★ ' + stars.healing.total;
+  // 마일스톤 (마이페이지 버전)
+  renderMilestoneBadges(streak);
   // 기법 카드 컬렉션
   renderTechCollection();
   // 기록 목록
