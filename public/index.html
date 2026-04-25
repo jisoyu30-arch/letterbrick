@@ -8596,7 +8596,7 @@ async function runOCR(dataUrl, textarea, type){
   if(type==='copy'&&todaySent) context=todaySent.text;
 
   try{
-    var resp=await fetch('https://letter-brick.vercel.app/api/ocr',{
+    var resp=await fetch('/api/ocr',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({image:dataUrl, context:context})
@@ -11220,7 +11220,7 @@ function submitHealingSogam() {
   });
 
   // 감정 분석 + 힐링 코치 응답 병렬 실행
-  var emotionPromise = fetch('https://letter-brick.vercel.app/api/emotion', {
+  var emotionPromise = fetch('/api/emotion', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text: sogam })
@@ -11574,7 +11574,7 @@ async function callAI(type, original, userText, learningPoint) {
     var controller = new AbortController();
     var timeoutMs = (type === 'copy') ? 12000 : 25000;
     var timer = setTimeout(function(){ controller.abort(); }, timeoutMs);
-    var resp = await fetch('https://letter-brick.vercel.app/api/score', {
+    var resp = await fetch('/api/score', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
