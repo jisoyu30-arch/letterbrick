@@ -2263,6 +2263,25 @@ const fbDb = firebase.firestore();
       </div>
     </div>
 
+    <!-- 전체 기록 목록 -->
+    <div style="margin-top:20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <div class="sec-ttl" style="margin:0;">전체 기록</div>
+        <div style="display:flex;gap:4px;">
+          <button class="rec-filter active" onclick="filterMyRecords('all',this)">전체</button>
+          <button class="rec-filter" onclick="filterMyRecords('growth',this)">성장</button>
+          <button class="rec-filter" onclick="filterMyRecords('healing',this)">힐링</button>
+        </div>
+      </div>
+      <div id="mpRecordList"></div>
+      <button class="mp-load-more" id="mpLoadMore" onclick="loadMoreRecords()" style="display:none;">
+        더 보기
+      </button>
+      <div class="mp-empty" id="mpEmpty" style="display:none;">
+        아직 기록이 없어요.<br>첫 필사를 시작해보세요!
+      </div>
+    </div>
+
     <!-- ── 마일스톤 달성 현황 ── -->
     <div class="mp-milestone-section">
       <div class="mp-milestone-head">
@@ -2282,25 +2301,6 @@ const fbDb = firebase.firestore();
         <div class="tech-coll-count" id="techCount">0 / 0</div>
       </div>
       <div class="tech-grid" id="techGrid"></div>
-    </div>
-
-    <!-- 전체 기록 목록 -->
-    <div style="margin-top:20px;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-        <div class="sec-ttl" style="margin:0;">전체 기록</div>
-        <div style="display:flex;gap:4px;">
-          <button class="rec-filter active" onclick="filterMyRecords('all',this)">전체</button>
-          <button class="rec-filter" onclick="filterMyRecords('growth',this)">성장</button>
-          <button class="rec-filter" onclick="filterMyRecords('healing',this)">힐링</button>
-        </div>
-      </div>
-      <div id="mpRecordList"></div>
-      <button class="mp-load-more" id="mpLoadMore" onclick="loadMoreRecords()" style="display:none;">
-        더 보기
-      </button>
-      <div class="mp-empty" id="mpEmpty" style="display:none;">
-        아직 기록이 없어요.<br>첫 필사를 시작해보세요!
-      </div>
     </div>
   </div>
 
