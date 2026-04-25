@@ -1031,6 +1031,45 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   color:var(--paper);letter-spacing:1px;
 }
 
+/* ══════ CANVAS SHARE MODAL ══════ */
+#shareModal{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(46,42,38,0.90);backdrop-filter:blur(8px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px;animation:fuFade .25s ease both;
+}
+#shareModal.hide{display:none;}
+#shareModal .sm-inner{
+  width:100%;max-width:440px;
+  background:#2c2420;border-radius:20px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  animation:fu .3s ease both;
+}
+#shareModal .sm-img-wrap{
+  padding:16px 16px 0;
+}
+#shareModal .sm-img-wrap img{
+  max-width:100%;border-radius:12px;display:block;
+}
+#shareModal .sm-actions{
+  display:flex;gap:10px;padding:14px 16px 16px;
+}
+#shareModal .sm-btn{
+  flex:1;padding:13px 8px;border-radius:12px;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;
+  cursor:pointer;transition:all .2s;border:none;
+}
+#shareModal .sm-btn-dl{
+  background:var(--paper);color:var(--ink);
+}
+#shareModal .sm-btn-dl:hover{background:var(--brick);color:var(--paper);}
+#shareModal .sm-btn-close{
+  background:transparent;color:rgba(247,242,232,0.55);
+  border:1.5px solid rgba(247,242,232,0.2) !important;
+  flex:0 0 48px;font-size:18px;
+}
+#shareModal .sm-btn-close:hover{color:var(--paper);border-color:rgba(247,242,232,0.5) !important;}
+
 </style>
 
 <!-- Firebase SDK (compat) -->
@@ -1644,7 +1683,7 @@ const fbDb = firebase.firestore();
       </div>
 
       <div id="finalScore" style="display:none;">—</div>
-      <button onclick="openShare(null)" style="
+      <button onclick="shareToday()" style="
         margin-top:18px;padding:12px 28px;
         background:transparent;border:1.5px solid rgba(247,242,232,0.25);
         border-radius:30px;color:var(--paper);font-family:'Noto Sans KR',sans-serif;
@@ -7529,6 +7568,10 @@ function showPage(id,btn){
   document.getElementById(id).classList.add('active');
   if(btn)btn.classList.add('active');
   window.scrollTo(0,0);
+  // 힐링편 진입 시 취향 배지 표시
+  if (id === 'healing') {
+    requestAnimationFrame(function(){ highlightHealingPreferences(); });
+  }
 }
 
 /* ══════════════════════════════
@@ -8629,13 +8672,15 @@ let ttsActive = false;
 
 /* P1-5: 추천 힐링 자동 선택 */
 function startRecommendedHealing() {
+  // 취향 기록이 있으면 선호 테마, 없으면 날짜 기반
+  var tops = getHealingTopThemes();
   var themes = ['힐링','다짐','여운'];
-  var dayIdx = getDayIndex();
-  var theme = themes[dayIdx % themes.length];
+  var theme = tops ? tops[0] : themes[getDayIndex() % themes.length];
   selectHealingTheme(theme);
 }
 
 function selectHealingTheme(theme) {
+  trackHealingTheme(theme); // 취향 기록
   const passages = HEALING_PASSAGES[theme];
   const dayIdx = getDayIndex() % passages.length;
   healingPassage = passages[dayIdx];
@@ -8858,6 +8903,7 @@ function renderQuoteSelection() {
 }
 
 function selectGrowthQuote(idx) {
+  trackGrowthPick(idx); // 취향 기록
   todayIdx = idx; todaySent = SENTENCES[idx];
   document.getElementById('quoteSelect').style.display = 'none';
   document.getElementById('todayWhy').style.display = 'block';
@@ -10698,6 +10744,151 @@ async function callAI(type, original, userText, learningPoint) {
    - 기존 GROWTH_DAYS 30일 사이클 → SENTENCES 전체 사이클로 확장
    - todayIdx(짝수) / 중간 오프셋(홀수) 두 문장을 A/B로 표시
 ══════════════════════════════ */
+/* ══════════════════════════════
+   취향 분석 시스템 — 성장편 + 힐링편
+   쌓인 문장 선택을 토대로 취향 파악 → 맞춤 추천
+══════════════════════════════ */
+
+// 문장 태그 자동 추론 (tags 필드 없을 때)
+function inferSentenceTags(s) {
+  var tags = [];
+  var author = s.author || '';
+  var text = s.text || '';
+  var ctx = (s.reason || s._lp || '').toLowerCase() + text.toLowerCase();
+  var KOREAN_POETS = ['윤동주','김소월','이상','박목월','정지용','이육사','한용운','노천명','백석','이해인'];
+  var WESTERN_LIT  = ['카뮈','릴케','카프카','헤세','보들레르','발레리','엘리엇','휘트먼','투르게네프','생텍쥐페리'];
+  var RUSSIAN_LIT  = ['도스토예프스키','톨스토이','체호프','파스테르나크','아흐마토바','불가코프'];
+  if (KOREAN_POETS.some(function(p){return author.includes(p);})) tags.push('한국시');
+  if (WESTERN_LIT.some(function(w){return author.includes(w);})) tags.push('서양문학');
+  if (RUSSIAN_LIT.some(function(r){return author.includes(r);})) tags.push('러시아문학');
+  if (author.includes('레터브릭') || author.includes('오리지널')) tags.push('오리지널');
+  if (text.length < 30) tags.push('짧은문장');
+  else if (text.length > 80) tags.push('긴문장');
+  else tags.push('보통문장');
+  if (/그리움|그립|보고싶|사랑|사무치/.test(ctx)) tags.push('그리움');
+  if (/자연|바다|하늘|꽃|봄|계절|별|달|비/.test(ctx)) tags.push('자연');
+  if (/철학|존재|반항|의미|삶|죽음/.test(ctx)) tags.push('철학');
+  if (/위로|괜찮|쉬어|따뜻/.test(ctx)) tags.push('위로');
+  if (/시간|기억|순간|지나/.test(ctx)) tags.push('시간');
+  return tags;
+}
+
+// 성장편 픽 저장
+function trackGrowthPick(idx) {
+  try {
+    var s = SENTENCES[idx]; if (!s) return;
+    var history = JSON.parse(localStorage.getItem('lb-taste') || '[]');
+    history.push({
+      date: new Date().toISOString().slice(0,10),
+      idx: idx,
+      author: s.author || '',
+      tags: s.tags || inferSentenceTags(s),
+      len: s.text ? s.text.length : 0
+    });
+    if (history.length > 50) history = history.slice(-50);
+    localStorage.setItem('lb-taste', JSON.stringify(history));
+  } catch(e) {}
+}
+
+// 성장편 취향 프로필
+function getGrowthTasteProfile() {
+  try {
+    var history = JSON.parse(localStorage.getItem('lb-taste') || '[]');
+    if (history.length < 3) return null;
+    var authorCount = {}, tagCount = {}, totalLen = 0;
+    history.forEach(function(h) {
+      if (h.author) authorCount[h.author] = (authorCount[h.author]||0) + 1;
+      (h.tags || []).forEach(function(t){ tagCount[t] = (tagCount[t]||0) + 1; });
+      totalLen += (h.len || 50);
+    });
+    return {
+      topAuthors: Object.keys(authorCount).sort(function(a,b){return authorCount[b]-authorCount[a];}).slice(0,3),
+      topTags: Object.keys(tagCount).sort(function(a,b){return tagCount[b]-tagCount[a];}).slice(0,5),
+      avgLen: Math.round(totalLen / history.length),
+      pickCount: history.length
+    };
+  } catch(e) { return null; }
+}
+
+// 취향 기반 B 인덱스 선택
+function getPersonalizedIdxB(idxA) {
+  var step = Math.max(1, Math.floor(SENTENCES.length / 2));
+  var defaultB = (idxA + step) % SENTENCES.length;
+  var profile = getGrowthTasteProfile();
+  if (!profile) return {idx: defaultB, personalized: false};
+  var scored = [];
+  for (var i = 0; i < SENTENCES.length; i++) {
+    if (i === idxA) continue;
+    var s = SENTENCES[i];
+    var tags = s.tags || inferSentenceTags(s);
+    var score = 0;
+    var ar = profile.topAuthors.indexOf(s.author);
+    if (ar === 0) score += 4; else if (ar === 1) score += 3; else if (ar === 2) score += 2; else if (ar > -1) score += 1;
+    tags.forEach(function(t){
+      var tr = profile.topTags.indexOf(t);
+      if (tr === 0) score += 3; else if (tr === 1) score += 2; else if (tr > 1) score += 1;
+    });
+    score -= Math.floor(Math.abs((s.text ? s.text.length : 50) - profile.avgLen) / 30);
+    scored.push({idx: i, score: score});
+  }
+  scored.sort(function(a,b){return b.score - a.score;});
+  var topScore = scored[0] ? scored[0].score : 0;
+  var pool = scored.filter(function(x){return x.score >= topScore - 1;}).slice(0, 8);
+  var pick = pool[Math.floor(Math.random() * pool.length)];
+  var defScore = (scored.find(function(x){return x.idx===defaultB;})||{score:0}).score;
+  if (pick && pick.score >= defScore + 2 && pick.score > 0) return {idx: pick.idx, personalized: true};
+  return {idx: defaultB, personalized: false};
+}
+
+// 힐링편 테마 픽 저장
+function trackHealingTheme(theme) {
+  try {
+    var h = JSON.parse(localStorage.getItem('lb-taste-healing') || '[]');
+    h.push({date: new Date().toISOString().slice(0,10), theme: theme});
+    if (h.length > 30) h = h.slice(-30);
+    localStorage.setItem('lb-taste-healing', JSON.stringify(h));
+  } catch(e) {}
+}
+
+// 힐링 선호 테마 (최다 픽 순)
+function getHealingTopThemes() {
+  try {
+    var h = JSON.parse(localStorage.getItem('lb-taste-healing') || '[]');
+    if (h.length < 2) return null;
+    var cnt = {};
+    h.forEach(function(x){ cnt[x.theme] = (cnt[x.theme]||0) + 1; });
+    return Object.keys(cnt).sort(function(a,b){return cnt[b]-cnt[a];});
+  } catch(e) { return null; }
+}
+
+// 힐링 테마 버튼에 취향 배지 표시
+function highlightHealingPreferences() {
+  var tops = getHealingTopThemes();
+  if (!tops || tops.length === 0) return;
+  ['다짐','힐링','여운'].forEach(function(theme) {
+    var btn = document.querySelector('.healing-theme-btn[onclick*="' + theme + '"]');
+    if (!btn) return;
+    var existing = btn.querySelector('.taste-badge');
+    if (existing) existing.remove();
+    if (tops[0] === theme) {
+      var badge = document.createElement('span');
+      badge.className = 'taste-badge';
+      badge.style.cssText = 'position:absolute;top:-6px;right:-6px;background:var(--brick);color:var(--paper);font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;letter-spacing:.5px;';
+      badge.textContent = '★ 선호';
+      btn.style.position = 'relative';
+      btn.appendChild(badge);
+    }
+  });
+  // "오늘의 추천" 버튼 텍스트도 취향 반영
+  var recBtn = document.querySelector('[onclick="startRecommendedHealing()"]');
+  if (recBtn && tops[0]) {
+    recBtn.innerHTML = '🎯 ' + tops[0] + ' — 오늘의 맞춤 글로 시작하기 →';
+  }
+}
+
+/* ══════════════════════════════
+   renderQuoteSelection 재정의 (취향 기반)
+══════════════════════════════ */
 renderQuoteSelection = function() {
   var container = document.getElementById('quoteOptions');
   if(!container) return;
@@ -10705,26 +10896,40 @@ renderQuoteSelection = function() {
 
   container.innerHTML = '';
 
-  // todayIdx 는 data.js 로드 후 이미 전체 SENTENCES 기준으로 재계산됨
   var idxA = todayIdx;
-  var step = Math.max(1, Math.floor(SENTENCES.length / 2));
-  var idxB = (idxA + step) % SENTENCES.length;
+  var bResult = getPersonalizedIdxB(idxA);
+  var idxB = bResult.idx;
+  var isPersonalized = bResult.personalized;
 
   var sA = SENTENCES[idxA];
   var sB = SENTENCES[idxB];
 
-  // 학습 포인트 (reason 또는 _lp 필드)
+  // 취향 기반일 때 안내 문구 + 학습포인트
   var lp = sA._lp || sA.reason || '';
-  if(lp) container.innerHTML += '<div style="font-size:12px;color:var(--ink3);margin-bottom:12px;line-height:1.7;">학습 포인트: ' + lp + '</div>';
+  var headerHtml = '';
+  if (isPersonalized) {
+    var profile = getGrowthTasteProfile();
+    var topTag = profile && profile.topTags[0] ? profile.topTags[0] : '취향';
+    headerHtml += '<div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--brick);margin-bottom:10px;font-weight:600;letter-spacing:.5px;">'
+      + '<span>🎯</span><span>B는 ' + topTag + ' 취향 기반 맞춤 추천</span></div>';
+  }
+  if (lp) headerHtml += '<div style="font-size:12px;color:var(--ink3);margin-bottom:12px;line-height:1.7;">학습 포인트: ' + lp + '</div>';
+  if (headerHtml) container.innerHTML = headerHtml;
 
   [{s:sA, label:'A', idx:idxA}, {s:sB, label:'B', idx:idxB}].forEach(function(item) {
     var div = document.createElement('div'); div.className = 'quote-opt';
     var preview = item.s.text.length > 80 ? item.s.text.substring(0,80)+'…' : item.s.text;
     var reason  = (item.s.reason || item.s._lp || '').substring(0,80);
+    var badgeHtml = (item.label === 'B' && isPersonalized)
+      ? '<span style="font-size:9px;background:var(--brick);color:var(--paper);padding:2px 6px;border-radius:8px;font-weight:700;margin-left:6px;letter-spacing:.5px;">맞춤</span>'
+      : '';
     div.innerHTML =
-      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="width:24px;height:24px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">' + item.label + '</span><span class="quote-opt-author">— ' + item.s.author + ' 「' + item.s.source + '」</span></div>' +
-      '<div class="quote-opt-text">' + preview + '</div>' +
-      '<div class="quote-opt-reason" style="margin-top:8px;">' + reason + '</div>';
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">'
+      + '<span style="width:24px;height:24px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">' + item.label + '</span>'
+      + '<span class="quote-opt-author">— ' + item.s.author + ' 「' + item.s.source + '」</span>'
+      + badgeHtml + '</div>'
+      + '<div class="quote-opt-text">' + preview + '</div>'
+      + '<div class="quote-opt-reason" style="margin-top:8px;">' + reason + '</div>';
     div.onclick = function(){ selectGrowthQuote(item.idx); };
     container.appendChild(div);
   });
@@ -10954,8 +11159,215 @@ initSplash();
 renderCal();
 renderRecords();
 renderEditionCards();
+
+/* ══════════════════════════════
+   CANVAS SHARE CARD GENERATOR
+══════════════════════════════ */
+
+// Helper: wrap text on canvas, returns number of lines drawn
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  var words = text.split(' ');
+  var line = '';
+  var lines = [];
+  for (var n = 0; n < words.length; n++) {
+    var testLine = line + words[n] + ' ';
+    var metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      lines.push(line.trim());
+      line = words[n] + ' ';
+    } else {
+      line = testLine;
+    }
+  }
+  if (line.trim()) lines.push(line.trim());
+  // Limit to 2 lines
+  if (lines.length > 2) {
+    lines = lines.slice(0, 2);
+    lines[1] = lines[1].substring(0, lines[1].length - 1) + '…';
+  }
+  for (var i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i], x, y + i * lineHeight);
+  }
+  return lines.length;
+}
+
+// ctx.roundRect 폴백 (Safari 15 이하 / 구형 Android)
+if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+    var rad = Array.isArray(r) ? r[0] : (r || 0);
+    this.moveTo(x + rad, y);
+    this.lineTo(x + w - rad, y);
+    this.arc(x + w - rad, y + rad, rad, -Math.PI/2, 0);
+    this.lineTo(x + w, y + h - rad);
+    this.arc(x + w - rad, y + h - rad, rad, 0, Math.PI/2);
+    this.lineTo(x + rad, y + h);
+    this.arc(x + rad, y + h - rad, rad, Math.PI/2, Math.PI);
+    this.lineTo(x, y + rad);
+    this.arc(x + rad, y + rad, rad, Math.PI, -Math.PI/2);
+    this.closePath();
+  };
+}
+
+// Generate a 800x450 canvas share card; returns the canvas element
+function generateShareCard() {
+  if (!todaySent) return null;
+
+  var canvas = document.createElement('canvas');
+  canvas.width = 800;
+  canvas.height = 450;
+  var ctx = canvas.getContext('2d');
+
+  // ── Background ──
+  ctx.fillStyle = '#2c2420';
+  ctx.fillRect(0, 0, 800, 450);
+
+  // ── Subtle grain overlay (low opacity pattern) ──
+  ctx.fillStyle = 'rgba(247,242,232,0.015)';
+  for (var gx = 0; gx < 800; gx += 4) {
+    for (var gy = 0; gy < 450; gy += 4) {
+      if (Math.random() > 0.6) ctx.fillRect(gx, gy, 2, 2);
+    }
+  }
+
+  // ── Logo: 2x2 brick grid ──
+  var bx = 36, by = 34;
+  var brickColors = ['#b65e3c', '#8b9e6e', '#6e8b9e', '#9e6e8b'];
+  var brickW = [14, 10, 10, 14];
+  var brickPositions = [
+    {x: bx,      y: by,      w: brickW[0], h: 8},
+    {x: bx + 16, y: by,      w: brickW[1], h: 8},
+    {x: bx,      y: by + 10, w: brickW[2], h: 8},
+    {x: bx + 16, y: by + 10, w: brickW[3], h: 8}
+  ];
+  for (var bi = 0; bi < brickPositions.length; bi++) {
+    var bp = brickPositions[bi];
+    ctx.fillStyle = brickColors[bi];
+    ctx.beginPath();
+    ctx.roundRect(bp.x, bp.y, bp.w, bp.h, 2);
+    ctx.fill();
+  }
+
+  // ── "letterbrick" text next to logo ──
+  ctx.fillStyle = '#f7f2e8';
+  ctx.font = '18px sans-serif';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('letterbrick', bx + 34, by + 9);
+
+  // ── Thin horizontal separator line ──
+  var lineY = 82;
+  ctx.strokeStyle = 'rgba(247,242,232,0.12)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(36, lineY);
+  ctx.lineTo(764, lineY);
+  ctx.stroke();
+
+  // ── Today's sentence (center area) ──
+  var sentY = 130;
+  ctx.fillStyle = '#f7f2e8';
+  ctx.font = 'bold 28px serif';
+  ctx.textBaseline = 'alphabetic';
+  var lineCount = wrapText(ctx, todaySent.text || '', 100, sentY, 600, 44);
+
+  // ── Author + source ──
+  var authorY = sentY + lineCount * 44 + 22;
+  var authorText = '';
+  if (todaySent.author) {
+    authorText = '— ' + todaySent.author;
+    if (todaySent.source) authorText += ' 「' + todaySent.source + '」';
+  }
+  ctx.fillStyle = 'rgba(247,242,232,0.5)';
+  ctx.font = '14px sans-serif';
+  ctx.fillText(authorText, 100, authorY);
+
+  // ── Bottom date line ──
+  var now = new Date();
+  var month = now.getMonth() + 1;
+  var day = now.getDate();
+  var dateLabel = month + '월 ' + day + '일 · 오늘의 필사';
+  ctx.fillStyle = 'rgba(247,242,232,0.4)';
+  ctx.font = '12px sans-serif';
+  ctx.fillText(dateLabel, 36, 420);
+
+  // ── Right side: hashtag watermark ──
+  ctx.fillStyle = 'rgba(247,242,232,0.18)';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText('#레터브릭 #필사', 764, 420);
+  ctx.textAlign = 'left';
+
+  return canvas;
+}
+
+// Desktop fallback: show modal with generated card image + download button
+var _shareCanvas = null;
+
+function showShareModal(canvas) {
+  _shareCanvas = canvas;
+  var img = document.getElementById('shareModalImg');
+  img.src = canvas.toDataURL('image/png');
+  document.getElementById('shareModal').classList.remove('hide');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeShareModal() {
+  document.getElementById('shareModal').classList.add('hide');
+  document.body.style.overflow = '';
+  _shareCanvas = null;
+}
+
+function downloadShareCanvas() {
+  var canvas = _shareCanvas;
+  if (!canvas) return;
+  var link = document.createElement('a');
+  link.download = 'letterbrick-' + new Date().toISOString().slice(0, 10) + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+async function shareToday() {
+  if (!todaySent) return;
+  var canvas = generateShareCard();
+  if (!canvas) return;
+
+  if (navigator.canShare) {
+    canvas.toBlob(async function(blob) {
+      var file = new File([blob], 'letterbrick-today.png', {type: 'image/png'});
+      if (navigator.canShare({files: [file]})) {
+        try {
+          await navigator.share({
+            title: '레터브릭 오늘의 필사',
+            text: todaySent.text + '\n— ' + todaySent.author,
+            files: [file]
+          });
+          return;
+        } catch(e) {}
+      }
+      // Fallback: download
+      var link = document.createElement('a');
+      link.download = 'letterbrick-' + new Date().toISOString().slice(0, 10) + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  } else {
+    // Desktop fallback: show modal with image + download button
+    showShareModal(canvas);
+  }
+}
 </script>
 
+<!-- ══════ CANVAS SHARE MODAL ══════ -->
+<div id="shareModal" class="hide">
+  <div class="sm-inner">
+    <div class="sm-img-wrap">
+      <img id="shareModalImg" src="" alt="공유 카드">
+    </div>
+    <div class="sm-actions">
+      <button class="sm-btn sm-btn-dl" onclick="downloadShareCanvas()">💾 이미지 저장</button>
+      <button class="sm-btn sm-btn-close" onclick="closeShareModal()">✕</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

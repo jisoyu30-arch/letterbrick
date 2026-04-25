@@ -6,8 +6,15 @@
 <meta name="theme-color" content="#2E2A26">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="description" content="LetterBrick Korean — 7-step daily learning loop">
-<title>LetterBrick Korean · Day 29</title>
+<meta name="description" content="One Korean sentence a day. Seven steps. Build fluency through beautiful K-drama and K-pop sentences — LetterBrick Korean.">
+<title>LetterBrick Korean · Daily Lesson</title>
+<meta property="og:title" content="LetterBrick Korean · Daily Lesson">
+<meta property="og:description" content="One Korean sentence a day. Seven steps. Build fluency through beautiful K-drama and K-pop sentences.">
+<meta property="og:image" content="https://letter-brick.vercel.app/images/og-korean.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LetterBrick Korean · Daily Lesson">
+<meta name="twitter:description" content="One Korean sentence a day. Seven steps. Build fluency through beautiful K-drama sentences.">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════
@@ -1021,8 +1028,8 @@ body::before {
     </div>
     <span class="nav-logo-text">레터<em>브릭</em></span>
   </a>
-  <div class="nav-day">Day 29 · Week 5</div>
-  <div class="nav-streak">🔥 12</div>
+  <div class="nav-day" id="navDay">Day — · Week —</div>
+  <div class="nav-streak" id="navStreak" title="진도">— / 56</div>
 </nav>
 
 <!-- ══ STEP INDICATOR ══ -->
@@ -1049,12 +1056,12 @@ body::before {
 
   <!-- ═══ STEP 1 — 오늘의 문장 ═══ -->
   <div class="step active" id="step1">
-    <div class="eyebrow">오늘의 문장 · Day 29</div>
+    <div class="eyebrow" id="step1Eyebrow">오늘의 문장 · Day —</div>
     <div class="step-title">Today's Sentence<small>오늘 배울 문장을 만나보세요</small></div>
 
     <div class="sentence-card">
-      <div class="sentence-main">비 오는 날엔 따뜻한 게 생각나요.</div>
-      <div class="sentence-romanization">bi o-neun na-ren tta-deu-tan ge saeng-gang-na-yo</div>
+      <div class="sentence-main" id="sentenceMain">비 오는 날엔 따뜻한 게 생각나요.</div>
+      <div class="sentence-romanization" id="sentenceRomanization">bi o-neun na-ren tta-deu-tan ge saeng-gang-na-yo</div>
       <div class="translation-toggle">
         <button class="translation-toggle-btn" onclick="toggleTranslation(this)" aria-label="Reveal English translation">
           👁 Reveal
@@ -1066,13 +1073,13 @@ body::before {
       </div>
     </div>
 
-    <div class="context-box">
+    <div class="context-box" id="contextBox">
       This sentence captures a mood — the feeling of wanting comfort when it rains. Very common in K-drama inner monologues, often spoken softly by a character gazing at a rainy window.
     </div>
 
-    <div class="cultural-badge">
+    <div class="cultural-badge" id="culturalBadge">
       <div class="cultural-badge-icon">🌧️</div>
-      <div><strong style="color:rgba(247,242,232,0.75);">비 오는 날 (rainy days)</strong> are deeply tied to nostalgia in Korean culture — longing, warmth, and memory are all intertwined with the sound of rain.</div>
+      <div id="culturalBadgeText"><strong style="color:rgba(247,242,232,0.75);">비 오는 날 (rainy days)</strong> are deeply tied to nostalgia in Korean culture — longing, warmth, and memory are all intertwined with the sound of rain.</div>
     </div>
 
     <button class="audio-btn" onclick="playAudio(this)">
@@ -1094,7 +1101,7 @@ body::before {
       </p>
 
       <div class="reference-sentence" id="referenceBox">
-        <span>비 오는 날엔 따뜻한 게 생각나요.</span>
+        <span id="referenceSentenceText">비 오는 날엔 따뜻한 게 생각나요.</span>
         <button class="ref-toggle-btn" onclick="toggleReference()" id="refToggleBtn">숨기기</button>
       </div>
 
@@ -1154,10 +1161,10 @@ body::before {
       </div>
     </div>
 
-    <div class="pattern-card">
-      <div class="pattern-formula">[When X] + [something] + [verb]</div>
-      <p class="pattern-note">A very common K-drama structure for expressing feelings tied to a moment. The "when" sets the scene; the feeling follows naturally.</p>
-      <p class="pattern-english">→ "On rainy days, (warm things) come to mind."</p>
+    <div class="pattern-card" id="patternCard">
+      <div class="pattern-formula" id="patternFormula">[When X] + [something] + [verb]</div>
+      <p class="pattern-note" id="patternNote">A very common K-drama structure for expressing feelings tied to a moment. The "when" sets the scene; the feeling follows naturally.</p>
+      <p class="pattern-english" id="patternEnglish">→ "On rainy days, (warm things) come to mind."</p>
     </div>
 
     <div class="context-box">
@@ -1236,7 +1243,7 @@ body::before {
     <div class="eyebrow">Step 5</div>
     <div class="step-title">비슷한 표현<small>Two ways to say it differently</small></div>
 
-    <div class="expression-cards">
+    <div class="expression-cards" id="expressionCards">
 
       <div class="expression-card warm">
         <div class="register-badge conv">Conversational</div>
@@ -1301,7 +1308,7 @@ body::before {
       <div class="feedback-box-text" id="feedbackText"></div>
     </div>
 
-    <button class="primary-btn" id="step6NextBtn" onclick="goToStep(7)" style="margin-top:24px;">Complete ✓</button>
+    <button class="primary-btn" id="step6NextBtn" onclick="onCompleteDay()" style="margin-top:24px;">Complete ✓</button>
   </div>
 
   <!-- ═══ STEP 7 — 완성! ═══ -->
@@ -1311,7 +1318,7 @@ body::before {
       <div class="completion-bricks-anim" id="bricksAnim"></div>
 
       <div class="completion-title">오늘 벽돌 완성! 🧱</div>
-      <div class="completion-subtitle">Day 29 complete — great work today</div>
+      <div class="completion-subtitle" id="completionSubtitle">Day — complete — great work today</div>
 
       <div style="margin-bottom:6px;">
         <div class="brick-counter">
@@ -1325,8 +1332,8 @@ body::before {
 
       <div class="completion-sentence">
         <div class="completion-sentence-label">오늘의 문장</div>
-        <div class="completion-sentence-text">비 오는 날엔 따뜻한 게 생각나요.</div>
-        <div class="completion-sentence-en">"On rainy days, I think of warm things."</div>
+        <div class="completion-sentence-text" id="completionSentenceText">비 오는 날엔 따뜻한 게 생각나요.</div>
+        <div class="completion-sentence-en" id="completionSentenceEn">"On rainy days, I think of warm things."</div>
       </div>
 
       <button class="share-btn" onclick="shareToday()">
@@ -1334,13 +1341,13 @@ body::before {
         <span>Share today's sentence</span>
       </button>
 
-      <div class="tomorrow-card">
-        <div class="tomorrow-label">Tomorrow · Day 30</div>
-        <div class="tomorrow-sentence">처음엔 어렵지만 하다 보면 달라져요.</div>
-        <div style="font-size:12px;color:rgba(247,242,232,0.25);font-family:'Inter',sans-serif;margin-top:6px;font-style:italic;">"At first it's hard, but if you keep doing it, things change."</div>
+      <div class="tomorrow-card" id="tomorrowCard">
+        <div class="tomorrow-label" id="tomorrowLabel">Tomorrow · Day —</div>
+        <div class="tomorrow-sentence" id="tomorrowSentence">...</div>
+        <div id="tomorrowTranslation" style="font-size:12px;color:rgba(247,242,232,0.25);font-family:'Inter',sans-serif;margin-top:6px;font-style:italic;"></div>
       </div>
 
-      <button class="primary-btn" onclick="returnToHome()" style="background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);">
+      <button class="primary-btn" id="nextDayBtn" onclick="goToNextDay()" style="background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);">
         See you tomorrow →
       </button>
 
@@ -1349,18 +1356,199 @@ body::before {
 
 </div><!-- /steps-container -->
 
+<script src="ko-curriculum.js"></script>
 <script>
 /* ══════════════════════════════════════════
    STATE
 ══════════════════════════════════════════ */
 const TOTAL_STEPS = 7;
-const TARGET_SENTENCE = '비 오는 날엔 따뜻한 게 생각나요.';
 
 let currentStep = 1;
 let previousStep = 0;
 let learnedCards = new Set();
 let transcriptionMatched = false;
 let brickAnimDone = false;
+
+// Current day loaded from localStorage
+let currentDay = 1;
+let TARGET_SENTENCE = '';
+
+/* ══════════════════════════════════════════
+   LOCALSTORAGE PROGRESS
+══════════════════════════════════════════ */
+function getCurrentDay() {
+  const stored = parseInt(localStorage.getItem('letterbrick-ko-day') || '1', 10);
+  return Math.min(Math.max(stored, 1), 56);
+}
+
+function markDayComplete(day) {
+  // Save completed days array
+  const raw = localStorage.getItem('letterbrick-ko-progress');
+  const completed = raw ? JSON.parse(raw) : [];
+  if (!completed.includes(day)) {
+    completed.push(day);
+    localStorage.setItem('letterbrick-ko-progress', JSON.stringify(completed));
+  }
+  // Advance to next day (cap at 56)
+  const nextDay = Math.min(day + 1, 56);
+  localStorage.setItem('letterbrick-ko-day', String(nextDay));
+  // Increment brick count
+  const bricks = parseInt(localStorage.getItem('letterbrick-ko-bricks') || '0', 10);
+  localStorage.setItem('letterbrick-ko-bricks', String(bricks + 5));
+}
+
+/* ══════════════════════════════════════════
+   CURRICULUM CONTENT LOADER
+══════════════════════════════════════════ */
+function loadDayContent(day) {
+  if (!window.KO_CURRICULUM) return;
+  const entry = KO_CURRICULUM[day - 1];
+  if (!entry) return;
+
+  currentDay = day;
+  TARGET_SENTENCE = entry.sentence.ko;
+
+  // ── Nav / header ──
+  document.getElementById('navDay').textContent = 'Day ' + day + ' · Week ' + entry.week;
+  document.title = 'LetterBrick Korean · Day ' + day;
+
+  // Progress indicator (streak slot shows Day X / 56)
+  document.getElementById('navStreak').textContent = '진도: Day ' + day + ' / 56';
+
+  // ── Step 1 ──
+  document.getElementById('step1Eyebrow').textContent = '오늘의 문장 · Day ' + day;
+  document.getElementById('sentenceMain').textContent = entry.sentence.ko;
+  document.getElementById('sentenceRomanization').textContent = entry.sentence.romanization;
+
+  const transEl = document.getElementById('translationText');
+  transEl.textContent = '\u201c' + entry.sentence.translation + '\u201d';
+  transEl.classList.remove('revealed');
+  const revBtn = transEl.previousElementSibling.querySelector('.translation-toggle-btn');
+  if (revBtn) revBtn.textContent = '\uD83D\uDC41 Reveal';
+
+  document.getElementById('contextBox').textContent = entry.sentence.context;
+
+  // Cultural badge — use grammar tip as the badge detail
+  document.getElementById('culturalBadgeText').innerHTML =
+    '<strong style="color:rgba(247,242,232,0.75);">' + escHtml(entry.grammar.pattern) + '</strong> — ' +
+    escHtml(entry.grammar.tip);
+
+  // ── Step 2 — reference sentence ──
+  document.getElementById('referenceSentenceText').textContent = entry.sentence.ko;
+  const ta = document.getElementById('transcriptionInput');
+  ta.value = '';
+  ta.placeholder = entry.sentence.ko.substring(0, 6) + '...';
+  ta.disabled = false;
+  ta.style.opacity = '1';
+  document.getElementById('diffDisplay').innerHTML = '';
+  document.getElementById('matchIndicator').className = 'match-indicator idle';
+  document.getElementById('matchText').textContent = 'Start typing above...';
+  document.getElementById('step2NextBtn').disabled = true;
+  transcriptionMatched = false;
+
+  // Reset mode buttons
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  const firstMode = document.querySelector('.mode-btn');
+  if (firstMode) firstMode.classList.add('active');
+
+  // ── Step 3 — grammar pattern ──
+  document.getElementById('patternFormula').textContent = entry.grammar.pattern;
+  document.getElementById('patternNote').textContent = entry.grammar.explanation;
+  document.getElementById('patternEnglish').textContent = '\u2192 \u201c' + entry.sentence.translation + '\u201d';
+
+  // Rebuild structure sentence chips (3 vocab chunks)
+  const chipColors = ['blue', 'gold', 'brick'];
+  const ssEl = document.getElementById('structureSentence');
+  ssEl.innerHTML = '';
+  entry.vocab.forEach(function(v, i) {
+    const color = chipColors[i % chipColors.length];
+    const chip = document.createElement('div');
+    chip.className = 'chunk-chip ' + color;
+    chip.setAttribute('onclick', 'toggleChunk(this)');
+    chip.innerHTML =
+      escHtml(v.ko) +
+      '<div class="chunk-popup">' +
+        '<div class="chunk-popup-title">' + escHtml(v.meaning) + '</div>' +
+        escHtml(v.rom) +
+      '</div>';
+    ssEl.appendChild(chip);
+  });
+
+  // ── Step 4 — vocab flip cards ──
+  const vocabContainer = document.querySelector('.vocab-cards-container');
+  vocabContainer.innerHTML = '';
+  learnedCards = new Set();
+  entry.vocab.forEach(function(v, i) {
+    const n = i + 1;
+    vocabContainer.innerHTML +=
+      '<div class="vocab-card-wrapper">' +
+        '<div class="vocab-card" id="vocabCard' + n + '" onclick="flipCard(' + n + ')">' +
+          '<div class="vocab-card-face vocab-card-front">' +
+            '<div class="vocab-word">' + escHtml(v.ko) + '</div>' +
+            '<div class="vocab-romanization">' + escHtml(v.rom) + '</div>' +
+            '<div class="vocab-flip-hint">TAP TO FLIP \u21BB</div>' +
+          '</div>' +
+          '<div class="vocab-card-face vocab-card-back">' +
+            '<button class="vocab-learned-btn" id="learnedBtn' + n + '" onclick="markLearned(event,' + n + ')">Mark learned</button>' +
+            '<div class="vocab-back-meaning">' + escHtml(v.meaning) + '</div>' +
+            '<div class="vocab-back-example">' + escHtml(v.ko) + ' — ' + escHtml(v.meaning) + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  });
+  const progEl = document.getElementById('vocabProgress');
+  if (progEl) progEl.textContent = '0 / ' + entry.vocab.length + ' marked learned';
+
+  // ── Step 5 — variations ──
+  const exCards = document.getElementById('expressionCards');
+  exCards.innerHTML = '';
+  const varDefs = [
+    { key: 'casual',  badge: 'Conversational', cls: 'conv', cardCls: 'warm' },
+    { key: 'formal',  badge: 'Formal',          cls: 'conv', cardCls: '' },
+    { key: 'kdrama',  badge: 'K-drama',         cls: 'lit',  cardCls: 'literary' }
+  ];
+  varDefs.forEach(function(def) {
+    const v = entry.variations[def.key];
+    if (!v) return;
+    exCards.innerHTML +=
+      '<div class="expression-card ' + def.cardCls + '">' +
+        '<div class="register-badge ' + def.cls + '">' + def.badge + '</div>' +
+        '<div class="expression-ko">' + escHtml(v.text) + '</div>' +
+        '<div class="expression-en">\u201c' + escHtml(v.rom) + '\u201d</div>' +
+      '</div>';
+  });
+
+  // ── Step 6 — reset creative textarea ──
+  const userTA = document.getElementById('userSentenceInput');
+  userTA.value = '';
+  userTA.placeholder = entry.sentence.ko.substring(0, 6) + '...';
+  document.getElementById('charCount').textContent = '0';
+  const fbBox = document.getElementById('feedbackBox');
+  fbBox.className = 'feedback-box';
+  fbBox.style.background = '';
+  fbBox.style.borderColor = '';
+
+  // ── Step 7 completion ──
+  document.getElementById('completionSubtitle').textContent = 'Day ' + day + ' complete — great work today';
+  document.getElementById('completionSentenceText').textContent = entry.sentence.ko;
+  document.getElementById('completionSentenceEn').textContent = '\u201c' + entry.sentence.translation + '\u201d';
+
+  // Tomorrow preview
+  const nextEntry = KO_CURRICULUM[day]; // day is 0-indexed + 1 already, so [day] = next
+  if (nextEntry) {
+    document.getElementById('tomorrowLabel').textContent = 'Tomorrow · Day ' + nextEntry.day;
+    document.getElementById('tomorrowSentence').textContent = nextEntry.sentence.ko;
+    document.getElementById('tomorrowTranslation').textContent = '\u201c' + nextEntry.sentence.translation + '\u201d';
+    document.getElementById('tomorrowCard').style.display = '';
+    document.getElementById('nextDayBtn').textContent = 'See you tomorrow \u2192';
+  } else {
+    document.getElementById('tomorrowCard').style.display = 'none';
+    document.getElementById('nextDayBtn').textContent = '\uD83C\uDF89 Curriculum complete!';
+  }
+
+  // Reset brick animation flag when loading a new day
+  brickAnimDone = false;
+}
 
 /* ══════════════════════════════════════════
    STEP NAVIGATION
@@ -1548,7 +1736,7 @@ function setMode(mode, btn) {
   } else {
     const input = document.getElementById('transcriptionInput');
     input.disabled = false;
-    input.placeholder = '비 오는 날엔...';
+    input.placeholder = TARGET_SENTENCE.substring(0, 6) + '...';
     input.style.opacity = '1';
   }
 }
@@ -1594,7 +1782,9 @@ function markLearned(evt, n) {
 
 function updateVocabProgress() {
   const prog = document.getElementById('vocabProgress');
-  prog.textContent = learnedCards.size + ' / 3 marked learned';
+  const entry = window.KO_CURRICULUM && KO_CURRICULUM[currentDay - 1];
+  const total = entry ? entry.vocab.length : 3;
+  prog.textContent = learnedCards.size + ' / ' + total + ' marked learned';
   // Allow continuing even if not all marked
 }
 
@@ -1678,11 +1868,18 @@ function initCompletion() {
   // Falling bricks animation
   spawnFallingBricks();
 
+  // Read brick total from localStorage
+  const totalBricks = parseInt(localStorage.getItem('letterbrick-ko-bricks') || '0', 10);
+  const BRICKS_PER_DAY = 5;
+
   // Animated brick counter
-  animateBrickCount(5, 1200);
+  animateBrickCount(BRICKS_PER_DAY, 1200);
+
+  // Update total display
+  document.getElementById('totalBricks').textContent = totalBricks + BRICKS_PER_DAY;
 
   // Brick wall
-  buildBrickWall(145, 5);
+  buildBrickWall(totalBricks + BRICKS_PER_DAY, BRICKS_PER_DAY);
 }
 
 function spawnFallingBricks() {
@@ -1742,7 +1939,10 @@ function buildBrickWall(total, newCount) {
 }
 
 function shareToday() {
-  const text = 'Day 29 · LetterBrick Korean\n\n비 오는 날엔 따뜻한 게 생각나요.\n"On rainy days, I think of warm things."\n\n🔥 12-day streak #LetterBrick #LearnKorean';
+  const entry = (window.KO_CURRICULUM && KO_CURRICULUM[currentDay - 1]) || {};
+  const ko = (entry.sentence && entry.sentence.ko) || '';
+  const en = (entry.sentence && entry.sentence.translation) || '';
+  const text = 'Day ' + currentDay + ' · LetterBrick Korean\n\n' + ko + '\n\u201c' + en + '\u201d\n\n#LetterBrick #LearnKorean #한국어';
   if (navigator.share) {
     navigator.share({ text: text }).catch(() => {});
   } else {
@@ -1762,11 +1962,41 @@ function returnToHome() {
 }
 
 /* ══════════════════════════════════════════
+   DAY COMPLETE & NEXT DAY
+══════════════════════════════════════════ */
+function onCompleteDay() {
+  markDayComplete(currentDay);
+  goToStep(7);
+}
+
+function goToNextDay() {
+  const nextDay = getCurrentDay();
+  if (nextDay > 56) {
+    window.location.href = 'index.html';
+    return;
+  }
+  // Reset session state and reload the day
+  brickAnimDone = false;
+  learnedCards = new Set();
+  transcriptionMatched = false;
+  currentStep = 1;
+  updateDots(1);
+  updateUI();
+  loadDayContent(nextDay);
+  // Return to step 1
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step1').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ══════════════════════════════════════════
    INIT
 ══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
   updateUI();
   updateDots(1);
+  const day = getCurrentDay();
+  loadDayContent(day);
 });
 </script>
 </body>

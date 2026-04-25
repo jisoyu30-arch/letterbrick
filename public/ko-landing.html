@@ -1089,6 +1089,12 @@ footer {
         <span>✦</span> For K-content lovers
       </div>
 
+      <div id="progressBanner" style="display:none;background:rgba(182,94,60,0.15);border:1px solid rgba(182,94,60,0.3);
+           border-radius:100px;padding:8px 18px;font-size:13px;color:var(--brick);margin-bottom:16px;">
+        🧱 Day <span id="progressDay">1</span> / 56 진행 중 —
+        <a href="ko-daily.html" style="color:var(--brick);font-weight:600;">오늘 학습 계속하기 →</a>
+      </div>
+
       <h1 class="hero-h1" id="hero-h1">
         Learn Korean through<br>
         <em>beautiful sentences.</em>
@@ -1583,6 +1589,37 @@ footer {
 
 
 <!-- ══════════════════════════════════════════
+     WAITLIST / EARLY ACCESS CTA
+══════════════════════════════════════════ -->
+<section class="section section-dark" style="text-align:center; padding:80px 24px;">
+  <div class="sect-inner" style="max-width:560px;margin:0 auto;">
+    <div style="font-size:11px;letter-spacing:0.15em;color:var(--brick);text-transform:uppercase;margin-bottom:16px;">Early Access</div>
+    <h2 style="font-family:'Gowun Batang',serif;font-size:clamp(28px,4vw,42px);color:var(--paper);margin-bottom:16px;line-height:1.3;">
+      Be first when we launch.
+    </h2>
+    <p style="color:rgba(247,242,232,0.6);font-size:15px;margin-bottom:36px;line-height:1.7;">
+      We're onboarding the first 200 learners personally.<br>
+      Leave your email — we'll reach out with your starting lesson.
+    </p>
+    <form id="waitlistForm" onsubmit="submitWaitlist(event)" style="display:flex;gap:10px;max-width:420px;margin:0 auto 16px;">
+      <input type="email" id="waitlistEmail" placeholder="your@email.com" required
+        style="flex:1;padding:14px 18px;border-radius:100px;border:1px solid rgba(247,242,232,0.2);
+               background:rgba(247,242,232,0.07);color:var(--paper);font-size:15px;font-family:'Inter',sans-serif;outline:none;">
+      <button type="submit" style="padding:14px 24px;border-radius:100px;background:var(--brick);
+               color:var(--paper);border:none;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;
+               font-family:'Inter',sans-serif;">
+        Join →
+      </button>
+    </form>
+    <div id="waitlistMsg" style="display:none;color:#8bc48b;font-size:14px;margin-top:12px;">
+      ✓ You're on the list! We'll be in touch soon.
+    </div>
+    <p style="color:rgba(247,242,232,0.3);font-size:12px;margin-top:16px;">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════ -->
 <footer>
@@ -1624,6 +1661,26 @@ footer {
      JAVASCRIPT
 ══════════════════════════════════════════ -->
 <script>
+// ── WAITLIST FORM SUBMIT ────────────────────
+function submitWaitlist(e) {
+  e.preventDefault();
+  var email = document.getElementById('waitlistEmail').value;
+  // Save to localStorage as fallback
+  var list = JSON.parse(localStorage.getItem('lb-waitlist') || '[]');
+  list.push({email: email, date: new Date().toISOString()});
+  localStorage.setItem('lb-waitlist', JSON.stringify(list));
+  // Try Formspree (user can set up their own endpoint)
+  var FORMSPREE_ID = 'YOUR_FORM_ID'; // User replaces this
+  fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+    body: JSON.stringify({email: email, source: 'ko-landing'})
+  }).catch(function(){});
+  // Show success regardless
+  document.getElementById('waitlistForm').style.display = 'none';
+  document.getElementById('waitlistMsg').style.display = 'block';
+}
+
 (function () {
   'use strict';
 
@@ -1735,6 +1792,26 @@ footer {
       track.style.animationPlayState = 'running';
     });
   });
+
+  // ── RETURNING LEARNER: progress banner + smart CTA ─
+  (function() {
+    var day = parseInt(localStorage.getItem('letterbrick-ko-day') || '1');
+    if (day > 1) {
+      // Show progress banner
+      var banner = document.getElementById('progressBanner');
+      var daySpan = document.getElementById('progressDay');
+      if (banner && daySpan) {
+        daySpan.textContent = day;
+        banner.style.display = 'inline-block';
+      }
+      // Update hero primary CTA button
+      var heroBtn = document.querySelector('.hero-ctas .btn-primary');
+      if (heroBtn) {
+        heroBtn.textContent = 'Continue Learning \u00a0\u2192';
+        heroBtn.href = 'ko-daily.html';
+      }
+    }
+  })();
 
 })();
 </script>
