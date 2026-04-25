@@ -1,5 +1,5 @@
-// LetterBrick Service Worker — v9 (network-first HTML/JS, cache-first assets)
-const CACHE_NAME = 'letterbrick-v9';
+// LetterBrick Service Worker — v10 (network-first HTML/JS, cache-first assets)
+const CACHE_NAME = 'letterbrick-v10';
 const ASSETS = [
   '/',
   '/demo.html',

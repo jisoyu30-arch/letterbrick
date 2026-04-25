@@ -741,17 +741,18 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mbadge{
   flex-shrink:0;display:flex;align-items:center;gap:7px;
   padding:8px 13px;border-radius:22px;
-  background:var(--paper2);border:1.5px solid var(--line);
-  color:var(--ink3);transition:all .25s;white-space:nowrap;
+  background:#fff;border:1.5px solid var(--line);
+  color:var(--ink2);transition:all .25s;white-space:nowrap;
+  box-shadow:0 1px 4px rgba(46,42,38,0.07);
 }
 .mbadge.earned{
   background:var(--gold-p);border-color:var(--gold);color:var(--ink);
-  box-shadow:0 2px 10px rgba(160,120,40,0.13);
+  box-shadow:0 2px 10px rgba(160,120,40,0.18);
 }
 .mbadge-icon{font-size:17px;line-height:1;}
 .mbadge-text{display:flex;flex-direction:column;gap:1px;}
 .mbadge-name{font-size:12px;font-family:'Gowun Batang',serif;letter-spacing:.3px;}
-.mbadge-days{font-size:10px;opacity:.55;}
+.mbadge-days{font-size:10px;color:var(--ink3);}
 .mbadge-done{font-size:10px;color:var(--gold);font-weight:700;}
 
 /* Milestone popup */
