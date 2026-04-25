@@ -1408,6 +1408,9 @@ const fbDb = firebase.firestore();
     <div class="sdot"></div><div class="sdot"></div><div class="sdot"></div>
   </div>
   <button class="splash-enter" onclick="handleSplashEnter()">오늘의 필사 시작하기 →</button>
+  <button onclick="splashGuestEnter()" style="margin-top:12px;padding:10px 28px;background:transparent;color:rgba(247,242,232,0.45);border:none;font-size:12px;cursor:pointer;letter-spacing:.3px;">
+    로그인 없이 체험하기
+  </button>
 </div>
 
 <!-- ══════ APP ══════ -->
@@ -1460,8 +1463,13 @@ const fbDb = firebase.firestore();
     <div class="webview-warn hide" id="webviewWarn">
       <strong>⚠️ 앱 내 브라우저에서는 Google 로그인이 불가합니다</strong>
       카카오톡·인스타그램 등 앱 내 브라우저는 Google 보안 정책으로 차단됩니다.<br>
-      아래 버튼을 눌러 <b>Chrome</b>에서 열어주세요.
       <a class="webview-open-btn" id="openInChromeBtn" href="#">Chrome으로 열기 →</a>
+      <div style="margin-top:10px;text-align:center;">
+        <span style="font-size:11px;color:#7A6040;">또는</span>
+        <button onclick="enterGuestMode()" style="display:block;width:100%;margin-top:6px;padding:10px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">
+          로그인 없이 바로 체험하기 →
+        </button>
+      </div>
     </div>
 
     <div class="modal-logo">letter<em>brick</em></div>
@@ -7963,6 +7971,13 @@ function initSplash(){
   var sd=document.getElementById('splashDay'); if(sd) sd.textContent=`${now.getMonth()+1}월 ${now.getDate()}일 ${days[now.getDay()]}`;
   const g=GREETINGS[(now.getDate()+now.getMonth())%GREETINGS.length];
   var sg=document.getElementById('splashGreeting'); if(sg) sg.innerHTML=g.main.replace(/\n/g,'<br>')+`<em>${g.sub}</em>`;
+}
+
+function splashGuestEnter() {
+  const splash = document.getElementById('splash');
+  if (splash) { splash.classList.add('hide'); setTimeout(()=>{ splash.style.display='none'; },700); }
+  var app = document.getElementById('app'); if(app) app.classList.add('show');
+  enterGuestMode();
 }
 
 function handleSplashEnter() {
