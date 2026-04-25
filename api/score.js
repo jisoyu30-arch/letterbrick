@@ -234,7 +234,7 @@ JSON으로만 응답:
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5',
+        model: 'claude-3-5-haiku-20241022',
         max_tokens: 600,
         messages: [{ role: 'user', content: prompt }]
       })
