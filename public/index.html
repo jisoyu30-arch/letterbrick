@@ -1488,10 +1488,11 @@ const fbDb = firebase.firestore();
       <div style="flex:1;height:1px;background:var(--line);"></div>
     </div>
 
-    <!-- 이메일 로그인/회원가입 탭 -->
+    <!-- 이메일 로그인만 (회원가입 임시 비활성) -->
     <div style="display:flex;gap:0;margin-bottom:14px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;">
       <button id="tabSignin" onclick="switchAuthTab('signin')" style="flex:1;padding:9px;font-size:13px;font-weight:600;background:var(--ink);color:#fff;border:none;cursor:pointer;">로그인</button>
-      <button id="tabSignup" onclick="switchAuthTab('signup')" style="flex:1;padding:9px;font-size:13px;font-weight:600;background:transparent;color:var(--ink3);border:none;cursor:pointer;">회원가입</button>
+      <!-- 회원가입 탭 임시 숨김 (테스트 기간) -->
+      <button id="tabSignup" onclick="switchAuthTab('signup')" style="display:none;">회원가입</button>
     </div>
 
     <!-- 회원가입 전용: 닉네임 -->
@@ -1510,6 +1511,10 @@ const fbDb = firebase.firestore();
     <button class="modal-btn" id="emailAuthBtn" onclick="submitEmailAuth()" style="margin-top:4px;">로그인 →</button>
 
     <div class="modal-privacy" style="margin-top:12px;">로그인 시 기기 간 기록이 동기화됩니다</div>
+
+    <button onclick="enterGuestMode()" style="width:100%;margin-top:10px;padding:10px;background:transparent;color:var(--ink3);border:none;font-size:12px;cursor:pointer;text-decoration:underline;">
+      로그인 없이 체험하기
+    </button>
   </div>
 </div>
 
@@ -8981,6 +8986,33 @@ function initWebViewWarning() {
       openBtn.textContent = 'Safari로 열기 →';
     }
   }
+}
+
+// ── 게스트 모드 (로그인 없이 체험) ──
+function enterGuestMode() {
+  window.guestMode = true;
+  // 임시 게스트 유저 설정 (localStorage에만 저장, Firestore 미동기)
+  currentUser = {
+    nickname: '체험 중',
+    email: '',
+    id: 'guest_' + Date.now(),
+    photo: '',
+    joinedAt: new Date().toISOString(),
+    isGuest: true
+  };
+  localStorage.setItem('lb_user', JSON.stringify(currentUser));
+  // 모달 닫고 앱 표시
+  document.getElementById('userModal').classList.add('hide');
+  applyUser();
+  // 게스트 배너 (3초 후 사라짐)
+  var banner = document.createElement('div');
+  banner.style.cssText = 'position:fixed;bottom:72px;left:50%;transform:translateX(-50%);' +
+    'background:rgba(46,42,38,0.88);color:#fff;font-size:11px;padding:7px 18px;' +
+    'border-radius:20px;z-index:400;white-space:nowrap;backdrop-filter:blur(8px);' +
+    'transition:opacity 0.8s;';
+  banner.textContent = '체험 모드 — 기록은 이 기기에만 저장돼요';
+  document.body.appendChild(banner);
+  setTimeout(function(){ banner.style.opacity='0'; setTimeout(function(){ if(banner.parentNode) banner.parentNode.removeChild(banner); },800); }, 3000);
 }
 
 // ── Firebase Google 로그인 ──
