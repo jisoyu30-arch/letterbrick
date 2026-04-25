@@ -732,6 +732,97 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .rec-share-btn:hover{border-color:var(--brick);color:var(--brick);}
 
+/* ══════ MILESTONE BADGES ══════ */
+.milestone-strip{
+  display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;margin-bottom:4px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.milestone-strip::-webkit-scrollbar{display:none;}
+.mbadge{
+  flex-shrink:0;display:flex;align-items:center;gap:7px;
+  padding:8px 13px;border-radius:22px;
+  background:var(--paper2);border:1.5px solid var(--line);
+  color:var(--ink3);transition:all .25s;white-space:nowrap;
+}
+.mbadge.earned{
+  background:var(--gold-p);border-color:var(--gold);color:var(--ink);
+  box-shadow:0 2px 10px rgba(160,120,40,0.13);
+}
+.mbadge-icon{font-size:17px;line-height:1;}
+.mbadge-text{display:flex;flex-direction:column;gap:1px;}
+.mbadge-name{font-size:12px;font-family:'Gowun Batang',serif;letter-spacing:.3px;}
+.mbadge-days{font-size:10px;opacity:.55;}
+.mbadge-done{font-size:10px;color:var(--gold);font-weight:700;}
+
+/* Milestone popup */
+.milestone-pop{
+  position:fixed;inset:0;z-index:700;
+  background:rgba(46,42,38,0.6);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+}
+.milestone-pop.hide{display:none;}
+.mpop-card{
+  background:var(--paper);border-radius:22px;padding:40px 28px 28px;
+  text-align:center;max-width:300px;width:100%;
+  border:2px solid var(--gold);
+  animation:slideUp .35s ease;
+}
+.mpop-icon{font-size:58px;margin-bottom:16px;display:block;}
+.mpop-title{font-family:'Gowun Batang',serif;font-size:23px;color:var(--ink);margin-bottom:6px;}
+.mpop-streak{font-size:13px;color:var(--brick);font-weight:700;margin-bottom:10px;
+  letter-spacing:.5px;}
+.mpop-sub{font-size:13px;color:var(--ink2);line-height:1.75;margin-bottom:24px;}
+.mpop-btn{
+  width:100%;padding:13px;background:var(--ink);color:var(--paper3);
+  border:none;border-radius:13px;font-family:'Noto Sans KR',sans-serif;
+  font-size:14px;font-weight:500;cursor:pointer;letter-spacing:.5px;
+  transition:background .2s;
+}
+.mpop-btn:hover{background:var(--brick);}
+
+/* ══════ TECHNIQUE COLLECTION ══════ */
+.tech-collection{margin:20px 0 24px;}
+.tech-coll-head{
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;
+}
+.tech-coll-count{
+  font-size:11px;color:var(--ink3);
+  background:var(--paper2);padding:3px 8px;border-radius:10px;
+  border:1px solid var(--line);
+}
+.tech-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
+}
+.tc{
+  padding:11px 12px 10px;border-radius:10px;
+  border:1.5px solid var(--line);background:var(--paper2);
+  position:relative;min-height:60px;
+  transition:opacity .2s;
+}
+.tc.earned{background:var(--brick-p);border-color:rgba(182,94,60,0.25);}
+.tc.locked{opacity:0.35;filter:grayscale(0.2);}
+.tc-name{font-size:11.5px;font-weight:600;color:var(--ink);line-height:1.45;
+  font-family:'Gowun Batang',serif;letter-spacing:.2px;padding-right:14px;}
+.tc-date{font-size:10px;color:var(--ink3);margin-top:4px;}
+.tc-lock{
+  position:absolute;top:8px;right:8px;
+  font-size:11px;color:var(--ink3);opacity:0.45;
+}
+.tc-check{
+  position:absolute;top:8px;right:8px;
+  font-size:12px;color:var(--brick);font-weight:700;
+}
+
+/* Share card upgrade */
+.sc-tech{
+  font-size:10px;color:var(--brick);font-weight:600;letter-spacing:.5px;
+  margin-bottom:14px;
+}
+.share-screenshot-hint{
+  font-size:11px;color:rgba(247,242,232,0.4);text-align:center;
+  margin-bottom:8px;letter-spacing:.3px;
+}
+
 /* ══════ EDITION CARDS ══════ */
 .edition-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 20px;}
 .edition-card{
@@ -1252,6 +1343,7 @@ const fbDb = firebase.firestore();
         </div>
         <div class="sc-logo-txt">letter<em>brick</em></div>
       </div>
+      <div class="sc-tech" id="scTech"></div>
       <div class="sc-sent-lbl">오늘의 문장</div>
       <div class="sc-sent" id="scSent"></div>
       <div class="sc-author" id="scAuthor"></div>
@@ -1271,8 +1363,8 @@ const fbDb = firebase.firestore();
       </div>
     </div>
   </div>
+  <div class="share-screenshot-hint">📸 카드를 스크린샷으로 저장하세요</div>
   <div class="share-actions">
-    <button class="share-act-btn dl" onclick="downloadCard()">📥 이미지 저장</button>
     <button class="share-act-btn copy" onclick="copyShareText()">✂️ 텍스트 복사</button>
     <button class="share-act-btn close" onclick="closeShare()">✕</button>
   </div>
@@ -1548,6 +1640,9 @@ const fbDb = firebase.firestore();
       <div class="stat-card"><span class="stat-v" id="totalCount"><img src="images/icon_telescope.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="telescope"> 0</span><span class="stat-l">총 필사</span></div>
       <div class="stat-card"><span class="stat-v" id="avgScore"><img src="images/icon_star.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="star"> 0</span><span class="stat-l">평균 별점</span></div>
     </div>
+
+    <!-- ── 마일스톤 배지 스트립 ── -->
+    <div class="milestone-strip" id="milestoneBadges"></div>
 
     <!-- Edition Cards + World Stage -->
     <div class="edition-cards">
@@ -2073,6 +2168,15 @@ const fbDb = firebase.firestore();
       </div>
     </div>
 
+    <!-- ── 기법 카드 컬렉션 ── -->
+    <div class="tech-collection" id="techCollection">
+      <div class="tech-coll-head">
+        <div class="sec-ttl" style="margin:0;">익힌 기법 컬렉션</div>
+        <div class="tech-coll-count" id="techCount">0 / 0</div>
+      </div>
+      <div class="tech-grid" id="techGrid"></div>
+    </div>
+
     <!-- 전체 기록 목록 -->
     <div style="margin-top:20px;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
@@ -2094,6 +2198,17 @@ const fbDb = firebase.firestore();
   </div>
 
 </div>
+</div>
+
+<!-- ══════ MILESTONE POPUP ══════ -->
+<div class="milestone-pop hide" id="milestonePop">
+  <div class="mpop-card">
+    <span class="mpop-icon" id="mpopIcon">🌱</span>
+    <div class="mpop-title" id="mpopTitle">새싹 필사가</div>
+    <div class="mpop-streak" id="mpopStreak">7일 연속 달성!</div>
+    <div class="mpop-sub" id="mpopSub">꾸준함이 문장을 만듭니다.<br>계속 써 나가세요.</div>
+    <button class="mpop-btn" onclick="closeMilestonePop()">계속하기 →</button>
+  </div>
 </div>
 
 <script src="data.js"></script>
@@ -8301,6 +8416,7 @@ function finish(){
   updateSB(5);
   const newRec={date:new Date().toISOString().split('T')[0],score:fs,
     sentence:todaySent.text,author:todaySent.author,source:todaySent.source,
+    coreSkill:(todaySent.learn&&todaySent.learn.coreSkill)||'',
     structText:document.getElementById('structTa').value||'',
     structScore:structScore,
     creative:document.getElementById('creativeTa').value||'(미작성)',
@@ -8437,6 +8553,16 @@ function openShare(rec) {
     const d = new Date(rec.date);
     document.getElementById('scDate').textContent =
       `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+    // 기법 태그 (저장된 coreSkill 또는 SENTENCES 매칭)
+    var recSkill = rec.coreSkill || '';
+    if (!recSkill && rec.sentence) {
+      var sm = (typeof SENTENCES !== 'undefined' ? SENTENCES : []).find(function(s){
+        return s.text && s.text.substring(0,15) === rec.sentence.substring(0,15);
+      });
+      if (sm && sm.learn && sm.learn.coreSkill) recSkill = sm.learn.coreSkill;
+    }
+    var scTechEl = document.getElementById('scTech');
+    if (scTechEl) scTechEl.textContent = recSkill ? '✏️ ' + recSkill : '';
   } else {
     // Today's session
     const creative = document.getElementById('creativeTa').value || '(미작성)';
@@ -8450,6 +8576,10 @@ function openShare(rec) {
       ? `<b>AI 코치</b> "${fb.textContent.substring(0,40)}…"` : '';
     document.getElementById('scScore').innerHTML = `${fs}<span>/100</span>`;
     document.getElementById('scDate').textContent = dateStr;
+    // 기법 태그 (오늘 세션)
+    var todaySkill = (todaySent.learn && todaySent.learn.coreSkill) || '';
+    var scTechEl2 = document.getElementById('scTech');
+    if (scTechEl2) scTechEl2.textContent = todaySkill ? '✏️ ' + todaySkill : '';
   }
 
   // Streak
@@ -8797,6 +8927,9 @@ function updateStats() {
   var totalSessions = stars.growth.sessions + stars.healing.sessions;
   var avgStar = totalSessions > 0 ? (totalStars / totalSessions).toFixed(1) : '0';
   updateStatEl('avgScore', avgStar);
+  // 마일스톤 배지 갱신 + 팝업 체크
+  renderMilestoneBadges(streak);
+  checkMilestoneUnlock(streak);
 }
 function updateStatEl(id, value) {
   var el = document.getElementById(id);
@@ -8854,6 +8987,141 @@ async function syncToSheets(rec) {
       body: JSON.stringify(payload)
     });
   } catch(e) { console.log('Sheets sync skipped:', e.message); }
+}
+
+
+/* ══════════════════════════════
+   MILESTONE BADGE SYSTEM
+══════════════════════════════ */
+var MILESTONES = [
+  { days:7,   icon:'🌱', name:'새싹 필사가',     msg:'7일을 채웠어요.<br>씨앗이 뿌리를 내리기 시작합니다.' },
+  { days:30,  icon:'🌿', name:'문장 탐구자',     msg:'30일 연속! 이제 문장을 보는 눈이<br>달라졌을 거예요.' },
+  { days:50,  icon:'🌳', name:'언어 장인',       msg:'50일. 꾸준함이<br>기술이 되는 순간입니다.' },
+  { days:100, icon:'🏛️', name:'레터브릭 마스터', msg:'100일 연속.<br>이 문장들이 당신을 만들었습니다.' }
+];
+
+function renderMilestoneBadges(streak) {
+  var strip = document.getElementById('milestoneBadges');
+  if (!strip) return;
+  strip.innerHTML = MILESTONES.map(function(m) {
+    var earned = streak >= m.days;
+    return '<div class="mbadge' + (earned ? ' earned' : '') + '">' +
+      '<span class="mbadge-icon">' + m.icon + '</span>' +
+      '<div class="mbadge-text">' +
+        '<div class="mbadge-name">' + m.name + '</div>' +
+        '<div class="' + (earned ? 'mbadge-done' : 'mbadge-days') + '">' +
+          (earned ? '✓ 달성' : m.days + '일') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function checkMilestoneUnlock(streak) {
+  var key = 'lb_milestone_seen';
+  var seen = JSON.parse(localStorage.getItem(key) || '[]');
+  var toShow = null;
+  MILESTONES.forEach(function(m) {
+    if (streak >= m.days && seen.indexOf(m.days) === -1) {
+      toShow = m; // 가장 높은 미달성 마일스톤 표시
+    }
+  });
+  if (toShow) {
+    seen.push(toShow.days);
+    localStorage.setItem(key, JSON.stringify(seen));
+    // 약간의 딜레이 후 팝업 (UI 로드 완료 후)
+    setTimeout(function() { showMilestonePop(toShow, streak); }, 600);
+  }
+}
+
+function showMilestonePop(milestone, streak) {
+  var el = document.getElementById('milestonePop');
+  if (!el) return;
+  document.getElementById('mpopIcon').textContent = milestone.icon;
+  document.getElementById('mpopTitle').textContent = milestone.name;
+  document.getElementById('mpopStreak').textContent = streak + '일 연속 달성!';
+  document.getElementById('mpopSub').innerHTML = milestone.msg;
+  el.classList.remove('hide');
+}
+
+function closeMilestonePop() {
+  var el = document.getElementById('milestonePop');
+  if (el) el.classList.add('hide');
+}
+
+
+/* ══════════════════════════════
+   TECHNIQUE COLLECTION
+══════════════════════════════ */
+function getAllTechniques() {
+  var seen = {};
+  var skills = [];
+  (typeof SENTENCES !== 'undefined' ? SENTENCES : []).forEach(function(s) {
+    var skill = s.learn && s.learn.coreSkill;
+    if (skill && !seen[skill]) {
+      seen[skill] = true;
+      skills.push({ skill: skill, author: s.author });
+    }
+  });
+  return skills;
+}
+
+function getEarnedTechniques() {
+  // 저장된 coreSkill 필드 우선 사용, 없으면 문장 텍스트로 SENTENCES 매칭
+  var earned = {}; // skill -> date
+  pastRecords.forEach(function(rec) {
+    if (rec.edition === 'healing') return;
+    // ① 저장된 coreSkill
+    if (rec.coreSkill) {
+      if (!earned[rec.coreSkill]) earned[rec.coreSkill] = rec.date;
+      return;
+    }
+    // ② 텍스트 앞부분으로 SENTENCES 매칭
+    var matchSent = (typeof SENTENCES !== 'undefined' ? SENTENCES : []).find(function(s) {
+      return s.text && rec.sentence && s.text.substring(0, 15) === rec.sentence.substring(0, 15);
+    });
+    if (matchSent && matchSent.learn && matchSent.learn.coreSkill) {
+      var sk = matchSent.learn.coreSkill;
+      if (!earned[sk]) earned[sk] = rec.date;
+    }
+  });
+  return earned;
+}
+
+function renderTechCollection() {
+  var grid = document.getElementById('techGrid');
+  var countEl = document.getElementById('techCount');
+  if (!grid) return;
+
+  var all = getAllTechniques();
+  var earned = getEarnedTechniques();
+  var earnedCount = Object.keys(earned).length;
+
+  if (countEl) countEl.textContent = earnedCount + ' / ' + all.length;
+
+  // 획득 먼저, 미획득 뒤
+  var sorted = all.slice().sort(function(a, b) {
+    var aE = !!earned[a.skill], bE = !!earned[b.skill];
+    if (aE && !bE) return -1;
+    if (!aE && bE) return 1;
+    return 0;
+  });
+
+  grid.innerHTML = sorted.map(function(item) {
+    var isEarned = !!earned[item.skill];
+    var dateStr = '';
+    if (earned[item.skill]) {
+      var d = new Date(earned[item.skill]);
+      dateStr = (d.getMonth()+1) + '월 ' + d.getDate() + '일 완성';
+    }
+    return '<div class="tc' + (isEarned ? ' earned' : ' locked') + '">' +
+      (isEarned
+        ? '<div class="tc-check">✓</div>'
+        : '<div class="tc-lock">🔒</div>') +
+      '<div class="tc-name">' + item.skill + '</div>' +
+      (isEarned ? '<div class="tc-date">' + dateStr + '</div>' : '') +
+    '</div>';
+  }).join('');
 }
 
 
@@ -9811,6 +10079,7 @@ function finishEarly(stage) {
     date:new Date().toISOString().split('T')[0], edition:'growth',
     score: earnedStars*10, starsEarned: earnedStars,
     sentence:todaySent.text, author:todaySent.author, source:todaySent.source,
+    coreSkill:(todaySent.learn&&todaySent.learn.coreSkill)||'',
     copyText: copyText, structText: structText, structScore: structScore || 0,
     creative:'('+stageNames[stage]+'까지 완료)', creativeScore:0,
     structFb: stage === 'struct' ? '구조 연습 🧱'+structScore : '',
@@ -9875,6 +10144,7 @@ finish = function() {
   var elapsed=sessionStartTime?Math.round((Date.now()-sessionStartTime)/1000):0;
   var newRec={date:new Date().toISOString().split('T')[0],edition:'growth',score:totalStars*10,starsEarned:totalStars,
     sentence:todaySent.text,author:todaySent.author,source:todaySent.source,
+    coreSkill:(todaySent.learn&&todaySent.learn.coreSkill)||'',
     copyText:document.getElementById('copyTa').value||'',
     structText:document.getElementById('structTa').value||'',structScore:sStars,
     creative:document.getElementById('creativeTa').value||'(미작성)',creativeScore:cStars,
@@ -9983,6 +10253,8 @@ function renderMyPage() {
   // 에디션별
   document.getElementById('mpGrowthStars').textContent = '★ ' + stars.growth.total;
   document.getElementById('mpHealingStars').textContent = '★ ' + stars.healing.total;
+  // 기법 카드 컬렉션
+  renderTechCollection();
   // 기록 목록
   mpCurrentCount = 0;
   document.getElementById('mpRecordList').innerHTML = '';
@@ -11465,6 +11737,7 @@ initSplash();
 renderCal();
 renderRecords();
 renderEditionCards();
+renderMilestoneBadges(0); // 초기 렌더 (스트릭 계산 전 빈 상태)
 
 /* ══════════════════════════════
    CANVAS SHARE CARD GENERATOR
