@@ -1739,9 +1739,6 @@ const fbDb = firebase.firestore();
       </div>
     </div>
 
-    <!-- ── 마일스톤 배지 스트립 ── -->
-    <div class="milestone-strip" id="milestoneBadges"></div>
-
     <!-- Edition Cards + World Stage -->
     <div class="edition-cards">
       <button class="edition-card growth-card" onclick="showPage('growth',document.querySelectorAll('.nav-tab')[1])">
@@ -9277,7 +9274,7 @@ function renderMilestoneBadges(streak) {
   }).join('');
 
   // 홈 + 마이페이지 두 곳에 동시 렌더
-  ['milestoneBadges', 'mpMilestoneBadges'].forEach(function(id) {
+  ['mpMilestoneBadges'].forEach(function(id) {
     var el = document.getElementById(id); if (el) el.innerHTML = html;
   });
 
