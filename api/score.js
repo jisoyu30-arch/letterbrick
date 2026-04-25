@@ -235,7 +235,7 @@ JSON으로만 응답:
       },
       body: JSON.stringify({
         model: 'claude-haiku-4-5',
-        max_tokens: 600,
+        max_tokens: 1024,
         messages: [{ role: 'user', content: prompt }]
       })
     });
