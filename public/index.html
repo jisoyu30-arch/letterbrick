@@ -12174,8 +12174,26 @@ function showShareModal(canvas) {
   _shareCanvas = canvas;
   var img = document.getElementById('shareModalImg');
   img.src = canvas.toDataURL('image/png');
+  // 모바일에서 네이티브 공유 버튼 표시
+  var nativeBtn = document.getElementById('smNativeBtn');
+  if (nativeBtn) {
+    nativeBtn.style.display = (navigator.share && /Android|iPhone|iPad/i.test(navigator.userAgent)) ? 'inline-flex' : 'none';
+  }
   document.getElementById('shareModal').classList.remove('hide');
   document.body.style.overflow = 'hidden';
+}
+
+async function nativeShareCanvas() {
+  if (!_shareCanvas || !navigator.share) return;
+  _shareCanvas.toBlob(async function(blob) {
+    try {
+      var file = new File([blob], 'letterbrick-today.png', {type: 'image/png'});
+      await navigator.share({ title: '레터브릭 오늘의 필사', files: [file] });
+    } catch(e) {
+      // 실패 시 다운로드로 폴백
+      downloadShareCanvas();
+    }
+  });
 }
 
 function closeShareModal() {
@@ -12197,30 +12215,8 @@ async function shareToday() {
   if (!todaySent) return;
   var canvas = generateShareCard();
   if (!canvas) return;
-
-  if (navigator.canShare) {
-    canvas.toBlob(async function(blob) {
-      var file = new File([blob], 'letterbrick-today.png', {type: 'image/png'});
-      if (navigator.canShare({files: [file]})) {
-        try {
-          await navigator.share({
-            title: '레터브릭 오늘의 필사',
-            text: todaySent.text + '\n— ' + todaySent.author,
-            files: [file]
-          });
-          return;
-        } catch(e) {}
-      }
-      // Fallback: download
-      var link = document.createElement('a');
-      link.download = 'letterbrick-' + new Date().toISOString().slice(0, 10) + '.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    });
-  } else {
-    // Desktop fallback: show modal with image + download button
-    showShareModal(canvas);
-  }
+  // 항상 모달로 카드 이미지 보여주기
+  showShareModal(canvas);
 }
 </script>
 
@@ -12232,8 +12228,10 @@ async function shareToday() {
     </div>
     <div class="sm-actions">
       <button class="sm-btn sm-btn-dl" onclick="downloadShareCanvas()">💾 이미지 저장</button>
+      <button class="sm-btn sm-btn-share" onclick="nativeShareCanvas()" id="smNativeBtn" style="display:none;">📤 공유하기</button>
       <button class="sm-btn sm-btn-close" onclick="closeShareModal()">✕</button>
     </div>
+    <div style="text-align:center;font-size:12px;color:rgba(247,242,232,0.6);margin-top:8px;">이미지를 저장해 SNS에 올려보세요</div>
   </div>
 </div>
 
