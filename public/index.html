@@ -619,6 +619,17 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .modal-btn:hover{background:var(--brick);}
 .modal-privacy{font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.6;}
+/* WebView 경고 배너 */
+.webview-warn{
+  background:#FFF3CD;border:1px solid #FFD97D;border-radius:10px;
+  padding:12px 14px;margin-bottom:16px;font-size:12px;color:#7A5C00;line-height:1.6;
+}
+.webview-warn strong{display:block;font-size:13px;margin-bottom:4px;color:#5A3E00;}
+.webview-open-btn{
+  display:block;width:100%;margin-top:8px;padding:9px;
+  background:#5A3E00;color:#fff;border:none;border-radius:8px;
+  font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;
+}
 .modal-field-lbl{font-size:11px;font-weight:700;color:var(--ink);letter-spacing:.5px;margin-bottom:6px;}
 
 /* ══════ USER BADGE in topnav ══════ */
@@ -1415,6 +1426,15 @@ const fbDb = firebase.firestore();
 <!-- ══════ USER ONBOARDING MODAL ══════ -->
 <div class="modal-overlay hide" id="userModal">
   <div class="modal-box">
+
+    <!-- WebView 경고 (카카오톡·앱 내 브라우저 감지 시 표시) -->
+    <div class="webview-warn hide" id="webviewWarn">
+      <strong>⚠️ 앱 내 브라우저에서는 Google 로그인이 불가합니다</strong>
+      카카오톡·인스타그램 등 앱 내 브라우저는 Google 보안 정책으로 차단됩니다.<br>
+      아래 버튼을 눌러 <b>Chrome</b>에서 열어주세요.
+      <a class="webview-open-btn" id="openInChromeBtn" href="#">Chrome으로 열기 →</a>
+    </div>
+
     <div class="modal-logo">letter<em>brick</em></div>
     <div class="modal-ttl">반갑습니다.</div>
     <div class="modal-sub">레터브릭은 매일 한 문장, 나만의 필사 아카이브를<br>만들어주는 AI 문장력 훈련 서비스입니다.</div>
@@ -7884,6 +7904,7 @@ function handleSplashEnter() {
     if (!currentUser) {
       var app=document.getElementById('app'); if(app) app.classList.add('show');
       var um=document.getElementById('userModal'); if(um) um.classList.remove('hide');
+      initWebViewWarning();
     } else {
       // 기존 사용자 — 가이드 본 적 없으면 한 번 표시
       if (!localStorage.getItem('lb_guide_seen')) {
@@ -8804,6 +8825,44 @@ async function submitEmailAuth() {
     errEl.textContent = msgs[e.code] || '오류가 발생했습니다. 다시 시도해주세요.';
     btn.disabled = false;
     btn.textContent = authTabMode==='signin' ? '로그인 →' : '회원가입 →';
+  }
+}
+
+// ── WebView 감지 및 경고 ──
+function isWebView() {
+  var ua = navigator.userAgent || '';
+  // Android WebView (wv 플래그), KakaoTalk, Naver, Instagram, Facebook, Line
+  return /(wv|WebView|KAKAO|NAVER|Instagram|FBAV|FBAN|Line\/|FB_IAB)/i.test(ua)
+    || (/Android/.test(ua) && /Version\/\d/.test(ua) && !/Chrome/.test(ua));
+}
+
+function initWebViewWarning() {
+  if (!isWebView()) return;
+  var warn = document.getElementById('webviewWarn');
+  if (warn) warn.classList.remove('hide');
+  // Google 로그인 버튼 비활성화
+  var gBtn = document.getElementById('googleLoginBtn');
+  if (gBtn) {
+    gBtn.disabled = true;
+    gBtn.style.opacity = '0.4';
+    gBtn.style.cursor = 'not-allowed';
+    gBtn.title = 'Chrome에서 열어주세요';
+  }
+  // Chrome으로 열기 링크 — Android intent URL
+  var openBtn = document.getElementById('openInChromeBtn');
+  if (openBtn) {
+    var currentUrl = location.href;
+    var isAndroid = /Android/i.test(navigator.userAgent);
+    if (isAndroid) {
+      // Android: intent URL로 Chrome 강제 실행
+      openBtn.href = 'intent://' + currentUrl.replace(/^https?:\/\//, '') +
+        '#Intent;scheme=https;package=com.android.chrome;end';
+    } else {
+      // iOS: x-safari scheme (Safari로 열기)
+      openBtn.href = currentUrl;
+      openBtn.setAttribute('target', '_blank');
+      openBtn.textContent = 'Safari로 열기 →';
+    }
   }
 }
 
