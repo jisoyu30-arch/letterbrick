@@ -10694,23 +10694,37 @@ async function callAI(type, original, userText, learningPoint) {
 // callAI('creative', todaySent.text, userText, todaySent.reason) → 성공 시 API 결과 사용
 
 /* ══════════════════════════════
-   QUOTE SELECTION 업데이트: 오늘의 A/B 페어
+   QUOTE SELECTION 업데이트: SENTENCES 전체 풀 사용 (반복 방지)
+   - 기존 GROWTH_DAYS 30일 사이클 → SENTENCES 전체 사이클로 확장
+   - todayIdx(짝수) / 중간 오프셋(홀수) 두 문장을 A/B로 표시
 ══════════════════════════════ */
 renderQuoteSelection = function() {
-  if(typeof GROWTH_DAYS==='undefined'||!GROWTH_DAYS||GROWTH_DAYS.length===0) return;
-  var dayNum = getDayIndex() % GROWTH_DAYS.length;
-  var day = GROWTH_DAYS[dayNum];
   var container = document.getElementById('quoteOptions');
   if(!container) return;
+  if(typeof SENTENCES==='undefined'||!SENTENCES||SENTENCES.length===0) return;
+
   container.innerHTML = '';
-  // 학습 포인트 표시
-  container.innerHTML += '<div style="font-size:12px;color:var(--ink3);margin-bottom:12px;line-height:1.7;">학습 포인트: ' + day.lp + '</div>';
-  [{v:day.A, label:'A', idx:dayNum*2}, {v:day.B, label:'B', idx:dayNum*2+1}].forEach(function(item) {
+
+  // todayIdx 는 data.js 로드 후 이미 전체 SENTENCES 기준으로 재계산됨
+  var idxA = todayIdx;
+  var step = Math.max(1, Math.floor(SENTENCES.length / 2));
+  var idxB = (idxA + step) % SENTENCES.length;
+
+  var sA = SENTENCES[idxA];
+  var sB = SENTENCES[idxB];
+
+  // 학습 포인트 (reason 또는 _lp 필드)
+  var lp = sA._lp || sA.reason || '';
+  if(lp) container.innerHTML += '<div style="font-size:12px;color:var(--ink3);margin-bottom:12px;line-height:1.7;">학습 포인트: ' + lp + '</div>';
+
+  [{s:sA, label:'A', idx:idxA}, {s:sB, label:'B', idx:idxB}].forEach(function(item) {
     var div = document.createElement('div'); div.className = 'quote-opt';
+    var preview = item.s.text.length > 80 ? item.s.text.substring(0,80)+'…' : item.s.text;
+    var reason  = (item.s.reason || item.s._lp || '').substring(0,80);
     div.innerHTML =
-      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="width:24px;height:24px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">' + item.label + '</span><span class="quote-opt-author">— ' + item.v.a + ' 「' + item.v.s + '」</span></div>' +
-      '<div class="quote-opt-text">' + item.v.t + '</div>' +
-      '<div class="quote-opt-reason" style="margin-top:8px;">' + item.v.pt + '</div>';
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;"><span style="width:24px;height:24px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">' + item.label + '</span><span class="quote-opt-author">— ' + item.s.author + ' 「' + item.s.source + '」</span></div>' +
+      '<div class="quote-opt-text">' + preview + '</div>' +
+      '<div class="quote-opt-reason" style="margin-top:8px;">' + reason + '</div>';
     div.onclick = function(){ selectGrowthQuote(item.idx); };
     container.appendChild(div);
   });

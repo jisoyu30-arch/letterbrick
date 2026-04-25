@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2E2A26">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="LetterBrick Korean — 7-step daily learning loop">
+<title>LetterBrick Korean · Day 29</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   DESIGN TOKENS — LetterBrick
+══════════════════════════════════════════ */
+:root {
+  --paper:#F7F2E8; --paper2:#EDE7D6; --paper3:#FAF7F2;
+  --ink:#2E2A26; --ink2:#5C5248; --ink3:#9A9089;
+  --brick:#B65E3C; --brick-d:#8F4A2E; --brick-l:#F2E4DA; --brick-p:#FAF0EB;
+  --line:#D8D0C0; --line2:#EAE3D6;
+  --gold:#A07828; --gold-p:#F5EDD0;
+  --green:#3D6B50; --green-p:#D8EADF;
+  --shadow:rgba(46,42,38,0.10);
+  --blue:#3B6B9A; --blue-p:#D8E8F5;
+  --nav-h:62px;
+  --indicator-h:56px;
+}
+
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Noto Sans KR', sans-serif;
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* paper grain overlay */
+body::before {
+  content:'';
+  position:fixed; inset:0; pointer-events:none; z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+  opacity:.6;
+}
+
+/* ══════════════════════════════════════════
+   TOP NAV
+══════════════════════════════════════════ */
+.topnav {
+  position: sticky; top:0; z-index:200;
+  height: var(--nav-h);
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 20px;
+  background: rgba(46,42,38,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo {
+  display:flex; align-items:center; gap:8px;
+  text-decoration:none;
+}
+.logo-bricks {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px; width:20px;
+}
+.logo-brick {
+  height:8px; border-radius:2px; background:var(--brick);
+}
+.logo-brick:nth-child(1){width:13px;}
+.logo-brick:nth-child(2){width:9px; opacity:.6;}
+.logo-brick:nth-child(3){width:9px; opacity:.7;}
+.logo-brick:nth-child(4){width:13px; opacity:.85;}
+.nav-logo-text {
+  font-family:'Gowun Batang',serif;
+  font-size:17px; letter-spacing:1px; color:var(--paper);
+}
+.nav-logo-text em { color:var(--brick); font-style:normal; }
+
+.nav-day {
+  font-family:'Inter', sans-serif;
+  font-size:11px; font-weight:600; letter-spacing:1.5px;
+  text-transform:uppercase; color:rgba(247,242,232,0.4);
+  position:absolute; left:50%; transform:translateX(-50%);
+  white-space:nowrap;
+}
+
+.nav-streak {
+  display:flex; align-items:center; gap:5px;
+  background:rgba(182,94,60,0.18);
+  border:1px solid rgba(182,94,60,0.3);
+  border-radius:20px;
+  padding:5px 12px;
+  font-size:13px; font-weight:700; color:var(--paper);
+  font-family:'Inter',sans-serif;
+}
+
+/* ══════════════════════════════════════════
+   STEP INDICATOR
+══════════════════════════════════════════ */
+.step-indicator {
+  position:sticky;
+  top: var(--nav-h);
+  z-index:190;
+  display:flex; align-items:center; justify-content:center;
+  gap:10px;
+  height: var(--indicator-h);
+  background:rgba(46,42,38,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  padding: 0 16px;
+}
+
+.back-btn {
+  position:absolute; left:16px;
+  background:none; border:none;
+  color:rgba(247,242,232,0.4); cursor:pointer;
+  display:flex; align-items:center; gap:4px;
+  font-size:12px; font-family:'Noto Sans KR',sans-serif;
+  padding:6px 8px; border-radius:8px;
+  transition:color .2s, background .2s;
+}
+.back-btn:hover { color:var(--paper); background:rgba(255,255,255,0.06); }
+.back-btn.hidden { opacity:0; pointer-events:none; }
+
+.step-dots {
+  display:flex; gap:8px; align-items:center;
+}
+.step-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  border:1.5px solid rgba(255,255,255,0.12);
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  cursor:pointer;
+}
+.step-dot.completed {
+  background:var(--brick); border-color:var(--brick);
+  box-shadow:0 0 6px rgba(182,94,60,0.5);
+}
+.step-dot.active {
+  background:var(--paper); border-color:var(--paper);
+  width:10px; height:10px;
+  box-shadow:0 0 10px rgba(247,242,232,0.4);
+}
+
+.step-label {
+  position:absolute; right:16px;
+  font-size:10px; font-weight:600; letter-spacing:1.2px;
+  color:rgba(247,242,232,0.3); text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+}
+
+/* ══════════════════════════════════════════
+   STEP WRAPPER & SLIDE ANIMATIONS
+══════════════════════════════════════════ */
+.steps-container {
+  position:relative;
+  overflow: hidden;
+  min-height: calc(100vh - var(--nav-h) - var(--indicator-h));
+}
+
+.step {
+  display:none;
+  padding:28px 20px 60px;
+  max-width:480px;
+  margin:0 auto;
+  animation:none;
+}
+.step.active {
+  display:block;
+}
+.step.slide-in-right {
+  animation:slideInRight .3s cubic-bezier(.4,0,.2,1) both;
+}
+.step.slide-in-left {
+  animation:slideInLeft .3s cubic-bezier(.4,0,.2,1) both;
+}
+.step.slide-out-left {
+  animation:slideOutLeft .3s cubic-bezier(.4,0,.2,1) both;
+}
+.step.slide-out-right {
+  animation:slideOutRight .3s cubic-bezier(.4,0,.2,1) both;
+}
+
+@keyframes slideInRight {
+  from { opacity:0; transform:translateX(40px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity:0; transform:translateX(-40px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+@keyframes slideOutLeft {
+  from { opacity:1; transform:translateX(0); }
+  to   { opacity:0; transform:translateX(-40px); }
+}
+@keyframes slideOutRight {
+  from { opacity:1; transform:translateX(0); }
+  to   { opacity:0; transform:translateX(40px); }
+}
+
+/* ══════════════════════════════════════════
+   SHARED COMPONENTS
+══════════════════════════════════════════ */
+.eyebrow {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; color:var(--brick); margin-bottom:10px;
+  font-family:'Inter',sans-serif;
+}
+.step-title {
+  font-family:'Gowun Batang',serif;
+  font-size:22px; color:var(--paper);
+  margin-bottom:24px; line-height:1.4;
+}
+.step-title small {
+  display:block; font-size:13px;
+  color:rgba(247,242,232,0.4); font-family:'Noto Serif KR',serif;
+  font-weight:300; margin-top:3px;
+}
+
+.primary-btn {
+  display:block; width:100%;
+  padding:16px 24px;
+  background:var(--brick);
+  color:var(--paper);
+  border:none; border-radius:14px;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:15px; font-weight:700;
+  cursor:pointer;
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+  text-align:center;
+  letter-spacing:.3px;
+  margin-top:28px;
+}
+.primary-btn:hover {
+  background:var(--brick-d);
+  transform:translateY(-1px);
+  box-shadow:0 6px 20px rgba(182,94,60,0.35);
+}
+.primary-btn:active { transform:translateY(0); }
+.primary-btn:disabled {
+  opacity:.35; cursor:not-allowed;
+  transform:none; box-shadow:none;
+}
+
+.ghost-btn {
+  display:block; width:100%;
+  padding:13px 24px;
+  background:transparent;
+  color:rgba(247,242,232,0.5);
+  border:1.5px solid rgba(247,242,232,0.15);
+  border-radius:14px;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:14px; font-weight:500;
+  cursor:pointer;
+  transition:all .2s;
+  text-align:center;
+  margin-top:10px;
+}
+.ghost-btn:hover {
+  border-color:rgba(247,242,232,0.35);
+  color:var(--paper);
+}
+
+/* ══════════════════════════════════════════
+   STEP 1 — 오늘의 문장
+══════════════════════════════════════════ */
+.sentence-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-left:3px solid var(--gold);
+  border-radius:16px;
+  padding:24px 22px;
+  margin-bottom:18px;
+  position:relative;
+  overflow:hidden;
+}
+.sentence-card::before {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(160,120,40,0.05) 0%, transparent 60%);
+  pointer-events:none;
+}
+
+.sentence-main {
+  font-family:'Gowun Batang',serif;
+  font-size:28px; line-height:1.6;
+  color:var(--paper);
+  margin-bottom:12px;
+  letter-spacing:.5px;
+}
+
+.sentence-romanization {
+  font-family:'Inter',sans-serif;
+  font-size:13px; color:var(--ink3);
+  letter-spacing:.5px; margin-bottom:18px;
+  opacity:.7;
+  font-style:italic;
+}
+
+.translation-toggle {
+  display:flex; align-items:center; gap:10px;
+  cursor:pointer; margin-bottom:6px;
+}
+.translation-toggle-btn {
+  background:rgba(160,120,40,0.2);
+  border:1px solid rgba(160,120,40,0.3);
+  color:var(--gold); border-radius:8px;
+  padding:5px 12px; font-size:11px; font-weight:600;
+  font-family:'Inter',sans-serif; letter-spacing:.8px;
+  cursor:pointer; transition:all .2s;
+  white-space:nowrap;
+}
+.translation-toggle-btn:hover {
+  background:rgba(160,120,40,0.35);
+}
+.translation-text {
+  font-size:15px; color:rgba(247,242,232,0.7);
+  font-family:'Noto Serif KR',serif; font-weight:300;
+  line-height:1.6;
+  max-height:0; overflow:hidden;
+  transition:max-height .35s ease, opacity .3s ease, margin .3s ease;
+  opacity:0; margin-top:0;
+}
+.translation-text.revealed {
+  max-height:80px; opacity:1; margin-top:10px;
+}
+
+.context-box {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:12px;
+  padding:16px 18px;
+  margin-bottom:14px;
+  font-size:13px;
+  color:rgba(247,242,232,0.55);
+  line-height:1.8;
+  font-family:'Noto Serif KR',serif;
+  font-weight:300;
+}
+
+.cultural-badge {
+  display:flex; align-items:flex-start; gap:10px;
+  background:rgba(160,120,40,0.1);
+  border:1px solid rgba(160,120,40,0.2);
+  border-radius:12px;
+  padding:14px 16px;
+  margin-bottom:18px;
+  font-size:12px; line-height:1.7;
+  color:rgba(247,242,232,0.65);
+  font-family:'Noto Serif KR',serif;
+  font-weight:300;
+}
+.cultural-badge-icon {
+  font-size:18px; flex-shrink:0; margin-top:1px;
+}
+
+.audio-btn {
+  display:flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px; padding:10px 16px;
+  color:rgba(247,242,232,0.7);
+  font-size:13px; font-family:'Noto Sans KR',sans-serif;
+  font-weight:500; cursor:pointer;
+  transition:all .2s; margin-bottom:0;
+}
+.audio-btn:hover {
+  background:rgba(255,255,255,0.1);
+  color:var(--paper);
+}
+
+/* ══════════════════════════════════════════
+   STEP 2 — 따라쓰기
+══════════════════════════════════════════ */
+.paper-card {
+  background:var(--paper);
+  border-radius:16px;
+  padding:22px 20px;
+  margin-bottom:16px;
+  color:var(--ink);
+}
+
+.transcription-instruction {
+  font-size:13px; line-height:1.8;
+  color:var(--ink2);
+  font-family:'Noto Serif KR',serif;
+  font-weight:300;
+  margin-bottom:16px;
+}
+
+.reference-sentence {
+  background:var(--paper2);
+  border-radius:10px; padding:12px 16px;
+  margin-bottom:18px;
+  font-family:'Gowun Batang',serif;
+  font-size:20px; color:var(--ink);
+  line-height:1.6; letter-spacing:.3px;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px;
+}
+.ref-toggle-btn {
+  background:none; border:none;
+  font-size:10px; color:var(--ink3);
+  cursor:pointer; white-space:nowrap;
+  font-family:'Noto Sans KR',sans-serif;
+  letter-spacing:.5px;
+  padding:4px 6px;
+  border-radius:6px;
+  transition:all .2s;
+}
+.ref-toggle-btn:hover { background:var(--line); }
+
+.ko-textarea {
+  width:100%;
+  background:var(--paper3);
+  border:2px solid var(--line);
+  border-radius:12px;
+  padding:16px 18px;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:20px; line-height:1.7;
+  color:var(--ink); resize:none;
+  min-height:110px;
+  transition:border-color .2s;
+  letter-spacing:.3px;
+  outline:none;
+}
+.ko-textarea::placeholder {
+  color:rgba(46,42,38,0.18);
+  font-family:'Gowun Batang',serif;
+  font-size:20px;
+  animation:ghostPulse 3s ease-in-out infinite;
+}
+@keyframes ghostPulse {
+  0%,100% { opacity:.18; }
+  50% { opacity:.32; }
+}
+.ko-textarea:focus {
+  border-color:var(--brick);
+  box-shadow:0 0 0 3px rgba(182,94,60,0.1);
+}
+
+.diff-display {
+  font-family:'Gowun Batang',serif;
+  font-size:18px; line-height:1.8;
+  min-height:36px; padding:10px 14px;
+  background:var(--paper2);
+  border-radius:10px; margin-top:10px;
+  letter-spacing:.3px;
+  word-break:break-all;
+}
+.diff-correct { color:var(--green); }
+.diff-wrong { color:var(--brick); text-decoration:underline; text-decoration-color:rgba(182,94,60,0.5); }
+.diff-pending { color:var(--ink3); }
+
+.match-indicator {
+  display:flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:600; margin-top:12px;
+  padding:10px 14px; border-radius:10px;
+  transition:all .3s;
+}
+.match-indicator.idle {
+  background:transparent; color:var(--ink3);
+  font-weight:400;
+}
+.match-indicator.partial {
+  background:rgba(182,94,60,0.08);
+  color:var(--brick);
+}
+.match-indicator.perfect {
+  background:var(--green-p);
+  color:var(--green);
+}
+
+.writing-mode-row {
+  display:flex; gap:8px; margin-top:14px;
+}
+.mode-btn {
+  padding:7px 16px; border-radius:20px;
+  border:1.5px solid var(--line);
+  background:none; font-size:12px;
+  color:var(--ink2); cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;
+  transition:all .2s;
+}
+.mode-btn.active {
+  background:var(--ink); color:var(--paper);
+  border-color:var(--ink);
+}
+
+/* ══════════════════════════════════════════
+   STEP 3 — 구조 분석
+══════════════════════════════════════════ */
+.structure-sentence {
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-bottom:28px;
+  justify-content:center;
+}
+
+.chunk-chip {
+  padding:10px 18px;
+  border-radius:30px;
+  font-family:'Gowun Batang',serif;
+  font-size:18px; cursor:pointer;
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+  position:relative;
+  border:2px solid transparent;
+  letter-spacing:.3px;
+}
+.chunk-chip:hover { transform:translateY(-2px); }
+.chunk-chip.blue {
+  background:rgba(59,107,154,0.18);
+  border-color:rgba(59,107,154,0.3);
+  color:#7AADCF;
+}
+.chunk-chip.blue:hover {
+  background:rgba(59,107,154,0.28);
+}
+.chunk-chip.gold {
+  background:rgba(160,120,40,0.18);
+  border-color:rgba(160,120,40,0.3);
+  color:#C9A84C;
+}
+.chunk-chip.gold:hover {
+  background:rgba(160,120,40,0.28);
+}
+.chunk-chip.brick {
+  background:rgba(182,94,60,0.18);
+  border-color:rgba(182,94,60,0.3);
+  color:#D98060;
+}
+.chunk-chip.brick:hover {
+  background:rgba(182,94,60,0.28);
+}
+.chunk-chip.active {
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+
+.chunk-popup {
+  position:absolute; bottom:calc(100% + 10px);
+  left:50%; transform:translateX(-50%);
+  background:#1A1613;
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px;
+  padding:14px 16px;
+  width:240px; z-index:50;
+  font-family:'Noto Serif KR',serif;
+  font-size:12px; font-weight:300;
+  color:rgba(247,242,232,0.75);
+  line-height:1.7;
+  box-shadow:0 12px 32px rgba(0,0,0,0.4);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .2s, transform .2s;
+  transform:translateX(-50%) translateY(4px);
+}
+.chunk-chip.active .chunk-popup {
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+  pointer-events:auto;
+}
+.chunk-popup::after {
+  content:'';
+  position:absolute; top:100%; left:50%;
+  transform:translateX(-50%);
+  border:6px solid transparent;
+  border-top-color:#1A1613;
+}
+.chunk-popup-title {
+  font-weight:600; color:var(--paper);
+  font-size:13px; margin-bottom:5px;
+  font-family:'Noto Sans KR',sans-serif;
+}
+
+.pattern-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:20px 20px;
+  margin-bottom:16px;
+}
+.pattern-formula {
+  font-family:'Inter',sans-serif;
+  font-size:14px; font-weight:600;
+  color:rgba(247,242,232,0.9);
+  background:rgba(160,120,40,0.12);
+  border-radius:8px; padding:10px 14px;
+  margin-bottom:12px; letter-spacing:.3px;
+  border:1px solid rgba(160,120,40,0.2);
+}
+.pattern-note {
+  font-size:13px; color:rgba(247,242,232,0.5);
+  line-height:1.7; font-family:'Noto Serif KR',serif;
+  font-weight:300;
+}
+.pattern-english {
+  margin-top:12px;
+  font-size:13px; color:rgba(247,242,232,0.4);
+  font-style:italic; font-family:'Noto Serif KR',serif;
+}
+
+/* ══════════════════════════════════════════
+   STEP 4 — 핵심 어휘
+══════════════════════════════════════════ */
+.vocab-cards-container {
+  display:flex; flex-direction:column; gap:16px;
+  margin-bottom:24px;
+}
+
+.vocab-card-wrapper {
+  perspective:1000px;
+}
+.vocab-card {
+  position:relative;
+  height:180px;
+  cursor:pointer;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+  transform-style:preserve-3d;
+}
+.vocab-card.flipped {
+  transform:rotateY(180deg);
+}
+.vocab-card-face {
+  position:absolute; inset:0;
+  border-radius:16px;
+  padding:24px 22px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.vocab-card-front {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.vocab-card-back {
+  background:var(--paper);
+  transform:rotateY(180deg);
+  color:var(--ink);
+}
+.vocab-word {
+  font-family:'Gowun Batang',serif;
+  font-size:34px; color:var(--paper);
+  margin-bottom:6px; letter-spacing:.5px;
+}
+.vocab-romanization {
+  font-family:'Inter',sans-serif;
+  font-size:13px; color:var(--ink3);
+  letter-spacing:.8px;
+}
+.vocab-flip-hint {
+  position:absolute; bottom:14px; right:16px;
+  font-size:10px; color:rgba(247,242,232,0.25);
+  font-family:'Inter',sans-serif; letter-spacing:.8px;
+}
+
+.vocab-back-meaning {
+  font-family:'Gowun Batang',serif;
+  font-size:22px; color:var(--ink);
+  margin-bottom:8px;
+}
+.vocab-back-example {
+  font-size:13px; color:var(--ink2);
+  font-family:'Noto Serif KR',serif;
+  font-weight:300; line-height:1.6; margin-bottom:8px;
+}
+.vocab-back-similar {
+  font-size:11px; color:var(--ink3);
+  font-family:'Noto Sans KR',sans-serif;
+  letter-spacing:.3px;
+}
+
+.vocab-learned-btn {
+  position:absolute; top:12px; right:12px;
+  background:none; border:1.5px solid var(--line);
+  border-radius:20px; padding:4px 12px;
+  font-size:11px; color:var(--ink3);
+  cursor:pointer; font-family:'Noto Sans KR',sans-serif;
+  transition:all .2s; font-weight:600;
+}
+.vocab-learned-btn:hover {
+  border-color:var(--green); color:var(--green);
+}
+.vocab-learned-btn.learned {
+  background:var(--green-p); color:var(--green);
+  border-color:var(--green);
+}
+
+/* ══════════════════════════════════════════
+   STEP 5 — 비슷한 표현
+══════════════════════════════════════════ */
+.expression-cards {
+  display:flex; flex-direction:column; gap:16px;
+  margin-bottom:24px;
+}
+.expression-card {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:16px; padding:22px 20px;
+  position:relative; overflow:hidden;
+}
+.expression-card.warm::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--brick-l), transparent);
+}
+.expression-card.literary::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--gold), transparent);
+}
+.register-badge {
+  display:inline-block;
+  padding:3px 10px; border-radius:12px;
+  font-size:10px; font-weight:700;
+  font-family:'Inter',sans-serif; letter-spacing:.8px;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.register-badge.conv {
+  background:rgba(182,94,60,0.15);
+  color:#D98060;
+  border:1px solid rgba(182,94,60,0.25);
+}
+.register-badge.lit {
+  background:rgba(160,120,40,0.15);
+  color:#C9A84C;
+  border:1px solid rgba(160,120,40,0.25);
+}
+.expression-ko {
+  font-family:'Gowun Batang',serif;
+  font-size:20px; color:var(--paper);
+  line-height:1.7; margin-bottom:8px;
+  letter-spacing:.3px;
+}
+.expression-en {
+  font-size:13px; color:rgba(247,242,232,0.5);
+  font-family:'Noto Serif KR',serif; font-weight:300;
+  line-height:1.6; margin-bottom:12px;
+  font-style:italic;
+}
+.expression-note {
+  font-size:12px; color:rgba(247,242,232,0.4);
+  line-height:1.7; font-family:'Noto Serif KR',serif;
+  font-weight:300;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+/* ══════════════════════════════════════════
+   STEP 6 — 내 문장 만들기
+══════════════════════════════════════════ */
+.prompt-card {
+  background:rgba(160,120,40,0.1);
+  border:1px solid rgba(160,120,40,0.22);
+  border-radius:14px; padding:18px 20px;
+  margin-bottom:18px;
+}
+.prompt-card-label {
+  font-size:10px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--gold);
+  font-family:'Inter',sans-serif; margin-bottom:8px;
+}
+.prompt-card-text {
+  font-family:'Noto Serif KR',serif;
+  font-size:15px; color:rgba(247,242,232,0.85);
+  line-height:1.7; font-weight:300;
+}
+.prompt-hint {
+  font-size:12px; color:rgba(247,242,232,0.35);
+  margin-top:8px; font-family:'Inter',sans-serif;
+  font-style:italic;
+}
+
+.user-textarea {
+  width:100%;
+  background:var(--paper);
+  border:2px solid var(--line);
+  border-radius:12px;
+  padding:16px 18px;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:18px; line-height:1.7;
+  color:var(--ink); resize:none;
+  min-height:100px;
+  transition:border-color .2s;
+  letter-spacing:.3px;
+  outline:none;
+}
+.user-textarea::placeholder {
+  color:rgba(46,42,38,0.2);
+  font-family:'Gowun Batang',serif;
+  animation:ghostPulse 3s ease-in-out infinite;
+}
+.user-textarea:focus {
+  border-color:var(--brick);
+  box-shadow:0 0 0 3px rgba(182,94,60,0.08);
+}
+
+.char-counter {
+  text-align:right; font-size:11px;
+  color:rgba(247,242,232,0.25);
+  font-family:'Inter',sans-serif;
+  margin-top:6px; margin-bottom:14px;
+}
+
+.starter-chips {
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-bottom:18px;
+}
+.starter-chip {
+  padding:7px 14px; border-radius:20px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  font-family:'Gowun Batang',serif;
+  font-size:13px; color:rgba(247,242,232,0.65);
+  cursor:pointer; transition:all .2s;
+}
+.starter-chip:hover {
+  background:rgba(255,255,255,0.12);
+  color:var(--paper);
+  border-color:rgba(255,255,255,0.2);
+}
+
+.feedback-box {
+  background:rgba(61,107,80,0.12);
+  border:1px solid rgba(61,107,80,0.25);
+  border-radius:12px;
+  padding:16px 18px;
+  margin-top:14px;
+  display:none;
+}
+.feedback-box.show { display:block; }
+.feedback-box-icon { font-size:20px; margin-bottom:6px; }
+.feedback-box-text {
+  font-size:13px; color:rgba(247,242,232,0.7);
+  font-family:'Noto Serif KR',serif;
+  font-weight:300; line-height:1.8;
+}
+
+.feedback-btn {
+  display:flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.06);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:12px; padding:12px 18px;
+  color:rgba(247,242,232,0.65);
+  font-size:13px; font-family:'Noto Sans KR',sans-serif;
+  font-weight:500; cursor:pointer;
+  transition:all .2s; margin-top:14px;
+  width:100%;
+}
+.feedback-btn:hover {
+  background:rgba(255,255,255,0.1);
+  border-color:rgba(255,255,255,0.2);
+  color:var(--paper);
+}
+
+/* ══════════════════════════════════════════
+   STEP 7 — 완성!
+══════════════════════════════════════════ */
+.completion-screen {
+  text-align:center; padding-top:8px;
+}
+
+.completion-bricks-anim {
+  position:relative; height:80px; overflow:hidden;
+  margin-bottom:24px;
+}
+.falling-brick {
+  position:absolute;
+  border-radius:3px;
+  animation:brickFloat 2s ease-in-out infinite;
+}
+@keyframes brickFloat {
+  0% { opacity:0; transform:translateY(60px) rotate(0deg); }
+  30% { opacity:1; }
+  70% { opacity:1; }
+  100% { opacity:0; transform:translateY(-20px) rotate(15deg); }
+}
+
+.completion-title {
+  font-family:'Gowun Batang',serif;
+  font-size:30px; color:var(--paper);
+  margin-bottom:6px; letter-spacing:.5px;
+}
+.completion-subtitle {
+  font-size:13px; color:rgba(247,242,232,0.4);
+  font-family:'Noto Serif KR',serif; font-weight:300;
+  margin-bottom:32px;
+}
+
+.brick-counter {
+  display:inline-flex; align-items:baseline; gap:6px;
+  background:rgba(182,94,60,0.15);
+  border:1px solid rgba(182,94,60,0.25);
+  border-radius:20px; padding:10px 24px;
+  margin-bottom:10px;
+}
+.brick-plus {
+  font-family:'Gowun Batang',serif;
+  font-size:32px; color:var(--brick);
+  font-weight:700;
+}
+.brick-unit {
+  font-size:16px; color:rgba(247,242,232,0.5);
+  font-family:'Noto Sans KR',sans-serif;
+}
+
+.brick-total {
+  font-size:12px; color:rgba(247,242,232,0.35);
+  font-family:'Inter',sans-serif; margin-bottom:28px;
+}
+
+.brick-wall {
+  display:grid; grid-template-columns:repeat(12,1fr);
+  gap:3px; max-width:240px; margin:0 auto 28px;
+}
+.wall-brick {
+  height:12px; border-radius:2px;
+  background:var(--brick);
+  opacity:.2;
+  transition:opacity .3s;
+}
+.wall-brick.filled { opacity:1; }
+.wall-brick.new-brick {
+  animation:brickAppear .4s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes brickAppear {
+  from { opacity:0; transform:scale(.6); }
+  to { opacity:1; transform:scale(1); }
+}
+
+.completion-sentence {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px; padding:24px 20px;
+  margin-bottom:20px;
+  text-align:left;
+}
+.completion-sentence-label {
+  font-size:10px; font-weight:700; letter-spacing:1.8px;
+  color:rgba(247,242,232,0.3); text-transform:uppercase;
+  font-family:'Inter',sans-serif; margin-bottom:10px;
+}
+.completion-sentence-text {
+  font-family:'Gowun Batang',serif;
+  font-size:22px; color:var(--paper);
+  line-height:1.7; letter-spacing:.5px;
+}
+.completion-sentence-en {
+  font-size:13px; color:rgba(247,242,232,0.35);
+  font-family:'Noto Serif KR',serif; font-weight:300;
+  margin-top:8px; font-style:italic;
+}
+
+.share-btn {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  width:100%; padding:14px;
+  background:rgba(255,255,255,0.07);
+  border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:14px; color:var(--paper);
+  font-size:14px; font-family:'Noto Sans KR',sans-serif;
+  font-weight:500; cursor:pointer; transition:all .2s;
+  margin-bottom:10px;
+}
+.share-btn:hover {
+  background:rgba(255,255,255,0.12);
+  border-color:rgba(255,255,255,0.2);
+}
+
+.tomorrow-card {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px; padding:18px 20px;
+  margin-bottom:20px; text-align:left;
+}
+.tomorrow-label {
+  font-size:10px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:rgba(247,242,232,0.25);
+  font-family:'Inter',sans-serif; margin-bottom:8px;
+}
+.tomorrow-sentence {
+  font-family:'Gowun Batang',serif;
+  font-size:16px; color:rgba(247,242,232,0.6);
+  line-height:1.7; letter-spacing:.3px;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (min-width:520px) {
+  .step { padding:36px 32px 80px; }
+  .sentence-main { font-size:32px; }
+  .vocab-card { height:190px; }
+}
+
+/* ══════════════════════════════════════════
+   UTILITY
+══════════════════════════════════════════ */
+.hidden { display:none !important; }
+.fade-in { animation:fadeIn .4s ease both; }
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(8px); }
+  to { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP NAV ══ -->
+<nav class="topnav">
+  <a href="index.html" class="nav-logo" aria-label="LetterBrick home">
+    <div class="logo-bricks">
+      <div class="logo-brick"></div>
+      <div class="logo-brick"></div>
+      <div class="logo-brick"></div>
+      <div class="logo-brick"></div>
+    </div>
+    <span class="nav-logo-text">레터<em>브릭</em></span>
+  </a>
+  <div class="nav-day">Day 29 · Week 5</div>
+  <div class="nav-streak">🔥 12</div>
+</nav>
+
+<!-- ══ STEP INDICATOR ══ -->
+<div class="step-indicator">
+  <button class="back-btn hidden" id="backBtn" onclick="goPrev()" aria-label="Previous step">
+    ← <span>뒤로</span>
+  </button>
+  <div class="step-dots" id="stepDots">
+    <div class="step-dot active" data-step="1" onclick="dotClick(1)"></div>
+    <div class="step-dot" data-step="2" onclick="dotClick(2)"></div>
+    <div class="step-dot" data-step="3" onclick="dotClick(3)"></div>
+    <div class="step-dot" data-step="4" onclick="dotClick(4)"></div>
+    <div class="step-dot" data-step="5" onclick="dotClick(5)"></div>
+    <div class="step-dot" data-step="6" onclick="dotClick(6)"></div>
+    <div class="step-dot" data-step="7" onclick="dotClick(7)"></div>
+  </div>
+  <div class="step-label" id="stepLabel">1 / 7</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     STEPS CONTAINER
+══════════════════════════════════════════ -->
+<div class="steps-container">
+
+  <!-- ═══ STEP 1 — 오늘의 문장 ═══ -->
+  <div class="step active" id="step1">
+    <div class="eyebrow">오늘의 문장 · Day 29</div>
+    <div class="step-title">Today's Sentence<small>오늘 배울 문장을 만나보세요</small></div>
+
+    <div class="sentence-card">
+      <div class="sentence-main">비 오는 날엔 따뜻한 게 생각나요.</div>
+      <div class="sentence-romanization">bi o-neun na-ren tta-deu-tan ge saeng-gang-na-yo</div>
+      <div class="translation-toggle">
+        <button class="translation-toggle-btn" onclick="toggleTranslation(this)" aria-label="Reveal English translation">
+          👁 Reveal
+        </button>
+        <span style="font-size:12px;color:rgba(247,242,232,0.3);font-family:'Inter',sans-serif;">English translation</span>
+      </div>
+      <div class="translation-text" id="translationText">
+        "On rainy days, I think of warm things."
+      </div>
+    </div>
+
+    <div class="context-box">
+      This sentence captures a mood — the feeling of wanting comfort when it rains. Very common in K-drama inner monologues, often spoken softly by a character gazing at a rainy window.
+    </div>
+
+    <div class="cultural-badge">
+      <div class="cultural-badge-icon">🌧️</div>
+      <div><strong style="color:rgba(247,242,232,0.75);">비 오는 날 (rainy days)</strong> are deeply tied to nostalgia in Korean culture — longing, warmth, and memory are all intertwined with the sound of rain.</div>
+    </div>
+
+    <button class="audio-btn" onclick="playAudio(this)">
+      <span>🔊</span>
+      <span>Listen</span>
+    </button>
+
+    <button class="primary-btn" onclick="goToStep(2)">I've read it →</button>
+  </div>
+
+  <!-- ═══ STEP 2 — 따라쓰기 ═══ -->
+  <div class="step" id="step2">
+    <div class="eyebrow">Step 2</div>
+    <div class="step-title">따라쓰기<small>Transcription — copy it carefully</small></div>
+
+    <div class="paper-card">
+      <p class="transcription-instruction">
+        Copy the sentence carefully. Feel each character as you write. Notice the rhythm and spacing.
+      </p>
+
+      <div class="reference-sentence" id="referenceBox">
+        <span>비 오는 날엔 따뜻한 게 생각나요.</span>
+        <button class="ref-toggle-btn" onclick="toggleReference()" id="refToggleBtn">숨기기</button>
+      </div>
+
+      <textarea
+        class="ko-textarea"
+        id="transcriptionInput"
+        placeholder="비 오는 날엔..."
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        rows="3"
+        oninput="checkTranscription()"
+        aria-label="Type the Korean sentence here"
+      ></textarea>
+
+      <div class="diff-display" id="diffDisplay" aria-live="polite"></div>
+      <div class="match-indicator idle" id="matchIndicator">
+        <span id="matchText">Start typing above...</span>
+      </div>
+
+      <div class="writing-mode-row">
+        <button class="mode-btn active" onclick="setMode('typing',this)">⌨ Typing</button>
+        <button class="mode-btn" onclick="setMode('hand',this)">✍ Handwriting</button>
+      </div>
+    </div>
+
+    <button class="primary-btn" id="step2NextBtn" disabled onclick="goToStep(3)">Next →</button>
+  </div>
+
+  <!-- ═══ STEP 3 — 구조 분석 ═══ -->
+  <div class="step" id="step3">
+    <div class="eyebrow">Step 3</div>
+    <div class="step-title">구조 분석<small>Let's understand the structure</small></div>
+
+    <div class="structure-sentence" id="structureSentence">
+      <div class="chunk-chip blue" onclick="toggleChunk(this)">
+        비 오는 날엔
+        <div class="chunk-popup">
+          <div class="chunk-popup-title">Subject phrase</div>
+          "On rainy days" — 비(rain) + 오는(coming/falling) + 날(day) + 엔(on/when)
+        </div>
+      </div>
+      <div class="chunk-chip gold" onclick="toggleChunk(this)">
+        따뜻한 게
+        <div class="chunk-popup">
+          <div class="chunk-popup-title">Object</div>
+          "warm things" — 따뜻한(warm, adj.) + 게(thing/nominalizer ← 것이 contracted)
+        </div>
+      </div>
+      <div class="chunk-chip brick" onclick="toggleChunk(this)">
+        생각나요
+        <div class="chunk-popup">
+          <div class="chunk-popup-title">Verb</div>
+          "comes to mind / I think of" — 생각(thought) + 나다(to come up/arise) + 요(polite ending)
+        </div>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-formula">[When X] + [something] + [verb]</div>
+      <p class="pattern-note">A very common K-drama structure for expressing feelings tied to a moment. The "when" sets the scene; the feeling follows naturally.</p>
+      <p class="pattern-english">→ "On rainy days, (warm things) come to mind."</p>
+    </div>
+
+    <div class="context-box">
+      <strong style="color:rgba(247,242,232,0.6);">Try it yourself later:</strong> swap 비 오는 (rainy) for 봄이 오면 (when spring comes) or 음악을 들으면 (when I listen to music).
+    </div>
+
+    <button class="primary-btn" onclick="goToStep(4)">Got it →</button>
+  </div>
+
+  <!-- ═══ STEP 4 — 핵심 어휘 ═══ -->
+  <div class="step" id="step4">
+    <div class="eyebrow">Step 4</div>
+    <div class="step-title">핵심 어휘<small>Key Vocabulary — tap each card to flip</small></div>
+
+    <div class="vocab-cards-container">
+
+      <!-- Card 1 -->
+      <div class="vocab-card-wrapper">
+        <div class="vocab-card" id="vocabCard1" onclick="flipCard(1)">
+          <div class="vocab-card-face vocab-card-front">
+            <div class="vocab-word">비</div>
+            <div class="vocab-romanization">bi</div>
+            <div class="vocab-flip-hint">TAP TO FLIP ↻</div>
+          </div>
+          <div class="vocab-card-face vocab-card-back">
+            <button class="vocab-learned-btn" id="learnedBtn1" onclick="markLearned(event,1)">Mark learned</button>
+            <div class="vocab-back-meaning">rain</div>
+            <div class="vocab-back-example">비가 와요. — It's raining.</div>
+            <div class="vocab-back-similar">Similar: 눈 (snow) · 바람 (wind)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="vocab-card-wrapper">
+        <div class="vocab-card" id="vocabCard2" onclick="flipCard(2)">
+          <div class="vocab-card-face vocab-card-front">
+            <div class="vocab-word">따뜻하다</div>
+            <div class="vocab-romanization">tta-deu-ta-da</div>
+            <div class="vocab-flip-hint">TAP TO FLIP ↻</div>
+          </div>
+          <div class="vocab-card-face vocab-card-back">
+            <button class="vocab-learned-btn" id="learnedBtn2" onclick="markLearned(event,2)">Mark learned</button>
+            <div class="vocab-back-meaning">to be warm</div>
+            <div class="vocab-back-example">오늘 날씨가 따뜻해요. — Today's weather is warm.</div>
+            <div class="vocab-back-similar">Antonym: 차갑다 (cold, to touch) · 춥다 (cold, weather)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="vocab-card-wrapper">
+        <div class="vocab-card" id="vocabCard3" onclick="flipCard(3)">
+          <div class="vocab-card-face vocab-card-front">
+            <div class="vocab-word">생각나다</div>
+            <div class="vocab-romanization">saeng-gang-na-da</div>
+            <div class="vocab-flip-hint">TAP TO FLIP ↻</div>
+          </div>
+          <div class="vocab-card-face vocab-card-back">
+            <button class="vocab-learned-btn" id="learnedBtn3" onclick="markLearned(event,3)">Mark learned</button>
+            <div class="vocab-back-meaning">to come to mind, to remember</div>
+            <div class="vocab-back-example">갑자기 생각났어요. — It suddenly came to mind.</div>
+            <div class="vocab-back-similar">Similar: 기억나다 (to remember) · 그리워지다 (to miss)</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p id="vocabProgress" style="text-align:center;font-size:12px;color:rgba(247,242,232,0.35);font-family:'Inter',sans-serif;margin-bottom:4px;">0 / 3 marked learned</p>
+    <button class="primary-btn" id="step4NextBtn" onclick="goToStep(5)">Continue →</button>
+  </div>
+
+  <!-- ═══ STEP 5 — 비슷한 표현 ═══ -->
+  <div class="step" id="step5">
+    <div class="eyebrow">Step 5</div>
+    <div class="step-title">비슷한 표현<small>Two ways to say it differently</small></div>
+
+    <div class="expression-cards">
+
+      <div class="expression-card warm">
+        <div class="register-badge conv">Conversational</div>
+        <div class="expression-ko">눈 오는 날엔 조용한 게 좋아요.</div>
+        <div class="expression-en">"On snowy days, I like quiet things."</div>
+        <div class="expression-note">
+          Same structure — swap <strong style="color:rgba(247,242,232,0.55);">비 (rain)</strong> for <strong style="color:rgba(247,242,232,0.55);">눈 (snow)</strong>, and express a different feeling. Notice how the pattern is completely reusable.
+        </div>
+      </div>
+
+      <div class="expression-card literary">
+        <div class="register-badge lit">Literary · K-drama</div>
+        <div class="expression-ko">비가 내리는 날이면 그리움이 밀려와요.</div>
+        <div class="expression-en">"On days when rain falls, longing washes over me."</div>
+        <div class="expression-note">
+          More poetic register — <strong style="color:rgba(247,242,232,0.55);">그리움 (longing/yearning)</strong> + <strong style="color:rgba(247,242,232,0.55);">밀려오다 (to wash over, to surge)</strong>. Often heard in K-drama voiceovers.
+        </div>
+      </div>
+
+    </div>
+
+    <button class="primary-btn" onclick="goToStep(6)">I see the difference →</button>
+  </div>
+
+  <!-- ═══ STEP 6 — 내 문장 만들기 ═══ -->
+  <div class="step" id="step6">
+    <div class="eyebrow">Step 6</div>
+    <div class="step-title">내 문장 만들기<small>Now write YOUR sentence</small></div>
+
+    <div class="prompt-card">
+      <div class="prompt-card-label">오늘의 구조</div>
+      <div class="prompt-card-text">Use today's structure:<br><strong style="color:var(--gold);">[When ___], [something] comes to mind.</strong></div>
+      <div class="prompt-hint">Try: 봄이 오면... (When spring comes...) · 음악을 들으면... (When I listen to music...)</div>
+    </div>
+
+    <div class="starter-chips">
+      <div class="starter-chip" onclick="insertStarter('봄이 오면 ')">봄이 오면</div>
+      <div class="starter-chip" onclick="insertStarter('음악을 들으면 ')">음악을 들으면</div>
+      <div class="starter-chip" onclick="insertStarter('사진을 보면 ')">사진을 보면</div>
+      <div class="starter-chip" onclick="insertStarter('혼자 있을 때 ')">혼자 있을 때</div>
+    </div>
+
+    <textarea
+      class="user-textarea"
+      id="userSentenceInput"
+      placeholder="비 오는 날엔..."
+      spellcheck="false"
+      autocomplete="off"
+      rows="4"
+      oninput="updateCharCounter()"
+      aria-label="Write your own Korean sentence"
+    ></textarea>
+    <div class="char-counter"><span id="charCount">0</span> 자</div>
+
+    <button class="feedback-btn" onclick="getFeedback()">
+      <span>✨</span>
+      <span>Get feedback →</span>
+    </button>
+
+    <div class="feedback-box" id="feedbackBox">
+      <div class="feedback-box-icon" id="feedbackIcon">✨</div>
+      <div class="feedback-box-text" id="feedbackText"></div>
+    </div>
+
+    <button class="primary-btn" id="step6NextBtn" onclick="goToStep(7)" style="margin-top:24px;">Complete ✓</button>
+  </div>
+
+  <!-- ═══ STEP 7 — 완성! ═══ -->
+  <div class="step" id="step7">
+    <div class="completion-screen">
+
+      <div class="completion-bricks-anim" id="bricksAnim"></div>
+
+      <div class="completion-title">오늘 벽돌 완성! 🧱</div>
+      <div class="completion-subtitle">Day 29 complete — great work today</div>
+
+      <div style="margin-bottom:6px;">
+        <div class="brick-counter">
+          <span class="brick-plus" id="brickCountDisplay">+0</span>
+          <span class="brick-unit">벽돌</span>
+        </div>
+      </div>
+      <div class="brick-total">누적 <strong id="totalBricks">145</strong>개</div>
+
+      <div class="brick-wall" id="brickWall"></div>
+
+      <div class="completion-sentence">
+        <div class="completion-sentence-label">오늘의 문장</div>
+        <div class="completion-sentence-text">비 오는 날엔 따뜻한 게 생각나요.</div>
+        <div class="completion-sentence-en">"On rainy days, I think of warm things."</div>
+      </div>
+
+      <button class="share-btn" onclick="shareToday()">
+        <span>📤</span>
+        <span>Share today's sentence</span>
+      </button>
+
+      <div class="tomorrow-card">
+        <div class="tomorrow-label">Tomorrow · Day 30</div>
+        <div class="tomorrow-sentence">처음엔 어렵지만 하다 보면 달라져요.</div>
+        <div style="font-size:12px;color:rgba(247,242,232,0.25);font-family:'Inter',sans-serif;margin-top:6px;font-style:italic;">"At first it's hard, but if you keep doing it, things change."</div>
+      </div>
+
+      <button class="primary-btn" onclick="returnToHome()" style="background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.12);">
+        See you tomorrow →
+      </button>
+
+    </div>
+  </div>
+
+</div><!-- /steps-container -->
+
+<script>
+/* ══════════════════════════════════════════
+   STATE
+══════════════════════════════════════════ */
+const TOTAL_STEPS = 7;
+const TARGET_SENTENCE = '비 오는 날엔 따뜻한 게 생각나요.';
+
+let currentStep = 1;
+let previousStep = 0;
+let learnedCards = new Set();
+let transcriptionMatched = false;
+let brickAnimDone = false;
+
+/* ══════════════════════════════════════════
+   STEP NAVIGATION
+══════════════════════════════════════════ */
+function goToStep(n, direction) {
+  if (n < 1 || n > TOTAL_STEPS) return;
+  if (n === currentStep) return;
+
+  const dir = direction !== undefined ? direction : (n > currentStep ? 'forward' : 'back');
+  const outClass = dir === 'forward' ? 'slide-out-left' : 'slide-out-right';
+  const inClass  = dir === 'forward' ? 'slide-in-right' : 'slide-in-left';
+
+  const fromEl = document.getElementById('step' + currentStep);
+  const toEl   = document.getElementById('step' + n);
+
+  // mark completed dots for previous step
+  updateDots(n);
+
+  // Animate out
+  fromEl.classList.add(outClass);
+  fromEl.addEventListener('animationend', function handler() {
+    fromEl.classList.remove('active', outClass);
+    fromEl.removeEventListener('animationend', handler);
+
+    // Animate in
+    toEl.classList.add('active', inClass);
+    toEl.addEventListener('animationend', function h2() {
+      toEl.classList.remove(inClass);
+      toEl.removeEventListener('animationend', h2);
+    });
+
+    // Step-specific init
+    onStepEnter(n);
+  });
+
+  previousStep = currentStep;
+  currentStep = n;
+  updateUI();
+}
+
+function goPrev() {
+  if (currentStep > 1) goToStep(currentStep - 1, 'back');
+}
+
+function dotClick(n) {
+  if (n <= currentStep) goToStep(n, 'back');
+}
+
+function updateDots(nextStep) {
+  const dots = document.querySelectorAll('.step-dot');
+  dots.forEach((dot, i) => {
+    const s = i + 1;
+    dot.classList.remove('active', 'completed');
+    if (s < nextStep) dot.classList.add('completed');
+    else if (s === nextStep) dot.classList.add('active');
+  });
+}
+
+function updateUI() {
+  // back button
+  const bb = document.getElementById('backBtn');
+  if (currentStep > 1) {
+    bb.classList.remove('hidden');
+  } else {
+    bb.classList.add('hidden');
+  }
+  // label
+  document.getElementById('stepLabel').textContent = currentStep + ' / ' + TOTAL_STEPS;
+  // scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function onStepEnter(n) {
+  if (n === 7) {
+    initCompletion();
+  }
+}
+
+/* ══════════════════════════════════════════
+   STEP 1 — Translation toggle & Audio
+══════════════════════════════════════════ */
+function toggleTranslation(btn) {
+  const text = document.getElementById('translationText');
+  const isRevealed = text.classList.contains('revealed');
+  text.classList.toggle('revealed', !isRevealed);
+  btn.textContent = isRevealed ? '👁 Reveal' : '🙈 Hide';
+}
+
+function playAudio(btn) {
+  btn.innerHTML = '<span>⏸</span><span>Playing…</span>';
+  setTimeout(() => {
+    btn.innerHTML = '<span>🔊</span><span>Listen</span>';
+  }, 2200);
+}
+
+/* ══════════════════════════════════════════
+   STEP 2 — Transcription checker
+══════════════════════════════════════════ */
+function normalizeKorean(str) {
+  return str.normalize('NFC');
+}
+
+function checkTranscription() {
+  const input = document.getElementById('transcriptionInput');
+  const raw = normalizeKorean(input.value);
+  const target = normalizeKorean(TARGET_SENTENCE);
+
+  const diffEl  = document.getElementById('diffDisplay');
+  const matchEl = document.getElementById('matchIndicator');
+  const matchTx = document.getElementById('matchText');
+  const nextBtn  = document.getElementById('step2NextBtn');
+
+  if (raw.length === 0) {
+    diffEl.innerHTML = '';
+    matchEl.className = 'match-indicator idle';
+    matchTx.textContent = 'Start typing above...';
+    nextBtn.disabled = true;
+    transcriptionMatched = false;
+    return;
+  }
+
+  // Build diff
+  let html = '';
+  const maxLen = Math.max(raw.length, target.length);
+  let allCorrect = true;
+  for (let i = 0; i < maxLen; i++) {
+    if (i >= raw.length) {
+      html += '<span class="diff-pending">' + escHtml(target[i]) + '</span>';
+      allCorrect = false;
+    } else if (i >= target.length) {
+      html += '<span class="diff-wrong">' + escHtml(raw[i]) + '</span>';
+      allCorrect = false;
+    } else if (raw[i] === target[i]) {
+      html += '<span class="diff-correct">' + escHtml(raw[i]) + '</span>';
+    } else {
+      html += '<span class="diff-wrong">' + escHtml(raw[i]) + '</span>';
+      allCorrect = false;
+    }
+  }
+
+  // Exact match check
+  const isExact = (raw === target);
+  diffEl.innerHTML = html;
+
+  if (isExact) {
+    matchEl.className = 'match-indicator perfect';
+    matchTx.textContent = '✓ Perfect match!';
+    nextBtn.disabled = false;
+    transcriptionMatched = true;
+  } else if (raw.length > 0) {
+    const correctChars = [...raw].filter((c, i) => c === target[i]).length;
+    const pct = Math.round(correctChars / target.length * 100);
+    matchEl.className = 'match-indicator partial';
+    matchTx.textContent = pct + '% — keep going…';
+    nextBtn.disabled = true;
+  }
+}
+
+function escHtml(char) {
+  return char.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toggleReference() {
+  const box = document.getElementById('referenceBox');
+  const btn = document.getElementById('refToggleBtn');
+  const span = box.querySelector('span');
+  if (span.style.opacity === '0') {
+    span.style.opacity = '1';
+    btn.textContent = '숨기기';
+  } else {
+    span.style.opacity = '0';
+    btn.textContent = '보이기';
+  }
+}
+
+function setMode(mode, btn) {
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  if (mode === 'hand') {
+    const input = document.getElementById('transcriptionInput');
+    input.disabled = true;
+    input.placeholder = '(handwriting mode — photo upload coming soon)';
+    input.style.opacity = '.4';
+  } else {
+    const input = document.getElementById('transcriptionInput');
+    input.disabled = false;
+    input.placeholder = '비 오는 날엔...';
+    input.style.opacity = '1';
+  }
+}
+
+/* ══════════════════════════════════════════
+   STEP 3 — Structure chunk popups
+══════════════════════════════════════════ */
+function toggleChunk(el) {
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.chunk-chip').forEach(c => c.classList.remove('active'));
+  if (!wasActive) el.classList.add('active');
+}
+
+// Close popup when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.chunk-chip')) {
+    document.querySelectorAll('.chunk-chip').forEach(c => c.classList.remove('active'));
+  }
+});
+
+/* ══════════════════════════════════════════
+   STEP 4 — Vocab card flip & learned tracking
+══════════════════════════════════════════ */
+function flipCard(n) {
+  const card = document.getElementById('vocabCard' + n);
+  card.classList.toggle('flipped');
+}
+
+function markLearned(evt, n) {
+  evt.stopPropagation();
+  const btn = document.getElementById('learnedBtn' + n);
+  if (learnedCards.has(n)) {
+    learnedCards.delete(n);
+    btn.textContent = 'Mark learned';
+    btn.classList.remove('learned');
+  } else {
+    learnedCards.add(n);
+    btn.textContent = '✓ Learned';
+    btn.classList.add('learned');
+  }
+  updateVocabProgress();
+}
+
+function updateVocabProgress() {
+  const prog = document.getElementById('vocabProgress');
+  prog.textContent = learnedCards.size + ' / 3 marked learned';
+  // Allow continuing even if not all marked
+}
+
+/* ══════════════════════════════════════════
+   STEP 6 — Creative sentence
+══════════════════════════════════════════ */
+function insertStarter(text) {
+  const ta = document.getElementById('userSentenceInput');
+  const start = ta.selectionStart;
+  const end   = ta.selectionEnd;
+  const val   = ta.value;
+  // If textarea is empty or at beginning, just set
+  if (val.length === 0) {
+    ta.value = text;
+  } else {
+    ta.value = val.substring(0, start) + text + val.substring(end);
+  }
+  ta.focus();
+  const pos = ta.value.indexOf(text) + text.length;
+  ta.setSelectionRange(pos, pos);
+  updateCharCounter();
+}
+
+function updateCharCounter() {
+  const val = document.getElementById('userSentenceInput').value;
+  document.getElementById('charCount').textContent = val.length;
+}
+
+function hasKorean(str) {
+  return /[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]/.test(str);
+}
+
+function getFeedback() {
+  const input = document.getElementById('userSentenceInput').value.trim();
+  const box = document.getElementById('feedbackBox');
+  const icon = document.getElementById('feedbackIcon');
+  const text = document.getElementById('feedbackText');
+
+  if (input.length === 0) {
+    box.className = 'feedback-box show';
+    box.style.background = 'rgba(182,94,60,0.1)';
+    box.style.borderColor = 'rgba(182,94,60,0.2)';
+    icon.textContent = '💭';
+    text.textContent = '문장을 먼저 써보세요! Write something first — even a fragment is great.';
+    return;
+  }
+
+  box.style.background = '';
+  box.style.borderColor = '';
+
+  if (hasKorean(input)) {
+    // Check if it uses the learned structure cues
+    const usesWhen = /면|때|날엔|날이면/.test(input);
+    const usesFeeling = /생각|기억|그리|느낌|좋|싫/.test(input);
+
+    if (usesWhen && usesFeeling) {
+      icon.textContent = '✨';
+      text.innerHTML = '<strong style="color:rgba(247,242,232,0.8);">좋아요!</strong> Your sentence uses today\'s structure beautifully — a "when" condition followed by a feeling or memory. The pattern is becoming yours. 잘했어요!';
+    } else if (usesWhen) {
+      icon.textContent = '👍';
+      text.innerHTML = '<strong style="color:rgba(247,242,232,0.8);">잘 했어요!</strong> Nice use of a conditional — you set the scene well. Try adding what comes to mind or how you feel in that moment.';
+    } else if (hasKorean(input)) {
+      icon.textContent = '🌱';
+      text.innerHTML = 'Good start with Korean characters! Try opening with a "when" phrase like <em>봄이 오면...</em> to use today\'s structure fully. You\'re building the habit — keep going!';
+    }
+  } else {
+    icon.textContent = '🇰🇷';
+    text.innerHTML = 'It looks like you wrote in English — try writing in Korean! Even simple words work. Start with a starter chip above if you need a boost.';
+  }
+
+  box.className = 'feedback-box show fade-in';
+}
+
+/* ══════════════════════════════════════════
+   STEP 7 — Completion animations
+══════════════════════════════════════════ */
+function initCompletion() {
+  if (brickAnimDone) return;
+  brickAnimDone = true;
+
+  // Falling bricks animation
+  spawnFallingBricks();
+
+  // Animated brick counter
+  animateBrickCount(5, 1200);
+
+  // Brick wall
+  buildBrickWall(145, 5);
+}
+
+function spawnFallingBricks() {
+  const container = document.getElementById('bricksAnim');
+  const colors = [
+    'var(--brick)', 'var(--brick-d)', '#C4784F',
+    'var(--gold)', 'rgba(182,94,60,0.4)'
+  ];
+  for (let i = 0; i < 18; i++) {
+    const brick = document.createElement('div');
+    brick.className = 'falling-brick';
+    const w = 12 + Math.random() * 18;
+    const h = 7 + Math.random() * 6;
+    brick.style.cssText = [
+      'width:' + w + 'px',
+      'height:' + h + 'px',
+      'left:' + (Math.random() * 90) + '%',
+      'top:' + (20 + Math.random() * 40) + 'px',
+      'background:' + colors[Math.floor(Math.random() * colors.length)],
+      'animation-delay:' + (Math.random() * 2) + 's',
+      'animation-duration:' + (1.4 + Math.random() * 1.4) + 's',
+      'animation-iteration-count:infinite'
+    ].join(';');
+    container.appendChild(brick);
+  }
+}
+
+function animateBrickCount(target, duration) {
+  const el = document.getElementById('brickCountDisplay');
+  let start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const val = Math.floor(progress * target);
+    el.textContent = '+' + val;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = '+' + target;
+  }
+  requestAnimationFrame(step);
+}
+
+function buildBrickWall(total, newCount) {
+  const wall = document.getElementById('brickWall');
+  wall.innerHTML = '';
+  const totalDisplay = Math.min(total, 48); // show up to 48 bricks
+  for (let i = 0; i < totalDisplay; i++) {
+    const b = document.createElement('div');
+    b.className = 'wall-brick filled';
+    // New bricks get special animation
+    if (i >= totalDisplay - newCount) {
+      b.classList.add('new-brick');
+      b.style.animationDelay = ((i - (totalDisplay - newCount)) * 0.1) + 's';
+      b.style.background = 'var(--gold)';
+    }
+    wall.appendChild(b);
+  }
+}
+
+function shareToday() {
+  const text = 'Day 29 · LetterBrick Korean\n\n비 오는 날엔 따뜻한 게 생각나요.\n"On rainy days, I think of warm things."\n\n🔥 12-day streak #LetterBrick #LearnKorean';
+  if (navigator.share) {
+    navigator.share({ text: text }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.share-btn span:last-child');
+      const orig = btn.textContent;
+      btn.textContent = 'Copied to clipboard!';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    }).catch(() => {
+      alert(text);
+    });
+  }
+}
+
+function returnToHome() {
+  window.location.href = 'index.html';
+}
+
+/* ══════════════════════════════════════════
+   INIT
+══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  updateUI();
+  updateDots(1);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2E2A26">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="LetterBrick Korean Level Test — Find your Korean level in minutes.">
+<meta property="og:title" content="Korean Level Test · LetterBrick">
+<meta property="og:description" content="Find your Korean level in minutes. 25 questions + writing challenge for K-content fans.">
+<title>Korean Level Test · LetterBrick</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════
+   DESIGN TOKENS
+══════════════════════════════════ */
+:root {
+  --paper:#F7F2E8; --paper2:#EDE7D6; --paper3:#FAF7F2;
+  --ink:#2E2A26; --ink2:#5C5248; --ink3:#9A9089;
+  --brick:#B65E3C; --brick-d:#8F4A2E; --brick-l:#F2E4DA; --brick-p:#FAF0EB;
+  --line:#D8D0C0; --line2:#EAE3D6;
+  --gold:#A07828; --gold-p:#F5EDD0;
+  --green:#3D6B50; --green-p:#D8EADF;
+  --red-p:#FCE8E3; --red:#C0392B;
+  --shadow:rgba(46,42,38,0.10);
+}
+
+/* ══════════════════════════════════
+   RESET & BASE
+══════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Sans KR',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+  display:flex;
+  justify-content:center;
+}
+
+/* paper grain overlay */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* brick grid subtle bg */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 18px,rgba(182,94,60,0.03) 18px,rgba(182,94,60,0.03) 19px),
+    repeating-linear-gradient(90deg,transparent,transparent 36px,rgba(182,94,60,0.03) 36px,rgba(182,94,60,0.03) 37px);
+}
+
+#app{
+  width:100%;max-width:480px;
+  min-height:100vh;
+  padding:0 20px;
+  position:relative;
+  z-index:1;
+}
+
+/* ══════════════════════════════════
+   SCREEN SYSTEM
+══════════════════════════════════ */
+.screen{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  padding:80px 0 60px;
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+.screen.active{display:flex;}
+.screen.visible{opacity:1;}
+
+/* ══════════════════════════════════
+   STICKY PHASE INDICATOR
+══════════════════════════════════ */
+#phase-bar{
+  position:fixed;top:0;left:0;right:0;
+  display:flex;justify-content:center;
+  padding:14px 0 12px;
+  background:linear-gradient(180deg,var(--paper) 70%,transparent);
+  z-index:200;
+  opacity:0;transition:opacity 0.4s ease;
+}
+#phase-bar.show{opacity:1;}
+.phase-track{
+  display:flex;align-items:center;gap:8px;
+  font-family:'Inter',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:.5px;
+  color:var(--ink3);
+}
+.phase-dot{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid var(--line);
+  background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:600;color:var(--ink3);
+  transition:all .4s ease;
+}
+.phase-dot.active{
+  border-color:var(--brick);background:var(--brick);color:#fff;
+  box-shadow:0 0 0 4px var(--brick-l);
+}
+.phase-dot.done{
+  border-color:var(--green);background:var(--green);color:#fff;
+}
+.phase-line{
+  width:28px;height:1.5px;
+  background:var(--line);border-radius:1px;
+  transition:background .4s ease;
+}
+.phase-line.done{background:var(--green);}
+.phase-label{font-size:10px;letter-spacing:.3px;}
+
+/* ══════════════════════════════════
+   QUIZ PROGRESS BAR
+══════════════════════════════════ */
+#quiz-progress{
+  position:fixed;top:54px;left:0;right:0;
+  display:flex;justify-content:center;
+  padding:0 20px;
+  z-index:190;
+  opacity:0;transition:opacity .4s;
+}
+#quiz-progress.show{opacity:1;}
+.qpbar-wrap{
+  width:100%;max-width:440px;
+  height:3px;background:var(--line2);border-radius:2px;overflow:hidden;
+}
+.qpbar-fill{
+  height:100%;background:var(--brick);border-radius:2px;
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+  width:0%;
+}
+
+/* ══════════════════════════════════
+   INTRO SCREEN
+══════════════════════════════════ */
+#screen-intro{
+  justify-content:center;
+  text-align:center;
+}
+
+.intro-bricks{
+  display:flex;gap:3px;margin-bottom:28px;
+  animation:fadeUp .7s .1s ease both;
+}
+.ib{
+  width:14px;height:10px;border-radius:2px;
+  background:var(--brick);
+}
+.ib:nth-child(1){opacity:.6;}
+.ib:nth-child(2){opacity:.4;margin-top:5px;}
+.ib:nth-child(3){opacity:.95;}
+.ib:nth-child(4){opacity:.5;margin-top:5px;}
+.ib:nth-child(5){opacity:.7;}
+
+.intro-logo{
+  font-family:'Gowun Batang',serif;font-size:17px;letter-spacing:1.5px;
+  color:var(--ink3);margin-bottom:40px;
+  animation:fadeUp .7s .2s ease both;
+}
+.intro-logo em{color:var(--brick);font-style:normal;}
+
+.intro-eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--brick);font-weight:600;
+  margin-bottom:16px;
+  animation:fadeUp .7s .3s ease both;
+}
+
+.intro-title{
+  font-family:'Gowun Batang',serif;
+  font-size:30px;font-weight:700;line-height:1.4;
+  color:var(--ink);margin-bottom:6px;
+  animation:fadeUp .7s .35s ease both;
+}
+
+.intro-sub-en{
+  font-family:'Inter',sans-serif;
+  font-size:15px;font-weight:300;color:var(--ink3);
+  letter-spacing:.2px;margin-bottom:36px;
+  animation:fadeUp .7s .4s ease both;
+}
+
+.intro-cards{
+  display:flex;flex-direction:column;gap:12px;
+  width:100%;margin-bottom:40px;
+  animation:fadeUp .7s .45s ease both;
+}
+.intro-card{
+  background:var(--paper3);border:1.5px solid var(--line2);
+  border-radius:14px;padding:16px 20px;
+  display:flex;align-items:center;gap:14px;
+  text-align:left;
+}
+.ic-num{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--brick-l);border:1px solid var(--brick-l);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:700;
+  color:var(--brick);flex-shrink:0;
+}
+.ic-text{flex:1;}
+.ic-title{
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;
+  color:var(--ink);margin-bottom:2px;
+}
+.ic-desc{
+  font-size:12px;color:var(--ink3);font-weight:300;
+}
+
+.btn-start{
+  padding:17px 52px;
+  background:var(--brick);color:#fff;
+  border:none;border-radius:40px;
+  font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+  box-shadow:0 4px 16px rgba(182,94,60,.25);
+  animation:fadeUp .7s .55s ease both;
+}
+.btn-start:hover{
+  background:var(--brick-d);
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(182,94,60,.35);
+}
+.btn-start:active{transform:translateY(0);}
+
+.intro-note{
+  margin-top:16px;font-family:'Inter',sans-serif;
+  font-size:11px;color:var(--ink3);font-weight:300;
+  animation:fadeUp .7s .6s ease both;
+}
+
+/* ══════════════════════════════════
+   QUIZ SCREEN
+══════════════════════════════════ */
+#screen-quiz{
+  justify-content:flex-start;
+  padding-top:90px;
+}
+
+.quiz-meta{
+  width:100%;display:flex;align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.quiz-cat-badge{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;padding:5px 12px;border-radius:20px;
+  background:var(--brick-l);color:var(--brick);
+}
+.quiz-counter{
+  font-family:'Inter',sans-serif;
+  font-size:11px;color:var(--ink3);font-weight:400;
+}
+
+.quiz-question-wrap{
+  width:100%;margin-bottom:28px;
+}
+.quiz-q{
+  font-family:'Gowun Batang',serif;
+  font-size:20px;font-weight:700;color:var(--ink);
+  line-height:1.5;
+}
+
+/* Reading passage */
+.reading-passage{
+  background:var(--paper2);
+  border:1.5px solid var(--line);
+  border-radius:14px;
+  padding:20px 22px;
+  margin-bottom:8px;
+  font-family:'Noto Serif KR',serif;
+  font-size:16px;line-height:1.9;
+  color:var(--ink);
+  letter-spacing:.3px;
+}
+.passage-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Inter',sans-serif;font-size:12px;
+  color:var(--brick);font-weight:500;
+  cursor:pointer;border:none;background:none;
+  padding:6px 0;margin-bottom:20px;
+  text-decoration:underline;text-underline-offset:3px;
+}
+.passage-translation{
+  font-family:'Inter',sans-serif;font-size:13px;
+  color:var(--ink2);font-style:italic;line-height:1.7;
+  padding:12px 16px;
+  background:var(--gold-p);border-radius:10px;
+  margin-bottom:16px;
+  display:none;
+}
+
+/* Answer options */
+.options{
+  width:100%;display:flex;flex-direction:column;gap:11px;
+}
+.option{
+  width:100%;padding:16px 20px;
+  background:var(--paper3);
+  border:1.5px solid var(--line2);
+  border-radius:14px;cursor:pointer;
+  transition:all .25s ease;
+  display:flex;align-items:center;gap:14px;
+  text-align:left;position:relative;overflow:hidden;
+}
+.option::after{
+  content:'';position:absolute;inset:0;
+  background:var(--brick-p);opacity:0;
+  transition:opacity .25s ease;
+}
+.option:hover{
+  border-color:var(--brick);
+  transform:translateX(3px);
+  box-shadow:0 4px 16px var(--shadow);
+}
+.option:hover::after{opacity:1;}
+.option:active{transform:translateX(0);}
+.opt-letter{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  color:var(--ink3);flex-shrink:0;
+  transition:all .25s ease;
+  position:relative;z-index:1;
+}
+.opt-text{
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:14px;color:var(--ink);line-height:1.5;
+  position:relative;z-index:1;
+  word-break:keep-all;
+}
+
+/* Korean text in options */
+.opt-ko{
+  font-family:'Noto Serif KR',serif;
+  font-size:15px;
+}
+
+/* Correct flash */
+.option.correct{
+  border-color:var(--green) !important;
+  background:var(--green-p) !important;
+  transform:none !important;
+}
+.option.correct::after{opacity:0 !important;}
+.option.correct .opt-letter{
+  background:var(--green);border-color:var(--green);color:#fff;
+}
+
+/* Wrong flash */
+.option.wrong{
+  border-color:var(--red) !important;
+  background:var(--red-p) !important;
+  transform:none !important;
+  opacity:.85;
+}
+.option.wrong::after{opacity:0 !important;}
+.option.wrong .opt-letter{
+  background:var(--red);border-color:var(--red);color:#fff;
+}
+
+/* Disabled state after answer */
+.option.disabled{
+  cursor:default;
+  pointer-events:none;
+}
+.option.dimmed{opacity:.4;}
+
+/* Quiz entrance/exit */
+.quiz-block{transition:opacity .3s ease,transform .3s ease;}
+.quiz-block.exit{opacity:0;transform:translateX(-20px);}
+.quiz-block.enter{animation:quizIn .35s ease both;}
+@keyframes quizIn{
+  from{opacity:0;transform:translateX(20px);}
+  to{opacity:1;transform:translateX(0);}
+}
+
+/* ══════════════════════════════════
+   PHASE 2 — WRITING CHALLENGE
+══════════════════════════════════ */
+#screen-writing{
+  justify-content:flex-start;
+  padding-top:88px;
+}
+
+.writing-header{
+  width:100%;text-align:center;margin-bottom:32px;
+}
+.challenge-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--gold-p);border:1px solid var(--gold);
+  border-radius:20px;padding:6px 16px;
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;
+}
+.writing-title{
+  font-family:'Gowun Batang',serif;
+  font-size:24px;font-weight:700;color:var(--ink);
+  line-height:1.5;margin-bottom:8px;
+}
+.writing-subtitle{
+  font-family:'Inter',sans-serif;
+  font-size:13px;color:var(--ink3);font-weight:300;
+  line-height:1.7;
+}
+
+.writing-prompts{
+  width:100%;display:flex;flex-direction:column;gap:20px;
+  margin-bottom:32px;
+}
+.prompt-card{
+  background:var(--paper3);
+  border:1.5px solid var(--line2);
+  border-radius:16px;padding:22px 20px;
+}
+.prompt-num{
+  font-family:'Inter',sans-serif;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;color:var(--brick);margin-bottom:8px;
+}
+.prompt-en{
+  font-family:'Inter',sans-serif;
+  font-size:15px;font-weight:600;color:var(--ink);
+  margin-bottom:6px;line-height:1.4;
+}
+.prompt-hint{
+  font-family:'Noto Serif KR',serif;
+  font-size:13px;color:var(--ink3);margin-bottom:14px;
+  line-height:1.6;
+}
+.prompt-textarea{
+  width:100%;
+  min-height:72px;
+  padding:14px 16px;
+  background:var(--paper2);
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  font-family:'Noto Serif KR',serif;
+  font-size:16px;line-height:1.8;
+  color:var(--ink);
+  resize:none;
+  outline:none;
+  transition:border-color .3s ease,box-shadow .3s ease;
+  /* paper texture on textarea */
+  background-image:repeating-linear-gradient(
+    transparent,transparent 27px,var(--line2) 27px,var(--line2) 28px
+  );
+  background-attachment:local;
+}
+.prompt-textarea::placeholder{
+  color:var(--ink3);font-style:italic;
+  font-family:'Inter',sans-serif;font-size:13px;
+}
+.prompt-textarea:focus{
+  border-color:var(--brick);
+  box-shadow:0 0 0 3px var(--brick-l);
+}
+
+.btn-submit-writing{
+  width:100%;
+  padding:17px;
+  background:var(--brick);color:#fff;
+  border:none;border-radius:40px;
+  font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+  box-shadow:0 4px 16px rgba(182,94,60,.25);
+}
+.btn-submit-writing:hover{
+  background:var(--brick-d);
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(182,94,60,.35);
+}
+.btn-submit-writing:active{transform:translateY(0);}
+
+/* ══════════════════════════════════
+   RESULTS SCREEN
+══════════════════════════════════ */
+#screen-results{
+  background:var(--ink);
+  padding-top:60px;
+  padding-bottom:80px;
+}
+#screen-results.active{background:var(--ink);}
+
+/* make results full-width bg */
+#screen-results::before{
+  content:'';position:fixed;inset:0;
+  background:var(--ink);
+  z-index:-1;pointer-events:none;
+}
+
+/* confetti container */
+#confetti-wrap{
+  position:fixed;inset:0;pointer-events:none;z-index:300;overflow:hidden;
+}
+.brick-piece{
+  position:absolute;top:-20px;
+  width:10px;height:7px;border-radius:2px;
+  animation:brickFall linear forwards;
+}
+@keyframes brickFall{
+  to{transform:translateY(110vh) rotate(720deg);opacity:0;}
+}
+
+/* result header */
+.result-logo{
+  font-family:'Gowun Batang',serif;font-size:16px;letter-spacing:1.5px;
+  color:rgba(247,242,232,.35);margin-bottom:36px;
+  text-align:center;
+}
+.result-logo em{color:var(--brick);font-style:normal;}
+
+/* Level badge */
+.level-badge-wrap{
+  width:100%;text-align:center;margin-bottom:36px;
+  animation:badgeIn .7s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes badgeIn{
+  from{opacity:0;transform:scale(.6);}
+  to{opacity:1;transform:scale(1);}
+}
+.level-badge{
+  display:inline-flex;flex-direction:column;align-items:center;
+  padding:28px 40px;
+  background:linear-gradient(135deg,var(--gold) 0%,#C8962A 100%);
+  border-radius:20px;
+  box-shadow:0 8px 40px rgba(160,120,40,.4),0 0 0 1px rgba(255,255,255,.08);
+  position:relative;overflow:hidden;
+}
+.level-badge::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
+}
+.level-badge-icon{
+  font-size:40px;margin-bottom:10px;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+.level-badge-lv{
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:4px;
+}
+.level-badge-title{
+  font-family:'Gowun Batang',serif;font-size:26px;font-weight:700;
+  color:#fff;margin-bottom:2px;letter-spacing:1px;
+}
+.level-badge-en{
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:500;
+  color:rgba(255,255,255,.75);
+}
+
+/* score breakdown */
+.result-section{
+  width:100%;margin-bottom:28px;
+}
+.result-section-title{
+  font-family:'Inter',sans-serif;font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;font-weight:600;
+  color:rgba(247,242,232,.3);margin-bottom:14px;
+  text-align:center;
+}
+.score-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+}
+.score-cell{
+  background:rgba(247,242,232,.05);
+  border:1px solid rgba(247,242,232,.08);
+  border-radius:12px;padding:14px 16px;
+  text-align:center;
+}
+.score-cell.full-width{grid-column:1/-1;}
+.sc-label{
+  font-family:'Inter',sans-serif;font-size:10px;letter-spacing:1px;
+  text-transform:uppercase;font-weight:600;
+  color:rgba(247,242,232,.35);margin-bottom:6px;
+}
+.sc-score{
+  font-family:'Gowun Batang',serif;font-size:22px;font-weight:700;
+  color:var(--gold);
+}
+.sc-total{font-size:13px;color:rgba(247,242,232,.3);}
+
+/* mini bars */
+.mini-bars{width:100%;display:flex;flex-direction:column;gap:10px;}
+.mini-bar-row{display:flex;align-items:center;gap:12px;}
+.mb-label{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  color:rgba(247,242,232,.5);width:68px;flex-shrink:0;
+}
+.mb-track{
+  flex:1;height:5px;background:rgba(247,242,232,.08);
+  border-radius:3px;overflow:hidden;
+}
+.mb-fill{
+  height:100%;border-radius:3px;
+  background:var(--gold);
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+  width:0%;
+}
+.mb-val{
+  font-family:'Inter',sans-serif;font-size:11px;
+  color:rgba(247,242,232,.4);width:32px;
+  text-align:right;flex-shrink:0;
+}
+
+/* strengths & focus */
+.insights-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.insight-card{
+  background:rgba(247,242,232,.05);
+  border:1px solid rgba(247,242,232,.08);
+  border-radius:14px;padding:16px;
+}
+.insight-card.focus{
+  grid-column:1/-1;
+  border-color:rgba(182,94,60,.3);
+  background:rgba(182,94,60,.07);
+}
+.insight-icon{font-size:18px;margin-bottom:8px;}
+.insight-label{
+  font-family:'Inter',sans-serif;font-size:9px;
+  letter-spacing:1.5px;text-transform:uppercase;font-weight:700;
+  color:rgba(247,242,232,.3);margin-bottom:5px;
+}
+.insight-text{
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;
+  color:rgba(247,242,232,.7);line-height:1.6;font-weight:300;
+}
+
+/* message */
+.result-message{
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:300;
+  color:rgba(247,242,232,.55);line-height:1.8;
+  text-align:center;
+  padding:0 8px;
+  margin-bottom:36px;
+  font-style:italic;
+}
+
+/* CTA button */
+.btn-cta{
+  width:100%;
+  padding:18px;
+  background:var(--brick);color:#fff;
+  border:none;border-radius:40px;
+  font-family:'Inter',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+  box-shadow:0 4px 20px rgba(182,94,60,.4);
+  margin-bottom:14px;
+}
+.btn-cta:hover{
+  background:var(--brick-d);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(182,94,60,.5);
+}
+.btn-cta:active{transform:translateY(0);}
+
+.btn-retake{
+  width:100%;
+  padding:15px;
+  background:transparent;
+  color:rgba(247,242,232,.4);
+  border:1px solid rgba(247,242,232,.12);
+  border-radius:40px;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:400;
+  cursor:pointer;letter-spacing:.5px;
+  transition:all .3s ease;
+}
+.btn-retake:hover{
+  border-color:rgba(247,242,232,.3);
+  color:rgba(247,242,232,.65);
+}
+
+/* ══════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE ADJUSTMENTS
+══════════════════════════════════ */
+@media(max-width:360px){
+  .intro-title{font-size:26px;}
+  .quiz-q{font-size:17px;}
+  .option{padding:14px 16px;}
+  .score-grid{grid-template-columns:1fr;}
+  .insights-grid{grid-template-columns:1fr;}
+  .insight-card.focus{grid-column:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- Phase indicator bar -->
+<div id="phase-bar">
+  <div class="phase-track">
+    <div class="phase-dot active" id="pd1">1</div>
+    <div class="phase-label">Quiz</div>
+    <div class="phase-line" id="pl1"></div>
+    <div class="phase-dot" id="pd2">2</div>
+    <div class="phase-label">Writing</div>
+    <div class="phase-line" id="pl2"></div>
+    <div class="phase-dot" id="pd3">✓</div>
+    <div class="phase-label">Results</div>
+  </div>
+</div>
+
+<!-- Quiz progress bar -->
+<div id="quiz-progress">
+  <div class="qpbar-wrap">
+    <div class="qpbar-fill" id="qpbar-fill"></div>
+  </div>
+</div>
+
+<!-- Confetti wrap -->
+<div id="confetti-wrap"></div>
+
+<div id="app">
+
+  <!-- ══ INTRO SCREEN ══ -->
+  <div class="screen active visible" id="screen-intro">
+    <div class="intro-bricks">
+      <div class="ib"></div>
+      <div class="ib"></div>
+      <div class="ib"></div>
+      <div class="ib"></div>
+      <div class="ib"></div>
+    </div>
+    <div class="intro-logo">레터<em>브릭</em></div>
+
+    <div class="intro-eyebrow">Korean Level Test</div>
+    <h1 class="intro-title">Find Your Korean Level</h1>
+    <p class="intro-sub-en">For K-pop & K-drama fans ready to actually understand what they're hearing.</p>
+
+    <div class="intro-cards">
+      <div class="intro-card">
+        <div class="ic-num">1</div>
+        <div class="ic-text">
+          <div class="ic-title">Phase 1 — Quick Quiz</div>
+          <div class="ic-desc">25 questions · Hangul, Vocab, Grammar, Reading</div>
+        </div>
+      </div>
+      <div class="intro-card">
+        <div class="ic-num">2</div>
+        <div class="ic-text">
+          <div class="ic-title">Phase 2 — Writing Challenge</div>
+          <div class="ic-desc">3 sentences · No wrong answers, just write!</div>
+        </div>
+      </div>
+      <div class="intro-card">
+        <div class="ic-num">✦</div>
+        <div class="ic-text">
+          <div class="ic-title">Your Results</div>
+          <div class="ic-desc">Personalized level + learning path</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-start" onclick="startQuiz()">시작하기 &nbsp;→</button>
+    <p class="intro-note">About 5–7 minutes · Free · No sign-up required</p>
+  </div>
+
+  <!-- ══ QUIZ SCREEN ══ -->
+  <div class="screen" id="screen-quiz">
+    <div class="quiz-block" id="quiz-block">
+      <div class="quiz-meta">
+        <span class="quiz-cat-badge" id="quiz-cat-badge">Hangul</span>
+        <span class="quiz-counter" id="quiz-counter">1 / 25</span>
+      </div>
+      <div class="quiz-question-wrap">
+        <!-- reading passage injected here when needed -->
+        <div id="reading-passage-area"></div>
+        <div class="quiz-q" id="quiz-q"></div>
+      </div>
+      <div class="options" id="options-container"></div>
+    </div>
+  </div>
+
+  <!-- ══ WRITING SCREEN ══ -->
+  <div class="screen" id="screen-writing">
+    <div class="writing-header">
+      <div class="challenge-badge">✍️ &nbsp;오늘의 도전</div>
+      <h2 class="writing-title">Now let's see you write!</h2>
+      <p class="writing-subtitle">Translate these 3 sentences into Korean.<br>Do your best — there's no wrong answer!</p>
+    </div>
+
+    <div class="writing-prompts">
+      <div class="prompt-card">
+        <div class="prompt-num">Sentence 01</div>
+        <div class="prompt-en">"My name is ___."</div>
+        <div class="prompt-hint">힌트: 저는 ___이에요 / 예요.</div>
+        <textarea class="prompt-textarea" id="w1" placeholder="한국어로 써보세요…" rows="3"></textarea>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-num">Sentence 02</div>
+        <div class="prompt-en">"I like ___."</div>
+        <div class="prompt-hint">힌트: 저는 ___을 / 를 좋아해요.</div>
+        <textarea class="prompt-textarea" id="w2" placeholder="한국어로 써보세요…" rows="3"></textarea>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-num">Sentence 03</div>
+        <div class="prompt-en">"Today I feel ___."</div>
+        <div class="prompt-hint">힌트: 오늘 ___해요.</div>
+        <textarea class="prompt-textarea" id="w3" placeholder="한국어로 써보세요…" rows="3"></textarea>
+      </div>
+    </div>
+
+    <button class="btn-submit-writing" onclick="submitWriting()">결과 보기 &nbsp;→</button>
+  </div>
+
+  <!-- ══ RESULTS SCREEN ══ -->
+  <div class="screen" id="screen-results">
+    <div class="result-logo">레터<em>브릭</em></div>
+
+    <div class="level-badge-wrap" id="level-badge-wrap">
+      <!-- injected by JS -->
+    </div>
+
+    <p class="result-message" id="result-message"></p>
+
+    <!-- Score breakdown -->
+    <div class="result-section">
+      <div class="result-section-title">Score Breakdown</div>
+      <div class="score-grid">
+        <div class="score-cell full-width">
+          <div class="sc-label">Total Score</div>
+          <div class="sc-score" id="sc-total">— <span class="sc-total">/ 30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-section">
+      <div class="result-section-title">Category Results</div>
+      <div class="mini-bars" id="mini-bars">
+        <!-- injected -->
+      </div>
+    </div>
+
+    <div class="result-section">
+      <div class="result-section-title">Your Profile</div>
+      <div class="insights-grid" id="insights-grid">
+        <!-- injected -->
+      </div>
+    </div>
+
+    <button class="btn-cta" onclick="goJourney()">Start My 8-Week Journey &nbsp;→</button>
+    <button class="btn-retake" onclick="retake()">Take the test again</button>
+  </div>
+
+</div><!-- end #app -->
+
+<script>
+/* ══════════════════════════════════
+   QUESTION DATA
+══════════════════════════════════ */
+const QUESTIONS = [
+  // ── Category A: Hangul (Q1–5) ──
+  {
+    cat:'Hangul',catIdx:0,
+    q:'Which of these is a Korean vowel?',
+    opts:['ㄱ','ㅏ','ㅅ','ㄴ'],
+    ans:1,
+    koOpts:true
+  },
+  {
+    cat:'Hangul',catIdx:0,
+    q:'How do you read \'나비\'?',
+    opts:['na-mi','na-bi','ma-bi','na-pi'],
+    ans:1,
+    note:'나비 = butterfly'
+  },
+  {
+    cat:'Hangul',catIdx:0,
+    q:'Which word sounds like \'guk\'?',
+    opts:['국','긱','굿','극'],
+    ans:0,
+    koOpts:true
+  },
+  {
+    cat:'Hangul',catIdx:0,
+    q:'How many syllables in \'학교\'?',
+    opts:['1','2','3','4'],
+    ans:1
+  },
+  {
+    cat:'Hangul',catIdx:0,
+    q:'Which has a final consonant (받침)?',
+    opts:['나','가','밥','모'],
+    ans:2,
+    koOpts:true
+  },
+
+  // ── Category B: Vocabulary (Q6–13) ──
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'사랑 means:',
+    opts:['Love','Hate','Peace','Joy'],
+    ans:0
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'맛있어요 describes:',
+    opts:['Beautiful view','Delicious food','Nice weather','Loud music'],
+    ans:1
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'감사합니다 is used when:',
+    opts:['Greeting someone','Saying goodbye','Thanking someone','Apologizing'],
+    ans:2
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'내일 means:',
+    opts:['Today','Yesterday','Tomorrow','Now'],
+    ans:2
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'친구 means:',
+    opts:['Teacher','Family','Colleague','Friend'],
+    ans:3
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'Which word means \'water\'?',
+    opts:['물','불','풀','문'],
+    ans:0,
+    koOpts:true
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'행복하다 means:',
+    opts:['To be tired','To be hungry','To be happy','To be busy'],
+    ans:2
+  },
+  {
+    cat:'Vocabulary',catIdx:1,
+    q:'Which word is a color?',
+    opts:['빠른','빨간','바른','바쁜'],
+    ans:1,
+    koOpts:true,
+    note:'빨간 = red'
+  },
+
+  // ── Category C: Grammar (Q14–21) ──
+  {
+    cat:'Grammar',catIdx:2,
+    q:'\'I like coffee\' in Korean:',
+    opts:['저는 커피를 좋아해요','커피는 저를 좋아해요','저는 좋아해요 커피를','좋아해요 저는 커피를'],
+    ans:0,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'Polite way to say \'eat\' to a senior:',
+    opts:['먹어','드세요','먹세요','먹어요'],
+    ans:1,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'\'지금 뭐 ___요?\' (What are you doing now?)',
+    opts:['해','하','히','후'],
+    ans:0,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'\'저는 학교___ 가요.\' — correct particle:',
+    opts:['를','이','에','의'],
+    ans:2,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'Past tense of \'가요\':',
+    opts:['간어요','갔어요','가았어요','가요었어요'],
+    ans:1,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'\'피곤___요\' (I\'m tired):',
+    opts:['하','해','히','호'],
+    ans:1,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'\'Please give me\' in Korean:',
+    opts:['드세요','주세요','받으세요','가세요'],
+    ans:1,
+    koOpts:true
+  },
+  {
+    cat:'Grammar',catIdx:2,
+    q:'Which sentence means \'I want to go home\'?',
+    opts:['집에 가고 싶어요','집에서 가고 싶어요','집에 가서 싶어요','집이 가고 싶어요'],
+    ans:0,
+    koOpts:true
+  },
+
+  // ── Category D: Reading (Q22–25) ──
+  {
+    cat:'Reading',catIdx:3,
+    passage:true,
+    q:'What is the weather like?',
+    opts:['Rainy and cold','Cloudy and windy','Clear and warm','Hot and humid'],
+    ans:2
+  },
+  {
+    cat:'Reading',catIdx:3,
+    passage:true,
+    q:'Where does the speaker want to go?',
+    opts:['Beach','Park','School','Home'],
+    ans:1
+  },
+  {
+    cat:'Reading',catIdx:3,
+    passage:true,
+    q:'\'따뜻해요\' means:',
+    opts:['Cold','Hot','Warm','Cool'],
+    ans:2
+  },
+  {
+    cat:'Reading',catIdx:3,
+    passage:true,
+    q:'This passage is about:',
+    opts:['Plans for tomorrow','Today\'s weather','A weekend trip','Favorite food'],
+    ans:1
+  }
+];
+
+const READING_PASSAGE = '오늘 날씨가 정말 좋아요. 바람도 없고 따뜻해요. 공원에서 산책하고 싶어요.';
+const READING_TRANSLATION = '"Today the weather is really nice. There\'s no wind and it\'s warm. I want to take a walk in the park."';
+
+const CAT_MAX = [5,8,8,4]; // max per category
+const CAT_NAMES = ['Hangul','Vocabulary','Grammar','Reading'];
+
+const LEVELS = [
+  {min:0,  max:5,  lv:'Lv.0',ko:'씨앗',en:'Seed',   icon:'🌱', msg:'You\'re just starting — and that\'s perfect. Every great Korean speaker started right here.'},
+  {min:6,  max:10, lv:'Lv.1',ko:'새싹',en:'Sprout', icon:'🌿', msg:'You know the basics! Time to start making sentences and recognizing patterns.'},
+  {min:11, max:17, lv:'Lv.2',ko:'줄기',en:'Stem',   icon:'🌳', msg:'You have a solid foundation. K-drama sentences are within reach — let\'s push forward.'},
+  {min:18, max:23, lv:'Lv.3',ko:'가지',en:'Branch', icon:'🍃', msg:'You\'re conversational! Let\'s add nuance, natural flow, and K-culture depth.'},
+  {min:24, max:27, lv:'Lv.4',ko:'꽃',  en:'Blossom',icon:'🌸', msg:'Impressive! You can express emotions and ideas fluently. Time to refine the details.'},
+  {min:28, max:30, lv:'Lv.5',ko:'열매',en:'Fruit',  icon:'🍊', msg:'You\'re advanced! Let\'s refine your literary voice and cultural feel for authentic Korean.'}
+];
+
+const LETTERS = ['A','B','C','D'];
+
+/* ══════════════════════════════════
+   STATE
+══════════════════════════════════ */
+let currentQ = 0;
+let catScores = [0,0,0,0]; // hangul, vocab, grammar, reading
+let writingScore = 0;
+let passageVisible = false;
+let answering = false; // lock during flash
+
+/* ══════════════════════════════════
+   INIT / START
+══════════════════════════════════ */
+function startQuiz(){
+  showScreen('screen-quiz');
+  document.getElementById('phase-bar').classList.add('show');
+  document.getElementById('quiz-progress').classList.add('show');
+  currentQ = 0;
+  catScores = [0,0,0,0];
+  passageVisible = false;
+  renderQuestion(0, false);
+}
+
+/* ══════════════════════════════════
+   SCREEN TRANSITION
+══════════════════════════════════ */
+function showScreen(id){
+  const all = document.querySelectorAll('.screen');
+  all.forEach(s=>{
+    s.classList.remove('active','visible');
+  });
+  const el = document.getElementById(id);
+  el.classList.add('active');
+  // tick to trigger transition
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{ el.classList.add('visible'); });
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ══════════════════════════════════
+   RENDER QUESTION
+══════════════════════════════════ */
+function renderQuestion(idx, animate){
+  answering = false;
+  const q = QUESTIONS[idx];
+  const block = document.getElementById('quiz-block');
+
+  function doRender(){
+    // category badge
+    document.getElementById('quiz-cat-badge').textContent = q.cat;
+    document.getElementById('quiz-counter').textContent = `${idx+1} / ${QUESTIONS.length}`;
+
+    // progress bar
+    const pct = (idx / QUESTIONS.length) * 100;
+    document.getElementById('qpbar-fill').style.width = pct + '%';
+
+    // phase dots
+    updatePhaseDots(1);
+
+    // reading passage
+    const passArea = document.getElementById('reading-passage-area');
+    if(q.passage){
+      if(passArea.innerHTML === ''){
+        passageVisible = false;
+        passArea.innerHTML = `
+          <div class="reading-passage">${READING_PASSAGE}</div>
+          <button class="passage-toggle" onclick="togglePassage(this)">
+            <span>🌐</span> Show English translation
+          </button>
+          <div class="passage-translation" id="passage-trans">${READING_TRANSLATION}</div>
+        `;
+      }
+    } else {
+      passArea.innerHTML = '';
+    }
+
+    // question text
+    document.getElementById('quiz-q').textContent = q.q;
+
+    // options
+    const container = document.getElementById('options-container');
+    container.innerHTML = '';
+    q.opts.forEach((opt, i)=>{
+      const btn = document.createElement('button');
+      btn.className = 'option' + (q.koOpts ? ' opt-ko' : '');
+      btn.innerHTML = `<span class="opt-letter">${LETTERS[i]}</span><span class="opt-text">${opt}</span>`;
+      btn.onclick = ()=> handleAnswer(i, q.ans, q.catIdx);
+      container.appendChild(btn);
+    });
+
+    // entrance animation
+    block.classList.remove('exit');
+    block.classList.add('enter');
+    setTimeout(()=> block.classList.remove('enter'), 400);
+  }
+
+  if(animate){
+    block.classList.add('exit');
+    setTimeout(()=>{ doRender(); }, 300);
+  } else {
+    doRender();
+  }
+}
+
+/* ══════════════════════════════════
+   HANDLE ANSWER
+══════════════════════════════════ */
+function handleAnswer(chosen, correct, catIdx){
+  if(answering) return;
+  answering = true;
+
+  const opts = document.querySelectorAll('.option');
+
+  // mark all disabled
+  opts.forEach(o=> o.classList.add('disabled'));
+
+  const isCorrect = chosen === correct;
+
+  if(isCorrect){
+    catScores[catIdx]++;
+    opts[chosen].classList.add('correct');
+  } else {
+    opts[chosen].classList.add('wrong');
+    // show correct answer
+    opts[correct].classList.add('correct');
+  }
+
+  // dim others
+  opts.forEach((o,i)=>{
+    if(i !== chosen && i !== correct){
+      o.classList.add('dimmed');
+    }
+  });
+
+  // wait then advance
+  setTimeout(()=>{
+    currentQ++;
+    if(currentQ < QUESTIONS.length){
+      renderQuestion(currentQ, true);
+    } else {
+      // quiz done → writing phase
+      setTimeout(()=> goToWriting(), 200);
+    }
+  }, 1100);
+}
+
+/* ══════════════════════════════════
+   PASSAGE TOGGLE
+══════════════════════════════════ */
+function togglePassage(btn){
+  const trans = document.getElementById('passage-trans');
+  passageVisible = !passageVisible;
+  trans.style.display = passageVisible ? 'block' : 'none';
+  btn.innerHTML = passageVisible
+    ? '<span>🌐</span> Hide translation'
+    : '<span>🌐</span> Show English translation';
+}
+
+/* ══════════════════════════════════
+   WRITING PHASE
+══════════════════════════════════ */
+function goToWriting(){
+  updatePhaseDots(2);
+  document.getElementById('quiz-progress').classList.remove('show');
+  showScreen('screen-writing');
+}
+
+function submitWriting(){
+  const responses = [
+    document.getElementById('w1').value,
+    document.getElementById('w2').value,
+    document.getElementById('w3').value
+  ];
+
+  const koRegex = /[가-힣]/;
+  writingScore = 0;
+
+  // Hint structure checks
+  const hintChecks = [
+    /이에요|예요|입니다/,          // sentence 1: name
+    /좋아해요|좋아합니다/,          // sentence 2: like
+    /해요|합니다|이에요|예요/       // sentence 3: feel
+  ];
+
+  responses.forEach((r,i)=>{
+    if(koRegex.test(r)) writingScore += 1;
+    if(hintChecks[i] && hintChecks[i].test(r)) writingScore += 0.5;
+  });
+
+  // cap at 5
+  writingScore = Math.min(writingScore, 5);
+
+  showResults();
+}
+
+/* ══════════════════════════════════
+   RESULTS
+══════════════════════════════════ */
+function showResults(){
+  updatePhaseDots(3);
+  showScreen('screen-results');
+
+  const quizTotal = catScores.reduce((a,b)=>a+b,0);
+  const total = Math.round(quizTotal + writingScore);
+
+  // find level
+  const level = LEVELS.find(l=> total >= l.min && total <= l.max) || LEVELS[LEVELS.length-1];
+
+  // badge
+  document.getElementById('level-badge-wrap').innerHTML = `
+    <div class="level-badge">
+      <div class="level-badge-icon">${level.icon}</div>
+      <div class="level-badge-lv">${level.lv}</div>
+      <div class="level-badge-title">${level.ko}</div>
+      <div class="level-badge-en">${level.en}</div>
+    </div>
+  `;
+
+  // message
+  document.getElementById('result-message').textContent = `"${level.msg}"`;
+
+  // total score
+  document.getElementById('sc-total').innerHTML = `${total} <span class="sc-total">/ 30</span>`;
+
+  // mini bars
+  const bars = document.getElementById('mini-bars');
+  const catData = [
+    {name:'Hangul',  score:catScores[0], max:5},
+    {name:'Vocab',   score:catScores[1], max:8},
+    {name:'Grammar', score:catScores[2], max:8},
+    {name:'Reading', score:catScores[3], max:4},
+    {name:'Writing', score:Math.round(writingScore*10)/10, max:5}
+  ];
+  bars.innerHTML = catData.map(c=>`
+    <div class="mini-bar-row">
+      <span class="mb-label">${c.name}</span>
+      <div class="mb-track"><div class="mb-fill" data-pct="${(c.score/c.max)*100}"></div></div>
+      <span class="mb-val">${c.score}/${c.max}</span>
+    </div>
+  `).join('');
+
+  // animate bars after paint
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      document.querySelectorAll('.mb-fill').forEach(el=>{
+        el.style.width = el.dataset.pct + '%';
+      });
+    });
+  });
+
+  // insights
+  buildInsights(catScores, writingScore);
+
+  // confetti!
+  launchConfetti();
+}
+
+/* ══════════════════════════════════
+   INSIGHTS ENGINE
+══════════════════════════════════ */
+function buildInsights(scores, ws){
+  const catPcts = [
+    {name:'Hangul',  pct: scores[0]/5,   comment:'reading Hangul'},
+    {name:'Vocabulary',pct:scores[1]/8,  comment:'Korean vocabulary'},
+    {name:'Grammar', pct: scores[2]/8,   comment:'sentence grammar'},
+    {name:'Reading', pct: scores[3]/4,   comment:'reading comprehension'},
+    {name:'Writing', pct: ws/5,          comment:'writing in Korean'}
+  ];
+
+  const sorted = [...catPcts].sort((a,b)=>b.pct-a.pct);
+  const strengths = sorted.slice(0,3);
+  const focus = sorted[sorted.length-1];
+
+  const strengthIcons = ['⭐','✨','💫'];
+  let html = strengths.map((s,i)=>`
+    <div class="insight-card">
+      <div class="insight-icon">${strengthIcons[i]}</div>
+      <div class="insight-label">Strength</div>
+      <div class="insight-text">Strong at ${s.comment}</div>
+    </div>
+  `).join('');
+
+  html += `
+    <div class="insight-card focus">
+      <div class="insight-icon">🎯</div>
+      <div class="insight-label">Focus Area</div>
+      <div class="insight-text">Level up your ${focus.comment} — that's your biggest growth opportunity right now.</div>
+    </div>
+  `;
+
+  document.getElementById('insights-grid').innerHTML = html;
+}
+
+/* ══════════════════════════════════
+   PHASE DOT UPDATES
+══════════════════════════════════ */
+function updatePhaseDots(phase){
+  // phase = 1, 2, or 3
+  const dots = [
+    document.getElementById('pd1'),
+    document.getElementById('pd2'),
+    document.getElementById('pd3')
+  ];
+  const lines = [
+    document.getElementById('pl1'),
+    document.getElementById('pl2')
+  ];
+  dots.forEach((d,i)=>{
+    d.classList.remove('active','done');
+    if(i+1 < phase) d.classList.add('done');
+    if(i+1 === phase) d.classList.add('active');
+  });
+  lines.forEach((l,i)=>{
+    l.classList.remove('done');
+    if(i+1 < phase) l.classList.add('done');
+  });
+  // show phase bar on results too
+  if(phase === 3){
+    document.getElementById('quiz-progress').classList.remove('show');
+  }
+}
+
+/* ══════════════════════════════════
+   CONFETTI
+══════════════════════════════════ */
+function launchConfetti(){
+  const wrap = document.getElementById('confetti-wrap');
+  wrap.innerHTML = '';
+  const colors = ['#B65E3C','#A07828','#3D6B50','#F2E4DA','#F5EDD0','#D8EADF','#EDE7D6'];
+  const count = 60;
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    piece.className = 'brick-piece';
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    const left = Math.random()*100;
+    const delay = Math.random()*2;
+    const duration = 2 + Math.random()*3;
+    const size = 6 + Math.floor(Math.random()*8);
+    piece.style.cssText = `
+      left:${left}%;
+      background:${color};
+      width:${size}px;height:${Math.round(size*0.7)}px;
+      animation-duration:${duration}s;
+      animation-delay:${delay}s;
+      opacity:${0.6+Math.random()*0.4};
+    `;
+    wrap.appendChild(piece);
+  }
+  // clean up after 6 seconds
+  setTimeout(()=>{ wrap.innerHTML=''; }, 6000);
+}
+
+/* ══════════════════════════════════
+   CTA & RETAKE
+══════════════════════════════════ */
+function goJourney(){
+  // Navigate to main app
+  window.location.href = 'index.html';
+}
+
+function retake(){
+  // Reset state
+  currentQ = 0;
+  catScores = [0,0,0,0];
+  writingScore = 0;
+  passageVisible = false;
+  answering = false;
+
+  // Clear writing inputs
+  ['w1','w2','w3'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+
+  // Clear passage area
+  document.getElementById('reading-passage-area').innerHTML = '';
+
+  // Reset body/results bg
+  document.getElementById('screen-results').style.background = '';
+
+  // Phase bar back
+  document.getElementById('quiz-progress').classList.remove('show');
+  document.getElementById('phase-bar').classList.remove('show');
+  updatePhaseDots(1);
+
+  showScreen('screen-intro');
+}
+
+/* ══════════════════════════════════
+   KEYBOARD SUPPORT (A/B/C/D)
+══════════════════════════════════ */
+document.addEventListener('keydown', e=>{
+  if(!document.getElementById('screen-quiz').classList.contains('active')) return;
+  if(answering) return;
+  const map = {'a':0,'b':1,'c':2,'d':3,'1':0,'2':1,'3':2,'4':3};
+  const key = e.key.toLowerCase();
+  if(key in map){
+    const opts = document.querySelectorAll('.option');
+    if(opts[map[key]]) opts[map[key]].click();
+  }
+});
+</script>
+</body>
+</html>
