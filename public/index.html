@@ -7874,7 +7874,10 @@ let structScore=0, creativeScore=0;
 let stickyOpen=true;
 
 function getDayIndex(){
-  const base=new Date('2026-03-11');
+  // lb_today_sent 로 관리자가 오늘 문장 수동 지정 가능 (localStorage)
+  var override = localStorage.getItem('lb_today_sent');
+  if(override !== null) return ((parseInt(override) % SENTENCES.length) + SENTENCES.length) % SENTENCES.length;
+  const base=new Date('2026-02-27'); // ← 기준일 조정으로 오늘 문장 선택
   const now=new Date();
   const diff=Math.floor((now-base)/(1000*60*60*24));
   return((diff%SENTENCES.length)+SENTENCES.length)%SENTENCES.length;
