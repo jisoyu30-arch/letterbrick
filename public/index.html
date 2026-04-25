@@ -11734,7 +11734,15 @@ function closeSimilarGuide(e) {
 
 function guideNav(dir) {
   guideStep += dir;
-  if (guideStep >= guideTotal) { closeGuide(); return; }
+  if (guideStep >= guideTotal) {
+    closeGuide();
+    // 가이드 마지막 → 성장 탭으로 이동해서 바로 시작 유도
+    setTimeout(function() {
+      showPage('growth', document.querySelectorAll('.nav-tab')[1]);
+      showToast('✏️ 성장 에디션에서 오늘의 문장을 써보세요!', 4000);
+    }, 300);
+    return;
+  }
   if (guideStep < 0) guideStep = 0;
   updateGuideUI();
 }

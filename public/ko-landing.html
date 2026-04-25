@@ -1665,18 +1665,21 @@ footer {
 function submitWaitlist(e) {
   e.preventDefault();
   var email = document.getElementById('waitlistEmail').value;
-  // Save to localStorage as fallback
+  if (!email) return;
+
+  // localStorage 백업
   var list = JSON.parse(localStorage.getItem('lb-waitlist') || '[]');
-  list.push({email: email, date: new Date().toISOString()});
+  list.push({ email: email, date: new Date().toISOString() });
   localStorage.setItem('lb-waitlist', JSON.stringify(list));
-  // Try Formspree (user can set up their own endpoint)
-  var FORMSPREE_ID = 'YOUR_FORM_ID'; // User replaces this
-  fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+
+  // Firestore에 서버 저장 (/api/waitlist)
+  fetch('/api/waitlist', {
     method: 'POST',
-    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-    body: JSON.stringify({email: email, source: 'ko-landing'})
-  }).catch(function(){});
-  // Show success regardless
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: 'ko-landing' })
+  }).catch(function() {});
+
+  // 즉시 완료 메시지 표시
   document.getElementById('waitlistForm').style.display = 'none';
   document.getElementById('waitlistMsg').style.display = 'block';
 }
