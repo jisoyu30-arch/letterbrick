@@ -44,7 +44,7 @@ self.addEventListener('notificationclick', function(e) {
 });
 
 // ── 캐시 전략 ──
-const CACHE_NAME = 'letterbrick-v11';
+const CACHE_NAME = 'letterbrick-v12';
 const ASSETS = [
   '/',
   '/demo.html',
