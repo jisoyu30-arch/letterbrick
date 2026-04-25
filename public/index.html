@@ -1150,6 +1150,34 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   letter-spacing:.3px;
 }
 
+/* ══════ STRUCT GUIDE CARD ══════ */
+.struct-guide{
+  background:linear-gradient(135deg,var(--ink) 0%,#3A302A 100%);
+  border-radius:12px;padding:14px 16px 12px;margin-bottom:10px;
+  position:relative;overflow:hidden;
+}
+.struct-guide::after{
+  content:'';position:absolute;bottom:-14px;right:-14px;
+  width:50px;height:50px;background:rgba(182,94,60,0.14);border-radius:50%;
+}
+.struct-guide-lbl{
+  font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--brick);margin-bottom:10px;
+  display:flex;align-items:center;gap:6px;
+}
+.struct-guide-lbl::before{
+  content:'';width:6px;height:6px;border-radius:1px;
+  background:var(--brick);display:inline-block;flex-shrink:0;
+}
+.struct-guide-body{
+  font-size:13px;line-height:2.1;color:rgba(247,242,232,0.82);
+  font-family:'Noto Serif KR',serif;font-weight:300;
+}
+.struct-guide-body b{
+  color:rgba(182,94,60,0.9);font-weight:600;font-family:'Noto Sans KR',sans-serif;
+  font-size:11px;letter-spacing:.3px;
+}
+
 /* ══════ DONE MY SENTENCE ══════ */
 .done-my-sentence{
   margin:16px 0 0;text-align:left;
@@ -8018,7 +8046,30 @@ function buildCmp(){
   var exercise = getExercise(s.learn);
   var techStr = getTechnique(s.learn);
   var techDesc = techStr.replace(/<b>[^<]+<\/b><br>/,'').replace(/▶[\s\S]*/,'').replace(/<br>/g,' ').trim();
+
+  // ── 구조 가이드 ────────────────────────────────────
+  var guideLines = '';
+  if (s.learn) {
+    if (s.learn.structure) {
+      // 구버전: structure 필드 직접 사용
+      guideLines = s.learn.structure;
+    } else if (s.learn.anatomy && s.learn.anatomy.grammar && s.learn.anatomy.grammar.length) {
+      // 신버전: anatomy.grammar 배열로 조합 (최대 4항목)
+      guideLines = s.learn.anatomy.grammar.slice(0, 4).map(function(g) {
+        return '<b>[' + g.label + ']</b> ' + g.value;
+      }).join('<br>');
+    }
+  }
+  var structGuideHtml = guideLines
+    ? '<div class="struct-guide">' +
+        '<div class="struct-guide-lbl">구조 가이드</div>' +
+        '<div class="struct-guide-body">' + guideLines + '</div>' +
+      '</div>'
+    : '';
+  // ──────────────────────────────────────────────────
+
   document.getElementById('cmpBox').innerHTML=
+    structGuideHtml +
     '<div class="cmp-side ex1">'+
       '<div class="cmp-lbl"><div class="cmp-num">✍</div>이런 식으로 바꿔볼 수 있어요</div>'+
       '<div class="cmp-txt">' + s.example + '</div>'+
