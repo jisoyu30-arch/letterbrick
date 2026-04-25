@@ -241,8 +241,9 @@ JSON으로만 응답:
     });
 
     if (!response.ok) {
-      console.error('Claude API error:', await response.text());
-      return res.status(502).json({ error: 'Claude API error', fallback: true });
+      const errText = await response.text();
+      console.error('Claude API error:', response.status, errText);
+      return res.status(502).json({ error: 'Claude API error', status: response.status, detail: errText, fallback: true });
     }
 
     const data = await response.json();
