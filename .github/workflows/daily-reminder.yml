@@ -1,0 +1,25 @@
+name: Daily Writing Reminder
+
+on:
+  schedule:
+    # 매일 오전 8시 KST (= UTC 23:00 전날)
+    - cron: '0 23 * * *'
+  workflow_dispatch:   # 수동 테스트 실행 가능
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install firebase-admin
+        run: npm install firebase-admin --prefix /tmp/fcm
+
+      - name: Send daily reminder
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: node scripts/send-daily-reminder.js

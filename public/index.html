@@ -755,6 +755,45 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mbadge-days{font-size:10px;color:var(--ink3);}
 .mbadge-done{font-size:10px;color:var(--gold);font-weight:700;}
 
+/* ══════ TOAST ══════ */
+.lb-toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(12px);
+  background:var(--ink);color:var(--paper);padding:11px 22px;
+  border-radius:30px;font-size:13px;letter-spacing:.2px;
+  opacity:0;transition:opacity .28s,transform .28s;z-index:950;
+  pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center;
+}
+.lb-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ══════ TODAY REMINDER BANNER ══════ */
+.reminder-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--brick-p);border:1px solid rgba(182,94,60,0.22);
+  border-radius:12px;padding:11px 14px;margin-bottom:10px;
+}
+.reminder-banner.hide{display:none;}
+.reminder-banner-txt{font-size:13px;color:var(--brick-d);line-height:1.4;}
+.reminder-banner-btn{
+  flex-shrink:0;background:var(--brick);color:#fff;border:none;
+  border-radius:20px;padding:6px 14px;font-size:12px;font-weight:500;cursor:pointer;
+}
+
+/* ══════ NOTIFY ASK CARD ══════ */
+.notify-ask{
+  display:flex;align-items:center;gap:12px;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;
+  padding:13px 14px;margin-bottom:14px;
+  box-shadow:0 1px 4px rgba(46,42,38,0.07);
+}
+.notify-ask.hide{display:none;}
+.notify-ask-icon{font-size:22px;flex-shrink:0;}
+.notify-ask-txt{flex:1;}
+.notify-ask-ttl{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;}
+.notify-ask-sub{font-size:11px;color:var(--ink3);}
+.notify-ask-btns{display:flex;gap:6px;flex-shrink:0;}
+.notify-yes{background:var(--ink);color:var(--paper);border:none;border-radius:18px;padding:6px 13px;font-size:12px;cursor:pointer;}
+.notify-no{background:transparent;color:var(--ink3);border:none;font-size:12px;cursor:pointer;padding:6px 4px;}
+
 /* Milestone popup */
 .milestone-pop{
   position:fixed;inset:0;z-index:700;
@@ -1296,6 +1335,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
 <script>
 const firebaseConfig = {
   apiKey: "AIzaSyBPzmE-iGxHcBoifKJwWUtpMwBDGcH3h64",
@@ -1640,6 +1680,28 @@ const fbDb = firebase.firestore();
       <div class="stat-card"><span class="stat-v" id="streakCount"><img src="images/icon_orbit.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="orbit"> 0</span><span class="stat-l">연속 일수</span></div>
       <div class="stat-card"><span class="stat-v" id="totalCount"><img src="images/icon_telescope.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="telescope"> 0</span><span class="stat-l">총 필사</span></div>
       <div class="stat-card"><span class="stat-v" id="avgScore"><img src="images/icon_star.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="star"> 0</span><span class="stat-l">평균 별점</span></div>
+    </div>
+
+    <!-- ── 오늘 필사 리마인더 배너 ── -->
+    <div class="reminder-banner hide" id="reminderBanner">
+      <div class="reminder-banner-txt">✏️ 오늘 아직 필사를 안 하셨어요!</div>
+      <button class="reminder-banner-btn"
+        onclick="document.getElementById('reminderBanner').classList.add('hide');showPage('growth',document.querySelectorAll('.nav-tab')[1]);">
+        지금 쓰기 →
+      </button>
+    </div>
+
+    <!-- ── 알림 권한 요청 카드 ── -->
+    <div class="notify-ask hide" id="notifyAsk">
+      <div class="notify-ask-icon">🔔</div>
+      <div class="notify-ask-txt">
+        <div class="notify-ask-ttl">매일 아침 필사 알림</div>
+        <div class="notify-ask-sub">잊지 않도록 알려드릴게요</div>
+      </div>
+      <div class="notify-ask-btns">
+        <button class="notify-yes" onclick="enablePushNotification()">받기</button>
+        <button class="notify-no" onclick="dismissNotifyAsk()">괜찮아요</button>
+      </div>
     </div>
 
     <!-- ── 마일스톤 배지 스트립 ── -->
@@ -2211,6 +2273,9 @@ const fbDb = firebase.firestore();
     <button class="mpop-btn" onclick="closeMilestonePop()">계속하기 →</button>
   </div>
 </div>
+
+<!-- 전역 토스트 -->
+<div class="lb-toast" id="lbToast"></div>
 
 <script src="data.js"></script>
 <script>
@@ -8931,6 +8996,9 @@ function updateStats() {
   // 마일스톤 배지 갱신 + 팝업 체크
   renderMilestoneBadges(streak);
   checkMilestoneUnlock(streak);
+  // 오늘 리마인더 + 알림 카드
+  checkTodayReminder();
+  maybeShowNotifyAsk();
 }
 function updateStatEl(id, value) {
   var el = document.getElementById(id);
@@ -8990,6 +9058,106 @@ async function syncToSheets(rec) {
   } catch(e) { console.log('Sheets sync skipped:', e.message); }
 }
 
+/* ══════════════════════════════
+   PUSH NOTIFICATION (FCM)
+══════════════════════════════ */
+// ⚠️ Firebase Console → Project Settings → Cloud Messaging → Web Push certificates 에서 발급
+var VAPID_KEY = 'YOUR_VAPID_KEY_HERE';
+
+/* 토스트 메시지 */
+function showToast(msg, duration) {
+  var t = document.getElementById('lbToast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function() { t.classList.remove('show'); }, duration || 3000);
+}
+
+/* 알림 카드 "괜찮아요" 클릭 */
+function dismissNotifyAsk() {
+  var el = document.getElementById('notifyAsk');
+  if (el) el.classList.add('hide');
+  localStorage.setItem('lb_notify_ask_dismissed', 'true');
+}
+
+/* 알림 카드 "받기" 클릭 — 권한 요청 후 FCM 토큰 발급 */
+async function enablePushNotification() {
+  var el = document.getElementById('notifyAsk');
+  if (el) el.classList.add('hide');
+  localStorage.setItem('lb_notify_ask_dismissed', 'true');
+
+  if (!('Notification' in window) || !firebase.messaging.isSupported()) {
+    showToast('이 브라우저는 알림을 지원하지 않아요.');
+    return;
+  }
+
+  try {
+    var permission = await Notification.requestPermission();
+    if (permission !== 'granted') {
+      showToast('알림 권한이 거부됐어요. 브라우저 설정에서 허용해 주세요.');
+      return;
+    }
+    await saveFcmToken();
+    showToast('✓ 매일 아침 필사 알림이 설정됐어요!');
+  } catch(e) {
+    console.log('Push setup error:', e.message);
+  }
+}
+
+/* FCM 토큰 발급 & Firestore 저장 */
+async function saveFcmToken() {
+  if (!firebase.messaging.isSupported()) return;
+  if (VAPID_KEY === 'YOUR_VAPID_KEY_HERE') return; // 키 미설정 시 무시
+  try {
+    var messaging = firebase.messaging();
+    var swReg = await navigator.serviceWorker.ready;
+    var token = await messaging.getToken({ vapidKey: VAPID_KEY, serviceWorkerRegistration: swReg });
+    if (!token) return;
+
+    var uid = (fbAuth.currentUser && fbAuth.currentUser.uid)
+      || (currentUser && currentUser.id)
+      || ('anon_' + (localStorage.getItem('lb_anon_id') || Date.now()));
+
+    await fbDb.collection('fcmTokens').doc(uid).set({
+      token: token,
+      uid: uid,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+
+    // 포그라운드 메시지 핸들러
+    messaging.onMessage(function(payload) {
+      var body = (payload.notification && payload.notification.body) || payload.notification.title;
+      showToast('🔔 ' + body);
+    });
+  } catch(e) {
+    console.log('FCM token error:', e.message);
+  }
+}
+
+/* 알림 카드 노출 여부 결정 (첫 번째 기록 저장 후 1회) */
+function maybeShowNotifyAsk() {
+  if (localStorage.getItem('lb_notify_ask_dismissed') === 'true') return;
+  if (Notification && Notification.permission === 'granted') return;
+  if (pastRecords.length < 1) return; // 기록 없으면 아직 안 보여줌
+  var el = document.getElementById('notifyAsk');
+  if (el) el.classList.remove('hide');
+}
+
+/* 오늘 필사 여부 확인 → 리마인더 배너 */
+function checkTodayReminder() {
+  var banner = document.getElementById('reminderBanner');
+  if (!banner) return;
+  var todayStr = new Date().toISOString().slice(0, 10);
+  var writtenToday = pastRecords.some(function(r) {
+    return r.date && r.date.slice(0, 10) === todayStr;
+  });
+  if (!writtenToday && pastRecords.length > 0) {
+    banner.classList.remove('hide');
+  } else {
+    banner.classList.add('hide');
+  }
+}
 
 /* ══════════════════════════════
    MILESTONE BADGE SYSTEM
