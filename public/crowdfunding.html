@@ -1151,18 +1151,25 @@ footer {
 .bs-kakao {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 14px;
+  margin: 0 auto 28px;
+  max-width: 420px;
 }
 .bs-kakao figure {
   margin: 0;
   border: 1px solid var(--rule);
   background: var(--paper-deep);
+  max-width: 200px;
+  margin: 0 auto;
 }
 .bs-kakao img {
   display: block;
   width: 100%;
   height: auto;
+}
+@media (max-width: 600px) {
+  .bs-kakao { max-width: 320px; }
+  .bs-kakao figure { max-width: 150px; }
 }
 .bs-kakao figcaption {
   padding: 10px 14px;
@@ -1488,6 +1495,40 @@ footer {
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
+.wp-grid.wp-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ===== Book Inner Preview (책 카드 내부 내지 미니 인서트) ===== */
+.book-inner-preview {
+  margin: 14px 0 12px;
+  padding: 12px 14px 14px;
+  background: var(--paper);
+  border: 1px dashed var(--rule);
+  border-radius: 2px;
+}
+.bip-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--brick);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.bip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.bip-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  display: block;
+}
 .wp-grid img {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -1535,6 +1576,25 @@ footer {
 .book-tier-note strong {
   color: var(--ink-soft);
   font-weight: 700;
+}
+.book-card-other {
+  background: var(--paper);
+  border-style: dashed;
+  opacity: 0.92;
+}
+.book-card-other .book-cover {
+  filter: saturate(0.9);
+}
+.book-tag-other {
+  color: var(--ink-faded) !important;
+  font-style: italic;
+}
+.book-tier-note-other {
+  border-left-color: var(--ink-faded) !important;
+  background: rgba(0,0,0,0.02);
+}
+.book-tier-note-other strong {
+  color: var(--ink-faded);
 }
 
 /* ===== Reward group label / 3-col grid ===== */
@@ -2261,41 +2321,66 @@ footer {
     <h2 class="sec-title">필사 루틴과 함께,<br><em>세 권의 책</em>이 같이 갑니다.</h2>
 
     <p class="lead">
-      매일의 문장 루틴 외에, 레터브릭이 함께 만드는 — <strong>두 권의 책</strong>을 미리 만나보세요.
+      매일의 문장 루틴 외에, 레터브릭이 함께 만드는 — <strong>세 권의 책</strong>을 미리 만나보세요.
     </p>
 
-    <div class="book-grid book-grid-2">
+    <div class="book-grid">
       <!-- Book 1: 질문하는 필사 (워크북 eBook) -->
       <article class="book-card">
         <div class="book-cover">
-          <img src="/images/cover_dark_01_book_mockup.png" alt="《질문하는 필사》 표지 시안">
+          <img src="/images/cover_dark_01_book_mockup.png" alt="《질문하는 필사》 워크북 표지">
         </div>
         <div class="book-meta">
           <div class="book-tag">📕 워크북 eBook · 18,000원 상당</div>
           <h3 class="book-title">질문하는 필사</h3>
-          <p class="book-sub">100일 필사 훈련 워크북 · 정가 18,000원</p>
+          <p class="book-sub">AI 시대, 내 문장을 찾는 100일 루틴</p>
           <p class="book-desc">
             따라쓰기 → 구조 바꾸기 → 자기 문장화 → 감사(感思) 4단계 구성. 매일 한 문장씩 100일을 통과하는 자기 페이스 워크북입니다.
           </p>
+
+          <!-- 내지 미니 미리보기 (3장) -->
+          <div class="book-inner-preview">
+            <div class="bip-label">📖 내지 미리보기</div>
+            <div class="bip-grid">
+              <img src="/images/workbook_p2.png" alt="워크북 내지 1">
+              <img src="/images/workbook_p3.png" alt="워크북 내지 2">
+              <img src="/images/workbook_p4.png" alt="워크북 내지 3">
+            </div>
+          </div>
+
           <p class="book-tier-note">
             <strong>포함 티어:</strong> 워크북+1개월 루틴권 (18,000원) / 12개월 슈퍼 얼리버드 (79,000원) / 12개월 얼리버드 (89,000원) / 12개월 펀딩가 (99,000원)
           </p>
         </div>
       </article>
 
-      <!-- Book 2: 죽기 전에 꼭 읽어야 할 고전 100편 (PDF 백서) -->
+      <!-- Book 2: 감정, 장면이 되다 (작가의 다른 책 - 리워드 미포함) -->
+      <article class="book-card book-card-other">
+        <div class="book-cover">
+          <img src="/images/cover_emotion_real_book_mockup.png" alt="《감정, 장면이 되다》 작법서 표지">
+        </div>
+        <div class="book-meta">
+          <div class="book-tag book-tag-other">📗 작가의 다른 책 · 곧 출간</div>
+          <h3 class="book-title">감정, 장면이 되다</h3>
+          <p class="book-sub">느낌적인 느낌을 텍스트로 눈에 보이게 그리는 작법서</p>
+          <p class="book-desc">
+            막연한 감정을 어떻게 한 장면으로 옮기는가 — 19년차 방송작가가 직접 풀어낸 작법서입니다. <strong>본 펀딩 리워드에는 포함되지 않으며</strong>, 정식 출간 시점에 별도로 만나보실 수 있습니다.
+          </p>
+          <p class="book-tier-note book-tier-note-other">
+            <strong>본 펀딩 리워드 미포함</strong> — 향후 정식 출간 후 별도 안내됩니다.
+          </p>
+        </div>
+      </article>
+
+      <!-- Book 3: 죽기 전에 꼭 읽어야 할 고전 100편 (PDF 백서) -->
       <article class="book-card">
-        <div class="book-cover book-cover-pending" aria-label="표지 작업 중">
-          <div class="bcp-inner">
-            <div class="bcp-icon">📘</div>
-            <div class="bcp-title">표지 작업 중</div>
-            <div class="bcp-sub">PDF 백서</div>
-          </div>
+        <div class="book-cover">
+          <img src="/images/cover_classics100.png" alt="《죽기 전에 꼭 읽어야 할 고전 100편》 PDF 백서 표지" onerror="this.style.display='none'; this.parentElement.classList.add('book-cover-pending'); this.parentElement.innerHTML='<div class=&quot;bcp-inner&quot;><div class=&quot;bcp-icon&quot;>📘</div><div class=&quot;bcp-title&quot;>표지 곧 공개</div><div class=&quot;bcp-sub&quot;>PDF 백서</div></div>';">
         </div>
         <div class="book-meta">
           <div class="book-tag book-tag-pdf">📘 PDF 백서 · 23,000원 상당</div>
           <h3 class="book-title">죽기 전에 꼭 읽어야 할 고전 100편</h3>
-          <p class="book-sub">19년차 작가가 직접 고른 고전 100권 큐레이션 가이드</p>
+          <p class="book-sub">단 한 번의 삶, 100권의 인생 수업</p>
           <p class="book-desc">
             책과 거리를 두고 살아온 분들도 다시 한 권을 펼치게 만드는 — <strong>19년차 작가가 직접 골라 정리한 "살아생전 한 번은 만나야 할 고전 100권" 큐레이션 가이드</strong>입니다. PDF 백서 형태로 제공됩니다.
           </p>
@@ -2306,16 +2391,6 @@ footer {
       </article>
     </div>
 
-    <!-- 워크북 내지 미리보기 -->
-    <div class="workbook-preview">
-      <div class="wp-label">📖 《질문하는 필사》 내지 미리보기</div>
-      <div class="wp-grid">
-        <img src="/images/workbook_p1.png" alt="워크북 내지 1">
-        <img src="/images/workbook_p2.png" alt="워크북 내지 2">
-        <img src="/images/workbook_p3.png" alt="워크북 내지 3">
-        <img src="/images/workbook_p4.png" alt="워크북 내지 4">
-      </div>
-    </div>
 
     <!-- 목업 면책 -->
     <div class="mockup-disclaimer">
