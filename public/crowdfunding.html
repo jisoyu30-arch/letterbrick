@@ -1,774 +1,2661 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="레터브릭 — AI 시대, 직접 쓰는 힘을 다시 만드는 문장 훈련 서비스. 1기 오픈 멤버 모집.">
-<meta property="og:title" content="레터브릭 · LetterBrick — 1기 오픈 멤버 모집">
-<meta property="og:description" content="AI는 점점 더 잘 써주는데, 정작 우리는 점점 덜 쓰고 있습니다. 매일 10분, 다시 직접 쓰는 사람으로.">
-<title>레터브릭 · LetterBrick — 1기 오픈 멤버 모집</title>
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>레터브릭 — AI 시대에도 내 문장을 잃지 않기 위한 필사 루틴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#F7F3EB;--bg-alt:#EFE6DA;--bg-cool:#F1F4F7;--bg-card:#FFFDF9;
-  --dark:#1E1B18;--dark2:#2A2520;--text:#1E1B18;--sub:#6B645C;--muted:#9E9689;
-  --accent:#B07A4F;--accent-l:#F5EDE4;--accent-d:#8C5E3A;
-  --border:rgba(30,27,24,.08);--border-s:rgba(30,27,24,.12);
-  --sh-s:0 2px 8px rgba(30,27,24,.04);--sh-m:0 8px 32px rgba(30,27,24,.06);--sh-l:0 16px 48px rgba(30,27,24,.1);
-  --r:24px;--r-sm:16px;--pill:999px;
-  --serif:'Gowun Batang','Noto Serif KR',serif;--sans:'Noto Sans KR',sans-serif;
-  --max:720px;--py:100px;
+:root {
+  --paper: #f4efe6;
+  --paper-deep: #ece5d6;
+  --ink: #1a1614;
+  --ink-soft: #3a3530;
+  --ink-faded: #6b625a;
+  --brick: #a84a2a;
+  --brick-deep: #7d3318;
+  --brick-soft: #c97558;
+  --gold: #b08838;
+  --rule: #c9bfae;
+  --highlight: #f7e8b8;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;font-size:16px;line-height:1.7;}
-img{display:block;max-width:100%;}a{color:inherit;text-decoration:none;}
 
-/* Typography */
-.h1{font-family:var(--serif);font-size:44px;line-height:1.2;font-weight:700;letter-spacing:-.5px;}
-.h2{font-family:var(--serif);font-size:32px;line-height:1.3;font-weight:700;}
-.h3{font-family:var(--serif);font-size:24px;line-height:1.4;font-weight:600;}
-.body-lg{font-size:17px;line-height:1.85;color:var(--sub);}
-.body-sm{font-size:15px;line-height:1.7;color:var(--sub);}
-.caption{font-size:13px;color:var(--muted);line-height:1.5;}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;}
-.accent{color:var(--accent);}
-.text-center{text-align:center;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Layout */
-.container{max-width:var(--max);margin:0 auto;padding:0 20px;}
-.container-wide{max-width:900px;margin:0 auto;padding:0 20px;}
-.section{padding:var(--py) 0;}
-.sec-alt{background:var(--bg-alt);}
-.sec-cool{background:var(--bg-cool);}
-.sec-dark{background:var(--dark);color:#fff;}
-.sec-dark2{background:var(--dark2);color:#fff;}
-.gap-sm{height:16px;}.gap-md{height:28px;}.gap-lg{height:48px;}
+html { scroll-behavior: smooth; }
 
-/* Card */
-.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;box-shadow:var(--sh-s);}
-.card-dark{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:28px 24px;}
-.grid{display:grid;gap:16px;}
-.grid-2{grid-template-columns:1fr 1fr;}
-.grid-3{grid-template-columns:1fr 1fr 1fr;}
-.grid-5{grid-template-columns:repeat(5,1fr);}
-
-/* Button */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 36px;border-radius:var(--pill);font-family:var(--sans);font-size:16px;font-weight:600;cursor:pointer;transition:all .25s;border:none;text-decoration:none;}
-.btn-primary{background:var(--accent);color:#fff;}
-.btn-primary:hover{background:var(--accent-d);box-shadow:0 8px 24px rgba(176,122,79,.3);transform:translateY(-1px);}
-.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border-s);}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-.btn-white{background:#fff;color:var(--text);}
-.btn-white:hover{background:var(--accent-l);}
-.btn-lg{padding:18px 44px;font-size:17px;}
-.btn-full{width:100%;}
-
-/* Badge */
-.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:var(--pill);font-size:12px;font-weight:600;}
-.badge-accent{background:var(--accent-l);color:var(--accent-d);}
-.badge-gold{background:#F5EDD0;color:#A07828;}
-.badge-green{background:#D8EADF;color:#3D6B50;}
-.badge-red{color:#C0392B;font-weight:700;font-size:12px;}
-.badge-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.1);}
-
-/* ══ 1. STICKY BANNER ══ */
-.top-banner{background:var(--accent);color:#fff;text-align:center;padding:12px 20px;font-size:13px;font-weight:600;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
-.top-banner b{font-weight:800;}
-.top-banner .tb-btn{background:#fff;color:var(--accent-d);padding:6px 18px;border-radius:var(--pill);font-size:12px;font-weight:700;text-decoration:none;flex-shrink:0;transition:all .2s;}
-.top-banner .tb-btn:hover{background:var(--accent-l);}
-.top-banner .tb-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:20px;cursor:pointer;padding:0 4px;line-height:1;flex-shrink:0;}
-.top-banner .tb-close:hover{color:#fff;}
-.top-banner.hidden{display:none;}
-
-/* ══ 2. HERO (dark) ══ */
-.hero{background:linear-gradient(180deg,var(--dark) 0%,var(--dark2) 100%);padding:72px 0 80px;color:#fff;position:relative;overflow:hidden;}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(transparent,var(--bg));}
-.hero-inner{max-width:640px;margin:0 auto;padding:0 20px;text-align:center;}
-.hero .h1{color:#fff;margin-bottom:20px;}
-.hero .h1 em{color:var(--accent);font-style:normal;}
-.hero-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.9;margin-bottom:32px;}
-.hero-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:32px;}
-.hero-cta{margin-bottom:16px;}
-.hero-video{max-width:520px;margin:40px auto 0;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-l);position:relative;z-index:2;}
-.hero-video iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
-
-/* ══ 3. SELF-CHECK ══ */
-.check-list{list-style:none;margin:24px 0;}
-.check-item{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--text);line-height:1.6;}
-.check-item::before{content:'☐';font-size:18px;color:var(--accent);flex-shrink:0;margin-top:1px;}
-
-/* ══ 4. STEPS ══ */
-.step-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:24px 16px;text-align:center;transition:all .3s;}
-.step-card.hl{background:var(--accent);color:#fff;border-color:var(--accent);}
-.step-card .s-num{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);margin-bottom:8px;}
-.step-card.hl .s-num{color:rgba(255,255,255,.7);}
-.step-card .s-icon{font-size:22px;margin-bottom:8px;}
-.step-card .s-title{font-size:13px;font-weight:700;margin-bottom:3px;}
-.step-card .s-desc{font-size:11px;color:var(--muted);line-height:1.4;}
-.step-card.hl .s-desc{color:rgba(255,255,255,.8);}
-
-/* ══ 6. EVIDENCE ══ */
-.ev-card h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.5;}
-.ev-card p{font-size:13px;color:var(--sub);line-height:1.7;}
-.ev-card .ev-src{font-size:11px;color:var(--muted);margin-top:6px;}
-
-/* ══ 7. PRICING ══ */
-.price-grid{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:16px;align-items:start;}
-.pc{background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--r);padding:28px 20px;text-align:center;transition:all .3s;}
-.pc:hover{box-shadow:var(--sh-m);transform:translateY(-3px);}
-.pc.best{border-color:var(--accent);border-width:2px;box-shadow:var(--sh-l);transform:scale(1.03);position:relative;background:linear-gradient(180deg,var(--accent-l) 0%,var(--bg-card) 25%);}
-.pc.best:hover{transform:scale(1.05);}
-.pc.best::before{content:'가장 추천';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:4px 18px;border-radius:var(--pill);letter-spacing:.5px;}
-.pc .pc-badge{margin-bottom:12px;}
-.pc .pc-name{font-size:17px;font-weight:700;margin-bottom:4px;}
-.pc .pc-for{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.5;}
-.pc .pc-org{font-size:13px;color:var(--muted);text-decoration:line-through;margin-bottom:4px;}
-.pc .pc-price{font-family:var(--serif);font-size:36px;font-weight:700;color:var(--accent);margin-bottom:4px;}
-.pc .pc-price span{font-size:15px;font-family:var(--sans);font-weight:400;}
-.pc .pc-save{margin-bottom:6px;}
-.pc .pc-monthly{font-size:13px;color:var(--sub);margin-bottom:20px;padding:5px 14px;background:var(--accent-l);border-radius:var(--pill);display:inline-block;}
-.pc .pc-list{list-style:none;text-align:left;margin-bottom:20px;}
-.pc .pc-list li{font-size:12px;color:var(--sub);padding:6px 0;border-bottom:1px solid var(--border);}
-.pc .pc-list li:last-child{border-bottom:none;}
-.pc .pc-list li::before{content:'✓';margin-right:8px;color:var(--accent);font-weight:700;}
-.pc .pc-list li.hl{color:var(--text);font-weight:600;}
-.pc .pc-limit{font-size:11px;color:var(--muted);margin-bottom:14px;}
-
-.pa-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:28px;}
-.pa-item{text-align:center;font-size:13px;color:var(--sub);}
-.pa-item strong{display:block;font-size:14px;color:var(--text);margin-bottom:2px;}
-
-/* ══ 8. FOUNDER ══ */
-.founder-bar{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
-.founder-avatar{width:56px;height:56px;border-radius:50%;background:var(--accent-l);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
-.founder-info .f-name{font-size:15px;font-weight:700;}
-.founder-info .f-role{font-size:12px;color:var(--muted);}
-.founder-body{font-family:'Noto Serif KR',serif;font-size:15px;color:var(--text);line-height:2.1;}
-.founder-body p{margin-bottom:16px;}
-.f-quote{background:var(--accent-l);border-radius:var(--r);padding:24px 20px;margin:20px 0;text-align:center;font-family:var(--serif);font-size:19px;line-height:1.7;color:var(--text);}
-
-/* ══ 9. MODES ══ */
-.mode-card{border-radius:var(--r);padding:32px 24px;}
-.mode-card.growth{background:linear-gradient(160deg,#FAF6F0,#F0E8DC);border:1px solid var(--border);}
-.mode-card.healing{background:linear-gradient(160deg,#F0F3F7,#E8EDF2);border:1px solid rgba(100,130,170,.1);}
-.mode-card h3{font-family:var(--serif);font-size:20px;margin-bottom:6px;}
-.mode-card .mc-desc{font-size:14px;color:var(--sub);margin-bottom:16px;line-height:1.7;}
-.mode-card ul{list-style:none;}
-.mode-card li{font-size:13px;color:var(--sub);padding:5px 0;border-bottom:1px solid var(--border);}
-.mode-card li:last-child{border-bottom:none;}
-.mode-card li::before{content:'·';margin-right:8px;color:var(--accent);font-weight:700;}
-
-/* ══ 10. SUSTAIN ══ */
-.sustain-card{text-align:center;padding:28px 16px;}
-.sustain-card .sc-icon{font-size:24px;margin-bottom:10px;}
-.sustain-card h4{font-size:14px;font-weight:700;margin-bottom:4px;}
-.sustain-card p{font-size:12px;color:var(--sub);line-height:1.5;}
-
-/* ══ 11. SENTENCE SHOWCASE ══ */
-.ss-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;margin-bottom:16px;box-shadow:var(--sh-s);}
-.ss-card .ss-label{margin-bottom:10px;}
-.ss-card .ss-source{font-size:12px;color:var(--muted);margin-bottom:10px;}
-.ss-card .ss-text{font-family:var(--serif);font-size:18px;line-height:1.8;color:var(--text);}
-.ss-card .ss-analysis{margin-top:14px;padding:14px 16px;background:var(--bg-alt);border-radius:var(--r-sm);font-size:13px;color:var(--sub);line-height:1.7;}
-.ss-card .ss-analysis b{color:var(--text);}
-
-/* ══ 12. FAQ ══ */
-.faq-item{border-bottom:1px solid var(--border);padding:18px 0;}
-.faq-q{font-size:15px;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;line-height:1.5;}
-.faq-q::after{content:'+';font-size:20px;color:var(--muted);transition:transform .25s;flex-shrink:0;}
-.faq-q.open::after{transform:rotate(45deg);}
-.faq-a{font-size:14px;color:var(--sub);line-height:1.85;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s;}
-.faq-a.open{max-height:500px;padding-top:10px;}
-
-/* ══ 13. FINAL CTA ══ */
-.final-cta{background:var(--dark);padding:88px 20px;text-align:center;color:#fff;}
-.final-cta .h2{color:#fff;margin-bottom:14px;}
-.final-cta p{font-size:15px;color:rgba(255,255,255,.5);line-height:1.85;margin-bottom:32px;}
-
-/* FOOTER */
-footer{text-align:center;padding:28px 20px;font-size:12px;color:var(--muted);}
-footer a{color:var(--accent);}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  :root{--py:72px;}
-  .h1{font-size:30px;}.h2{font-size:25px;}.h3{font-size:20px;}
-  .grid-2,.grid-3,.grid-5{grid-template-columns:1fr;}
-  .price-grid{grid-template-columns:1fr;}
-  .pc.best{transform:none;order:-1;}.pc.best:hover{transform:translateY(-3px);}
-  .pa-row{grid-template-columns:1fr;}
-  .top-banner{font-size:12px;padding:10px 14px;gap:10px;}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 400;
+  line-height: 1.85;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse at top, rgba(168,74,42,0.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-@media(max-width:480px){
-  .h1{font-size:26px;}.btn-lg{padding:15px 28px;font-size:15px;}
+
+/* ===== Layout ===== */
+.shell {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
 }
-</style>
+
+.shell::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rule);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .shell::before { display: none; }
+  .shell { padding: 0 22px; }
+  body { font-size: 16px; }
+}
+
+/* ===== Top bar ===== */
+.topbar {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faded);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+}
+.topbar .brand {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 14px;
+  color: var(--ink);
+}
+.topbar .brand span { color: var(--brick); }
+
+/* ===== Section base ===== */
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.sec-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--brick);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.sec-title {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: clamp(26px, 4.4vw, 40px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+  color: var(--ink);
+}
+
+.sec-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+
+p { margin-bottom: 1.2em; }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: 1.08em;
+  color: var(--ink-soft);
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--ink);
+  margin: 60px 0;
+  opacity: 0.3;
+}
+
+.divider-bricks {
+  display: flex;
+  gap: 4px;
+  margin: 80px auto;
+  width: fit-content;
+}
+.divider-bricks span {
+  width: 22px; height: 10px;
+  background: var(--brick);
+  opacity: 0.25;
+  border-radius: 1px;
+}
+.divider-bricks span:nth-child(2) { opacity: 0.5; }
+.divider-bricks span:nth-child(3) { opacity: 0.85; }
+.divider-bricks span:nth-child(4) { opacity: 0.5; }
+.divider-bricks span:nth-child(5) { opacity: 0.25; }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 60px 0 100px;
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero .badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 50px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-faded);
+}
+.hero .badges span {
+  padding: 4px 14px;
+  border-right: 1px solid var(--rule);
+}
+.hero .badges span:first-child { padding-left: 0; }
+.hero .badges span:last-child { border-right: none; }
+
+.hero h1 {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: clamp(32px, 6vw, 58px);
+  line-height: 1.32;
+  letter-spacing: -0.025em;
+  margin-bottom: 48px;
+  color: var(--ink);
+}
+.hero h1 .accent {
+  position: relative;
+  display: inline-block;
+  color: var(--brick);
+}
+.hero h1 .accent::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 4px;
+  height: 8px;
+  background: var(--highlight);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.hero .sub {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.95;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin-bottom: 28px;
+}
+
+.hero .sub strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hero-meta {
+  margin-top: 60px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 560px;
+}
+.hero-meta div {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--ink-faded);
+  text-transform: uppercase;
+}
+.hero-meta div strong {
+  display: block;
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+  color: var(--ink);
+  margin-top: 6px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* ===== Brick stack ornament ===== */
+.brick-art {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 3px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+.brick-art .row {
+  display: flex;
+  gap: 3px;
+}
+.brick-art .b {
+  width: 32px; height: 14px;
+  background: var(--brick);
+  border-radius: 1px;
+  animation: stack 0.6s ease-out backwards;
+}
+.brick-art .row:nth-child(1) .b { background: var(--brick-deep); }
+.brick-art .row:nth-child(2) .b { background: var(--brick); opacity: 0.9; }
+.brick-art .row:nth-child(3) .b { background: var(--brick-soft); opacity: 0.75; }
+.brick-art .row:nth-child(4) .b { background: var(--brick-soft); opacity: 0.5; }
+
+@keyframes stack {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: var(--o, 1); }
+}
+
+@media (max-width: 900px) {
+  .brick-art { display: none; }
+}
+
+/* ===== CTA Button ===== */
+.btn-primary {
+  display: inline-block;
+  padding: 18px 42px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  border-radius: 0;
+}
+.btn-primary::after {
+  content: " →";
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+.btn-primary:hover {
+  background: var(--brick);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 -2px var(--ink);
+}
+.btn-primary:hover::after { transform: translateX(4px); }
+
+/* ===== Secondary CTA ===== */
+.btn-secondary {
+  display: inline-block;
+  padding: 17px 32px;
+  background: transparent;
+  color: var(--ink);
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .hero-cta-row { flex-direction: column; align-items: stretch; }
+  .hero-cta-row .btn-primary,
+  .hero-cta-row .btn-secondary { text-align: center; }
+}
+
+/* ===== ROUTINES (아침 성장편 / 저녁 힐링편) ===== */
+.routines {
+  padding: 60px 0 30px;
+}
+.routines-h {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.routines-h em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+.routines-desc {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 48px;
+}
+.routines-desc strong { color: var(--ink); font-weight: 700; }
+
+.routine-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.routine-card {
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  padding: 36px 32px;
+  position: relative;
+}
+.routine-card.morning { border-top: 4px solid var(--gold); }
+.routine-card.evening { border-top: 4px solid var(--blue, #4a6ba8); background: #f0ebe0; }
+.rc-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+.rc-name {
+  font-family: 'Gowun Batang', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.rc-purpose {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--brick-deep);
+  margin-bottom: 22px;
+}
+.rc-flow {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  counter-reset: rcflow;
+}
+.rc-flow li {
+  counter-increment: rcflow;
+  font-family: 'Gowun Batang', serif;
+  font-size: 14.5px;
+  color: var(--ink);
+  padding: 5px 0 5px 28px;
+  position: relative;
+  line-height: 1.6;
+}
+.rc-flow li::before {
+  content: "0" counter(rcflow);
+  position: absolute;
+  left: 0; top: 5px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--brick);
+}
+.rc-quote {
+  font-family: 'Gowun Batang', serif;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.rc-quote strong { color: var(--ink); font-weight: 700; }
+@media (max-width: 720px) {
+  .routine-grid { grid-template-columns: 1fr; gap: 16px; }
+  .routine-card { padding: 26px 22px; }
+}
+
+/* ===== Pull quote ===== */
+.pullquote {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.6;
+  font-weight: 700;
+  color: var(--ink);
+  padding: 40px 0 40px 32px;
+  border-left: 3px solid var(--brick);
+  margin: 50px 0;
+  letter-spacing: -0.02em;
+}
+.pullquote em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+
+/* ===== Three step diagram ===== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 50px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.step {
+  padding: 36px 24px;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.step:last-child { border-right: none; }
+.step .n {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 56px;
+  color: var(--brick);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.step h4 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.step p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+@media (max-width: 720px) {
+  .steps { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid var(--rule); }
+  .step:last-child { border-bottom: none; }
+}
+
+/* ===== Tables ===== */
+.table-list {
+  margin: 36px 0;
+  border-top: 1px solid var(--ink);
+}
+.table-list .row {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.table-list .row .key {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.table-list .row .val {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .table-list .row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+}
+
+/* ===== Score table ===== */
+.score-table {
+  margin: 36px 0;
+  border: 1px solid var(--ink);
+}
+.score-table .head, .score-table .row {
+  display: grid;
+  grid-template-columns: 2.5fr 0.8fr 3fr;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  font-size: 14.5px;
+}
+.score-table .head {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.score-table .row:last-child { border-bottom: none; background: var(--paper-deep); }
+.score-table .row strong { font-family: 'Gowun Batang', serif; }
+.score-table .row .pts { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--brick); font-size: 17px; }
+
+@media (max-width: 600px) {
+  .score-table .head { display: none; }
+  .score-table .row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 16px;
+  }
+  .score-table .row .pts { font-size: 14px; }
+}
+
+/* ===== Flow steps ===== */
+.flow {
+  counter-reset: flow;
+  margin: 36px 0;
+}
+.flow li {
+  list-style: none;
+  counter-increment: flow;
+  padding: 18px 0 18px 60px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+  color: var(--ink);
+}
+.flow li::before {
+  content: "0" counter(flow);
+  position: absolute;
+  left: 0; top: 18px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--brick);
+}
+.flow li:last-child { border-bottom: none; }
+
+/* ===== Flow split (morning/evening) ===== */
+.flow-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 36px 0 24px;
+}
+.flow-col {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 26px 24px;
+}
+.flow-col.morning { border-top: 4px solid var(--gold); }
+.flow-col.evening { border-top: 4px solid #4a6ba8; background: #f0ebe0; }
+.fc-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.fc-name {
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.flow-col .flow {
+  margin: 0;
+}
+.flow-col .flow li {
+  font-size: 15px;
+  padding: 12px 0 12px 50px;
+}
+.flow-col .flow li::before {
+  font-size: 18px;
+}
+@media (max-width: 720px) {
+  .flow-split { grid-template-columns: 1fr; gap: 16px; }
+  .flow-col { padding: 22px 20px; }
+}
+
+/* ===== Reward cards ===== */
+.rewards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+.reward {
+  border: 1px solid var(--rule);
+  padding: 32px 28px;
+  background: var(--paper-deep);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.reward.featured {
+  border-color: var(--brick);
+  border-width: 2px;
+  background: var(--paper);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.reward.featured::before {
+  content: "가장 추천합니다";
+  position: absolute;
+  top: -14px; left: 24px;
+  background: var(--brick);
+  color: var(--paper);
+  padding: 4px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.reward h3 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.reward .price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--brick);
+  font-weight: 400;
+  margin-bottom: 16px;
+  display: block;
+}
+.reward .price small {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px;
+  color: var(--ink-faded);
+  margin-left: 4px;
+}
+.reward ul {
+  list-style: none;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+.reward ul li::before {
+  content: "▪ ";
+  color: var(--brick);
+  margin-right: 6px;
+}
+
+@media (max-width: 720px) {
+  .rewards { grid-template-columns: 1fr; }
+}
+
+/* ===== Reviews ===== */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+.review {
+  padding: 28px 24px;
+  background: var(--paper-deep);
+  border-top: 3px solid var(--brick);
+}
+.review .tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--brick);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+.review p {
+  font-family: 'Gowun Batang', serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .reviews { grid-template-columns: 1fr; }
+}
+
+/* ===== Timeline ===== */
+.timeline {
+  margin: 36px 0;
+  border-left: 1px solid var(--ink);
+  padding-left: 36px;
+}
+.timeline .item {
+  margin-bottom: 32px;
+  position: relative;
+}
+.timeline .item::before {
+  content: "";
+  position: absolute;
+  left: -42px; top: 8px;
+  width: 12px; height: 12px;
+  background: var(--brick);
+  border: 2px solid var(--paper);
+  outline: 1px solid var(--ink);
+}
+.timeline .date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--brick);
+  margin-bottom: 6px;
+}
+.timeline .title {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+/* ===== FAQ ===== */
+.faq details {
+  border-bottom: 1px solid var(--rule);
+  padding: 22px 0;
+}
+.faq summary {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 36px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before {
+  content: "Q.";
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  margin-right: 10px;
+  font-size: 22px;
+}
+.faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 0; top: -2px;
+  font-size: 24px;
+  color: var(--brick);
+  font-family: 'Cormorant Garamond', serif;
+  transition: transform 0.3s ease;
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details p {
+  margin-top: 16px;
+  padding-left: 32px;
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+/* ===== Final CTA ===== */
+.final-cta {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 100px 0 90px;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brick) 0%, var(--brick) 33%, transparent 33%, transparent 66%, var(--gold) 66%);
+}
+.final-cta .shell::before { background: rgba(244,239,230,0.15); }
+
+.final-cta h2 {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: clamp(26px, 4.5vw, 40px);
+  line-height: 1.45;
+  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+}
+.final-cta h2 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick-soft);
+  font-weight: 400;
+}
+.final-cta p {
+  color: rgba(244,239,230,0.75);
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+.final-cta .btn-primary {
+  background: var(--brick);
+  color: var(--paper);
+  margin-top: 24px;
+}
+.final-cta .btn-primary:hover {
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 8px 0 -2px var(--brick);
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 50px 0;
+  border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-faded);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* ===== Highlight box ===== */
+.note {
+  background: var(--paper-deep);
+  border-left: 3px solid var(--brick);
+  padding: 24px 28px;
+  margin: 32px 0;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+.note strong {
+  font-family: 'Gowun Batang', serif;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* ===== Reveal animation ===== */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ===== Sample feedback box ===== */
+.feedback-sample {
+  margin: 36px 0;
+  padding: 36px 36px 32px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  position: relative;
+  box-shadow: 6px 6px 0 var(--brick);
+}
+.feedback-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.feedback-body {
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.feedback-body em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+.feedback-grow {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--rule);
+  font-family: 'Gowun Batang', serif;
+  font-size: 15.5px;
+  color: var(--ink);
+}
+.feedback-grow span {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faded);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.feedback-grow strong {
+  color: var(--brick);
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .feedback-sample { padding: 26px 22px 22px; box-shadow: 4px 4px 0 var(--brick); }
+}
+
+/* ===== Image placeholder (editorial frame) ===== */
+.imgholder {
+  margin: 50px 0;
+  border: 1.5px dashed var(--brick);
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 14px,
+    rgba(168,74,42,0.04) 14px,
+    rgba(168,74,42,0.04) 28px
+  );
+  padding: 56px 32px;
+  text-align: center;
+  position: relative;
+}
+.imgholder::before {
+  content: "▢ IMAGE";
+  position: absolute;
+  top: -10px; left: 24px;
+  background: var(--paper);
+  padding: 0 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+}
+.imgholder .label {
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.imgholder .hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-faded);
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+}
+.imgholder.tall { padding: 90px 32px; }
+.imgholder.short { padding: 36px 24px; }
+@media (max-width: 600px) {
+  .imgholder { padding: 40px 20px; margin: 36px 0; }
+  .imgholder.tall { padding: 60px 20px; }
+}
+
+/* ===== Recommendation label on reward card ===== */
+.reward .for {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 14px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Gowun Batang', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.reward.featured .for {
+  background: var(--brick);
+}
+
+/* ===== Mid-page CTA strip ===== */
+.mid-cta {
+  margin: 80px 0;
+  padding: 50px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  text-align: center;
+}
+.mid-cta .lead-line {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+.mid-cta .lead-line em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+
+/* ===== Disclaimer note (lighter) ===== */
+.disclaimer {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  font-size: 13.5px;
+  color: var(--ink-faded);
+  line-height: 1.85;
+  font-style: italic;
+}
+.disclaimer strong {
+  color: var(--ink);
+  font-style: normal;
+  font-family: 'Gowun Batang', serif;
+}
+
+/* ===== Light contrast section ===== */
+.section-light {
+  background: #faf6ec;
+  margin: 80px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.section-light section { padding: 70px 0; }
+
+/* ===== ASSET 1: Demo videos (성장/힐링) ===== */
+.demo-videos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 50px 0;
+}
+.demo-video {
+  margin: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+.demo-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--ink);
+}
+.demo-video figcaption {
+  padding: 16px 20px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+}
+.dv-tag {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+@media (max-width: 720px) {
+  .demo-videos { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* ===== ASSET 2: 1호 베타 스포트라이트 (카톡 캡처) ===== */
+.beta-spotlight {
+  margin: 50px 0 32px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 36px 36px 32px;
+  position: relative;
+  box-shadow: 6px 6px 0 var(--brick);
+}
+.bs-head { margin-bottom: 28px; }
+.bs-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--brick);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.bs-head h3 {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(20px, 2.6vw, 24px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.bs-head h3 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+.bs-meta {
+  font-size: 13.5px;
+  color: var(--ink-faded);
+  font-style: italic;
+  margin: 0;
+}
+.bs-kakao {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.bs-kakao figure {
+  margin: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+}
+.bs-kakao img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.bs-kakao figcaption {
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--ink-faded);
+  border-top: 1px solid var(--rule);
+  text-transform: uppercase;
+}
+.bs-quotes {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--rule);
+}
+.bs-q-block { padding: 0; }
+.bs-q-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.bs-q-block p {
+  font-family: 'Gowun Batang', serif;
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.bs-q-after {
+  padding-left: 22px;
+  border-left: 2px solid var(--brick);
+}
+.bs-masking-note {
+  margin-top: 22px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border: 1px dashed var(--rule);
+  font-size: 12.5px;
+  color: var(--ink-faded);
+  font-style: italic;
+  line-height: 1.7;
+}
+@media (max-width: 720px) {
+  .bs-kakao, .bs-quotes { grid-template-columns: 1fr; gap: 18px; }
+  .beta-spotlight { padding: 24px 22px; box-shadow: 4px 4px 0 var(--brick); }
+}
+
+/* ===== ASSET 3: 19년 방송 포트폴리오 ===== */
+.portfolio-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 32px 0 48px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.ps-item {
+  padding: 28px 18px;
+  border-right: 1px solid var(--rule);
+  text-align: center;
+}
+.ps-item:last-child { border-right: none; }
+.ps-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 48px;
+  color: var(--brick);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.ps-num span {
+  font-size: 22px;
+  margin-left: 2px;
+}
+.ps-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--ink-faded);
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.table-list .row .val strong {
+  display: inline-block;
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  color: var(--brick);
+  margin-right: 6px;
+}
+.studio-grid {
+  margin: 40px 0 0;
+  padding: 28px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+}
+.sg-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.sg-images {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.sg-images img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.sg-note {
+  margin-top: 14px;
+  font-size: 11.5px;
+  color: var(--ink-faded);
+  font-style: italic;
+}
+@media (max-width: 720px) {
+  .portfolio-stats { grid-template-columns: repeat(2, 1fr); }
+  .ps-item:nth-child(2) { border-right: none; }
+  .ps-item:nth-child(1), .ps-item:nth-child(2) { border-bottom: 1px solid var(--rule); }
+  .ps-num { font-size: 38px; }
+  .sg-images { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== ASSET 4: Reward enhancements + funding plan ===== */
+.reward { display: flex; flex-direction: column; }
+.r-cap {
+  position: absolute;
+  top: -12px; right: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 4px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.reward.featured .r-cap {
+  background: var(--gold);
+  color: var(--ink);
+}
+.reward .price-was {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faded);
+  margin-top: 4px;
+  text-transform: none;
+  font-style: normal;
+}
+.reward ul li.r-excl {
+  color: var(--ink-faded);
+  font-style: italic;
+  font-size: 13.5px;
+  margin-top: 6px;
+}
+.reward ul li.r-excl::before {
+  content: "△ ";
+  color: var(--ink-faded);
+}
+.reward-note {
+  margin: 18px 0 8px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border-left: 3px solid var(--brick);
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.reward-note strong {
+  display: block;
+  font-family: 'Gowun Batang', serif;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.reward-warning {
+  margin: 6px 0 14px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-faded);
+  line-height: 1.7;
+  background: transparent;
+  border: 1px dashed var(--rule);
+}
+.reward-warning strong {
+  font-style: normal;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.reward-bonus {
+  margin: 18px 0 8px;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, rgba(168,74,42,0.08), rgba(168,74,42,0.03));
+  border: 1px solid var(--brick);
+  border-left: 4px solid var(--brick);
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ink);
+}
+.reward-bonus strong {
+  font-family: 'Gowun Batang', serif;
+  color: var(--brick-deep);
+  font-weight: 700;
+}
+
+/* ===== BOOK SHOWCASE (함께 가는 책들) ===== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 50px 0 40px;
+}
+.book-card {
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+}
+.book-cover {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.book-cover-pending {
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 14px,
+    rgba(168,74,42,0.04) 14px, rgba(168,74,42,0.04) 28px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bcp-inner { text-align: center; color: var(--ink-faded); }
+.bcp-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+.bcp-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.bcp-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--brick);
+  text-transform: uppercase;
+}
+.book-meta { padding: 22px 20px 24px; flex: 1; display: flex; flex-direction: column; }
+.book-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--brick-deep);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.book-tag-bonus { color: var(--brick); }
+.book-tag-pdf { color: var(--ink-soft); }
+.book-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.book-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--brick-deep);
+  margin: 0 0 14px;
+}
+.book-desc {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.book-desc strong { color: var(--ink); font-weight: 700; }
+
+.workbook-preview {
+  margin: 30px 0;
+  padding: 28px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+}
+.wp-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--brick);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.wp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.wp-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+
+.mockup-disclaimer {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--brick);
+  border-left: 4px solid var(--brick);
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.mockup-disclaimer strong {
+  display: block;
+  font-family: 'Gowun Batang', serif;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 720px) {
+  .book-grid { grid-template-columns: 1fr; gap: 16px; }
+  .wp-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.funding-plan {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--ink);
+}
+.fp-title {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.fp-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+.fp-desc {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  margin-bottom: 8px;
+}
+.fp-pct {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--brick);
+  margin-right: 8px;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+/* ===== ASSET 5: Mobile sticky CTA ===== */
+.m-sticky {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 20px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 100;
+  border-top: 3px solid var(--brick);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.m-sticky.show { transform: translateY(0); }
+.m-sticky-left { flex: 1; min-width: 0; }
+.m-sticky-title {
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.m-sticky-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(244,239,230,0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.m-sticky-btn {
+  display: inline-block;
+  background: var(--brick);
+  color: var(--paper);
+  padding: 12px 20px;
+  font-family: 'Gowun Batang', serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.m-sticky-btn:hover { background: var(--brick-deep); }
+@media (max-width: 720px) {
+  .m-sticky { display: flex; }
+  body { padding-bottom: 70px; }
+}</style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     1. STICKY BONUS BANNER
-     ══════════════════════════════════════ -->
-<div class="top-banner" id="topBanner">
-  <span>🎁 오픈 첫날 한정 — <b>어휘력 전자책 추가 증정</b> · 워크북 포함 · 얼리버드 특별가</span>
-  <a href="#pricing" class="tb-btn">지금 시작하기</a>
-  <button class="tb-close" onclick="document.getElementById('topBanner').classList.add('hidden')" aria-label="닫기">&times;</button>
+<!-- ===== TOP BAR ===== -->
+<div class="shell">
+  <div class="topbar">
+    <div class="brand">레터<span>브릭</span></div>
+    <div>TUMBLBUG · 2026 SPRING</div>
+  </div>
 </div>
 
+<!-- ===== HERO ===== -->
+<div class="shell">
+  <section class="hero">
+    <div class="brick-art" aria-hidden="true">
+      <div class="row"><span class="b"></span><span class="b"></span><span class="b"></span></div>
+      <div class="row"><span class="b"></span><span class="b"></span></div>
+      <div class="row"><span class="b"></span><span class="b"></span><span class="b"></span></div>
+      <div class="row"><span class="b"></span><span class="b"></span></div>
+    </div>
 
-<!-- ══════════════════════════════════════
-     2. HERO (dark, crisis hook)
-     ══════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow" style="color:var(--accent);">1기 오픈 멤버 모집</span>
-    <h1 class="h1">
+    <div class="badges">
+      <span>아침 7시 · 성장편</span>
+      <span>저녁 9시 · 힐링편</span>
+      <span>하루 20분</span>
+      <span>19년차 작가 큐레이션</span>
+    </div>
+
+    <h1>
       AI가 더 잘 써주는 시대,<br>
-      <em>내 문장을 잃지 않는 사람이<br>결국 앞서갑니다.</em>
+      <span class="accent">내 문장을 잃지 않는 사람</span>이<br>
+      결국 앞서갑니다.
     </h1>
-    <p class="hero-sub">
+
+    <p class="sub">
       편리함은 AI가 줄 수 있습니다.<br>
-      하지만 생각을 정리하고, 감정을 해석하고, 기회를 붙잡는 건<br>
-      결국 자기 언어를 가진 사람입니다.<br><br>
-      레터브릭은 그 힘을 매일 10분 훈련하게 돕습니다.
+      하지만 생각을 정리하고, 감정을 해석하고,<br>
+      기회를 붙잡는 건 결국 <strong>자기 언어를 가진 사람</strong>입니다.
     </p>
 
-    <!-- 핵심 서비스 요약 카드 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px;margin:0 auto 28px;text-align:left;">
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:14px 16px;">
-        <div style="font-size:12px;color:var(--accent);font-weight:700;margin-bottom:4px;">☀️ 아침 7시</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">성장형 문장 훈련<br><span style="font-size:11px;color:rgba(255,255,255,.4);">구조 분석 → 변형 → AI 피드백</span></div>
-      </div>
-      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:14px 16px;">
-        <div style="font-size:12px;color:#6495ED;font-weight:700;margin-bottom:4px;">🌙 저녁 9시</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">힐링형 필사 기록<br><span style="font-size:11px;color:rgba(255,255,255,.4);">감정 정리 → 소감 → AI 코치 답변</span></div>
-      </div>
-    </div>
-    <p style="font-size:12px;color:rgba(255,255,255,.35);margin-bottom:24px;">카카오톡으로 매일 문장이 배송됩니다. 직접 쓰고, AI 피드백을 받고, 기록이 쌓입니다.</p>
-
-    <div class="hero-badges">
-      <span class="badge badge-dark">매일 10분 루틴</span>
-      <span class="badge badge-dark">고전 명문장 큐레이션</span>
-      <span class="badge badge-dark">AI 코치 피드백</span>
-      <span class="badge badge-dark">워크북 포함</span>
-    </div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-      <a href="#pricing" class="btn btn-primary btn-lg">1기 오픈 멤버로 시작하기</a>
-      <a href="https://letter-brick.vercel.app/" target="_blank" class="btn btn-outline" style="color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.15);">데모 체험하기</a>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     3. 3초 자기진단
-     ══════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Self Check</span>
-    <h2 class="h2">요즘 이런 순간, 자주 있지 않나요?</h2>
-    <ul class="check-list">
-      <li class="check-item">글을 써야 할 때마다 AI부터 켠다</li>
-      <li class="check-item">좋은 문장을 보면 저장은 해두는데, 내 문장으로 써본 적은 별로 없다</li>
-      <li class="check-item">긴 글을 읽거나 쓰는 일이 예전보다 훨씬 버겁다</li>
-      <li class="check-item">글쓰기를 습관으로 만들고 싶은데 며칠 못 가서 끊긴다</li>
-      <li class="check-item">AI 시대인데도, 나는 아직 이걸 제대로 활용하고 있는 것 같지 않다</li>
-    </ul>
-    <div class="gap-md"></div>
-    <p class="body-sm" style="text-align:center;color:var(--text);">
-      문제는 의지가 약해서가 아닙니다.<br>
-      지금의 환경이 깊이 읽고, 오래 생각하고,<br>
-      <b>직접 쓰는 일을 점점 더 어렵게 만들고 있기 때문</b>입니다.
+    <p class="sub">
+      <strong>레터브릭</strong>은 매일 한 문장을 읽고,<br>
+      따라 쓰고, 바꿔 쓰고, 다시 내 문장으로 만드는<br>
+      <strong>필사 기반 문장력 루틴</strong>입니다.
     </p>
-    <div class="gap-sm"></div>
-    <p class="body-sm" style="text-align:center;color:var(--accent-d);font-weight:600;">
-      그래서 레터브릭은<br>
-      아침 7시와 저녁 9시, 카카오톡으로 문장을 보내고<br>
-      계속 쓰게 만드는 구조를 만들었습니다.
+
+    <div class="hero-cta-row">
+      <a href="#rewards" class="btn-primary">오리지널 서포터로 시작하기</a>
+      <a href="https://letter-brick.vercel.app/" target="_blank" rel="noopener" class="btn-secondary">데모 먼저 체험하기</a>
+    </div>
+
+    <div class="hero-meta">
+      <div>아침 7시 / MORNING<strong>성장편 필사 루틴</strong></div>
+      <div>저녁 9시 / EVENING<strong>힐링편 필사 루틴</strong></div>
+      <div>설계 / DESIGN<strong>19년차 방송작가</strong></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== 01.5 아침 성장편 / 저녁 힐링편 (NEW) ===== -->
+<div class="shell">
+  <section class="routines">
+    <h2 class="routines-h">하루를 <em>두 번</em> 지키는<br>필사 루틴.</h2>
+    <p class="routines-desc">
+      아침엔 문장의 근육을 깨우고, 저녁엔 흩어진 감정을 정리합니다.<br>
+      같은 도구가 아니라, <strong>다른 호흡으로 짜인 두 시간</strong>입니다.
     </p>
-    <div class="gap-md"></div>
-    <div class="text-center">
-      <a href="#pricing" class="btn btn-primary">지금 가장 좋은 조건으로 시작하기 →</a>
-      <p class="caption" style="margin-top:10px;">얼리버드 한정 · 정식 출시 전 특별가</p>
-    </div>
-  </div>
-</section>
 
+    <div class="routine-grid">
+      <div class="routine-card morning">
+        <div class="rc-time">AM 7:00</div>
+        <h3 class="rc-name">아침 — 성장편</h3>
+        <p class="rc-purpose">문장력 · 사고력 · 질문력 훈련</p>
 
-<!-- ══════════════════════════════════════
-     4. 5단계 해결 구조
-     ══════════════════════════════════════ -->
-<section class="section sec-cool">
-  <div class="container">
-    <span class="eyebrow">How It Works</span>
-    <h2 class="h2">읽는 사람에서, 쓰는 사람으로.<br>하루 10분이면 됩니다.</h2>
-    <div class="gap-lg"></div>
-    <div class="grid grid-5">
-      <div class="step-card"><div class="s-num">STEP 1</div><div class="s-icon">📨</div><div class="s-title">오늘의 문장 도착</div><div class="s-desc">고전 명문장 배송</div></div>
-      <div class="step-card"><div class="s-num">STEP 2</div><div class="s-icon">✍️</div><div class="s-title">그대로 따라쓰기</div><div class="s-desc">리듬과 구조 체화</div></div>
-      <div class="step-card"><div class="s-num">STEP 3</div><div class="s-icon">🔍</div><div class="s-title">좋은 이유 분석</div><div class="s-desc">왜 좋은 문장인지</div></div>
-      <div class="step-card"><div class="s-num">STEP 4</div><div class="s-icon">💡</div><div class="s-title">내 문장으로 바꾸기</div><div class="s-desc">나만의 표현 확장</div></div>
-      <div class="step-card hl"><div class="s-num">STEP 5</div><div class="s-icon">🧱</div><div class="s-title">AI 피드백 + 벽돌</div><div class="s-desc">코칭 받고 기록</div></div>
-    </div>
-    <div class="gap-md"></div>
-    <p class="body-sm text-center">읽기만 해서는 내 문장이 생기지 않습니다.<br><b>직접 써야, 내 문장이 쌓입니다.</b></p>
-    <div class="gap-md"></div>
-    <div class="text-center">
-      <a href="#pricing" class="btn btn-outline">이 루틴을 지금 시작하려면 →</a>
-    </div>
-  </div>
-</section>
+        <ol class="rc-flow">
+          <li>오늘의 문장 받기</li>
+          <li>따라쓰기</li>
+          <li>구조 바꾸기</li>
+          <li>자기 문장화</li>
+          <li>성장 피드백</li>
+        </ol>
 
-
-<!-- ══════════════════════════════════════
-     5. 제품 프리뷰 / 데모
-     ══════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Product Preview</span>
-    <h2 class="h2">아이디어만 있는 서비스가 아닙니다.<br><span class="accent">이미 작동하는 레터브릭을 확인하세요.</span></h2>
-    <p class="body-sm" style="margin-top:8px;">오늘의 문장, 따라쓰기, 구조 변형, 창의적 확장, AI 피드백, 기록 아카이브까지.<br>이미 훈련 흐름이 구현된 서비스입니다.</p>
-    <div class="gap-lg"></div>
-    <div class="grid grid-2">
-      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">☀️</div><h4 style="font-size:15px;font-weight:700;">성장 모드</h4><p class="caption">문장 선택 → 구조 분석 → 변형 → AI 피드백</p></div>
-      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">🌙</div><h4 style="font-size:15px;font-weight:700;">힐링 모드</h4><p class="caption">감정 필사 → 소감 → AI 코치 답변</p></div>
-      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">🧱</div><h4 style="font-size:15px;font-weight:700;">AI 피드백</h4><p class="caption">구조·표현·개선 방향까지 구체적 코칭</p></div>
-      <div class="card text-center"><div style="font-size:28px;margin-bottom:10px;">📕</div><h4 style="font-size:15px;font-weight:700;">워크북 포함</h4><p class="caption">《하루쌓기》 100일 필사 실용서</p></div>
-    </div>
-    <div class="gap-md"></div>
-    <div class="text-center">
-      <a href="https://letter-brick.vercel.app/" target="_blank" class="btn btn-outline">데모 먼저 체험하기 →</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     5.5 하루 사용 흐름
-     ══════════════════════════════════════ -->
-<section class="section sec-alt">
-  <div class="container">
-    <span class="eyebrow">Daily Routine</span>
-    <h2 class="h2">카카오톡으로 문장이 배송됩니다.<br>아침 7시, 저녁 9시.</h2>
-    <p class="body-sm" style="margin-top:8px;">알림이 오면 열고, 쓰고, 피드백을 받습니다. 그게 전부입니다.</p>
-
-    <!-- 아침 블록 -->
-    <div style="margin-top:36px;padding:24px 20px;background:linear-gradient(135deg,#FAF6F0,#F0E8DC);border:1px solid var(--border);border-radius:var(--r);">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span class="badge badge-gold">☀️ AM 7:00</span>
-        <span style="font-size:14px;font-weight:700;color:var(--text);">성장형 문장 훈련</span>
+        <p class="rc-quote">
+          한 문장을 따라 쓰고, 구조를 바꾸고, 내 문장으로 다시 씁니다.<br>
+          <strong>문장력과 질문력을 깨우는 필사 루틴.</strong>
+        </p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <div style="padding:10px 12px;background:#fff;border-radius:var(--r-sm);font-size:12px;color:var(--sub);"><b style="color:var(--text);">1.</b> 오늘의 문장 도착</div>
-        <div style="padding:10px 12px;background:#fff;border-radius:var(--r-sm);font-size:12px;color:var(--sub);"><b style="color:var(--text);">2.</b> 그대로 따라쓰기</div>
-        <div style="padding:10px 12px;background:#fff;border-radius:var(--r-sm);font-size:12px;color:var(--sub);"><b style="color:var(--text);">3.</b> 구조 분석 + 변형</div>
-        <div style="padding:10px 12px;background:var(--accent-l);border-radius:var(--r-sm);font-size:12px;color:var(--accent-d);font-weight:600;"><b>4.</b> AI 피드백 + 벽돌 적립</div>
+
+      <div class="routine-card evening">
+        <div class="rc-time">PM 9:00</div>
+        <h3 class="rc-name">저녁 — 힐링편</h3>
+        <p class="rc-purpose">감정 정리 · 하루 회고 · 자기 돌봄</p>
+
+        <ol class="rc-flow">
+          <li>오늘의 문단 받기</li>
+          <li>천천히 읽기</li>
+          <li>마음에 남은 문장 필사</li>
+          <li>감정 기록</li>
+          <li>감사(感思) 질문</li>
+        </ol>
+
+        <p class="rc-quote">
+          하루 끝에 한 문단을 천천히 읽고, 마음에 남은 문장을 필사합니다.<br>
+          <strong>흩어진 감정을 감사(感思) 질문으로 정리하는 회고 루틴.</strong>
+        </p>
       </div>
     </div>
+  </section>
+</div>
 
-    <!-- 저녁 블록 -->
-    <div style="margin-top:14px;padding:24px 20px;background:linear-gradient(135deg,#F0F3F7,#E8EDF2);border:1px solid rgba(100,130,170,.1);border-radius:var(--r);">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-        <span class="badge badge-accent">🌙 PM 9:00</span>
-        <span style="font-size:14px;font-weight:700;color:var(--text);">힐링형 필사 기록</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <div style="padding:10px 12px;background:#fff;border-radius:var(--r-sm);font-size:12px;color:var(--sub);"><b style="color:var(--text);">1.</b> 힐링 문장 도착</div>
-        <div style="padding:10px 12px;background:#fff;border-radius:var(--r-sm);font-size:12px;color:var(--sub);"><b style="color:var(--text);">2.</b> 필사 + 소감 작성</div>
-        <div style="padding:10px 12px;background:var(--accent-l);border-radius:var(--r-sm);font-size:12px;color:var(--accent-d);font-weight:600;"><b>3.</b> AI 코치 답변</div>
-        <div style="padding:10px 12px;background:#fff;border-radius:var(--r-sm);font-size:12px;color:var(--sub);"><b style="color:var(--text);">4.</b> 1벽돌 기록 완료</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ===== 02 PROBLEM ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 02 — 문제 제기</span>
+    <h2 class="sec-title">AI가 편리해질수록,<br>우리는 <em>생각하는 시간</em>을<br>잃고 있는지도 모릅니다.</h2>
 
-
-<!-- ══════════════════════════════════════
-     6. WHY NOW 압축 근거
-     ══════════════════════════════════════ -->
-<section class="section sec-alt">
-  <div class="container">
-    <span class="eyebrow">Why Now</span>
-    <h2 class="h2">왜 지금, 직접 쓰는 훈련이<br>필요할까요?</h2>
-    <div class="gap-lg"></div>
-    <div class="grid" style="gap:14px;">
-      <div class="card ev-card">
-        <h4>AI가 대신 써줄수록,<br>내 생각을 스스로 정리하는 빈도는 줄어듭니다.</h4>
-        <p class="ev-src">Lee, Sarkar et al. — CHI 2025 (ACM) · 319명 분석</p>
-      </div>
-      <div class="card ev-card">
-        <h4>손으로 직접 쓰는 행위는<br>기억과 집중을 더 적극적으로 자극합니다.</h4>
-        <p class="ev-src">Van der Weel & Van der Meer — Frontiers in Psychology, 2024</p>
-      </div>
-      <div class="card ev-card">
-        <h4>좋은 문학을 읽고 쓰는 훈련은<br>공감력과 해석력을 넓혀줍니다.</h4>
-        <p class="ev-src">Kidd & Castano — Science, 2013</p>
-      </div>
-      <div class="card ev-card">
-        <h4>짧은 글쓰기 루틴은<br>감정 정리와 스트레스 완화에도 도움을 줍니다.</h4>
-        <p class="ev-src">Pennebaker & Beall, 1986 · 후속 400+ 연구</p>
-      </div>
-    </div>
-    <div class="gap-lg"></div>
-    <p class="body-sm text-center">
-      그래서 레터브릭은<br>
-      AI 시대에 약해지기 쉬운 사고력, 문장력, 자기표현력을<br>
-      <b>매일 10분 루틴으로 다시 훈련하도록 설계했습니다.</b>
+    <p class="lead">
+      AI는 이제 글을 써주고, 요약해주고, 기획해주고, 대답까지 대신해줍니다.
     </p>
-    <div class="gap-md"></div>
-    <div class="text-center">
-      <p class="body-sm" style="color:var(--text);margin-bottom:12px;">이 훈련을 가장 좋은 조건으로 시작할 수 있는 건 <b>지금뿐입니다.</b></p>
-      <a href="#pricing" class="btn btn-primary">오픈 멤버 조건 확인하기 →</a>
+    <p class="lead">편리합니다.</p>
+    <p class="lead">
+      하지만 어느 순간부터 우리는<br>
+      스스로 묻고, 고르고, 해석하고, 표현하는 시간을<br>
+      건너뛰고 있는지도 모릅니다.
+    </p>
+
+    <p class="lead">
+      글을 못 쓰게 되는 것이 문제가 아닙니다.<br>
+      더 큰 문제는 — 내 생각을 내 문장으로 붙잡는 힘이<br>
+      조금씩 약해지는 것입니다.
+    </p>
+
+    <div class="pullquote">
+      레터브릭은 AI를 거부하는 서비스가 아닙니다.<br>
+      <em>AI 시대에도</em> 생각의 주도권을 잃지 않기 위한 훈련입니다.
     </div>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 03 ANSWER ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 03 — 레터브릭의 답</span>
+    <h2 class="sec-title">그래서 레터브릭은,<br>매일 한 문장을 <em>직접 통과하게</em> 만듭니다.</h2>
+
+    <p class="lead">
+      레터브릭은 좋은 문장을 그냥 읽고 끝내지 않습니다.
+    </p>
+
+    <p class="lead">
+      읽고,<br>따라 쓰고,<br>구조를 바꿔보고,<br>내 경험과 생각으로 다시 씁니다.
+    </p>
+
+    <p class="lead">
+      문장을 소비하는 데서 멈추지 않고,<br>
+      <strong style="color:var(--ink); font-weight:700;">문장이 움직이는 방식</strong>을 배우는 훈련입니다.
+    </p>
+
+    <div class="pullquote">
+      필사는 느린 입력입니다.<br>
+      느린 입력은 <em>생각을 붙잡는 시간</em>을 만듭니다.
+    </div>
+
+    <p>
+      좋은 문장을 베끼는 것보다 중요한 것은<br>
+      그 문장이 작동하는 방식을 배우는 일입니다.
+    </p>
+
+    <p>
+      AI가 답을 빠르게 줄수록,<br>
+      우리는 더 자주 스스로 물어야 합니다.
+    </p>
+  </section>
+</div>
+
+<!-- ===== 04 CREATOR STORY ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 04 — 창작자 서사</span>
+    <h2 class="sec-title">19년 동안 글로 먹고살았습니다.<br>그런데 어느 날, <em>내 문장을 잃고</em> 있다는<br>생각이 들었습니다.</h2>
+
+    <p>저는 19년차 방송작가입니다.</p>
+
+    <p>
+      방송 원고를 쓰고,<br>
+      인터뷰를 정리하고,<br>
+      타인의 이야기를 문장으로 옮기는 일은 계속했지만,
+    </p>
+
+    <div class="pullquote">
+      정작 <em>내 생각을 내 문장으로</em> 붙잡는 시간은<br>
+      점점 줄어들고 있었습니다.
+    </div>
+
+    <p>
+      AI가 글을 대신 써주는 시대가 오자<br>
+      기대보다 먼저 위기감이 왔습니다.
+    </p>
+
+    <p>
+      이 편리함 속에서<br>
+      우리는 정말 더 잘 생각하게 될까?<br>
+      아니면 생각하는 일마저<br>
+      조금씩 외주화하게 될까?
+    </p>
+
+    <p><strong style="color:var(--ink); font-weight:700;">그 위기감에서 레터브릭이 시작되었습니다.</strong></p>
+
+    <div class="divider"></div>
+
+    <p>그래서 저는 문장을 다시 손으로 통과시키기로 했습니다.</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--brick); margin-top:-8px;">필사로.</p>
+
+    <p>처음에는 가까운 사람에게 매일 한 문장을 보내는 일에서 시작했습니다.</p>
+
+    <p>
+      그 문장을 따라 쓰고,<br>
+      질문을 던지고,<br>
+      자기 하루와 연결해보는 작은 루틴.
+    </p>
+
+    <p>
+      그 작은 실험을<br>
+      더 많은 사람이 함께할 수 있는<br>
+      <em style="color:var(--brick); font-style:normal; font-weight:700;">필사 기반 문장력 루틴</em>으로 확장한 것이<br>
+      레터브릭입니다.
+    </p>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 05 METHOD ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 05 — 필사 방법론</span>
+    <h2 class="sec-title">레터브릭은 <em>따라 쓰기</em>에서<br>끝나지 않습니다.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>따라쓰기</h4>
+        <p>원문을 그대로 옮기며 문장의 리듬과 구조를 익힙니다.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>구조 바꾸기</h4>
+        <p>원문의 문장 뼈대를 다른 소재와 상황에 적용합니다.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>자기 문장화</h4>
+        <p>내 경험과 생각으로 다시 쓰며 자기 언어로 전환합니다.</p>
+      </div>
+    </div>
+
+    <p>
+      기존의 필사는 좋은 문장을 베껴 쓰는 데서 멈추는 경우가 많습니다.<br>
+      하지만 좋은 문장을 따라 썼다고 해서<br>
+      바로 내 글을 쓸 수 있게 되는 것은 아닙니다.
+    </p>
+
+    <p>레터브릭은 한 걸음 더 갑니다.</p>
+
+    <p>
+      문장을 따라 쓰고,<br>
+      구조를 분석하고,<br>
+      그 구조를 내 삶과 생각에 적용해<br>
+      <strong style="color:var(--ink); font-weight:700;">다시 쓰게 합니다.</strong>
+    </p>
+
+    <div class="note">
+      <strong>감사(感思)</strong> — 여기에 하루의 생각을 붙잡는 감사 질문이 더해집니다.<br><br>
+      감사(感思)는 고마움의 감사(感謝)가 아닙니다. 느낄 감(感), 생각 사(思).<br>
+      느낀 것을 흘려보내지 않고, 생각으로 붙잡아 자기 질문으로 바꾸는 — 레터브릭의 회고 방식입니다.
+    </div>
+
+    <div class="demo-videos">
+      <figure class="demo-video">
+        <video src="/videos/demo_growth.mp4" muted autoplay loop playsinline preload="metadata"></video>
+        <figcaption><span class="dv-tag">아침 · 성장편 데모</span>따라 쓴 문장이 내 문장으로 자라는 시간</figcaption>
+      </figure>
+      <figure class="demo-video">
+        <video src="/videos/demo_healing.mp4" muted autoplay loop playsinline preload="metadata"></video>
+        <figcaption><span class="dv-tag">저녁 · 힐링편 데모</span>한 문단을 음미하고, 한 줄 질문으로 하루를 닫는 시간</figcaption>
+      </figure>
+    </div>
+  </section>
+</div>
+
+<!-- ===== MID CTA 1 ===== -->
+<div class="shell">
+  <div class="mid-cta">
+    <p class="lead-line">매일 한 문장이,<br>당신의 <em>생각하는 시간</em>을 다시 만듭니다.</p>
+    <a href="#rewards" class="btn-primary">리워드 보러 가기</a>
   </div>
-</section>
+</div>
 
+<!-- ===== 06 CURATION ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 06 — 문장 큐레이션 기준</span>
+    <h2 class="sec-title">레터브릭은 <em>아무 문장</em>이나<br>보내지 않습니다.</h2>
 
-<!-- ══════════════════════════════════════
-     7. PRICING / REWARDS
-     ══════════════════════════════════════ -->
-<section class="section sec-cool" id="pricing">
-  <div class="container-wide">
-    <span class="eyebrow">Pricing</span>
-    <h2 class="h2">정가가 있는 서비스를,<br>지금 가장 좋은 조건으로 먼저 시작하세요.</h2>
-    <p class="body-sm" style="margin-top:8px;">오픈 멤버에게는 가격뿐 아니라 워크북과 초기 보너스까지 함께 제공합니다.</p>
+    <p>레터브릭의 문장 큐레이션은 '좋은 말 모음'이 아닙니다.</p>
 
-    <!-- 첫날 보너스 -->
-    <div style="margin-top:28px;padding:14px 20px;background:linear-gradient(135deg,#A07828,#C69832);color:#fff;border-radius:var(--r-sm);text-align:center;font-size:14px;font-weight:600;">
-      🎁 오픈 첫날 참여자에게는 <b>어휘력 전자책 1권을 추가</b>로 드립니다.<br>
-      <span style="font-size:12px;font-weight:400;opacity:.8;">같은 시작이라도 더 좋은 출발선은 분명히 존재합니다.</span>
+    <p>
+      하루에 따라 쓰기 좋은 문장,<br>
+      구조를 바꿔 연습하기 좋은 문장,<br>
+      내 경험으로 다시 써볼 수 있는 문장을 고릅니다.
+    </p>
+
+    <div class="table-list">
+      <div class="row"><div class="key">감각성</div><div class="val">이미지, 촉감, 장면이 살아 있는 문장</div></div>
+      <div class="row"><div class="key">구조성</div><div class="val">문장의 뼈대가 분명해 따라 쓰고 분석하기 좋은 문장</div></div>
+      <div class="row"><div class="key">변형 가능성</div><div class="val">단어와 상황을 바꿔도 의미의 중심이 살아 있는 문장</div></div>
+      <div class="row"><div class="key">사유성</div><div class="val">읽은 뒤 질문과 생각을 불러오는 문장</div></div>
+      <div class="row"><div class="key">난이도 균형</div><div class="val">너무 쉽지도, 지나치게 어렵지도 않아 매일 지속 가능한 문장</div></div>
+      <div class="row"><div class="key">출처 안정성</div><div class="val">출처와 권리 검토가 가능한 문장</div></div>
     </div>
 
-    <div class="price-grid" style="margin-top:28px;">
-      <!-- 체험 -->
-      <div class="pc">
-        <span class="badge badge-accent pc-badge">체험 · 200명</span>
-        <div class="pc-name">1개월 체험</div>
-        <div class="pc-for">망설여진다면 먼저 짧게 경험해보세요.<br>훈련 구조로 판단할 수 있습니다.</div>
-        <div class="pc-org">9,900원</div>
-        <div class="pc-price">5,900<span>원</span></div>
-        <span class="badge badge-red pc-save">40% 할인</span>
-        <ul class="pc-list">
-          <li>통합 1개월 (성장+힐링)</li>
-          <li>AI 코치 피드백 포함</li>
-          <li class="hl">베스트 리뷰어 50인 → 6개월 이용권</li>
+    <p style="font-style: italic; color: var(--ink-faded);">
+      읽기 → 필사 → 변형 → 자기 문장화로 이어지는<br>
+      훈련용 문장을 고르는 과정입니다.
+    </p>
+
+    <div class="note" style="margin-top: 40px;">
+      <strong>저작권과 출처 안정성에 대하여</strong><br><br>
+      레터브릭은 문장 큐레이션 과정에서 <strong>출처 확인과 권리 검토</strong>를 함께 진행합니다.<br><br>
+      저작권 보호기간이 만료된 고전, 출처 표기가 가능한 문장,
+      교육적 인용 범위 안에서 활용 가능한 문장을 우선 검토합니다.<br><br>
+      단순히 좋은 문장을 모아 보내는 것이 아니라,
+      필사 훈련에 적합한지와 함께 출처 안정성을 확인합니다.
+    </div>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 07 FEEDBACK ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 07 — 피드백 기준</span>
+    <h2 class="sec-title">레터브릭은 글을 줄 세우지 않습니다.<br><em>문장이 자라는 방향</em>을 확인합니다.</h2>
+
+    <p>
+      레터브릭의 피드백은<br>
+      글을 잘 썼는지 못 썼는지 평가하기 위한 것이 아닙니다.
+    </p>
+
+    <p>
+      오늘의 문장이<br>
+      원문을 얼마나 이해했는지,<br>
+      구조를 어떻게 바꾸었는지,<br>
+      자기 경험과 생각으로 얼마나 옮겨졌는지를 확인하는 과정입니다.
+    </p>
+
+    <div class="score-table">
+      <div class="head"><div>기준</div><div>배점</div><div>확인 내용</div></div>
+      <div class="row"><div><strong>의미 이해도</strong></div><div class="pts">20</div><div>원문의 핵심 의미를 잡았는가</div></div>
+      <div class="row"><div><strong>구조 변형도</strong></div><div class="pts">20</div><div>문장 구조를 응용했는가</div></div>
+      <div class="row"><div><strong>자기화 정도</strong></div><div class="pts">20</div><div>자기 경험과 관점이 들어갔는가</div></div>
+      <div class="row"><div><strong>구체성</strong></div><div class="pts">15</div><div>장면·감각·행동이 살아 있는가</div></div>
+      <div class="row"><div><strong>문장 안정성</strong></div><div class="pts">15</div><div>자연스럽고 읽히는 문장인가</div></div>
+      <div class="row"><div><strong>사유 확장성</strong></div><div class="pts">10</div><div>질문이나 다음 글감으로 이어지는가</div></div>
+      <div class="row"><div><strong>총점</strong></div><div class="pts">100</div><div>성장 방향 확인용</div></div>
+    </div>
+
+    <div class="note">
+      <strong>점수는 순위를 매기기 위한 것이 아닙니다.</strong><br><br>
+      어제의 문장보다 오늘의 문장이 어디에서 조금 더 선명해졌는지<br>
+      확인하기 위한 성장 지표입니다.
+    </div>
+
+    <div class="feedback-sample">
+      <div class="feedback-tag">SAMPLE FEEDBACK · 예시 피드백</div>
+      <p class="feedback-body">
+        원문 의미는 잘 붙잡았지만, 자기 경험으로 옮기는 부분이<br>
+        아직 추상적입니다.
+      </p>
+      <p class="feedback-body">
+        "힘들었다"보다 — <em>"무슨 장면에서, 어떤 몸의 감각으로 힘들었는지"</em>를<br>
+        한 문장 더 붙여보세요.
+      </p>
+      <div class="feedback-grow">
+        <span>오늘의 성장 포인트</span>
+        감정을 설명하지 말고, <strong>장면으로 보여주기.</strong>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== 08 FLOW ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 08 — 실제 사용 흐름</span>
+    <h2 class="sec-title">하루 20분, <em>이렇게</em> 진행됩니다.</h2>
+
+    <p class="lead">
+      아침과 저녁은 같은 도구가 아니라 <strong style="color:var(--ink);">다른 호흡으로 짜인 두 시간</strong>입니다.<br>
+      각각 어떻게 흘러가는지 한 컷씩 정리했습니다.
+    </p>
+
+    <div class="flow-split">
+      <div class="flow-col morning">
+        <div class="fc-time">AM 7:00 · 성장편</div>
+        <h4 class="fc-name">아침 — 문장 근육을 깨우는 흐름</h4>
+        <ol class="flow">
+          <li>오늘의 문장 받기</li>
+          <li>천천히 읽기</li>
+          <li>따라쓰기</li>
+          <li>구조 바꾸기</li>
+          <li>자기 문장화</li>
+          <li>성장 피드백 확인</li>
+        </ol>
+      </div>
+
+      <div class="flow-col evening">
+        <div class="fc-time">PM 9:00 · 힐링편</div>
+        <h4 class="fc-name">저녁 — 흩어진 감정을 정리하는 흐름</h4>
+        <ol class="flow">
+          <li>오늘의 문단 받기</li>
+          <li>천천히 읽기</li>
+          <li>마음에 남은 문장 필사</li>
+          <li>감정 기록</li>
+          <li>감사(感思) 질문</li>
+          <li>하루 회고</li>
+        </ol>
+      </div>
+    </div>
+
+    <p style="margin-top:36px;">레터브릭은 거창한 시간을 요구하지 않습니다.</p>
+
+    <p>
+      <strong style="color:var(--brick); font-weight:700;">하루 20분.</strong><br>
+      한 문장을 오래 붙잡는 시간.
+    </p>
+
+    <p>
+      그 시간이 쌓이면<br>
+      읽는 방식이 달라지고,<br>
+      쓰는 방식이 달라지고,<br>
+      AI를 대하는 태도도 달라집니다.
+    </p>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== MID CTA 2 ===== -->
+<div class="shell">
+  <div class="mid-cta">
+    <p class="lead-line">레터브릭은 평가가 아니라,<br><em>당신의 문장이 자라는 길</em>을 함께 봅니다.</p>
+    <a href="#rewards" class="btn-primary">함께 시작하기</a>
+  </div>
+</div>
+
+<!-- ===== 09 BOOK SHOWCASE (NEW) ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 09 — 함께 가는 책들</span>
+    <h2 class="sec-title">필사 루틴과 함께,<br><em>세 권의 책</em>이 같이 갑니다.</h2>
+
+    <p class="lead">
+      매일의 문장 루틴 외에, 레터브릭이 함께 만들고 — 또는 함께 추천하는 — 세 권의 책을 미리 만나보세요.
+    </p>
+
+    <div class="book-grid">
+      <!-- Book 1: 질문하는 필사 -->
+      <article class="book-card">
+        <div class="book-cover">
+          <img src="/images/cover_dark_01_book_mockup.png" alt="《질문하는 필사》 표지 시안">
+        </div>
+        <div class="book-meta">
+          <div class="book-tag">📕 워크북 · 대표 추천 / 프리미엄 완주 포함</div>
+          <h3 class="book-title">질문하는 필사</h3>
+          <p class="book-sub">100일 필사 훈련 워크북 · 정가 18,000원</p>
+          <p class="book-desc">
+            따라쓰기 → 구조 바꾸기 → 자기 문장화 → 감사(感思) 4단계 구성. 매일 한 문장씩 100일을 통과하는 자기 페이스 워크북입니다.
+          </p>
+        </div>
+      </article>
+
+      <!-- Book 2: 감정, 장면이 되다 -->
+      <article class="book-card">
+        <div class="book-cover">
+          <img src="/images/cover_emotion_real_book_mockup.png" alt="《감정, 장면이 되다》 표지 시안">
+        </div>
+        <div class="book-meta">
+          <div class="book-tag book-tag-bonus">📗 보너스 작법서 · 72시간 보너스 한정</div>
+          <h3 class="book-title">감정, 장면이 되다</h3>
+          <p class="book-sub">"느낌적인 느낌"을 텍스트로 보여주는 작법서</p>
+          <p class="book-desc">
+            막연한 감정을 어떻게 한 장면으로 옮기는가 — 19년차 방송작가가 직접 풀어낸 작법서. 펀딩 오픈 후 <strong>72시간 이내 신청 + 취소하지 않은 서포터</strong>에게 펀딩 성공 후 전자책 이용권으로 증정됩니다.
+          </p>
+        </div>
+      </article>
+
+      <!-- Book 3: 책과 담 쌓고 사는 너에게 -->
+      <article class="book-card">
+        <div class="book-cover book-cover-pending" aria-label="표지 작업 중">
+          <div class="bcp-inner">
+            <div class="bcp-icon">📘</div>
+            <div class="bcp-title">표지 작업 중</div>
+            <div class="bcp-sub">PDF 북 선공개본</div>
+          </div>
+        </div>
+        <div class="book-meta">
+          <div class="book-tag book-tag-pdf">📘 PDF 북 선공개본 · 프리미엄 완주 한정</div>
+          <h3 class="book-title">책과 담 쌓고 사는 너에게</h3>
+          <p class="book-sub">— 살아생전 읽고 죽어야 하는 고전 100선</p>
+          <p class="book-desc">
+            책과 거리를 두고 살아온 분들도 다시 한 권을 펼치게 만드는 — <strong>19년차 작가가 직접 골라 정리한 "살아생전 한 번은 만나야 할 고전 100권" 큐레이션 가이드</strong>. 정식 출간 전 PDF 선공개본으로 먼저 만나보실 수 있습니다.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- 워크북 내지 미리보기 -->
+    <div class="workbook-preview">
+      <div class="wp-label">📖 《질문하는 필사》 내지 미리보기</div>
+      <div class="wp-grid">
+        <img src="/images/workbook_p1.png" alt="워크북 내지 1">
+        <img src="/images/workbook_p2.png" alt="워크북 내지 2">
+        <img src="/images/workbook_p3.png" alt="워크북 내지 3">
+        <img src="/images/workbook_p4.png" alt="워크북 내지 4">
+      </div>
+    </div>
+
+    <!-- 목업 면책 -->
+    <div class="mockup-disclaimer">
+      <strong>📌 본 이미지는 샘플용 목업 이미지로, 실제 제품과 약간의 차이가 있을 수 있습니다.</strong>
+      구성품 변동 시 텀블벅 커뮤니티를 통해 안내드립니다.
+    </div>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 10 REWARDS ===== -->
+<div class="shell">
+  <section id="rewards">
+    <span class="sec-num">SECTION 10 — 리워드</span>
+    <h2 class="sec-title">함께 쌓아갈 <em>다섯 개의 벽돌.</em></h2>
+
+    <div class="rewards">
+      <div class="reward">
+        <div class="r-cap">선착순 200명</div>
+        <h3>맛보기 체험권</h3>
+        <span class="price">5,900<small>원</small><span class="price-was">정가 9,900원</span></span>
+        <ul>
+          <li>1개월 맛보기 이용권</li>
+          <li>매일 문장 배송 (성장편 + 힐링편)</li>
+          <li>따라쓰기 · 구조 바꾸기 · 자기 문장화 훈련</li>
         </ul>
-        <div class="pc-limit">200명 한정</div>
-        <button class="btn btn-outline btn-full">체험 참여하기</button>
+        <div class="for">레터브릭을 먼저 경험해보고 싶은 분</div>
       </div>
 
-      <!-- 12개월 BEST -->
-      <div class="pc best">
-        <span class="badge badge-gold pc-badge">얼리버드 · 300명</span>
-        <div class="pc-name">12개월 + 필사 전자책</div>
-        <div class="pc-for">가장 추천합니다.<br>문장력은 오래 쌓을수록 달라집니다.</div>
-        <div class="pc-org">131,700원 상당</div>
-        <div class="pc-price" style="font-size:42px;">79,000<span>원</span></div>
-        <span class="badge badge-red pc-save">40% 할인</span>
-        <div class="pc-monthly">월 6,583원 — 하루 220원</div>
-        <ul class="pc-list">
-          <li>성장+힐링 통합 12개월</li>
-          <li>AI 코치 피드백 무제한</li>
-          <li class="hl">📕 《하루쌓기》 전자책 이용권 (12,900원 상당)</li>
-          <li>카톡 알림 + 매월 백일장</li>
-          <li>벽돌 성장맵 + 아카이브</li>
-          <li class="hl">오픈 멤버 평생 가격 유지 *</li>
+      <div class="reward">
+        <div class="r-cap">선착순 200명</div>
+        <h3>워크북 소장권</h3>
+        <span class="price">16,200<small>원</small><span class="price-was">전자책 정가 18,000원</span></span>
+        <ul>
+          <li>《질문하는 필사》 전자책 이용권 — 100일 필사 워크북</li>
+          <li>따라쓰기 · 구조 바꾸기 · 자기 문장화 + 감사(感思)</li>
+          <li>📨 정식 출간 후 <strong>전자책 이용권</strong>을 카카오톡·이메일로 발송 — 본인이 eBook 플랫폼에서 등록 후 열람</li>
+          <li class="r-excl">구독 서비스 미포함 (6/12개월 티어에 별도 포함)</li>
         </ul>
-        <div class="pc-limit" style="color:var(--accent);font-weight:600;">🔥 300명 한정</div>
-        <button class="btn btn-primary btn-full btn-lg">12개월 얼리버드로 시작하기</button>
+        <div class="for">혼자 워크북부터 차근히 해보고 싶은 분</div>
       </div>
 
-      <!-- 6개월 -->
-      <div class="pc">
-        <span class="badge badge-green pc-badge">얼리버드 · 500명</span>
-        <div class="pc-name">6개월 + 필사 전자책</div>
-        <div class="pc-for">루틴을 시작하기에 좋은 기간.<br>부담은 덜고, 변화는 확실하게.</div>
-        <div class="pc-org">72,300원 상당</div>
-        <div class="pc-price">49,000<span>원</span></div>
-        <span class="badge badge-red pc-save">32% 할인</span>
-        <div class="pc-monthly">월 8,167원</div>
-        <ul class="pc-list">
-          <li>성장+힐링 통합 6개월</li>
-          <li>AI 코치 피드백 무제한</li>
-          <li class="hl">📕 《하루쌓기》 전자책 이용권 (12,900원 상당)</li>
-          <li>카톡 알림 + 매월 백일장</li>
-          <li class="hl">오픈 멤버 평생 가격 유지 *</li>
+      <div class="reward">
+        <div class="r-cap">선착순 500명</div>
+        <h3>습관 시작권</h3>
+        <span class="price">45,000<small>원</small><span class="price-was">정가 59,400원</span></span>
+        <ul>
+          <li>6개월 이용권 (성장편 + 힐링편)</li>
+          <li>매일 문장 배송</li>
+          <li>3단계 필사 루틴 + 성장 방향 피드백</li>
+          <li>⭐ 오리지널 서포터 평생 가격 유지</li>
+          <li class="r-excl">워크북 미포함</li>
         </ul>
-        <div class="pc-limit">500명 한정</div>
-        <button class="btn btn-outline btn-full">6개월 얼리버드로 시작하기</button>
+        <div class="for">반년 동안 문장 습관을 들이고 싶은 분</div>
+      </div>
+
+      <div class="reward featured">
+        <div class="r-cap">오픈 한정 200명</div>
+        <h3>대표 추천 패키지</h3>
+        <span class="price">79,000<small>원</small><span class="price-was">정가 136,800원 · 42% off</span></span>
+        <ul>
+          <li>12개월 이용권 (아침 성장편 + 저녁 힐링편)</li>
+          <li>📕 《질문하는 필사》 전자책 이용권 포함 (정가 18,000원, 정식 출간 후 등록)</li>
+          <li>매일 문장 배송 + 3단계 필사 루틴</li>
+          <li>문장 성장 피드백 + 기록 아카이브</li>
+          <li>⭐ 오리지널 서포터 평생 가격 유지 + 모든 업그레이드 무료</li>
+        </ul>
+        <p class="reward-bonus">
+          🔥 <strong>72시간 보너스 — 《감정, 장면이 되다》 전자책 이용권 증정</strong><br>
+          펀딩 오픈 후 <strong>72시간 이내</strong> 이 리워드를 신청하고 <strong>취소하지 않은 서포터</strong>에게, <strong>펀딩 성공 후</strong> 《감정, 장면이 되다》 전자책 이용권을 증정합니다.
+        </p>
+        <div class="for">레터브릭을 1년 루틴으로 만들고 싶은 분</div>
+      </div>
+
+      <div class="reward" style="grid-column: 1 / -1;">
+        <div class="r-cap">선착순 500명</div>
+        <h3>프리미엄 완주 패키지</h3>
+        <span class="price">118,800<small>원</small><span class="price-was">13개월 + 워크북 + 선공개 PDF 북 + 성장 리포트 풀패키지</span></span>
+        <ul>
+          <li>13개월 이용권 (12개월 + 1개월 보너스)</li>
+          <li>📕 《질문하는 필사》 전자책 이용권 포함 (정가 18,000원, 정식 출간 후 등록)</li>
+          <li>매일 문장 배송 (아침 성장편 + 저녁 힐링편)</li>
+          <li>월 1회 문장 성장 리포트 발송</li>
+          <li>📘 《책과 담 쌓고 사는 너에게》 PDF 북 선공개본 제공</li>
+          <li>⭐ 오리지널 서포터 평생 가격 유지 + 모든 업그레이드 무료</li>
+        </ul>
+        <p class="reward-bonus">
+          🔥 <strong>72시간 보너스 — 《감정, 장면이 되다》 전자책 이용권 증정</strong><br>
+          펀딩 오픈 후 <strong>72시간 이내</strong> 이 리워드를 신청하고 <strong>취소하지 않은 서포터</strong>에게, <strong>펀딩 성공 후</strong> 《감정, 장면이 되다》 전자책 이용권을 증정합니다.
+        </p>
+        <p class="reward-note">
+          <strong>📘 《책과 담 쌓고 사는 너에게》 PDF 북 선공개본이란?</strong><br>
+          추후 출간 예정작 《책과 담 쌓고 사는 너에게 — 살아생전 읽고 죽어야 하는 고전 100선》의 PDF 북 선공개본입니다.<br><br>
+          책과 거리를 두고 살아온 분들도 다시 한 권을 펼치게 만드는 — <strong>19년차 작가가 직접 골라 정리한 "살아생전 한 번은 만나야 할 고전 100권" 큐레이션 가이드</strong>입니다.
+        </p>
+        <p class="reward-warning">
+          ※ 본 리워드는 정식 출간 전 제공되는 <strong>PDF 선공개본</strong>이며, 추후 출간본의 최종 편집본과 내용·구성이 달라질 수 있습니다.
+        </p>
+        <div class="for">자기 문장의 1년 변화를 끝까지 따라가고 싶은 후원형 동반자</div>
       </div>
     </div>
 
-    <div class="pa-row">
-      <div class="pa-item"><strong>100% 환불</strong>정식 출시 전 언제든</div>
-      <div class="pa-item"><strong>데모 체험 가능</strong>결제 전 직접 써보세요</div>
-      <div class="pa-item"><strong>6월 출시 시작</strong>이용권은 출시일부터</div>
+    <div class="note">
+      <strong>대표 추천 패키지가 왜 핵심인가요.</strong><br><br>
+      레터브릭의 핵심은 매일의 문장 루틴과 워크북 훈련이 함께 갈 때 가장 잘 작동합니다.
+      1년 동안 자기 문장을 지키는 루틴을 만들고 싶은 분께 가장 적합한 구성입니다.
     </div>
-    <p class="caption text-center" style="margin-top:16px;">* 오픈 멤버 가격 유지는 연속 구독 유지 시 적용됩니다. 중간 해지 시 재가입은 일반가 적용.</p>
-  </div>
-</section>
 
+    <div class="disclaimer">
+      <strong>피드백 운영 안내.</strong>
+      레터브릭의 성장 피드백은 필사 기록에 기반한 자동 분석 형태로 제공되며,
+      정식 출시 단계에 따라 피드백 방식과 범위는 순차적으로 적용됩니다.
+      서비스 안정 운영을 위해 일부 항목은 출시 후 단계별로 공개될 수 있습니다.
+    </div>
 
-<!-- ══════════════════════════════════════
-     8. 창업자 스토리
-     ══════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Why I Built This</span>
-    <h2 class="h2">글로 먹고 살았는데,<br>정작 내 문장력은 사라지고 있었습니다.</h2>
-    <div class="gap-sm"></div>
-    <div class="founder-bar">
-      <div class="founder-avatar">✍️</div>
-      <div class="founder-info">
-        <div class="f-name">지소유</div>
-        <div class="f-role">19년차 방송작가 · 레터브릭 창업자</div>
+    <!-- 펀딩금 사용 계획 (리워드 섹션 내부 하위 블록) -->
+    <div class="funding-plan">
+      <h3 class="fp-title">펀딩금은 <em>이렇게</em> 사용됩니다.</h3>
+      <p class="fp-desc">창작자가 임의로 사용할 수 있는 자금이 아니라, <strong>레터브릭이 후원자에게 한 약속을 지키기 위한 자원</strong>으로 사용됩니다.</p>
+
+      <div class="table-list">
+        <div class="row"><div class="key"><span class="fp-pct">40%</span> 필사 루틴 시스템 개발 · 디자인 인건비</div><div class="val">필사 루틴의 정확도 개선, 자동 발송 안정화, 후원자 페이지·기록 아카이브 구축. 외부 개발 협업과 디자인 인건비 포함.</div></div>
+        <div class="row"><div class="key"><span class="fp-pct">25%</span> 필사 분석 엔진 · 손글씨 인식 운영비</div><div class="val">사용자 문장 처리, 손글씨 인식, 문장 성장 방향 분석에 들어가는 운영 비용. 초기 부담이 가장 큰 항목입니다.</div></div>
+        <div class="row"><div class="key"><span class="fp-pct">15%</span> eBook 편집 · 디자인 · 제작비</div><div class="val">《질문하는 필사》 워크북의 편집·디자인·전자책 제작·교정. 보너스 전자책 《감정, 장면이 되다》 제작 비용 포함.</div></div>
+        <div class="row"><div class="key"><span class="fp-pct">10%</span> 문장 큐레이션 · 콘텐츠 제작비</div><div class="val">매일 발송되는 고전·현대 명문장 큐레이션, 출처 표기와 인용 라이선스 비용, 시즌별 콘텐츠 확장.</div></div>
+        <div class="row"><div class="key"><span class="fp-pct">10%</span> 플랫폼 수수료 및 예비 운영비</div><div class="val">텀블벅 플랫폼 수수료, PG 결제 수수료, 카카오 비즈니스 채널 운영비, 도메인·호스팅 등 기본 인프라.</div></div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>운영 투명성.</strong>
+        위 비율은 펀딩 규모와 운영 환경에 따라 일부 조정될 수 있습니다.
       </div>
     </div>
-    <div class="gap-md"></div>
+  </section>
+</div>
 
-    <div class="founder-body">
-      <p>저는 오랫동안 글을 쓰는 일로 먹고살았습니다.<br>그런데 어느 순간, 위기감이 들었습니다.</p>
+<!-- ===== 10 AFTER-PURCHASE (NEW) ===== -->
+<div class="section-light">
+  <div class="shell">
+    <section>
+      <span class="sec-num">SECTION 11 — 후원 직후 받는 것</span>
+      <h2 class="sec-title">후원 후, <em>무엇이 시작</em>되나요?</h2>
 
-      <p>분명 매일 글을 쓰고 있는데,<br>정작 내 생각을 내 문장으로 밀어붙이는 힘은<br>점점 흐려지고 있었습니다.</p>
-
-      <p>그래서 다시 책을 읽기 시작했습니다.<br>책을 읽는 시간은 분명 저에게 좋은 시간이었습니다.<br>하지만 시간이 오래 걸렸고,<br>그 문장들이 정말 내 문장이 되었는지는 확신할 수 없었습니다.</p>
-
-      <!-- 강조 박스 -->
-      <div class="f-quote" style="margin:36px 0;">
-        그래서 저는 문장을 훔치기로 했습니다.<br>필사로.
-      </div>
-
-      <p>실제로 많은 사람들은<br>필사가 단지 따라 쓰는 것만으로도 위로가 된다고 말합니다.<br>그냥 읽는 것보다 더 오래 남고,<br>더 깊이 각인되는 힘도 분명 있습니다.</p>
-
-      <p>하지만 저는 거기서 멈추면 안 된다고 생각했습니다.<br>그냥 무작정 따라 쓰기만 해서는<br>내 문장이 생기지 않기 때문입니다.</p>
-
-      <p>저는 문예창작학과에 입학할 때만 해도<br>글쓰기의 세계를 제대로 아는 사람이 아니었습니다.<br>하지만 그 시절부터 좋은 문장을 따라 쓰고, 분석하고,<br>내 문장으로 바꿔 쓰는 훈련을 반복하며<br>결국 방송작가가 될 수 있을 만큼의 글쓰기 능력을 키웠습니다.</p>
-
-      <p>그런데 글로 먹고사는 시간이 길어질수록<br>아이러니하게도 정작 제 문장은 흐려지고 있었습니다.</p>
-
-      <p style="margin-top:20px;">그래서 저는, 저를 작가로 만들어준 그 방법을<br>제 문장을 잃어버린 지금 다시 꺼내 들었습니다.</p>
-
-      <p>좋은 문장을 읽는 데서 멈추지 않고,<br>직접 따라 쓰고, 구조를 보고,<br>내 문장으로 바꿔 써보는 방식으로요.</p>
-
-      <div style="height:1px;background:var(--border-s);width:40px;margin:36px auto;"></div>
-
-      <p>그 모습을 본 제 동생이 물었습니다.<br>기계공학을 전공하고,<br>지금도 해외에서 이과 계통의 일을 하는 동생이었습니다.</p>
-
-      <div style="background:var(--bg-alt);border-radius:var(--r);padding:22px 20px;margin:20px 0;font-family:var(--serif);font-size:16px;line-height:1.8;color:var(--text);text-align:center;">
-        "그거 하면 진짜 글쓰기에 도움이 돼?<br>나도 해보고 싶은데,<br>어떻게 해야 할지 모르겠어."
-      </div>
-
-      <p>그래서 저는 동생에게<br>매일 필사 문구를 보내기 시작했습니다.<br>문장을 그냥 따라 쓰는 데서 끝내지 않고,<br>제가 다시 시작한 그 방식대로<br>읽고, 분석하고, 바꿔 쓰는 방법을 함께 전했습니다.</p>
-
-      <p>글쓰기와 거리가 멀다고 생각했던 동생도<br>조금씩 문장에 흥미를 붙이기 시작했습니다.</p>
-
-      <p style="margin-top:28px;"><b style="color:var(--text);">그때 더 분명해졌습니다.</b></p>
-
-      <p style="color:var(--accent-d);font-weight:600;font-family:var(--serif);font-size:16px;line-height:1.8;">
-        사람들에게 부족한 건 재능이 아니라,<br>
-        계속 쓰게 만드는 구조일지도 모른다는 것.
+      <p class="lead">
+        결제 다음 날부터 무엇을 받게 되는지,<br>
+        시간 순서대로 정리했습니다.
       </p>
 
-      <div style="height:1px;background:var(--border-s);width:40px;margin:40px auto;"></div>
-
-      <!-- 브랜드 선언 -->
-      <div style="margin-top:8px;padding:0 4px;">
-        <p style="font-family:var(--serif);font-size:16px;line-height:2;color:var(--text);">
-          레터브릭은 그 질문에서 시작됐습니다.
-        </p>
-        <p style="font-family:var(--serif);font-size:16px;line-height:2;color:var(--text);margin-top:12px;">
-          좋은 문장을 읽는 데서 멈추지 않고,<br>
-          직접 써보고, 구조를 이해하고,<br>
-          내 문장으로 바꿔보게 하는 것.
-        </p>
-        <p style="font-family:var(--serif);font-size:16px;line-height:2;color:var(--text);margin-top:12px;">
-          그리고 그 과정을 반복하면서<br>
-          AI 시대에 더 강력한 경쟁력이 될 사유와 문장력을<br>
-          매일 훈련하게 만드는 것.
-        </p>
-        <p style="font-family:var(--serif);font-size:18px;line-height:2;color:var(--accent-d);font-weight:700;margin-top:20px;">
-          그게 레터브릭입니다.
-        </p>
+      <div class="table-list">
+        <div class="row">
+          <div class="key">펀딩 종료 후</div>
+          <div class="val">레터브릭 이용권 등록 안내가 카카오톡 또는 이메일로 발송됩니다.</div>
+        </div>
+        <div class="row">
+          <div class="key">정식 출시 후 <span style="color:var(--brick-deep); font-weight:400; font-size:13px;">(2026년 6월 예정)</span></div>
+          <div class="val">카카오톡 기반 매일 문장 배송이 시작됩니다 — 아침 7시 성장편, 저녁 9시 힐링편.</div>
+        </div>
+        <div class="row">
+          <div class="key">전자책 이용권 발송 <span style="color:var(--brick-deep); font-weight:400; font-size:13px;">(정식 출간 후 순차)</span></div>
+          <div class="val">《질문하는 필사》 등 전자책 이용권이 카카오톡 또는 이메일로 발송됩니다. 이용권을 받은 뒤 본인이 eBook 플랫폼에서 등록하면 본인 계정 안에서 자유롭게 열람할 수 있습니다. (해당 리워드 후원자 한정)</div>
+        </div>
+        <div class="row">
+          <div class="key">이용권 등록</div>
+          <div class="val">이용권은 발급일로부터 6개월 이내 원하는 시점에 등록할 수 있으며, 등록한 날부터 구독 기간이 카운트됩니다.</div>
+        </div>
+        <div class="row">
+          <div class="key">오리지널 서포터 가격</div>
+          <div class="val">후원 시점의 가격이 평생 유지됩니다. (1개월 체험권 제외)</div>
+        </div>
       </div>
-    </div>
-
-    <div class="gap-lg"></div>
-    <div class="text-center">
-      <a href="#pricing" class="btn btn-outline">이 구조를 직접 경험하려면 →</a>
-    </div>
+    </section>
   </div>
-</section>
+</div>
 
+<!-- ===== 11 ORIGINAL SUPPORTER ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 12 — 오리지널 서포터 혜택</span>
+    <h2 class="sec-title">오늘의 가격이,<br><em>평생의 가격</em>이 됩니다.</h2>
 
-<!-- ══════════════════════════════════════
-     9. 두 가지 흐름
-     ══════════════════════════════════════ -->
-<section class="section sec-alt">
-  <div class="container">
-    <span class="eyebrow">Two Modes</span>
-    <h2 class="h2">하나의 서비스 안에서,<br>오늘의 나에게 맞는 리듬으로 씁니다.</h2>
-    <div class="gap-lg"></div>
-    <div class="grid grid-2">
-      <div class="mode-card growth">
-        <span class="badge badge-gold" style="margin-bottom:14px;">☀️ 성장 흐름</span>
-        <h3>생각을 또렷하게</h3>
-        <p class="mc-desc">문장 구조와 표현력을 훈련합니다.</p>
-        <ul>
-          <li>오늘의 문장 선택</li>
-          <li>구조 분석</li>
-          <li>변형 쓰기</li>
-          <li>창의적 확장</li>
-          <li><b style="color:var(--accent-d);">AI 피드백 — 구조·표현·개선 방향 제안</b></li>
-          <li>오타/띄어쓰기 점검</li>
-        </ul>
-      </div>
-      <div class="mode-card healing">
-        <span class="badge badge-accent" style="margin-bottom:14px;">🌙 힐링 흐름</span>
-        <h3>하루를 다독이며</h3>
-        <p class="mc-desc">짧게라도 남기는 글쓰기를 이어갑니다.</p>
-        <ul>
-          <li>다짐 / 힐링 / 위로 테마</li>
-          <li>AI 낭독 + 앰비언트 BGM</li>
-          <li>짧은 소감 작성</li>
-          <li><b style="color:var(--accent-d);">AI 코치 답변 — 감정을 읽고 공감하며 응답</b></li>
-          <li>출석/기록 누적</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     10. 지속 구조
-     ══════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Built to Last</span>
-    <h2 class="h2">혼자 결심하고 끝나는 루틴이 아니라,<br><span class="accent">계속 돌아오게 만드는 구조입니다.</span></h2>
-    <div class="gap-lg"></div>
-    <div class="grid grid-2">
-      <div class="card sustain-card"><div class="sc-icon">💬</div><h4>카톡 리마인드</h4><p>잊지 않게, 매일 문장이 도착합니다</p></div>
-      <div class="card sustain-card"><div class="sc-icon">🧱</div><h4>벽돌 성장맵</h4><p>쌓이는 게 보이면, 계속하게 됩니다</p></div>
-      <div class="card sustain-card"><div class="sc-icon">📚</div><h4>기록 아카이브</h4><p>내 문장이 남으면, 의미가 생깁니다</p></div>
-      <div class="card sustain-card"><div class="sc-icon">🏆</div><h4>백일장 이벤트</h4><p>재미와 동기까지, 매달 장원 선물</p></div>
-    </div>
-    <div class="gap-md"></div>
-    <p class="body-sm text-center">꾸준함은 의지보다 구조에 가깝습니다.<br><b>레터브릭은 쓰는 힘이 남도록 설계했습니다.</b></p>
-    <div class="gap-md"></div>
-    <div class="text-center">
-      <a href="#pricing" class="btn btn-primary">지금 합류하면, 이 모든 구조가 함께합니다 →</a>
-      <p class="caption" style="margin-top:10px;">정식 출시 후에는 이 조건으로 시작할 수 없습니다.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     11. 고전 문장 / 서비스 예시
-     ══════════════════════════════════════ -->
-<section class="section sec-alt">
-  <div class="container">
-    <span class="eyebrow">Example</span>
-    <h2 class="h2">좋은 문장을 읽는 데서 멈추지 않고,<br><span class="accent">내 문장으로 바꾸는 경험까지.</span></h2>
-    <div class="gap-lg"></div>
-
-    <div class="ss-card">
-      <span class="badge badge-gold ss-label">오늘의 문장</span>
-      <div class="ss-source">어니스트 헤밍웨이 《노인과 바다》</div>
-      <div class="ss-text">"인간은 파괴될 수는 있어도,<br>패배할 수는 없다."</div>
-      <div class="ss-analysis">
-        <b>구조 분석:</b> 대구법(A할 수는 있어도, B할 수는 없다)으로 역설적 강조.<br>
-        <b>변형 예시:</b> "실수할 수는 있어도, 멈출 수는 없다."<br>
-        <b>AI 피드백:</b> 원문의 대구 구조를 잘 유지했습니다. '멈출 수는 없다'라는 표현이 의지를 담아 좋습니다.
-      </div>
-    </div>
-
-    <div class="ss-card">
-      <span class="badge badge-accent ss-label">힐링 문장</span>
-      <div class="ss-source">헤르만 헤세 《데미안》</div>
-      <div class="ss-text">"새는 알에서 나오려고 투쟁한다.<br>알은 세계이다.<br>태어나려는 자는 하나의 세계를 깨뜨려야 한다."</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     12. FAQ
-     ══════════════════════════════════════ -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">FAQ</span>
-    <h2 class="h2">자주 묻는 질문</h2>
-    <div class="gap-md"></div>
-
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">AI가 있는데 왜 직접 써야 하나요?</div>
-      <div class="faq-a">AI는 결과물을 빠르게 만들어주지만, 생각하는 힘과 표현하는 힘은 직접 쓸 때만 자랍니다. AI를 잘 활용하려면 먼저 내 사고력과 문장력이 탄탄해야 합니다. 레터브릭은 AI가 대신 쓰는 게 아니라, 내가 더 잘 쓰도록 코칭합니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">일반 필사와 무엇이 다른가요?</div>
-      <div class="faq-a">일반 필사는 따라 쓰는 데서 끝나지만, 레터브릭은 따라쓰기 → 구조 분석 → 내 문장으로 변형 → 창의적 확장 → AI 피드백의 5단계를 거칩니다. 읽는 사람이 아니라 쓰는 사람으로 바뀌는 훈련입니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">정말 꾸준히 못하는 사람도 할 수 있나요?</div>
-      <div class="faq-a">카카오톡 리마인드, 벽돌 성장맵, 스트릭 시스템까지 — 레터브릭은 의지력이 아니라 구조로 꾸준함을 만듭니다. 하루를 빠뜨려도 습관 형성에 큰 영향은 없다는 연구 결과도 있습니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">매일 못 하면 의미가 없나요?</div>
-      <div class="faq-a">아닙니다. 하루를 빠뜨려도 습관 형성에 지장이 없다는 것이 연구로 확인되어 있습니다. 중요한 건 완벽한 연속이 아니라, 다시 돌아오는 구조입니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">AI 피드백은 어떤 방식으로 오나요?</div>
-      <div class="faq-a">문장 변형과 창의적 쓰기에 대해 구체적인 소감과 채점을 제공합니다. 단순한 맞춤법 검사가 아니라, 왜 좋은지·어떻게 더 좋아질 수 있는지를 알려줍니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">워크북은 어떤 형태로 제공되나요?</div>
-      <div class="faq-a">《하루쌓기, 나를 단단하게 만드는 기록》은 정식 전자책으로 출간 후 이용권이 제공됩니다. 100일 필사 실용서로, 앱과 같은 훈련 철학을 공유합니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">왜 지금 펀딩으로 시작하는 게 가장 유리한가요?</div>
-      <div class="faq-a">정식 출시 후에는 월 9,900원(통합)입니다. 지금 펀딩에 참여하면 최대 35% 할인 + 워크북 + 첫날 보너스까지 받을 수 있습니다. 오픈 멤버에게는 향후 가격 인상이 적용되지 않습니다.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">환불은 어떻게 되나요?</div>
-      <div class="faq-a">정식 출시 전까지는 언제든 100% 환불 가능합니다. 정식 출시 후에는 7일 이내 환불을 지원합니다.</div>
-    </div>
-    <div class="gap-lg"></div>
-    <div class="text-center">
-      <p class="body-sm" style="color:var(--text);margin-bottom:12px;">정식 출시 전, 오픈 멤버만의 조건이 준비되어 있습니다.</p>
-      <a href="#pricing" class="btn btn-primary btn-lg">오픈 멤버 조건 확인하기</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     13. FINAL CTA
-     ══════════════════════════════════════ -->
-<section class="final-cta">
-  <div style="max-width:520px;margin:0 auto;">
-    <h2 class="h2">당신의 문장이 사라지기 전에,<br>다시 직접 쓰는 사람으로 돌아오세요.</h2>
     <p>
-      좋은 문장을 읽는 사람에서,<br>
-      내 문장을 쌓는 사람으로.<br>
-      레터브릭과 함께 매일 10분씩 다시 시작해보세요.
+      오리지널 서포터 평생 가격 유지는<br>
+      6개월 · 12개월 · 13개월 티어 후원자에게 적용됩니다.
     </p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="#pricing" class="btn btn-primary btn-lg">오픈 멤버로 가장 좋은 조건에 시작하기</a>
+
+    <p style="color: var(--ink-faded); font-size: 14.5px; line-height: 1.95;">
+      ※ 1개월 체험권은 평생 가격 유지 대상에서 제외됩니다.<br>
+      ※ 동일 기간 재구독 시 후원 시점의 가격을 기준으로 재등록할 수 있습니다.<br>
+      ※ 혜택은 후원자 본인 계정 기준으로 적용되며, 양도는 불가합니다.<br>
+      ※ 서비스 운영이 종료되거나 상품 구조가 완전히 변경되는 경우 별도 안내됩니다.
+    </p>
+  </section>
+</div>
+
+<!-- ===== 11 BETA REVIEWS ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 13 — 베타 후기</span>
+    <h2 class="sec-title">먼저 <em>경험한 사람들</em>이<br>있었습니다.</h2>
+
+    <p>
+      50여 명의 베타 사용자가 먼저 경험했고,<br>
+      반복적으로 나온 핵심 피드백을 반영해<br>
+      레터브릭의 사용 흐름과 문장 훈련 방식을 다듬었습니다.
+    </p>
+
+    <div class="reviews">
+      <div class="review">
+        <div class="tag">루틴형</div>
+        <p>"매일 한 문장을 기다리게 되었어요. 아침에 카톡 알림이 오는 걸 기다리는 게 오랜만에 즐거웠습니다."</p>
+      </div>
+      <div class="review">
+        <div class="tag">회복형</div>
+        <p>"오래 멈춰 있던 글쓰기를 다시 시작했어요. 잘 써야 한다는 부담 없이, 한 문장씩 통과하는 게 좋았습니다."</p>
+      </div>
+      <div class="review">
+        <div class="tag">실용형</div>
+        <p>"AI에 묻기 전에, 무엇을 묻고 싶은지 먼저 내 문장으로 정리할 수 있게 됐어요."</p>
+      </div>
     </div>
-    <div style="margin-top:14px;">
-      <a href="https://letter-brick.vercel.app/" target="_blank" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:underline;">데모 먼저 체험하기 →</a>
+
+    <!-- 1호 베타: 창업자 동생 — 실제 카톡 -->
+    <div class="beta-spotlight">
+      <div class="bs-head">
+        <div class="bs-tag">SPOTLIGHT · 1호 베타</div>
+        <h3>처음에는 시작조차 막막해하던 사람이,<br><em>22일 만에</em> 자기 리추얼을 만들었습니다.</h3>
+        <p class="bs-meta">미국 반도체 회사 엔지니어 · 30대 · 이과 출신 — 글쓰기와 거리 먼 삶을 살아온 창업자의 동생</p>
+      </div>
+
+      <div class="bs-kakao">
+        <figure>
+          <img src="/images/kakao_d5.jpg" alt="동생에게 보낸 필사 문구 (5일 차)">
+          <figcaption>5일 차</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/kakao_d15.jpg" alt="동생에게 보낸 필사 문구 (15일 차)">
+          <figcaption>15일 차</figcaption>
+        </figure>
+      </div>
+
+      <p class="bs-masking-note">
+        초기 베타 참여자에게 실제 발송된 문장 루틴 예시입니다. 개인정보 보호를 위해 일부 정보는 가림 처리했습니다.
+      </p>
+
+      <div class="bs-quotes">
+        <div class="bs-q-block">
+          <div class="bs-q-label">처음에는</div>
+          <p>"누나 그거 하면 진짜 글쓰기에 도움이 돼? 나도 해보고 싶은데 어떻게 해야 할지 모르겠어."</p>
+        </div>
+        <div class="bs-q-block bs-q-after">
+          <div class="bs-q-label">22일 차</div>
+          <p>"세탁기 돌리고 그 시간에 필사했지! 나만의 리추얼을 만들려고 노력하는 거지."</p>
+          <p>"멘탈 관리에 도움을 받는 거 같아."</p>
+          <p>"이거 열심히 계속 하고 습관 또는 리추얼로 만들고 다른 것도 해보게."</p>
+        </div>
+      </div>
     </div>
+
+    <div class="disclaimer">
+      <strong>베타 운영 안내.</strong>
+      베타 테스트는 지인 및 초기 신청자(50여 명)를 대상으로 비공개 운영되었습니다.
+      후기 문구는 개인정보 보호를 위해 익명·이니셜 처리했으며 — 1호 베타 카카오톡 캡처는 사적 정보를 가리고 본인 동의 하에 공개되었습니다.
+    </div>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 12 TIMELINE ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 14 — 제작 일정</span>
+    <h2 class="sec-title">투명하게 공개합니다.</h2>
+
+    <div class="timeline">
+      <div class="item">
+        <div class="date">2026 · 04</div>
+        <div class="title">펀딩 페이지 공개 및 오리지널 서포터 모집</div>
+      </div>
+      <div class="item">
+        <div class="date">2026 · 05</div>
+        <div class="title">문장 큐레이션 및 워크북 최종 편집</div>
+      </div>
+      <div class="item">
+        <div class="date">2026 · 06</div>
+        <div class="title">레터브릭 정식 출시 및 이용권 발급</div>
+      </div>
+      <div class="item">
+        <div class="date">2026 · 06 이후</div>
+        <div class="title">《질문하는 필사》 eBook 순차 발송</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>이용권 안내</strong><br><br>
+      정식 출시 후 바로 시작하지 않아도 됩니다.<br>
+      이용권은 발급일로부터 6개월 이내에 등록할 수 있으며,
+      등록한 날부터 선택한 구독 기간이 카운트됩니다.
+    </div>
+  </section>
+</div>
+
+<!-- ===== 13 TRUST ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 15 — 창작자 신뢰</span>
+    <h2 class="sec-title">왜 이 사람의 <em>큐레이션</em>인가.</h2>
+
+    <div class="portfolio-stats">
+      <div class="ps-item"><div class="ps-num">19<span>년</span></div><div class="ps-label">방송 경력 (2007~)</div></div>
+      <div class="ps-item"><div class="ps-num">12<span></span></div><div class="ps-label">방송 채널</div></div>
+      <div class="ps-item"><div class="ps-num">20<span>+</span></div><div class="ps-label">참여 프로그램</div></div>
+      <div class="ps-item"><div class="ps-num">5<span>+1</span></div><div class="ps-label">5개 장르 (시사·교양·예능·음악·다큐) + 글로벌 콘텐츠</div></div>
+    </div>
+
+    <div class="table-list">
+      <div class="row">
+        <div class="key">경력</div>
+        <div class="val">19년차 방송작가 (2007~현재) · 방송작가협회 정회원. 다큐멘터리 · 교양 · 시사 · 예능 원고를 써오며 문장의 구조와 리듬을 다뤄왔습니다.</div>
+      </div>
+      <div class="row">
+        <div class="key">주요 채널 · 작품</div>
+        <div class="val">
+          <strong>Mnet</strong> BORN TO 춤 · 춤플래닛<br>
+          <strong>KBS</strong> 과학카페 · 소비자고발 · 환경스페셜 · 여유만만 · 위기탈출 넘버원<br>
+          <strong>중화TV</strong> 차이나우 · 차이언스 · 차이나 히코노미 · 차이나 피디아 · 웰컴투 찰리우드<br>
+          <strong>아리랑TV</strong> 스타데이트 위드 제아 · 댄스타그램<br>
+          <strong>외 채널</strong> SBS · MBC뮤직 · EBS · OCN · TV조선 · MBN · KBSN · tbs 등
+        </div>
+      </div>
+      <div class="row">
+        <div class="key">설계</div>
+        <div class="val">레터브릭의 3단계 훈련 구조 — 따라쓰기 · 구조 바꾸기 · 자기 문장화 — 는 직접 설계되었습니다.</div>
+      </div>
+      <div class="row">
+        <div class="key">검증</div>
+        <div class="val">50여 명의 베타 사용자와 함께 운영하며 반복 피드백을 반영해 다듬었습니다.</div>
+      </div>
+      <div class="row">
+        <div class="key">권리 보호 절차 진행 중</div>
+        <div class="val">레터브릭의 3단계 필사 훈련 구조는 현재 <strong>특허 출원 중</strong>입니다. 등록특허가 아닌 출원 상태이며, 최종 등록 여부는 특허청 심사 결과에 따라 결정됩니다.</div>
+      </div>
+    </div>
+
+    <div class="studio-grid">
+      <div class="sg-label">방송 현장 — 19년의 흔적</div>
+      <div class="sg-images">
+        <img src="/images/studio_1.jpg" alt="방송 촬영장 모습 1">
+        <img src="/images/studio_2.jpg" alt="방송 촬영장 모습 2">
+        <img src="/images/studio_3.jpg" alt="방송 촬영장 모습 3">
+        <img src="/images/studio_4.jpg" alt="방송 촬영장 모습 4">
+        <img src="/images/studio_5.jpg" alt="방송 촬영장 모습 5">
+      </div>
+      <div class="sg-note">* 사적 정보 보호를 위해 출연자·관계자의 얼굴은 처리되었습니다.</div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== 14 FAQ ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 16 — 자주 묻는 질문</span>
+    <h2 class="sec-title">자주 묻는 질문.</h2>
+
+    <div class="faq">
+      <details>
+        <summary>글을 못 써도 할 수 있나요?</summary>
+        <p>네. 레터브릭은 잘 쓰는 사람을 위한 서비스가 아닙니다. 매일 한 문장을 따라 쓰며 자기 문장을 회복하고 싶은 사람을 위한 루틴입니다. 글쓰기 경험이 없어도 따라쓰기부터 시작해 한 걸음씩 나아갈 수 있도록 설계되어 있습니다.</p>
+      </details>
+
+      <details>
+        <summary>AI가 글을 대신 써주나요?</summary>
+        <p>아닙니다. 레터브릭은 대신 써주는 서비스가 아닙니다. 사용자가 직접 읽고, 쓰고, 바꾸고, 다시 쓰는 훈련을 중심으로 합니다. AI는 대신 써주는 존재가 아니라, 내가 쓴 문장의 성장 방향을 확인하는 보조 도구입니다.</p>
+      </details>
+
+      <details>
+        <summary>아침 성장편과 저녁 힐링편은 어떻게 다른가요?</summary>
+        <p><strong>아침 7시 성장편</strong>은 문장력·사고력·질문력 훈련에 초점을 둡니다. 따라쓰기 → 구조 바꾸기 → 자기 문장화 → 성장 피드백으로 진행되는 능동적 루틴입니다.<br><br><strong>저녁 9시 힐링편</strong>은 감정 정리·하루 회고에 초점을 둡니다. 한 문단을 천천히 읽고, 마음에 남은 문장을 필사하고, 감사(感思) 질문으로 하루를 닫습니다.<br><br>같은 도구가 아니라 <strong>다른 호흡으로 짜인 두 시간</strong>입니다.</p>
+      </details>
+
+      <details>
+        <summary>카카오톡으로 진행되나요?</summary>
+        <p>문장 배송과 안내는 카카오톡 기반으로 진행됩니다. 다만 레터브릭의 본질은 카카오톡이 아니라 <strong>필사 기반 문장력 훈련</strong>입니다. 카카오톡은 매일 같은 시간 잊지 않고 돌아오게 만드는 전달 채널이고, 실제 필사와 기록은 웹에서 진행됩니다.</p>
+      </details>
+
+      <details>
+        <summary>필사는 왜 필요한가요?</summary>
+        <p>AI가 빠르게 답을 주는 시대일수록 스스로 읽고, 고르고, 바꿔 쓰는 시간이 필요합니다. 필사는 생각을 느리게 붙잡고, 문장의 구조를 몸으로 익히는 훈련입니다. 손으로 통과한 문장은 머리에만 남는 문장과 결이 다릅니다.</p>
+      </details>
+
+      <details>
+        <summary>워크북은 어떻게 받나요?</summary>
+        <p>《질문하는 필사》는 정식 출간 후 <strong>전자책 이용권</strong>이 카카오톡 또는 이메일로 발송됩니다. 이용권을 받은 뒤 본인이 주요 eBook 플랫폼에서 등록하면, 본인 계정 안에서 자유롭게 열람할 수 있습니다.<br><br>《감정, 장면이 되다》(72시간 보너스 대상자) 또한 동일하게 정식 출간 후 전자책 이용권 형태로 발송됩니다.<br><br>《책과 담 쌓고 사는 너에게》는 정식 출간 전이므로 <strong>PDF 북 선공개본</strong> 파일 형태로 별도 안내됩니다.</p>
+      </details>
+
+      <details>
+        <summary>이용권은 언제부터 쓸 수 있나요?</summary>
+        <p>레터브릭은 <strong>2026년 6월 정식 출시</strong>를 목표로 하고 있습니다. 펀딩 종료 직후 후원자 전용 안내(이용권 등록 일정·계정 등록 방법)를 보내드리며, 이용권은 발급일로부터 <strong>6개월 이내</strong>에 자유롭게 등록·시작하실 수 있습니다. 등록 시점부터 해당 티어의 구독 기간이 카운트됩니다.</p>
+      </details>
+
+      <details>
+        <summary>72시간 보너스는 누구에게 제공되나요?</summary>
+        <p>펀딩 오픈 후 <strong>72시간 이내</strong>에 [대표 추천 패키지(79,000원)] 또는 [프리미엄 완주 패키지(118,800원)]를 <strong>신청한 후 취소하지 않은 서포터</strong>에게 제공됩니다.<br><br>《감정, 장면이 되다》 전자책 이용권은 <strong>펀딩이 성공한 뒤 정식 출간 시점</strong>에 카카오톡 또는 이메일로 발송됩니다. 이용권을 받은 뒤 본인이 eBook 플랫폼에서 등록할 수 있습니다.</p>
+      </details>
+
+      <details>
+        <summary>특허 출원 중이라는 뜻은 무엇인가요?</summary>
+        <p>레터브릭의 3단계 필사 훈련 구조는 권리 보호를 위해 특허 출원을 완료했습니다. 다만 이는 등록특허가 아니라 출원 상태에 대한 안내입니다. 현재 특허청 절차에 따라 심사 전 단계에 있으며, 최종 등록 여부는 특허청 심사 결과에 따라 결정됩니다.</p>
+      </details>
+
+      <details>
+        <summary>환불은 가능한가요?</summary>
+        <p>펀딩 종료 전에는 텀블벅에서 후원 취소가 가능합니다. 펀딩 성공 후 결제가 완료된 뒤에는 단순 변심에 의한 취소는 어렵습니다. 다만 레터브릭이 안내한 핵심 기능을 제공하지 못하거나, 서비스 정식 출시가 어려워지는 경우에는 창작자 정책에 따라 전액 환불을 진행합니다.</p>
+      </details>
+    </div>
+  </section>
+</div>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta" id="cta">
+  <div class="shell">
+    <span class="sec-num" style="color: var(--brick-soft);">SECTION 17 — 마지막 한 문장</span>
+    <h2>
+      AI가 글을 대신 써주는 시대,<br>
+      우리는 더 쉽게 문장을 얻을 수 있게 되었습니다.
+    </h2>
+    <p>
+      하지만 쉽게 얻은 문장이<br>
+      <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--brick-soft);">언제나 내 생각은 아닙니다.</em>
+    </p>
+    <p>
+      레터브릭은 매일 한 문장을 통해<br>
+      생각을 외주화하지 않고,<br>
+      자기 언어를 회복하는 시간을 만듭니다.
+    </p>
+    <p style="margin-top: 32px; color: var(--paper); font-family: 'Gowun Batang', serif; font-size: 19px; font-weight: 700;">
+      내 문장을 잃지 않기 위한 첫 루틴,<br>
+      레터브릭 오리지널 서포터로 함께해주세요.
+    </p>
+
+    <a href="#rewards" class="btn-primary">오리지널 서포터로 참여하기</a>
   </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
-  <p>letter<em style="color:var(--accent);font-style:normal;">Brick</em> · 스튜디오 온:서사</p>
-  <p style="margin-top:4px;">문의: <a href="mailto:hello@letterbrick.com">hello@letterbrick.com</a></p>
+  <div class="shell">
+    LETTERBRICK · 온:서사 STUDIO ON:SEOSA · 2026<br>
+    <span style="opacity: 0.6;">문장에서 세계관까지</span>
+  </div>
 </footer>
+
+<!-- ===== MOBILE STICKY CTA ===== -->
+<div class="m-sticky" id="mSticky">
+  <div class="m-sticky-left">
+    <div class="m-sticky-title">대표 추천 · 12개월 79,000원</div>
+    <div class="m-sticky-sub">워크북 포함 · 정가 대비 42%</div>
+  </div>
+  <a href="#rewards" class="m-sticky-btn">참여하기</a>
+</div>
+
+<script>
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('in');
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('section, .pullquote, .table-list, .steps, .score-table, .rewards, .reviews, .timeline, .faq, .demo-videos, .beta-spotlight, .portfolio-stats, .studio-grid, .funding-plan').forEach(el => {
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+
+// Brick stack stagger
+document.querySelectorAll('.brick-art .b').forEach((b, i) => {
+  b.style.animationDelay = (i * 0.08) + 's';
+});
+
+// Mobile sticky CTA — show after hero, hide while rewards/final-cta in view
+(function(){
+  var sticky = document.getElementById('mSticky');
+  if(!sticky) return;
+  var heroH = document.querySelector('.hero')?.offsetHeight || 600;
+  var rewards = document.getElementById('rewards');
+  var finalCta = document.querySelector('.final-cta');
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    var rTop = rewards ? rewards.getBoundingClientRect().top + y : 99999;
+    var fTop = finalCta ? finalCta.getBoundingClientRect().top + y : 99999;
+    var view = window.innerHeight;
+    var inRewards = y + view > rTop && y < rTop + (rewards ? rewards.offsetHeight : 0);
+    var inFinal = finalCta && (y + view > fTop);
+    if(y > heroH && !inRewards && !inFinal){
+      sticky.classList.add('show');
+    } else {
+      sticky.classList.remove('show');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
 
 </body>
 </html>
