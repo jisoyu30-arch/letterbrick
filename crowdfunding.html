@@ -1311,11 +1311,19 @@ footer {
   top: -12px; right: 16px;
   background: var(--ink);
   color: var(--paper);
-  padding: 4px 12px;
+  padding: 4px 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  white-space: nowrap;
+  max-width: calc(100% - 32px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .r-cap { font-size: 9px; padding: 4px 8px; letter-spacing: 0.06em; }
 }
 .reward.featured .r-cap {
   background: var(--gold);
