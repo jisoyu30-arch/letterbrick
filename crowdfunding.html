@@ -1128,6 +1128,35 @@ footer {
   .scene-images { grid-template-columns: 1fr; gap: 18px; }
 }
 
+/* ===== Book Availability (어떤 책이 어떤 티어에 가는가) ===== */
+.book-availability {
+  margin: 24px 0 36px;
+  padding: 20px 24px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--brick);
+}
+.ba-row {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  padding: 6px 0;
+}
+.ba-row + .ba-row { border-top: 1px dashed var(--rule); margin-top: 6px; padding-top: 12px; }
+.ba-row strong { color: var(--ink); font-family: 'Gowun Batang', serif; font-weight: 700; }
+.ba-icon { display: inline-block; margin-right: 6px; }
+.ba-bonus {
+  display: inline-block;
+  background: var(--brick);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  padding: 2px 8px;
+  margin: 0 4px;
+  text-transform: uppercase;
+}
+
 /* ===== ASSET 2: 1호 베타 스포트라이트 (카톡 캡처) ===== */
 .beta-spotlight {
   margin: 50px 0 32px;
@@ -2340,11 +2369,18 @@ footer {
 <div class="shell">
   <section>
     <span class="sec-num">SECTION 09 — 함께 가는 책들</span>
-    <h2 class="sec-title">필사 루틴과 함께,<br><em>세 권의 책</em>이 같이 갑니다.</h2>
+    <h2 class="sec-title">후원 티어에 따라,<br><em>세 권의 책</em>을 함께 만납니다.</h2>
 
     <p class="lead">
-      매일의 문장 루틴 외에, 레터브릭이 함께 만드는 — <strong>세 권의 책</strong>을 미리 만나보세요.
+      <strong>모든 티어에 모든 책이 포함되지는 않습니다.</strong><br>
+      각 책이 어떤 티어에 함께 가는지, 카드 하단에 명확하게 표기되어 있습니다.
     </p>
+
+    <div class="book-availability">
+      <div class="ba-row"><span class="ba-icon">📕</span><strong>《질문하는 필사》 워크북 eBook</strong> — 워크북+1개월 루틴권 / 12개월 슈퍼 얼리버드 / 12개월 얼리버드 / 12개월 펀딩가</div>
+      <div class="ba-row"><span class="ba-icon">📗</span><strong>《감정, 장면이 되다》 작법서</strong> — <span class="ba-bonus">🔥 오픈 3일 보너스 한정</span> · 12개월권 3종 중 하나를 72시간 이내 신청한 후 취소하지 않은 서포터 대상</div>
+      <div class="ba-row"><span class="ba-icon">📘</span><strong>《죽기 전에 꼭 읽어야 할 고전 100편》 PDF 백서</strong> — 12개월 슈퍼 얼리버드 / 12개월 얼리버드 / 12개월 펀딩가</div>
+    </div>
 
     <div class="book-grid">
       <!-- Book 1: 질문하는 필사 (워크북 eBook) -->
@@ -2802,66 +2838,10 @@ footer {
   </section>
 </div>
 
-<!-- ===== 13 TRUST ===== -->
-<div class="shell">
-  <section>
-    <span class="sec-num">SECTION 14 — 창작자 신뢰</span>
-    <h2 class="sec-title">왜 이 사람의 <em>큐레이션</em>인가.</h2>
-
-    <div class="portfolio-stats">
-      <div class="ps-item"><div class="ps-num">19<span>년</span></div><div class="ps-label">방송 경력 (2007~)</div></div>
-      <div class="ps-item"><div class="ps-num">12<span></span></div><div class="ps-label">방송 채널</div></div>
-      <div class="ps-item"><div class="ps-num">20<span>+</span></div><div class="ps-label">참여 프로그램</div></div>
-      <div class="ps-item"><div class="ps-num">5<span>+1</span></div><div class="ps-label">5개 장르 (시사·교양·예능·음악·다큐) + 글로벌 콘텐츠</div></div>
-    </div>
-
-    <div class="table-list">
-      <div class="row">
-        <div class="key">경력</div>
-        <div class="val">19년차 방송작가 (2007~현재) · 방송작가협회 정회원. 다큐멘터리 · 교양 · 시사 · 예능 원고를 써오며 문장의 구조와 리듬을 다뤄왔습니다.</div>
-      </div>
-      <div class="row">
-        <div class="key">주요 채널 · 작품</div>
-        <div class="val">
-          <strong>Mnet</strong> BORN TO 춤 · 춤플래닛<br>
-          <strong>KBS</strong> 과학카페 · 소비자고발 · 환경스페셜 · 여유만만 · 위기탈출 넘버원<br>
-          <strong>중화TV</strong> 차이나우 · 차이언스 · 차이나 히코노미 · 차이나 피디아 · 웰컴투 찰리우드<br>
-          <strong>아리랑TV</strong> 스타데이트 위드 제아 · 댄스타그램<br>
-          <strong>외 채널</strong> SBS · MBC뮤직 · EBS · OCN · TV조선 · MBN · KBSN · tbs 등
-        </div>
-      </div>
-      <div class="row">
-        <div class="key">설계</div>
-        <div class="val">레터브릭의 3단계 훈련 구조 — 따라쓰기 · 구조 바꾸기 · 자기 문장화 — 는 직접 설계되었습니다.</div>
-      </div>
-      <div class="row">
-        <div class="key">검증</div>
-        <div class="val">50여 명의 베타 사용자와 함께 운영하며 반복 피드백을 반영해 다듬었습니다.</div>
-      </div>
-      <div class="row">
-        <div class="key">권리 보호 절차 진행 중</div>
-        <div class="val">레터브릭의 3단계 필사 훈련 구조는 현재 <strong>특허 출원 중</strong>입니다. 등록특허가 아닌 출원 상태이며, 최종 등록 여부는 특허청 심사 결과에 따라 결정됩니다.</div>
-      </div>
-    </div>
-
-    <div class="studio-grid">
-      <div class="sg-label">방송 현장 — 19년의 흔적</div>
-      <div class="sg-images">
-        <img src="/images/studio_1.jpg" alt="방송 촬영장 모습 1">
-        <img src="/images/studio_2.jpg" alt="방송 촬영장 모습 2">
-        <img src="/images/studio_3.jpg" alt="방송 촬영장 모습 3">
-        <img src="/images/studio_4.jpg" alt="방송 촬영장 모습 4">
-        <img src="/images/studio_5.jpg" alt="방송 촬영장 모습 5">
-      </div>
-      <div class="sg-note">* 사적 정보 보호를 위해 출연자·관계자의 얼굴은 처리되었습니다.</div>
-    </div>
-  </section>
-</div>
-
 <!-- ===== 14 FAQ ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 15 — 자주 묻는 질문</span>
+    <span class="sec-num">SECTION 14 — 자주 묻는 질문</span>
     <h2 class="sec-title">자주 묻는 질문.</h2>
 
     <div class="faq">
@@ -2926,7 +2906,7 @@ footer {
 <!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="cta">
   <div class="shell">
-    <span class="sec-num" style="color: var(--brick-soft);">SECTION 16 — 마지막 한 문장</span>
+    <span class="sec-num" style="color: var(--brick-soft);">SECTION 15 — 마지막 한 문장</span>
     <h2>
       AI가 글을 대신 써주는 시대,<br>
       우리는 그 어느 때보다 쉽게 문장을 얻게 되었습니다.
@@ -2973,6 +2953,12 @@ const observer = new IntersectionObserver((entries) => {
     if (e.isIntersecting) e.target.classList.add('in');
   });
 }, { threshold: 0.12 });
+
+// 데모 영상 — 자동재생 시도 (브라우저 정책 차단 시 controls로 수동 재생 가능)
+document.querySelectorAll('.demo-video video').forEach(v => {
+  v.muted = true;
+  v.play().catch(() => {/* autoplay blocked — controls UI로 사용자가 직접 재생 */});
+});
 
 document.querySelectorAll('section, .pullquote, .table-list, .steps, .score-table, .rewards, .reviews, .timeline, .faq, .demo-videos, .beta-spotlight, .portfolio-stats, .studio-grid, .funding-plan').forEach(el => {
   el.classList.add('reveal');
