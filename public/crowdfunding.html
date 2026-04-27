@@ -1099,6 +1099,35 @@ footer {
   .demo-videos { grid-template-columns: 1fr; gap: 18px; }
 }
 
+/* ===== Scene illustrations (방법론 섹션 마무리) ===== */
+.scene-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 36px 0 0;
+}
+.scene-image {
+  margin: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+.scene-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.scene-image figcaption {
+  padding: 14px 18px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--rule);
+}
+@media (max-width: 720px) {
+  .scene-images { grid-template-columns: 1fr; gap: 18px; }
+}
+
 /* ===== ASSET 2: 1호 베타 스포트라이트 (카톡 캡처) ===== */
 .beta-spotlight {
   margin: 50px 0 32px;
@@ -1860,7 +1889,7 @@ footer {
 
     <p class="sub">
       AI 시대의 서막이 오른 지금,<br>
-      당신은 이미 AI의 편리함에 <strong>익숙해져 가고 계신 건 아닌지요?</strong>
+      당신은 이미 AI의 편리함에 <strong>익숙해져 가고 있는 건 아닌가요?</strong>
     </p>
 
     <p class="sub">
@@ -2139,6 +2168,17 @@ footer {
       감사(感思)는 고마움의 감사(感謝)가 아닙니다. 느낄 감(感), 생각 사(思).<br>
       느낀 것을 흘려보내지 않고, 생각으로 붙잡아 자기 질문으로 바꾸는 — 레터브릭의 회고 방식입니다.
     </div>
+
+    <div class="scene-images">
+      <figure class="scene-image">
+        <img src="/images/firefly_morning.png" alt="아침 — 창가에서 글을 쓰는 풍경">
+        <figcaption><span class="dv-tag">아침</span>문장 근육을 깨우는 시간</figcaption>
+      </figure>
+      <figure class="scene-image">
+        <img src="/images/firefly_evening.png" alt="저녁 — 촛불 곁에서 글을 쓰는 풍경">
+        <figcaption><span class="dv-tag">저녁</span>흩어진 감정을 정리하는 시간</figcaption>
+      </figure>
+    </div>
   </section>
 </div>
 
@@ -2259,11 +2299,11 @@ footer {
 
     <div class="demo-videos">
       <figure class="demo-video">
-        <video src="/videos/demo_growth.mp4" poster="/images/firefly_morning.png" muted autoplay loop playsinline preload="metadata"></video>
+        <video src="/videos/demo_growth.mp4" poster="/images/firefly_morning.png" muted autoplay loop playsinline preload="auto" controls></video>
         <figcaption><span class="dv-tag">아침 · 성장편</span>따라 쓴 문장이 내 문장으로 자라는 시간</figcaption>
       </figure>
       <figure class="demo-video">
-        <video src="/videos/demo_healing.mp4" poster="/images/firefly_evening.png" muted autoplay loop playsinline preload="metadata"></video>
+        <video src="/videos/demo_healing.mp4" poster="/images/firefly_evening.png" muted autoplay loop playsinline preload="auto" controls></video>
         <figcaption><span class="dv-tag">저녁 · 힐링편</span>한 문단을 음미하고, 한 줄 질문으로 하루를 닫는 시간</figcaption>
       </figure>
     </div>
