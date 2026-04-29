@@ -600,6 +600,75 @@ p:last-child { margin-bottom: 0; }
   color: var(--ink-soft);
   line-height: 1.85;
 }
+
+/* ===== Not-a-challenge card (FAQ 영역 시각 안내) ===== */
+.not-challenge-card {
+  margin: 24px 0 36px;
+  padding: 28px 32px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--brick);
+}
+.ncc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 8px 0;
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.ncc-row.ncc-bad { color: var(--ink-faded); }
+.ncc-row.ncc-bad .ncc-text { text-decoration: line-through; text-decoration-color: rgba(168,74,42,0.4); }
+.ncc-row.ncc-good { color: var(--ink); font-weight: 700; }
+.ncc-mark {
+  font-size: 18px;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+.ncc-text { flex: 1; }
+.ncc-divider {
+  margin: 16px 0;
+  height: 1px;
+  background: var(--rule);
+}
+.ncc-spans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.ncc-spans > div {
+  text-align: center;
+  padding: 10px 8px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+.ncc-spans strong {
+  display: block;
+  color: var(--brick);
+  font-size: 13px;
+  margin-bottom: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+@media (max-width: 600px) {
+  .ncc-spans { grid-template-columns: 1fr; }
+  .not-challenge-card { padding: 22px 22px; }
+}
+
+/* ===== Returning chair motif (회귀 모티프) ===== */
+.promise-quote::before {
+  content: "🪑";
+  display: block;
+  font-size: 32px;
+  margin-bottom: 14px;
+  opacity: 0.6;
+  filter: grayscale(0.3);
+}
 @media (max-width: 720px) {
   .day-tracks { grid-template-columns: 1fr; gap: 18px; }
   .day-track { padding: 22px 22px 20px; }
@@ -2546,7 +2615,7 @@ footer {
           <h3 class="book-title">질문하는 필사</h3>
           <p class="book-sub">매일 한 문장 앞에 다시 앉는 연습을 돕는, 100일 입문 코스</p>
           <p class="book-desc">
-            따라쓰기 → 구조 바꾸기 → 자기 문장화 → 감사(感思) 4단계 구성. <strong>레터브릭이 100일만 운영된다는 뜻이 아닙니다</strong> — eBook은 루틴에 처음 들어오는 사람을 위한 100일 입문 흐름이며, 자기 페이스대로 통과하시면 됩니다. 카톡 문장 루틴은 후원 구독 기간 내내 이어집니다.
+            <strong>성장편 3단계</strong> (따라쓰기 → 바꿔쓰기 → 자기 문장화) + <strong>힐링편 3단계</strong> (따라쓰기 → 질문 사유 → 감사(感思))로 구성. <strong>레터브릭이 100일만 운영된다는 뜻이 아닙니다</strong> — eBook은 루틴에 처음 들어오는 사람을 위한 100일 입문 흐름이며, 자기 페이스대로 통과하시면 됩니다. 카톡 문장 루틴은 후원 구독 기간 내내 이어집니다.
           </p>
 
           <!-- 내지 미니 미리보기 (3장) -->
@@ -3061,6 +3130,23 @@ footer {
   <section>
     <span class="sec-num">SECTION 15 — 자주 묻는 질문</span>
     <h2 class="sec-title">자주 묻는 질문.</h2>
+
+    <div class="not-challenge-card">
+      <div class="ncc-row ncc-bad">
+        <span class="ncc-mark">❌</span>
+        <span class="ncc-text">100일 챌린지가 아닙니다.</span>
+      </div>
+      <div class="ncc-row ncc-good">
+        <span class="ncc-mark">✅</span>
+        <span class="ncc-text">후원하신 구독 기간 동안<br>매일 한 문장이 도착합니다.</span>
+      </div>
+      <div class="ncc-divider"></div>
+      <div class="ncc-spans">
+        <div><strong>12개월 후원</strong> = 1년 동안</div>
+        <div><strong>6개월 후원</strong> = 반년 동안</div>
+        <div><strong>1개월 후원</strong> = 한 달 동안</div>
+      </div>
+    </div>
 
     <div class="faq">
       <details>
