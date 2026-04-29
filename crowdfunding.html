@@ -338,6 +338,151 @@ p:last-child { margin-bottom: 0; }
   margin-top: 36px;
   align-items: center;
 }
+
+/* ===== Hero v.1.13 — 5블록 도입부 ===== */
+.hero-files {
+  margin: 32px 0;
+  padding: 18px 24px;
+  background: var(--paper-deep);
+  border: 1px dashed var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--ink-faded);
+  line-height: 1.85;
+  max-width: 360px;
+}
+.hero-files div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-files div::before {
+  content: "📄";
+  opacity: 0.6;
+}
+.hero-leadout {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: var(--brick);
+  margin-bottom: 48px;
+}
+.hero-block {
+  margin: 36px 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.hero-block:first-of-type { border-top: 1px solid var(--ink); }
+.hero-block-pivot {
+  background: var(--paper-deep);
+  padding: 28px 32px;
+  border: none;
+  border-left: 4px solid var(--brick);
+  margin: 36px 0;
+}
+.hero-block-h {
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.hero-block p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.hero-block p:last-child { margin-bottom: 0; }
+.hero-block p strong { color: var(--ink); font-weight: 700; }
+.hero-quote {
+  margin: 18px 0;
+  padding: 18px 22px;
+  background: var(--paper);
+  border-left: 3px solid var(--brick);
+  font-family: 'Gowun Batang', serif;
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.hero-quote strong { font-weight: 700; }
+.hero-tagline {
+  margin-top: 24px !important;
+  padding: 18px 22px;
+  background: var(--ink);
+  color: var(--paper) !important;
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px !important;
+  line-height: 1.85 !important;
+}
+.hero-tagline strong { color: var(--paper) !important; font-size: 22px; display: block; margin-bottom: 8px; }
+.hero-tagline em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #f5d896;
+  font-weight: 400;
+}
+
+/* ===== AI Asks (인용 자조 박스) ===== */
+.ai-asks {
+  margin: 24px 0;
+  padding: 22px 28px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--rule);
+}
+.ai-asks p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 4px 0;
+}
+.ai-asks-others { border-left-color: var(--brick); }
+.ai-asks-others p { color: var(--ink); }
+
+/* ===== Check List v.1.13 (8 items) ===== */
+.check-list-v13 {
+  list-style: none;
+  margin: 28px 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.check-list-v13 li {
+  padding: 16px 0 16px 36px;
+  border-bottom: 1px dashed var(--rule);
+  font-family: 'Gowun Batang', serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  position: relative;
+}
+.check-list-v13 li:last-child { border-bottom: none; }
+.check-list-v13 li::before {
+  content: "☐";
+  position: absolute;
+  left: 4px; top: 14px;
+  font-size: 18px;
+  color: var(--brick);
+}
+.check-list-v13 li strong { font-weight: 700; }
+.check-list-v13 li em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--brick); }
+
+.check-aside {
+  margin-top: 24px !important;
+  padding: 14px 20px;
+  background: var(--paper);
+  border-left: 2px solid var(--ink-faded);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 14.5px !important;
+  line-height: 1.85 !important;
+}
+.check-aside em { font-style: italic; }
 @media (max-width: 600px) {
   .hero-cta-row { flex-direction: column; align-items: stretch; }
   .hero-cta-row .btn-primary,
@@ -2133,43 +2278,82 @@ footer {
     </div>
 
     <div class="badges">
-      <span>아침 7시 · 성장편</span>
-      <span>저녁 9시 · 힐링편</span>
-      <span>하루 20분</span>
+      <span>매일 아침 7시</span>
+      <span>매일 저녁 9시</span>
+      <span>하루 10분</span>
       <span>19년차 작가 큐레이션</span>
     </div>
 
     <h1>
-      다가오는 AI 시대,<br>
-      당신은 무엇을 <span class="accent">준비하고 계십니까</span>?
+      AI는 3초 만에 글을 씁니다.<br>
+      저는 30분째 AI에게 <span class="accent">뭐라고 시켜야 할지</span><br>
+      쓰고 있습니다.
     </h1>
 
-    <p class="sub">
-      AI 시대의 서막이 오른 지금,<br>
-      우리는 이미 AI의 편리함에 <strong>익숙해져 가고 있는 건 아닐까요?</strong>
-    </p>
+    <div class="hero-files">
+      <div>「제목 없음」</div>
+      <div>「제목 없음 2」</div>
+      <div>「진짜최종」</div>
+      <div>「진짜최종_프롬프트」</div>
+    </div>
 
-    <p class="sub">
-      AI라는 거대한 해일에 맨몸으로 맞서려는 당신에게,<br>
-      레터브릭은 당신을 지키는 <strong>방파제</strong>가 되고,<br>
-      대양으로 나아가는 당신의 <strong>안전하고도 위대한 항해</strong>를<br>
-      이끌어 줄 항해사가 되어드릴 것입니다.
-    </p>
+    <p class="sub hero-leadout">— 그래서 이런 걸 만들었습니다.</p>
 
-    <p class="sub">
-      <strong>레터브릭</strong>은 매일 하나의 문장을 읽고,<br>
-      따라 쓰고, 바꿔 쓰고, 다시 나만의 문장으로 만들어가는<br>
-      <strong>필사 기반 문장력 향상 루틴</strong>입니다.
-    </p>
+    <div class="hero-block">
+      <h3 class="hero-block-h">AI는 못하지 않습니다. 오히려 — 너무 잘합니다.</h3>
+      <p>요약도, 기획안도, 어색한 문장 다듬기도.<br>이제는 첫 문장까지 AI가 써줍니다.</p>
+    </div>
+
+    <div class="hero-block">
+      <h3 class="hero-block-h">그래서 우리는 점점 더 맡깁니다.</h3>
+      <p>편하니까. 빠르니까. 잘하니까.</p>
+      <p>그러다 어느 순간 —<br>
+      <strong>내가 무엇을 쓰고 싶은지조차,<br>AI에게 먼저 묻게 됩니다.</strong></p>
+    </div>
+
+    <div class="hero-block">
+      <h3 class="hero-block-h">지금은 — 가족 번호조차 가물가물합니다.</h3>
+      <p>스마트폰이 등장하기 전,<br>
+      우리는 가까운 사람들의 전화번호를 외우고 있었습니다.</p>
+      <p>스마트폰이 우리 대신 기억해주니까요.</p>
+      <div class="hero-quote">
+        <strong>편리한 도구는 죄가 없습니다.<br>
+        다만, 인간이 직접 쓰던 능력은<br>
+        천천히 잠들어 갑니다.</strong>
+      </div>
+      <p>AI도 마찬가지일 수 있습니다.</p>
+    </div>
+
+    <div class="hero-block hero-block-pivot">
+      <h3 class="hero-block-h">레터브릭은 AI를 덜 쓰기 위해 만든 서비스가 아닙니다.</h3>
+      <p>
+        <strong>AI를 더 제대로 쓰기 위해,<br>
+        내 생각의 첫 단계를 직접 통과하는<br>
+        하루 10분 문장 루틴</strong>입니다.
+      </p>
+    </div>
+
+    <div class="hero-block">
+      <h3 class="hero-block-h">거창한 글쓰기 말고, 하루 10분.</h3>
+      <p>한 문장씩, 같이 써봅시다.</p>
+      <p>매일 아침 7시, 카카오톡으로 도착하는 <strong>성장편</strong>.<br>
+      매일 저녁 9시, 하루를 정리하는 <strong>힐링편</strong>.</p>
+      <p>아침엔 문장을 훈련하고,<br>저녁엔 마음을 정리합니다.</p>
+      <p class="hero-tagline">
+        <strong>레터브릭.</strong><br>
+        AI 시대에도 내 생각을 놓치지 않기 위한<br>
+        <em>하루 10분 문장 루틴.</em>
+      </p>
+    </div>
 
     <div class="hero-cta-row">
-      <a href="#rewards" class="btn-primary">오리지널 서포터로 시작하기</a>
-      <a href="https://letter-brick.vercel.app/" target="_blank" rel="noopener" class="btn-secondary">데모 먼저 체험하기</a>
+      <a href="#rewards" class="btn-primary">함께 시작하기</a>
+      <a href="https://letter-brick.vercel.app/" target="_blank" rel="noopener" class="btn-secondary">30초 데모 보기</a>
     </div>
 
     <div class="hero-meta">
-      <div>아침 7시 / MORNING<strong>성장편 필사 루틴</strong></div>
-      <div>저녁 9시 / EVENING<strong>힐링편 필사 루틴</strong></div>
+      <div>아침 7시 / MORNING<strong>성장편 카톡 도착</strong></div>
+      <div>저녁 9시 / EVENING<strong>힐링편 카톡 도착</strong></div>
       <div>설계 / DESIGN<strong>19년차 방송작가</strong></div>
     </div>
   </section>
@@ -2221,37 +2405,65 @@ footer {
   </section>
 </div>
 
-<!-- ===== 02 PROBLEM ===== -->
+<!-- ===== 02 AI 일화 ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 02 — 앞서가는 사람은 누구인가</span>
-    <h2 class="sec-title">AI가 예단하고 정리하는,<br>당신의 <em>생각들</em>.</h2>
+    <span class="sec-num">SECTION 02 — 막상 AI 앞에 앉으면</span>
+    <h2 class="sec-title">막상 AI 앞에 앉으면,<br><em>이렇게</em> 됩니다.</h2>
+
+    <p class="lead">저는 19년차 방송작가인데요.</p>
 
     <p class="lead">
-      AI는 이제 글을 써주고, 요약해주고, 기획해주며, 대답까지 대신해줍니다.<br>
-      편리합니다.
+      지난주에 AI한테 인스타 카드뉴스 카피를 부탁했습니다.
     </p>
 
-    <p class="lead">
-      그러나 어느 순간부터 우리는<br>
-      스스로 묻고, 고르고, 해석하고, 표현하는 시간을<br>
-      <strong>건너뛰고 있는지도 모릅니다.</strong>
+    <p>이렇게 말했어요.</p>
+
+    <div class="ai-asks">
+      <p><em>"대충 멋있게."</em></p>
+      <p><em>"좀 더 따뜻하게."</em></p>
+      <p><em>"근데 너무 오글거리진 않게."</em></p>
+      <p><em>"트렌디하게."</em></p>
+      <p><em>"근데 가볍진 않게."</em></p>
+      <p><em>"전문적으로."</em></p>
+      <p><em>"근데 딱딱하진 않게."</em></p>
+    </div>
+
+    <p>
+      AI는 매번 답을 줬습니다.<br>
+      저는 매번 <em>"이게 아닌데"</em> 했습니다.
     </p>
 
-    <p class="lead">
-      당신은 그곳에서<br>
-      <strong>트루먼 버뱅크(트루먼쇼)의 삶</strong>을 살아가게 될지도 모릅니다.
+    <p><strong>— AI도 아마 힘들었을 겁니다.</strong></p>
+
+    <p>
+      가만 생각해보니까,<br>
+      AI가 잘못한 게 아니었어요.
     </p>
 
-    <p class="lead">
-      글을 못 쓰게 되는 것이 문제가 아닙니다.<br>
-      더 큰 문제는 — <strong>내 생각을 내 문장으로 붙잡는 힘</strong>이<br>
-      조금씩 약해지는 것입니다.
+    <p>
+      저는 <strong>제가 뭘 원하는지</strong> 모르고 있었던 겁니다.
     </p>
+
+    <p>
+      AI는 똑똑했고,<br>
+      제 머릿속만 흐렸을 뿐이었습니다.
+    </p>
+
+    <p>
+      근데 가만 보니까,<br>
+      저만 그러는 게 아니더라고요.
+    </p>
+
+    <div class="ai-asks ai-asks-others">
+      <p><em>"'알아서 잘' 한 줄 부탁한 적 있음."</em></p>
+      <p><em>"'대충 멋있게' 라고 진짜로 쳐본 적 있음."</em></p>
+      <p><em>"AI 답변 받고 — '거의 맞는데 아님' 다섯 번."</em></p>
+      <p><em>"좋은 문장 캡처해놓고 다시 안 봄. 사진첩만 무거워짐."</em></p>
+    </div>
 
     <div class="pullquote">
-      레터브릭은 AI를 거부하는 훈련이 아닙니다.<br>
-      <em>AI와 상생하며</em>, AI를 우리를 위한 훌륭한 도구로 사용하기 위한 훈련입니다.
+      — 우리 다 <em>그렇잖아요</em>.
     </div>
   </section>
 </div>
@@ -2260,36 +2472,132 @@ footer {
   <span></span><span></span><span></span><span></span><span></span>
 </div>
 
-<!-- ===== 03 ANSWER ===== -->
+<!-- ===== 03 체크리스트 ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 03 — 레터브릭의 답</span>
-    <h2 class="sec-title">레터브릭이 매일 전하는 <em>하나의 문장</em>은,<br>당신의 <em>생각 나무</em>를 키우는 자양분이 됩니다.</h2>
+    <span class="sec-num">SECTION 03 — 솔직한 체크</span>
+    <h2 class="sec-title">자, 이제 솔직하게<br><em>체크해봅시다</em>.</h2>
 
-    <p class="lead">
-      레터브릭은 문장을 소비하는 데서 멈추지 않고,<br>
-      <strong style="color:var(--ink); font-weight:700;">문장이 움직이는 방식</strong>을 배우는 훈련입니다.
+    <p class="lead">지난 한 달, 당신은 어땠나요.</p>
+
+    <ul class="check-list-v13">
+      <li>AI에게 <strong>"알아서 잘"</strong> 부탁한 적이 있다.</li>
+      <li><strong>"좀 더 감성적으로, 근데 오글거리진 않게"</strong>라고 쓴 적이 있다.</li>
+      <li>내 결과물은 늘 <em>"거의 맞는데 아님"</em> 이었다.</li>
+      <li>AI 답변은 긴데, 정작 <strong>내 생각은 한 줄로 정리하지 못한</strong> 적이 있다.</li>
+      <li>좋은 문장 캡처해서 폰 사진첩에 모셔두고 — <strong>다시 안 본다</strong>.</li>
+      <li>책장에 다 못 읽은 책이 다 읽은 책보다 많다.</li>
+      <li>필사 노트 첫 장은 유난히 정성스럽고, 두 번째 장은 <strong>아직 미래에 있다</strong>.</li>
+      <li>AI에게 묻기 전에, <strong>무엇을 묻고 싶은지부터 막힌다</strong>.</li>
+    </ul>
+
+    <p>
+      세 개 이상 체크하셨다면,<br>
+      이 페이지는 <strong>당신을 위해 만든 게 맞습니다</strong>.
     </p>
 
-    <p class="lead">
-      읽고,<br>따라 쓰고,<br>구조를 바꿔 보고,<br>내 경험과 생각으로 다시 씁니다.
+    <p class="check-aside">
+      <em>(저는 다섯 개 체크했습니다.<br>만든 사람이 이 정도입니다.)</em>
+    </p>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 04 AI 너무 잘함 진단 ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 04 — AI는 너무 잘합니다</span>
+    <h2 class="sec-title">AI는 너무 잘합니다.<br>그래서 우리는, <em>생각의 첫 단계</em>를 건너뜁니다.</h2>
+
+    <p class="lead">한 번쯤 들어보셨을 거예요.</p>
+
+    <div class="ai-asks">
+      <p><em>"AI 시대 생존법."</em></p>
+      <p><em>"AI가 못 하는 일을 찾아라."</em></p>
+      <p><em>"AI한테 일을 빼앗기지 마라."</em></p>
+    </div>
+
+    <p>— 저는 다른 결론에 도달했습니다.</p>
+
+    <p>
+      진짜 위험은,<br>
+      AI가 <em>못해서</em>가 아니었습니다.
+    </p>
+
+    <p>
+      오히려 — AI가 <strong>너무 잘해서</strong>입니다.
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+      요약을 부탁하면 1분 안에 정리해줍니다.<br>
+      초안이 막막하면 첫 문단을 써줍니다.<br>
+      어색한 문장은 한 줄에 다듬어줍니다.<br>
+      이메일 답장도, 보고서 도입부도, 자기소개도.
+    </p>
+
+    <p>
+      그러다 보니 —<br>
+      우리는 점점 <em>"한 번 써봤다가 막히면"</em> 단계를<br>
+      건너뛰게 됩니다.
+    </p>
+
+    <p>
+      생각이 흐릴 때 그냥 AI를 켭니다.<br>
+      무엇을 쓰고 싶은지 모를 때도 AI를 켭니다.
     </p>
 
     <div class="pullquote">
-      필사는 <em>느린 입력</em>입니다.<br>
-      느린 입력은 생각을 붙잡는 시간을 만들고,<br>
-      그 시간 속에서 우리의 생각은 <em>숙성되고 익어 갑니다</em>.
+      <strong>AI는 빠르고 친절합니다.<br>
+      그래서 우리는 — 생각이 자라는 첫 단계를<br>
+      점점 건너뛰게 됩니다.</strong>
     </div>
 
+    <p>문제는 거기서 시작됩니다.</p>
+
     <p>
-      좋은 문장을 베끼고 외우는 것보다 중요한 것은,<br>
-      <strong style="color:var(--ink); font-weight:700;">그 문장이 작동하는 방식</strong>을 배우고 익히는 일입니다.
+      생각의 첫 단계를 매일 건너뛰면,<br>
+      <em>"내가 뭘 원하는지"</em> 한 줄로 정리하는 힘이<br>
+      조금씩 약해집니다.
     </p>
 
     <p>
-      AI가 답을 빠르게 줄수록,<br>
-      우리는 더 자주 스스로 물어야 합니다.<br>
-      그 물음의 자리를 다시 만드는 일, 그것이 레터브릭의 답입니다.
+      AI에게 잘 묻는 힘은,<br>
+      결국 <strong>내 생각을 한 줄로 붙잡는 힘</strong>에서 나옵니다.
+    </p>
+
+    <p>
+      <strong>그 힘이 약해지면 — AI도 잘 못 씁니다.</strong>
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+      매일 같은 시간에 — 도착하는 한 문장이 있고,<br>
+      부담 없이 — 통과할 수 있는 10분이 있고,<br>
+      끝까지 안 가도 — 남는 게 있는 구조가 있다면.
+    </p>
+
+    <p>생각의 근육은 천천히 돌아옵니다.</p>
+
+    <p>
+      레터브릭은 그 세 가지를 채우려고 만든<br>
+      <strong>하루 10분의 자리</strong>입니다.
+    </p>
+
+    <div class="pullquote">
+      <strong>당신이 게으른 게 아닙니다.<br>
+      너무 유용한 도구 옆에서<br>
+      직접 쓰는 시간이 짧아졌을 뿐입니다.</strong>
+    </div>
+
+    <p style="font-style:italic; color:var(--ink-faded);">
+      그러니 필요한 건 죄책감이 아니라,<br>
+      다시 직접 써보는 작은 구조입니다.
     </p>
   </section>
 </div>
@@ -2297,7 +2605,7 @@ footer {
 <!-- ===== 04 CREATOR STORY ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 04 — 창작자 서사</span>
+    <span class="sec-num">SECTION 05 — 창작자 서사</span>
     <h2 class="sec-title">19년 동안 글로 먹고살았습니다.<br>그런데 어느 날, <em>내 문장을 잃고</em> 있다는<br>생각이 들었습니다.</h2>
 
     <p>저는 19년차 방송작가입니다.</p>
@@ -2358,7 +2666,7 @@ footer {
     </p>
 
     <p style="color:var(--ink-faded); font-size:14px; font-style:italic;">
-      ※ 1호 베타 참여자(창작자의 동생)의 실제 카톡 메시지는 SECTION 13 베타 후기에서 확인하실 수 있습니다.
+      ※ 1호 베타 참여자(창작자의 동생)의 실제 카톡 메시지는 SECTION 14 베타 후기에서 확인하실 수 있습니다.
     </p>
 
     <div class="divider"></div>
@@ -2378,7 +2686,7 @@ footer {
 <!-- ===== 05 METHOD ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 05 — 필사 방법론</span>
+    <span class="sec-num">SECTION 06 — 필사 방법론</span>
     <h2 class="sec-title">레터브릭은 <em>따라 쓰기</em>에서<br>끝나지 않습니다.</h2>
 
     <div class="steps">
@@ -2444,7 +2752,7 @@ footer {
 <!-- ===== 06 CURATION ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 06 — 문장 큐레이션 기준</span>
+    <span class="sec-num">SECTION 07 — 문장 큐레이션 기준</span>
     <h2 class="sec-title">레터브릭은 <em>아무 문장</em>이나<br>보내지 않습니다.</h2>
 
     <p>레터브릭의 문장 큐레이션은 '좋은 말 모음'이 아닙니다.</p>
@@ -2487,7 +2795,7 @@ footer {
 <!-- ===== 07 FEEDBACK ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 07 — 피드백 기준</span>
+    <span class="sec-num">SECTION 08 — 피드백 기준</span>
     <h2 class="sec-title">레터브릭은 글을 줄 세우지 않습니다.<br><em>문장이 자라는 방향</em>을 확인합니다.</h2>
 
     <p>
@@ -2540,7 +2848,7 @@ footer {
 <!-- ===== 08 FLOW ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 08 — 실제 사용 흐름</span>
+    <span class="sec-num">SECTION 09 — 실제 사용 흐름</span>
     <h2 class="sec-title">하루 20분, <em>이렇게</em> 진행됩니다.</h2>
 
     <p class="lead">
@@ -2590,7 +2898,7 @@ footer {
 <!-- ===== 09 BOOK SHOWCASE (NEW) ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 09 — 함께 가는 책들</span>
+    <span class="sec-num">SECTION 10 — 함께 가는 책들</span>
     <h2 class="sec-title">후원 티어에 따라,<br><em>세 권의 책</em>을 함께 만납니다.</h2>
 
     <p class="lead">
@@ -2687,7 +2995,7 @@ footer {
 <!-- ===== 10 PROMISE — 다시 돌아오는 힘 ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 10 — 정직한 약속</span>
+    <span class="sec-num">SECTION 11 — 정직한 약속</span>
     <h2 class="sec-title">중요한 건 100일이 아니라,<br><em>다시 돌아오는 힘</em>입니다.</h2>
 
     <p class="lead">저는 펀딩 페이지에 흔한 약속을 하지 않겠습니다.</p>
@@ -2752,7 +3060,7 @@ footer {
 <!-- ===== 11 REWARDS ===== -->
 <div class="shell">
   <section id="rewards">
-    <span class="sec-num">SECTION 11 — 리워드</span>
+    <span class="sec-num">SECTION 12 — 리워드</span>
     <h2 class="sec-title">함께 쌓아갈 <em>여섯 개의 벽돌.</em></h2>
 
     <p class="lead">
@@ -2970,7 +3278,7 @@ footer {
 <div class="section-light">
   <div class="shell">
     <section>
-      <span class="sec-num">SECTION 12 — 후원 직후 받는 것</span>
+      <span class="sec-num">SECTION 13 — 후원 직후 받는 것</span>
       <h2 class="sec-title">후원 후, <em>무엇이 시작</em>되나요?</h2>
 
       <p class="lead">
@@ -3018,7 +3326,7 @@ footer {
 <!-- ===== 12 BETA REVIEWS ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 13 — 베타 후기</span>
+    <span class="sec-num">SECTION 14 — 베타 후기</span>
     <h2 class="sec-title">먼저 <em>경험한 사람들</em>이<br>있었습니다.</h2>
 
     <p>
@@ -3094,7 +3402,7 @@ footer {
 <!-- ===== 12 TIMELINE ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 14 — 제작 일정</span>
+    <span class="sec-num">SECTION 15 — 제작 일정</span>
     <h2 class="sec-title">투명하게 공개합니다.</h2>
 
     <div class="timeline">
@@ -3128,7 +3436,7 @@ footer {
 <!-- ===== 14 FAQ ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 15 — 자주 묻는 질문</span>
+    <span class="sec-num">SECTION 16 — 자주 묻는 질문</span>
     <h2 class="sec-title">자주 묻는 질문.</h2>
 
     <div class="not-challenge-card">
@@ -3220,7 +3528,7 @@ footer {
 <!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="cta">
   <div class="shell">
-    <span class="sec-num" style="color: var(--brick-soft);">SECTION 16 — 마지막 한 문장</span>
+    <span class="sec-num" style="color: var(--brick-soft);">SECTION 17 — 마지막 한 문장</span>
     <h2>
       AI는 앞으로도 더 빨리,<br>
       <em>더 잘</em> 글을 쓸 겁니다.
