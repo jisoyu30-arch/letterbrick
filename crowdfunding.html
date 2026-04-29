@@ -425,6 +425,31 @@ p:last-child { margin-bottom: 0; }
   font-weight: 400;
 }
 
+/* ===== Hero need list (3가지 필요한 것) ===== */
+.hero-need-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.hero-need-list li {
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+  line-height: 1.85;
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px dashed var(--rule);
+  position: relative;
+  color: var(--ink);
+}
+.hero-need-list li:last-child { border-bottom: none; }
+.hero-need-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 4px; top: 10px;
+  color: var(--brick);
+  font-weight: 700;
+}
+.hero-need-list li strong { font-weight: 700; }
+
 /* ===== AI Asks (인용 자조 박스) ===== */
 .ai-asks {
   margin: 24px 0;
