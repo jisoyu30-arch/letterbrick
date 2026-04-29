@@ -539,6 +539,67 @@ p:last-child { margin-bottom: 0; }
   font-style: italic;
 }
 .routines-note strong { color: var(--ink-soft); font-style: normal; font-weight: 700; }
+
+/* ===== Promise box (정직한 약속 — 100일 거짓 약속 인용) ===== */
+.promise-bad {
+  margin: 24px 0 28px;
+  padding: 22px 28px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ink-faded);
+}
+.promise-bad p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-faded);
+  margin: 4px 0;
+  text-decoration: line-through;
+  text-decoration-color: rgba(168,74,42,0.5);
+  text-decoration-thickness: 1px;
+}
+.promise-bad em {
+  font-style: italic;
+  color: var(--ink-faded);
+}
+.pb-verdict {
+  margin-top: 14px !important;
+  font-family: 'Gowun Batang', serif !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+  color: var(--brick-deep) !important;
+  font-size: 15px !important;
+  font-weight: 700;
+}
+.promise-quote {
+  margin: 36px 0;
+  padding: 32px 36px;
+  background: linear-gradient(180deg, rgba(168,74,42,0.06), rgba(168,74,42,0.02));
+  border-left: 3px solid var(--brick);
+  font-family: 'Gowun Batang', serif;
+  font-size: clamp(18px, 2.6vw, 22px);
+  line-height: 1.75;
+  color: var(--ink);
+}
+.promise-quote strong {
+  display: block;
+  font-weight: 700;
+}
+.promise-quote em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--brick);
+  font-weight: 400;
+}
+.pq-sub {
+  display: block;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
 @media (max-width: 720px) {
   .day-tracks { grid-template-columns: 1fr; gap: 18px; }
   .day-track { padding: 22px 22px 20px; }
@@ -2228,7 +2289,7 @@ footer {
     </p>
 
     <p style="color:var(--ink-faded); font-size:14px; font-style:italic;">
-      ※ 1호 베타 참여자(창작자의 동생)의 실제 카톡 메시지는 SECTION 12 베타 후기에서 확인하실 수 있습니다.
+      ※ 1호 베타 참여자(창작자의 동생)의 실제 카톡 메시지는 SECTION 13 베타 후기에서 확인하실 수 있습니다.
     </p>
 
     <div class="divider"></div>
@@ -2483,9 +2544,9 @@ footer {
         <div class="book-meta">
           <div class="book-tag">📕 워크북 eBook · 18,000원 상당</div>
           <h3 class="book-title">질문하는 필사</h3>
-          <p class="book-sub">AI 시대, 내 문장을 찾는 100일 루틴</p>
+          <p class="book-sub">매일 한 문장 앞에 다시 앉는 연습을 돕는, 100일 입문 코스</p>
           <p class="book-desc">
-            따라쓰기 → 구조 바꾸기 → 자기 문장화 → 감사(感思) 4단계 구성. 매일 한 문장씩 100일을 통과하는 자기 페이스 워크북입니다.
+            따라쓰기 → 구조 바꾸기 → 자기 문장화 → 감사(感思) 4단계 구성. <strong>레터브릭이 100일만 운영된다는 뜻이 아닙니다</strong> — eBook은 루틴에 처음 들어오는 사람을 위한 100일 입문 흐름이며, 자기 페이스대로 통과하시면 됩니다. 카톡 문장 루틴은 후원 구독 기간 내내 이어집니다.
           </p>
 
           <!-- 내지 미니 미리보기 (3장) -->
@@ -2554,10 +2615,75 @@ footer {
   <span></span><span></span><span></span><span></span><span></span>
 </div>
 
-<!-- ===== 10 REWARDS ===== -->
+<!-- ===== 10 PROMISE — 다시 돌아오는 힘 ===== -->
+<div class="shell">
+  <section>
+    <span class="sec-num">SECTION 10 — 정직한 약속</span>
+    <h2 class="sec-title">중요한 건 100일이 아니라,<br><em>다시 돌아오는 힘</em>입니다.</h2>
+
+    <p class="lead">저는 펀딩 페이지에 흔한 약속을 하지 않겠습니다.</p>
+
+    <div class="promise-bad">
+      <p><em>"100일 뒤 당신은 작가가 되어 있을 겁니다"</em></p>
+      <p><em>"한 달 만에 인생이 바뀝니다"</em></p>
+      <p><em>"필사로 사고력 200% 상승"</em></p>
+      <p class="pb-verdict">— 다 거짓말입니다.</p>
+    </div>
+
+    <p>대신 정직하게 말씀드리겠습니다.</p>
+
+    <p>
+      당신은 며칠은 카톡을 무시할 수도 있습니다.<br>
+      어떤 주는 한 줄도 못 남길 수 있습니다.<br>
+      eBook 어딘가는 비어 있을 겁니다.
+    </p>
+
+    <p>그래도 한 가지는 분명합니다.</p>
+
+    <div class="pullquote promise-quote">
+      <strong>100일을 끝내는 사람이 아니라,<br>
+      매일 한 문장 앞으로 <em>돌아오는 사람</em>이 되는 것.</strong><br><br>
+      <span class="pq-sub">참여한 만큼, 기록한 만큼,<br>당신의 문장은 분명히 남습니다.</span>
+    </div>
+
+    <p>
+      며칠 비웠다가도 다시 앉는 사람.<br>
+      완주가 아니라, <strong>회귀가 익숙해지는 사람</strong>.
+    </p>
+
+    <p>그게 레터브릭이 정직하게 약속드릴 수 있는 변화입니다.</p>
+
+    <div class="divider"></div>
+
+    <p>그리고 한 가지 더 말씀드리고 싶은 게 있습니다.</p>
+
+    <p><strong>레터브릭은 100일 챌린지가 아닙니다.</strong></p>
+
+    <p>
+      《질문하는 필사》 eBook은 루틴에 처음 들어오는 사람을 위한<br>
+      <strong>100일 입문 코스</strong>입니다.
+    </p>
+
+    <p>
+      그 안에서 자기 호흡을 찾고 나면,<br>
+      한 문장이 매일 도착하는 일이 당신의 일상이 됩니다.
+    </p>
+
+    <div class="pullquote">
+      하루 한 문장으로 시작해서,<br>
+      매일의 한 문장이 <em>평생의 호흡</em>이 되는 것.
+    </div>
+  </section>
+</div>
+
+<div class="divider-bricks" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== 11 REWARDS ===== -->
 <div class="shell">
   <section id="rewards">
-    <span class="sec-num">SECTION 10 — 리워드</span>
+    <span class="sec-num">SECTION 11 — 리워드</span>
     <h2 class="sec-title">함께 쌓아갈 <em>여섯 개의 벽돌.</em></h2>
 
     <p class="lead">
@@ -2775,7 +2901,7 @@ footer {
 <div class="section-light">
   <div class="shell">
     <section>
-      <span class="sec-num">SECTION 11 — 후원 직후 받는 것</span>
+      <span class="sec-num">SECTION 12 — 후원 직후 받는 것</span>
       <h2 class="sec-title">후원 후, <em>무엇이 시작</em>되나요?</h2>
 
       <p class="lead">
@@ -2823,7 +2949,7 @@ footer {
 <!-- ===== 12 BETA REVIEWS ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 12 — 베타 후기</span>
+    <span class="sec-num">SECTION 13 — 베타 후기</span>
     <h2 class="sec-title">먼저 <em>경험한 사람들</em>이<br>있었습니다.</h2>
 
     <p>
@@ -2899,7 +3025,7 @@ footer {
 <!-- ===== 12 TIMELINE ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 13 — 제작 일정</span>
+    <span class="sec-num">SECTION 14 — 제작 일정</span>
     <h2 class="sec-title">투명하게 공개합니다.</h2>
 
     <div class="timeline">
@@ -2933,7 +3059,7 @@ footer {
 <!-- ===== 14 FAQ ===== -->
 <div class="shell">
   <section>
-    <span class="sec-num">SECTION 14 — 자주 묻는 질문</span>
+    <span class="sec-num">SECTION 15 — 자주 묻는 질문</span>
     <h2 class="sec-title">자주 묻는 질문.</h2>
 
     <div class="faq">
@@ -2983,6 +3109,16 @@ footer {
       </details>
 
       <details>
+        <summary>"100일"은 정확히 무슨 뜻인가요?</summary>
+        <p>레터브릭 서비스가 100일만 운영된다는 뜻이 아닙니다.<br><br>《질문하는 필사》 eBook이 <strong>루틴을 시작하기 위한 100일 입문 흐름</strong>으로 구성되어 있다는 뜻입니다. 매일 한 문장 앞에 다시 앉는 연습을 돕는 첫 코스입니다.<br><br>레터브릭의 카카오톡 문장 루틴은 — 후원하신 <strong>구독 기간 동안 계속 이어집니다</strong>. 12개월 후원자는 1년 동안, 6개월 후원자는 반년 동안. 이후 재구독을 통해 평생의 호흡으로 이어가실 수 있습니다.<br><br>※ eBook 100일 입문 코스는 자기 페이스대로 진행하셔도 됩니다.<br>※ 며칠 비웠다가 다시 돌아오셔도 됩니다.</p>
+      </details>
+
+      <details>
+        <summary>100일이 끝나면 서비스도 끝나나요?</summary>
+        <p>아닙니다. 레터브릭은 100일 챌린지가 아닙니다.<br><br>eBook의 100일 입문 코스를 통과하든, 중간에 멈췄다 다시 돌아오든 — <strong>카카오톡으로 매일 한 문장이 도착하는 일은 후원하신 구독 기간 내내 계속됩니다.</strong><br><br>12개월 후원자는 1년 동안, 6개월 후원자는 반년 동안 매일의 루틴이 이어지며, 이후 재구독을 통해 평생의 호흡으로 이어가실 수 있습니다.</p>
+      </details>
+
+      <details>
         <summary>특허 출원 중이라는 뜻은 무엇인가요?</summary>
         <p>레터브릭의 3단계 필사 훈련 구조는 권리 보호를 위해 특허 출원을 완료했습니다. 다만 이는 등록특허가 아니라 출원 상태에 대한 안내입니다. 현재 특허청 절차에 따라 심사 전 단계에 있으며, 최종 등록 여부는 특허청 심사 결과에 따라 결정됩니다.</p>
       </details>
@@ -2998,26 +3134,53 @@ footer {
 <!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="cta">
   <div class="shell">
-    <span class="sec-num" style="color: var(--brick-soft);">SECTION 15 — 마지막 한 문장</span>
+    <span class="sec-num" style="color: var(--brick-soft);">SECTION 16 — 마지막 한 문장</span>
     <h2>
-      AI가 글을 대신 써주는 시대,<br>
-      우리는 그 어느 때보다 쉽게 문장을 얻게 되었습니다.
+      AI는 앞으로도 더 빨리,<br>
+      <em>더 잘</em> 글을 쓸 겁니다.
     </h2>
     <p>
-      하지만 그렇게 쉽게 얻은 문장이,<br>
-      <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--brick-soft);">언제나 내 생각은 아닙니다.</em>
+      인간보다 더 잘 쓰고<br>
+      효율적으로 쓰는 시대가<br>
+      더 빨리 찾아올 수도, 어쩌면 이미 찾아왔을 수도 있습니다.
     </p>
     <p>
-      레터브릭은 매일 한 문장을 통해<br>
-      생각을 외주에 맡기지 않고,<br>
-      <strong style="color:#fff;">자기 언어를 회복하는 시간</strong>을 만들어 갑니다.
+      그렇다면 우리는 무엇을 해야 할까요?<br>
+      이런 시기일수록 우리가 잘할 수 있는 것을<br>
+      놓치지 말고 발전시켜야 하지 않을까요?
     </p>
-    <p style="margin-top: 32px; color: var(--paper); font-family: 'Gowun Batang', serif; font-size: 19px; font-weight: 700;">
-      내 문장을 잃지 않기 위한 첫 루틴,<br>
-      그 첫 페이지를 <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--brick-soft); font-weight:400;">오리지널 서포터</em>로 함께 펼쳐주세요.
+    <p style="color:#fff;">
+      <strong style="color:#fff;">생각하는 힘</strong>과,<br>
+      <strong style="color:#fff;">생각하는 것들을 표현하는 것</strong>.
     </p>
 
-    <a href="#rewards" class="btn-primary">오리지널 서포터로 참여하기</a>
+    <p style="margin-top:32px;">
+      따라잡으려 하지 맙시다. 저도 못 합니다.<br>
+      그저 매일 10분, 한 문장씩 같이 써봅시다.
+    </p>
+
+    <p>
+      거창한 약속 안 합니다.<br>
+      며칠 만에 인생이 바뀐다는 말도 안 합니다.
+    </p>
+
+    <p style="margin-top: 32px; color: var(--paper); font-family: 'Gowun Batang', serif; font-size: 19px; font-weight: 700;">
+      다만, 매일 한 문장 앞에<br>
+      <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--brick-soft); font-weight:400;">다시 앉는 힘</em>은 남을 겁니다.
+    </p>
+
+    <p style="color: rgba(244,239,230,0.75); font-size:16px; margin-top:18px;">
+      좋은 문장을 캡처하기만 하던 사람에서<br>
+      <strong style="color:#fff;">자기 문장을 직접 남기는 사람</strong>으로.<br><br>
+      그게 우리가 약속할 수 있는 정직한 변화입니다.
+    </p>
+
+    <p style="margin-top: 28px; color: var(--paper); font-family: 'Gowun Batang', serif; font-size: 17px; font-weight: 700;">
+      AI 시대에도 내 생각을 놓치지 않기 위한,<br>
+      <em style="font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--brick-soft); font-weight:400;">하루 한 문장의 평생 루틴</em>.
+    </p>
+
+    <a href="#rewards" class="btn-primary">하루 10분 문장 루틴 시작하기</a>
   </div>
 </section>
 
