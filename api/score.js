@@ -257,9 +257,6 @@ ${rubricText}
 원문: ${original}
 사용자 창작: ${userText}
 
-[criteria 필수 항목 — 아래 ${step4Rubric.length}개를 반드시 모두 포함, 절대 생략 금지]
-${step4Rubric.map((r, i) => `${i + 1}. "${r.name}" (max: ${r.weight}벽돌)`).join('\n')}
-
 JSON으로만 응답:
 {
   "bricks": 0-${maxBricks} (각 기준 합계),
