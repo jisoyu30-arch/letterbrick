@@ -1,4 +1,4 @@
-/* ══════════════════════════════════════════════════════════
+﻿/* ══════════════════════════════════════════════════════════
    레터브릭 — 저작권 검증 완료 필사 데이터
 
    큐레이션 기준:
@@ -48,6 +48,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"하고 싶은 말이 마지막 문장에 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"추상어 대신 장면·감각으로 표현했는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 선언이 읽고 나서도 머릿속에 남는가"}
         ]
       },
@@ -89,6 +90,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"해결 안 된 무언가를 직면하는 자세가 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"추상적 불안이 아닌 실제 상황·감각으로 표현했는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 명령문이 독자를 진정시키는 여운을 남기는가"}
         ]
       },
@@ -136,6 +138,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"인내와 발견의 관계가 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"추상적 노력이 아닌 구체적 행위로 표현했는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 읽고 나서 오래 남는가"}
         ]
       },
@@ -177,6 +180,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"불확실함 속에서 발견한 작은 진실이 담겼는가"},
           {name:"구체성", weight:1, desc:"추상적 위로가 아닌 구체적 행위로 표현했는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"'만큼은' 이후 결론이 독자에게 조용히 남는가"}
         ]
       },
@@ -223,6 +227,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"오래된 진실에 대한 나만의 시각이 담겼는가"},
           {name:"구체성", weight:1, desc:"'어딘가에서'처럼 장면·장소가 구체적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 읽은 후에도 조용히 남는가"}
         ]
       },
@@ -264,6 +269,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"하고 싶은 말이 '만을'이라는 부분 부정 안에 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"선택한 사물이 추상어 없이 눈에 보이는 것인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 열린 채로 독자 마음에 남는가"}
         ]
       },
@@ -311,6 +317,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"감정을 직접 말하지 않아도 무엇을 느꼈는지 전달됐는가"},
           {name:"구체성", weight:1, desc:"신체 부위·장면이 추상어 없이 구체적으로 그려졌는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 동사('고여 있었다' 류)가 오래 남는가"}
         ]
       },
@@ -352,6 +359,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"세상과 내 마음의 어긋남이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"계절·날씨 등 자연 묘사가 눈에 보이는 장면인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 외로움을 설명 없이 전달하는가"}
         ]
       },
@@ -394,6 +402,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내가 진짜 믿는 것이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"'좋은 것' 같은 모호한 주어 대신 구체적 주어를 썼는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 한 문장이 읽은 후 오래 남는가"}
         ]
       },
@@ -431,6 +440,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"말하지 않은 감정이 행동을 통해 선명하게 전달됐는가"},
           {name:"구체성", weight:1, desc:"장면·행동이 구체적 감각으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 행동 묘사가 읽은 후 오래 남는가"}
         ]
       },
@@ -472,6 +482,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"하고 싶은 보편 진실이 대비 구조에 담겼는가"},
           {name:"구체성", weight:1, desc:"대비 항목이 일상에서 쉽게 공감할 수 있는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 절이 읽은 후에도 생각하게 만드는가"}
         ]
       },
@@ -508,6 +519,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"반복 속에서 가장 중요한 것이 마지막에 명확히 드러나는가"},
           {name:"구체성", weight:1, desc:"나열 항목이 구체적 기억·장면으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 단어가 반복이 끝난 후에도 오래 울리는가"}
         ]
       },
@@ -550,6 +562,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"경고하고 싶은 역설이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"'괴물' 같은 상징 대신 구체적 상황으로 바꿨는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 명령이 독자 마음에 오래 남는가"}
         ]
       },
@@ -590,6 +603,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"풍경이 불러일으킨 감각이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"장면이 추상어 없이 눈·코·피부로 느껴지는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"신체 반응 표현이 읽은 후에도 몸으로 느껴지는가"}
         ]
       },
@@ -631,6 +645,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"눈에 보이지 않는 중요한 것에 대한 생각이 담겼는가"},
           {name:"구체성", weight:1, desc:"이어지는 문장이 추상어 없이 구체적 장면으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 독자 마음에 질문을 남기는가"}
         ]
       },
@@ -667,6 +682,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"사실과 마음이 다른 나만의 경험이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"사실 쪽이 추상어 없이 구체적 사건으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 감정 선언이 읽은 후 오래 남는가"}
         ]
       },
@@ -708,6 +724,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"위로의 역설이 나만의 경험으로 담겼는가"},
           {name:"구체성", weight:1, desc:"'노력'이나 '방황' 대신 구체적 행위로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"짧은 문장이 오래 생각하게 만드는가"}
         ]
       },
@@ -744,6 +761,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"질문 안에 하고 싶은 말이 압축돼 있는가"},
           {name:"구체성", weight:1, desc:"이미지가 추상어 없이 눈에 보이는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 질문의 답처럼 독자에게 남는가"}
         ]
       },
@@ -785,6 +803,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"역설이 단순한 말장난이 아닌 진실을 담고 있는가"},
           {name:"구체성", weight:1, desc:"'유혹' '두려움' 대신 구체적 상황으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"역설 문장이 읽은 후에도 생각을 자극하는가"}
         ]
       },
@@ -821,6 +840,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"재정의하고 싶은 개념이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"진짜 뜻이 추상어 없이 구체적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"재정의가 독자에게 새로운 시각을 남기는가"}
         ]
       },
@@ -862,6 +882,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"위로하고 싶은 마음이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"고통과 약속이 추상어 없이 구체적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"약속 문장이 읽은 후 독자에게 힘으로 남는가"}
         ]
       },
@@ -898,6 +919,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"비유를 통해 감정의 본질이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"비유가 추상적이지 않고 눈에 보이는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 비유가 읽은 후에도 이미지로 남는가"}
         ]
       },
@@ -939,6 +961,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내가 재해석하고 싶은 감정/상황이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"'저항' 대신 구체적 감각이나 상황으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"재해석이 독자에게 새로운 관점을 남기는가"}
         ]
       },
@@ -974,6 +997,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"하고 싶은 말이 질문 안에 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"배경이 추상어 없이 구체적 상황으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"질문이 독자 마음에 오래 남아 답을 찾게 만드는가"}
         ]
       },
@@ -1014,6 +1038,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내가 전환하고 싶은 관점이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"결과와 과정이 구체적 이미지로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"새 관점이 독자에게 오래 남는가"}
         ]
       },
@@ -1050,6 +1075,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"장소에서 발견한 의미가 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"장소가 추상어 없이 눈에 보이는 곳인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"의미 전환이 독자에게 새로운 시각을 남기는가"}
         ]
       },
@@ -1092,6 +1118,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"하고 싶은 관찰이 형용사 하나로 압축됐는가"},
           {name:"구체성", weight:1, desc:"형용사와 명사의 결합이 즉시 이미지를 만드는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 동사가 조용히, 오래 남는가"}
         ]
       },
@@ -1129,6 +1156,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"재정의하고 싶은 핵심 기준이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"새 정의가 추상어 없이 구체적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"재정의가 독자에게 새로운 시각을 남기는가"}
         ]
       },
@@ -1170,6 +1198,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"상식 뒤집기 안에 나만의 경험이 담겼는가"},
           {name:"구체성", weight:1, desc:"비교 대상이 추상어 없이 감각적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 뒤집기가 독자의 기억을 건드리는가"}
         ]
       },
@@ -1207,6 +1236,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내가 믿는 역설적 진리가 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"이어지는 이유 문장이 구체적 근거로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"짧은 선언이 읽은 후에도 생각을 자극하는가"}
         ]
       },
@@ -1248,6 +1278,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"나만의 행위와 존재 증명이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"교체 단어가 추상어 없이 구체적 행위인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"선언이 독자에게 자기 존재를 돌아보게 만드는가"}
         ]
       },
@@ -1284,6 +1315,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"혼자인 순간의 감각이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"장소와 동작이 추상어 없이 눈에 보이는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 멈춤 장면이 읽은 후에도 이미지로 남는가"}
         ]
       },
@@ -1325,6 +1357,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"핵심을 관통하는 질문이 담겼는가"},
           {name:"구체성", weight:1, desc:"이어지는 문장에서 질문의 맥락이 구체적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"질문이 읽은 후에도 생각을 자극하는가"}
         ]
       },
@@ -1361,6 +1394,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"과거와 미래의 대비가 나만의 경험으로 담겼는가"},
           {name:"구체성", weight:1, desc:"과거와 미래가 추상어 없이 구체적으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"미래 희망이 독자에게 진짜 힘으로 남는가"}
         ]
       },
@@ -1402,6 +1436,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내가 경험한 최악의 순간과 전환점이 담겼는가"},
           {name:"구체성", weight:1, desc:"'밤'과 '새벽'처럼 구체적 이미지로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"역설이 읽은 후 독자에게 힘으로 남는가"}
         ]
       },
@@ -1438,6 +1473,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"혼자인 순간의 공허함이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"자연/사물이 추상어 없이 구체적 장면으로 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 침묵 묘사가 오래 여운을 남기는가"}
         ]
       },
@@ -1479,6 +1515,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"형용사와 비유 명사의 결합이 내가 말하고 싶은 것을 담는가"},
           {name:"구체성", weight:1, desc:"비유 명사가 추상어 없이 즉시 이미지를 만드는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"정의가 읽은 후에도 생각을 자극하는가"}
         ]
       },
@@ -1515,6 +1552,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"공감각 안에 내가 전달하고 싶은 감정이 담겼는가"},
           {name:"구체성", weight:1, desc:"감각 결합이 즉시 이미지를 만드는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"동사가 이미지를 움직이게 만드는가"}
         ]
       },
@@ -1556,6 +1594,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내가 포착하고 싶은 의외의 발견이 담겼는가"},
           {name:"구체성", weight:1, desc:"시간 배경이 구체적이고 평범하게 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"덤덤한 서술이 읽은 후에도 충격으로 남는가"}
         ]
       },
@@ -1593,6 +1632,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"나를 정의하는 핵심 형용사들이 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"형용사가 추상어 없이 즉시 이미지를 만드는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"운명 선언이 읽은 후에도 독자의 가슴에 남는가"}
         ]
       },
@@ -1634,6 +1674,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"자신이 지키고 싶은 것이 무엇인지 선명하게 담겼는가"},
           {name:"역설의 힘", weight:2, desc:"당연한 행위를 특별한 것으로 격상시키는 데 성공했는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"마지막 선언이 읽고 나서도 독자에게 남는가"}
         ]
       },
@@ -1671,6 +1712,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"누구를, 어떤 장면과 함께 그리워하는지 전달됐는가"},
           {name:"구체성", weight:2, desc:"감정어 없이 장면만으로 그리움이 느껴지는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"풍경 묘사가 읽고 나서도 눈에 남는가"}
         ]
       },
@@ -1712,6 +1754,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"전달하려는 감정이 장면 안에 선명하게 숨어 있는가"},
           {name:"구체성", weight:2, desc:"이미지가 눈에 보이도록 구체적인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"구체 묘사가 읽고 나서도 시각적으로 남는가"}
         ]
       },
@@ -1749,6 +1792,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"비유를 통해 전달하려는 복잡한 감정이 담겼는가"},
           {name:"비유의 신선함", weight:1, desc:"진부하지 않은 고유한 비유를 사용했는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"반전 후 문장이 독자에게 오래 남는가"}
         ]
       },
@@ -1790,6 +1834,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"무엇이 끝나고 무엇이 시작되는지 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"끝나는 것과 시작하는 것이 추상어가 아닌 실감나는 표현인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"선언이 독자에게 위로로 남는가"}
         ]
       },
@@ -1827,6 +1872,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"반복이 단순 강조가 아닌 감정 변화를 담고 있는가"},
           {name:"구체성", weight:1, desc:"일상 소재가 감정과 대비를 이루며 생생하게 그려졌는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 문장이 폭발하고 나서 여운을 남기는가"}
         ]
       },
@@ -1869,6 +1915,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"내 삶의 어떤 부분을 내 책임으로 되돌렸는지 선명한가"},
           {name:"역설의 힘", weight:2, desc:"독자가 '맞는 말인데 불편하다'고 느낄 만큼 날카로운가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"능동 선언이 독자에게 행동 의지를 남기는가"}
         ]
       },
@@ -1905,6 +1952,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"사물에서 끌어낸 철학적 통찰이 선명한가"},
           {name:"구체성", weight:1, desc:"관찰 대상이 눈에 보이는 실물로 그려졌는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"확장 선언이 독자로 하여금 사유하게 만드는가"}
         ]
       },
@@ -1947,6 +1995,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"어떤 순간의 힘을 말하려는지 선명하게 담겼는가"},
           {name:"역설의 힘", weight:2, desc:"기대를 뒤집는 충격이 문장에 담겼는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"선언이 독자 자신의 경험과 연결되는가"}
         ]
       },
@@ -1984,6 +2033,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"기다림·응답·사랑 등 복잡한 감정이 단어 하나에 압축됐는가"},
           {name:"구체성", weight:1, desc:"반복 단어가 각각 다른 상황을 환기시키는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"'쌓아 놓았다'는 누적의 이미지가 오래 남는가"}
         ]
       },
@@ -2027,6 +2077,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"전달하려는 역설적 통찰이 선명하게 담겼는가"},
           {name:"역설의 힘", weight:2, desc:"두 번 읽어도 놀라움이 유지되는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"이유 문장이 독자의 사유를 자극하는가"}
         ]
       },
@@ -2063,6 +2114,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"상황과 내면 상태가 선명하게 전달됐는가"},
           {name:"구체성", weight:2, desc:"각 절의 묘사가 추상어 없이 감각적인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"마지막 내부 묘사가 감정을 설명 없이 남기는가"}
         ]
       },
@@ -2105,6 +2157,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"무엇이 삶을 헛되지 않게 만드는지 선명하게 담겼는가"},
           {name:"진정성", weight:2, desc:"자신의 경험에서 나온 작은 행위가 조건에 담겼는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"선언이 독자에게 위로이자 동기로 남는가"}
         ]
       },
@@ -2142,6 +2195,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"무엇을, 어떤 마음으로 기다리는지 전달됐는가"},
           {name:"구체성", weight:1, desc:"자연 현상이 눈에 보이도록 구체적인가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"기다림이 쓸쓸하면서도 아름답게 남는가"}
         ]
       },
@@ -2183,6 +2237,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"역설 정의를 통해 드러내려는 본질이 선명한가"},
           {name:"역설의 힘", weight:2, desc:"독자가 '맞는 말인데 뒤통수 맞은 것 같다'고 느끼는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"정의가 독자 자신에게도 해당됨을 느끼게 만드는가"}
         ]
       },
@@ -2220,6 +2275,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"어떤 고통을 겪어 어디로 나아가려는지 선명한가"},
           {name:"구체성", weight:1, desc:"고통과 행동이 추상어 없이 실감나게 표현됐는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"'걸어야 한다'는 결의가 독자에게도 전달되는가"}
         ]
       },
@@ -2261,6 +2317,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"어떤 순간이 왜 영원한지 선명하게 담겼는가"},
           {name:"구체성", weight:1, desc:"영원한 순간이 눈에 보이는 장면으로 그려졌는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"독자 자신의 영원한 순간을 떠올리게 만드는가"}
         ]
       },
@@ -2298,6 +2355,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"반복을 통해 어떤 영원성이나 감각을 전달하려는지 담겼는가"},
           {name:"구체성", weight:1, desc:"반복 대상이 감각적으로 그려졌는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:2, desc:"마지막 반복이 읽고 나서도 귓가에 남는가"}
         ]
       },
@@ -2340,6 +2398,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"어떤 불완전함을 인정하고 무엇을 충분하다고 여기는지 선명한가"},
           {name:"진정성", weight:2, desc:"자신의 실제 경험에서 나온 고백처럼 느껴지는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"마지막 선언이 독자에게도 위로로 남는가"}
         ]
       },
@@ -2377,6 +2436,7 @@ const GROWTH_DAYS = [
         step4Rubric: [
           {name:"생각의 선명성", weight:2, desc:"동사 교체를 통해 전달하려는 새로운 세계관이 선명한가"},
           {name:"역설의 힘", weight:2, desc:"뒤집힌 동사가 독자의 사고를 바꾸는 힘이 있는가"},
+          {name:"글의 통일성", weight:1, desc:"글 전체가 하나의 감정이나 주제를 향해 일관되게 흐르는가"},
           {name:"마무리 여운", weight:1, desc:"두 번째 짧은 선언이 독자에게 오래 남는가"}
         ]
       },
