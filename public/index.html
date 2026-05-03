@@ -10193,6 +10193,17 @@ function detectErrors(text) {
   if(/,[가-힣]/.test(t)) errors.push({type:'advisory', msg:'쉼표 뒤에 공백이 없는 곳이 있어요.'});
   // 물음표/느낌표 뒤 이어쓰기
   if(/[?!][가-힣]/.test(t)) errors.push({type:'advisory', msg:'물음표/느낌표 뒤에 공백이 필요해요.'});
+  // ── AI Hub 143·051 데이터 기반 고빈도 오류 패턴 ──
+  // "떄" 오타 (143 맞춤법오류 최다 패턴)
+  if(/떄/.test(t)) errors.push({type:'advisory', msg:'"떄"는 "때"의 오타예요. (예: 할때→할 때)'});
+  // "됬" → "됐" (됐다/됐어 표기 혼동)
+  if(/됬/.test(t)) errors.push({type:'advisory', msg:'"됬"은 "됐"이 맞아요. (예: 됬어요→됐어요)'});
+  // "고싶" 붙여쓰기 (143 띄어쓰기 최다 패턴)
+  if(/고싶/.test(t)) errors.push({type:'advisory', msg:'"고 싶다"는 띄어 써요. (예: 가고싶다→가고 싶다)'});
+  // "수있/수없" 붙여쓰기
+  if(/수있|수없/.test(t)) errors.push({type:'advisory', msg:'"수 있다/수 없다"는 띄어 써요.'});
+  // "안해/못해" → "안 해/못 해" (부사 뒤 띄어쓰기)
+  if(/(?:^|\s)(?:안|못)해/.test(t)) errors.push({type:'advisory', msg:'"안/못" 뒤에 띄어쓰기가 필요해요. (예: 안해→안 해, 못해→못 해)'});
   return errors;
 }
 
