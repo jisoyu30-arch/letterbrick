@@ -346,7 +346,13 @@ JSON으로만 응답:
     const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
     if (!jsonMatch) return res.status(502).json({ error: 'Invalid response format', rawText: text.slice(0, 300), fallback: true });
 
-    const result = JSON.parse(jsonMatch[0]);
+    let result;
+    try {
+      result = JSON.parse(jsonMatch[0]);
+    } catch (parseErr) {
+      console.error('JSON parse error. Raw:', text.slice(0, 800));
+      return res.status(502).json({ error: 'JSON parse error', rawText: text.slice(0, 800), fallback: true });
+    }
 
     // criteria 누락 항목 자동 보완 (structure / creative 타입)
     const activeRubric = type === 'structure'
