@@ -893,6 +893,29 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   font-size:12px;color:var(--brick);font-weight:700;
 }
 
+/* ── 마이페이지 법적 푸터 ── */
+.mp-legal-footer{
+  margin:28px 0 40px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+.mp-legal-links{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  margin-bottom:12px;
+}
+.mp-legal-links button{
+  background:none;border:none;padding:4px 8px;
+  font-size:12px;color:var(--ink3);cursor:pointer;
+  text-decoration:underline;text-underline-offset:2px;
+  font-family:'Noto Sans KR',sans-serif;
+}
+.mp-legal-links button:hover{color:var(--ink);}
+.mp-legal-dot{font-size:12px;color:var(--line);}
+.mp-credit{
+  font-size:10.5px;color:var(--ink3);line-height:1.7;
+}
+
 /* Share card upgrade */
 .sc-tech{
   font-size:10px;color:var(--brick);font-weight:600;letter-spacing:.5px;
@@ -2353,9 +2376,93 @@ const fbDb = firebase.firestore();
       </div>
       <div class="tech-grid" id="techGrid"></div>
     </div>
+
+    <!-- ── 법적 정보 & 크레딧 ── -->
+    <div class="mp-legal-footer">
+      <div class="mp-legal-links">
+        <button onclick="openPrivacyModal()">개인정보처리방침</button>
+        <span class="mp-legal-dot">·</span>
+        <button onclick="openTermsModal()">이용약관</button>
+      </div>
+      <div class="mp-credit">
+        본 서비스의 일부 평가 기준은 과학기술정보통신부와<br>
+        한국지능정보사회진흥원(NIA)의 「지능정보산업 인프라 조성」 사업으로<br>
+        구축된 AI 허브(aihub.or.kr) 데이터를 활용해 개발되었습니다.<br>
+        © 2026 LetterBrick. All rights reserved.
+      </div>
+    </div>
   </div>
 
 </div>
+</div>
+
+<!-- ══════ 개인정보처리방침 모달 ══════ -->
+<div class="modal-overlay hide" id="privacyModal" onclick="if(event.target===this)closePrivacyModal()">
+  <div class="modal-box" style="max-height:80vh;overflow-y:auto;padding:24px 20px;">
+    <div class="modal-logo" style="font-size:14px;margin-bottom:16px;">개인정보처리방침</div>
+    <div style="font-size:12px;color:var(--ink2);line-height:1.9;">
+      <p>레터브릭(LetterBrick, 이하 "서비스")은 이용자의 개인정보를 소중히 여기며, 관련 법령에 따라 보호합니다.</p>
+
+      <strong>1. 수집하는 개인정보</strong>
+      <p>이메일 주소, Google 계정 식별자, 닉네임, 서비스 이용 기록(필사 내용, 날짜, 점수)</p>
+
+      <strong>2. 수집 목적</strong>
+      <p>회원 인증, 필사 기록 동기화, AI 코치 피드백 제공, 서비스 개선</p>
+
+      <strong>3. 보유 및 이용 기간</strong>
+      <p>회원 탈퇴 또는 서비스 종료 시까지. 필사 기록은 이용자 직접 삭제 가능</p>
+
+      <strong>4. 제3자 제공</strong>
+      <p>이용자 동의 없이 제3자에게 제공하지 않습니다. 단, Google Firebase(인증·DB), Vercel(서버), Anthropic Claude API(AI 피드백)에 처리 위탁합니다.</p>
+
+      <strong>5. 이용자 권리</strong>
+      <p>언제든지 "내 기록 전체 초기화"로 모든 데이터를 삭제할 수 있습니다. 계정 삭제 문의: jisoyu30@gmail.com</p>
+
+      <strong>6. 쿠키 및 로컬 저장소</strong>
+      <p>서비스는 로컬 스토리지를 사용해 기기 내 기록을 저장합니다. 브라우저 설정에서 삭제 가능합니다.</p>
+
+      <strong>7. 데이터 출처 표기 (AI 평가 기준)</strong>
+      <p>본 서비스의 일부 평가 기준은 과학기술정보통신부와 한국지능정보사회진흥원(NIA)의 「지능정보산업 인프라 조성」 사업으로 구축된 AI 허브(aihub.or.kr) 데이터를 활용해 개발되었습니다.</p>
+
+      <strong>8. 방침 변경</strong>
+      <p>본 방침은 서비스 내 공지 후 변경됩니다. 최종 수정일: 2026년 5월</p>
+
+      <p style="color:var(--ink3);">문의: jisoyu30@gmail.com</p>
+    </div>
+    <button class="modal-btn" onclick="closePrivacyModal()" style="margin-top:16px;">확인</button>
+  </div>
+</div>
+
+<!-- ══════ 이용약관 모달 ══════ -->
+<div class="modal-overlay hide" id="termsModal" onclick="if(event.target===this)closeTermsModal()">
+  <div class="modal-box" style="max-height:80vh;overflow-y:auto;padding:24px 20px;">
+    <div class="modal-logo" style="font-size:14px;margin-bottom:16px;">이용약관</div>
+    <div style="font-size:12px;color:var(--ink2);line-height:1.9;">
+      <strong>제1조 목적</strong>
+      <p>본 약관은 레터브릭(LetterBrick) 서비스의 이용 조건 및 절차에 관한 사항을 규정합니다.</p>
+
+      <strong>제2조 서비스 내용</strong>
+      <p>레터브릭은 매일 한 문장 필사와 AI 코치 피드백을 통해 문장력을 향상시키는 훈련 서비스입니다.</p>
+
+      <strong>제3조 이용자 의무</strong>
+      <p>타인의 저작권을 침해하거나 서비스를 악용하는 행위, 자동화된 방식으로 서비스를 이용하는 행위를 금지합니다.</p>
+
+      <strong>제4조 저작권</strong>
+      <p>서비스 내 콘텐츠(문장, UI 등)의 저작권은 레터브릭에 있습니다. 이용자가 작성한 필사 문장의 저작권은 이용자에게 있습니다.</p>
+
+      <strong>제5조 면책</strong>
+      <p>AI 코치 피드백은 참고용이며, 서비스 운영자는 AI 출력 결과의 정확성을 보장하지 않습니다.</p>
+
+      <strong>제6조 데이터 출처</strong>
+      <p>본 서비스의 일부 평가 기준은 과학기술정보통신부와 한국지능정보사회진흥원(NIA)의 「지능정보산업 인프라 조성」 사업으로 구축된 AI 허브(aihub.or.kr) 데이터를 활용해 개발되었습니다.</p>
+
+      <strong>제7조 약관 변경</strong>
+      <p>약관 변경 시 서비스 내 공지합니다. 최종 수정일: 2026년 5월</p>
+
+      <p style="color:var(--ink3);">문의: jisoyu30@gmail.com</p>
+    </div>
+    <button class="modal-btn" onclick="closeTermsModal()" style="margin-top:16px;">확인</button>
+  </div>
 </div>
 
 <!-- ══════ MILESTONE POPUP ══════ -->
@@ -12375,6 +12482,24 @@ function closeShareModal() {
   document.getElementById('shareModal').classList.add('hide');
   document.body.style.overflow = '';
   _shareCanvas = null;
+}
+
+// ── 개인정보처리방침 & 이용약관 모달 ──
+function openPrivacyModal() {
+  document.getElementById('privacyModal').classList.remove('hide');
+  document.body.style.overflow = 'hidden';
+}
+function closePrivacyModal() {
+  document.getElementById('privacyModal').classList.add('hide');
+  document.body.style.overflow = '';
+}
+function openTermsModal() {
+  document.getElementById('termsModal').classList.remove('hide');
+  document.body.style.overflow = 'hidden';
+}
+function closeTermsModal() {
+  document.getElementById('termsModal').classList.add('hide');
+  document.body.style.overflow = '';
 }
 
 function downloadShareCanvas() {
