@@ -257,6 +257,9 @@ ${rubricText}
 원문: ${original}
 사용자 창작: ${userText}
 
+[criteria 필수 항목 — 아래 ${step4Rubric.length}개를 반드시 모두 포함, 절대 생략 금지]
+${step4Rubric.map((r, i) => `${i + 1}. "${r.name}" (max: ${r.weight}벽돌)`).join('\n')}
+
 JSON으로만 응답:
 {
   "bricks": 0-${maxBricks} (각 기준 합계),
@@ -347,6 +350,31 @@ JSON으로만 응답:
     if (!jsonMatch) return res.status(502).json({ error: 'Invalid response format', rawText: text.slice(0, 300), fallback: true });
 
     const result = JSON.parse(jsonMatch[0]);
+
+    // criteria 누락 항목 자동 보완 (structure / creative 타입)
+    const activeRubric = type === 'structure'
+      ? ((rubric && rubric.length) ? rubric : DEFAULT_STEP3_RUBRIC)
+      : type === 'creative'
+        ? ((rubric && rubric.length) ? rubric : DEFAULT_STEP4_RUBRIC)
+        : null;
+
+    if (activeRubric && Array.isArray(result.criteria)) {
+      const existingNames = result.criteria.map(c => c.name);
+      activeRubric.forEach(r => {
+        if (!existingNames.includes(r.name)) {
+          result.criteria.push({
+            name: r.name,
+            bricks: 0,
+            max: r.weight,
+            comment: '평가 항목이 누락되었습니다.'
+          });
+        }
+      });
+      // maxBricks 및 bricks 재계산
+      result.maxBricks = activeRubric.reduce((s, r) => s + r.weight, 0);
+      result.bricks = result.criteria.reduce((s, c) => s + (c.bricks || 0), 0);
+    }
+
     // worldMessage 보정 (AI가 틀릴 경우)
     if (typeof result.bricks === 'number') {
       result.worldMessage = worldMsg(result.bricks);
