@@ -1841,7 +1841,7 @@ const fbDb = firebase.firestore();
     <div id="quoteSelect" style="margin-top:18px;">
       <div class="edition-intro">좋은 문장을 따라 쓰고, 구조를 읽고, 내 문장으로 다시 쓰는 문장력 훈련입니다.</div>
       <div class="ctag" style="margin-bottom:4px;">오늘의 문장을 선택하세요</div>
-      <p style="font-size:12px;color:var(--ink3);margin-bottom:14px;">세 문장 중 하나를 골라 오늘의 훈련을 시작하세요.</p>
+      <p style="font-size:12px;color:var(--ink3);margin-bottom:14px;">두 문장 중 하나를 골라 오늘의 훈련을 시작하세요.</p>
       <div id="quoteOptions"></div>
     </div>
 
@@ -8017,6 +8017,7 @@ function enterApp(){
   document.getElementById('twReason').textContent=s.reason;
   buildLearnContent();
   buildCmp();
+  renderQuoteSelection();
   const now=new Date();
   document.getElementById('ctaDate').textContent=`TODAY · ${now.getMonth()+1}월 ${now.getDate()}일`;
 }
@@ -10386,10 +10387,13 @@ runStruct = async function() {
       '</div></div>';
   } else {
     bricks = 3;
+    var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    var fallbackMsg = isLocal
+      ? 'AI 코치는 배포 환경에서만 작동합니다.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">letterbrick.vercel.app 에서 테스트해주세요.</span>'
+      : 'AI 코치가 응답하지 않았어요. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span>';
     html = '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span></div>'+
       '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
-      '<div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br>'+
-      '<span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>'+
+      '<div class="air-txt">'+fallbackMsg+'</div></div>'+
       '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 어색한 부분이 자연스럽게 보입니다.</div></div></div>';
   }
 
@@ -10468,10 +10472,13 @@ runCreative = async function() {
   } else {
     cBricks = 3;
     creativeScore = 3;
+    var isLocalC = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    var fallbackMsgC = isLocalC
+      ? 'AI 코치는 배포 환경에서만 작동합니다.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">letterbrick.vercel.app 에서 테스트해주세요.</span>'
+      : 'AI 코치가 응답하지 않았어요. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span>';
     cHtml = '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
       '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
-      '<div class="air-txt">AI 피드백 서버에 연결하는 중입니다. 잠시 후 다시 시도해주세요.<br>'+
-      '<span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span></div></div>'+
+      '<div class="air-txt">'+fallbackMsgC+'</div></div>'+
       '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 마음에 걸리는 부분이 보이면 그게 다음 고칠 곳입니다.</div></div></div>';
   }
 
@@ -11380,7 +11387,7 @@ function submitHealingSogam() {
   // 20초 타임아웃
   var timeoutId;
   var timeoutPromise = new Promise(function(_, reject) {
-    timeoutId = setTimeout(function() { reject(new Error('timeout')); }, 20000);
+    timeoutId = setTimeout(function() { reject(new Error('timeout')); }, 25000);
   });
 
   // 감정 분석 + 힐링 코치 응답 병렬 실행
@@ -11736,7 +11743,7 @@ async function callAI(type, original, userText, learningPoint) {
       if (type === 'creative'  && todaySent.learn.step4Rubric) rubric = todaySent.learn.step4Rubric;
     }
     var controller = new AbortController();
-    var timeoutMs = (type === 'copy') ? 12000 : 25000;
+    var timeoutMs = (type === 'copy') ? 25000 : 45000;
     var timer = setTimeout(function(){ controller.abort(); }, timeoutMs);
     var resp = await fetch('/api/score', {
       method: 'POST',
@@ -11943,6 +11950,7 @@ renderQuoteSelection = function() {
   if (headerHtml) container.innerHTML = headerHtml;
 
   [{s:sA, label:'A', idx:idxA}, {s:sB, label:'B', idx:idxB}].forEach(function(item) {
+    if (!item.s || !item.s.text) return; // null 방어
     var div = document.createElement('div'); div.className = 'quote-opt';
     var preview = item.s.text.length > 80 ? item.s.text.substring(0,80)+'…' : item.s.text;
     var reason  = (item.s.reason || item.s._lp || '').substring(0,80);
