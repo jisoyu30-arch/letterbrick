@@ -11845,6 +11845,8 @@ function applyDataToApp() {
 }
 
 // Firestore 우선 로드, 실패 시 data.js 폴백
+// data.js 루브릭 보존 — Firestore가 덮어쓰기 전에 저장 (루브릭은 항상 data.js 기준)
+window.LOCAL_GROWTH_DAYS = (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS) ? GROWTH_DAYS : null;
 loadSentencesFromFirestore().then(function(loaded) {
   applyDataToApp();
 });
@@ -11854,9 +11856,21 @@ loadSentencesFromFirestore().then(function(loaded) {
 ══════════════════════════════ */
 async function callAI(type, original, userText, learningPoint) {
   try {
-    // 새 데이터 구조에서 루브릭 추출
+    // 루브릭 추출 — data.js(LOCAL_GROWTH_DAYS) 우선, Firestore 루브릭은 오래됐을 수 있음
     var rubric = null;
-    if (todaySent && todaySent.learn) {
+    if (window.LOCAL_GROWTH_DAYS && todaySent) {
+      for (var _ri = 0; _ri < LOCAL_GROWTH_DAYS.length; _ri++) {
+        var _rday = LOCAL_GROWTH_DAYS[_ri];
+        var _rv = (_rday.A && _rday.A.t === todaySent.text) ? _rday.A
+                : (_rday.B && _rday.B.t === todaySent.text) ? _rday.B : null;
+        if (_rv && _rv.learn) {
+          if (type === 'structure' && _rv.learn.step3Rubric) rubric = _rv.learn.step3Rubric;
+          if (type === 'creative'  && _rv.learn.step4Rubric) rubric = _rv.learn.step4Rubric;
+          break;
+        }
+      }
+    }
+    if (!rubric && todaySent && todaySent.learn) {
       if (type === 'structure' && todaySent.learn.step3Rubric) rubric = todaySent.learn.step3Rubric;
       if (type === 'creative'  && todaySent.learn.step4Rubric) rubric = todaySent.learn.step4Rubric;
     }
