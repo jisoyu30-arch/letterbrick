@@ -9274,7 +9274,7 @@ function loadUserRecords() {
   const saved = JSON.parse(localStorage.getItem(key) || '[]');
   if (saved.length > 0) {
     saved.forEach(r => {
-      const exists = pastRecords.find(p => p.date === r.date);
+      const exists = pastRecords.find(p => p.date === r.date && (p.edition || 'growth') === (r.edition || 'growth'));
       if (!exists) pastRecords.push(r);
     });
     pastRecords.sort((a,b) => new Date(b.date) - new Date(a.date));
@@ -9292,7 +9292,7 @@ function loadUserRecords() {
         let changed = false;
         snap.forEach(doc => {
           const r = doc.data();
-          const exists = pastRecords.find(p => p.date === r.date && p.phase === r.phase);
+          const exists = pastRecords.find(p => p.date === r.date && (p.edition || 'growth') === (r.edition || 'growth'));
           if (!exists) { pastRecords.push(r); changed = true; }
         });
         if (changed) {
@@ -11450,8 +11450,9 @@ copyShareText = function() {
 
 // 과거 힐링 기록에서 컨텍스트 문자열 생성
 function getHealingHistory() {
+  var today = new Date().toISOString().split('T')[0];
   var healRecs = pastRecords.filter(function(r) {
-    return r.edition === 'healing';
+    return r.edition === 'healing' && r.date !== today;
   });
   var totalCount = healRecs.length;
   var withSogam = healRecs.filter(function(r) { return r.sogam && r.sogam.length > 2; }).slice(0, 3);
@@ -11831,13 +11832,16 @@ function applyDataToApp() {
   if (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS && HEALING_DAYS.length > 0) {
     HEALING_PASSAGES['다짐'] = []; HEALING_PASSAGES['힐링'] = []; HEALING_PASSAGES['여운'] = [];
     HEALING_DAYS.forEach(function(d) {
+      // question은 data.js(LOCAL_HEALING_DAYS) 우선 — Firestore엔 없음
+      var localDay = (window.LOCAL_HEALING_DAYS || []).find(function(ld){ return ld.day === d.day; });
       var entry = {
         id: 'h_' + d.day,
         text: d.t,
         author: d.source || '레터브릭 오리지널',
         reason: '영감: ' + d.inspiration,
         why: d.why || null,
-        inspiration: d.inspiration
+        inspiration: d.inspiration,
+        question: (localDay && localDay.question) || d.question || null
       };
       if (HEALING_PASSAGES[d.theme]) HEALING_PASSAGES[d.theme].push(entry);
     });
@@ -11847,6 +11851,7 @@ function applyDataToApp() {
 // Firestore 우선 로드, 실패 시 data.js 폴백
 // data.js 루브릭 보존 — Firestore가 덮어쓰기 전에 저장 (루브릭은 항상 data.js 기준)
 window.LOCAL_GROWTH_DAYS = (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS) ? GROWTH_DAYS : null;
+window.LOCAL_HEALING_DAYS = (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS) ? HEALING_DAYS : null;
 loadSentencesFromFirestore().then(function(loaded) {
   applyDataToApp();
 });
