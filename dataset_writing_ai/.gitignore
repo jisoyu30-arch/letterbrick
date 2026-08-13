@@ -1,0 +1,10 @@
+seeds/
+pairs/
+eval/aihub_samples/
+eval/golden_set/
+.env
+__pycache__/
+.venv/
+venv/
+*.pyc
+*.log

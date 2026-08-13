@@ -71,6 +71,7 @@ body::before {
 .nav-logo {
   display:flex; align-items:center; gap:8px;
   text-decoration:none;
+  min-width:0;
 }
 .logo-bricks {
   display:grid; grid-template-columns:1fr 1fr; gap:2px; width:20px;
@@ -105,6 +106,17 @@ body::before {
   font-size:13px; font-weight:700; color:var(--paper);
   font-family:'Inter',sans-serif;
 }
+.lang-select {
+  background:rgba(247,242,232,0.07);
+  border:1px solid rgba(247,242,232,0.14);
+  color:var(--paper);
+  border-radius:999px;
+  padding:6px 9px;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  outline:none;
+}
+.lang-select option{color:#2E2A26;background:#F7F2E8;}
 
 /* ══════════════════════════════════════════
    STEP INDICATOR
@@ -285,6 +297,7 @@ body::before {
   margin-bottom:18px;
   position:relative;
   overflow:hidden;
+  min-width:0;
 }
 .sentence-card::before {
   content:'';
@@ -299,6 +312,8 @@ body::before {
   color:var(--paper);
   margin-bottom:12px;
   letter-spacing:.5px;
+  word-break:keep-all;
+  overflow-wrap:anywhere;
 }
 
 .sentence-romanization {
@@ -307,11 +322,14 @@ body::before {
   letter-spacing:.5px; margin-bottom:18px;
   opacity:.7;
   font-style:italic;
+  overflow-wrap:anywhere;
+  word-break:break-all;
 }
 
 .translation-toggle {
   display:flex; align-items:center; gap:10px;
   cursor:pointer; margin-bottom:6px;
+  flex-wrap:wrap;
 }
 .translation-toggle-btn {
   background:rgba(160,120,40,0.2);
@@ -361,6 +379,13 @@ body::before {
   color:rgba(247,242,232,0.65);
   font-family:'Noto Serif KR',serif;
   font-weight:300;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.cultural-badge span {
+  min-width:0;
+  overflow-wrap:anywhere;
+  word-break:break-word;
 }
 .cultural-badge-icon {
   font-size:18px; flex-shrink:0; margin-top:1px;
@@ -497,6 +522,35 @@ body::before {
 .mode-btn.active {
   background:var(--ink); color:var(--paper);
   border-color:var(--ink);
+}
+
+.copy-assist {
+  margin-top:14px;
+  padding:14px 16px;
+  border:1px solid rgba(182,94,60,0.18);
+  border-radius:12px;
+  background:rgba(182,94,60,0.07);
+  color:var(--ink2);
+  font-size:12px;
+  line-height:1.65;
+}
+.copy-assist strong {
+  display:block;
+  color:var(--ink);
+  font-size:13px;
+  margin-bottom:4px;
+}
+.copy-assist-btn {
+  margin-top:10px;
+  border:none;
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:999px;
+  padding:8px 13px;
+  font-family:'Noto Sans KR',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
 }
 
 /* ══════════════════════════════════════════
@@ -1004,6 +1058,65 @@ body::before {
   .vocab-card { height:190px; }
 }
 
+@media (max-width:430px) {
+  .topnav {
+    gap:8px;
+    padding:0 14px;
+  }
+  .nav-logo-text {
+    font-size:15px;
+  }
+  .nav-day {
+    display:none;
+  }
+  .nav-streak {
+    font-size:11px;
+    padding:5px 9px;
+  }
+  .lang-select {
+    max-width:72px;
+  }
+  .step {
+    padding-left:14px;
+    padding-right:14px;
+    width:100%;
+    max-width:340px;
+  }
+  .sentence-card {
+    padding:22px 18px;
+    max-width:100%;
+  }
+  .context-box,
+  .cultural-badge,
+  .primary-btn,
+  .audio-btn {
+    max-width:100%;
+  }
+  .sentence-main {
+    font-size:26px;
+    line-height:1.55;
+  }
+}
+
+@media (max-width:700px) {
+  .nav-day {
+    display:none;
+  }
+  .step {
+    width:100%;
+    max-width:320px;
+    margin-left:26px;
+    margin-right:0;
+  }
+  .sentence-card,
+  .context-box,
+  .cultural-badge,
+  .primary-btn,
+  .audio-btn {
+    max-width:100%;
+  }
+}
+
 /* ══════════════════════════════════════════
    UTILITY
 ══════════════════════════════════════════ */
@@ -1030,6 +1143,11 @@ body::before {
   </a>
   <div class="nav-day" id="navDay">Day — · Week —</div>
   <div class="nav-streak" id="navStreak" title="진도">— / 56</div>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+    <option value="en">EN</option>
+    <option value="es">ES</option>
+    <option value="zh">中文</option>
+  </select>
 </nav>
 
 <!-- ══ STEP INDICATOR ══ -->
@@ -1126,6 +1244,12 @@ body::before {
       <div class="writing-mode-row">
         <button class="mode-btn active" onclick="setMode('typing',this)">⌨ Typing</button>
         <button class="mode-btn" onclick="setMode('hand',this)">✍ Handwriting</button>
+      </div>
+
+      <div class="copy-assist">
+        <strong id="keyboardHelpTitle">No Korean keyboard yet?</strong>
+        <span id="keyboardHelpText">You can still preview the lesson. For the full practice, add Korean input and come back to copy the sentence exactly.</span>
+        <button class="copy-assist-btn" id="skipCopyBtn" type="button" onclick="skipCopyStep()">Continue preview →</button>
       </div>
     </div>
 
@@ -1357,6 +1481,7 @@ body::before {
 </div><!-- /steps-container -->
 
 <script src="ko-curriculum.js"></script>
+<script src="ko-locales.js"></script>
 <script>
 /* ══════════════════════════════════════════
    STATE
@@ -1372,11 +1497,113 @@ let brickAnimDone = false;
 // Current day loaded from localStorage
 let currentDay = 1;
 let TARGET_SENTENCE = '';
+const SUPPORTED_LANGS = ['en', 'es', 'zh'];
+const ACTIVE_LANG = getActiveLang();
+const L10N = window.getKoLocale ? window.getKoLocale(ACTIVE_LANG) : window.KO_LOCALES.en;
+
+function getActiveLang() {
+  const params = new URLSearchParams(window.location.search || '');
+  const fromUrl = (params.get('lang') || '').toLowerCase();
+  const saved = (localStorage.getItem('letterbrick-ko-lang') || '').toLowerCase();
+  const lang = SUPPORTED_LANGS.includes(fromUrl) ? fromUrl : SUPPORTED_LANGS.includes(saved) ? saved : 'en';
+  localStorage.setItem('letterbrick-ko-lang', lang);
+  return lang;
+}
+
+function setDailyLang(lang) {
+  const params = new URLSearchParams(window.location.search || '');
+  params.set('lang', lang);
+  window.location.href = window.location.pathname + '?' + params.toString();
+}
+
+function localizedEntry(entry) {
+  return window.getLocalizedKoEntry ? window.getLocalizedKoEntry(entry, ACTIVE_LANG) : entry;
+}
+
+function setText(selector, text) {
+  const el = document.querySelector(selector);
+  if (el) el.textContent = text;
+}
+
+function setHtml(selector, html) {
+  const el = document.querySelector(selector);
+  if (el) el.innerHTML = html;
+}
+
+function applyDailyStaticLocale() {
+  document.documentElement.lang = ACTIVE_LANG === 'zh' ? 'zh-Hans' : ACTIVE_LANG;
+  document.title = ACTIVE_LANG === 'es'
+    ? 'LetterBrick Korean · Lección diaria'
+    : ACTIVE_LANG === 'zh'
+      ? 'LetterBrick Korean · 每日课程'
+      : 'LetterBrick Korean · Daily Lesson';
+
+  const langSelect = document.getElementById('langSelect');
+  if (langSelect) {
+    langSelect.value = ACTIVE_LANG;
+    langSelect.setAttribute('aria-label', L10N.switchLabel);
+    langSelect.onchange = function() { setDailyLang(this.value); };
+  }
+
+  const backSpan = document.querySelector('#backBtn span');
+  if (backSpan) backSpan.textContent = L10N.back;
+  setHtml('#step1 .step-title', L10N.step1Title + '<small>' + L10N.step1Sub + '</small>');
+  setText('.translation-toggle span', L10N.translationLabel);
+  const readBtn = document.querySelector('#step1 .primary-btn');
+  if (readBtn) readBtn.textContent = L10N.readNext;
+  const audioSpan = document.querySelector('.audio-btn span:last-child');
+  if (audioSpan) audioSpan.textContent = L10N.listen;
+  const translationBtn = document.querySelector('.translation-toggle-btn');
+  if (translationBtn) translationBtn.setAttribute('aria-label', L10N.translationLabel);
+
+  setHtml('#step2 .step-title', L10N.step2Title + '<small>' + L10N.step2Sub + '</small>');
+  setText('.transcription-instruction', L10N.copyInstruction);
+  setText('#refToggleBtn', L10N.referenceHide);
+  const modeButtons = document.querySelectorAll('.mode-btn');
+  if (modeButtons[0]) modeButtons[0].textContent = L10N.typing;
+  if (modeButtons[1]) modeButtons[1].textContent = L10N.handwriting;
+  setText('#keyboardHelpTitle', L10N.keyboardHelpTitle);
+  setText('#keyboardHelpText', L10N.keyboardHelp);
+  setText('#skipCopyBtn', L10N.skipCopy);
+  setText('#step2NextBtn', L10N.next);
+
+  setHtml('#step3 .step-title', L10N.step3Title + '<small>' + L10N.step3Sub + '</small>');
+  setHtml('#step3 .context-box', '<strong style="color:rgba(247,242,232,0.6);">' + escHtml(L10N.tryLater) + '</strong>');
+  const gotItBtn = document.querySelector('#step3 .primary-btn');
+  if (gotItBtn) gotItBtn.textContent = L10N.gotIt;
+
+  setHtml('#step4 .step-title', L10N.step4Title + '<small>' + L10N.step4Sub + '</small>');
+  setText('#step4NextBtn', L10N.continue);
+
+  setHtml('#step5 .step-title', L10N.step5Title + '<small>' + L10N.step5Sub + '</small>');
+  const diffBtn = document.querySelector('#step5 .primary-btn');
+  if (diffBtn) diffBtn.textContent = L10N.difference;
+
+  setHtml('#step6 .step-title', L10N.step6Title + '<small>' + L10N.step6Sub + '</small>');
+  setText('.prompt-card-label', L10N.promptLabel);
+  setHtml('.prompt-card-text', L10N.promptText + '<br><strong style="color:var(--gold);">' + L10N.promptPattern + '</strong>');
+  setText('.prompt-hint', L10N.promptHint);
+  setHtml('.char-counter', '<span id="charCount">0</span> ' + escHtml(L10N.charUnit));
+  setText('.feedback-btn span:last-child', L10N.feedback);
+  setText('#step6NextBtn', L10N.complete);
+
+  setText('.completion-title', L10N.completionTitle);
+  setText('.brick-unit', L10N.brickUnit);
+  const brickTotal = document.querySelector('.brick-total');
+  if (brickTotal) brickTotal.childNodes[0].textContent = L10N.brickTotal + ' ';
+  setText('.completion-sentence-label', L10N.completionSentenceLabel);
+  setText('.share-btn span:last-child', L10N.share);
+}
 
 /* ══════════════════════════════════════════
    LOCALSTORAGE PROGRESS
 ══════════════════════════════════════════ */
 function getCurrentDay() {
+  const params = new URLSearchParams(window.location.search || '');
+  const urlDay = parseInt(params.get('day') || '', 10);
+  if (!Number.isNaN(urlDay)) {
+    return Math.min(Math.max(urlDay, 1), 56);
+  }
   const stored = parseInt(localStorage.getItem('letterbrick-ko-day') || '1', 10);
   return Math.min(Math.max(stored, 1), 56);
 }
@@ -1402,21 +1629,26 @@ function markDayComplete(day) {
 ══════════════════════════════════════════ */
 function loadDayContent(day) {
   if (!window.KO_CURRICULUM) return;
-  const entry = KO_CURRICULUM[day - 1];
-  if (!entry) return;
+  const rawEntry = KO_CURRICULUM[day - 1];
+  if (!rawEntry) return;
+  const entry = localizedEntry(rawEntry);
 
   currentDay = day;
   TARGET_SENTENCE = entry.sentence.ko;
 
   // ── Nav / header ──
-  document.getElementById('navDay').textContent = 'Day ' + day + ' · Week ' + entry.week;
-  document.title = 'LetterBrick Korean · Day ' + day;
+  document.getElementById('navDay').textContent = L10N.dayWeek(day, entry.week);
+  document.title = 'LetterBrick Korean · ' + L10N.dayWeek(day, entry.week);
 
   // Progress indicator (streak slot shows Day X / 56)
-  document.getElementById('navStreak').textContent = '진도: Day ' + day + ' / 56';
+  const compactProgress = window.matchMedia && window.matchMedia('(max-width: 700px)').matches;
+  document.getElementById('navStreak').textContent = compactProgress && L10N.compactProgressText
+    ? L10N.compactProgressText(day)
+    : L10N.progressText(day);
+  document.getElementById('navStreak').title = L10N.progress;
 
   // ── Step 1 ──
-  document.getElementById('step1Eyebrow').textContent = '오늘의 문장 · Day ' + day;
+  document.getElementById('step1Eyebrow').textContent = L10N.step1Eyebrow(day);
   document.getElementById('sentenceMain').textContent = entry.sentence.ko;
   document.getElementById('sentenceRomanization').textContent = entry.sentence.romanization;
 
@@ -1424,7 +1656,7 @@ function loadDayContent(day) {
   transEl.textContent = '\u201c' + entry.sentence.translation + '\u201d';
   transEl.classList.remove('revealed');
   const revBtn = transEl.previousElementSibling.querySelector('.translation-toggle-btn');
-  if (revBtn) revBtn.textContent = '\uD83D\uDC41 Reveal';
+  if (revBtn) revBtn.textContent = L10N.reveal;
 
   document.getElementById('contextBox').textContent = entry.sentence.context;
 
@@ -1442,7 +1674,7 @@ function loadDayContent(day) {
   ta.style.opacity = '1';
   document.getElementById('diffDisplay').innerHTML = '';
   document.getElementById('matchIndicator').className = 'match-indicator idle';
-  document.getElementById('matchText').textContent = 'Start typing above...';
+  document.getElementById('matchText').textContent = L10N.startTyping;
   document.getElementById('step2NextBtn').disabled = true;
   transcriptionMatched = false;
 
@@ -1486,10 +1718,10 @@ function loadDayContent(day) {
           '<div class="vocab-card-face vocab-card-front">' +
             '<div class="vocab-word">' + escHtml(v.ko) + '</div>' +
             '<div class="vocab-romanization">' + escHtml(v.rom) + '</div>' +
-            '<div class="vocab-flip-hint">TAP TO FLIP \u21BB</div>' +
+            '<div class="vocab-flip-hint">' + escHtml(L10N.tapToFlip) + '</div>' +
           '</div>' +
           '<div class="vocab-card-face vocab-card-back">' +
-            '<button class="vocab-learned-btn" id="learnedBtn' + n + '" onclick="markLearned(event,' + n + ')">Mark learned</button>' +
+            '<button class="vocab-learned-btn" id="learnedBtn' + n + '" onclick="markLearned(event,' + n + ')">' + escHtml(L10N.markLearned) + '</button>' +
             '<div class="vocab-back-meaning">' + escHtml(v.meaning) + '</div>' +
             '<div class="vocab-back-example">' + escHtml(v.ko) + ' — ' + escHtml(v.meaning) + '</div>' +
           '</div>' +
@@ -1497,15 +1729,15 @@ function loadDayContent(day) {
       '</div>';
   });
   const progEl = document.getElementById('vocabProgress');
-  if (progEl) progEl.textContent = '0 / ' + entry.vocab.length + ' marked learned';
+  if (progEl) progEl.textContent = L10N.learnedProgress(0, entry.vocab.length);
 
   // ── Step 5 — variations ──
   const exCards = document.getElementById('expressionCards');
   exCards.innerHTML = '';
   const varDefs = [
-    { key: 'casual',  badge: 'Conversational', cls: 'conv', cardCls: 'warm' },
-    { key: 'formal',  badge: 'Formal',          cls: 'conv', cardCls: '' },
-    { key: 'kdrama',  badge: 'K-drama',         cls: 'lit',  cardCls: 'literary' }
+    { key: 'casual',  badge: L10N.badges.casual, cls: 'conv', cardCls: 'warm' },
+    { key: 'formal',  badge: L10N.badges.formal, cls: 'conv', cardCls: '' },
+    { key: 'kdrama',  badge: L10N.badges.kdrama, cls: 'lit',  cardCls: 'literary' }
   ];
   varDefs.forEach(function(def) {
     const v = entry.variations[def.key];
@@ -1514,7 +1746,8 @@ function loadDayContent(day) {
       '<div class="expression-card ' + def.cardCls + '">' +
         '<div class="register-badge ' + def.cls + '">' + def.badge + '</div>' +
         '<div class="expression-ko">' + escHtml(v.text) + '</div>' +
-        '<div class="expression-en">\u201c' + escHtml(v.rom) + '\u201d</div>' +
+        '<div class="expression-en">\u201c' + escHtml(v.translation || v.rom) + '\u201d</div>' +
+        '<div class="expression-note">' + escHtml(v.rom) + '</div>' +
       '</div>';
   });
 
@@ -1529,21 +1762,21 @@ function loadDayContent(day) {
   fbBox.style.borderColor = '';
 
   // ── Step 7 completion ──
-  document.getElementById('completionSubtitle').textContent = 'Day ' + day + ' complete — great work today';
+  document.getElementById('completionSubtitle').textContent = L10N.completionSubtitle(day);
   document.getElementById('completionSentenceText').textContent = entry.sentence.ko;
   document.getElementById('completionSentenceEn').textContent = '\u201c' + entry.sentence.translation + '\u201d';
 
   // Tomorrow preview
-  const nextEntry = KO_CURRICULUM[day]; // day is 0-indexed + 1 already, so [day] = next
+  const nextEntry = KO_CURRICULUM[day] ? localizedEntry(KO_CURRICULUM[day]) : null; // day is 0-indexed + 1 already, so [day] = next
   if (nextEntry) {
-    document.getElementById('tomorrowLabel').textContent = 'Tomorrow · Day ' + nextEntry.day;
+    document.getElementById('tomorrowLabel').textContent = L10N.tomorrow(nextEntry.day);
     document.getElementById('tomorrowSentence').textContent = nextEntry.sentence.ko;
     document.getElementById('tomorrowTranslation').textContent = '\u201c' + nextEntry.sentence.translation + '\u201d';
     document.getElementById('tomorrowCard').style.display = '';
-    document.getElementById('nextDayBtn').textContent = 'See you tomorrow \u2192';
+    document.getElementById('nextDayBtn').textContent = L10N.seeTomorrow;
   } else {
     document.getElementById('tomorrowCard').style.display = 'none';
-    document.getElementById('nextDayBtn').textContent = '\uD83C\uDF89 Curriculum complete!';
+    document.getElementById('nextDayBtn').textContent = '\uD83C\uDF89 ' + L10N.curriculumComplete;
   }
 
   // Reset brick animation flag when loading a new day
@@ -1634,13 +1867,31 @@ function toggleTranslation(btn) {
   const text = document.getElementById('translationText');
   const isRevealed = text.classList.contains('revealed');
   text.classList.toggle('revealed', !isRevealed);
-  btn.textContent = isRevealed ? '👁 Reveal' : '🙈 Hide';
+  btn.textContent = isRevealed ? L10N.reveal : L10N.hide;
 }
 
 function playAudio(btn) {
-  btn.innerHTML = '<span>⏸</span><span>Playing…</span>';
-  setTimeout(() => {
-    btn.innerHTML = '<span>🔊</span><span>Listen</span>';
+  btn.innerHTML = '<span>⏸</span><span>' + escHtml(L10N.playing) + '</span>';
+
+  if ('speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined') {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(TARGET_SENTENCE);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.82;
+    utterance.pitch = 1;
+    utterance.onend = function() {
+      btn.innerHTML = '<span>🔊</span><span>' + escHtml(L10N.listen) + '</span>';
+    };
+    utterance.onerror = function() {
+      btn.innerHTML = '<span>🔊</span><span>' + escHtml(L10N.listen) + '</span>';
+      alert(L10N.audioNotSupported);
+    };
+    window.speechSynthesis.speak(utterance);
+    return;
+  }
+
+  setTimeout(function() {
+    btn.innerHTML = '<span>🔊</span><span>' + escHtml(L10N.listen) + '</span>';
   }, 2200);
 }
 
@@ -1664,7 +1915,7 @@ function checkTranscription() {
   if (raw.length === 0) {
     diffEl.innerHTML = '';
     matchEl.className = 'match-indicator idle';
-    matchTx.textContent = 'Start typing above...';
+    matchTx.textContent = L10N.startTyping;
     nextBtn.disabled = true;
     transcriptionMatched = false;
     return;
@@ -1695,14 +1946,14 @@ function checkTranscription() {
 
   if (isExact) {
     matchEl.className = 'match-indicator perfect';
-    matchTx.textContent = '✓ Perfect match!';
+    matchTx.textContent = L10N.perfect;
     nextBtn.disabled = false;
     transcriptionMatched = true;
   } else if (raw.length > 0) {
     const correctChars = [...raw].filter((c, i) => c === target[i]).length;
     const pct = Math.round(correctChars / target.length * 100);
     matchEl.className = 'match-indicator partial';
-    matchTx.textContent = pct + '% — keep going…';
+    matchTx.textContent = L10N.keepGoing(pct);
     nextBtn.disabled = true;
   }
 }
@@ -1717,10 +1968,10 @@ function toggleReference() {
   const span = box.querySelector('span');
   if (span.style.opacity === '0') {
     span.style.opacity = '1';
-    btn.textContent = '숨기기';
+    btn.textContent = L10N.referenceHide;
   } else {
     span.style.opacity = '0';
-    btn.textContent = '보이기';
+    btn.textContent = L10N.referenceShow;
   }
 }
 
@@ -1731,7 +1982,7 @@ function setMode(mode, btn) {
   if (mode === 'hand') {
     const input = document.getElementById('transcriptionInput');
     input.disabled = true;
-    input.placeholder = '(handwriting mode — photo upload coming soon)';
+    input.placeholder = L10N.handwritingSoon;
     input.style.opacity = '.4';
   } else {
     const input = document.getElementById('transcriptionInput');
@@ -1739,6 +1990,11 @@ function setMode(mode, btn) {
     input.placeholder = TARGET_SENTENCE.substring(0, 6) + '...';
     input.style.opacity = '1';
   }
+}
+
+function skipCopyStep() {
+  transcriptionMatched = false;
+  goToStep(3);
 }
 
 /* ══════════════════════════════════════════
@@ -1770,11 +2026,11 @@ function markLearned(evt, n) {
   const btn = document.getElementById('learnedBtn' + n);
   if (learnedCards.has(n)) {
     learnedCards.delete(n);
-    btn.textContent = 'Mark learned';
+    btn.textContent = L10N.markLearned;
     btn.classList.remove('learned');
   } else {
     learnedCards.add(n);
-    btn.textContent = '✓ Learned';
+    btn.textContent = L10N.learned;
     btn.classList.add('learned');
   }
   updateVocabProgress();
@@ -1784,7 +2040,7 @@ function updateVocabProgress() {
   const prog = document.getElementById('vocabProgress');
   const entry = window.KO_CURRICULUM && KO_CURRICULUM[currentDay - 1];
   const total = entry ? entry.vocab.length : 3;
-  prog.textContent = learnedCards.size + ' / ' + total + ' marked learned';
+  prog.textContent = L10N.learnedProgress(learnedCards.size, total);
   // Allow continuing even if not all marked
 }
 
@@ -1828,7 +2084,7 @@ function getFeedback() {
     box.style.background = 'rgba(182,94,60,0.1)';
     box.style.borderColor = 'rgba(182,94,60,0.2)';
     icon.textContent = '💭';
-    text.textContent = '문장을 먼저 써보세요! Write something first — even a fragment is great.';
+    text.textContent = L10N.emptyFeedback;
     return;
   }
 
@@ -1842,17 +2098,17 @@ function getFeedback() {
 
     if (usesWhen && usesFeeling) {
       icon.textContent = '✨';
-      text.innerHTML = '<strong style="color:rgba(247,242,232,0.8);">좋아요!</strong> Your sentence uses today\'s structure beautifully — a "when" condition followed by a feeling or memory. The pattern is becoming yours. 잘했어요!';
+      text.innerHTML = '<strong style="color:rgba(247,242,232,0.8);">좋아요!</strong> ' + escHtml(L10N.strongFeedback);
     } else if (usesWhen) {
       icon.textContent = '👍';
-      text.innerHTML = '<strong style="color:rgba(247,242,232,0.8);">잘 했어요!</strong> Nice use of a conditional — you set the scene well. Try adding what comes to mind or how you feel in that moment.';
+      text.innerHTML = '<strong style="color:rgba(247,242,232,0.8);">잘 했어요!</strong> ' + escHtml(L10N.conditionalFeedback);
     } else if (hasKorean(input)) {
       icon.textContent = '🌱';
-      text.innerHTML = 'Good start with Korean characters! Try opening with a "when" phrase like <em>봄이 오면...</em> to use today\'s structure fully. You\'re building the habit — keep going!';
+      text.innerHTML = escHtml(L10N.koreanFeedback);
     }
   } else {
     icon.textContent = '🇰🇷';
-    text.innerHTML = 'It looks like you wrote in English — try writing in Korean! Even simple words work. Start with a starter chip above if you need a boost.';
+    text.innerHTML = escHtml(L10N.nonKoreanFeedback);
   }
 
   box.className = 'feedback-box show fade-in';
@@ -1939,17 +2195,18 @@ function buildBrickWall(total, newCount) {
 }
 
 function shareToday() {
-  const entry = (window.KO_CURRICULUM && KO_CURRICULUM[currentDay - 1]) || {};
+  const rawEntry = (window.KO_CURRICULUM && KO_CURRICULUM[currentDay - 1]) || {};
+  const entry = rawEntry.sentence ? localizedEntry(rawEntry) : {};
   const ko = (entry.sentence && entry.sentence.ko) || '';
-  const en = (entry.sentence && entry.sentence.translation) || '';
-  const text = 'Day ' + currentDay + ' · LetterBrick Korean\n\n' + ko + '\n\u201c' + en + '\u201d\n\n#LetterBrick #LearnKorean #한국어';
+  const translation = (entry.sentence && entry.sentence.translation) || '';
+  const text = L10N.shareText(currentDay, ko, translation);
   if (navigator.share) {
     navigator.share({ text: text }).catch(() => {});
   } else {
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.querySelector('.share-btn span:last-child');
       const orig = btn.textContent;
-      btn.textContent = 'Copied to clipboard!';
+      btn.textContent = L10N.copied;
       setTimeout(() => { btn.textContent = orig; }, 2000);
     }).catch(() => {
       alert(text);
@@ -1958,7 +2215,11 @@ function shareToday() {
 }
 
 function returnToHome() {
-  window.location.href = 'index.html';
+  window.location.href = ACTIVE_LANG === 'es'
+    ? 'korean-es.html'
+    : ACTIVE_LANG === 'zh'
+      ? 'korean-zh.html'
+      : 'korean-en.html';
 }
 
 /* ══════════════════════════════════════════
@@ -1972,7 +2233,7 @@ function onCompleteDay() {
 function goToNextDay() {
   const nextDay = getCurrentDay();
   if (nextDay > 56) {
-    window.location.href = 'index.html';
+    returnToHome();
     return;
   }
   // Reset session state and reload the day
@@ -1993,6 +2254,7 @@ function goToNextDay() {
    INIT
 ══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
+  applyDailyStaticLocale();
   updateUI();
   updateDots(1);
   const day = getCurrentDay();

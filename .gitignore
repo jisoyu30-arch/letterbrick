@@ -1,7 +1,25 @@
 node_modules/
 .env
+.env.production
 .claude/
 .vercel
 serviceAccount.json
+google-credentials.json
 delete-demo-records.js
 migrate-to-firestore.js
+.env*.local
+
+# 검수용 브라우저 프로필 — Login Data, Web Data, History 등 자격증명 DB가 들어 있다
+.edge-review-profile/
+.edge-review-profile-2/
+
+# 로컬 실행 로그
+*.log
+.local-*.out.log
+.local-*.err.log
+
+# 데모 영상 원본 (15MB). 배포는 별도 호스팅을 쓰고 저장소에는 담지 않는다
+videos/
+
+# 잘못 만들어진 파일
+-Context

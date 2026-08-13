@@ -1,0 +1,66 @@
+{
+  "reportId": "2026-06-24T11-10-38-390Z",
+  "status": "warn",
+  "generatedAt": "2026-06-24T11:10:38.392Z",
+  "startedAt": "2026-06-24T11:10:38.392Z",
+  "gates": [
+    {
+      "key": "firebase",
+      "label": "Firebase read",
+      "status": "warn",
+      "detail": "No Firestore record sample was loaded."
+    },
+    {
+      "key": "quality",
+      "label": "Data quality",
+      "status": "warn",
+      "detail": "No saved data quality result."
+    },
+    {
+      "key": "archive",
+      "label": "Monthly archive",
+      "status": "warn",
+      "detail": "No archive metadata."
+    },
+    {
+      "key": "archiveRun",
+      "label": "Archive job",
+      "status": "warn",
+      "detail": "No scheduled archive run."
+    },
+    {
+      "key": "restore",
+      "label": "Restore run",
+      "status": "warn",
+      "detail": "No restore run history."
+    },
+    {
+      "key": "cleanup",
+      "label": "Duplicate cleanup",
+      "status": "warn",
+      "detail": "No duplicate cleanup run."
+    },
+    {
+      "key": "content",
+      "label": "Content audit",
+      "status": "warn",
+      "detail": "Data quality audit result required."
+    }
+  ],
+  "summary": {
+    "status": "warn",
+    "passCount": 0,
+    "warnCount": 7,
+    "failCount": 0,
+    "gateCount": 7
+  },
+  "signals": {
+    "readCount": 0,
+    "quality": null,
+    "cleanup": null,
+    "archive": null,
+    "restoreRun": null,
+    "archiveRun": null
+  },
+  "githubRunUrl": ""
+}

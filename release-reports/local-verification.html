@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>LetterBrick Release Report</title>
+<style>
+body{font-family:Arial,sans-serif;margin:32px;color:#2E2A26;background:#f7f2e8}
+.wrap{max-width:920px;margin:0 auto;background:#fff;padding:28px;border-radius:10px}
+h1{margin-top:0}
+.status{font-weight:700}
+.pass{color:#3D6B50}.warn{color:#8a5d00}.fail{color:#B65E3C}
+table{border-collapse:collapse;width:100%;margin-top:18px}
+th,td{border-bottom:1px solid #ddd;padding:10px;text-align:left;font-size:14px}
+pre{white-space:pre-wrap;background:#f6f4ef;padding:16px;border-radius:8px}
+</style>
+</head>
+<body><div class="wrap">
+<h1>LetterBrick Release Report</h1>
+<p>Generated: 2026-06-24T11:11:49.115Z</p>
+<p class="status warn">Status: WARN</p>
+<table><thead><tr><th>Gate</th><th>Status</th><th>Detail</th></tr></thead><tbody><tr><td>Firebase read</td><td class="warn">WARN</td><td>No Firestore record sample was loaded.</td></tr><tr><td>Data quality</td><td class="pass">PASS</td><td>errors 0, warnings 0</td></tr><tr><td>Monthly archive</td><td class="warn">WARN</td><td>No archive metadata.</td></tr><tr><td>Archive job</td><td class="warn">WARN</td><td>No scheduled archive run.</td></tr><tr><td>Restore run</td><td class="warn">WARN</td><td>No restore run history.</td></tr><tr><td>Duplicate cleanup</td><td class="warn">WARN</td><td>No duplicate cleanup run.</td></tr><tr><td>Content audit</td><td class="pass">PASS</td><td>errors 0, warnings 0</td></tr></tbody></table>
+<h2>Markdown</h2>
+<pre># LetterBrick Release Report
+Generated: 2026-06-24T11:11:49.115Z
+Status: WARN
+## Summary
+- Pass: 2
+- Warn: 5
+- Fail: 0
+- Gates: 7
+## Gates
+| Gate | Status | Detail |
+| --- | --- | --- |
+| Firebase read | WARN | No Firestore record sample was loaded. |
+| Data quality | PASS | errors 0, warnings 0 |
+| Monthly archive | WARN | No archive metadata. |
+| Archive job | WARN | No scheduled archive run. |
+| Restore run | WARN | No restore run history. |
+| Duplicate cleanup | WARN | No duplicate cleanup run. |
+| Content audit | PASS | errors 0, warnings 0 |
+
+## Operational Notes
+
+- Review warn/fail gates before release.
+- Missing operational history is treated as WARN.
+- FAIL gates should block release until remediated.
+</pre>
+</div></body></html>

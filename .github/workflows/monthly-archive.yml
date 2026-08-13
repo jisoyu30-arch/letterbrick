@@ -1,0 +1,47 @@
+name: Monthly Archive
+
+on:
+  schedule:
+    # 매월 2일 01:10 KST에 전월 데이터를 archive합니다.
+    - cron: '10 16 1 * *'
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Archive month in YYYY-MM. Empty means previous month.'
+        required: false
+        type: string
+      dry_run:
+        description: 'Read data and build archive metadata without writing Firestore/Storage.'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  monthly-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate monthly archive
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_STORAGE_BUCKET: letterbrick.firebasestorage.app
+          ARCHIVE_MONTH: ${{ github.event.inputs.month || '' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+          ARCHIVE_RESULT_PATH: archive-result.json
+        run: npm run archive:monthly
+
+      - name: Notify archive result
+        if: always()
+        env:
+          ARCHIVE_RESULT_PATH: archive-result.json
+          ARCHIVE_SLACK_WEBHOOK_URL: ${{ secrets.ARCHIVE_SLACK_WEBHOOK_URL }}
+          ARCHIVE_ADMIN_URL: https://letterbrick.vercel.app/admin.html
+        run: npm run archive:notify

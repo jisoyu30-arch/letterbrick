@@ -1,0 +1,29 @@
+{
+  "status": "ok",
+  "runId": "2026-07-08T18-02-02-456Z",
+  "startedAt": "2026-07-08T18:02:02.456Z",
+  "completedAt": "2026-07-08T18:02:02.468Z",
+  "content": {
+    "growthCount": 60,
+    "healingCount": 30,
+    "sourceLabels": {
+      "온:사유 번역": 25,
+      "온:사유 의역": 7,
+      "온:사유 확장": 2,
+      "direct-source": 18,
+      "영감": 8,
+      "레터브릭 오리지널": 30
+    }
+  },
+  "firestore": {
+    "checked": false,
+    "reason": "FIREBASE_SERVICE_ACCOUNT is not set"
+  },
+  "issueCounts": {
+    "error": 0,
+    "warn": 0,
+    "info": 0
+  },
+  "issues": [],
+  "githubRunUrl": ""
+}

@@ -1,0 +1,60 @@
+name: Archive Restore
+
+on:
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'Archive month to restore in YYYY-MM.'
+        required: true
+        type: string
+      commit:
+        description: 'Actually write missing records to Firestore.'
+        required: true
+        default: false
+        type: boolean
+      confirm:
+        description: 'Required for commit mode. Use RESTORE_YYYY-MM.'
+        required: false
+        type: string
+
+jobs:
+  restore-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Restore archive
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_STORAGE_BUCKET: letterbrick.firebasestorage.app
+          RESTORE_MONTH: ${{ github.event.inputs.month }}
+          RESTORE_COMMIT: ${{ github.event.inputs.commit }}
+          RESTORE_CONFIRM: ${{ github.event.inputs.confirm }}
+          RESTORE_RESULT_PATH: restore-result.json
+        run: |
+          if [ "$RESTORE_COMMIT" = "true" ]; then
+            npm run archive:restore:commit
+          else
+            npm run archive:restore
+          fi
+
+      - name: Write restore summary
+        if: always()
+        run: |
+          echo "## LetterBrick Archive Restore" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f restore-result.json ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat restore-result.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "restore-result.json was not created." >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,63 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- 구버전 My Library 페이지 — 본편(index.html)으로 리다이렉트 (2026-08-04 정리) -->
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LetterBrick — My Library</title>
-  <link rel="stylesheet" href="style.css">
+  <title>레터브릭 — 내 서재</title>
+  <meta http-equiv="refresh" content="0; url=./index.html">
+  <script>window.location.replace('./index.html');</script>
 </head>
 <body>
-  <header>
-    <nav class="edition-nav">
-      <a href="index.html" class="back-link">&larr; Home</a>
-      <span class="edition-label">My Library</span>
-    </nav>
-    <h1>LetterBrick</h1>
-    <p class="tagline">Your writing journey.</p>
-  </header>
-
-  <main>
-    <!-- Summary -->
-    <section class="progress-bar">
-      <div class="stat">
-        <span class="stat-value" id="totalBricksAll">0</span>
-        <span class="stat-label">Total Bricks</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value" id="totalSessions">0</span>
-        <span class="stat-label">Sessions</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value" id="totalTime">0m</span>
-        <span class="stat-label">Total Time</span>
-      </div>
-    </section>
-
-    <!-- Edition Summaries -->
-    <section class="card">
-      <h2>Growth</h2>
-      <p id="growthSummary" class="hint">No sessions yet.</p>
-    </section>
-
-    <section class="card">
-      <h2>Healing</h2>
-      <p id="healingSummary" class="hint">No sessions yet.</p>
-    </section>
-
-    <!-- Recent Sessions -->
-    <section class="card">
-      <h2>Recent Sessions</h2>
-      <div id="recentSessions">
-        <p class="hint">Complete a session to see your history here.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>LetterBrick &mdash; My Library</p>
-  </footer>
-
-  <script src="js/shared.js"></script>
-  <script src="js/dashboard.js"></script>
+  <p>레터브릭 홈으로 이동합니다. 내 기록은 본편의 브릭월·캘린더에서 볼 수 있어요. 자동으로 이동하지 않으면 <a href="./index.html">여기를 눌러주세요</a>.</p>
 </body>
 </html>

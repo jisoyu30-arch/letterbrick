@@ -1,0 +1,60 @@
+name: Quality Duplicate Cleanup
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Actually delete duplicate saved records.'
+        required: true
+        default: false
+        type: boolean
+      confirm:
+        description: 'Required for commit mode. Use DELETE_DUPLICATES.'
+        required: false
+        type: string
+      limit:
+        description: 'Recent entries sample size.'
+        required: false
+        default: '500'
+        type: string
+
+jobs:
+  duplicate-cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Duplicate cleanup
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          QUALITY_DUPLICATE_COMMIT: ${{ github.event.inputs.commit }}
+          QUALITY_DUPLICATE_CONFIRM: ${{ github.event.inputs.confirm }}
+          QUALITY_DUPLICATE_LIMIT: ${{ github.event.inputs.limit }}
+          QUALITY_DUPLICATE_RESULT_PATH: quality-duplicate-cleanup-result.json
+        run: |
+          if [ "$QUALITY_DUPLICATE_COMMIT" = "true" ]; then
+            npm run quality:duplicates:commit
+          else
+            npm run quality:duplicates:dry
+          fi
+
+      - name: Write cleanup summary
+        if: always()
+        run: |
+          echo "## LetterBrick Duplicate Cleanup" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f quality-duplicate-cleanup-result.json ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat quality-duplicate-cleanup-result.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "quality-duplicate-cleanup-result.json was not created." >> "$GITHUB_STEP_SUMMARY"
+          fi

@@ -1,0 +1,47 @@
+name: Release Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_id:
+        description: 'Optional report id. Empty means timestamp.'
+        required: false
+        type: string
+
+jobs:
+  release-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate release report
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          RELEASE_REPORT_ID: ${{ github.event.inputs.report_id || '' }}
+          RELEASE_REPORT_DIR: release-reports
+        run: npm run release:report
+
+      - name: Upload release report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: letterbrick-release-report
+          path: release-reports/
+          if-no-files-found: warn
+
+      - name: Write release summary
+        if: always()
+        run: |
+          echo "## LetterBrick Release Report" >> "$GITHUB_STEP_SUMMARY"
+          if ls release-reports/*.md >/dev/null 2>&1; then
+            cat release-reports/*.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No release report was generated." >> "$GITHUB_STEP_SUMMARY"
+          fi

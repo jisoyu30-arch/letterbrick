@@ -15,10 +15,10 @@
 <style>
 :root {
   --paper:#F7F2E8;--paper2:#EDE7D6;--paper3:#FAF7F2;
-  --ink:#2E2A26;--ink2:#5C5248;--ink3:#9A9089;
-  --brick:#B65E3C;--brick-d:#8F4A2E;--brick-l:#F2E4DA;--brick-p:#FAF0EB;
+  --ink:#2E2A26;--ink2:#5C5248;--ink3:#6E665E;
+  --brick:#B65E3C;--brick-on-dark:#DE9068;--brick-d:#8F4A2E;--brick-l:#F2E4DA;--brick-p:#FAF0EB;
   --line:#D8D0C0;--line2:#EAE3D6;
-  --gold:#A07828;--gold-p:#F5EDD0;
+  --gold:#A07828;--gold-on-dark:#D9B45C;--gold-p:#F5EDD0;
   --green:#3D6B50;--green-p:#D8EADF;
   --shadow:rgba(46,42,38,0.10);
 }
@@ -72,11 +72,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   margin-bottom:48px;animation:splashIn 0.7s 0.35s ease both;
 }
 .splash-greeting-wrap{animation:splashIn 0.7s 0.5s ease both;margin-bottom:52px;}
-.splash-day{font-size:11px;letter-spacing:2px;text-transform:uppercase;
+.splash-day{font-size:12px;letter-spacing:2px;text-transform:uppercase;
   color:rgba(247,242,232,0.3);font-weight:500;margin-bottom:12px;}
 .splash-greeting{font-family:'Gowun Batang',serif;font-size:22px;line-height:1.6;
   color:var(--paper);}
-.splash-greeting em{color:var(--brick);font-style:normal;display:block;
+.splash-greeting em{color:var(--brick-on-dark);font-style:normal;display:block;
   font-size:15px;margin-top:6px;font-family:'Noto Serif KR',serif;font-weight:300;}
 .splash-dots{display:flex;gap:6px;justify-content:center;margin-bottom:44px;
   animation:splashIn 0.7s 0.7s ease both;}
@@ -131,7 +131,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
     color:var(--ink) !important;
   }
   #healingStickySent .sticky-lbl{color:var(--ink3) !important;}
-  #healingStickySent .sticky-author{color:var(--brick) !important;}
+  #healingStickySent .sticky-author{color:var(--brick-d) !important;}
   #healingStickySent .sticky-lbl{display:block !important;}
   #healingStickySent .sticky-meta{display:flex !important;}
   #healingStickySent .sticky-toggle{display:none !important;}
@@ -180,7 +180,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .logo-brick:nth-child(1){width:12px;}.logo-brick:nth-child(2){width:8px;}
 .logo-brick:nth-child(3){width:8px;}.logo-brick:nth-child(4){width:12px;}
 .logo-text{font-family:'Gowun Batang',serif;font-size:18px;letter-spacing:1px;color:var(--ink);}
-.logo-text em{color:var(--brick);font-style:normal;}
+.logo-text em{color:var(--brick-d);font-style:normal;}
 .nav-tabs{display:flex;gap:4px;}
 .nav-tab{padding:7px 14px;border-radius:20px;border:none;background:none;
   font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;
@@ -196,7 +196,99 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .stat-card{background:var(--paper3);border:1px solid var(--line);border-radius:14px;
   padding:14px 10px;text-align:center;}
 .stat-v{font-family:'Gowun Batang',serif;font-size:24px;color:var(--ink);display:block;}
-.stat-l{font-size:11px;color:var(--ink3);font-weight:500;margin-top:2px;}
+.stat-l{font-size:12px;color:var(--ink3);font-weight:500;margin-top:2px;}
+.taste-entry{
+  display:none;margin:0 0 16px;padding:14px 15px;background:var(--paper3);
+  border:1.5px solid var(--line);border-left:4px solid var(--brick);border-radius:8px;
+}
+.taste-entry.show{display:block;}
+.taste-entry-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.taste-entry-kicker{font-size:12px;font-weight:800;color:var(--brick);letter-spacing:1px;text-transform:uppercase;}
+.taste-entry-edition{font-size:12px;font-weight:700;color:var(--ink2);white-space:nowrap;}
+.taste-entry-title{font-family:'Gowun Batang',serif;font-size:18px;line-height:1.45;color:var(--ink);margin-bottom:6px;}
+.taste-entry-copy{font-size:12px;line-height:1.7;color:var(--ink2);word-break:keep-all;}
+.taste-entry-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.taste-entry-tag{font-size:12px;color:var(--ink2);background:var(--brick-p);border:1px solid var(--brick-l);border-radius:999px;padding:3px 7px;}
+.taste-entry-actions{display:flex;gap:8px;margin-top:12px;}
+.taste-entry-actions button{
+  flex:1;border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;cursor:pointer;
+}
+.taste-entry-primary{background:var(--ink);color:var(--paper);border-color:var(--ink) !important;}
+.taste-entry-secondary{background:transparent;color:var(--ink2);}
+
+.paid-beta-panel{
+  margin:0 0 16px;padding:14px 15px;background:linear-gradient(135deg,var(--paper3),var(--paper2));
+  border:1.5px solid var(--line);border-left:4px solid var(--green);border-radius:8px;
+}
+.paid-beta-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.paid-beta-kicker{font-size:12px;font-weight:800;color:var(--green);letter-spacing:1px;text-transform:uppercase;}
+.paid-beta-badge{font-size:12px;font-weight:800;color:var(--paper);background:var(--green);border-radius:999px;padding:4px 8px;white-space:nowrap;}
+.paid-beta-badge.free{background:var(--ink3);}
+.paid-beta-title{font-family:'Gowun Batang',serif;font-size:18px;line-height:1.45;color:var(--ink);margin-bottom:6px;}
+.paid-beta-copy{font-size:12px;line-height:1.7;color:var(--ink2);word-break:keep-all;}
+.paid-beta-meter{height:7px;background:rgba(46,42,38,.1);border-radius:999px;overflow:hidden;margin:12px 0 7px;}
+.paid-beta-fill{height:100%;background:var(--green);border-radius:999px;transition:width .25s ease;}
+.paid-beta-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--ink3);}
+.paid-beta-perks{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.paid-beta-perk{font-size:12px;color:var(--ink2);background:rgba(91,128,103,.12);border:1px solid rgba(91,128,103,.2);border-radius:999px;padding:3px 7px;}
+.sentence-stack-panel{
+  background:var(--paper3);border:1px solid var(--line);border-radius:14px;
+  padding:16px 18px;margin:0 0 18px;box-shadow:0 4px 18px rgba(46,42,38,.04);
+}
+.sentence-stack-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;}
+.sentence-stack-kicker{font-size:12px;font-weight:800;color:var(--brick-d);letter-spacing:1px;text-transform:uppercase;}
+.sentence-stack-title{font-family:'Gowun Batang',serif;font-size:18px;line-height:1.45;color:var(--ink);margin-top:2px;}
+.sentence-stack-count{font-family:'Gowun Batang',serif;font-size:20px;color:var(--ink);white-space:nowrap;}
+.sentence-stack-copy{font-size:12px;line-height:1.7;color:var(--ink2);word-break:keep-all;margin-bottom:12px;}
+.sentence-stack-list{display:grid;gap:8px;}
+.sentence-stack-item{
+  position:relative;background:rgba(255,255,255,.42);border:1px solid var(--line2);
+  border-left:3px solid var(--brick);border-radius:10px;padding:11px 12px 11px 14px;
+}
+.sentence-stack-item::after{
+  content:'';position:absolute;left:12px;right:12px;bottom:-4px;height:4px;
+  border:1px solid var(--line2);border-top:0;border-radius:0 0 8px 8px;opacity:.55;
+}
+.sentence-stack-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px;font-size:12px;color:var(--ink3);}
+.sentence-stack-tag{font-weight:700;color:var(--brick);}
+.sentence-stack-text{font-family:'Noto Serif KR',serif;font-size:13px;line-height:1.75;color:var(--ink);font-weight:300;}
+.sentence-stack-empty{font-size:12px;line-height:1.8;color:var(--ink3);padding:14px;background:rgba(255,255,255,.35);border:1px dashed var(--line);border-radius:10px;text-align:center;}
+.brick-home-panel{
+  background:linear-gradient(180deg,#2E2A26 0%,#3A322B 100%);
+  color:var(--paper);border-radius:14px;padding:17px 18px;margin:0 0 18px;
+  border:1px solid rgba(182,94,60,.22);overflow:hidden;position:relative;
+}
+.brick-home-panel::before{
+  content:'';position:absolute;inset:0;background:url('images/brick-texture.svg');
+  background-size:140px 90px;opacity:.07;pointer-events:none;
+}
+.brick-home-top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;}
+.brick-home-kicker{font-size:12px;font-weight:800;color:rgba(247,242,232,.48);letter-spacing:1px;text-transform:uppercase;}
+.brick-home-title{font-family:'Gowun Batang',serif;font-size:19px;line-height:1.45;color:var(--paper);margin-top:2px;}
+.brick-home-count{font-family:'Gowun Batang',serif;font-size:24px;color:var(--paper);white-space:nowrap;}
+.brick-home-copy{position:relative;font-size:12px;line-height:1.7;color:rgba(247,242,232,.68);word-break:keep-all;margin-bottom:14px;}
+.brick-house-scene{position:relative;display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;}
+.brick-house-art{height:92px;display:flex;align-items:flex-end;justify-content:center;}
+.brick-house{
+  width:78px;min-height:36px;display:flex;flex-wrap:wrap-reverse;align-content:flex-end;
+  justify-content:center;gap:3px;padding:0 4px 4px;position:relative;
+}
+.brick-house::before{
+  content:'';position:absolute;left:50%;top:-22px;transform:translateX(-50%);
+  border-left:45px solid transparent;border-right:45px solid transparent;border-bottom:24px solid rgba(182,94,60,.75);
+  opacity:0;transition:opacity .2s;
+}
+.brick-house.has-roof::before{opacity:1;}
+.house-brick{width:18px;height:11px;border-radius:2px;background:rgba(182,94,60,.32);}
+.house-brick.filled{background:var(--brick);box-shadow:0 0 8px rgba(182,94,60,.35);}
+.house-brick.special{background:linear-gradient(135deg,#D4A836,#F5D36E);}
+.brick-home-progress{position:relative;}
+.brick-home-stage{font-family:'Gowun Batang',serif;font-size:16px;color:var(--paper);margin-bottom:5px;}
+.brick-home-next{font-size:12px;color:rgba(247,242,232,.58);margin-bottom:9px;}
+.brick-home-bar{height:6px;background:rgba(247,242,232,.1);border-radius:999px;overflow:hidden;}
+.brick-home-fill{height:100%;background:var(--brick);border-radius:999px;width:0%;transition:width .6s ease;}
+.brick-home-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:7px;font-size:12px;color:rgba(247,242,232,.45);}
 
 .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
 .cal-month{font-family:'Gowun Batang',serif;font-size:18px;}
@@ -205,7 +297,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   background:var(--paper3);cursor:pointer;font-size:12px;color:var(--ink2);transition:all .15s;}
 .cal-nav button:hover{background:var(--ink);color:var(--paper);}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:20px;}
-.cal-dow{text-align:center;font-size:10px;font-weight:700;color:var(--ink3);padding:5px 0;letter-spacing:.5px;}
+.cal-dow{text-align:center;font-size:12px;font-weight:700;color:var(--ink3);padding:5px 0;letter-spacing:.5px;}
 .cal-cell{aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;cursor:pointer;position:relative;
   transition:all .15s;font-size:12px;color:var(--ink2);}
@@ -215,8 +307,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .cal-cell.done::after{content:'';position:absolute;bottom:3px;width:4px;height:4px;
   border-radius:50%;background:var(--brick);}
 .cal-cell.future{color:var(--ink3);opacity:0.4;}
-.cal-bricks{font-size:6px;display:block;line-height:1;margin-top:1px;}
-.cal-summary{display:flex;justify-content:space-between;font-size:11px;color:var(--ink3);padding:8px 4px;margin-top:4px;border-top:1px solid var(--line2);}
+.cal-bricks{font-size:11px;display:block;line-height:1;margin-top:1px;}
+.cal-summary{display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);padding:8px 4px;margin-top:4px;border-top:1px solid var(--line2);}
 
 /* ══════ MY PAGE ══════ */
 .mp-profile{padding:20px 0 16px;}
@@ -224,15 +316,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .mp-avatar{width:56px;height:56px;border-radius:50%;background:var(--brick-l);display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden;flex-shrink:0;}
 .mp-avatar img{width:100%;height:100%;object-fit:cover;}
 .mp-name{font-family:'Gowun Batang',serif;font-size:18px;font-weight:700;color:var(--ink);}
-.mp-since{font-size:11px;color:var(--ink3);margin-top:2px;}
+.mp-since{font-size:12px;color:var(--ink3);margin-top:2px;}
 .mp-bio{font-size:13px;color:var(--ink2);line-height:1.7;padding:10px 14px;background:var(--paper3);border:1px solid var(--line);border-radius:10px;cursor:pointer;min-height:36px;}
 .mp-bio-edit{width:100%;font-size:13px;color:var(--ink);line-height:1.7;padding:10px 14px;background:var(--paper3);border:1.5px solid var(--brick);border-radius:10px;resize:none;min-height:60px;font-family:'Noto Sans KR',sans-serif;box-sizing:border-box;}
-.mp-bio-hint{font-size:11px;color:var(--ink3);margin-top:4px;}
-.mp-reset-btn{font-size:11px;color:#c0392b;background:none;border:1px solid #e8c5c5;border-radius:8px;padding:5px 12px;cursor:pointer;margin-top:12px;}
+.mp-bio-hint{font-size:12px;color:var(--ink3);margin-top:4px;}
+.mp-reset-btn{font-size:12px;color:#c0392b;background:none;border:1px solid #e8c5c5;border-radius:8px;padding:5px 12px;cursor:pointer;margin-top:12px;}
 .mp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px;}
 .mp-stat-card{background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center;}
 .mp-stat-v{font-family:'Gowun Batang',serif;font-size:20px;color:var(--ink);display:block;}
-.mp-stat-l{font-size:10px;color:var(--ink3);font-weight:500;margin-top:2px;}
+.mp-stat-l{font-size:12px;color:var(--ink3);font-weight:500;margin-top:2px;}
 .mp-edition-row{display:flex;gap:10px;margin-bottom:8px;}
 .mp-edition{flex:1;background:var(--paper3);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;}
 .mp-ed-label{font-size:12px;font-weight:600;color:var(--ink2);}
@@ -245,16 +337,28 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .mp-rec:hover{border-color:var(--brick);box-shadow:0 2px 12px var(--shadow);}
 .mp-rec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
 .mp-rec-date{font-size:12px;font-weight:600;color:var(--ink);}
-.mp-rec-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px;}
+.mp-rec-badge{font-size:12px;font-weight:700;padding:2px 8px;border-radius:12px;}
 .mp-rec-badge.growth{background:rgba(91,127,149,0.1);color:var(--accent);}
 .mp-rec-badge.healing{background:rgba(61,107,80,0.1);color:var(--green);}
 .mp-rec-sentence{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink);line-height:1.7;font-weight:300;margin-bottom:6px;}
-.mp-rec-steps{font-size:10px;color:var(--ink3);letter-spacing:.3px;}
+.mp-rec-steps{font-size:12px;color:var(--ink3);letter-spacing:.3px;}
 .mp-rec-detail{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
 .mp-rec-detail.open{display:block;}
 .mp-rec-stage{margin-bottom:10px;}
-.mp-rec-stage-label{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--ink3);text-transform:uppercase;margin-bottom:4px;}
+.mp-rec-stage-label{font-size:12px;font-weight:700;letter-spacing:.8px;color:var(--ink3);text-transform:uppercase;margin-bottom:4px;}
 .mp-rec-stage-text{font-size:13px;color:var(--ink2);line-height:1.8;font-family:'Noto Serif KR',serif;font-weight:300;}
+.my-sentence-wall{margin:18px 0 20px;padding:16px 0 4px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);}
+.my-sentence-wall-sub{font-size:12px;color:var(--ink2);line-height:1.7;margin:-5px 0 12px;word-break:keep-all;}
+.my-sentence-wall-list{display:grid;gap:8px;}
+.my-sentence-card{
+  background:var(--paper3);border:1px solid var(--line);border-radius:12px;
+  padding:13px 15px;position:relative;overflow:hidden;
+}
+.my-sentence-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--brick);}
+.my-sentence-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;font-size:12px;color:var(--ink3);}
+.my-sentence-kind{font-weight:800;color:var(--brick);}
+.my-sentence-text{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink);line-height:1.8;font-weight:300;}
+.my-sentence-source{font-size:12px;color:var(--ink3);margin-top:7px;line-height:1.5;}
 .cal-cell.empty{cursor:default;}
 .cal-cell.selected{background:var(--brick-l);border:1.5px solid var(--brick);}
 
@@ -266,19 +370,19 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   margin-bottom:24px;
 }
 .today-cta:hover{background:linear-gradient(135deg,var(--brick-d) 0%,var(--brick) 100%);}
-.cta-lbl{font-size:10px;color:rgba(247,242,232,0.45);letter-spacing:1.2px;margin-bottom:5px;}
+.cta-lbl{font-size:12px;color:rgba(247,242,232,0.45);letter-spacing:1.2px;margin-bottom:5px;}
 .cta-ttl{font-family:'Gowun Batang',serif;font-size:16px;color:var(--paper);}
 .cta-icon{font-size:28px;}
 
-.sec-ttl{font-size:10px;font-weight:700;letter-spacing:1.8px;color:var(--ink3);
+.sec-ttl{font-size:12px;font-weight:700;letter-spacing:1.8px;color:var(--ink3);
   text-transform:uppercase;margin:0 0 12px;}
 .rec-card{background:var(--paper3);border:1px solid var(--line);border-radius:14px;
   padding:16px 18px;margin-bottom:10px;cursor:pointer;transition:all .2s;}
 .rec-card:hover{border-color:var(--brick);box-shadow:0 4px 16px var(--shadow);}
 .rec-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.rec-date{font-size:11px;color:var(--ink3);font-weight:500;}
-.rec-author{font-size:11px;color:var(--brick);font-style:italic;}
-.score-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.rec-date{font-size:12px;color:var(--ink3);font-weight:500;}
+.rec-author{font-size:12px;color:var(--brick);font-style:italic;}
+.score-badge{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;}
 .score-badge.hi{background:var(--green-p);color:var(--green);}
 .score-badge.mid{background:var(--gold-p);color:var(--gold);}
 .rec-sentence{font-family:'Noto Serif KR',serif;font-size:14px;color:var(--ink);
@@ -287,7 +391,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .rec-expand{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
 .rec-expand.open{display:block;}
 .exp-sec{margin-bottom:12px;}
-.exp-lbl{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--ink3);
+.exp-lbl{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--ink3);
   text-transform:uppercase;margin-bottom:5px;}
 .exp-txt{font-size:13px;color:var(--ink2);line-height:1.85;}
 
@@ -324,13 +428,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   width:80px;height:80px;
   background:rgba(182,94,60,0.15);border-radius:50%;
 }
-.sticky-lbl{font-size:10px;letter-spacing:1.5px;color:rgba(247,242,232,0.4);
+.sticky-lbl{font-size:12px;letter-spacing:1.5px;color:rgba(247,242,232,0.4);
   font-weight:600;text-transform:uppercase;margin-bottom:8px;}
 .sticky-text{font-family:'Gowun Batang',serif;font-size:16px;line-height:1.7;
   color:var(--paper);}
 .sticky-meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px;}
-.sticky-author{font-size:11px;color:var(--brick);font-weight:500;}
-.sticky-toggle{font-size:11px;color:rgba(247,242,232,0.4);cursor:pointer;
+.sticky-author{font-size:12px;color:var(--brick-on-dark);font-weight:500;}
+.sticky-toggle{font-size:12px;color:rgba(247,242,232,0.4);cursor:pointer;
   background:none;border:none;font-family:'Noto Sans KR',sans-serif;
   padding:0;transition:color .2s;}
 .sticky-toggle:hover{color:rgba(247,242,232,0.8);}
@@ -341,8 +445,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .si-track{height:8px;border-radius:2px;background:var(--line);transition:all .3s;}
 .si.active .si-track{background:var(--brick);}
 .si.done .si-track{background:var(--ink);}
-.si-lbl{font-size:10px;color:var(--ink3);font-weight:500;letter-spacing:.3px;white-space:nowrap;}
-.si.active .si-lbl{color:var(--brick);font-weight:700;}
+.si-lbl{font-size:12px;color:var(--ink3);font-weight:500;letter-spacing:.3px;white-space:nowrap;}
+.si.active .si-lbl{color:var(--brick-d);font-weight:700;}
 .si.done .si-lbl{color:var(--ink);}
 
 /* Step cards */
@@ -350,7 +454,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   padding:22px 18px;margin-bottom:12px;animation:fu .4s ease both;}
 @keyframes fu{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 
-.ctag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+.ctag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--ink3);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
 .ctag-dot{width:8px;height:8px;border-radius:1.5px;}
 .ctag-dot.s1{background:var(--brick);}
@@ -363,9 +467,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   background:linear-gradient(135deg,#FDF8EE,#F5EFE0);
   border:1px solid var(--line);border-radius:12px;padding:18px 16px;margin-bottom:14px;
 }
-.sent-card-lbl{font-size:10px;color:var(--ink3);font-weight:500;letter-spacing:1px;margin-bottom:8px;}
+.sent-card-lbl{font-size:12px;color:var(--ink3);font-weight:500;letter-spacing:1px;margin-bottom:8px;}
 .sent-card-txt{font-family:'Gowun Batang',serif;font-size:17px;line-height:1.75;color:var(--ink);}
-.sent-card-src{font-size:11px;color:var(--brick);margin-top:8px;font-style:italic;}
+.sent-card-src{font-size:12px;color:var(--brick);margin-top:8px;font-style:italic;}
 
 /* Why box (step 1 new) */
 .why-box{
@@ -379,7 +483,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   background:rgba(182,94,60,0.18);border-radius:50%;
 }
 .why-box-lbl{
-  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
   color:var(--brick);margin-bottom:10px;display:flex;align-items:center;gap:6px;
 }
 .why-box-lbl::before{
@@ -390,7 +494,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
   font-family:'Noto Serif KR',serif;font-weight:300;}
 .why-box-byline{
   margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08);
-  font-size:11px;color:rgba(247,242,232,0.35);letter-spacing:.5px;
+  font-size:12px;color:rgba(247,242,232,0.35);letter-spacing:.5px;
   display:flex;align-items:center;gap:5px;
 }
 .why-box-byline::before{content:'— ';}
@@ -398,7 +502,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 /* Textarea */
 .iw{position:relative;margin-bottom:12px;}
 /* 공백 감지 경고 */
-.ws-warn{display:none;align-items:center;gap:6px;font-size:11px;color:#C97A2E;background:rgba(201,163,78,0.1);border:1px solid rgba(201,163,78,0.25);border-radius:8px;padding:5px 10px;position:absolute;bottom:10px;left:10px;z-index:10;animation:fadeIn 0.3s ease;}
+.ws-warn{display:none;align-items:center;gap:6px;font-size:12px;color:#C97A2E;background:rgba(201,163,78,0.1);border:1px solid rgba(201,163,78,0.25);border-radius:8px;padding:5px 10px;position:absolute;bottom:10px;left:10px;z-index:10;animation:fadeIn 0.3s ease;}
 .ws-icon{font-size:14px;}
 textarea.has-ws-issue{border-color:rgba(201,163,78,0.5) !important;}
 /* 조기 완료 버튼 */
@@ -415,7 +519,7 @@ textarea{
 }
 textarea::placeholder{color:var(--ink3);font-weight:300;font-size:14px;}
 textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1);}
-.char-hint{position:absolute;bottom:12px;right:14px;font-size:10px;color:var(--ink3);}
+.char-hint{position:absolute;bottom:12px;right:14px;font-size:12px;color:var(--ink3);}
 
 /* Photo zone */
 .pzone{
@@ -445,7 +549,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 /* input section label */
 .or-divider{display:flex;align-items:center;gap:10px;margin:10px 0;}
 .or-line{flex:1;height:1px;background:var(--line);}
-.or-txt{font-size:11px;color:var(--ink3);white-space:nowrap;}
+.or-txt{font-size:12px;color:var(--ink3);white-space:nowrap;}
 
 /* Buttons */
 .btn-p{width:100%;padding:14px;background:var(--ink);color:var(--paper);
@@ -470,30 +574,30 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .lb-ttl{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:7px;
   display:flex;align-items:center;gap:7px;}
 .lb-num{width:20px;height:20px;border-radius:4px;background:var(--gold);
-  color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;}
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
 .lb-body{font-size:13px;color:var(--ink2);line-height:1.9;background:var(--paper);
   border-radius:9px;padding:12px 14px;border-left:3px solid var(--gold);}
 
 /* Compare */
 .cmp{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px;}
 .cmp-side{background:var(--paper);border-radius:12px;padding:16px 16px 14px;border:1px solid var(--line);}
-.cmp-lbl{font-size:10px;color:var(--ink3);font-weight:700;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.cmp-num{width:18px;height:18px;border-radius:4px;background:var(--brick);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;}
+.cmp-lbl{font-size:12px;color:var(--ink3);font-weight:700;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.cmp-num{width:18px;height:18px;border-radius:4px;background:var(--brick);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;}
 .cmp-txt{font-family:'Gowun Batang',serif;font-size:15px;color:var(--ink);
   line-height:1.85;font-weight:400;border-left:3px solid var(--brick-l);padding-left:12px;margin-bottom:8px;}
-.cmp-tech{font-size:11px;color:var(--ink3);line-height:1.6;font-style:italic;}
+.cmp-tech{font-size:12px;color:var(--ink3);line-height:1.6;font-style:italic;}
 
 /* AI result */
 .air{background:var(--paper3);border:1px solid var(--line);border-radius:14px;
   overflow:hidden;margin-top:12px;}
 .air-head{background:var(--ink);padding:11px 16px;
   display:flex;align-items:center;justify-content:space-between;}
-.air-lbl{font-size:11px;color:rgba(247,242,232,0.55);letter-spacing:1px;}
+.air-lbl{font-size:12px;color:rgba(247,242,232,0.55);letter-spacing:1px;}
 .air-score{font-family:'Gowun Batang',serif;font-size:22px;color:var(--paper);}
 .air-body{padding:16px;}
 .air-section{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line);}
 .air-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
-.air-section-lbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+.air-section-lbl{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   color:var(--ink3);margin-bottom:6px;}
 .air-txt{font-size:13px;color:var(--ink2);line-height:1.85;font-family:'Noto Serif KR',serif;font-weight:300;}
 .air-quote{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
@@ -502,7 +606,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .air-tip{background:var(--brick-p);border-radius:8px;padding:10px 13px;
   margin-top:10px;font-size:12px;color:var(--brick);font-weight:500;
   border-left:3px solid var(--brick);}
-.att-left{font-size:11px;color:var(--ink3);text-align:right;margin-top:6px;}
+.att-left{font-size:12px;color:var(--ink3);text-align:right;margin-top:6px;}
 
 /* Loading */
 .ld{display:none;padding:18px;text-align:center;}
@@ -534,7 +638,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .db-score{display:inline-block;margin-top:4px;background:rgba(255,255,255,0.07);
   border-radius:12px;padding:14px 24px;}
 .db-num{font-family:'Gowun Batang',serif;font-size:44px;color:var(--paper);}
-.db-lbl{font-size:11px;color:rgba(247,242,232,0.4);}
+.db-lbl{font-size:12px;color:rgba(247,242,232,0.4);}
 
 @media(max-width:400px){
   .si-lbl{display:none;}
@@ -543,7 +647,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   .edition-cards{grid-template-columns:1fr !important;}
   /* 힐링 테마 — 글씨 줄이기 */
   .ht-name{font-size:12px;}
-  .ht-desc{font-size:10px;}
+  .ht-desc{font-size:12px;}
   /* stat 카드 */
   .stat-v{font-size:20px !important;}
   .stat-v img{width:14px !important;height:14px !important;}
@@ -583,8 +687,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .tw-eyebrow{
   display:flex;align-items:center;gap:8px;
-  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
-  color:var(--brick);margin-bottom:13px;
+  font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--brick-on-dark);margin-bottom:13px;
 }
 .tw-bricks{display:flex;gap:2px;align-items:center;}
 .tw-b{width:7px;height:5px;border-radius:1px;background:var(--brick);}
@@ -595,7 +699,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .tw-byline{
   margin-top:13px;padding-top:11px;border-top:1px solid rgba(255,255,255,0.08);
-  font-size:11px;color:rgba(247,242,232,0.32);letter-spacing:.5px;
+  font-size:12px;color:rgba(247,242,232,0.66);letter-spacing:.5px;
 }
 
 /* ══════ USER MODAL ══════ */
@@ -625,14 +729,14 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   transition:border-color .2s;
 }
 .modal-inp:focus{border-color:var(--brick);}
-.modal-inp-hint{font-size:11px;color:var(--ink3);margin-bottom:18px;}
+.modal-inp-hint{font-size:12px;color:var(--ink3);margin-bottom:18px;}
 .modal-btn{
   width:100%;padding:14px;background:var(--ink);color:var(--paper);
   border:none;border-radius:12px;font-family:'Noto Sans KR',sans-serif;
   font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;
 }
 .modal-btn:hover{background:var(--brick);}
-.modal-privacy{font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.6;}
+.modal-privacy{font-size:12px;color:var(--ink3);margin-top:12px;line-height:1.6;}
 /* WebView 경고 배너 */
 .webview-warn{
   background:#FFF3CD;border:1px solid #FFD97D;border-radius:10px;
@@ -644,11 +748,11 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   background:#5A3E00;color:#fff;border:none;border-radius:8px;
   font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;
 }
-.modal-field-lbl{font-size:11px;font-weight:700;color:var(--ink);letter-spacing:.5px;margin-bottom:6px;}
+.modal-field-lbl{font-size:12px;font-weight:700;color:var(--ink);letter-spacing:.5px;margin-bottom:6px;}
 
 /* ══════ USER BADGE in topnav ══════ */
 .user-badge{
-  font-size:11px;color:var(--ink3);font-weight:500;
+  font-size:12px;color:var(--ink3);font-weight:500;
   padding:5px 10px;background:var(--paper2);border-radius:20px;
   display:none;
 }
@@ -688,17 +792,17 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .sc-logo-txt{font-family:'Gowun Batang',serif;font-size:13px;letter-spacing:1px;color:var(--ink);}
 .sc-logo-txt em{color:var(--brick);font-style:normal;}
 
-.sc-sent-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+.sc-sent-lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--ink3);margin-bottom:7px;}
 .sc-sent{
   font-family:'Gowun Batang',serif;font-size:15px;line-height:1.75;
   color:var(--ink);margin-bottom:5px;
 }
-.sc-author{font-size:11px;color:var(--brick);font-style:italic;margin-bottom:18px;}
+.sc-author{font-size:12px;color:var(--brick);font-style:italic;margin-bottom:18px;}
 
 .sc-divider{height:1px;background:var(--line);margin-bottom:16px;}
 
-.sc-creative-lbl{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+.sc-creative-lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--ink3);margin-bottom:7px;}
 .sc-creative{
   font-family:'Noto Serif KR',serif;font-size:13px;line-height:1.9;
@@ -708,7 +812,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 
 .sc-meta-row{display:flex;align-items:center;justify-content:space-between;}
 .sc-feedback{
-  font-size:11px;color:var(--ink3);line-height:1.5;flex:1;margin-right:12px;
+  font-size:12px;color:var(--ink3);line-height:1.5;flex:1;margin-right:12px;
 }
 .sc-feedback b{color:var(--ink);font-weight:600;}
 .sc-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
@@ -716,9 +820,9 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   font-family:'Gowun Batang',serif;font-size:26px;color:var(--ink);
   line-height:1;
 }
-.sc-score span{font-size:11px;color:var(--ink3);}
+.sc-score span{font-size:12px;color:var(--ink3);}
 .sc-streak{
-  font-size:10px;color:var(--brick);font-weight:700;
+  font-size:12px;color:var(--brick);font-weight:700;
   background:var(--brick-l);padding:3px 8px;border-radius:10px;
   white-space:nowrap;
 }
@@ -726,8 +830,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
   display:flex;align-items:center;justify-content:space-between;
 }
-.sc-date{font-size:10px;color:var(--ink3);}
-.sc-tag{font-size:10px;color:var(--brick);font-weight:600;letter-spacing:.5px;}
+.sc-date{font-size:12px;color:var(--ink3);}
+.sc-tag{font-size:12px;color:var(--brick);font-weight:600;letter-spacing:.5px;}
 
 /* Action buttons below card */
 .share-actions{
@@ -751,7 +855,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .rec-share-btn{
   display:inline-flex;align-items:center;gap:5px;
   padding:6px 12px;border-radius:20px;border:1px solid var(--line);
-  background:transparent;font-size:11px;color:var(--ink3);
+  background:transparent;font-size:12px;color:var(--ink3);
   cursor:pointer;transition:all .2s;font-family:'Noto Sans KR',sans-serif;
   margin-top:10px;
 }
@@ -777,8 +881,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mbadge-icon{font-size:17px;line-height:1;}
 .mbadge-text{display:flex;flex-direction:column;gap:1px;}
 .mbadge-name{font-size:12px;font-family:'Gowun Batang',serif;letter-spacing:.3px;}
-.mbadge-days{font-size:10px;color:var(--ink3);}
-.mbadge-done{font-size:10px;color:var(--gold);font-weight:700;}
+.mbadge-days{font-size:12px;color:var(--ink3);}
+.mbadge-done{font-size:12px;color:var(--gold);font-weight:700;}
 
 /* ══════ TOAST ══════ */
 .lb-toast{
@@ -814,7 +918,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .notify-ask-icon{font-size:22px;flex-shrink:0;}
 .notify-ask-txt{flex:1;}
 .notify-ask-ttl{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px;}
-.notify-ask-sub{font-size:11px;color:var(--ink3);}
+.notify-ask-sub{font-size:12px;color:var(--ink3);}
 .notify-ask-btns{display:flex;gap:6px;flex-shrink:0;}
 .notify-yes{background:var(--ink);color:var(--paper);border:none;border-radius:18px;padding:6px 13px;font-size:12px;cursor:pointer;}
 .notify-no{background:transparent;color:var(--ink3);border:none;font-size:12px;cursor:pointer;padding:6px 4px;}
@@ -850,7 +954,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mp-milestone-head{
   display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;
 }
-.mp-milestone-next{font-size:11px;color:var(--ink3);}
+.mp-milestone-next{font-size:12px;color:var(--ink3);}
 .mp-milestone-next span{color:var(--brick);font-weight:700;}
 .mp-milestone-progress{
   height:5px;background:var(--line2);border-radius:4px;margin-bottom:14px;overflow:hidden;
@@ -866,7 +970,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;
 }
 .tech-coll-count{
-  font-size:11px;color:var(--ink3);
+  font-size:12px;color:var(--ink3);
   background:var(--paper2);padding:3px 8px;border-radius:10px;
   border:1px solid var(--line);
 }
@@ -881,12 +985,12 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .tc.earned{background:var(--brick-p);border-color:rgba(182,94,60,0.25);}
 .tc.locked{opacity:0.35;filter:grayscale(0.2);}
-.tc-name{font-size:11.5px;font-weight:600;color:var(--ink);line-height:1.45;
+.tc-name{font-size:12px;font-weight:600;color:var(--ink);line-height:1.45;
   font-family:'Gowun Batang',serif;letter-spacing:.2px;padding-right:14px;}
-.tc-date{font-size:10px;color:var(--ink3);margin-top:4px;}
+.tc-date{font-size:12px;color:var(--ink3);margin-top:4px;}
 .tc-lock{
   position:absolute;top:8px;right:8px;
-  font-size:11px;color:var(--ink3);opacity:0.45;
+  font-size:12px;color:var(--ink3);opacity:0.45;
 }
 .tc-check{
   position:absolute;top:8px;right:8px;
@@ -913,16 +1017,16 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mp-legal-links button:hover{color:var(--ink);}
 .mp-legal-dot{font-size:12px;color:var(--line);}
 .mp-credit{
-  font-size:10.5px;color:var(--ink3);line-height:1.7;
+  font-size:12px;color:var(--ink3);line-height:1.7;
 }
 
 /* Share card upgrade */
 .sc-tech{
-  font-size:10px;color:var(--brick);font-weight:600;letter-spacing:.5px;
+  font-size:12px;color:var(--brick);font-weight:600;letter-spacing:.5px;
   margin-bottom:14px;
 }
 .share-screenshot-hint{
-  font-size:11px;color:rgba(247,242,232,0.4);text-align:center;
+  font-size:12px;color:rgba(247,242,232,0.4);text-align:center;
   margin-bottom:8px;letter-spacing:.3px;
 }
 
@@ -939,13 +1043,13 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .ec-header{display:flex;align-items:center;gap:10px;}
 .ec-icon{font-size:22px;flex-shrink:0;}
 .ec-name{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.2px;}
-.ec-desc{font-size:11px;color:var(--ink3);margin-top:1px;}
+.ec-desc{font-size:12px;color:var(--ink3);margin-top:1px;}
 .ec-stars{
   display:flex;align-items:center;justify-content:space-between;
   padding:7px 10px;background:var(--paper);border-radius:8px;
 }
-.ec-star-count{font-family:'Gowun Batang',serif;font-size:15px;color:var(--brick);font-weight:700;}
-.ec-star-label{font-size:10px;color:var(--ink3);}
+.ec-star-count{font-family:'Gowun Batang',serif;font-size:15px;color:var(--brick-d);font-weight:700;}
+.ec-star-label{font-size:12px;color:var(--ink3);}
 
 /* ══════ HEALING THEME GRID ══════ */
 .healing-theme-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
@@ -957,7 +1061,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .healing-theme-btn:hover{border-color:var(--gold);background:var(--gold-p);}
 .ht-icon{font-size:28px;}.ht-name{font-size:14px;font-weight:700;color:var(--ink);}
-.ht-desc{font-size:11px;color:var(--ink3);}
+.ht-desc{font-size:12px;color:var(--ink3);}
 
 /* ══════ AUDIO CONTROLS ══════ */
 .audio-controls{display:flex;gap:8px;margin-bottom:14px;}
@@ -970,14 +1074,16 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 
 /* ══════ QUOTE SELECTION ══════ */
 .quote-opt{
+  display:block;width:100%;appearance:none;color:inherit;
   padding:16px;border:1.5px solid var(--line);border-radius:14px;
   background:var(--paper3);cursor:pointer;transition:all .2s;
   margin-bottom:10px;text-align:left;font-family:'Noto Sans KR',sans-serif;
 }
+.quote-opt:focus-visible{outline:3px solid var(--brick);outline-offset:2px;}
 .quote-opt:hover{border-color:var(--brick);box-shadow:0 4px 12px var(--shadow);}
 .quote-opt-text{font-family:'Gowun Batang',serif;font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:6px;}
-.quote-opt-author{font-size:11px;color:var(--brick);font-style:italic;}
-.quote-opt-reason{font-size:11px;color:var(--ink3);margin-top:6px;line-height:1.6;}
+.quote-opt-author{font-size:12px;color:var(--brick-d);font-style:italic;}
+.quote-opt-reason{font-size:12px;color:var(--ink3);margin-top:6px;line-height:1.6;}
 
 /* ══════ AI STARS ══════ */
 .air-star-filled{color:#FFD700;}.air-star-empty{color:rgba(200,190,170,0.3);}
@@ -987,8 +1093,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   margin-bottom:12px;overflow:hidden;}
 .sl2-card-head{padding:10px 14px;display:flex;align-items:center;gap:8px;
   border-bottom:1px solid var(--line2);
-  font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--ink2);}
-.sl2-card-head-sub{font-size:10px;color:var(--ink3);margin-left:auto;font-weight:400;letter-spacing:0;}
+  font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--ink2);}
+.sl2-card-head-sub{font-size:12px;color:var(--ink3);margin-left:auto;font-weight:400;letter-spacing:0;}
 .sl2-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
 .sl2-card-body{padding:16px;}
 /* ── 문장 쪼개기 칩 ── */
@@ -996,27 +1102,27 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .learn-chip-wrap{display:flex;flex-direction:column;gap:5px;}
 .learn-chip{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;gap:10px;}
 .learn-chip-phrase{font-family:'Gowun Batang',serif;font-size:15px;font-weight:700;flex:1;line-height:1.5;}
-.learn-chip-label{font-size:10px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(255,255,255,0.55);white-space:nowrap;flex-shrink:0;}
+.learn-chip-label{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(255,255,255,0.55);white-space:nowrap;flex-shrink:0;}
 .learn-chip-desc{font-size:12px;color:var(--ink3);line-height:1.65;padding-left:2px;}
-.learn-rhythm-note{font-size:11px;color:var(--ink3);margin-top:14px;padding-top:12px;
+.learn-rhythm-note{font-size:12px;color:var(--ink3);margin-top:14px;padding-top:12px;
   border-top:1px solid var(--line2);font-style:italic;}
 /* ── 수사법 ── */
 .learn-rhetoric-list{display:flex;flex-direction:column;gap:12px;margin-bottom:14px;}
 .learn-rhetoric-item{display:flex;flex-direction:column;gap:5px;}
-.sl2-rhetoric-badge{font-size:11px;color:var(--brick-d);background:var(--brick-l);
+.sl2-rhetoric-badge{font-size:12px;color:var(--brick-d);background:var(--brick-l);
   border-radius:4px;padding:3px 9px;font-weight:600;line-height:1.5;align-self:flex-start;}
 .learn-rhetoric-desc{font-size:12px;color:var(--ink2);line-height:1.7;padding-left:2px;}
 /* ── 효과 박스 ── */
 .learn-effect-box{background:var(--green-p);border-radius:9px;padding:12px 14px;margin-top:6px;}
-.learn-effect-label{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.5px;margin-bottom:6px;}
+.learn-effect-label{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.5px;margin-bottom:6px;}
 .sl2-effect{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--ink2);line-height:1.9;font-weight:300;}
-.sl2-rhythm{font-size:11px;color:var(--ink3);margin-top:12px;padding-top:10px;
+.sl2-rhythm{font-size:12px;color:var(--ink3);margin-top:12px;padding-top:10px;
   border-top:1px solid var(--line2);font-style:italic;}
 /* ── 글쓰기 기법 ── */
 .learn-core-name{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:600;
   color:var(--brick);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line2);}
 .learn-pitfalls{margin-top:4px;}
-.learn-pitfalls-lbl{font-size:11px;font-weight:700;color:#8B5E3C;margin-bottom:8px;}
+.learn-pitfalls-lbl{font-size:12px;font-weight:700;color:#8B5E3C;margin-bottom:8px;}
 .sl2-pitfall-item{font-size:12px;color:#8B5E3C;line-height:1.75;padding:7px 0;
   border-bottom:1px solid var(--line2);}
 .sl2-pitfall-item:last-child{border-bottom:none;padding-bottom:0;}
@@ -1038,10 +1144,10 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .learn-vocab-item:last-child{border-bottom:none;padding-bottom:0;}
 .learn-vocab-word{font-family:'Gowun Batang',serif;font-size:16px;font-weight:700;color:#6d28d9;display:block;margin-bottom:4px;}
 .learn-vocab-meaning{font-size:13px;color:var(--ink2);line-height:1.7;}
-.learn-vocab-modern{font-size:11px;color:var(--ink3);margin-top:3px;font-style:italic;}
+.learn-vocab-modern{font-size:12px;color:var(--ink3);margin-top:3px;font-style:italic;}
 .sl2-good-example{background:var(--paper);border-radius:8px;padding:10px 12px;
   border-left:3px solid var(--brick-l);}
-.sl2-good-example-lbl{font-size:10px;color:var(--ink3);font-weight:700;
+.sl2-good-example-lbl{font-size:12px;color:var(--ink3);font-weight:700;
   letter-spacing:.8px;display:block;margin-bottom:6px;}
 .sl2-good-example-txt{font-size:13px;color:var(--ink2);line-height:1.8;
   font-family:'Noto Serif KR',serif;font-weight:300;}
@@ -1049,7 +1155,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 /* ══════ 관찰→근거→개선→예시 FEEDBACK ══════ */
 .fb-grid{display:grid;grid-template-columns:1fr;gap:6px;margin-top:2px;}
 .fb-section{border-radius:8px;padding:10px 13px;}
-.fb-section-lbl{font-size:9px;font-weight:700;letter-spacing:1.2px;
+.fb-section-lbl{font-size:11px;font-weight:700;letter-spacing:1.2px;
   text-transform:uppercase;margin-bottom:5px;}
 .fb-section-txt{font-size:14px;line-height:1.9;font-family:'Noto Serif KR',serif;font-weight:300;}
 .fb-obs{background:var(--paper2);border-left:3px solid var(--ink3);}
@@ -1080,14 +1186,14 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .bf-criterion:last-child{border-bottom:none;}
 .bf-crit-bricks{font-size:16px;min-width:52px;letter-spacing:1px;padding-top:1px;}
 .bf-crit-body{flex:1;}
-.bf-crit-name{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--ink3);margin-bottom:3px;}
+.bf-crit-name{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--ink3);margin-bottom:3px;}
 .bf-crit-comment{font-size:14px;color:var(--ink2);line-height:1.85;font-family:'Noto Serif KR',serif;font-weight:300;}
 .bf-lacking{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
   padding:10px 13px;margin-bottom:10px;}
-.bf-lacking-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--brick-d);margin-bottom:4px;}
+.bf-lacking-lbl{font-size:12px;font-weight:700;letter-spacing:.8px;color:var(--brick-d);margin-bottom:4px;}
 .bf-lacking-txt{font-size:12px;color:var(--brick-d);line-height:1.75;font-family:'Noto Serif KR',serif;}
 .bf-improved{background:var(--paper2);border-radius:8px;padding:10px 13px;margin-bottom:10px;}
-.bf-improved-lbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--ink3);margin-bottom:6px;}
+.bf-improved-lbl{font-size:12px;font-weight:700;letter-spacing:.8px;color:var(--ink3);margin-bottom:6px;}
 .bf-improved-txt{font-size:12px;color:var(--ink2);line-height:1.8;font-family:'Noto Serif KR',serif;}
 .bf-impression{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line2);}
 .bf-errors{margin-top:4px;}
@@ -1095,7 +1201,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 /* ══════ RECORD FILTER ══════ */
 .rec-filter{
   padding:4px 10px;border-radius:12px;border:1px solid var(--line);
-  background:none;font-family:'Noto Sans KR',sans-serif;font-size:10px;
+  background:none;font-family:'Noto Sans KR',sans-serif;font-size:12px;
   color:var(--ink3);cursor:pointer;transition:all .15s;
 }
 .rec-filter.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
@@ -1104,7 +1210,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .ec-world{margin-top:6px;}
 .ew-bar{height:4px;background:var(--line);border-radius:2px;overflow:hidden;}
 .ew-fill{height:100%;background:var(--brick);border-radius:2px;width:0%;transition:width .6s ease;}
-.ew-label{font-size:10px;color:var(--ink3);margin-top:3px;display:flex;justify-content:space-between;}
+.ew-label{font-size:12px;color:var(--ink3);margin-top:3px;display:flex;justify-content:space-between;}
 
 /* ══════ BRICK WALL VISUAL (P2-7 강화) ══════ */
 .brick-wall{text-align:center;margin:20px auto;max-width:280px;}
@@ -1144,7 +1250,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .bw-milestone{
   margin-top:10px;padding:8px 14px;
   background:rgba(255,255,255,0.04);border:1px solid rgba(247,242,232,0.08);
-  border-radius:10px;font-size:11px;color:rgba(247,242,232,0.5);
+  border-radius:10px;font-size:12px;color:rgba(247,242,232,0.5);
   display:flex;align-items:center;justify-content:space-between;gap:8px;
 }
 .bw-milestone-bar{flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden;}
@@ -1157,7 +1263,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:5px;
 }
-.bd-label{font-size:11px;color:rgba(247,242,232,0.4);}
+.bd-label{font-size:12px;color:rgba(247,242,232,0.4);}
 .bd-stars{font-size:14px;letter-spacing:2px;}
 
 /* ══════ GUIDE SLIDES ══════ */
@@ -1183,8 +1289,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   border-left:4px solid var(--gold);
 }
 .copy-ref-label{
-  font-size:11px;font-weight:700;letter-spacing:.07em;
-  color:var(--gold);opacity:.8;margin-bottom:8px;text-transform:uppercase;
+  font-size:12px;font-weight:700;letter-spacing:.07em;
+  color:var(--gold-on-dark);opacity:1;margin-bottom:8px;text-transform:uppercase;
 }
 .copy-ref-text{
   font-family:'Gowun Batang',serif;font-size:17px;line-height:1.85;
@@ -1192,7 +1298,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 @media(min-width:768px){.copy-ref-text{font-size:19px;}}
 .copy-ref-author{
-  margin-top:8px;font-size:11px;color:#c9b89a;opacity:.7;text-align:right;
+  margin-top:8px;font-size:12px;color:#c9b89a;opacity:.7;text-align:right;
 }
 
 .input-mode-bar{
@@ -1217,7 +1323,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:6px;
 }
-.db-star-label{font-size:11px;color:rgba(247,242,232,0.5);white-space:nowrap;}
+.db-star-label{font-size:12px;color:rgba(247,242,232,0.5);white-space:nowrap;}
 .db-star-icons{font-size:16px;letter-spacing:2px;}
 .db-star-total{
   margin-top:10px;text-align:center;
@@ -1295,8 +1401,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .ggc-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
 .ggc-body{}
-.ggc-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--brick);margin-bottom:5px;}
+.ggc-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--brick-d);margin-bottom:5px;}
 .ggc-text{font-size:13px;color:var(--ink);line-height:1.75;
   font-family:'Noto Serif KR',serif;font-weight:400;}
 
@@ -1316,7 +1422,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .hfs-dot.active{background:var(--green);}
 .hfs-dot.done{background:var(--ink2);}
 .hfs-label{
-  font-size:11px;color:var(--ink3);font-weight:400;
+  font-size:12px;color:var(--ink3);font-weight:400;
   padding:0 8px 0 5px;white-space:nowrap;letter-spacing:.2px;
 }
 .hfs-label.active{color:var(--green);font-weight:600;}
@@ -1330,7 +1436,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   animation:fu .45s ease both;
 }
 .hqc-eyebrow{
-  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
   color:rgba(247,242,232,0.45);margin-bottom:14px;
   display:flex;align-items:center;gap:7px;
 }
@@ -1355,7 +1461,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   width:50px;height:50px;background:rgba(182,94,60,0.14);border-radius:50%;
 }
 .struct-guide-lbl{
-  font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+  font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
   color:var(--brick);margin-bottom:10px;
   display:flex;align-items:center;gap:6px;
 }
@@ -1369,7 +1475,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .struct-guide-body b{
   color:rgba(182,94,60,0.9);font-weight:600;font-family:'Noto Sans KR',sans-serif;
-  font-size:11px;letter-spacing:.3px;
+  font-size:12px;letter-spacing:.3px;
 }
 
 /* ══════ DONE MY SENTENCE ══════ */
@@ -1380,7 +1486,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   border-radius:12px;padding:16px 16px 14px;
 }
 .dms-label{
-  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--brick);margin-bottom:10px;
 }
 .dms-text{
@@ -1391,7 +1497,45 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .dms-empty{
   font-size:13px;color:rgba(247,242,232,0.3);font-style:normal;
 }
+/* Before/After — 오늘의 변화 */
+.dms-before{
+  font-family:'Noto Serif KR',serif;font-size:12.5px;line-height:1.8;
+  color:rgba(247,242,232,0.45);font-weight:300;
+  padding-bottom:10px;border-bottom:1px dashed rgba(247,242,232,0.15);
+}
+.dms-before-credit{
+  font-size:12px;color:rgba(247,242,232,0.3);margin-top:4px;
+  font-family:'Noto Sans KR',sans-serif;
+}
+.dms-arrow{
+  font-size:12px;font-weight:700;letter-spacing:1.2px;
+  color:var(--brick);margin:10px 0 8px;
+  font-family:'Noto Sans KR',sans-serif;
+}
+.dms-skill{
+  margin-top:10px;font-size:12px;color:rgba(247,242,232,0.5);
+  font-family:'Noto Sans KR',sans-serif;
+}
 
+/* 무료/유료 비교 (Paid Beta 패널) */
+.paid-beta-compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;
+}
+.pbc-col{
+  border:1px solid rgba(91,128,103,.18);border-radius:10px;padding:10px 11px;
+  background:rgba(91,128,103,.05);
+}
+.pbc-col.pbc-paid{
+  border-color:rgba(182,94,60,.3);background:rgba(182,94,60,.07);
+}
+.pbc-head{
+  font-size:12px;font-weight:700;letter-spacing:1px;color:var(--ink2);
+  margin-bottom:7px;text-transform:uppercase;
+}
+.pbc-paid .pbc-head{color:var(--brick-d);}
+.pbc-col ul{list-style:none;margin:0;padding:0;display:grid;gap:5px;}
+.pbc-col li{font-size:12px;color:var(--ink2);line-height:1.45;}
+.pbc-paid li{color:var(--ink);}
 </style>
 
 <!-- Firebase SDK (compat) -->
@@ -1488,7 +1632,7 @@ const fbDb = firebase.firestore();
       카카오톡·인스타그램 등 앱 내 브라우저는 Google 보안 정책으로 차단됩니다.<br>
       <a class="webview-open-btn" id="openInChromeBtn" href="#">Chrome으로 열기 →</a>
       <div style="margin-top:10px;text-align:center;">
-        <span style="font-size:11px;color:#7A6040;">또는</span>
+        <span style="font-size:12px;color:#7A6040;">또는</span>
         <button onclick="enterGuestMode()" style="display:block;width:100%;margin-top:6px;padding:10px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">
           로그인 없이 바로 체험하기 →
         </button>
@@ -1500,9 +1644,9 @@ const fbDb = firebase.firestore();
     <div class="modal-sub">레터브릭은 매일 한 문장, 나만의 필사 아카이브를<br>만들어주는 AI 문장력 훈련 서비스입니다.</div>
 
     <div style="background:linear-gradient(135deg,var(--brick-l),var(--brick-p));border-radius:12px;padding:14px 16px;margin:14px 0;text-align:left;">
-      <div style="font-size:11px;font-weight:700;color:var(--brick);letter-spacing:.5px;margin-bottom:6px;">DEMO VERSION</div>
+      <div style="font-size:12px;font-weight:700;color:var(--brick);letter-spacing:.5px;margin-bottom:6px;">DEMO VERSION</div>
       <div style="font-size:12px;color:var(--ink2);line-height:1.7;">
-        2026년 5월 30일까지 <b>무료</b>로 사용할 수 있습니다.<br>
+        지금은 <b>무료</b>로 사용할 수 있습니다.<br>
         꾸준히 사용하고 피드백을 주시는 분들 중<br>
         추첨을 통해 <b>1년 구독권</b> 또는 <b>커피 쿠폰</b>을 드려요.
       </div>
@@ -1515,7 +1659,7 @@ const fbDb = firebase.firestore();
 
     <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
       <div style="flex:1;height:1px;background:var(--line);"></div>
-      <div style="font-size:11px;color:var(--ink3);">또는 이메일로</div>
+      <div style="font-size:12px;color:var(--ink3);">또는 이메일로</div>
       <div style="flex:1;height:1px;background:var(--line);"></div>
     </div>
 
@@ -1564,12 +1708,12 @@ const fbDb = firebase.firestore();
             <div style="background:rgba(182,94,60,0.2);border:1.5px solid rgba(182,94,60,0.4);border-radius:14px;padding:16px 14px;width:120px;text-align:center;">
               <div style="font-size:28px;margin-bottom:6px;">✍️</div>
               <div style="font-size:13px;color:var(--paper);font-weight:700;">성장편</div>
-              <div style="font-size:10px;color:rgba(247,242,232,0.5);margin-top:3px;">문장 훈련</div>
+              <div style="font-size:12px;color:rgba(247,242,232,0.5);margin-top:3px;">문장 훈련</div>
             </div>
             <div style="background:rgba(160,120,40,0.15);border:1.5px solid rgba(160,120,40,0.3);border-radius:14px;padding:16px 14px;width:120px;text-align:center;">
               <div style="font-size:28px;margin-bottom:6px;">🌙</div>
               <div style="font-size:13px;color:var(--paper);font-weight:700;">힐링편</div>
-              <div style="font-size:10px;color:rgba(247,242,232,0.5);margin-top:3px;">몰입 필사</div>
+              <div style="font-size:12px;color:rgba(247,242,232,0.5);margin-top:3px;">몰입 필사</div>
             </div>
           </div>
         </div>
@@ -1588,7 +1732,7 @@ const fbDb = firebase.firestore();
             </div>
             <div style="background:rgba(247,242,232,0.04);border:1.5px solid rgba(182,94,60,0.3);border-radius:10px;padding:10px 14px;">
               <div style="font-family:'Noto Serif KR',serif;font-size:12px;color:var(--brick);line-height:1.7;">소나기는 갑자기 쏟아<span style="border-bottom:2px solid var(--brick);">졌</span><span style="opacity:0.3;">다.</span></div>
-              <div style="text-align:right;font-size:9px;color:rgba(247,242,232,0.3);margin-top:4px;">타이핑 중...</div>
+              <div style="text-align:right;font-size:11px;color:rgba(247,242,232,0.3);margin-top:4px;">타이핑 중...</div>
             </div>
           </div>
         </div>
@@ -1604,22 +1748,22 @@ const fbDb = firebase.firestore();
           <div style="width:220px;margin:0 auto;">
             <div style="background:rgba(247,242,232,0.06);border-radius:12px;overflow:hidden;">
               <div style="background:rgba(182,94,60,0.3);padding:8px 14px;display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-size:10px;color:rgba(247,242,232,0.6);">구조 변형 채점</span>
+                <span style="font-size:12px;color:rgba(247,242,232,0.6);">구조 변형 채점</span>
                 <span style="font-size:16px;letter-spacing:2px;">
                   <span style="color:#FFD700;">★★★★</span><span style="color:rgba(247,242,232,0.15);">★</span>
                 </span>
               </div>
               <div style="padding:10px 14px;">
-                <div style="font-size:10px;color:rgba(247,242,232,0.4);margin-bottom:4px;">소감</div>
-                <div style="font-size:11px;color:rgba(247,242,232,0.7);line-height:1.7;">문장의 시작이 달라졌어요.<br>자신만의 표현이 돋보입니다.</div>
+                <div style="font-size:12px;color:rgba(247,242,232,0.4);margin-bottom:4px;">소감</div>
+                <div style="font-size:12px;color:rgba(247,242,232,0.7);line-height:1.7;">문장의 시작이 달라졌어요.<br>자신만의 표현이 돋보입니다.</div>
               </div>
             </div>
-            <div style="text-align:center;margin-top:8px;font-size:10px;color:rgba(247,242,232,0.3);">채점 기회 1번 남음</div>
+            <div style="text-align:center;margin-top:8px;font-size:12px;color:rgba(247,242,232,0.3);">채점 기회 1번 남음</div>
           </div>
         </div>
         <div class="gs-text">
           <div class="gs-title">AI가 소감을 들려줘요</div>
-          <div class="gs-desc">구조변형 2회, 창의적 글쓰기 3회<br>별점과 함께 따뜻한 피드백을 받아요</div>
+          <div class="gs-desc">구조변형 2회, 창의적 글쓰기 3회<br>벽돌과 함께 따뜻한 피드백을 받아요</div>
         </div>
       </div>
 
@@ -1640,7 +1784,7 @@ const fbDb = firebase.firestore();
               <div style="width:22px;height:14px;border-radius:2px;background:rgba(182,94,60,0.1);border:1px dashed rgba(182,94,60,0.2);"></div>
             </div>
             <div style="font-family:'Gowun Batang',serif;font-size:18px;color:var(--paper);margin-bottom:4px;">벽돌 → 집 → 도서관</div>
-            <div style="font-size:11px;color:rgba(247,242,232,0.4);">문장이 벽돌이 되고, 벽돌이 세계가 됩니다</div>
+            <div style="font-size:12px;color:rgba(247,242,232,0.4);">문장이 벽돌이 되고, 벽돌이 세계가 됩니다</div>
           </div>
         </div>
         <div class="gs-text">
@@ -1662,7 +1806,7 @@ const fbDb = firebase.firestore();
         <button id="guideNext" class="modal-btn" onclick="guideNav(1)" style="flex:1;margin:0;">다음 →</button>
       </div>
       <div style="margin-top:10px;">
-        <label style="font-size:11px;color:var(--ink3);cursor:pointer;">
+        <label style="font-size:12px;color:var(--ink3);cursor:pointer;">
           <input type="checkbox" id="guideNoShow" style="margin-right:4px;">다시 보지 않기
         </label>
       </div>
@@ -1682,7 +1826,7 @@ const fbDb = firebase.firestore();
       소재·장면·인물은 <b>완전히 나만의 것</b>으로 바꿔보세요.
     </div>
     <div style="background:var(--paper3);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:left;margin-bottom:16px;">
-      <div style="font-size:10px;font-weight:700;letter-spacing:1.2px;color:var(--ink3);margin-bottom:10px;">이렇게 해보세요</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.2px;color:var(--ink3);margin-bottom:10px;">이렇게 해보세요</div>
       <div style="font-size:13px;color:var(--ink2);line-height:2;" id="sgTips">
         <div>① 예시의 <b>주어</b>를 나만의 인물·장소로 바꿔보세요</div>
         <div>② 예시의 <b>동사·형용사</b> 중 하나를 다른 단어로 바꿔보세요</div>
@@ -1731,7 +1875,7 @@ const fbDb = firebase.firestore();
     <button class="modal-btn" onclick="submitFeedback()">소감 보내기 →</button>
     <button class="btn-s" onclick="dismissFeedback()" style="margin-top:6px;width:100%;text-align:center;">나중에 할게요</button>
 
-    <div style="text-align:center;margin-top:10px;font-size:11px;color:var(--ink3);line-height:1.6;">
+    <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--ink3);line-height:1.6;">
       소중한 피드백을 주시는 분들 중 추첨을 통해<br>
       <b>1년 구독권</b> 또는 <b>커피 쿠폰</b>을 드립니다.<br>
       당첨자에게는 가입 시 이메일로 안내드려요 ☕
@@ -1764,7 +1908,90 @@ const fbDb = firebase.firestore();
     <div class="stat-row">
       <div class="stat-card"><span class="stat-v" id="streakCount"><img src="images/icon_orbit.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="orbit"> 0</span><span class="stat-l">연속 일수</span></div>
       <div class="stat-card"><span class="stat-v" id="totalCount"><img src="images/icon_telescope.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="telescope"> 0</span><span class="stat-l">총 필사</span></div>
-      <div class="stat-card"><span class="stat-v" id="avgScore"><img src="images/icon_star.svg" width="16" height="16" style="vertical-align:-2px;opacity:0.5;margin-right:2px;" alt="star"> 0</span><span class="stat-l">평균 별점</span></div>
+      <div class="stat-card"><span class="stat-v" id="avgScore">🧱 0</span><span class="stat-l">평균 벽돌</span></div>
+    </div>
+
+    <div class="taste-entry" id="tasteEntry">
+      <div class="taste-entry-top">
+        <div class="taste-entry-kicker">Taste Test</div>
+        <div class="taste-entry-edition" id="tasteEntryEdition">추천 에디션</div>
+      </div>
+      <div class="taste-entry-title" id="tasteEntryTitle">오늘은 이 흐름으로 시작해볼까요?</div>
+      <div class="taste-entry-copy" id="tasteEntryCopy">테스트 결과를 바탕으로 첫 필사 흐름을 맞춰두었습니다.</div>
+      <div class="taste-entry-tags" id="tasteEntryTags"></div>
+      <div class="taste-entry-actions">
+        <button class="taste-entry-primary" id="tasteEntryStart" onclick="startTasteRecommendation()">추천대로 시작</button>
+        <button class="taste-entry-secondary" onclick="dismissTasteEntry()">나중에</button>
+      </div>
+    </div>
+
+    <div class="paid-beta-panel" id="paidBetaPanel">
+      <div class="paid-beta-top">
+        <div class="paid-beta-kicker">Paid Beta</div>
+        <div class="paid-beta-badge free" id="paidBetaBadge">무료 체험</div>
+      </div>
+      <div class="paid-beta-title" id="paidBetaTitle">유료 베타 준비 모드</div>
+      <div class="paid-beta-copy" id="paidBetaCopy">지금은 로컬 코치 분석으로 체험할 수 있어요. 유료 베타 권한이 열리면 실제 AI 코치와 월간 리포트가 활성화됩니다.</div>
+      <div class="paid-beta-meter"><div class="paid-beta-fill" id="paidBetaFill" style="width:0%;"></div></div>
+      <div class="paid-beta-meta">
+        <span id="paidBetaQuota">AI 코치 0/0</span>
+        <span id="paidBetaUntil">권한 대기 중</span>
+      </div>
+      <div class="paid-beta-compare" id="paidBetaCompare">
+        <div class="pbc-col">
+          <div class="pbc-head">무료 체험</div>
+          <ul>
+            <li>오늘의 문장 + 4단계 훈련</li>
+            <li>로컬 코치 분석</li>
+            <li>기록·벽돌 저장</li>
+          </ul>
+        </div>
+        <div class="pbc-col pbc-paid">
+          <div class="pbc-head">유료 베타</div>
+          <ul>
+            <li>실제 AI 코치 (하루 6회)</li>
+            <li>월간 성장 리포트</li>
+            <li>성장+힐링 통합 루틴</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sentence-stack-panel" id="sentenceStackPanel">
+      <div class="sentence-stack-top">
+        <div>
+          <div class="sentence-stack-kicker">My Sentence Wall</div>
+          <div class="sentence-stack-title">내 문장이 쌓이는 곳</div>
+        </div>
+        <div class="sentence-stack-count" id="sentenceStackCount">0줄</div>
+      </div>
+      <div class="sentence-stack-copy" id="sentenceStackCopy">필사, 구조 변형, 창작, 소감이 한 줄씩 모여 개인 문장벽이 됩니다.</div>
+      <div class="sentence-stack-list" id="sentenceStackList"></div>
+    </div>
+
+    <div class="brick-home-panel" id="brickHomePanel">
+      <div class="brick-home-top">
+        <div>
+          <div class="brick-home-kicker">My Brick House</div>
+          <div class="brick-home-title">내 문장집이 자라고 있어요</div>
+        </div>
+        <div class="brick-home-count" id="brickHomeCount">0개</div>
+      </div>
+      <div class="brick-home-copy" id="brickHomeCopy">AI 코치가 준 최대 5개의 벽돌이 매일 집을 짓는 재료가 됩니다.</div>
+      <div class="brick-house-scene">
+        <div class="brick-house-art">
+          <div class="brick-house" id="brickHouseArt"></div>
+        </div>
+        <div class="brick-home-progress">
+          <div class="brick-home-stage" id="brickHomeStage">첫 벽돌</div>
+          <div class="brick-home-next" id="brickHomeNext">다음 목표까지 1개</div>
+          <div class="brick-home-bar"><div class="brick-home-fill" id="brickHomeFill"></div></div>
+          <div class="brick-home-meta">
+            <span id="brickHomeCurrent">0</span>
+            <span id="brickHomeGoal">1</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ── 오늘 필사 리마인더 배너 ── -->
@@ -1800,8 +2027,8 @@ const fbDb = firebase.firestore();
           </div>
         </div>
         <div class="ec-stars" id="ecGrowthStars">
-          <span class="ec-star-count">★ 0</span>
-          <span class="ec-star-label">누적 별점</span>
+          <span class="ec-star-count">🧱 0</span>
+          <span class="ec-star-label">누적 벽돌</span>
         </div>
         <!-- P2-7: 세계관 활성화 -->
         <div class="ec-world" id="ecGrowthWorld">
@@ -1818,8 +2045,8 @@ const fbDb = firebase.firestore();
           </div>
         </div>
         <div class="ec-stars" id="ecHealingStars">
-          <span class="ec-star-count" id="ecHealingCount">★ 0</span>
-          <span class="ec-star-label">누적 기록</span>
+          <span class="ec-star-count" id="ecHealingCount">🧱 0</span>
+          <span class="ec-star-label">누적 벽돌</span>
         </div>
         <!-- P2-7: 세계관 활성화 -->
         <div class="ec-world" id="ecHealingWorld">
@@ -1972,7 +2199,7 @@ const fbDb = firebase.firestore();
         다음 — 문장 학습하기 →
       </button>
       <button class="btn-finish-early" id="s1Finish" onclick="finishEarly('copy')" style="display:none;">
-        ⭐ 오늘은 필사만 할래요
+        🧱 오늘은 필사만 할래요
       </button>
     </div>
 
@@ -2014,7 +2241,7 @@ const fbDb = firebase.firestore();
       <div class="att-left" id="sAtt">채점 기회 2번 남음</div>
       <button class="btn-s" id="sNext" onclick="goS4()" style="display:none;">다음 — 창의적 글쓰기 →</button>
       <button class="btn-finish-early" id="s3Finish" onclick="finishEarly('struct')" style="display:none;">
-        ⭐ 여기서 마치기
+        🧱 여기서 마치기
       </button>
     </div>
 
@@ -2059,10 +2286,14 @@ const fbDb = firebase.firestore();
       <div class="db-ttl">오늘 필사 완성!</div>
       <div class="db-sub">오늘도 벽돌을 쌓았어요.</div>
 
-      <!-- 오늘 완성한 내 문장 -->
+      <!-- 오늘의 변화: 원문 → 내 문장 (Before/After) -->
       <div class="done-my-sentence" id="doneMySentence">
-        <div class="dms-label">오늘 완성한 내 문장</div>
+        <div class="dms-label">오늘의 변화</div>
+        <div class="dms-before" id="doneOriginalText" style="display:none;"></div>
+        <div class="dms-before-credit" id="doneOriginalCredit" style="display:none;"></div>
+        <div class="dms-arrow" id="doneArrow" style="display:none;">↓ 오늘 내가 쓴 문장</div>
         <div class="dms-text" id="doneMySentenceText"><span class="dms-empty">창의 글쓰기를 완성하면 여기에 표시돼요.</span></div>
+        <div class="dms-skill" id="doneSkillText" style="display:none;"></div>
       </div>
 
       <!-- 벽돌 쌓기 비주얼 -->
@@ -2253,7 +2484,7 @@ const fbDb = firebase.firestore();
 
       <!-- 나의 답 (소감 입력) -->
       <div id="healingSogamSection" style="margin-top:4px;text-align:left;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">나의 답</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:rgba(247,242,232,0.5);text-transform:uppercase;margin-bottom:8px;">나의 답</div>
         <textarea id="healingSogamTa" placeholder="몇 줄이면 충분해요. 떠오르는 것을 그대로 써보세요..." rows="3" spellcheck="false"
           style="width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(247,242,232,0.15);border-radius:10px;padding:12px 14px;font-family:'Noto Serif KR',serif;font-size:14px;line-height:1.8;color:var(--paper);resize:none;outline:none;"
           oninput="this.style.borderColor=this.value.length>0?'rgba(247,242,232,0.3)':'rgba(247,242,232,0.15)'"></textarea>
@@ -2264,7 +2495,7 @@ const fbDb = firebase.firestore();
 
       <!-- AI 코치 답변 -->
       <div id="healingCoachResponse" style="display:none;margin-top:16px;text-align:left;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:var(--brick);margin-bottom:8px;">AI 코치의 답변</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:var(--brick);margin-bottom:8px;">AI 코치의 답변</div>
         <div id="healingCoachText" style="font-size:13px;color:rgba(247,242,232,0.8);line-height:1.9;font-family:'Noto Serif KR',serif;font-weight:300;background:rgba(182,94,60,0.1);border-left:3px solid var(--brick);border-radius:0 10px 10px 0;padding:14px 16px;"></div>
       </div>
 
@@ -2288,7 +2519,7 @@ const fbDb = firebase.firestore();
       <div class="mp-profile-top">
         <div style="position:relative;flex-shrink:0;">
           <div class="mp-avatar" id="mpAvatar" onclick="document.getElementById('avatarFileInp').click()" title="사진 변경" style="cursor:pointer;">📝</div>
-          <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:var(--brick);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;pointer-events:none;">✏️</div>
+          <div style="position:absolute;bottom:0;right:0;width:18px;height:18px;background:var(--brick);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;pointer-events:none;">✏️</div>
           <input type="file" id="avatarFileInp" accept="image/*" style="display:none;" onchange="uploadAvatar(this)">
         </div>
         <div class="mp-info">
@@ -2309,7 +2540,7 @@ const fbDb = firebase.firestore();
     <div class="mp-stats">
       <div class="mp-stat-card">
         <div class="mp-stat-v" id="mpTotalStars">0</div>
-        <div class="mp-stat-l">누적 ⭐</div>
+        <div class="mp-stat-l">누적 벽돌</div>
       </div>
       <div class="mp-stat-card">
         <div class="mp-stat-v" id="mpTotalSessions">0</div>
@@ -2329,12 +2560,18 @@ const fbDb = firebase.firestore();
     <div class="mp-edition-row">
       <div class="mp-edition">
         <div class="mp-ed-label">성장</div>
-        <div class="mp-ed-val" id="mpGrowthStars">★ 0</div>
+        <div class="mp-ed-val" id="mpGrowthStars">🧱 0</div>
       </div>
       <div class="mp-edition">
         <div class="mp-ed-label">힐링</div>
-        <div class="mp-ed-val" id="mpHealingStars">★ 0</div>
+        <div class="mp-ed-val" id="mpHealingStars">🧱 0</div>
       </div>
+    </div>
+
+    <div class="my-sentence-wall">
+      <div class="sec-ttl">내 문장벽</div>
+      <div class="my-sentence-wall-sub" id="mySentenceWallSub">오늘까지 쌓인 개인 문장을 모아 보여줍니다.</div>
+      <div class="my-sentence-wall-list" id="mySentenceWallList"></div>
     </div>
 
     <!-- 전체 기록 목록 -->
@@ -5168,8 +5405,8 @@ const SENTENCES = [
   },
   {
     "text": "어머니는 항상 부엌에 있었다. 그러니까 어머니는 항상 낮은 곳에 있었다.",
-    "author": "신경숙",
-    "source": "「엄마를 부탁해」(2008) 문체 영감 — 온:사유 재구성",
+    "author": "온:사유",
+    "source": "창작 예문 — 2단 의미 전환 연습",
     "reason": "장소를 의미로 연결해서 새 뜻을 만들기",
     "learn": {
       "coreSkill": "장소를 '그러니까'로 의미 전환",
@@ -5326,9 +5563,10 @@ const SENTENCES = [
     "example": "대부분의 사람들은 익숙한 불안 속에서 괜찮은 척 하루를 보낸다."
   },
   {
-    "text": "무소유란 아무것도 갖지 않는 것이 아니라, 불필요한 것을 갖지 않는 것이다.",
-    "author": "법정",
-    "source": "「무소유」(1976) 문체 영감 — 온:사유 재구성",
+    "text": "사람은 자기를 걱정하는 마음으로 사는 것이 아니라, 사랑으로 살아간다.",
+    "author": "레프 톨스토이",
+    "source": "「사람은 무엇으로 사는가」(1885) — 온:사유 번역",
+    "authorNote": "저작권 만료 (사후 70년 이상)",
     "reason": "흔한 단어를 재정의해서 새 의미 부여하기",
     "learn": {
       "coreSkill": "흔한 단어를 역설로 재정의",
@@ -5336,19 +5574,19 @@ const SENTENCES = [
         "grammar": [
           {
             "label": "주어",
-            "value": "무소유란"
+            "value": "사람은"
           },
           {
             "label": "서술어",
-            "value": "갖지 않는 것이다 (재정의)"
+            "value": "살아간다 (재정의)"
           },
           {
             "label": "부사어",
-            "value": "아무것도 갖지 않는 것이 아니라 — 오해 부정"
+            "value": "자기를 걱정하는 마음으로 사는 것이 아니라 — 오해 부정"
           },
           {
-            "label": "관형어",
-            "value": "불필요한 — 핵심 기준어"
+            "label": "핵심어",
+            "value": "사랑으로 — 재정의의 기준어"
           },
           {
             "label": "호흡",
@@ -5357,9 +5595,9 @@ const SENTENCES = [
         ],
         "rhetoric": [
           "부정법 — '아니라'로 흔한 오해를 선제 부수고",
-          "재정의 — 기준어('불필요한') 하나로 개념의 범위를 재설정"
+          "재정의 — 기준어('사랑') 하나로 개념의 범위를 재설정"
         ],
-        "effect": "이미 알고 있다고 생각한 단어에 새 의미를 부여해 독자를 놀라게 한다. '불필요한'이라는 기준어 하나가 무소유 개념 전체를 재구성한다.",
+        "effect": "'산다'처럼 이미 알고 있다고 생각한 단어에 새 근거를 부여해 독자를 놀라게 한다. '사랑'이라는 기준어 하나가 삶의 정의 전체를 재구성한다.",
         "rhythm": "부정-전환-확정형 — 부정→'아니라'→긍정 재정의의 명쾌한 3박자"
       },
       "practiceMission": "오늘 미션 — 익숙한 단어 하나를 골라 '___란 ___이 아니라 ___이다' 구조로 재정의해보세요.",
@@ -6268,55 +6506,55 @@ const SENTENCES = [
     "example": "화요일 저녁, 그는 이 도시에서 자신을 아는 사람이 한 명도 없다는 것을 알았다."
   },
   {
-    "text": "나는 이 세상에서 가난하고 외롭고 높고 쓸쓸하니 살어가도록 태어났다.",
-    "author": "백석",
-    "source": "「흰 바람벽이 있어」(1941)",
-    "authorNote": "저작권 만료 (사후 70년 이상)",
-    "reason": "형용사를 나열해서 자기 존재를 선언하기",
+    "text": "모가지가 길어서 슬픈 짐승이여, 언제나 점잖은 편 말이 없구나. 관이 향기로운 너는 무척 높은 족속이었나 보다.",
+    "author": "노천명",
+    "source": "「사슴」(1938)",
+    "authorNote": "저작권 만료 (사후 50년 경과, 1957년 별세)",
+    "reason": "형용사를 나열해서 존재를 선언하기",
     "learn": {
       "coreSkill": "형용사 4개 나열로 존재 선언",
       "anatomy": {
         "grammar": [
           {
             "label": "주어",
-            "value": "나는"
+            "value": "짐승이여 / 너는 — 호명에서 지칭으로"
           },
           {
             "label": "부사어",
-            "value": "이 세상에서"
+            "value": "언제나 / 무척 — 존재의 항상성과 정도 강조"
           },
           {
             "label": "열거 구조",
-            "value": "가난하고 / 외롭고 / 높고 / 쓸쓸하니 — 4개 형용사 병렬"
+            "value": "길어서 슬픈 / 점잖은 / 향기로운 / 높은 — 4개 형용사 축적"
           },
           {
             "label": "서술어",
-            "value": "살어가도록 태어났다 — 운명 선언으로 마무리"
+            "value": "족속이었나 보다 — 조심스러운 존재 선언으로 마무리"
           },
           {
             "label": "호흡",
-            "value": "형용사 축적 → 운명 결론으로 마무리되는 상승 구조"
+            "value": "형용사 축적 → 존재 규정으로 마무리되는 상승 구조"
           }
         ],
         "rhetoric": [
-          "열거법 — 4개 형용사를 나열해 자기 존재의 여러 면모를 층층이 쌓음",
-          "역설법 — '높고'라는 긍정적 형용사가 부정적 형용사 사이에 끼어 모순적 존재감"
+          "열거법 — 4개 형용사를 나열해 존재의 여러 면모를 층층이 쌓음",
+          "역설법 — '슬픈'과 '높은'이 한 존재 안에 공존하는 모순적 품격"
         ],
-        "effect": "형용사가 쌓일수록 존재의 무게가 느껴진다. '태어났다'로 마무리해 선택이 아닌 운명이라는 확언을 만든다.",
-        "rhythm": "상승-폭발형 — 형용사가 쌓이다가 '태어났다'에서 운명 선언으로 터짐"
+        "effect": "형용사가 쌓일수록 존재의 무게가 느껴진다. '~이었나 보다'라는 추정형이 단정보다 더 깊은 여운을 만든다.",
+        "rhythm": "상승-여운형 — 형용사가 쌓이다가 '족속이었나 보다'에서 조용히 내려앉음"
       },
-      "practiceMission": "오늘 미션 — '나는 이 세상에서 ___하고 ___하고 ___하니 살아가도록 태어났다' 구조로 자신을 정의하는 형용사 3~4개를 나열해 써보세요.",
+      "practiceMission": "오늘 미션 — '___하고 ___하고 ___한 나는, 무척 ___한 사람이었나 보다' 구조로 자신을 정의하는 형용사 3~4개를 나열해 써보세요.",
       "pitfalls": [
         "형용사가 2개 이하면 존재의 층위가 얕아진다",
         "형용사가 모두 같은 방향(부정 or 긍정)이면 역설과 깊이가 사라진다",
-        "'태어났다' 대신 '살고 싶다'로 바꾸면 운명 선언의 무게가 없어진다"
+        "'~이었나 보다'를 단정형으로 바꾸면 시의 조심스러운 품격이 사라진다"
       ],
-      "goodExample": "나는 이 세상에서 조용하고 느리고 깊게 살아가도록 태어났다.",
+      "goodExample": "말이 느리고 웃음이 많고 눈물이 흔한 나는, 무척 오래된 마음을 지닌 사람이었나 보다.",
       "step3Rubric": [
         {
           "name": "구조 재현도",
           "weight": 2,
-          "desc": "형용사 3개 이상 나열 + '태어났다' 운명 선언 구조가 살아 있는가"
+          "desc": "형용사 3개 이상 나열 + 존재 선언('~이었나 보다') 구조가 살아 있는가"
         },
         {
           "name": "형용사의 다양성",
@@ -6347,7 +6585,7 @@ const SENTENCES = [
         }
       ]
     },
-    "example": "나는 이 세상에서 조용하고 느리고 깊게 살아가도록 태어났다."
+    "example": "말이 느리고 웃음이 많고 눈물이 흔한 나는, 무척 오래된 마음을 지닌 사람이었나 보다."
   },
   {
     "text": "자기 자신이 되는 것, 그것이 사회 전체가 막으려 하는 유일한 일이다.",
@@ -6589,8 +6827,8 @@ const SENTENCES = [
   },
   {
     "text": "사람은 누구나 자기만의 섬을 가지고 있다. 때로는 그 섬이 감옥이 되기도 한다.",
-    "author": "이청준",
-    "source": "소설 영감 — 온:사유 재구성",
+    "author": "온:사유",
+    "source": "창작 예문 — 비유 반전 연습",
     "reason": "비유를 확장해서 반전 만들기",
     "learn": {
       "coreSkill": "비유 반전으로 깊이 만들기",
@@ -7236,9 +7474,8 @@ const SENTENCES = [
   },
   {
     "text": "날은 흐리고 바람은 세고 길은 멀고 몸은 시리다.",
-    "author": "박태원",
-    "source": "「소설가 구보씨의 일일」(1934) 문체 영감 — 온:사유 재구성",
-    "authorNote": "저작권 만료 (사후 70년 이상)",
+    "author": "온:사유",
+    "source": "창작 예문 — 짧은 나열 압축 연습",
     "reason": "짧은 문장을 연결해서 상황을 한 줄로 압축하기",
     "learn": {
       "coreSkill": "짧은 나열로 상황 압축",
@@ -7798,8 +8035,8 @@ const SENTENCES = [
   },
   {
     "text": "나는 오늘도 썼다. 잘 썼는지 모르겠다. 하지만 오늘도 여기 있었다는 증거는 남겼다.",
-    "author": "클라리시 리스펙토르",
-    "source": "일기(연대 미상) — 온:사유 의역",
+    "author": "온:사유",
+    "source": "창작 예문 — 솔직한 고백 구조 연습",
     "reason": "불확실한 고백이 오히려 독자를 끌어당기는 구조",
     "learn": {
       "coreSkill": "솔직한 고백이 독자를 끌어당김",
@@ -7878,50 +8115,50 @@ const SENTENCES = [
     "example": "나는 오늘도 살았다. 잘 살았는지 모르겠다. 하지만 오늘도 무언가를 느꼈다는 것만은 확실하다."
   },
   {
-    "text": "문장은 세계를 모방하지 않는다. 문장이 세계를 만든다.",
-    "author": "롤랑 바르트",
-    "source": "「글쓰기의 영도」(1953) — 온:사유 번역",
-    "authorNote": "온:사유 자체 번역",
-    "reason": "동사 하나 교체로 세계관을 완전히 바꾸기",
+    "text": "본래 땅 위에는 길이 없다. 걷는 사람이 많아지면, 그것이 곧 길이 된다.",
+    "author": "루쉰",
+    "source": "「고향」(1921) — 온:사유 번역",
+    "authorNote": "저작권 만료 (사후 70년 이상, 1936년 별세)",
+    "reason": "부정 선언 뒤에 생성 선언을 놓아 세계관 바꾸기",
     "learn": {
-      "coreSkill": "동사 교체로 세계관 전환",
+      "coreSkill": "부정 뒤 생성 선언으로 세계관 전환",
       "anatomy": {
         "grammar": [
           {
             "label": "주어",
-            "value": "문장은 / 문장이 — 같은 주어, 역할이 달라짐"
+            "value": "길이 (없다) / 그것이 (길이 된다) — 없던 것이 주인공으로"
           },
           {
-            "label": "목적어",
-            "value": "세계를 — 양쪽 모두 같은 목적어"
+            "label": "부사어",
+            "value": "본래 — 상식의 기준점을 먼저 세움"
           },
           {
             "label": "서술어",
-            "value": "모방하지 않는다 (부정) → 만든다 (창조 긍정) — 동사 하나 교체로 의미 역전"
+            "value": "없다 (부정) → 된다 (생성 긍정) — 동사 전환으로 의미 역전"
           },
           {
             "label": "대구 구조",
-            "value": "부정 선언(첫 문장) ↔ 긍정 창조(두 번째 문장) 완벽한 대구"
+            "value": "부정 선언(첫 문장) ↔ 생성 선언(두 번째 문장)의 대구"
           },
           {
             "label": "호흡",
-            "value": "짧은 부정 선언 → 더 짧은 긍정 선언 — 무게가 두 번째로 이동"
+            "value": "짧은 부정 선언 → 조건과 함께 열리는 생성 선언"
           }
         ],
         "rhetoric": [
-          "대조법 — 모방(수동/종속)과 창조(능동/독립)를 동사 하나로 극명히 대비",
-          "역설법 — 언어가 세계를 모방하는 도구라는 상식을 뒤집어 언어가 세계를 창조한다고 선언"
+          "대조법 — 없음(부정)과 생김(생성)을 동사 전환으로 극명히 대비",
+          "역설법 — 길이 원래 있다는 상식을 뒤집어, 걷는 행위가 길을 만든다고 선언"
         ],
-        "effect": "두 번째 문장이 첫 번째보다 더 짧고 단호하게 끝나면서 창조의 선언이 더 강한 인상을 남긴다. '모방→창조'의 동사 전환이 글쓰기 30일의 의미를 단 두 문장으로 요약하며 독자의 쓰기 행위를 창조 행위로 격상시킨다.",
-        "rhythm": "부정-선언형 — 부정으로 기대를 비우고 짧은 긍정 선언으로 채움"
+        "effect": "첫 문장이 상식을 비우고, 두 번째 문장이 사람의 행동으로 세계가 만들어진다는 새 관점을 채운다. '걷는 사람'이라는 구체적 행위자가 희망을 관념이 아닌 실천으로 바꾼다.",
+        "rhythm": "부정-생성형 — 부정으로 기대를 비우고 생성 선언으로 채움"
       },
-      "practiceMission": "오늘 미션 — '___은/는 ___을/를 ___하지 않는다. ___이/가 ___을/를 ___한다' 구조로, 동사 하나만 바꾸어 의미를 완전히 뒤집는 두 문장을 써보세요.",
+      "practiceMission": "오늘 미션 — '본래 ___에는 ___이 없다. ___이 많아지면, 그것이 곧 ___이 된다' 구조로, 부정 선언 뒤에 생성 선언을 놓는 두 문장을 써보세요.",
       "pitfalls": [
         "두 번째 문장의 동사가 첫 번째 동사와 너무 비슷하면 전환이 느껴지지 않는다",
-        "두 번째 문장이 첫 번째보다 길면 선언의 무게가 분산된다 — 두 번째는 짧게",
-        "부정 문장이 없으면 역전의 충격이 없다 — 반드시 '하지 않는다'로 시작"
+        "생성의 조건(누가, 무엇이 많아지면)이 없으면 선언이 공허해진다",
+        "부정 문장이 없으면 역전의 충격이 없다 — 반드시 '없다'로 시작"
       ],
-      "goodExample": "기록은 과거를 보존하지 않는다. 기록이 과거를 다시 선택한다.",
+      "goodExample": "본래 마음속에는 용기가 없다. 내딛는 걸음이 많아지면, 그것이 곧 용기가 된다.",
       "step3Rubric": [
         {
           "name": "동사 교체 구조",
@@ -7957,7 +8194,7 @@ const SENTENCES = [
         }
       ]
     },
-    "example": "기록은 과거를 보존하지 않는다. 기록이 과거를 다시 선택한다."
+    "example": "본래 마음속에는 용기가 없다. 내딛는 걸음이 많아지면, 그것이 곧 용기가 된다."
   }
 
 ];
@@ -8051,6 +8288,25 @@ const CREATIVE_FB = [
    STATE
 ══════════════════════════════ */
 let now=new Date(); let calYear=now.getFullYear(), calMonth=now.getMonth();
+
+/* ══════ 표기 헬퍼: 출처 겹낫표 중복 방지 + 한국어 조사 결합 ══════ */
+function lbWrapSource(source){
+  if(!source) return '';
+  var s = String(source).trim();
+  return s.indexOf('「') !== -1 ? s : '「' + s + '」';
+}
+function lbCredit(author, source){
+  var parts = [];
+  if(author) parts.push(String(author).trim());
+  if(source) parts.push(lbWrapSource(source));
+  return parts.length ? '— ' + parts.join(' ') : '';
+}
+function lbJosa(word, withBatchim, withoutBatchim){
+  if(!word) return withoutBatchim;
+  var code = String(word).trim().charCodeAt(String(word).trim().length - 1);
+  if(code < 0xAC00 || code > 0xD7A3) return withoutBatchim;
+  return ((code - 0xAC00) % 28) ? withBatchim : withoutBatchim;
+}
 let structAttempts=2, creativeAttempts=2;
 let structScore=0, creativeScore=0;
 let stickyOpen=true;
@@ -8114,17 +8370,19 @@ function enterApp(){
   // Populate all sentence displays with FULL text
   const s=todaySent;
   document.getElementById('stickySentText').textContent=s.text;
-  document.getElementById('stickySentAuthor').textContent=`— ${s.author} 「${s.source}」`;
+  document.getElementById('stickySentAuthor').textContent=lbCredit(s.author, s.source);
   // Step 1 원문 참고 카드 채우기
   var refText = document.getElementById('copyRefText');
   var refAuthor = document.getElementById('copyRefAuthor');
   if(refText) refText.textContent = s.text;
-  if(refAuthor) refAuthor.textContent = '— ' + s.author + ' ' + (s.source ? '「' + s.source + '」' : '');
+  if(refAuthor) refAuthor.textContent = lbCredit(s.author, s.source);
   // Populate top WHY card
   document.getElementById('twReason').textContent=s.reason;
   buildLearnContent();
   buildCmp();
   renderQuoteSelection();
+  renderTasteEntry();
+  renderPaidBetaPanel();
   const now=new Date();
   document.getElementById('ctaDate').textContent=`TODAY · ${now.getMonth()+1}월 ${now.getDate()}일`;
 }
@@ -8154,10 +8412,116 @@ function showPage(id,btn){
 }
 
 /* ══════════════════════════════
+   TASTE TEST ENTRY
+══════════════════════════════ */
+function getTasteEntryProfile() {
+  var params = new URLSearchParams(window.location.search || '');
+  var fromTaste = params.get('from') === 'taste-test';
+  var editionParam = params.get('edition') || '';
+  if (!fromTaste && !editionParam) return null;
+
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem('lb_taste_profile') || '{}'); } catch(e) {}
+  var tags = [];
+  var tasteParam = params.get('taste') || '';
+  if (tasteParam) {
+    tags = tasteParam.split(',').map(function(t){ return t.trim(); }).filter(Boolean).slice(0, 4);
+  } else if (saved.tags && saved.tags.length) {
+    tags = saved.tags.slice(0, 4);
+  }
+
+  var edition = editionParam || saved.edition || 'growth';
+  if (['growth','healing','both'].indexOf(edition) === -1) edition = 'growth';
+  var profile = {
+    edition: edition,
+    tags: tags,
+    healingPct: saved.healingPct || 0,
+    growthPct: saved.growthPct || 0
+  };
+  try { localStorage.setItem('lb_pending_taste_entry', JSON.stringify(profile)); } catch(e) {}
+  return profile;
+}
+
+function renderTasteEntry() {
+  var box = document.getElementById('tasteEntry');
+  if (!box) return;
+  if (sessionStorage.getItem('lb_taste_entry_dismissed') === 'true') {
+    box.classList.remove('show');
+    return;
+  }
+  var profile = getTasteEntryProfile();
+  if (!profile) {
+    try { profile = JSON.parse(localStorage.getItem('lb_pending_taste_entry') || 'null'); } catch(e) {}
+  }
+  if (!profile || !profile.edition) return;
+
+  var copy = {
+    growth: {
+      edition: '성장 에디션 추천',
+      title: '짧은 문장으로 생각을 확장해볼 차례예요.',
+      desc: '테스트 결과를 바탕으로 오늘의 문장 선택 화면을 먼저 열어드립니다.',
+      button: '성장 루틴 시작'
+    },
+    healing: {
+      edition: '힐링 에디션 추천',
+      title: '오늘은 긴 글에 천천히 머무는 쪽이 어울려요.',
+      desc: '테스트 결과를 바탕으로 오늘의 힐링 글을 바로 추천해드립니다.',
+      button: '힐링 루틴 시작'
+    },
+    both: {
+      edition: '성장 + 힐링 균형 추천',
+      title: '위로와 확장을 번갈아 쌓아가면 좋아요.',
+      desc: '오늘은 성장 루틴으로 시작하고, 저녁에는 힐링 루틴으로 이어갈 수 있어요.',
+      button: '추천 루틴 시작'
+    }
+  }[profile.edition];
+
+  document.getElementById('tasteEntryEdition').textContent = copy.edition;
+  document.getElementById('tasteEntryTitle').textContent = copy.title;
+  document.getElementById('tasteEntryCopy').textContent = copy.desc;
+  document.getElementById('tasteEntryStart').textContent = copy.button;
+
+  var tagWrap = document.getElementById('tasteEntryTags');
+  tagWrap.innerHTML = '';
+  (profile.tags || []).forEach(function(tag) {
+    var span = document.createElement('span');
+    span.className = 'taste-entry-tag';
+    span.textContent = tag;
+    tagWrap.appendChild(span);
+  });
+  box.classList.add('show');
+}
+
+function dismissTasteEntry() {
+  sessionStorage.setItem('lb_taste_entry_dismissed', 'true');
+  var box = document.getElementById('tasteEntry');
+  if (box) box.classList.remove('show');
+}
+
+function startTasteRecommendation() {
+  var profile = getTasteEntryProfile();
+  if (!profile) {
+    try { profile = JSON.parse(localStorage.getItem('lb_pending_taste_entry') || 'null'); } catch(e) {}
+  }
+  var edition = profile && profile.edition ? profile.edition : 'growth';
+  if (edition === 'healing') {
+    showPage('healing', document.querySelectorAll('.nav-tab')[2]);
+    setTimeout(function(){ startRecommendedHealing(); }, 120);
+    if (typeof showToast === 'function') showToast('힐링 에디션으로 맞춰두었어요.', 3000);
+  } else {
+    showPage('growth', document.querySelectorAll('.nav-tab')[1]);
+    if (typeof showToast === 'function') showToast(edition === 'both' ? '먼저 성장 루틴으로 시작해볼게요.' : '성장 에디션으로 맞춰두었어요.', 3000);
+  }
+}
+
+/* ══════════════════════════════
    CALENDAR
 ══════════════════════════════ */
 function renderCal(){
   const grid=document.getElementById('calGrid');if(!grid)return;grid.innerHTML='';
+  // 머리글도 현재 보는 달로 갱신 (초기 로드 시 3월 고정 표시 버그 수정)
+  const calLabelEl=document.getElementById('calLabel');
+  if(calLabelEl)calLabelEl.textContent=calYear+'년 '+(calMonth+1)+'월';
   ['일','월','화','수','목','금','토'].forEach(d=>{
     const el=document.createElement('div');el.className='cal-dow';el.textContent=d;grid.appendChild(el);
   });
@@ -8235,7 +8599,128 @@ function changeMonth(dir){
 /* ══════════════════════════════
    RECORDS
 ══════════════════════════════ */
+function lbEscapeHtml(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, function(ch) {
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+  });
+}
+
+function cleanUserSentence(value) {
+  var text = String(value || '')
+    .replace(/🔍 손글씨 인식 중\.\.\./g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!text || text === '(미작성)' || /^\(.+\)$/.test(text)) return '';
+  return text;
+}
+
+function getPrimaryUserSentence(rec) {
+  var edition = rec && rec.edition === 'healing' ? 'healing' : 'growth';
+  var candidates = edition === 'healing'
+    ? [
+        {kind:'소감', text: rec && rec.sogam},
+        {kind:'힐링 필사', text: rec && rec.creative},
+        {kind:'필사', text: rec && rec.copyText}
+      ]
+    : [
+        {kind:'창작', text: rec && rec.creative},
+        {kind:'구조 변형', text: rec && rec.structText},
+        {kind:'필사', text: rec && rec.copyText}
+      ];
+  for (var i = 0; i < candidates.length; i++) {
+    var cleaned = cleanUserSentence(candidates[i].text);
+    if (cleaned) {
+      return {kind:candidates[i].kind, text:cleaned, edition:edition};
+    }
+  }
+  return null;
+}
+
+function collectUserSentences(limit) {
+  var rows = [];
+  pastRecords.forEach(function(rec, idx) {
+    var picked = getPrimaryUserSentence(rec);
+    if (!picked) return;
+    var d = new Date(rec.date || 0);
+    var ts = isNaN(d.getTime()) ? 0 : d.getTime();
+    rows.push({
+      record: rec,
+      idx: idx,
+      ts: ts,
+      date: rec.date || '',
+      edition: picked.edition,
+      kind: picked.kind,
+      text: picked.text
+    });
+  });
+  rows.sort(function(a, b) {
+    if (b.ts !== a.ts) return b.ts - a.ts;
+    return b.idx - a.idx;
+  });
+  return limit ? rows.slice(0, limit) : rows;
+}
+
+function formatSentenceDate(dateValue) {
+  var d = new Date(dateValue || '');
+  if (isNaN(d.getTime())) return '날짜 없음';
+  return (d.getMonth() + 1) + '월 ' + d.getDate() + '일';
+}
+
+function renderSentenceStack() {
+  var list = document.getElementById('sentenceStackList');
+  if (!list) return;
+  var all = collectUserSentences();
+  var latest = all.slice(0, 4);
+  var countEl = document.getElementById('sentenceStackCount');
+  var copyEl = document.getElementById('sentenceStackCopy');
+  if (countEl) countEl.textContent = all.length + '줄';
+  if (copyEl) {
+    copyEl.textContent = all.length
+      ? '가장 최근에 쓴 문장들이 위에 쌓입니다. 원문 기록과 분리해서, 내가 만든 문장만 모아둡니다.'
+      : '필사, 구조 변형, 창작, 소감이 한 줄씩 모여 개인 문장벽이 됩니다.';
+  }
+  if (!latest.length) {
+    list.innerHTML = '<div class="sentence-stack-empty">아직 내 문장이 없어요. 오늘 한 줄을 완성하면 이곳에 첫 문장이 쌓입니다.</div>';
+    return;
+  }
+  list.innerHTML = latest.map(function(item) {
+    var edLabel = item.edition === 'healing' ? '힐링' : '성장';
+    var text = item.text.length > 110 ? item.text.substring(0, 110) + '…' : item.text;
+    return '<div class="sentence-stack-item">' +
+      '<div class="sentence-stack-meta"><span class="sentence-stack-tag">' + edLabel + ' · ' + lbEscapeHtml(item.kind) + '</span><span>' + formatSentenceDate(item.date) + '</span></div>' +
+      '<div class="sentence-stack-text">"' + lbEscapeHtml(text) + '"</div>' +
+    '</div>';
+  }).join('');
+}
+
+function renderMySentenceWall() {
+  var list = document.getElementById('mySentenceWallList');
+  if (!list) return;
+  var all = collectUserSentences(12);
+  var sub = document.getElementById('mySentenceWallSub');
+  if (sub) {
+    sub.textContent = all.length
+      ? '최근 문장 ' + all.length + '개를 모았습니다. 이 영역은 원문이 아니라 내가 직접 쓴 문장만 보여줍니다.'
+      : '아직 쌓인 개인 문장이 없습니다. 성장이나 힐링 루틴을 완료하면 자동으로 채워집니다.';
+  }
+  if (!all.length) {
+    list.innerHTML = '<div class="sentence-stack-empty">첫 문장을 쌓을 준비가 되어 있어요.</div>';
+    return;
+  }
+  list.innerHTML = all.map(function(item) {
+    var rec = item.record || {};
+    var edLabel = item.edition === 'healing' ? '힐링' : '성장';
+    var source = [rec.author || '', rec.source ? lbWrapSource(rec.source) : ''].filter(Boolean).join(' ');
+    return '<div class="my-sentence-card">' +
+      '<div class="my-sentence-head"><span class="my-sentence-kind">' + edLabel + ' · ' + lbEscapeHtml(item.kind) + '</span><span>' + formatSentenceDate(item.date) + '</span></div>' +
+      '<div class="my-sentence-text">"' + lbEscapeHtml(item.text) + '"</div>' +
+      (source ? '<div class="my-sentence-source">출발 문장: ' + lbEscapeHtml(source) + '</div>' : '') +
+    '</div>';
+  }).join('');
+}
+
 function renderRecords(){
+  renderSentenceStack();
   const list=document.getElementById('recList');if(!list)return;list.innerHTML='';
   var tc=document.getElementById('totalCount'); var tcImg=tc?tc.querySelector('img'):null;
   if(tc){tc.textContent=' '+pastRecords.length; if(tcImg)tc.prepend(tcImg);}
@@ -8272,11 +8757,11 @@ function renderRecords(){
     }
     card.innerHTML=`
       <div class="rec-meta">
-        <div><span class="rec-date">${dateStr}</span> <span class="rec-author">${rec.author||''} 「${rec.source||''}」</span></div>
+        <div><span class="rec-date">${dateStr}</span> <span class="rec-author">${rec.author||''} ${rec.source?lbWrapSource(rec.source):''}</span></div>
         <span class="score-badge ${sc}">${rec.score}점</span>
       </div>
       <div class="rec-sentence">${rec.sentence.substring(0,80)}${rec.sentence.length>80?'…':''}</div>
-      ${stepsLabel ? '<div style="font-size:10px;color:var(--ink3);margin-top:4px;letter-spacing:.5px;">'+stepsLabel+'</div>' : ''}
+      ${stepsLabel ? '<div style="font-size:12px;color:var(--ink3);margin-top:4px;letter-spacing:.5px;">'+stepsLabel+'</div>' : ''}
       <div class="rec-preview">"${(rec.creative||'').substring(0,35)}${(rec.creative||'').length>35?'…':''}"</div>
       <div class="rec-expand" id="re${i}">
         ${stepsHtml}
@@ -8480,7 +8965,7 @@ function buildCmp(){
       '<div style="font-size:13px;color:var(--ink2);line-height:1.8;">' + exercise + '</div>'+
     '</div>' : '')+
     (techDesc ?
-    '<div style="font-size:11px;color:var(--ink3);line-height:1.7;margin-top:4px;padding:0 4px;">' +
+    '<div style="font-size:12px;color:var(--ink3);line-height:1.7;margin-top:4px;padding:0 4px;">' +
       '<b style="color:var(--ink2);">오늘의 포인트:</b> ' + techDesc +
     '</div>' : '');
 }
@@ -8674,15 +9159,32 @@ function finish(){
   const doneCard=document.getElementById('doneCard');
   doneCard.style.display='block';
 
-  // 오늘 완성한 내 문장 강조
+  // 오늘의 변화: 원문 → 내 문장 (창의 문장이 없으면 구조 연습 문장으로 대체)
   var creativeVal = (document.getElementById('creativeTa').value || '').replace('🔍 손글씨 인식 중...','').trim();
+  var structVal = (document.getElementById('structTa').value || '').replace('🔍 손글씨 인식 중...','').trim();
+  var myVal = creativeVal || structVal;
   var dmsText = document.getElementById('doneMySentenceText');
-  if (dmsText) {
-    if (creativeVal) {
-      dmsText.innerHTML = '';
-      dmsText.textContent = creativeVal;
+  if (dmsText && myVal) {
+    dmsText.innerHTML = '';
+    dmsText.textContent = myVal;
+    var doneOrig = document.getElementById('doneOriginalText');
+    var doneCredit = document.getElementById('doneOriginalCredit');
+    var doneArrow = document.getElementById('doneArrow');
+    var doneSkill = document.getElementById('doneSkillText');
+    if (doneOrig && todaySent) {
+      doneOrig.textContent = todaySent.text;
+      doneOrig.style.display = 'block';
     }
-    // else: 기본 메시지 유지
+    if (doneCredit && todaySent) {
+      doneCredit.textContent = lbCredit(todaySent.author, todaySent.source);
+      doneCredit.style.display = 'block';
+    }
+    if (doneArrow) doneArrow.style.display = 'block';
+    var doneCore = (todaySent && todaySent.learn && todaySent.learn.coreSkill) || '';
+    if (doneSkill && doneCore) {
+      doneSkill.textContent = '오늘 익힌 기법 — ' + doneCore;
+      doneSkill.style.display = 'block';
+    }
   }
   // Animate bricks
   const bricks=document.getElementById('dbBricks');
@@ -8877,7 +9379,7 @@ function openShare(rec) {
   if (rec) {
     _shareRec = rec;
     document.getElementById('scSent').textContent = rec.sentence || '';
-    document.getElementById('scAuthor').textContent = rec.author ? `— ${rec.author} 「${rec.source}」` : '';
+    document.getElementById('scAuthor').textContent = lbCredit(rec.author, rec.source);
     document.getElementById('scCreative').textContent = rec.creative || '';
     document.getElementById('scFeedback').innerHTML = rec.creativeFb
       ? `<b>AI 코치</b> "${rec.creativeFb.substring(0,40)}…"` : '';
@@ -8902,7 +9404,7 @@ function openShare(rec) {
     const cResEl = document.getElementById('cRes');
     const fb = cResEl ? cResEl.querySelector('.air-txt') : null;
     document.getElementById('scSent').textContent = todaySent.text;
-    document.getElementById('scAuthor').textContent = `— ${todaySent.author} 「${todaySent.source}」`;
+    document.getElementById('scAuthor').textContent = lbCredit(todaySent.author, todaySent.source);
     document.getElementById('scCreative').textContent = creative;
     document.getElementById('scFeedback').innerHTML = fb
       ? `<b>AI 코치</b> "${fb.textContent.substring(0,40)}…"` : '';
@@ -9001,13 +9503,14 @@ function copyShareText() {
 
 
 /* ══════════════════════════════
-   PERSONALIZATION — localStorage + Google Sheets ready
-   Google Sheets 연결 시: SHEETS_URL에 Apps Script URL 입력
+   PERSONALIZATION — localStorage + Firebase Firestore
+   Google Sheets export is optional and disabled by default.
 ══════════════════════════════ */
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// Google Sheets 연동 설정
-// URL 분할 구성 — 단순 스크래핑/봇 호출 방지
+// Google Sheets 선택 내보내기 설정
+// 공식 운영 저장소는 Firebase Firestore입니다.
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const ENABLE_SHEETS_SYNC = false;
 const _SP = ['AKfycbx','OnUm9vyv2k49CeC','B-3XWyEhgSvm8xrF','3YXL5zTMkdQ1isC7','jkrQB2cN_5Uz31vzCA'];
 const SHEETS_URL = 'https://scr' + 'ipt.goo' + 'gle.com/macros/s/' + _SP.join('') + '/exec';
 // 타임스탬프 기반 토큰 — Apps Script doPost()에서 동일 로직으로 검증 가능
@@ -9021,6 +9524,109 @@ function _sheetsToken() {
 }
 
 let currentUser = null;
+var paidBetaState = normalizePaidBetaState(null);
+
+function normalizePaidBetaState(raw) {
+  var today = new Date().toISOString().slice(0, 10);
+  var state = raw || {};
+  var limit = Number(state.dailyAiLimit || state.aiQuotaDaily || 0);
+  var expiresAt = state.expiresAt || '';
+  var expired = expiresAt ? new Date(expiresAt).getTime() < Date.now() : false;
+  var active = state.status === 'active' && !expired;
+  return {
+    status: active ? 'active' : (state.status || 'free'),
+    plan: state.plan || (active ? 'paid_beta' : 'free'),
+    cohort: state.cohort || '',
+    dailyAiLimit: active ? Math.max(0, limit || 6) : 0,
+    usedToday: Number((state.usageDate === today ? state.usedToday : 0) || 0),
+    usageDate: today,
+    monthlyReport: !!state.monthlyReport,
+    startedAt: state.startedAt || '',
+    expiresAt: expiresAt,
+    source: state.source || 'local'
+  };
+}
+
+function paidBetaStorageKey() {
+  var uid = (fbAuth.currentUser && fbAuth.currentUser.uid) || (currentUser && currentUser.id) || 'guest';
+  return 'lb_paid_beta_' + uid;
+}
+
+function loadLocalPaidBetaState() {
+  try { return normalizePaidBetaState(JSON.parse(localStorage.getItem(paidBetaStorageKey()) || 'null')); }
+  catch(e) { return normalizePaidBetaState(null); }
+}
+
+function saveLocalPaidBetaState(state) {
+  paidBetaState = normalizePaidBetaState(state);
+  try { localStorage.setItem(paidBetaStorageKey(), JSON.stringify(paidBetaState)); } catch(e) {}
+  renderPaidBetaPanel();
+}
+
+function hasPaidBetaAccess() {
+  paidBetaState = normalizePaidBetaState(paidBetaState);
+  return paidBetaState.status === 'active';
+}
+
+function canUsePaidBetaAi() {
+  return hasPaidBetaAccess() && paidBetaState.usedToday < paidBetaState.dailyAiLimit;
+}
+
+function consumePaidBetaAiCall() {
+  if (!canUsePaidBetaAi()) return false;
+  paidBetaState.usedToday += 1;
+  saveLocalPaidBetaState(paidBetaState);
+  return true;
+}
+
+async function refreshPaidBetaState(fbUser) {
+  paidBetaState = loadLocalPaidBetaState();
+  if (fbUser && fbDb) {
+    try {
+      var doc = await fbDb.collection('paid_beta_entitlements').doc(fbUser.uid).get();
+      if (doc.exists) {
+        paidBetaState = normalizePaidBetaState(Object.assign({ source: 'firestore' }, doc.data()));
+        saveLocalPaidBetaState(paidBetaState);
+        return paidBetaState;
+      }
+    } catch(e) {
+      console.warn('Paid beta entitlement read failed:', e.message || e);
+    }
+  }
+  renderPaidBetaPanel();
+  return paidBetaState;
+}
+
+function renderPaidBetaPanel() {
+  var panel = document.getElementById('paidBetaPanel');
+  if (!panel) return;
+  paidBetaState = normalizePaidBetaState(paidBetaState);
+  var active = paidBetaState.status === 'active';
+  var badge = document.getElementById('paidBetaBadge');
+  var title = document.getElementById('paidBetaTitle');
+  var copy = document.getElementById('paidBetaCopy');
+  var fill = document.getElementById('paidBetaFill');
+  var quota = document.getElementById('paidBetaQuota');
+  var until = document.getElementById('paidBetaUntil');
+  var used = paidBetaState.usedToday || 0;
+  var limit = paidBetaState.dailyAiLimit || 0;
+  var pct = limit ? Math.min(100, Math.round((used / limit) * 100)) : 0;
+  if (badge) {
+    badge.className = 'paid-beta-badge' + (active ? '' : ' free');
+    badge.textContent = active ? '유료 베타 활성' : '무료 체험';
+  }
+  if (title) title.textContent = active ? '오늘의 유료 베타 권한이 열려 있어요' : '유료 베타 준비 모드';
+  if (copy) {
+    copy.textContent = active
+      ? '실제 AI 코치 호출이 하루 제한 안에서 활성화됩니다. 한도를 넘으면 로컬 코치 분석으로 자동 전환돼요.'
+      : '지금은 로컬 코치 분석으로 체험할 수 있어요. 유료 베타 권한이 열리면 실제 AI 코치와 월간 리포트가 활성화됩니다.';
+  }
+  if (fill) fill.style.width = pct + '%';
+  if (quota) quota.textContent = active ? ('AI 코치 ' + used + '/' + limit) : 'AI 코치 0/0';
+  if (until) until.textContent = active && paidBetaState.expiresAt
+    ? ('만료 ' + paidBetaState.expiresAt.slice(0, 10))
+    : '권한 대기 중';
+}
 
 // ── 이메일 탭 전환 ──
 var authTabMode = 'signin';
@@ -9111,30 +9717,79 @@ function initWebViewWarning() {
   }
 }
 
-// ── 게스트 모드 (로그인 없이 체험) ──
-function enterGuestMode() {
+// ── 게스트 모드 (Firebase 익명 인증 체험) ──
+async function enterGuestMode() {
   window.guestMode = true;
-  // 임시 게스트 유저 설정 (localStorage에만 저장, Firestore 미동기)
-  currentUser = {
-    nickname: '체험 중',
-    email: '',
-    id: 'guest_' + Date.now(),
-    photo: '',
-    joinedAt: new Date().toISOString(),
-    isGuest: true
-  };
+  try {
+    var fbUser = fbAuth.currentUser;
+    if (fbUser && !fbUser.isAnonymous) {
+      await fbAuth.signOut();
+      fbUser = null;
+    }
+    if (!fbUser) {
+      var cred = await fbAuth.signInAnonymously();
+      fbUser = cred.user;
+    }
+    setAnonymousCurrentUser(fbUser);
+    await upsertFirebaseUserProfile(fbUser, currentUser);
+  } catch(e) {
+    console.warn('Anonymous auth failed; falling back to local guest:', e);
+    currentUser = {
+      nickname: '체험 중',
+      email: '',
+      id: 'guest_' + Date.now(),
+      photo: '',
+      joinedAt: new Date().toISOString(),
+      isGuest: true,
+      isAnonymous: true,
+      firebaseSync: false
+    };
+  }
   localStorage.setItem('lb_user', JSON.stringify(currentUser));
-  // 모달 닫고 앱 표시
   document.getElementById('userModal').classList.add('hide');
   applyUser();
-  enterApp();   // 성장편 문장 세팅 (todaySent, learnContent 등 초기화)
-  // 게스트 배너 (3초 후 사라짐)
+  enterApp();
+  showGuestBanner(currentUser && currentUser.firebaseSync !== false);
+}
+
+function setAnonymousCurrentUser(fbUser) {
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem('lb_user') || '{}'); } catch(e) {}
+  currentUser = {
+    nickname: saved.nickname || '체험 중',
+    email: '',
+    id: fbUser.uid,
+    photo: '',
+    joinedAt: (fbUser.metadata && fbUser.metadata.creationTime) || saved.joinedAt || new Date().toISOString(),
+    isGuest: true,
+    isAnonymous: true,
+    firebaseSync: true
+  };
+}
+
+async function upsertFirebaseUserProfile(fbUser, profile) {
+  if (!fbUser || !profile) return;
+  try {
+    await fbDb.collection('users').doc(fbUser.uid).set({
+      nickname: profile.nickname || '체험 중',
+      email: profile.email || '',
+      photo: profile.photo || '',
+      joinedAt: profile.joinedAt || new Date().toISOString(),
+      isAnonymous: !!fbUser.isAnonymous,
+      updatedAt: new Date().toISOString()
+    }, { merge: true });
+  } catch(e) {
+    console.warn('User upsert failed:', e);
+  }
+}
+
+function showGuestBanner(firebaseSynced) {
   var banner = document.createElement('div');
   banner.style.cssText = 'position:fixed;bottom:72px;left:50%;transform:translateX(-50%);' +
-    'background:rgba(46,42,38,0.88);color:#fff;font-size:11px;padding:7px 18px;' +
+    'background:rgba(46,42,38,0.88);color:#fff;font-size:12px;padding:7px 18px;' +
     'border-radius:20px;z-index:400;white-space:nowrap;backdrop-filter:blur(8px);' +
     'transition:opacity 0.8s;';
-  banner.textContent = '체험 모드 — 기록은 이 기기에만 저장돼요';
+  banner.textContent = firebaseSynced ? '체험 모드 — 기록도 Firebase에 저장돼요' : '체험 모드 — 기록은 이 기기에만 저장돼요';
   document.body.appendChild(banner);
   setTimeout(function(){ banner.style.opacity='0'; setTimeout(function(){ if(banner.parentNode) banner.parentNode.removeChild(banner); },800); }, 3000);
 }
@@ -9181,26 +9836,28 @@ function initUser() {
   handleRedirectResult();
   // Firebase auth 상태 감지 (로그인/로그아웃)
   fbAuth.onAuthStateChanged(async (fbUser) => {
-    if (fbUser && !fbUser.isAnonymous) {
+    if (fbUser && fbUser.isAnonymous) {
+      setAnonymousCurrentUser(fbUser);
+      localStorage.setItem('lb_user', JSON.stringify(currentUser));
+      await upsertFirebaseUserProfile(fbUser, currentUser);
+      await refreshPaidBetaState(fbUser);
+      applyUser();
+    } else if (fbUser) {
       // Google / 이메일 로그인 성공
       currentUser = {
         nickname: fbUser.displayName || (fbUser.email ? fbUser.email.split('@')[0] : '사용자'),
         email: fbUser.email || '',
         id: fbUser.uid,
         photo: fbUser.photoURL || '',
-        joinedAt: fbUser.metadata.creationTime
+        joinedAt: fbUser.metadata.creationTime,
+        isGuest: false,
+        isAnonymous: false,
+        firebaseSync: true
       };
       localStorage.setItem('lb_user', JSON.stringify(currentUser));
       // Firestore에 사용자 정보 upsert
-      try {
-        await fbDb.collection('users').doc(fbUser.uid).set({
-          nickname: currentUser.nickname,
-          email: currentUser.email,
-          photo: currentUser.photo || '',
-          joinedAt: currentUser.joinedAt,
-          updatedAt: new Date().toISOString()
-        }, { merge: true });
-      } catch(e) { console.warn('User upsert failed:', e); }
+      await upsertFirebaseUserProfile(fbUser, currentUser);
+      await refreshPaidBetaState(fbUser);
       // 모달 닫기
       const um = document.getElementById('userModal');
       if (um && !um.classList.contains('hide')) {
@@ -9215,6 +9872,7 @@ function initUser() {
       const saved = localStorage.getItem('lb_user');
       if (saved) {
         currentUser = JSON.parse(saved);
+        await refreshPaidBetaState(null);
         applyUser();
       }
     }
@@ -9234,8 +9892,8 @@ function saveNickname() {
   localStorage.setItem('lb_user', JSON.stringify(currentUser));
   document.getElementById('userModal').classList.add('hide');
   applyUser();
-  // Sheets에 신규 가입 이벤트 전송
-  if (SHEETS_URL) syncToSheets({ type: 'signup', nickname: inp, email: email || '', joinedAt: currentUser.joinedAt });
+  // Firebase가 공식 저장소입니다. Sheets 내보내기는 옵션입니다.
+  if (ENABLE_SHEETS_SYNC && SHEETS_URL) syncToSheets({ type: 'signup', nickname: inp, email: email || '', joinedAt: currentUser.joinedAt });
   // 첫 가입 → 사용법 가이드 표시
   showGuide();
 }
@@ -9247,7 +9905,7 @@ function applyUser() {
   loadUserRecords();
 }
 
-/* ── Record storage: localStorage + Firestore (익명 포함 전체 저장) ── */
+/* ── Record storage: localStorage + Firebase Firestore ── */
 function saveRecord(rec) {
   const key = 'lb_records_' + (currentUser ? currentUser.id : 'guest');
   const existing = JSON.parse(localStorage.getItem(key) || '[]');
@@ -9255,18 +9913,56 @@ function saveRecord(rec) {
   const filtered = existing.filter(r => !(r.date === rec.date && (r.edition || 'growth') === (rec.edition || 'growth')));
   filtered.unshift(rec);
   localStorage.setItem(key, JSON.stringify(filtered.slice(0, 90)));
-  if (SHEETS_URL) syncToSheets(rec);
-  // Firestore 저장 — 로그인 사용자만
+  if (ENABLE_SHEETS_SYNC && SHEETS_URL) syncToSheets(rec);
+  // Firebase Firestore 저장 — 로그인/익명 인증 사용자 모두
   const fbUser = fbAuth.currentUser;
-  if (fbUser && !fbUser.isAnonymous) {
+  if (fbUser) {
     const docId = rec.date.replace(/-/g,'') + '_' + (rec.edition || rec.phase || 'growth');
     fbDb.collection('records').doc(fbUser.uid).collection('entries').doc(docId).set({
       ...rec,
       uid: fbUser.uid,
+      email: currentUser ? currentUser.email || '' : '',
       nickname: currentUser ? currentUser.nickname : '',
+      isAnonymous: !!fbUser.isAnonymous,
       savedAt: new Date().toISOString()
-    }, { merge: true }).catch(e => console.warn('Firestore save error:', e));
+    }, { merge: true })
+      .then(function() {
+        setFirestoreSaveStatus({
+          status: 'success',
+          uid: fbUser.uid,
+          isAnonymous: !!fbUser.isAnonymous,
+          edition: rec.edition || 'growth',
+          date: rec.date || '',
+          docId: docId
+        });
+      })
+      .catch(function(e) {
+        setFirestoreSaveStatus({
+          status: 'error',
+          uid: fbUser.uid,
+          isAnonymous: !!fbUser.isAnonymous,
+          edition: rec.edition || 'growth',
+          date: rec.date || '',
+          message: e.message || String(e)
+        });
+        console.warn('Firestore save error:', e);
+      });
+  } else {
+    setFirestoreSaveStatus({
+      status: 'local-only',
+      edition: rec.edition || 'growth',
+      date: rec.date || '',
+      message: 'Firebase 인증 사용자가 없어 localStorage에만 저장됨'
+    });
   }
+}
+
+function setFirestoreSaveStatus(status) {
+  try {
+    localStorage.setItem('lb_last_firestore_save', JSON.stringify(Object.assign({
+      at: new Date().toISOString()
+    }, status)));
+  } catch(e) {}
 }
 
 function loadUserRecords() {
@@ -9323,12 +10019,14 @@ function updateStats() {
     else if (i > 0) break;
   }
   updateStatEl('streakCount', streak);
-  // 평균 별점
+  // 평균 벽돌
   var stars = loadStars();
   var totalStars = stars.growth.total + stars.healing.total;
   var totalSessions = stars.growth.sessions + stars.healing.sessions;
   var avgStar = totalSessions > 0 ? (totalStars / totalSessions).toFixed(1) : '0';
-  updateStatEl('avgScore', avgStar);
+  var avgEl = document.getElementById('avgScore');
+  if (avgEl) avgEl.textContent = '🧱 ' + avgStar;
+  renderBrickHouse();
   // 마일스톤 배지 갱신 + 팝업 체크
   renderMilestoneBadges(streak);
   checkMilestoneUnlock(streak);
@@ -9346,7 +10044,7 @@ function updateStatEl(id, value) {
 
 /* ── Google Sheets sync ── */
 async function syncToSheets(rec) {
-  if (!SHEETS_URL) return;
+  if (!ENABLE_SHEETS_SYNC || !SHEETS_URL) return;
   // 로그인 사용자 + 회원가입 이벤트만 전송
   if (!currentUser && rec.type !== 'signup') return;
   try {
@@ -9689,16 +10387,19 @@ const HEALING_PASSAGES = {
     {id:'h_d1',
      text:'아침마다 나는 다시 시작한다. 어제의 실수는 어제에 두고, 오늘의 나는 오늘만을 산다. 완벽하지 않아도 괜찮다. 중요한 것은 멈추지 않는 것이다. 한 걸음이 느리더라도, 그 한 걸음이 나를 어제와 다른 사람으로 만든다. 나는 오늘도 쓴다. 쓰는 일이 곧 살아가는 일이므로.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'오늘 아침, 당신은 어떤 마음으로 눈을 떴나요. 이 문장은 매일 다시 시작하는 일이 무엇을 의미하는지 묻습니다.',
      question:'"어제와 다른 사람"이 됐다고 느낀 순간이 당신에게 있었나요? 그 변화는 어디서 왔나요?'},
     {id:'h_d2',
      text:'세상에는 두 종류의 용기가 있다. 하나는 새로운 것을 시작하는 용기이고, 다른 하나는 이미 시작한 것을 끝까지 해내는 용기이다. 나는 오늘 두 번째 용기를 선택한다. 화려하지 않아도 좋다. 조용히, 꾸준히, 나만의 속도로. 그것이 나의 다짐이다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'시작보다 계속하는 것이 더 어렵다는 걸, 알면서도 자주 잊습니다. 지금 당신에게 필요한 용기는 어느 쪽인가요.',
      question:'지금 당신에게 "두 번째 용기"가 필요한 것은 무엇인가요? 그것을 계속하게 만드는 것과 포기하게 만드는 것은 각각 무엇인가요?'},
     {id:'h_d3',
      text:'작은 것부터 시작하자. 거창한 계획 대신, 오늘 할 수 있는 한 가지. 완벽한 문장 대신, 솔직한 한 줄. 누군가의 인정 대신, 나 자신과의 약속. 매일 조금씩 쌓는 것들이 어느 날 나를 놀라게 할 것이다. 오늘 이 한 줄이 그 시작이다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'"누군가의 인정"과 "나 자신과의 약속" 사이에서, 당신은 주로 어느 쪽을 선택해왔나요.',
      question:'당신이 "나 자신과의 약속" 대신 "누군가의 인정"을 먼저 구했던 순간이 있다면, 그때 무엇이 당신을 그쪽으로 이끌었나요?'}
   ],
@@ -9706,16 +10407,19 @@ const HEALING_PASSAGES = {
     {id:'h_h1',
      text:'괜찮다. 지금 이 순간, 아무것도 하지 않아도 괜찮다. 숨을 쉬고 있다는 것만으로 충분하다. 세상이 빠르게 돌아가더라도, 나는 잠시 멈출 수 있다. 이 고요함 속에서 나는 나를 만난다. 바쁘게 살아온 날들 사이에서 잊고 있던 나를. 천천히, 부드럽게, 다시 안아준다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'아무것도 하지 않아도 된다는 허락을 자신에게 주는 것, 생각보다 쉽지 않습니다. 이 문장과 함께 잠깐 멈춰보세요.',
      question:'당신이 자신에게 가장 허락하기 어려운 것은 무엇인가요? 왜 그것이 어렵다고 느껴지나요?'},
     {id:'h_h2',
      text:'비가 오는 날이면 창가에 앉아 빗소리를 듣는다. 빗방울이 유리창을 두드리는 소리는 누군가 조용히 노크하는 것 같다. 들어가도 되냐고, 쉬어가도 되냐고. 나는 문을 연다. 그 소리와 함께 앉아 있으면, 복잡했던 마음이 서서히 가라앉는다. 빗소리는 세상에서 가장 부드러운 위로다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'마음이 복잡한 날, 조용히 그것을 내려놓게 해주는 것들이 있습니다. 당신만의 "빗소리"를 생각해보세요.',
      question:'당신의 "빗소리"는 무엇인가요? 마음이 무거울 때 당신을 조용히 가라앉혀 주는 것, 장소, 혹은 사람이 있다면?'},
     {id:'h_h3',
      text:'지친 날에는 스스로에게 말해준다. 수고했다고, 잘 버텼다고. 누가 알아주지 않아도, 내가 나에게 건네는 한마디가 가장 따뜻하다. 오늘 하루도 무사히 지나갔다. 그것만으로도 대단한 일이다. 내일은 내일의 내가 있으니, 지금은 편히 쉬어도 된다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'오늘 하루, 스스로에게 "수고했다"는 말을 건네본 적 있나요. 이 문장이 그 말을 대신합니다.',
      question:'지금 당신 자신에게 가장 듣고 싶은 말은 무엇인가요? 그 말을 아직 스스로에게 건네지 못했다면, 그 이유는 무엇인가요?'}
   ],
@@ -9723,16 +10427,19 @@ const HEALING_PASSAGES = {
     {id:'h_y1',
      text:'어떤 순간들은 지나간 뒤에야 비로소 빛난다. 그때는 몰랐다. 평범한 오후의 햇살이, 함께 걷던 골목이, 아무 말 없이 나란히 앉아 있던 시간이 얼마나 귀한 것인지. 시간은 흘러가지만, 어떤 기억은 오히려 선명해진다. 그 여운 속에서 나는 오래 머문다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'지나고 보니 빛났던 순간들이 있습니다. 이 문장은 당신이 아직 알아차리지 못한 시간을 돌아보게 합니다.',
      question:'"그때는 몰랐지만, 지금 돌아보면 빛났던" 순간이 당신에게 있다면 언제인가요? 그 빛을 지금에야 알아차린 이유는 무엇인가요?'},
     {id:'h_y2',
      text:'마지막 페이지를 덮었을 때, 책은 끝났지만 이야기는 끝나지 않았다. 주인공의 마지막 문장이 가슴 어딘가에 남아 계속 울린다. 좋은 문장은 그렇다. 읽는 순간이 아니라, 읽고 난 뒤의 시간을 바꾼다. 나는 그런 문장을 찾고 있다. 아니, 그런 문장이 되고 싶다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'당신의 삶에서 "읽고 난 뒤의 시간을 바꾼" 말이나 문장이 있나요. 그것은 어디서 왔나요.',
      question:'당신의 삶에서 "읽거나 들은 순간보다, 그 이후를 바꿔놓은" 문장이나 말이 있다면 무엇인가요? 그것이 당신의 무엇을 바꾸었나요?'},
     {id:'h_y3',
      text:'어제 들었던 노래가 오늘도 귓가에 맴돈다. 가사를 다 외우지는 못하지만, 그 멜로디가 만들어낸 감정은 온종일 나를 따라다닌다. 사람도, 풍경도, 문장도 그렇다. 진짜 좋은 것들은 스쳐 지나가는 것처럼 보이지만, 사실은 깊이 스며들어 오래오래 남는다.',
      author:'레터브릭',
+     source:'레터브릭 오리지널',
      reason:'진짜 중요한 것들은 조용히 옵니다. 스쳐 지나간 것 같았는데, 어느 날 보니 깊이 남아 있는 것들.',
      question:'당신에게 "스쳐 지나간 것처럼 왔지만 오래 남은" 것은 무엇인가요? 왜 그것은 이토록 오래 남아 있을까요?'}
   ]
@@ -9765,7 +10472,7 @@ function selectHealingTheme(theme) {
   healingStartTime = Date.now();
   document.getElementById('healingThemeLabel').textContent = theme + ' · 오늘의 필사';
   document.getElementById('healingText').textContent = healingPassage.text;
-  document.getElementById('healingAuthor').textContent = '— ' + healingPassage.author;
+  document.getElementById('healingAuthor').textContent = formatPassageCredit(healingPassage);
   // why가 있으면 "이 글이 좋은 이유" 표시, 없으면 reason으로 fallback
   var reasonText = healingPassage.why || healingPassage.reason || '';
   document.getElementById('healingReason').textContent = reasonText;
@@ -9819,7 +10526,7 @@ function finishHealing() {
 
   var rec = {
     date: new Date().toISOString().split('T')[0], edition:'healing', score:0, starsEarned:1,
-    sentence: healingPassage.text, author: healingPassage.author, source:'',
+    sentence: healingPassage.text, author: healingPassage.author, source:healingPassage.source || '',
     creative: document.getElementById('healingTa').value.replace('🔍 손글씨 인식 중...','').trim() || '(미작성)',
     structFb:'', creativeFb:'오늘의 힐링 필사가 저장됐어요.',
     inputMode: healingInputMode, durationSeconds: elapsed
@@ -9827,6 +10534,13 @@ function finishHealing() {
   pastRecords.unshift(rec); saveRecord(rec);
   stars.healing.total=newTotal; stars.healing.sessions++; saveStars(stars);
   renderRecords(); renderCal(); updateStats(); renderEditionCards();
+}
+
+function formatPassageCredit(passage) {
+  if (!passage) return '';
+  var author = passage.author || passage.inspiration || '레터브릭';
+  var source = passage.source || '';
+  return lbCredit(author, source);
 }
 
 function resetHealingFlow() {
@@ -10011,11 +10725,11 @@ function renderQuoteSelection() {
   const container = document.getElementById('quoteOptions');
   container.innerHTML = '';
   quotes.forEach(function(q) {
-    const div = document.createElement('div'); div.className = 'quote-opt';
+    const div = document.createElement('button'); div.type = 'button'; div.className = 'quote-opt';
     const preview = q.data.text.length > 80 ? q.data.text.substring(0,80)+'…' : q.data.text;
     div.innerHTML =
       '<div class="quote-opt-text">'+preview+'</div>'+
-      '<div class="quote-opt-author">— '+q.data.author+' 「'+q.data.source+'」</div>'+
+      '<div class="quote-opt-author">'+lbCredit(q.data.author, q.data.source)+'</div>'+
       '<div class="quote-opt-reason">'+q.data.reason.substring(0,80)+'…</div>';
     div.onclick = function(){ selectGrowthQuote(q.idx); };
     container.appendChild(div);
@@ -10031,11 +10745,11 @@ function selectGrowthQuote(idx) {
   document.getElementById('growthStepBar').style.display = 'flex';
   document.getElementById('s1').style.display = 'block';
   document.getElementById('stickySentText').textContent = todaySent.text;
-  document.getElementById('stickySentAuthor').textContent = '— '+todaySent.author+' 「'+todaySent.source+'」';
+  document.getElementById('stickySentAuthor').textContent = lbCredit(todaySent.author, todaySent.source);
   document.getElementById('twReason').textContent = todaySent.reason;
   // 훈련 목표 = coreSkill (있으면) 또는 reason 첫 문장
   var coreSkill = (todaySent.learn && todaySent.learn.coreSkill) ? todaySent.learn.coreSkill : '';
-  var goalText = coreSkill ? coreSkill + '을 훈련합니다.' : (todaySent.reason || '오늘의 문장 구조를 익힙니다.');
+  var goalText = coreSkill ? coreSkill + lbJosa(coreSkill, '을', '를') + ' 훈련합니다.' : (todaySent.reason || '오늘의 문장 구조를 익힙니다.');
   var twGoalEl = document.getElementById('twGoal');
   if (twGoalEl) twGoalEl.textContent = goalText;
   buildLearnContent(); buildCmp();
@@ -10281,7 +10995,7 @@ function analyzeStructure(original, userText) {
     var genuineNew = tc.newWords.filter(function(w){return w.length>=2;});
     if(genuineNew.length > 0){
       var pick = genuineNew[Math.floor(Math.random()*genuineNew.length)];
-      review += '어휘를 과감하게 바꿨어요. 특히 "'+pick+'"은 원문에 없는, 당신만의 표현이에요. ';
+      review += '어휘를 과감하게 바꿨어요. 특히 "'+pick+'"'+lbJosa(pick, '은', '는')+' 원문에 없는, 당신만의 표현이에요. ';
     } else {
       review += '어휘를 과감하게 바꿨어요. 자기만의 색깔이 느껴져요. ';
     }
@@ -10441,6 +11155,33 @@ function lockInputMode(){
   else document.getElementById('imTyping').classList.add('locked');
 }
 
+function renderLocalCoachCard(title, result, apiError) {
+  var bricks = Math.min(5, Math.max(1, result && result.stars ? result.stars : 3));
+  var brickStr = '🧱'.repeat(bricks) + '░'.repeat(5 - bricks);
+  var sections = ((result && result.sections) || []).map(function(s) {
+    return '<div class="air-section"><div class="air-section-lbl">' + s.lbl + '</div><div class="air-txt">' + s.txt + '</div></div>';
+  }).join('');
+  var apiNote = '';
+  if (apiError) {
+    var authFailed = String(apiError.detail || apiError.error || '').indexOf('authentication') >= 0 || apiError.status === 401 || apiError.status === 502;
+    var needsPaidBeta = apiError.error === 'paid-beta-required';
+    apiNote = '<div class="air-section"><div class="air-section-lbl">API 상태</div><div class="air-txt">' +
+      (needsPaidBeta
+        ? '무료 체험에서는 로컬 코치 분석을 먼저 제공합니다. 유료 베타 권한이 있으면 하루 한도 안에서 실제 AI 코치가 활성화됩니다.'
+        : authFailed
+        ? 'Claude API 인증이 실패해서 로컬 코치 분석으로 표시합니다. API 키를 갱신하면 실제 AI 코치로 자동 전환됩니다.'
+        : 'AI API 응답이 불안정해서 로컬 코치 분석으로 표시합니다.') +
+      '</div></div>';
+  }
+  var tip = result && result.tip ? '<div class="air-tip">💡 ' + result.tip + '</div>' : '';
+  return '<div class="air">' +
+    '<div class="air-head"><span class="air-lbl">' + title + '</span></div>' +
+    '<div class="air-body">' +
+      '<div class="bf-world"><div class="bf-world-bricks">' + brickStr + '</div><div class="bf-world-msg">로컬 코치가 먼저 읽어봤어요</div></div>' +
+      apiNote + sections + tip +
+    '</div></div>';
+}
+
 /* ── Override runStruct ── Hattie Process 레벨 피드백 (callAI → 규칙 기반 폴백) ── */
 runStruct = async function() {
   if(ocrInProgress){alert('손글씨 인식 중입니다. 잠시 후 다시 시도해주세요.');return;}
@@ -10504,15 +11245,9 @@ runStruct = async function() {
         fbH + errH +
       '</div></div>';
   } else {
-    bricks = 3;
-    var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-    var fallbackMsg = isLocal
-      ? 'AI 코치는 배포 환경에서만 작동합니다.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">letterbrick.vercel.app 에서 테스트해주세요.</span>'
-      : 'AI 코치가 응답하지 않았어요. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span>';
-    html = '<div class="air"><div class="air-head"><span class="air-lbl">구조 연습 채점</span></div>'+
-      '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
-      '<div class="air-txt">'+fallbackMsg+'</div></div>'+
-      '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 어색한 부분이 자연스럽게 보입니다.</div></div></div>';
+    var localStruct = analyzeStructure(todaySent.text, v);
+    bricks = localStruct.stars || 3;
+    html = renderLocalCoachCard('구조 연습 — 로컬 코치 분석', localStruct, window.lbLastAiError);
   }
 
   structScore = bricks;
@@ -10588,16 +11323,10 @@ runCreative = async function() {
       '</div></div>';
     creativeScore = cBricks;
   } else {
-    cBricks = 3;
-    creativeScore = 3;
-    var isLocalC = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-    var fallbackMsgC = isLocalC
-      ? 'AI 코치는 배포 환경에서만 작동합니다.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">letterbrick.vercel.app 에서 테스트해주세요.</span>'
-      : 'AI 코치가 응답하지 않았어요. 잠시 후 다시 시도해주세요.<br><span style="font-size:11px;color:rgba(92,82,72,0.5);">문장은 저장됩니다. 다음 단계로 진행할 수 있어요.</span>';
-    cHtml = '<div class="air"><div class="air-head"><span class="air-lbl">AI 코치의 감상</span></div>'+
-      '<div class="air-body"><div class="air-section"><div class="air-section-lbl">안내</div>'+
-      '<div class="air-txt">'+fallbackMsgC+'</div></div>'+
-      '<div class="air-tip">💡 쓴 문장을 소리 내어 읽어보세요. 마음에 걸리는 부분이 보이면 그게 다음 고칠 곳입니다.</div></div></div>';
+    var localCreative = analyzeCreative(todaySent.text, v);
+    cBricks = localCreative.stars || 3;
+    creativeScore = cBricks;
+    cHtml = renderLocalCoachCard('창의적 글쓰기 — 로컬 코치 분석', localCreative, window.lbLastAiError);
   }
 
   document.getElementById('cRes').innerHTML = cHtml;
@@ -10712,6 +11441,25 @@ finish = function() {
   var doneCard=document.getElementById('doneCard'); doneCard.style.display='block';
   updateSB(5);
 
+  // 오늘의 변화: 원문 → 내 문장 (창의 문장이 없으면 구조 연습 문장으로 대체)
+  var bfCreative=(document.getElementById('creativeTa').value||'').replace('🔍 손글씨 인식 중...','').trim();
+  var bfStruct=(document.getElementById('structTa').value||'').replace('🔍 손글씨 인식 중...','').trim();
+  var bfMine=bfCreative||bfStruct;
+  var bfText=document.getElementById('doneMySentenceText');
+  if(bfText&&bfMine){
+    bfText.innerHTML='';
+    bfText.textContent=bfMine;
+    var bfOrig=document.getElementById('doneOriginalText');
+    var bfCredit=document.getElementById('doneOriginalCredit');
+    var bfArrow=document.getElementById('doneArrow');
+    var bfSkill=document.getElementById('doneSkillText');
+    if(bfOrig&&todaySent){bfOrig.textContent=todaySent.text;bfOrig.style.display='block';}
+    if(bfCredit&&todaySent){bfCredit.textContent=lbCredit(todaySent.author,todaySent.source);bfCredit.style.display='block';}
+    if(bfArrow)bfArrow.style.display='block';
+    var bfCore=(todaySent&&todaySent.learn&&todaySent.learn.coreSkill)||'';
+    if(bfSkill&&bfCore){bfSkill.textContent='오늘 익힌 기법 — '+bfCore;bfSkill.style.display='block';}
+  }
+
   var elapsed=sessionStartTime?Math.round((Date.now()-sessionStartTime)/1000):0;
   var newRec={date:new Date().toISOString().split('T')[0],edition:'growth',score:totalStars*10,starsEarned:totalStars,
     sentence:todaySent.text,author:todaySent.author,source:todaySent.source,
@@ -10822,8 +11570,10 @@ function renderMyPage() {
   var ws = getWorldStage('growth', stars.growth.total);
   document.getElementById('mpWorldStage').textContent = ws.current.name;
   // 에디션별
-  document.getElementById('mpGrowthStars').textContent = '★ ' + stars.growth.total;
-  document.getElementById('mpHealingStars').textContent = '★ ' + stars.healing.total;
+  document.getElementById('mpGrowthStars').textContent = '🧱 ' + stars.growth.total;
+  document.getElementById('mpHealingStars').textContent = '🧱 ' + stars.healing.total;
+  // 개인 문장벽
+  renderMySentenceWall();
   // 마일스톤 (마이페이지 버전)
   renderMilestoneBadges(streak);
   // 기법 카드 컬렉션
@@ -10875,7 +11625,7 @@ function editNickname() {
   wrap.innerHTML =
     '<input id="mpNickInp" type="text" maxlength="12" value="' + current.replace(/"/g,'&quot;') + '" ' +
     'style="font-family:\'Gowun Batang\',serif;font-size:18px;font-weight:700;color:var(--ink);background:var(--paper3);border:1.5px solid var(--brick);border-radius:8px;padding:2px 8px;width:160px;outline:none;" />' +
-    '<div style="font-size:11px;color:var(--ink3);margin-top:3px;">Enter로 저장 · 12자 이내</div>';
+    '<div style="font-size:12px;color:var(--ink3);margin-top:3px;">Enter로 저장 · 12자 이내</div>';
   var inp = document.getElementById('mpNickInp');
   inp.focus(); inp.select();
   inp.addEventListener('keydown', function(e) {
@@ -10951,8 +11701,8 @@ function confirmResetMyData() {
   // 별점 UI 즉시 초기화
   var zeroStars = {growth:{total:0,sessions:0},healing:{total:0,sessions:0}};
   saveStars(zeroStars);
-  var mpG = document.getElementById('mpGrowthStars'); if(mpG) mpG.textContent = '★ 0';
-  var mpH = document.getElementById('mpHealingStars'); if(mpH) mpH.textContent = '★ 0';
+  var mpG = document.getElementById('mpGrowthStars'); if(mpG) mpG.textContent = '🧱 0';
+  var mpH = document.getElementById('mpHealingStars'); if(mpH) mpH.textContent = '🧱 0';
   var mpT = document.getElementById('mpTotalStars'); if(mpT) mpT.textContent = '0';
   var mpS = document.getElementById('mpTotalSessions'); if(mpS) mpS.textContent = '0';
   // Firestore 초기화
@@ -11012,7 +11762,7 @@ function loadMoreRecords() {
     // 상세 내용
     var detailHtml = '';
     // 원문
-    detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📖 원문</div><div class="mp-rec-stage-text">"'+rec.sentence+'"</div><div style="font-size:11px;color:var(--ink3);margin-top:3px;">— '+(rec.author||'')+' 「'+(rec.source||'')+'」</div></div>';
+    detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📖 원문</div><div class="mp-rec-stage-text">"'+rec.sentence+'"</div><div style="font-size:12px;color:var(--ink3);margin-top:3px;">'+lbCredit(rec.author, rec.source)+'</div></div>';
     // 필사
     if(rec.copyText){
       detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📝 내가 따라 쓴 문장</div><div class="mp-rec-stage-text">'+rec.copyText.substring(0,300)+(rec.copyText.length>300?'…':'')+'</div></div>';
@@ -11033,14 +11783,14 @@ function loadMoreRecords() {
     if(rec.durationSeconds){
       var m=Math.floor(rec.durationSeconds/60),s=rec.durationSeconds%60;
       var timeStr=m>0?m+'분 '+s+'초':s+'초';
-      detailHtml += '<div style="font-size:11px;color:var(--ink3);margin-top:6px;">⏱ '+timeStr+'</div>';
+      detailHtml += '<div style="font-size:12px;color:var(--ink3);margin-top:6px;">⏱ '+timeStr+'</div>';
     }
 
     var idx = i;
     card.innerHTML =
       '<div class="mp-rec-head">'+
         '<span class="mp-rec-date">'+dateStr+'</span>'+
-        '<span class="mp-rec-badge '+edition+'">'+edLabel+(rec.starsEarned?' ★'+rec.starsEarned:'')+'</span>'+
+        '<span class="mp-rec-badge '+edition+'">'+edLabel+(rec.starsEarned?' 🧱'+rec.starsEarned:'')+'</span>'+
       '</div>'+
       '<div class="mp-rec-sentence">"'+rec.sentence.substring(0,60)+(rec.sentence.length>60?'…':'')+'"</div>'+
       '<div class="mp-rec-steps">'+steps+'</div>'+
@@ -11091,15 +11841,29 @@ function filterRecords(type, btn) {
 /* ── 세계관 단계 계산 ── */
 var WORLD_STAGES = {
   growth: [
-    {name:'벽돌',at:0},{name:'집의 기초',at:10},{name:'집',at:60},
-    {name:'정원',at:150,hidden:true},{name:'탑',at:300,hidden:true},{name:'예배당',at:500,hidden:true},
-    {name:'대저택',at:800},{name:'성',at:2500},{name:'도서관',at:6000},{name:'우주도서관',at:12000}
+    {name:'첫 벽돌',at:0},{name:'기초 공사',at:25},{name:'작은 벽',at:75},
+    {name:'작은 집',at:150},{name:'문장집',at:300},{name:'2층 문장집',at:500},
+    {name:'문장 서재',at:1000},{name:'문장 도서관',at:2500},{name:'우주도서관',at:6000}
   ],
   healing: [
-    {name:'벽돌',at:0},{name:'집의 기초',at:7,streak:true},{name:'집',at:30},
-    {name:'대저택',at:100},{name:'성',at:300},{name:'도서관',at:700},{name:'우주도서관',at:1500}
+    {name:'첫 벽돌',at:0},{name:'기초 공사',at:10,streak:true},{name:'작은 벽',at:30},
+    {name:'작은 집',at:100},{name:'문장집',at:200},{name:'문장 서재',at:500},
+    {name:'문장 도서관',at:1000},{name:'우주도서관',at:2500}
   ]
 };
+
+var BRICK_HOUSE_STAGES = [
+  {name:'첫 벽돌', at:0, next:5, copy:'첫날의 벽돌이 집의 시작점이 됩니다.'},
+  {name:'기초 공사', at:5, next:25, copy:'약 1주차의 벽돌이 집터를 잡아줍니다.'},
+  {name:'작은 벽', at:25, next:75, copy:'약 2주차부터 문장이 벽처럼 올라오기 시작합니다.'},
+  {name:'집의 뼈대', at:75, next:150, copy:'3주차 이후에는 내가 쓴 문장이 집의 형태를 만들어요.'},
+  {name:'작은 집', at:150, next:300, copy:'약 한 달 동안 쌓은 벽돌로 작은 집이 완성됩니다.'},
+  {name:'문장집', at:300, next:500, copy:'두 달 가까이 쌓은 문장이 나만의 문장집이 됩니다.'},
+  {name:'2층 문장집', at:500, next:1000, copy:'약 100일 지속하면 집이 한 단계 업그레이드됩니다.'},
+  {name:'문장 서재', at:1000, next:2500, copy:'오래 쌓은 문장들이 서재처럼 정리됩니다.'},
+  {name:'문장 도서관', at:2500, next:6000, copy:'문장들이 책장처럼 모여 하나의 도서관이 됩니다.'},
+  {name:'우주 도서관', at:6000, next:null, copy:'당신의 문장이 하나의 세계로 넓어졌습니다.'}
+];
 
 function getWorldStage(edition, total) {
   var stages = WORLD_STAGES[edition] || WORLD_STAGES.growth;
@@ -11114,11 +11878,68 @@ function getWorldStage(edition, total) {
   return {current:current, next:next, total:total};
 }
 
+function getBrickHouseStage(total) {
+  var current = BRICK_HOUSE_STAGES[0];
+  for (var i = BRICK_HOUSE_STAGES.length - 1; i >= 0; i--) {
+    if (total >= BRICK_HOUSE_STAGES[i].at) {
+      current = BRICK_HOUSE_STAGES[i];
+      break;
+    }
+  }
+  var next = current.next == null ? null : BRICK_HOUSE_STAGES.find(function(s){ return s.at === current.next; });
+  return {current:current, next:next, total:total};
+}
+
+function renderBrickHouse() {
+  var panel = document.getElementById('brickHomePanel');
+  if (!panel) return;
+  var stars = loadStars();
+  var total = (stars.growth.total || 0) + (stars.healing.total || 0);
+  var stage = getBrickHouseStage(total);
+  var count = document.getElementById('brickHomeCount');
+  var copy = document.getElementById('brickHomeCopy');
+  var stageEl = document.getElementById('brickHomeStage');
+  var nextEl = document.getElementById('brickHomeNext');
+  var fill = document.getElementById('brickHomeFill');
+  var currentEl = document.getElementById('brickHomeCurrent');
+  var goalEl = document.getElementById('brickHomeGoal');
+  var art = document.getElementById('brickHouseArt');
+  if (count) count.textContent = total + '개';
+  if (copy) copy.textContent = stage.current.copy;
+  if (stageEl) stageEl.textContent = stage.current.name;
+
+  var goal = stage.current.next || total || 1;
+  var from = stage.current.at || 0;
+  var span = Math.max(1, goal - from);
+  var pct = stage.current.next == null ? 100 : Math.min(100, Math.round(((total - from) / span) * 100));
+  if (nextEl) {
+    nextEl.textContent = stage.current.next == null
+      ? '최고 단계에 도착했어요.'
+      : '다음 목표 ' + stage.next.name + '까지 ' + Math.max(0, goal - total) + '개';
+  }
+  if (fill) fill.style.width = pct + '%';
+  if (currentEl) currentEl.textContent = total + '개';
+  if (goalEl) goalEl.textContent = stage.current.next == null ? '완성' : goal + '개';
+
+  if (art) {
+    var visible = Math.max(1, Math.min(24, total || 1));
+    var filled = Math.min(visible, total);
+    var html = '';
+    for (var i = 0; i < visible; i++) {
+      var cls = i < filled ? 'house-brick filled' : 'house-brick';
+      if (i < filled && total >= 60 && i % 11 === 0) cls += ' special';
+      html += '<div class="' + cls + '"></div>';
+    }
+    art.className = 'brick-house' + (total >= 10 ? ' has-roof' : '');
+    art.innerHTML = html;
+  }
+}
+
 function renderEditionCards(){
   var stars=loadStars();
   // Growth
   var g=document.getElementById('ecGrowthStars');
-  if(g){var gsc=g.querySelector('.ec-star-count'); if(gsc) gsc.textContent='★ '+stars.growth.total;}
+  if(g){var gsc=g.querySelector('.ec-star-count'); if(gsc) gsc.textContent='🧱 '+stars.growth.total;}
   var gw = getWorldStage('growth', stars.growth.total);
   var gwFill = document.getElementById('ewGrowthFill');
   var gwLabel = document.getElementById('ewGrowthLabel');
@@ -11134,7 +11955,7 @@ function renderEditionCards(){
   }
   // Healing
   var h=document.getElementById('ecHealingCount');
-  if(h)h.textContent='★ '+stars.healing.total;
+  if(h)h.textContent='🧱 '+stars.healing.total;
   var hw = getWorldStage('healing', stars.healing.total);
   var hwFill = document.getElementById('ewHealingFill');
   var hwLabel = document.getElementById('ewHealingLabel');
@@ -11148,6 +11969,7 @@ function renderEditionCards(){
       hwLabel.innerHTML = '<span>' + hw.current.name + '</span><span>최고 단계</span>';
     }
   }
+  renderBrickHouse();
 }
 
 /* ══════════════════════════════
@@ -11245,11 +12067,11 @@ checkCopy = function(){
   }
 
   if(errs>0){
-    diffEl.innerHTML='<div style="font-size:11px;color:#D44;margin-bottom:4px;font-weight:500;">'+errs+'개의 단어가 달라요 — 빨간 부분을 확인해보세요</div>'+
+    diffEl.innerHTML='<div style="font-size:12px;color:#D44;margin-bottom:4px;font-weight:500;">'+errs+'개의 단어가 달라요 — 빨간 부분을 확인해보세요</div>'+
       '<div style="font-size:14px;line-height:2;font-family:\'Noto Serif KR\',serif;word-break:keep-all;">'+html+'</div>';
     diffEl.style.display='block';
   } else if(userClean.length<clean.length){
-    diffEl.innerHTML='<div style="font-size:11px;color:var(--green);margin-bottom:4px;">여기까지 정확해요! 계속 써주세요.</div>'+
+    diffEl.innerHTML='<div style="font-size:12px;color:var(--green);margin-bottom:4px;">여기까지 정확해요! 계속 써주세요.</div>'+
       '<div style="font-size:14px;line-height:2;font-family:\'Noto Serif KR\',serif;word-break:keep-all;">'+html+'</div>';
     diffEl.style.display='block';
   } else {diffEl.style.display='none';}
@@ -11661,7 +12483,7 @@ function showHealingCoachResponse(text, emotion) {
       '<span style="font-size:16px;margin-right:6px;">'+icon+'</span>' +
       '<b style="color:rgba(247,242,232,0.9);">'+emotion.emotion+'</b>' +
       ' · ' + emotion.summary +
-      '<br><span style="font-size:11px;opacity:.6;">다음 추천: ' + emotion.nextTheme + ' — ' + emotion.nextReason + '</span>';
+      '<br><span style="font-size:12px;opacity:.6;">다음 추천: ' + emotion.nextTheme + ' — ' + emotion.nextReason + '</span>';
   }
 }
 
@@ -11706,15 +12528,15 @@ function openHealingShare() {
   var now = new Date();
   var dateStr = now.getFullYear()+'.'+(now.getMonth()+1)+'.'+now.getDate();
   document.getElementById('scSent').innerHTML =
-    '<div style="font-size:11px;color:var(--ink3);margin-bottom:6px;">오늘의 문장에서</div>' +
+    '<div style="font-size:12px;color:var(--ink3);margin-bottom:6px;">오늘의 문장에서</div>' +
     '<div style="font-family:\'Gowun Batang\',serif;font-size:14px;line-height:1.8;color:var(--ink);">' +
     keyLines.map(function(l){return '"'+l+'"';}).join('<br>') + '</div>';
-  document.getElementById('scAuthor').textContent = '— ' + (healingPassage.inspiration || healingPassage.author || '');
+  document.getElementById('scAuthor').textContent = formatPassageCredit(healingPassage);
 
   // 나의 소감
   if(sogam){
     document.getElementById('scCreative').innerHTML =
-      '<div style="font-size:10px;color:var(--ink3);margin-bottom:4px;">나의 소감</div>' +
+      '<div style="font-size:12px;color:var(--ink3);margin-bottom:4px;">나의 소감</div>' +
       '<div style="font-style:italic;color:var(--ink2);">"' + sogam + '"</div>';
   } else {
     document.getElementById('scCreative').textContent = '';
@@ -11723,8 +12545,8 @@ function openHealingShare() {
   // AI 코치 코멘트
   if(coachText){
     document.getElementById('scFeedback').innerHTML =
-      '<div style="font-size:10px;color:var(--brick);margin-bottom:3px;">AI 코치</div>' +
-      '<div style="font-size:11px;line-height:1.6;">' + coachText.substring(0,80) + (coachText.length>80?'…':'') + '</div>';
+      '<div style="font-size:12px;color:var(--brick);margin-bottom:3px;">AI 코치</div>' +
+      '<div style="font-size:12px;line-height:1.6;">' + coachText.substring(0,80) + (coachText.length>80?'…':'') + '</div>';
   } else {
     document.getElementById('scFeedback').textContent = '';
   }
@@ -11861,6 +12683,17 @@ loadSentencesFromFirestore().then(function(loaded) {
 ══════════════════════════════ */
 async function callAI(type, original, userText, learningPoint) {
   try {
+    if (!canUsePaidBetaAi()) {
+      window.lbLastAiError = {
+        status: 402,
+        error: 'paid-beta-required',
+        detail: hasPaidBetaAccess()
+          ? 'Paid beta daily AI quota exhausted.'
+          : 'Paid beta entitlement is required for live AI coaching.'
+      };
+      return null;
+    }
+    consumePaidBetaAiCall();
     // 루브릭 추출 — data.js(LOCAL_GROWTH_DAYS) 우선, Firestore 루브릭은 오래됐을 수 있음
     var rubric = null;
     if (window.LOCAL_GROWTH_DAYS && todaySent) {
@@ -11896,10 +12729,19 @@ async function callAI(type, original, userText, learningPoint) {
     });
     clearTimeout(timer);
     var data = await resp.json();
-    if (data.error && data.fallback) return null;
+    if (data.error) {
+      window.lbLastAiError = {
+        status: resp.status,
+        error: data.error || '',
+        detail: data.detail || ''
+      };
+      if (data.fallback) return null;
+    }
+    window.lbLastAiError = null;
     return data;
   } catch (e) {
     console.log('API call failed:', e.message);
+    window.lbLastAiError = { status: 0, error: e.message || 'API call failed', detail: '' };
     return null;
   }
 }
@@ -12043,7 +12885,7 @@ function highlightHealingPreferences() {
     if (tops[0] === theme) {
       var badge = document.createElement('span');
       badge.className = 'taste-badge';
-      badge.style.cssText = 'position:absolute;top:-6px;right:-6px;background:var(--brick);color:var(--paper);font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;letter-spacing:.5px;';
+      badge.style.cssText = 'position:absolute;top:-6px;right:-6px;background:var(--brick);color:var(--paper);font-size:11px;font-weight:700;padding:2px 6px;border-radius:10px;letter-spacing:.5px;';
       badge.textContent = '★ 선호';
       btn.style.position = 'relative';
       btn.appendChild(badge);
@@ -12080,7 +12922,7 @@ renderQuoteSelection = function() {
   if (isPersonalized) {
     var profile = getGrowthTasteProfile();
     var topTag = profile && profile.topTags[0] ? profile.topTags[0] : '취향';
-    headerHtml += '<div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--brick);margin-bottom:10px;font-weight:600;letter-spacing:.5px;">'
+    headerHtml += '<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--brick-d);margin-bottom:10px;font-weight:600;letter-spacing:.5px;">'
       + '<span>🎯</span><span>B는 ' + topTag + ' 취향 기반 맞춤 추천</span></div>';
   }
   if (lp) headerHtml += '<div style="font-size:12px;color:var(--ink3);margin-bottom:12px;line-height:1.7;">학습 포인트: ' + lp + '</div>';
@@ -12088,11 +12930,11 @@ renderQuoteSelection = function() {
 
   [{s:sA, label:'A', idx:idxA}, {s:sB, label:'B', idx:idxB}].forEach(function(item) {
     if (!item.s || !item.s.text) return; // null 방어
-    var div = document.createElement('div'); div.className = 'quote-opt';
+    var div = document.createElement('button'); div.type = 'button'; div.className = 'quote-opt';
     var preview = item.s.text.length > 80 ? item.s.text.substring(0,80)+'…' : item.s.text;
     var reason  = (item.s.reason || item.s._lp || '').substring(0,80);
     var badgeHtml = (item.label === 'B' && isPersonalized)
-      ? '<span style="font-size:9px;background:var(--brick);color:var(--paper);padding:2px 6px;border-radius:8px;font-weight:700;margin-left:6px;letter-spacing:.5px;">맞춤</span>'
+      ? '<span style="font-size:12px;background:var(--brick-d);color:var(--paper);padding:2px 6px;border-radius:8px;font-weight:700;margin-left:6px;letter-spacing:.5px;">맞춤</span>'
       : '';
     div.innerHTML =
       '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">'
@@ -12262,8 +13104,8 @@ function submitFeedback() {
   history.push(feedback);
   localStorage.setItem('lb_feedback_history', JSON.stringify(history));
 
-  // Google Sheets 전송
-  if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
+  // Firebase가 공식 저장소입니다. Sheets 내보내기는 옵션입니다.
+  if (typeof ENABLE_SHEETS_SYNC !== 'undefined' && ENABLE_SHEETS_SYNC && typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
     var fbTok = _sheetsToken();
     fetch(SHEETS_URL, {
       method: 'POST', mode: 'no-cors',
@@ -12338,6 +13180,7 @@ initSplash();
 renderCal();
 renderRecords();
 renderEditionCards();
+renderTasteEntry();
 renderMilestoneBadges(0); // 초기 렌더 (스트릭 계산 전 빈 상태)
 
 /* ══════════════════════════════
@@ -12454,7 +13297,7 @@ function generateShareCard() {
   var authorText = '';
   if (todaySent.author) {
     authorText = '— ' + todaySent.author;
-    if (todaySent.source) authorText += ' 「' + todaySent.source + '」';
+    if (todaySent.source) authorText += ' ' + lbWrapSource(todaySent.source);
   }
   ctx.fillStyle = 'rgba(247,242,232,0.5)';
   ctx.font = '14px sans-serif';
@@ -12548,6 +13391,17 @@ async function shareToday() {
   // 항상 모달로 카드 이미지 보여주기
   showShareModal(canvas);
 }
+
+// 홈 화면 CTA 날짜는 훈련 진입 전에도 보이므로 로드 시점에 한 번 맞춘다
+(function syncCtaDateOnLoad(){
+  function apply(){
+    var el=document.getElementById("ctaDate");
+    if(!el)return;
+    var now=new Date();
+    el.textContent="TODAY · "+(now.getMonth()+1)+"월 "+now.getDate()+"일";
+  }
+  if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",apply);}else{apply();}
+})();
 </script>
 
 <!-- ══════ CANVAS SHARE MODAL ══════ -->

@@ -923,7 +923,16 @@ function showResult() {
 }
 
 function goToDemo() {
-  window.location.href = 'https://jisoyu30-arch.github.io/letterbrick/';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem('lb_taste_profile') || '{}'); } catch(e) {}
+  var params = new URLSearchParams();
+  params.set('from', 'taste-test');
+  if (saved.edition) params.set('edition', saved.edition);
+  if (saved.tags && saved.tags.length) params.set('taste', saved.tags.join(','));
+
+  var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+  var target = isLocal ? './index.html' : 'https://jisoyu30-arch.github.io/letterbrick/';
+  window.location.href = target + '?' + params.toString();
 }
 
 function renderShareCard(profile, info) {

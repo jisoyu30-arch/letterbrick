@@ -3,6 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "description": "레터브릭 — AI 시대의 문장력 훈련 루틴",
+  "scripts": {
+    "dev": "node scripts/local-static-server.cjs",
+    "audit:passages": "node scripts/audit-passages.cjs",
+    "archive:monthly": "node scripts/generate-monthly-archive.cjs",
+    "archive:monthly:dry": "node scripts/generate-monthly-archive.cjs --dry-run",
+    "archive:notify": "node scripts/notify-archive-result.cjs",
+    "archive:restore": "node scripts/restore-monthly-archive.cjs",
+    "archive:restore:commit": "node scripts/restore-monthly-archive.cjs --commit",
+    "audit:data-quality": "node scripts/data-quality-audit.cjs",
+    "audit:data-quality:notify": "node scripts/notify-data-quality.cjs",
+    "beta:grant": "node scripts/grant-paid-beta.cjs",
+    "quality:duplicates:dry": "node scripts/quality-duplicate-cleanup.cjs",
+    "quality:duplicates:commit": "node scripts/quality-duplicate-cleanup.cjs --commit",
+    "release:report": "node scripts/generate-release-report.cjs"
+  },
   "devDependencies": {
     "firebase-admin": "^13.7.0"
   }

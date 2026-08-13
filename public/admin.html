@@ -23,8 +23,68 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0ece4;color:var(--ink);m
 .stat-card{background:#fff;border-radius:12px;padding:20px 24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
 .stat-card .num{font-size:32px;font-weight:700;color:var(--brick);}
 .stat-card .label{font-size:13px;color:#888;margin-top:4px;}
+.stat-card .sub{font-size:11px;color:#aaa;margin-top:8px;line-height:1.45;}
 .section{background:#fff;border-radius:12px;padding:24px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
 .section h2{font-size:16px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+.insight-card{background:#f8f5f0;border:1px solid var(--line);border-radius:10px;padding:16px;}
+.insight-card b{display:block;font-size:14px;margin-bottom:8px;}
+.insight-card p{font-size:12px;color:#777;line-height:1.65;}
+.split-bar{height:10px;background:#eee;border-radius:999px;overflow:hidden;display:flex;margin-top:10px;}
+.split-growth{background:var(--green);}
+.split-healing{background:var(--brick);}
+.health-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
+.health-card{border:1px solid var(--line);border-radius:10px;background:#f8f5f0;padding:14px;}
+.health-card .h-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;}
+.health-card b{font-size:13px;}
+.health-card p{font-size:12px;color:#777;line-height:1.55;}
+.health-pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:700;background:#eee;color:#777;}
+.health-pill.ok{background:#d8eadf;color:var(--green);}
+.health-pill.warn{background:#fff2d6;color:#8a5d00;}
+.health-pill.err{background:#f2e4da;color:var(--brick);}
+.btn-health{margin-top:10px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:8px 10px;font-size:12px;cursor:pointer;}
+.btn-health:hover{border-color:var(--brick);color:var(--brick);}
+.export-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;align-items:end;}
+.export-field label{display:block;font-size:11px;font-weight:700;color:#777;margin-bottom:6px;}
+.export-field input,.export-field select{width:100%;border:1px solid var(--line);border-radius:8px;background:#fff;padding:9px 10px;font-size:13px;}
+.export-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.btn-export{border:1px solid var(--ink);border-radius:8px;background:var(--ink);color:#fff;padding:10px 14px;font-size:12px;font-weight:700;cursor:pointer;}
+.btn-export.secondary{background:#fff;color:var(--ink);border-color:var(--line);}
+.btn-export:disabled{opacity:.45;cursor:not-allowed;}
+.export-note{font-size:12px;color:#777;line-height:1.6;margin-top:10px;}
+.archive-list{display:grid;gap:8px;margin-top:14px;}
+.archive-item{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:8px;background:#f8f5f0;padding:10px 12px;font-size:12px;}
+.archive-item b{font-size:13px;}
+.archive-item span{color:#777;}
+.archive-actions{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap;min-width:190px;}
+.archive-date{font-size:11px;color:#888;margin-right:4px;}
+.btn-mini{border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer;}
+.btn-mini:hover{border-color:var(--brick);color:var(--brick);}
+.btn-mini.danger{border-color:#d8b8a8;color:var(--brick);}
+.btn-mini.danger:hover{background:#f8eee8;}
+.btn-mini:disabled{opacity:.45;cursor:not-allowed;}
+.archive-audit{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:14px;}
+.audit-box{border:1px solid var(--line);border-radius:8px;background:#fff;padding:12px;}
+.audit-box b{display:block;font-size:12px;margin-bottom:6px;}
+.audit-box p{font-size:12px;color:#777;line-height:1.55;}
+.audit-status{display:inline-flex;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:700;background:#eee;color:#777;margin-bottom:6px;}
+.audit-status.ok{background:#d8eadf;color:var(--green);}
+.audit-status.warn{background:#fff2d6;color:#8a5d00;}
+.audit-status.err{background:#f2e4da;color:var(--brick);}
+.archive-detail{border:1px solid var(--line);border-radius:8px;background:#fbfaf7;margin-top:14px;padding:14px;}
+.archive-detail h3{font-size:14px;margin-bottom:10px;}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:12px;}
+.detail-metric{background:#fff;border:1px solid #eee;border-radius:7px;padding:10px;}
+.detail-metric b{display:block;font-size:11px;color:#777;margin-bottom:4px;}
+.detail-metric span{font-size:16px;font-weight:700;color:var(--ink);}
+.run-list{display:grid;gap:6px;margin-top:8px;}
+.run-item{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #eee;padding-top:7px;font-size:12px;}
+.restore-list{margin:8px 0 0 18px;color:#777;font-size:12px;line-height:1.7;}
+.restore-list li{margin-bottom:3px;}
+.quality-list{display:grid;gap:7px;margin-top:10px;}
+.quality-item{border-top:1px solid #eee;padding-top:8px;font-size:12px;line-height:1.5;}
+.quality-item b{display:inline;font-size:12px;}
+.quality-item span{color:#777;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
 th{text-align:left;padding:8px 10px;background:#f8f5f0;font-weight:600;border-bottom:1px solid var(--line);}
 td{padding:8px 10px;border-bottom:1px solid #f0ede8;vertical-align:top;}
@@ -77,9 +137,139 @@ tr:last-child td{border-bottom:none;}
     <div class="stats-row">
       <div class="stat-card"><div class="num" id="statTotal">-</div><div class="label">전체 기록</div></div>
       <div class="stat-card"><div class="num" id="statUsers">-</div><div class="label">고유 사용자</div></div>
+      <div class="stat-card"><div class="num" id="statTodayUsers">-</div><div class="label">오늘 참여자</div><div class="sub">오늘 기록을 남긴 고유 사용자</div></div>
       <div class="stat-card"><div class="num" id="statToday">-</div><div class="label">오늘 기록</div></div>
+      <div class="stat-card"><div class="num" id="statWeek">-</div><div class="label">최근 7일 기록</div></div>
       <div class="stat-card"><div class="num" id="statSogam">-</div><div class="label">소감 작성</div></div>
+      <div class="stat-card"><div class="num" id="statLoggedIn">-</div><div class="label">로그인 사용자</div></div>
       <div class="stat-card"><div class="num" id="statAnon">-</div><div class="label">비로그인</div></div>
+      <div class="stat-card"><div class="num" id="statAvgTime">-</div><div class="label">평균 체류</div><div class="sub">기록에 저장된 수행 시간 기준</div></div>
+    </div>
+
+    <div class="section">
+      <h2>📌 운영 인사이트</h2>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <b>에디션 비율</b>
+          <p id="editionInsight">데이터를 계산 중입니다.</p>
+          <div class="split-bar">
+            <div class="split-growth" id="growthSplit" style="width:50%"></div>
+            <div class="split-healing" id="healingSplit" style="width:50%"></div>
+          </div>
+        </div>
+        <div class="insight-card">
+          <b>재방문 신호</b>
+          <p id="returnInsight">사용자별 누적 기록을 계산 중입니다.</p>
+        </div>
+        <div class="insight-card">
+          <b>Firebase 상태</b>
+          <p id="firebaseInsight">Firebase Authentication으로 관리자 로그인 후 Firestore 기록을 읽습니다.</p>
+        </div>
+        <div class="insight-card">
+          <b>저장 경로</b>
+          <p>공식 운영 데이터는 Firebase Firestore <code>records/{uid}/entries</code> 컬렉션에 저장됩니다. Google Sheets는 현재 사용하지 않는 선택 내보내기 채널입니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🔥 Firebase Health</h2>
+      <div class="health-grid">
+        <div class="health-card">
+          <div class="h-top"><b>관리자 인증</b><span class="health-pill ok" id="healthAuth">정상</span></div>
+          <p id="healthAuthText">Firebase Authentication 상태를 확인 중입니다.</p>
+        </div>
+        <div class="health-card">
+          <div class="h-top"><b>Firestore 읽기</b><span class="health-pill" id="healthRead">대기</span></div>
+          <p id="healthReadText">최근 기록 조회 결과를 확인 중입니다.</p>
+        </div>
+        <div class="health-card">
+          <div class="h-top"><b>최근 저장</b><span class="health-pill" id="healthSave">대기</span></div>
+          <p id="healthSaveText">본편 앱의 마지막 Firestore 저장 상태를 표시합니다.</p>
+        </div>
+        <div class="health-card">
+          <div class="h-top"><b>익명 인증</b><span class="health-pill warn" id="healthAnon">테스트 필요</span></div>
+          <p id="healthAnonText">비로그인 체험 기록 저장을 위해 Firebase Anonymous Auth가 필요합니다.</p>
+          <button class="btn-health" id="btnAnonHealth" onclick="testAnonymousAuth()">익명 인증 테스트</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🚦 Release Readiness</h2>
+      <div class="archive-audit" id="releaseSummary">
+        <div class="audit-box"><p>release readiness를 계산 중입니다.</p></div>
+      </div>
+      <div class="archive-detail" id="releaseDetail" style="display:none"></div>
+    </div>
+
+    <div class="section">
+      <h2>⬇️ Export Snapshot</h2>
+      <div class="export-grid">
+        <div class="export-field">
+          <label for="exportFrom">시작일</label>
+          <input type="date" id="exportFrom" onchange="renderExportSummary()">
+        </div>
+        <div class="export-field">
+          <label for="exportTo">종료일</label>
+          <input type="date" id="exportTo" onchange="renderExportSummary()">
+        </div>
+        <div class="export-field">
+          <label for="exportEdition">에디션</label>
+          <select id="exportEdition" onchange="renderExportSummary()">
+            <option value="all">전체</option>
+            <option value="growth">성장</option>
+            <option value="healing">힐링</option>
+          </select>
+        </div>
+        <div class="export-field">
+          <label for="exportUserType">사용자 유형</label>
+          <select id="exportUserType" onchange="renderExportSummary()">
+            <option value="all">전체</option>
+            <option value="logged-in">로그인</option>
+            <option value="anonymous">비로그인</option>
+          </select>
+        </div>
+        <div class="export-field">
+          <label for="exportScope">Export 범위</label>
+          <select id="exportScope" onchange="renderExportSummary()">
+            <option value="loaded">현재 조회 500개</option>
+            <option value="firestore">Firestore 확장 조회</option>
+          </select>
+        </div>
+      </div>
+      <div class="export-actions">
+        <button class="btn-export" id="btnExportRecords" onclick="exportSnapshot('records')">필사 기록 CSV</button>
+        <button class="btn-export secondary" id="btnExportSogam" onclick="exportSnapshot('sogam')">소감/코치 CSV</button>
+      </div>
+      <p class="export-note" id="exportSummary">최근 Firestore 기록을 불러온 뒤 export가 활성화됩니다.</p>
+      <p class="export-note" id="exportProgress"></p>
+    </div>
+
+    <div class="section">
+      <h2>🧪 Data Quality</h2>
+      <div class="archive-audit" id="qualitySummary">
+        <div class="audit-box"><p>data quality 결과를 불러오는 중입니다.</p></div>
+      </div>
+      <div class="archive-detail" id="qualityDetail" style="display:none"></div>
+    </div>
+
+    <div class="section">
+      <h2>🗂️ Monthly Archive</h2>
+      <div class="export-grid">
+        <div class="export-field">
+          <label for="archiveMonth">Archive 월</label>
+          <input type="month" id="archiveMonth">
+        </div>
+      </div>
+      <div class="export-actions">
+        <button class="btn-export" id="btnCreateArchive" onclick="createMonthlyArchive()">월간 archive 생성</button>
+        <button class="btn-export secondary" onclick="loadArchiveList()">archive 목록 새로고침</button>
+      </div>
+      <p class="export-note" id="archiveProgress">월별 records/sogam CSV를 생성하고 Firestore에 archive 메타데이터를 저장합니다.</p>
+      <div class="archive-list" id="archiveList"></div>
+      <div class="archive-audit" id="archiveAudit"></div>
+      <div class="archive-detail" id="archiveDetail" style="display:none"></div>
     </div>
 
     <div class="section">
@@ -121,6 +311,7 @@ tr:last-child td{border-bottom:none;}
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
 <script>
 const ADMIN_EMAILS = ['njell@kakao.com', 'jisoyu30@gmail.com'];
 const firebaseConfig = {
@@ -134,6 +325,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const fbAuth = firebase.auth();
 const fbDb = firebase.firestore();
+const fbStorage = firebase.storage();
+var adminEntries = [];
+var archiveDocs = [];
+var recentArchiveRuns = [];
 
 document.getElementById('btnLogin').addEventListener('click', function() {
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -164,27 +359,305 @@ async function loadDashboard() {
   try {
     var snap = await fbDb.collectionGroup('entries').orderBy('savedAt', 'desc').limit(500).get();
     var entries = snap.docs.map(function(d) { return d.data(); });
+    adminEntries = entries;
     document.getElementById('loadingMsg').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     var today = new Date().toISOString().split('T')[0];
     var uids = new Set(entries.map(function(e) { return e.uid; }));
     var todayCount = entries.filter(function(e) { return e.date === today; }).length;
+    var todayUsers = new Set(entries.filter(function(e) { return e.date === today; }).map(function(e) { return e.uid || e.email || e.nickname || 'unknown'; })).size;
+    var weekStart = new Date(); weekStart.setDate(weekStart.getDate() - 6);
+    var weekStartKey = weekStart.toISOString().split('T')[0];
+    var weekCount = entries.filter(function(e) { return (e.date || '') >= weekStartKey; }).length;
     var sogamEntries = entries.filter(function(e) { return e.sogam && e.sogam.length > 2; });
     var anonCount = entries.filter(function(e) { return e.isAnonymous; }).length;
+    var loggedInCount = new Set(entries.filter(function(e) { return !e.isAnonymous && (e.email || e.uid); }).map(function(e) { return e.uid || e.email; })).size;
+    var timed = entries.filter(function(e) { return Number(e.durationSeconds) > 0; });
+    var avgSeconds = timed.length ? Math.round(timed.reduce(function(sum, e) { return sum + Number(e.durationSeconds || 0); }, 0) / timed.length) : 0;
     document.getElementById('statTotal').textContent = entries.length;
     document.getElementById('statUsers').textContent = uids.size;
+    document.getElementById('statTodayUsers').textContent = todayUsers;
     document.getElementById('statToday').textContent = todayCount;
+    document.getElementById('statWeek').textContent = weekCount;
     document.getElementById('statSogam').textContent = sogamEntries.length;
+    document.getElementById('statLoggedIn').textContent = loggedInCount;
     document.getElementById('statAnon').textContent = anonCount;
+    document.getElementById('statAvgTime').textContent = avgSeconds ? formatDuration(avgSeconds) : '-';
+    buildInsights(entries);
+    buildFirebaseInsight(snap.size);
+    buildFirebaseHealth({
+      readStatus: 'success',
+      readCount: snap.size,
+      readMessage: 'Firestore collectionGroup(entries)에서 최근 기록을 정상 조회했습니다.'
+    });
     buildChart(entries);
     buildUserTable(entries);
     buildRecTable(entries);
     buildSogamList(sogamEntries);
+    renderExportSummary();
+    initArchiveControls();
+    loadArchiveList();
+    loadQualityConsole();
+    loadReleaseReadiness(snap.size);
   } catch(e) {
+    buildFirebaseHealth({
+      readStatus: 'error',
+      readCount: 0,
+      readMessage: e.message || String(e)
+    });
     document.getElementById('loadingMsg').innerHTML =
       '<div class="no-access"><h2>데이터 로드 오류</h2><p>' + e.message + '</p>' +
       '<p style="margin-top:8px;font-size:12px;color:#bbb">Firestore collectionGroup 인덱스가 필요할 수 있습니다.</p></div>';
   }
+}
+
+function setHealthPill(id, status, label) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.className = 'health-pill ' + (status === 'ok' ? 'ok' : status === 'err' ? 'err' : 'warn');
+  el.textContent = label;
+}
+
+function buildFirebaseHealth(readInfo) {
+  var user = fbAuth.currentUser;
+  var authText = document.getElementById('healthAuthText');
+  if (authText) authText.textContent = user && user.email
+    ? user.email + ' 계정으로 관리자 인증 중입니다.'
+    : '관리자 인증 정보를 확인할 수 없습니다.';
+  setHealthPill('healthAuth', user && user.email ? 'ok' : 'err', user && user.email ? '정상' : '확인 필요');
+
+  var readText = document.getElementById('healthReadText');
+  if (readText && readInfo) readText.textContent = readInfo.readMessage + ' 조회 수: ' + (readInfo.readCount || 0);
+  if (readInfo) setHealthPill('healthRead', readInfo.readStatus === 'success' ? 'ok' : 'err', readInfo.readStatus === 'success' ? '정상' : '오류');
+
+  renderLastSaveStatus();
+}
+
+function renderLastSaveStatus() {
+  var textEl = document.getElementById('healthSaveText');
+  var raw = '';
+  try { raw = localStorage.getItem('lb_last_firestore_save') || ''; } catch(e) {}
+  if (!raw) {
+    setHealthPill('healthSave', 'warn', '기록 없음');
+    if (textEl) textEl.textContent = '아직 이 브라우저에서 Firestore 저장 기록을 확인하지 못했습니다.';
+    return;
+  }
+  var data;
+  try { data = JSON.parse(raw); } catch(e) { data = null; }
+  if (!data) {
+    setHealthPill('healthSave', 'warn', '확인 필요');
+    if (textEl) textEl.textContent = '최근 저장 상태 데이터 형식을 읽을 수 없습니다.';
+    return;
+  }
+  var statusLabel = data.status === 'success' ? '정상' : data.status === 'error' ? '오류' : '로컬';
+  var statusType = data.status === 'success' ? 'ok' : data.status === 'error' ? 'err' : 'warn';
+  setHealthPill('healthSave', statusType, statusLabel);
+  if (textEl) {
+    textEl.textContent = (data.at || '') + ' · ' + (data.edition || '') + ' · ' +
+      (data.isAnonymous ? '익명 사용자' : '로그인 사용자') +
+      (data.message ? ' · ' + data.message : '');
+  }
+}
+
+async function loadReleaseReadiness(readCount) {
+  var summary = document.getElementById('releaseSummary');
+  var detail = document.getElementById('releaseDetail');
+  if (!summary) return;
+  summary.innerHTML = '<div class="audit-box"><p>release readiness를 계산 중입니다.</p></div>';
+  if (detail) detail.style.display = 'none';
+  try {
+    var quality = await readDocOrNull('admin_data_quality', 'latest');
+    var cleanup = await readDocOrNull('admin_quality_cleanup', 'latest');
+    var releaseReport = await readDocOrNull('admin_release', 'latest');
+    var archive = await readLatestBy('admin_archives', 'month');
+    var restoreRun = await readLatestBy('admin_archive_restore_runs', 'completedAt');
+    var archiveRun = await readLatestBy('admin_archive_runs', 'startedAt');
+    var gates = buildReleaseGates({
+      readCount: readCount || 0,
+      quality: quality,
+      cleanup: cleanup,
+      releaseReport: releaseReport,
+      archive: archive,
+      restoreRun: restoreRun,
+      archiveRun: archiveRun
+    });
+    renderReleaseReadiness(gates);
+  } catch(e) {
+    summary.innerHTML = '<div class="audit-box"><span class="audit-status err">오류</span><b>Release Readiness</b><p>' +
+      esc(e.message || String(e)) + '</p></div>';
+  }
+}
+
+async function readDocOrNull(collection, docId) {
+  var doc = await fbDb.collection(collection).doc(docId).get();
+  return doc.exists ? doc.data() : null;
+}
+
+async function readLatestBy(collection, field) {
+  var snap = await fbDb.collection(collection).orderBy(field, 'desc').limit(1).get();
+  if (snap.empty) return null;
+  var item = snap.docs[0].data();
+  item._id = snap.docs[0].id;
+  return item;
+}
+
+function buildReleaseGates(data) {
+  var gates = [];
+  gates.push({
+    key: 'firebase',
+    label: 'Firebase read',
+    status: data.readCount > 0 ? 'pass' : 'warn',
+    detail: data.readCount > 0 ? data.readCount + '개 record sample 로드' : 'Firestore record sample이 비어 있습니다.'
+  });
+
+  var qualityStatus = data.quality ? data.quality.status : 'missing';
+  gates.push({
+    key: 'quality',
+    label: 'Data quality',
+    status: qualityStatus === 'ok' ? 'pass' : qualityStatus === 'error' || qualityStatus === 'fatal' ? 'fail' : 'warn',
+    detail: data.quality ? 'errors ' + ((data.quality.issueCounts || {}).error || 0) +
+      ' · warnings ' + ((data.quality.issueCounts || {}).warn || 0) : '저장된 data quality 결과가 없습니다.'
+  });
+
+  var archiveStatus = data.archive ? (data.archive.uploadStatus || data.archive.scheduleStatus || 'metadata') : 'missing';
+  gates.push({
+    key: 'archive',
+    label: 'Monthly archive',
+    status: archiveStatus === 'uploaded' || archiveStatus === 'success' ? 'pass' : archiveStatus === 'error' || archiveStatus === 'partial' ? 'fail' : 'warn',
+    detail: data.archive ? (data.archive.month || data.archive._id || '') + ' · ' + archiveStatus : 'archive 메타데이터가 없습니다.'
+  });
+
+  var archiveRunStatus = data.archiveRun ? (data.archiveRun.status || data.archiveRun.uploadStatus || 'unknown') : 'missing';
+  gates.push({
+    key: 'archiveRun',
+    label: 'Archive job',
+    status: archiveRunStatus === 'success' || archiveRunStatus === 'uploaded' ? 'pass' : archiveRunStatus === 'error' || archiveRunStatus === 'partial' ? 'fail' : 'warn',
+    detail: data.archiveRun ? archiveRunStatus + ' · ' + ((data.archiveRun.startedAt || '').slice(0, 10)) : 'scheduled archive run 이력이 없습니다.'
+  });
+
+  var restoreStatus = data.restoreRun ? (data.restoreRun.status || 'unknown') : 'missing';
+  gates.push({
+    key: 'restore',
+    label: 'Restore run',
+    status: restoreStatus === 'error' || restoreStatus === 'fatal' ? 'fail' : data.restoreRun ? 'pass' : 'warn',
+    detail: data.restoreRun ? restoreStatus + ' · ' + ((data.restoreRun.completedAt || data.restoreRun.startedAt || '').slice(0, 10)) : 'restore run 이력이 없습니다.'
+  });
+
+  var cleanupStatus = data.cleanup ? (data.cleanup.status || 'unknown') : 'missing';
+  gates.push({
+    key: 'cleanup',
+    label: 'Duplicate cleanup',
+    status: cleanupStatus === 'fatal' || cleanupStatus === 'error' ? 'fail' : data.cleanup ? 'pass' : 'warn',
+    detail: data.cleanup ? cleanupStatus + ' · candidates ' + (data.cleanup.deleteCandidates || 0) : 'duplicate cleanup dry-run 이력이 없습니다.'
+  });
+
+  var contentWarnings = data.quality && data.quality.issueCounts ? data.quality.issueCounts.warn || 0 : 0;
+  var contentErrors = data.quality && data.quality.issueCounts ? data.quality.issueCounts.error || 0 : 0;
+  gates.push({
+    key: 'content',
+    label: 'Content audit',
+    status: contentErrors ? 'fail' : contentWarnings ? 'warn' : data.quality ? 'pass' : 'warn',
+    detail: data.quality ? 'content/data issue 기준 errors ' + contentErrors + ' · warnings ' + contentWarnings : 'data quality audit 결과가 필요합니다.'
+  });
+
+  var reportStatus = data.releaseReport ? (data.releaseReport.status || 'unknown') : 'missing';
+  gates.push({
+    key: 'releaseReport',
+    label: 'Release report',
+    status: reportStatus === 'pass' ? 'pass' : reportStatus === 'fail' ? 'fail' : 'warn',
+    detail: data.releaseReport ? reportStatus + ' · ' + ((data.releaseReport.generatedAt || '').slice(0, 19)) : 'release report 생성 이력이 없습니다.'
+  });
+  return gates;
+}
+
+function renderReleaseReadiness(gates) {
+  var summary = document.getElementById('releaseSummary');
+  var detail = document.getElementById('releaseDetail');
+  if (!summary) return;
+  var failCount = gates.filter(function(g) { return g.status === 'fail'; }).length;
+  var warnCount = gates.filter(function(g) { return g.status === 'warn'; }).length;
+  var overall = failCount ? 'fail' : warnCount ? 'warn' : 'pass';
+  summary.innerHTML =
+    buildAuditBox(readinessClass(overall), '전체 상태', overall.toUpperCase()) +
+    buildAuditBox(failCount ? 'err' : 'ok', 'Fail', String(failCount)) +
+    buildAuditBox(warnCount ? 'warn' : 'ok', 'Warn', String(warnCount)) +
+    buildAuditBox('ok', 'Gates', gates.length + '개 검사');
+  if (detail) {
+    detail.style.display = 'block';
+    detail.innerHTML = '<h3>Release Gates</h3><div class="quality-list">' + gates.map(function(gate) {
+      return '<div class="quality-item"><span class="audit-status ' + readinessClass(gate.status) + '">' +
+        esc(gate.status.toUpperCase()) + '</span><b>' + esc(gate.label) + '</b><br><span>' +
+        esc(gate.detail) + '</span></div>';
+    }).join('') + '</div>';
+  }
+}
+
+function readinessClass(status) {
+  if (status === 'pass') return 'ok';
+  if (status === 'fail') return 'err';
+  return 'warn';
+}
+
+async function testAnonymousAuth() {
+  var btn = document.getElementById('btnAnonHealth');
+  if (btn) { btn.disabled = true; btn.textContent = '테스트 중...'; }
+  setHealthPill('healthAnon', 'warn', '확인 중');
+  try {
+    var appName = 'anon-health-' + Date.now();
+    var testApp = firebase.initializeApp(firebaseConfig, appName);
+    var testAuth = testApp.auth();
+    var cred = await testAuth.signInAnonymously();
+    var uid = cred && cred.user ? cred.user.uid : '';
+    if (cred && cred.user) {
+      await cred.user.delete().catch(function(){});
+    }
+    await testApp.delete().catch(function(){});
+    setHealthPill('healthAnon', 'ok', '정상');
+    document.getElementById('healthAnonText').textContent =
+      'Anonymous Auth 테스트 성공. 임시 UID ' + uid.substring(0, 8) + '... 생성 후 삭제를 시도했습니다.';
+  } catch(e) {
+    setHealthPill('healthAnon', 'err', '오류');
+    document.getElementById('healthAnonText').textContent =
+      'Anonymous Auth 테스트 실패: ' + (e.message || String(e));
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '익명 인증 다시 테스트'; }
+  }
+}
+
+function buildFirebaseInsight(readCount) {
+  var el = document.getElementById('firebaseInsight');
+  if (!el) return;
+  var user = fbAuth.currentUser;
+  var email = user && user.email ? user.email : '관리자';
+  el.textContent = 'Firebase 연결 정상 · ' + email + ' 계정으로 최근 기록 ' + readCount + '개를 Firestore에서 불러왔습니다.';
+}
+
+function buildInsights(entries) {
+  var growth = entries.filter(function(e) { return (e.edition || 'growth') !== 'healing'; }).length;
+  var healing = entries.filter(function(e) { return e.edition === 'healing'; }).length;
+  var total = Math.max(1, growth + healing);
+  var growthPct = Math.round((growth / total) * 100);
+  var healingPct = 100 - growthPct;
+  document.getElementById('editionInsight').textContent = '성장 ' + growthPct + '% · 힐링 ' + healingPct + '%';
+  document.getElementById('growthSplit').style.width = growthPct + '%';
+  document.getElementById('healingSplit').style.width = healingPct + '%';
+
+  var userMap = {};
+  entries.forEach(function(e) {
+    var key = e.uid || e.email || e.nickname || 'unknown';
+    userMap[key] = (userMap[key] || 0) + 1;
+  });
+  var users = Object.keys(userMap);
+  var repeatUsers = users.filter(function(key) { return userMap[key] >= 2; }).length;
+  var repeatPct = users.length ? Math.round((repeatUsers / users.length) * 100) : 0;
+  document.getElementById('returnInsight').textContent =
+    '2회 이상 기록한 사용자 ' + repeatUsers + '명 · 전체 대비 ' + repeatPct + '%. 반복 루틴 전환의 초기 신호입니다.';
+}
+
+function formatDuration(seconds) {
+  var m = Math.floor(seconds / 60);
+  var s = seconds % 60;
+  return m > 0 ? m + '분' : s + '초';
 }
 
 function buildChart(entries) {
@@ -277,8 +750,723 @@ function buildSogamList(sogamEntries) {
   });
 }
 
+function getExportFilters() {
+  return {
+    from: document.getElementById('exportFrom') ? document.getElementById('exportFrom').value : '',
+    to: document.getElementById('exportTo') ? document.getElementById('exportTo').value : '',
+    edition: document.getElementById('exportEdition') ? document.getElementById('exportEdition').value : 'all',
+    userType: document.getElementById('exportUserType') ? document.getElementById('exportUserType').value : 'all',
+    scope: document.getElementById('exportScope') ? document.getElementById('exportScope').value : 'loaded'
+  };
+}
+
+function getFilteredExportEntries(sourceRows) {
+  var filters = getExportFilters();
+  var rows = sourceRows || adminEntries;
+  return rows.filter(function(e) {
+    var date = e.date || '';
+    var edition = e.edition || 'growth';
+    if (filters.from && date < filters.from) return false;
+    if (filters.to && date > filters.to) return false;
+    if (filters.edition !== 'all' && edition !== filters.edition) return false;
+    if (filters.userType === 'anonymous' && !e.isAnonymous) return false;
+    if (filters.userType === 'logged-in' && e.isAnonymous) return false;
+    return true;
+  });
+}
+
+function renderExportSummary() {
+  var summary = document.getElementById('exportSummary');
+  if (!summary) return;
+  var rows = getFilteredExportEntries();
+  var sogamRows = rows.filter(function(e) { return (e.sogam && e.sogam.length > 0) || (e.coachResponse && e.coachResponse.length > 0); });
+  var btnRecords = document.getElementById('btnExportRecords');
+  var btnSogam = document.getElementById('btnExportSogam');
+  if (btnRecords) btnRecords.disabled = rows.length === 0;
+  if (btnSogam) btnSogam.disabled = sogamRows.length === 0;
+  var filters = getExportFilters();
+  if (filters.scope === 'firestore') {
+    summary.textContent = 'Export 대상: 다운로드 시 Firestore를 500개씩 확장 조회한 뒤 필터를 적용합니다. 현재 화면 기준 미리보기는 필사 기록 ' +
+      rows.length + '개 · 소감/코치 ' + sogamRows.length + '개입니다.';
+  } else {
+    summary.textContent = 'Export 대상: 필사 기록 ' + rows.length + '개 · 소감/코치 ' + sogamRows.length +
+      '개. Firestore 최근 500개 조회 결과 기준입니다.';
+  }
+}
+
+async function exportSnapshot(kind) {
+  var filters = getExportFilters();
+  setExportBusy(true, filters.scope === 'firestore' ? 'Firestore 확장 조회를 시작합니다.' : 'CSV를 생성합니다.');
+  try {
+    var sourceRows = filters.scope === 'firestore' ? await fetchFirestoreExportEntries() : adminEntries;
+    var rows = getFilteredExportEntries(sourceRows);
+    if (kind === 'sogam') {
+      rows = rows.filter(function(e) { return (e.sogam && e.sogam.length > 0) || (e.coachResponse && e.coachResponse.length > 0); });
+    }
+    if (!rows.length) {
+      alert('내보낼 데이터가 없습니다.');
+      return;
+    }
+    var csv = kind === 'sogam' ? buildSogamCsv(rows) : buildRecordsCsv(rows);
+    var today = new Date().toISOString().split('T')[0];
+    var range = (filters.from || 'all') + '_to_' + (filters.to || 'all');
+    var scope = filters.scope === 'firestore' ? 'expanded' : 'recent';
+    var file = 'letterbrick_' + kind + '_' + scope + '_' + range + '_' + today + '.csv';
+    downloadCsv(file, csv);
+    setExportProgress('다운로드 생성 완료: ' + rows.length + '개 행');
+  } catch(e) {
+    setExportProgress('Export 오류: ' + (e.message || String(e)));
+    alert('Export 오류: ' + (e.message || String(e)));
+  } finally {
+    setExportBusy(false);
+  }
+}
+
+async function fetchFirestoreExportEntries() {
+  var all = [];
+  var lastDoc = null;
+  var pageSize = 500;
+  var maxPages = 20;
+  for (var page = 1; page <= maxPages; page++) {
+    var query = fbDb.collectionGroup('entries').orderBy('savedAt', 'desc').limit(pageSize);
+    if (lastDoc) query = query.startAfter(lastDoc);
+    setExportProgress('Firestore 조회 중: ' + page + '페이지, 현재 ' + all.length + '개');
+    var snap = await query.get();
+    if (snap.empty) break;
+    snap.docs.forEach(function(doc) { all.push(doc.data()); });
+    lastDoc = snap.docs[snap.docs.length - 1];
+    setExportProgress('Firestore 조회 중: ' + page + '페이지 완료, 현재 ' + all.length + '개');
+    if (snap.docs.length < pageSize) break;
+  }
+  if (all.length >= pageSize * maxPages) {
+    setExportProgress('최대 ' + all.length + '개까지 조회했습니다. 더 큰 export는 월간 archive 작업이 필요합니다.');
+  }
+  return all;
+}
+
+function setExportBusy(isBusy, message) {
+  var btnRecords = document.getElementById('btnExportRecords');
+  var btnSogam = document.getElementById('btnExportSogam');
+  if (btnRecords) btnRecords.disabled = isBusy;
+  if (btnSogam) btnSogam.disabled = isBusy;
+  if (message) setExportProgress(message);
+  if (!isBusy) renderExportSummary();
+}
+
+function setExportProgress(message) {
+  var progress = document.getElementById('exportProgress');
+  if (progress) progress.textContent = message || '';
+}
+
+async function loadQualityConsole() {
+  var summary = document.getElementById('qualitySummary');
+  var detail = document.getElementById('qualityDetail');
+  if (!summary) return;
+  summary.innerHTML = '<div class="audit-box"><p>data quality 결과를 불러오는 중입니다.</p></div>';
+  if (detail) detail.style.display = 'none';
+  try {
+    var latestDoc = await fbDb.collection('admin_data_quality').doc('latest').get();
+    var runsSnap = await fbDb.collection('admin_data_quality_runs').orderBy('completedAt', 'desc').limit(8).get();
+    var latest = latestDoc.exists ? latestDoc.data() : null;
+    var runs = runsSnap.docs.map(function(doc) {
+      var item = doc.data();
+      item._id = doc.id;
+      return item;
+    });
+    renderQualityConsole(latest, runs);
+  } catch(e) {
+    summary.innerHTML = '<div class="audit-box"><span class="audit-status err">오류</span><b>Data Quality</b><p>' +
+      esc(e.message || String(e)) + '</p></div>';
+  }
+}
+
+function renderQualityConsole(latest, runs) {
+  var summary = document.getElementById('qualitySummary');
+  var detail = document.getElementById('qualityDetail');
+  if (!summary) return;
+  if (!latest) {
+    summary.innerHTML = '<div class="audit-box"><span class="audit-status warn">대기</span><b>Data Quality</b><p>아직 저장된 data quality 실행 결과가 없습니다. GitHub Actions Data Quality workflow를 실행하세요.</p></div>';
+    return;
+  }
+  var counts = latest.issueCounts || {};
+  var firestore = latest.firestore || {};
+  var status = latest.status || 'unknown';
+  summary.innerHTML =
+    buildAuditBox(qualityStatusClass(status), '최신 상태', status + ' · ' + esc((latest.completedAt || '').slice(0, 19))) +
+    buildAuditBox((counts.error || 0) ? 'err' : 'ok', '오류', String(counts.error || 0)) +
+    buildAuditBox((counts.warn || 0) ? 'warn' : 'ok', '경고', String(counts.warn || 0)) +
+    buildAuditBox(firestore.checked ? 'ok' : 'warn', 'Firestore 검사', firestore.checked ? ((firestore.sampledEntries || 0) + '개 샘플') : (firestore.reason || 'not checked'));
+  if (detail) {
+    detail.style.display = 'block';
+    detail.innerHTML =
+      '<h3>Data Quality Detail</h3>' +
+      '<div class="detail-grid">' +
+        detailMetric('status', status) +
+        detailMetric('errors', counts.error || 0) +
+        detailMetric('warnings', counts.warn || 0) +
+        detailMetric('records 7d', firestore.recent7DayCount === undefined ? '-' : firestore.recent7DayCount) +
+        detailMetric('malformed', firestore.malformedCount === undefined ? '-' : firestore.malformedCount) +
+        detailMetric('duplicates', firestore.duplicateKeyCount === undefined ? '-' : firestore.duplicateKeyCount) +
+      '</div>' +
+      '<div class="audit-box"><b>Top Issues</b>' + buildQualityIssueList(latest.issuesTop || []) + '</div>' +
+      '<div class="audit-box" style="margin-top:10px"><b>최근 실행</b>' + buildQualityRunList(runs) + '</div>';
+  }
+}
+
+function qualityStatusClass(status) {
+  if (status === 'ok') return 'ok';
+  if (status === 'error' || status === 'fatal') return 'err';
+  return 'warn';
+}
+
+function buildQualityIssueList(issues) {
+  if (!issues.length) return '<p class="export-note">표시할 이슈가 없습니다.</p>';
+  return '<div class="quality-list">' + issues.slice(0, 12).map(function(issue) {
+    var remediation = issue.remediation || {};
+    var owner = remediation.owner ? ' · owner ' + remediation.owner : '';
+    var action = remediation.action ? '<br><span>조치: ' + esc(remediation.action) + '</span>' : '';
+    return '<div class="quality-item"><b>[' + esc((issue.severity || '').toUpperCase()) + '] ' +
+      esc(issue.code || '') + '</b><br><span>' + esc(issue.where || '') + ' · ' +
+      esc(issue.message || '') + esc(owner) + '</span>' + action + '</div>';
+  }).join('') + '</div>';
+}
+
+function buildQualityRunList(runs) {
+  if (!runs.length) return '<p class="export-note">최근 실행 이력이 없습니다.</p>';
+  return '<div class="run-list">' + runs.map(function(run) {
+    var counts = run.issueCounts || {};
+    var when = run.completedAt || run.startedAt || '';
+    var link = run.githubRunUrl ? ' · <a href="' + escAttr(run.githubRunUrl) + '" target="_blank" rel="noopener">GitHub run</a>' : '';
+    return '<div class="run-item"><div><b>' + esc(run.status || 'unknown') + '</b> · ' +
+      esc((when || '').slice(0, 19)) + link + '</div><span>errors ' + esc(counts.error || 0) +
+      ' · warnings ' + esc(counts.warn || 0) + '</span></div>';
+  }).join('') + '</div>';
+}
+
+function buildRecordsCsv(rows) {
+  var headers = [
+    'date','savedAt','uid','nickname','email','userType','edition','score','starsEarned',
+    'durationSeconds','inputMode','sentence','author','source','creative','structFb','creativeFb'
+  ];
+  var lines = [headers];
+  rows.forEach(function(e) {
+    lines.push([
+      e.date || '',
+      e.savedAt || '',
+      e.uid || '',
+      e.nickname || '',
+      e.email || '',
+      e.isAnonymous ? 'anonymous' : 'logged-in',
+      e.edition || 'growth',
+      pickScore(e),
+      e.starsEarned || '',
+      e.durationSeconds || '',
+      e.inputMode || '',
+      e.sentence || '',
+      e.author || '',
+      e.source || '',
+      e.creative || '',
+      e.structFb || '',
+      e.creativeFb || ''
+    ]);
+  });
+  return toCsv(lines);
+}
+
+function buildSogamCsv(rows) {
+  var headers = [
+    'date','savedAt','uid','nickname','email','userType','edition','sentence','sogam','coachResponse','emotionTag'
+  ];
+  var lines = [headers];
+  rows.forEach(function(e) {
+    lines.push([
+      e.date || '',
+      e.savedAt || '',
+      e.uid || '',
+      e.nickname || '',
+      e.email || '',
+      e.isAnonymous ? 'anonymous' : 'logged-in',
+      e.edition || 'growth',
+      e.sentence || '',
+      e.sogam || '',
+      e.coachResponse || '',
+      e.emotionTag || ''
+    ]);
+  });
+  return toCsv(lines);
+}
+
+function pickScore(e) {
+  if (e.finalScore !== undefined && e.finalScore !== null) return e.finalScore;
+  if (e.score !== undefined && e.score !== null) return e.score;
+  if (e.structScore !== undefined && e.structScore !== null) return e.structScore;
+  return '';
+}
+
+function toCsv(lines) {
+  return lines.map(function(row) {
+    return row.map(csvCell).join(',');
+  }).join('\r\n');
+}
+
+function csvCell(value) {
+  var s = String(value === undefined || value === null ? '' : value);
+  s = s.replace(/"/g, '""');
+  return '"' + s + '"';
+}
+
+function downloadCsv(filename, csv) {
+  var blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+}
+
+function initArchiveControls() {
+  var input = document.getElementById('archiveMonth');
+  if (!input || input.value) return;
+  var now = new Date();
+  input.value = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+}
+
+async function createMonthlyArchive() {
+  var month = document.getElementById('archiveMonth') ? document.getElementById('archiveMonth').value : '';
+  if (!month || !/^\d{4}-\d{2}$/.test(month)) {
+    alert('Archive 월을 선택하세요.');
+    return;
+  }
+  await generateMonthlyArchive(month, { downloadLocal: true });
+}
+
+async function regenerateArchive(month) {
+  if (!month || !/^\d{4}-\d{2}$/.test(month)) return;
+  if (!confirm(month + ' archive를 다시 생성하고 Storage 파일/메타데이터를 덮어쓸까요?')) return;
+  await generateMonthlyArchive(month, { downloadLocal: true });
+}
+
+async function retryArchiveUpload(month) {
+  if (!month || !/^\d{4}-\d{2}$/.test(month)) return;
+  await generateMonthlyArchive(month, { downloadLocal: false });
+}
+
+async function generateMonthlyArchive(month, options) {
+  options = options || {};
+  setArchiveBusy(true, month + ' archive 생성을 시작합니다.');
+  try {
+    var rows = await fetchFirestoreExportEntries();
+    var monthRows = rows.filter(function(e) { return (e.date || '').slice(0, 7) === month; });
+    var sogamRows = monthRows.filter(function(e) { return (e.sogam && e.sogam.length > 0) || (e.coachResponse && e.coachResponse.length > 0); });
+    if (!monthRows.length) {
+      setArchiveProgress(month + '에 해당하는 기록이 없습니다.');
+      alert('선택한 월에 해당하는 기록이 없습니다.');
+      return;
+    }
+
+    var recordsFile = 'letterbrick_archive_records_' + month + '.csv';
+    var sogamFile = 'letterbrick_archive_sogam_' + month + '.csv';
+    var recordsCsv = buildRecordsCsv(monthRows);
+    var sogamCsv = sogamRows.length ? buildSogamCsv(sogamRows) : '';
+    if (options.downloadLocal !== false) {
+      downloadCsv(recordsFile, recordsCsv);
+      if (sogamCsv) downloadCsv(sogamFile, sogamCsv);
+    }
+
+    setArchiveProgress((options.downloadLocal !== false ? 'CSV 다운로드 생성 완료. ' : 'CSV 생성 완료. ') +
+      'Firebase Storage 업로드를 시작합니다.');
+    var recordsUpload = await uploadArchiveCsv(month, recordsFile, recordsCsv);
+    var sogamUpload = sogamCsv
+      ? await uploadArchiveCsv(month, sogamFile, sogamCsv)
+      : { status: 'skipped', file: '', path: '', downloadURL: '', error: 'No sogam rows' };
+
+    var meta = buildArchiveMeta(month, monthRows, sogamRows, recordsFile, sogamRows.length ? sogamFile : '', recordsUpload, sogamUpload);
+    await fbDb.collection('admin_archives').doc(month).set(meta, { merge: true });
+    setArchiveProgress(month + ' archive 완료: records ' + monthRows.length + '개, sogam ' + sogamRows.length +
+      '개 · Storage ' + meta.uploadStatus);
+    loadArchiveList();
+  } catch(e) {
+    setArchiveProgress('Archive 오류: ' + (e.message || String(e)));
+    alert('Archive 오류: ' + (e.message || String(e)));
+  } finally {
+    setArchiveBusy(false);
+  }
+}
+
+async function deleteArchive(month) {
+  if (!month || !/^\d{4}-\d{2}$/.test(month)) return;
+  if (!confirm(month + ' archive 메타데이터와 Storage 파일을 삭제할까요? 이 작업은 되돌릴 수 없습니다.')) return;
+  setArchiveBusy(true, month + ' archive 삭제를 시작합니다.');
+  try {
+    var docRef = fbDb.collection('admin_archives').doc(month);
+    var doc = await docRef.get();
+    var item = doc.exists ? doc.data() : {};
+    await deleteArchiveStorageObject(item.recordsStorage);
+    await deleteArchiveStorageObject(item.sogamStorage);
+    await docRef.delete();
+    setArchiveProgress(month + ' archive 삭제 완료');
+    loadArchiveList();
+  } catch(e) {
+    setArchiveProgress('Archive 삭제 오류: ' + (e.message || String(e)));
+    alert('Archive 삭제 오류: ' + (e.message || String(e)));
+  } finally {
+    setArchiveBusy(false);
+  }
+}
+
+async function deleteArchiveStorageObject(storageInfo) {
+  if (!storageInfo || !storageInfo.path) return;
+  try {
+    await fbStorage.ref().child(storageInfo.path).delete();
+  } catch(e) {
+    if (e && e.code === 'storage/object-not-found') return;
+    throw e;
+  }
+}
+
+async function uploadArchiveCsv(month, filename, csv) {
+  var storagePath = 'admin_archives/' + month + '/' + filename;
+  try {
+    var blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    var ref = fbStorage.ref().child(storagePath);
+    await ref.put(blob, {
+      contentType: 'text/csv;charset=utf-8',
+      customMetadata: {
+        month: month,
+        filename: filename,
+        generatedAt: new Date().toISOString()
+      }
+    });
+    var url = await ref.getDownloadURL();
+    return { status: 'uploaded', file: filename, path: storagePath, downloadURL: url, error: '' };
+  } catch(e) {
+    return { status: 'error', file: filename, path: storagePath, downloadURL: '', error: e.message || String(e) };
+  }
+}
+
+function buildArchiveMeta(month, rows, sogamRows, recordsFile, sogamFile, recordsUpload, sogamUpload) {
+  var userMap = {};
+  var growth = 0;
+  var healing = 0;
+  var anonymous = 0;
+  rows.forEach(function(e) {
+    var key = e.uid || e.email || e.nickname || 'unknown';
+    userMap[key] = true;
+    if ((e.edition || 'growth') === 'healing') healing++; else growth++;
+    if (e.isAnonymous) anonymous++;
+  });
+  var user = fbAuth.currentUser;
+  return {
+    month: month,
+    generatedAt: new Date().toISOString(),
+    generatedBy: user && user.email ? user.email : '',
+    recordsCount: rows.length,
+    sogamCount: sogamRows.length,
+    uniqueUsers: Object.keys(userMap).length,
+    growthCount: growth,
+    healingCount: healing,
+    anonymousCount: anonymous,
+    loggedInCount: rows.length - anonymous,
+    recordsFile: recordsFile,
+    sogamFile: sogamFile,
+    recordsStorage: recordsUpload || null,
+    sogamStorage: sogamUpload || null,
+    uploadStatus: getArchiveUploadStatus(recordsUpload, sogamUpload),
+    note: 'CSV files are generated in the admin browser and uploaded to Firebase Storage when Storage rules allow it.'
+  };
+}
+
+function getArchiveUploadStatus(recordsUpload, sogamUpload) {
+  if (recordsUpload && recordsUpload.status === 'error') return 'error';
+  if (sogamUpload && sogamUpload.status === 'error') return 'partial';
+  if (recordsUpload && recordsUpload.status === 'uploaded' && (!sogamUpload || sogamUpload.status === 'uploaded' || sogamUpload.status === 'skipped')) return 'uploaded';
+  return 'unknown';
+}
+
+async function loadArchiveList() {
+  var list = document.getElementById('archiveList');
+  if (!list) return;
+  list.innerHTML = '<p class="export-note">archive 목록을 불러오는 중입니다.</p>';
+  try {
+    var snap = await fbDb.collection('admin_archives').orderBy('month', 'desc').limit(12).get();
+    if (snap.empty) {
+      list.innerHTML = '<p class="export-note">아직 생성된 archive가 없습니다.</p>';
+      return;
+    }
+    list.innerHTML = '';
+    archiveDocs = snap.docs.map(function(doc) {
+      var item = doc.data();
+      item._id = doc.id;
+      return item;
+    });
+    snap.docs.forEach(function(doc) {
+      var item = doc.data();
+      var month = item.month || doc.id;
+      var div = document.createElement('div');
+      div.className = 'archive-item';
+      var links = buildArchiveLinks(item);
+      var retryButton = (item.uploadStatus === 'error' || item.uploadStatus === 'partial')
+        ? '<button class="btn-mini" type="button" onclick="retryArchiveUpload(\'' + escAttr(month) + '\')">업로드 재시도</button>'
+        : '';
+      var scheduleStatus = item.scheduleStatus ? ' · schedule ' + esc(item.scheduleStatus) : '';
+      div.innerHTML = '<div><b>' + esc(month) + '</b><br>' +
+        '<span>records ' + (item.recordsCount || 0) + ' · sogam ' + (item.sogamCount || 0) +
+        ' · users ' + (item.uniqueUsers || 0) + ' · storage ' + esc(item.uploadStatus || 'metadata') +
+        scheduleStatus + '</span><br>' +
+        links + '</div>' +
+        '<div class="archive-actions">' +
+          '<span class="archive-date">' + esc((item.generatedAt || '').slice(0, 10)) + '</span>' +
+          retryButton +
+          '<button class="btn-mini" type="button" onclick="showArchiveDetail(\'' + escAttr(month) + '\')">상세</button>' +
+          '<button class="btn-mini" type="button" onclick="regenerateArchive(\'' + escAttr(month) + '\')">재생성</button>' +
+          '<button class="btn-mini danger" type="button" onclick="deleteArchive(\'' + escAttr(month) + '\')">삭제</button>' +
+        '</div>';
+      list.appendChild(div);
+    });
+    await loadArchiveAudit(archiveDocs);
+  } catch(e) {
+    list.innerHTML = '<p class="export-note">archive 목록 로드 실패: ' + esc(e.message || String(e)) + '</p>';
+  }
+}
+
+async function loadArchiveAudit(items) {
+  var audit = document.getElementById('archiveAudit');
+  if (!audit) return;
+  audit.innerHTML = '<div class="audit-box"><p>archive 감사 정보를 불러오는 중입니다.</p></div>';
+  try {
+    recentArchiveRuns = await fetchRecentArchiveRuns();
+    renderArchiveAudit(items || [], recentArchiveRuns);
+  } catch(e) {
+    recentArchiveRuns = [];
+    renderArchiveAudit(items || [], []);
+    audit.innerHTML += '<div class="audit-box"><span class="audit-status err">오류</span><b>실행 로그</b><p>' +
+      esc(e.message || String(e)) + '</p></div>';
+  }
+}
+
+async function fetchRecentArchiveRuns() {
+  var snap = await fbDb.collection('admin_archive_runs').orderBy('startedAt', 'desc').limit(30).get();
+  return snap.docs.map(function(doc) {
+    var item = doc.data();
+    item._id = doc.id;
+    return item;
+  });
+}
+
+function renderArchiveAudit(items, runs) {
+  var audit = document.getElementById('archiveAudit');
+  if (!audit) return;
+  var archivedMonths = {};
+  items.forEach(function(item) { archivedMonths[item.month || item._id] = true; });
+  var missing = getRecentArchiveMonths(6).filter(function(month) { return !archivedMonths[month]; });
+  var failedRuns = runs.filter(function(run) {
+    var status = run.status || run.uploadStatus || '';
+    return status === 'error' || status === 'fatal' || status === 'partial';
+  });
+  var runCounts = {};
+  runs.forEach(function(run) {
+    if (!run.month) return;
+    runCounts[run.month] = (runCounts[run.month] || 0) + 1;
+  });
+  var duplicateMonths = Object.keys(runCounts).filter(function(month) { return runCounts[month] > 1; });
+  var unhealthy = items.filter(function(item) {
+    return item.uploadStatus === 'error' || item.uploadStatus === 'partial' || item.scheduleStatus === 'error';
+  });
+
+  audit.innerHTML =
+    buildAuditBox(missing.length ? 'warn' : 'ok', '최근 누락 월', missing.length ? missing.join(', ') : '최근 6개월 archive가 모두 존재합니다.') +
+    buildAuditBox(unhealthy.length ? 'err' : 'ok', '업로드 상태', unhealthy.length ? unhealthy.map(function(item) { return item.month || item._id; }).join(', ') : '오류/부분 업로드 archive가 없습니다.') +
+    buildAuditBox(failedRuns.length ? 'err' : 'ok', '실패 실행', failedRuns.length ? failedRuns.length + '개 실패/부분 실패 실행이 최근 로그에 있습니다.' : '최근 실행 로그에 실패가 없습니다.') +
+    buildAuditBox(duplicateMonths.length ? 'warn' : 'ok', '중복 실행', duplicateMonths.length ? duplicateMonths.join(', ') : '최근 로그 기준 중복 실행 월이 없습니다.');
+}
+
+function buildAuditBox(status, title, text) {
+  var label = status === 'ok' ? '정상' : status === 'err' ? '주의' : '확인';
+  return '<div class="audit-box"><span class="audit-status ' + status + '">' + label + '</span><b>' +
+    esc(title) + '</b><p>' + esc(text) + '</p></div>';
+}
+
+function getRecentArchiveMonths(count) {
+  var months = [];
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth();
+  for (var i = 1; i <= count; i++) {
+    var d = new Date(year, month - i, 1);
+    months.push(d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'));
+  }
+  return months;
+}
+
+async function showArchiveDetail(month) {
+  var detail = document.getElementById('archiveDetail');
+  if (!detail || !month) return;
+  detail.style.display = 'block';
+  detail.innerHTML = '<p class="export-note">' + esc(month) + ' archive 상세 정보를 불러오는 중입니다.</p>';
+  try {
+    var doc = await fbDb.collection('admin_archives').doc(month).get();
+    if (!doc.exists) {
+      detail.innerHTML = '<p class="export-note">' + esc(month) + ' archive 메타데이터가 없습니다.</p>';
+      return;
+    }
+    var item = doc.data();
+    item._id = doc.id;
+    var runs = await fetchArchiveRuns(month);
+    var restoreRuns = await fetchArchiveRestoreRuns(month);
+    renderArchiveDetail(item, runs, restoreRuns);
+  } catch(e) {
+    detail.innerHTML = '<p class="export-note">archive 상세 로드 실패: ' + esc(e.message || String(e)) + '</p>';
+  }
+}
+
+async function fetchArchiveRuns(month) {
+  var snap = await fbDb.collection('admin_archive_runs').where('month', '==', month).limit(12).get();
+  var runs = snap.docs.map(function(doc) {
+    var item = doc.data();
+    item._id = doc.id;
+    return item;
+  });
+  runs.sort(function(a, b) { return String(b.startedAt || b.completedAt || '').localeCompare(String(a.startedAt || a.completedAt || '')); });
+  return runs;
+}
+
+async function fetchArchiveRestoreRuns(month) {
+  var snap = await fbDb.collection('admin_archive_restore_runs').where('month', '==', month).limit(12).get();
+  var runs = snap.docs.map(function(doc) {
+    var item = doc.data();
+    item._id = doc.id;
+    return item;
+  });
+  runs.sort(function(a, b) { return String(b.startedAt || b.completedAt || '').localeCompare(String(a.startedAt || a.completedAt || '')); });
+  return runs;
+}
+
+function renderArchiveDetail(item, runs, restoreRuns) {
+  var detail = document.getElementById('archiveDetail');
+  if (!detail) return;
+  var month = item.month || item._id || '';
+  var checks = getArchiveChecks(item);
+  detail.innerHTML =
+    '<h3>' + esc(month) + ' Archive Detail</h3>' +
+    '<div class="detail-grid">' +
+      detailMetric('records', item.recordsCount || 0) +
+      detailMetric('sogam', item.sogamCount || 0) +
+      detailMetric('users', item.uniqueUsers || 0) +
+      detailMetric('upload', item.uploadStatus || 'metadata') +
+      detailMetric('schedule', item.scheduleStatus || 'manual') +
+      detailMetric('runs', runs.length) +
+      detailMetric('restore runs', restoreRuns.length) +
+    '</div>' +
+    '<div class="audit-box"><span class="audit-status ' + (checks.errors.length ? 'err' : checks.warnings.length ? 'warn' : 'ok') + '">' +
+      (checks.errors.length ? '주의' : checks.warnings.length ? '확인' : '정상') + '</span><b>메타데이터 검증</b><p>' +
+      esc(checks.errors.concat(checks.warnings).join(' / ') || '필수 archive 메타데이터와 Storage 링크가 정상입니다.') + '</p></div>' +
+    '<div class="audit-box" style="margin-top:10px"><b>복구/검수 체크리스트</b>' + buildRestoreChecklist(item) + '</div>' +
+    '<div class="audit-box" style="margin-top:10px"><span class="audit-status warn">복구</span><b>복구 Runner</b><p>' +
+      'GitHub Actions의 Archive Restore workflow에서 month=' + esc(month) +
+      '로 먼저 dry-run을 실행하세요. 실제 복구는 confirm 값 RESTORE_' + esc(month) + '가 필요합니다.</p></div>' +
+    '<div class="audit-box" style="margin-top:10px"><b>Archive 실행 이력</b>' + buildRunList(runs) + '</div>' +
+    '<div class="audit-box" style="margin-top:10px"><b>Restore 실행 이력</b>' + buildRestoreRunList(restoreRuns) + '</div>';
+}
+
+function detailMetric(label, value) {
+  return '<div class="detail-metric"><b>' + esc(label) + '</b><span>' + esc(value) + '</span></div>';
+}
+
+function getArchiveChecks(item) {
+  var errors = [];
+  var warnings = [];
+  if (!item.recordsCount) warnings.push('recordsCount가 0이거나 없습니다.');
+  if (!item.recordsStorage || !item.recordsStorage.path) errors.push('records Storage path가 없습니다.');
+  if (!item.recordsStorage || !item.recordsStorage.downloadURL) warnings.push('records CSV 다운로드 URL이 없습니다.');
+  if (item.sogamCount > 0 && (!item.sogamStorage || !item.sogamStorage.path)) errors.push('sogam Storage path가 없습니다.');
+  if (item.uploadStatus === 'error' || item.uploadStatus === 'partial') errors.push('업로드 상태가 ' + item.uploadStatus + '입니다.');
+  if (item.scheduleStatus === 'error') errors.push('스케줄 실행 상태가 error입니다.');
+  if (item.lastError) warnings.push('lastError: ' + item.lastError);
+  return { errors: errors, warnings: warnings };
+}
+
+function buildRestoreChecklist(item) {
+  var recordsLink = item.recordsStorage && item.recordsStorage.downloadURL
+    ? '<a href="' + escAttr(item.recordsStorage.downloadURL) + '" target="_blank" rel="noopener">records CSV 다운로드</a>'
+    : 'records CSV 링크 없음';
+  var sogamLink = item.sogamStorage && item.sogamStorage.downloadURL
+    ? '<a href="' + escAttr(item.sogamStorage.downloadURL) + '" target="_blank" rel="noopener">sogam CSV 다운로드</a>'
+    : 'sogam CSV 링크 없음';
+  return '<ol class="restore-list">' +
+    '<li>' + recordsLink + ' 후 행 수가 records ' + esc(item.recordsCount || 0) + '개와 맞는지 확인</li>' +
+    '<li>' + sogamLink + ' 후 행 수가 sogam ' + esc(item.sogamCount || 0) + '개와 맞는지 확인</li>' +
+    '<li>행 수나 링크가 맞지 않으면 이 월의 archive를 재생성</li>' +
+    '<li>복구가 필요하면 CSV를 기준으로 Firestore `records/{uid}/entries`에 재적재 계획 수립</li>' +
+  '</ol>';
+}
+
+function buildRunList(runs) {
+  if (!runs.length) return '<p class="export-note">이 월의 scheduled run 로그가 없습니다. 수동 archive일 수 있습니다.</p>';
+  return '<div class="run-list">' + runs.map(function(run) {
+    var status = run.status || run.uploadStatus || 'unknown';
+    var when = run.startedAt || run.completedAt || run.failedAt || '';
+    var error = run.error ? '<br><span>' + esc(run.error) + '</span>' : '';
+    return '<div class="run-item"><div><b>' + esc(status) + '</b> · ' + esc((when || '').slice(0, 19)) +
+      error + '</div><span>records ' + esc(run.recordsCount || '-') + ' · sogam ' + esc(run.sogamCount || '-') + '</span></div>';
+  }).join('') + '</div>';
+}
+
+function buildRestoreRunList(runs) {
+  if (!runs.length) return '<p class="export-note">이 월의 restore run 로그가 없습니다.</p>';
+  return '<div class="run-list">' + runs.map(function(run) {
+    var status = run.status || 'unknown';
+    var when = run.startedAt || run.completedAt || run.failedAt || '';
+    var error = run.error ? '<br><span>' + esc(run.error) + '</span>' : '';
+    return '<div class="run-item"><div><b>' + esc(status) + '</b> · ' + esc((when || '').slice(0, 19)) +
+      error + '</div><span>candidates ' + esc(run.restoreCandidates || '-') +
+      ' · written ' + esc(run.writtenCount || 0) + '</span></div>';
+  }).join('') + '</div>';
+}
+
+function buildArchiveLinks(item) {
+  var links = [];
+  if (item.recordsStorage && item.recordsStorage.downloadURL) {
+    links.push('<a href="' + escAttr(item.recordsStorage.downloadURL) + '" target="_blank" rel="noopener">records CSV</a>');
+  } else if (item.recordsFile) {
+    links.push('<span>' + esc(item.recordsFile) + '</span>');
+  }
+  if (item.sogamStorage && item.sogamStorage.downloadURL) {
+    links.push('<a href="' + escAttr(item.sogamStorage.downloadURL) + '" target="_blank" rel="noopener">sogam CSV</a>');
+  } else if (item.sogamFile) {
+    links.push('<span>' + esc(item.sogamFile) + '</span>');
+  }
+  if (item.recordsStorage && item.recordsStorage.error) {
+    links.push('<span>records upload error</span>');
+  }
+  if (item.sogamStorage && item.sogamStorage.error && item.sogamStorage.status !== 'skipped') {
+    links.push('<span>sogam upload error</span>');
+  }
+  return links.length ? '<span>' + links.join(' · ') + '</span>' : '<span>metadata only</span>';
+}
+
+function setArchiveBusy(isBusy, message) {
+  var btn = document.getElementById('btnCreateArchive');
+  if (btn) {
+    btn.disabled = isBusy;
+    btn.textContent = isBusy ? 'archive 생성 중...' : '월간 archive 생성';
+  }
+  if (message) setArchiveProgress(message);
+}
+
+function setArchiveProgress(message) {
+  var progress = document.getElementById('archiveProgress');
+  if (progress) progress.textContent = message || '';
+}
+
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function escAttr(s) {
+  return esc(s).replace(/'/g,'&#39;');
 }
 </script>
 </body>
