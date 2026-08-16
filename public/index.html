@@ -8968,6 +8968,20 @@ function cleanUserSentence(value) {
   return text;
 }
 
+/* 하루의 경계는 사용자의 로컬 시각 기준이어야 한다.
+   toISOString()은 UTC 기준이라 한국(UTC+9)에서는 자정-오전 9시에 쓴 기록이
+   전날 날짜로 저장됐다. 새벽에 쓴 문장이 어제 것이 되고 연속일도 어긋났다.
+   기록 저장·오늘 판정·연속일 계산은 모두 이 함수를 쓴다.
+   (joinedAt·savedAt 같은 '시각' 값은 UTC가 맞으므로 그대로 둔다) */
+function lbDateKey(d) {
+  var t = arguments.length ? new Date(d) : new Date();
+  if (isNaN(t.getTime())) return '';
+  return t.getFullYear() + '-' +
+         String(t.getMonth() + 1).padStart(2, '0') + '-' +
+         String(t.getDate()).padStart(2, '0');
+}
+function lbToday() { return lbDateKey(); }
+
 function getPrimaryUserSentence(rec) {
   var edition = rec && rec.edition === 'healing' ? 'healing' : 'growth';
   var candidates = edition === 'healing'
@@ -8999,7 +9013,7 @@ function lbOpeningStatus() {
     if (r && r.date) days[String(r.date).slice(0, 10)] = true;
   });
   var keys = Object.keys(days).sort();
-  var iso = function (d) { return d.toISOString().slice(0, 10); };  // 기록 저장 방식과 동일하게 맞춘다
+  var iso = lbDateKey;   // 로컬 날짜. 기록 저장과 같은 기준이어야 한다.
   var todayStr = iso(new Date());
   var openToday = !!days[todayStr];
 
@@ -9730,7 +9744,7 @@ function finish(){
     setTimeout(()=>b.classList.add('filled'),i*120+200);
   }
   updateSB(5);
-  const newRec={date:new Date().toISOString().split('T')[0],score:fs,
+  const newRec={date:lbToday(),score:fs,
     sentence:todaySent.text,author:todaySent.author,source:todaySent.source,
     coreSkill:(todaySent.learn&&todaySent.learn.coreSkill)||'',
     structText:document.getElementById('structTa').value||'',
@@ -9986,7 +10000,7 @@ function _doDownload(card) {
   }).then(canvas => {
     const link = document.createElement('a');
     const now = new Date();
-    link.download = `letterbrick_${now.toISOString().split('T')[0]}.png`;
+    link.download = `letterbrick_${lbDateKey(now)}.png`;
     link.href = canvas.toDataURL('image/png');
     link.click();
   });
@@ -10054,7 +10068,7 @@ let currentUser = null;
 var paidBetaState = normalizePaidBetaState(null);
 
 function normalizePaidBetaState(raw) {
-  var today = new Date().toISOString().slice(0, 10);
+  var today = lbToday();
   var state = raw || {};
   var limit = Number(state.dailyAiLimit || state.aiQuotaDaily || 0);
   var expiresAt = state.expiresAt || '';
@@ -10702,7 +10716,7 @@ function maybeShowNotifyAsk() {
 function checkTodayReminder() {
   var banner = document.getElementById('reminderBanner');
   if (!banner) return;
-  var todayStr = new Date().toISOString().slice(0, 10);
+  var todayStr = lbToday();
   var writtenToday = pastRecords.some(function(r) {
     return r.date && r.date.slice(0, 10) === todayStr;
   });
@@ -11055,7 +11069,7 @@ function finishHealing() {
   document.getElementById('healingBwTotal').textContent=ordinal+' 벽돌';
 
   var rec = {
-    date: new Date().toISOString().split('T')[0], edition:'healing', score:0, starsEarned:1,
+    date: lbToday(), edition:'healing', score:0, starsEarned:1,
     sentence: healingPassage.text, author: healingPassage.author, source:healingPassage.source || '',
     creative: document.getElementById('healingTa').value.replace('🔍 손글씨 인식 중...','').trim() || '(미작성)',
     structFb:'', creativeFb:'오늘의 힐링 필사가 저장됐어요.',
@@ -11991,7 +12005,7 @@ function finishEarly(stage) {
   // 기록 저장
   var completedSteps = stage === 'copy' ? ['copy'] : ['copy','struct'];
   var newRec = {
-    date:new Date().toISOString().split('T')[0], edition:'growth',
+    date:lbToday(), edition:'growth',
     score: earnedStars*10, starsEarned: earnedStars,
     sentence:todaySent.text, author:todaySent.author, source:todaySent.source,
     coreSkill:(todaySent.learn&&todaySent.learn.coreSkill)||'',
@@ -12076,7 +12090,7 @@ finish = function() {
   }
 
   var elapsed=sessionStartTime?Math.round((Date.now()-sessionStartTime)/1000):0;
-  var newRec={date:new Date().toISOString().split('T')[0],edition:'growth',score:totalStars*10,starsEarned:totalStars,
+  var newRec={date:lbToday(),edition:'growth',score:totalStars*10,starsEarned:totalStars,
     sentence:todaySent.text,author:todaySent.author,source:todaySent.source,
     coreSkill:(todaySent.learn&&todaySent.learn.coreSkill)||'',
     copyText:document.getElementById('copyTa').value||'',
@@ -13013,7 +13027,7 @@ copyShareText = function() {
 
 // 과거 힐링 기록에서 컨텍스트 문자열 생성
 function getHealingHistory() {
-  var today = new Date().toISOString().split('T')[0];
+  var today = lbToday();
   var healRecs = pastRecords.filter(function(r) {
     return r.edition === 'healing' && r.date !== today;
   });
@@ -13038,7 +13052,7 @@ function getHealingHistory() {
 
 // 오늘 힐링 레코드에 sogam 업데이트
 function saveHealingSogam(sogam) {
-  var today = new Date().toISOString().split('T')[0];
+  var today = lbToday();
   // pastRecords에서 오늘 힐링 기록 찾아 업데이트
   var rec = pastRecords.find(function(r) { return r.edition === 'healing' && r.date === today; });
   if (rec) {
@@ -13199,7 +13213,7 @@ function showHealingCoachResponse(text, emotion) {
   document.getElementById('healingCoachResponse').style.display = 'block';
   document.getElementById('healingShareSection').style.display = 'block';
   // 코치 답변을 오늘 힐링 레코드에 저장
-  var today = new Date().toISOString().split('T')[0];
+  var today = lbToday();
   var healRec = pastRecords.find(function(r){ return r.edition === 'healing' && r.date === today; });
   if (healRec) {
     healRec.coachResponse = text;
@@ -13532,7 +13546,7 @@ function trackGrowthPick(idx) {
     var s = SENTENCES[idx]; if (!s) return;
     var history = JSON.parse(localStorage.getItem('lb-taste') || '[]');
     history.push({
-      date: new Date().toISOString().slice(0,10),
+      date: lbToday(),
       idx: idx,
       author: s.author || '',
       tags: s.tags || inferSentenceTags(s),
@@ -13597,7 +13611,7 @@ function getPersonalizedIdxB(idxA) {
 function trackHealingTheme(theme) {
   try {
     var h = JSON.parse(localStorage.getItem('lb-taste-healing') || '[]');
-    h.push({date: new Date().toISOString().slice(0,10), theme: theme});
+    h.push({date: lbToday(), theme: theme});
     if (h.length > 30) h = h.slice(-30);
     localStorage.setItem('lb-taste-healing', JSON.stringify(h));
   } catch(e) {}
@@ -14244,7 +14258,7 @@ function downloadShareCanvas() {
   var canvas = _shareCanvas;
   if (!canvas) return;
   var link = document.createElement('a');
-  link.download = 'letterbrick-' + _shareFormat + '-' + new Date().toISOString().slice(0, 10) + '.png';
+  link.download = 'letterbrick-' + _shareFormat + '-' + lbToday() + '.png';
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
