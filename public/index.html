@@ -179,6 +179,101 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .logo-brick{height:7px;border-radius:1.5px;background:var(--brick);}
 .logo-brick:nth-child(1){width:12px;}.logo-brick:nth-child(2){width:8px;}
 .logo-brick:nth-child(3){width:8px;}.logo-brick:nth-child(4){width:12px;}
+/* ══════ 로고 (단일 정본) ══════
+   벽돌 4장 + 워드마크. 크기는 --lb-unit 하나로 조절한다.
+   실제 구운 벽돌은 개체마다 색이 다르다. 한 가지 주황을 반복하면 플라스틱처럼 보인다.
+   같은 흙에서 나온 네 장이라는 느낌이 나도록 명도만 다르게 변주했다. */
+:root{
+  --brick-c1:#A8452F;   /* 짙게 구워진 것 */
+  --brick-c2:#B65E3C;   /* 기준 */
+  --brick-c3:#C4714E;   /* 옅게 구워진 것 */
+  --brick-c4:#9B3C29;   /* 가장 짙은 것 */
+}
+
+.lb-logo{
+  --lb-unit:14px;                 /* 벽돌 한 장의 가로 기준 */
+  display:inline-flex;align-items:center;
+  gap:calc(var(--lb-unit) * 0.72);  /* 벽돌과 글자 사이 — 시각적으로 한 덩어리로 보이는 거리 */
+  line-height:1;
+}
+.lb-logo-bricks{
+  display:grid;
+  grid-template-columns:repeat(2, auto);
+  gap:calc(var(--lb-unit) * 0.16);
+  flex:0 0 auto;
+}
+.lb-logo-brick{
+  width:var(--lb-unit);
+  height:calc(var(--lb-unit) * 0.58);   /* 실제 벽돌 비율에 가깝게 */
+  border-radius:calc(var(--lb-unit) * 0.1);
+  position:relative;
+  /* 위가 밝고 아래가 어두운 아주 얕은 결. 구운 면의 질감을 흉내낸다 */
+  background-image:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(0,0,0,0.10));
+}
+.lb-logo-brick:nth-child(1){background-color:var(--brick-c2);}
+.lb-logo-brick:nth-child(2){background-color:var(--brick-c1);}
+.lb-logo-brick:nth-child(3){background-color:var(--brick-c4);}
+.lb-logo-brick:nth-child(4){background-color:var(--brick-c3);}
+/* 두 번째 줄을 반 장 어긋나게 — 벽돌은 줄눈을 어긋나게 쌓는다 */
+.lb-logo-brick:nth-child(3){margin-left:calc(var(--lb-unit) * 0.18);}
+
+.lb-logo-text{
+  font-family:'Gowun Batang', Georgia, serif;
+  font-size:calc(var(--lb-unit) * 1.34);
+  font-weight:700;                       /* 기존 400은 벽돌 옆에서 힘이 밀렸다 */
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+/* 이름이 letter(글자) + brick(벽돌)의 합성어다. 색도 그 둘로 나눈다.
+   letter는 잉크, brick은 구운 흙. */
+.lb-logo-text .lb-letter{color:var(--ink);}
+.lb-logo-text .lb-brick{color:var(--brick-d);}
+.lb-logo--on-dark .lb-logo-text .lb-letter{color:var(--paper);}
+.lb-logo--on-dark .lb-logo-text .lb-brick{color:var(--brick-on-dark);}
+
+/* 크기 변형 */
+.lb-logo--sm{--lb-unit:11px;}
+.lb-logo--md{--lb-unit:14px;}
+.lb-logo--lg{--lb-unit:22px;}
+.lb-logo--xl{--lb-unit:30px;}
+
+/* ── 모션: 벽돌이 한 장씩 내려앉고 워드마크가 따라 나온다 ── */
+@keyframes lbBrickDrop{
+  0%  {opacity:0;transform:translateY(-8px) scaleY(0.7);}
+  60% {opacity:1;transform:translateY(1px) scaleY(1.04);}
+  100%{opacity:1;transform:translateY(0) scaleY(1);}
+}
+@keyframes lbWordIn{
+  from{opacity:0;transform:translateX(-5px);}
+  to  {opacity:1;transform:translateX(0);}
+}
+.lb-logo--animate .lb-logo-brick{
+  opacity:0;
+  animation:lbBrickDrop .42s cubic-bezier(.22,1.1,.36,1) both;
+}
+.lb-logo--animate .lb-logo-brick:nth-child(1){animation-delay:.00s;}
+.lb-logo--animate .lb-logo-brick:nth-child(2){animation-delay:.09s;}
+.lb-logo--animate .lb-logo-brick:nth-child(3){animation-delay:.18s;}
+.lb-logo--animate .lb-logo-brick:nth-child(4){animation-delay:.27s;}
+.lb-logo--animate .lb-logo-text{
+  opacity:0;
+  animation:lbWordIn .5s ease .38s both;
+}
+
+/* 마우스를 올리면 벽돌이 살짝 들린다. 클릭 가능한 로고에만 붙인다 */
+.lb-logo--live .lb-logo-brick{transition:transform .22s cubic-bezier(.22,1.1,.36,1);}
+.lb-logo--live:hover .lb-logo-brick:nth-child(1){transform:translateY(-2px);}
+.lb-logo--live:hover .lb-logo-brick:nth-child(2){transform:translateY(-3px);}
+.lb-logo--live:hover .lb-logo-brick:nth-child(3){transform:translateY(-1px);}
+.lb-logo--live:hover .lb-logo-brick:nth-child(4){transform:translateY(-2px);}
+
+@media (prefers-reduced-motion: reduce){
+  .lb-logo--animate .lb-logo-brick,
+  .lb-logo--animate .lb-logo-text{animation:none;opacity:1;transform:none;}
+  .lb-logo--live .lb-logo-brick{transition:none;}
+  .lb-logo--live:hover .lb-logo-brick{transform:none;}
+}
+
 .logo-text{font-family:'Gowun Batang',serif;font-size:18px;letter-spacing:1px;color:var(--ink);}
 .logo-text em{color:var(--brick-d);font-style:normal;}
 .nav-tabs{display:flex;gap:4px;}
@@ -592,7 +687,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   overflow:hidden;margin-top:12px;}
 .air-head{background:var(--ink);padding:11px 16px;
   display:flex;align-items:center;justify-content:space-between;}
-.air-lbl{font-size:12px;color:rgba(247,242,232,0.55);letter-spacing:1px;}
+.air-lbl{font-size:13px;font-weight:700;color:rgba(247,242,232,0.95);letter-spacing:.6px;}
 .air-score{font-family:'Gowun Batang',serif;font-size:22px;color:var(--paper);}
 .air-body{padding:16px;}
 .air-section{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line);}
@@ -603,6 +698,54 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .air-quote{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
   padding:10px 13px;margin-top:8px;font-size:12px;color:var(--brick-d);font-style:italic;
   font-family:'Noto Serif KR',serif;}
+/* ── 채점 내역표 ── */
+.score-breakdown{
+  margin:14px 0 4px;border:1px solid var(--line);border-radius:12px;
+  background:#FFFDF9;overflow:hidden;
+}
+.sb-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 14px;border-bottom:1px solid var(--line);
+  background:#F4EFE6;
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:1.2px;color:var(--ink2);
+}
+.sb-total{font-size:16px;letter-spacing:0;color:var(--brick-d);font-weight:800;}
+.sb-table{width:100%;border-collapse:collapse;}
+.sb-table td{padding:10px 14px;border-bottom:1px solid #EFE9DE;vertical-align:top;}
+.sb-table tr:last-child td{border-bottom:0;}
+.sb-mark{
+  width:56px;white-space:nowrap;font-family:'Noto Sans KR',sans-serif;
+  font-size:12px;font-weight:700;
+}
+.sb-ok .sb-mark{color:#2C7458;}
+.sb-part .sb-mark{color:#8A6208;}
+.sb-miss .sb-mark{color:#A8452F;}
+.sb-ok{background:rgba(44,116,88,0.045);}
+.sb-miss{background:rgba(168,69,47,0.04);}
+.sb-name{
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;color:var(--ink);
+}
+.sb-miss .sb-name{color:var(--ink2);}
+.sb-detail{display:block;margin-top:3px;font-weight:400;font-size:12px;color:var(--ink3);}
+.sb-pts{
+  width:66px;text-align:right;white-space:nowrap;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:700;
+  color:var(--ink2);
+}
+.sb-miss .sb-pts{color:var(--ink3);}
+.sb-next{
+  padding:12px 14px;border-top:1px solid var(--line);
+  background:#FBF0E9;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.7;
+  color:var(--ink);
+}
+.sb-next strong{color:var(--brick-d);margin-right:6px;}
+@media (max-width:520px){
+  .sb-table td{padding:9px 11px;}
+  .sb-mark{width:50px;}
+  .sb-pts{width:58px;}
+}
 .air-tip{background:var(--brick-p);border-radius:8px;padding:10px 13px;
   margin-top:10px;font-size:12px;color:var(--brick);font-weight:500;
   border-left:3px solid var(--brick);}
@@ -618,6 +761,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 @keyframes db{0%,100%{transform:translateY(0) scaleX(.8);opacity:.4;}50%{transform:translateY(-7px) scaleX(1);opacity:1;}}
 
 /* Complete */
+.db-emoji svg{color:var(--brick-on-dark);display:block;margin:0 auto;}
+.cta-icon svg{color:var(--paper);display:block;}
 .done-banner{
   background:linear-gradient(135deg,rgba(46,42,38,0.95),rgba(58,48,42,0.95)),url('images/brick-texture.svg');
   background-size:auto,150px 100px;
@@ -950,6 +1095,140 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mpop-btn:hover{background:var(--brick);}
 
 /* ══════ MYPAGE MILESTONE SECTION ══════ */
+/* ── 제본: 문장벽 ── */
+.binding-status{
+  margin:12px 0 10px;padding:14px 15px;border:1px solid var(--line);
+  border-radius:12px;background:#FFFDF9;
+}
+.bind-empty{
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.7;color:var(--ink3);
+}
+.bind-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+.bind-vol{
+  font-family:'Gowun Batang',Georgia,serif;font-size:16px;font-weight:700;color:var(--ink);
+}
+.bind-count{font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--ink3);white-space:nowrap;}
+.bind-count em{font-style:normal;font-weight:800;font-size:15px;color:var(--brick-d);}
+.bind-bar{
+  margin:10px 0 9px;height:7px;border-radius:4px;background:#EFE9DE;overflow:hidden;
+}
+.bind-fill{height:100%;border-radius:4px;background:var(--brick-d);transition:width .4s ease;}
+.bind-copy{
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.7;color:var(--ink2);
+}
+.bind-copy b{color:var(--brick-d);font-weight:700;}
+.bind-next{
+  margin-top:4px;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--ink3);
+}
+.volume-shelf{margin:0 0 12px;}
+.shelf-ttl{
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;
+  color:var(--ink3);margin-bottom:7px;letter-spacing:0.02em;
+}
+.shelf-row{display:flex;flex-wrap:wrap;gap:7px;}
+.vol-book{
+  display:flex;flex-direction:column;gap:2px;align-items:flex-start;
+  padding:8px 11px;min-height:24px;cursor:pointer;
+  border:1px solid var(--line);border-radius:9px;background:#FBF6EE;
+  font-family:'Noto Sans KR',sans-serif;text-align:left;
+}
+.vol-book:hover{background:#F7EFE3;}
+.vol-book.open{border-color:var(--brick-d);background:#FBF0E9;}
+.vol-no{font-size:13px;font-weight:700;color:var(--ink);}
+.vol-book.open .vol-no{color:var(--brick-d);}
+.vol-range{font-size:11px;color:var(--ink3);}
+.vol-back{justify-content:center;background:transparent;}
+.wall-more{
+  display:block;width:100%;margin-top:10px;padding:11px;min-height:24px;
+  border:1px solid var(--line);border-radius:10px;background:transparent;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;color:var(--brick-d);
+}
+.wall-more:hover{background:#FBF6EE;}
+.wall-more.hide{display:none;}
+
+/* ── 세계관 패널 ── */
+.mp-sec-role{
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;line-height:1.5;
+  color:var(--ink3);margin-top:3px;font-weight:400;letter-spacing:0;
+}
+.world-panel{
+  margin:16px 0 4px;border:1px solid var(--line);border-radius:14px;
+  background:#FFFDF9;overflow:hidden;
+}
+.wp-head{padding:16px 16px 13px;border-bottom:1px solid var(--line);background:#F4EFE6;}
+.wp-title{
+  font-family:'Gowun Batang',Georgia,serif;font-size:17px;font-weight:700;
+  color:var(--ink);letter-spacing:-0.01em;
+}
+.wp-lead{
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.75;
+  color:var(--ink2);margin-top:7px;
+}
+.wp-lead b{color:var(--ink);font-weight:700;}
+.wp-axes{padding:4px 0;}
+.wp-axis{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:13px 16px;border-bottom:1px solid #EFE9DE;
+}
+.wp-axis:last-child{border-bottom:0;}
+.wp-icon{
+  flex:0 0 34px;height:34px;border-radius:9px;background:#F4EFE6;
+  display:flex;align-items:center;justify-content:center;font-size:17px;
+}
+.wp-body{flex:1;min-width:0;}
+.wp-q{
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:600;
+  color:var(--ink3);letter-spacing:0.02em;
+}
+.wp-a{
+  font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:700;
+  color:var(--ink);margin-top:3px;line-height:1.5;
+}
+.wp-a em{font-style:normal;color:var(--brick-d);}
+.wp-note{
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;line-height:1.6;
+  color:var(--ink3);margin-top:4px;
+}
+.wp-now{padding:14px 16px;border-top:1px solid var(--line);background:#FBF0E9;}
+.wp-now-copy{
+  font-family:'Gowun Batang',Georgia,serif;font-size:14px;line-height:1.8;
+  color:var(--ink);
+}
+.wp-toggle{
+  display:block;width:100%;padding:12px 16px;border:0;border-top:1px solid var(--line);
+  background:transparent;cursor:pointer;text-align:left;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:600;
+  color:var(--brick-d);letter-spacing:0;
+}
+.wp-toggle:hover{background:#FBF6EE;}
+.wp-ladder{border-top:1px solid var(--line);background:#FFFCF7;}
+.wp-ladder.hide{display:none;}
+.wp-step{
+  display:flex;gap:11px;align-items:baseline;
+  padding:10px 16px;border-bottom:1px solid #F1EBE1;
+}
+.wp-step:last-child{border-bottom:0;}
+.wp-step-n{
+  flex:0 0 60px;font-family:'Noto Sans KR',sans-serif;font-size:12px;
+  font-weight:700;color:var(--ink3);white-space:nowrap;
+}
+.wp-step-name{
+  flex:1;font-family:'Noto Sans KR',sans-serif;font-size:13px;
+  font-weight:600;color:var(--ink2);
+}
+.wp-step-scope{
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;color:var(--ink3);
+  text-align:right;flex:0 0 auto;
+}
+.wp-step.done .wp-step-n{color:var(--brick-d);}
+.wp-step.done .wp-step-name{color:var(--ink);}
+.wp-step.here{background:#FBF0E9;}
+.wp-step.here .wp-step-name{color:var(--brick-d);font-weight:800;}
+@media (max-width:420px){
+  .wp-step-scope{display:none;}
+  .wp-axis{padding:12px 13px;}
+  .wp-head,.wp-now{padding-left:13px;padding-right:13px;}
+}
 .mp-milestone-section{margin:20px 0 24px;}
 .mp-milestone-head{
   display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;
@@ -1349,8 +1628,25 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   padding:16px 16px 0;
 }
 #shareModal .sm-img-wrap img{
-  max-width:100%;border-radius:12px;display:block;
+  max-width:100%;max-height:56vh;width:auto;margin:0 auto;
+  border-radius:12px;display:block;object-fit:contain;
 }
+/* 규격 선택 — 세로형 카드는 화면을 넘길 수 있어 미리보기 높이를 제한한다 */
+#shareModal .sm-formats{
+  display:flex;gap:6px;padding:14px 16px 0;
+}
+#shareModal .sm-fmt-btn{
+  flex:1;padding:9px 4px;border-radius:9px;cursor:pointer;
+  border:1px solid rgba(247,242,232,0.18);background:transparent;
+  color:rgba(247,242,232,0.66);
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;
+  transition:all .18s;
+}
+#shareModal .sm-fmt-btn:hover{border-color:rgba(247,242,232,0.34);color:rgba(247,242,232,0.9);}
+#shareModal .sm-fmt-btn.active{
+  border-color:#DE9068;background:rgba(222,144,104,0.14);color:#F2C4A8;font-weight:700;
+}
+#shareModal .sm-fmt-btn:focus-visible{outline:2px solid #DE9068;outline-offset:2px;}
 #shareModal .sm-actions{
   display:flex;gap:10px;padding:14px 16px 16px;
 }
@@ -1431,6 +1727,41 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .hfs-line.done{background:var(--ink2);}
 
 /* ══════ HEALING QUESTION CARD ══════ */
+/* ══════ 생각의 재료 (매거진형) ══════ */
+/* 질문만 던지면 답할 거리가 없다. 재료를 먼저 주고 그 다음에 묻는다. */
+.healing-lens{
+  margin:0 0 22px;padding:20px 20px 18px;text-align:left;
+  border:1px solid rgba(247,242,232,0.12);border-radius:14px;
+  background:rgba(247,242,232,0.035);
+  animation:fu .45s ease both;
+}
+.hl-eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:rgba(247,242,232,0.52);margin-bottom:12px;
+}
+.hl-body{
+  font-family:'Noto Serif KR',serif;font-size:15px;line-height:2.0;
+  color:rgba(247,242,232,0.86);font-weight:300;letter-spacing:.2px;
+}
+.hl-body p{margin:0 0 12px;}
+.hl-body p:last-child{margin-bottom:0;}
+.hl-quote{
+  margin:16px 0 0;padding:14px 0 0;
+  border-top:1px solid rgba(247,242,232,0.12);
+}
+.hl-quote p{
+  margin:0 0 8px;font-family:'Gowun Batang',serif;font-size:16px;line-height:1.85;
+  color:#F0E6D8;
+}
+.hl-quote cite{
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-style:normal;
+  color:rgba(247,242,232,0.58);
+}
+@media (max-width:520px){
+  .healing-lens{padding:16px 15px 15px;}
+  .hl-body{font-size:14px;line-height:1.95;}
+}
+
 .healing-question-card{
   margin:0 0 20px;text-align:left;
   animation:fu .45s ease both;
@@ -2070,7 +2401,7 @@ const fbDb = firebase.firestore();
         <div class="cta-lbl" id="ctaDate">TODAY · 3월 11일</div>
         <div class="cta-ttl">오늘의 필사 시작하기 →</div>
       </div>
-      <span class="cta-icon"><img src="images/icon_pen_tool.svg" width="28" height="28" style="filter:brightness(2);" alt="pen tool"></span>
+      <span class="cta-icon"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z"/><path d="m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18"/><path d="m2.3 2.3 7.286 7.286"/><circle cx="11" cy="11" r="2"/></svg></span>
     </button>
 
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
@@ -2282,7 +2613,7 @@ const fbDb = firebase.firestore();
 
     <!-- COMPLETE -->
     <div id="doneCard" style="display:none;" class="done-banner">
-      <span class="db-emoji"><img src="images/icon_sparkles.svg" width="36" height="36" style="filter:brightness(5) sepia(1) saturate(3) hue-rotate(10deg);" alt="sparkles"></span>
+      <span class="db-emoji"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg></span>
       <div class="db-ttl">오늘 필사 완성!</div>
       <div class="db-sub">오늘도 벽돌을 쌓았어요.</div>
 
@@ -2476,6 +2807,16 @@ const fbDb = firebase.firestore();
         <span id="healingDuration">—</span> 동안 머물렀어요
       </div>
 
+      <!-- 생각의 재료 (매거진형) — lens가 있는 문단에만 나타난다 -->
+      <div class="healing-lens" id="healingLens" style="display:none;">
+        <div class="hl-eyebrow" id="healingLensLabel">생각의 재료</div>
+        <div class="hl-body" id="healingLensBody"></div>
+        <blockquote class="hl-quote" id="healingLensQuote" style="display:none;">
+          <p id="healingLensQuoteText"></p>
+          <cite id="healingLensQuoteWho"></cite>
+        </blockquote>
+      </div>
+
       <!-- 오늘의 질문 카드 -->
       <div class="healing-question-card" id="healingQuestionCard">
         <div class="hqc-eyebrow">오늘의 질문</div>
@@ -2548,7 +2889,7 @@ const fbDb = firebase.firestore();
       </div>
       <div class="mp-stat-card">
         <div class="mp-stat-v" id="mpStreak">0</div>
-        <div class="mp-stat-l">연속일</div>
+        <div class="mp-stat-l">개관</div>
       </div>
       <div class="mp-stat-card">
         <div class="mp-stat-v" id="mpWorldStage">벽돌</div>
@@ -2568,10 +2909,17 @@ const fbDb = firebase.firestore();
       </div>
     </div>
 
+    <!-- ── 세계관: 세 지표가 어떻게 연결되는지 ── -->
+    <div class="world-panel" id="worldPanel"></div>
+
     <div class="my-sentence-wall">
       <div class="sec-ttl">내 문장벽</div>
-      <div class="my-sentence-wall-sub" id="mySentenceWallSub">오늘까지 쌓인 개인 문장을 모아 보여줍니다.</div>
+      <div class="mp-sec-role">쓴 문장이 100장 모이면 한 권으로 묶여 서가에 꽂힙니다</div>
+      <div class="binding-status" id="bindingStatus"></div>
+      <div class="volume-shelf" id="volumeShelf"></div>
+      <div class="my-sentence-wall-sub" id="mySentenceWallSub"></div>
       <div class="my-sentence-wall-list" id="mySentenceWallList"></div>
+      <button class="wall-more hide" type="button" id="wallMore" onclick="lbToggleWallExpand()">더 보기</button>
     </div>
 
     <!-- 전체 기록 목록 -->
@@ -2596,7 +2944,10 @@ const fbDb = firebase.firestore();
     <!-- ── 마일스톤 달성 현황 ── -->
     <div class="mp-milestone-section">
       <div class="mp-milestone-head">
-        <div class="sec-ttl" style="margin:0;">마일스톤</div>
+        <div>
+          <div class="sec-ttl" style="margin:0;">개관 기록</div>
+          <div class="mp-sec-role">매일 문을 엽니다. 빠진 날은 휴관입니다</div>
+        </div>
         <div class="mp-milestone-next" id="mpMilestoneNext"></div>
       </div>
       <div class="mp-milestone-progress">
@@ -2608,7 +2959,10 @@ const fbDb = firebase.firestore();
     <!-- ── 기법 카드 컬렉션 ── -->
     <div class="tech-collection" id="techCollection">
       <div class="tech-coll-head">
-        <div class="sec-ttl" style="margin:0;">익힌 기법 컬렉션</div>
+        <div>
+          <div class="sec-ttl" style="margin:0;">익힌 기법 컬렉션</div>
+          <div class="mp-sec-role">지금 내가 다룰 수 있는 문장 기술입니다</div>
+        </div>
         <div class="tech-coll-count" id="techCount">0 / 0</div>
       </div>
       <div class="tech-grid" id="techGrid"></div>
@@ -8636,6 +8990,52 @@ function getPrimaryUserSentence(rec) {
   return null;
 }
 
+/* 개관 상태를 한 곳에서 계산한다.
+   기존에는 세 곳에서 각자 60일까지만 거꾸로 세어, 연속 60일을 넘길 수 없었다.
+   100일 마일스톤이 영영 달성되지 않던 원인이다. */
+function lbOpeningStatus() {
+  var days = {};
+  (typeof pastRecords !== 'undefined' ? pastRecords : []).forEach(function (r) {
+    if (r && r.date) days[String(r.date).slice(0, 10)] = true;
+  });
+  var keys = Object.keys(days).sort();
+  var iso = function (d) { return d.toISOString().slice(0, 10); };  // 기록 저장 방식과 동일하게 맞춘다
+  var todayStr = iso(new Date());
+  var openToday = !!days[todayStr];
+
+  // 연속 개관일. 오늘 아직 안 썼으면 어제부터 센다 — 오늘은 하루가 끝나지 않았다.
+  var streak = 0;
+  var cursor = new Date();
+  if (!openToday) cursor.setDate(cursor.getDate() - 1);
+  while (days[iso(cursor)]) {
+    streak++;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+
+  // 마지막으로 문 연 날로부터 며칠 지났나
+  var last = keys.length ? keys[keys.length - 1] : null;
+  var closed = (last && !openToday)
+    ? Math.max(0, Math.round((Date.parse(todayStr) - Date.parse(last)) / 86400000))
+    : 0;
+
+  return {
+    openToday: openToday,
+    streak: streak,
+    closedDays: closed,        // 0=오늘 열었음, 1=어제 열고 오늘 아직, 2 이상=휴관
+    totalOpenDays: keys.length,
+    lastOpen: last,
+    everOpened: keys.length > 0
+  };
+}
+
+/* 화면에 쓸 문구. 빠진 날을 실패가 아니라 상태로 말한다. */
+function lbOpeningLine(st) {
+  if (!st.everOpened) return '아직 문을 연 적이 없습니다.';
+  if (st.openToday) return '오늘 문을 열었습니다.';
+  if (st.closedDays <= 1) return '오늘은 아직 문을 열지 않았습니다. 지금 열면 ' + (st.streak + 1) + '일째가 됩니다.';
+  return (st.closedDays - 1) + '일째 휴관 중입니다.';
+}
+
 function collectUserSentences(limit) {
   var rows = [];
   pastRecords.forEach(function(rec, idx) {
@@ -8693,21 +9093,155 @@ function renderSentenceStack() {
   }).join('');
 }
 
+var SENTENCES_PER_VOLUME = 100;
+var lbWallExpanded = false;
+var lbViewVolume = null;   // null=지금 만드는 권, 1..N=완성된 권
+
+/* 레코드 하나에 문장이 최대 세 개 들어 있다(성장: 필사·구조변형·창작 / 힐링: 필사·힐링필사·소감).
+   기존 문장벽은 getPrimaryUserSentence로 그중 하나만 남기고 나머지를 버렸다. 전부 모은다. */
+function collectAllUserSentences() {
+  var rows = [];
+  (typeof pastRecords !== 'undefined' ? pastRecords : []).forEach(function (rec, idx) {
+    var edition = rec && rec.edition === 'healing' ? 'healing' : 'growth';
+    var fields = edition === 'healing'
+      ? [{kind:'필사', text: rec && rec.copyText},
+         {kind:'힐링 필사', text: rec && rec.creative},
+         {kind:'소감', text: rec && rec.sogam}]
+      : [{kind:'필사', text: rec && rec.copyText},
+         {kind:'구조 변형', text: rec && rec.structText},
+         {kind:'창작', text: rec && rec.creative}];
+    var d = new Date((rec && rec.date) || 0);
+    var ts = isNaN(d.getTime()) ? 0 : d.getTime();
+    fields.forEach(function (f, order) {
+      var cleaned = cleanUserSentence(f.text);
+      if (!cleaned) return;
+      rows.push({ record: rec, idx: idx, ts: ts, order: order,
+                  date: (rec && rec.date) || '', edition: edition,
+                  kind: f.kind, text: cleaned });
+    });
+  });
+  // 쓴 순서(오래된 것부터). 권 번호를 매기려면 이 순서여야 한다.
+  // pastRecords는 최신이 앞이므로 같은 날짜에서는 idx가 큰 쪽이 먼저 쓴 것이다.
+  rows.sort(function (a, b) {
+    if (a.ts !== b.ts) return a.ts - b.ts;
+    if (a.idx !== b.idx) return b.idx - a.idx;
+    return a.order - b.order;
+  });
+  return rows;
+}
+
+var BINDING_STEPS = [
+  { at:7,  name:'낱장', copy:'일곱 장. 아직 묶이지 않았습니다.' },
+  { at:30, name:'묶음', copy:'서른 장. 실로 꿰맬 만큼 모였습니다.' },
+  { at:50, name:'제본', copy:'표지가 붙었습니다. 이제 넘길 수 있습니다.' }
+];
+
+/* 지금 몇 권째를 만들고 있고, 이번 권이 어디까지 왔는지. */
+function lbBindingStatus() {
+  var all = collectAllUserSentences();
+  var total = all.length;
+  var volumes = Math.floor(total / SENTENCES_PER_VOLUME);
+  var cur = total % SENTENCES_PER_VOLUME;
+  var step = null;
+  for (var i = BINDING_STEPS.length - 1; i >= 0; i--) {
+    if (cur >= BINDING_STEPS[i].at) { step = BINDING_STEPS[i]; break; }
+  }
+  return {
+    all: all, total: total, volumes: volumes, cur: cur, step: step,
+    nextStep: BINDING_STEPS.find(function (s) { return cur < s.at; }) || null,
+    toVolume: SENTENCES_PER_VOLUME - cur
+  };
+}
+
+/** 완성된 n권째의 문장 100장 (n은 1부터) */
+function lbVolumeSlice(all, n) {
+  return all.slice((n - 1) * SENTENCES_PER_VOLUME, n * SENTENCES_PER_VOLUME);
+}
+
+function lbToggleWallExpand() { lbWallExpanded = !lbWallExpanded; renderMySentenceWall(); }
+function lbOpenVolume(n) { lbViewVolume = n; lbWallExpanded = false; renderMySentenceWall(); }
+
 function renderMySentenceWall() {
   var list = document.getElementById('mySentenceWallList');
   if (!list) return;
-  var all = collectUserSentences(12);
+  var st = lbBindingStatus();
+  var statusEl = document.getElementById('bindingStatus');
+  var shelfEl = document.getElementById('volumeShelf');
   var sub = document.getElementById('mySentenceWallSub');
-  if (sub) {
-    sub.textContent = all.length
-      ? '최근 문장 ' + all.length + '개를 모았습니다. 이 영역은 원문이 아니라 내가 직접 쓴 문장만 보여줍니다.'
-      : '아직 쌓인 개인 문장이 없습니다. 성장이나 힐링 루틴을 완료하면 자동으로 채워집니다.';
+  var moreBtn = document.getElementById('wallMore');
+
+  // 제본 상태
+  if (statusEl) {
+    if (!st.total) {
+      statusEl.innerHTML = '<div class="bind-empty">아직 한 장도 없습니다. 첫 문장이 제1권의 첫 장이 됩니다.</div>';
+    } else {
+      var pct = Math.round(st.cur / SENTENCES_PER_VOLUME * 100);
+      statusEl.innerHTML =
+        '<div class="bind-head">' +
+          '<div class="bind-vol">제 ' + (st.volumes + 1) + '권 만드는 중</div>' +
+          '<div class="bind-count"><em>' + st.cur + '</em> / ' + SENTENCES_PER_VOLUME + '장</div>' +
+        '</div>' +
+        '<div class="bind-bar"><div class="bind-fill" style="width:' + pct + '%"></div></div>' +
+        '<div class="bind-copy">' +
+          (st.step
+            ? '<b>' + st.step.name + '</b> · ' + st.step.copy
+            : '아직 낱장이 되기 전입니다. ' + (7 - st.cur) + '장 더 쓰면 낱장입니다.') +
+        '</div>' +
+        '<div class="bind-next">한 권까지 ' + st.toVolume + '장 남았습니다.</div>';
+    }
   }
-  if (!all.length) {
+
+  // 서가 — 완성된 권
+  if (shelfEl) {
+    if (!st.volumes) {
+      shelfEl.innerHTML = '';
+    } else {
+      var books = '';
+      for (var v = 1; v <= st.volumes; v++) {
+        var slice = lbVolumeSlice(st.all, v);
+        books += '<button type="button" class="vol-book' + (lbViewVolume === v ? ' open' : '') +
+          '" onclick="lbOpenVolume(' + v + ')">' +
+          '<span class="vol-no">제 ' + v + '권</span>' +
+          '<span class="vol-range">' + formatSentenceDate(slice[0].date) + ' - ' +
+            formatSentenceDate(slice[slice.length - 1].date) + '</span>' +
+        '</button>';
+      }
+      shelfEl.innerHTML =
+        '<div class="shelf-ttl">서가에 꽂힌 책 ' + st.volumes + '권</div>' +
+        '<div class="shelf-row">' + books +
+          (lbViewVolume ? '<button type="button" class="vol-book vol-back" onclick="lbOpenVolume(null)">지금 권으로</button>' : '') +
+        '</div>';
+    }
+  }
+
+  // 보여줄 문장 — 완성된 권을 펼쳤으면 그 권, 아니면 지금 만드는 권
+  var rows = (lbViewVolume ? lbVolumeSlice(st.all, lbViewVolume)
+                           : st.all.slice(st.volumes * SENTENCES_PER_VOLUME)).slice().reverse();
+
+  if (sub) {
+    sub.textContent = !st.total
+      ? '성장이나 힐링 루틴을 완료하면 쓴 문장이 여기 쌓입니다.'
+      : (lbViewVolume
+          ? '제 ' + lbViewVolume + '권 · 문장 ' + rows.length + '장'
+          : '지금 권에 ' + rows.length + '장. 원문이 아니라 내가 직접 쓴 문장만 모읍니다.');
+  }
+
+  if (!rows.length) {
     list.innerHTML = '<div class="sentence-stack-empty">첫 문장을 쌓을 준비가 되어 있어요.</div>';
+    if (moreBtn) moreBtn.classList.add('hide');
     return;
   }
-  list.innerHTML = all.map(function(item) {
+
+  if (moreBtn) {
+    if (rows.length > 12) {
+      moreBtn.classList.remove('hide');
+      moreBtn.textContent = lbWallExpanded ? '접기' : '더 보기 (' + (rows.length - 12) + '장)';
+    } else {
+      moreBtn.classList.add('hide');
+    }
+  }
+
+  list.innerHTML = (lbWallExpanded ? rows : rows.slice(0, 12)).map(function(item) {
     var rec = item.record || {};
     var edLabel = item.edition === 'healing' ? '힐링' : '성장';
     var source = [rec.author || '', rec.source ? lbWrapSource(rec.source) : ''].filter(Boolean).join(' ');
@@ -9416,16 +9950,9 @@ function openShare(rec) {
     if (scTechEl2) scTechEl2.textContent = todaySkill ? '✏️ ' + todaySkill : '';
   }
 
-  // Streak
-  let streak = 0;
-  const today = new Date();
-  for (let i = 0; i < 60; i++) {
-    const d = new Date(today); d.setDate(d.getDate() - i);
-    const ds = d.toISOString().split('T')[0];
-    if (pastRecords.find(r => r.date === ds)) streak++;
-    else if (i > 0) break;
-  }
-  document.getElementById('scStreak').textContent = `🔥 ${streak}일 연속`;
+  // 개관 일수
+  const streak = lbOpeningStatus().streak;
+  document.getElementById('scStreak').textContent = `🕯️ 개관 ${streak}일째`;
 
   document.getElementById('shareOverlay').classList.remove('hide');
   document.body.style.overflow = 'hidden';
@@ -10009,15 +10536,8 @@ function updateStats() {
   var total = pastRecords.length;
   // 총 필사
   updateStatEl('totalCount', total);
-  // 연속 일수
-  var streak = 0;
-  var today = new Date();
-  for (var i = 0; i < 60; i++) {
-    var d = new Date(today); d.setDate(d.getDate() - i);
-    var ds = d.toISOString().split('T')[0];
-    if (pastRecords.find(function(r){return r.date===ds;})) streak++;
-    else if (i > 0) break;
-  }
+  // 개관 일수
+  var streak = lbOpeningStatus().streak;
   updateStatEl('streakCount', streak);
   // 평균 벽돌
   var stars = loadStars();
@@ -10196,11 +10716,17 @@ function checkTodayReminder() {
 /* ══════════════════════════════
    MILESTONE BADGE SYSTEM
 ══════════════════════════════ */
+/* 도서관 하나로 은유를 통일한다.
+   벽돌·서가가 "얼마나 쌓았나"라면, 사서 경력은 "얼마나 오래 지켰나"다.
+   기존 새싹→나무(식물), 장인→마스터(직능)는 세계관과 따로 놀아서 걷어냈다. */
+/* 꾸준함은 직위가 아니라 문을 여는 일이다.
+   사서 직함은 두 가지가 걸렸다 — 자기가 지은 도서관에서 승진하는 게 어긋나고,
+   관장(100일)에서 축이 죽었다. 개관은 상태라서 끝이 없고, 빠진 날에도 할 말이 있다. */
 var MILESTONES = [
-  { days:7,   icon:'🌱', name:'새싹 필사가',     msg:'7일을 채웠어요.<br>씨앗이 뿌리를 내리기 시작합니다.' },
-  { days:30,  icon:'🌿', name:'문장 탐구자',     msg:'30일 연속! 이제 문장을 보는 눈이<br>달라졌을 거예요.' },
-  { days:50,  icon:'🌳', name:'언어 장인',       msg:'50일. 꾸준함이<br>기술이 되는 순간입니다.' },
-  { days:100, icon:'🏛️', name:'레터브릭 마스터', msg:'100일 연속.<br>이 문장들이 당신을 만들었습니다.' }
+  { days:7,   icon:'🚪', name:'임시 개관',      msg:'일주일.<br>문은 열렸습니다.' },
+  { days:30,  icon:'🕰️', name:'정식 개관',      msg:'한 달.<br>이제 도서관이라 불러도 됩니다.' },
+  { days:50,  icon:'📅', name:'연중무휴',       msg:'쉰 날.<br>쉬는 날이 없어졌습니다.' },
+  { days:100, icon:'🕯️', name:'꺼지지 않는 창', msg:'백일. 이 창은<br>한 번도 어두웠던 적이 없습니다.' }
 ];
 
 function renderMilestoneBadges(streak) {
@@ -10235,7 +10761,8 @@ function renderMilestoneBadges(streak) {
       label.innerHTML = next.icon + ' ' + next.name + '까지 <span>' + (next.days - streak) + '일</span>';
     } else {
       bar.style.width = '100%';
-      label.innerHTML = '🏛️ <span>모든 마일스톤 달성!</span>';
+      // 100일을 넘겨도 축이 죽지 않는다. 개관은 계속 이어진다.
+      label.innerHTML = '🕯️ <span>개관 ' + streak + '일째</span>';
     }
   }
 }
@@ -10262,7 +10789,7 @@ function showMilestonePop(milestone, streak) {
   if (!el) return;
   document.getElementById('mpopIcon').textContent = milestone.icon;
   document.getElementById('mpopTitle').textContent = milestone.name;
-  document.getElementById('mpopStreak').textContent = streak + '일 연속 달성!';
+  document.getElementById('mpopStreak').textContent = '개관 ' + streak + '일째';
   document.getElementById('mpopSub').innerHTML = milestone.msg;
   el.classList.remove('hide');
 }
@@ -10503,6 +11030,9 @@ function finishHealing() {
   var q = (healingPassage && healingPassage.question) || '이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?';
   var qEl = document.getElementById('healingQuestionText');
   if (qEl) qEl.textContent = q;
+
+  // 생각의 재료 — lens가 있는 문단에만 보여준다
+  renderHealingLens(healingPassage && healingPassage.lens);
   // 소감 textarea 초기화
   var ta = document.getElementById('healingSogamTa');
   if (ta) { ta.value = ''; ta.style.borderColor = 'rgba(247,242,232,0.15)'; }
@@ -10826,6 +11356,11 @@ function tokenCompare(original, userText) {
   return {sharedWords:sharedWords, newWords:newWords, removedWords:removedWords, origTokens:origTokens, userTokens:userTokens};
 }
 
+// 채점 내역에 보여줄 한국어 라벨. 내부 식별자와 분리한다.
+function lbSentenceTypeLabel(type) {
+  return { question: '물음', command: '청유·명령', statement: '서술' }[type] || '서술';
+}
+
 function getSentenceType(text) {
   const t = text.trim();
   if(t.endsWith('?')||/[는은]가$/.test(t)||/을까$/.test(t)||/인가$/.test(t)) return 'question';
@@ -10961,8 +11496,10 @@ function analyzeStructure(original, userText) {
   var review = ''; // 감상형 피드백
 
   // 시작 변화 분석
+  var breakdown = [];
   if(firstWordChanged){
     score += 1;
+    breakdown.push({got:true, pts:1, name:'시작 바꾸기', detail:'"'+userWords[0]+'"로 열었어요'});
     var startMsgs = [
       '"'+userFirst3+'…"로 시작하셨네요. 원문과 다른 출발이 신선해요.',
       '첫 단어부터 달라졌어요. 이렇게 시작을 바꾸면 문장 전체의 느낌이 달라지죠.',
@@ -10970,6 +11507,7 @@ function analyzeStructure(original, userText) {
     ];
     review += startMsgs[Math.floor(Math.random()*startMsgs.length)] + ' ';
   } else {
+    breakdown.push({got:false, pts:1, name:'시작 바꾸기', detail:'원문과 같은 "'+origWords[0]+'"로 시작', how:'첫 단어만 바꿔도 1점이에요'});
     var sameStartMsgs = [
       '원문과 같은 단어로 시작했어요. 다음에는 문장 중간이나 끝부터 시작해보면 완전히 다른 느낌이 날 거예요.',
       '시작이 같으면 뒷부분이 아무리 달라도 비슷하게 느껴져요. 첫 단어를 바꿔보세요 — 그것만으로도 큰 변화예요.'
@@ -10980,17 +11518,21 @@ function analyzeStructure(original, userText) {
   // 문장 유형 변화
   if(typeChanged){
     score += 1;
+    breakdown.push({got:true, pts:1, name:'문장 유형 바꾸기', detail:lbSentenceTypeLabel(getSentenceType(original))+'문 → '+lbSentenceTypeLabel(getSentenceType(userText))+'문'});
     var typeMsgs = [
       '문장의 종류가 바뀌었어요! 평서문을 의문문으로, 혹은 그 반대로 바꾸는 건 구조를 바꾸는 가장 확실한 방법이에요.',
       '문장 유형을 바꾼 게 좋은 선택이에요. 같은 내용도 물음표 하나로 완전히 다른 문장이 되니까요.'
     ];
     review += typeMsgs[Math.floor(Math.random()*typeMsgs.length)] + ' ';
+  } else {
+    breakdown.push({got:false, pts:1, name:'문장 유형 바꾸기', detail:lbSentenceTypeLabel(getSentenceType(original))+'문 그대로', how:'끝을 물음표나 청유형으로 바꾸면 +1점'});
   }
 
   // 어휘 변화 — tokenCompare로 정확한 비교
   var tc = tokenCompare(original, userText);
   if(wov < 0.4){
     score += 1.5;
+    breakdown.push({got:true, pts:1.5, name:'어휘 바꾸기', detail:'겹치는 단어 '+Math.round(wov*100)+'% (40% 미만)'});
     // 진짜 새로운 단어만 인용
     var genuineNew = tc.newWords.filter(function(w){return w.length>=2;});
     if(genuineNew.length > 0){
@@ -11001,6 +11543,7 @@ function analyzeStructure(original, userText) {
     }
   } else if(wov < 0.6){
     score += 1;
+    breakdown.push({got:'part', pts:1, max:1.5, name:'어휘 바꾸기', detail:'겹치는 단어 '+Math.round(wov*100)+'%', how:'40% 아래로 내리면 +0.5점'});
     var newInTransform = tc.newWords.filter(function(w){return w.length>=2;});
     if(newInTransform.length > 0){
       review += '"'+newInTransform[0]+'" 같은 표현이 새로 들어왔네요. 이런 식으로 단어를 더 바꿔보세요! ';
@@ -11009,28 +11552,37 @@ function analyzeStructure(original, userText) {
     }
   } else {
     review += '원문의 단어가 꽤 남아있어요 ('+tc.sharedWords.length+'개 공통). 핵심 명사나 동사 하나를 완전히 다른 단어로 바꿔보세요. ';
+    breakdown.push({got:false, pts:1.5, name:'어휘 바꾸기', detail:'겹치는 단어 '+Math.round(wov*100)+'%', how:'60% 아래로 내리면 +1점'});
   }
 
   // 길이 적절성
   if(lr >= 0.6 && lr <= 1.5){
     score += 0.5;
+    breakdown.push({got:true, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배'});
   } else if(lr < 0.6){
+    breakdown.push({got:false, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배 (짧음)', how:'0.6~1.5배 사이면 +0.5점'});
     review += '원문보다 많이 짧아졌어요. 조금 더 살을 붙여보면 의미가 더 풍성해질 거예요. ';
   } else {
     review += '원문보다 길어졌어요. 핵심만 남기면 더 임팩트 있는 문장이 될 수 있어요. ';
+    breakdown.push({got:false, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배 (김)', how:'0.6~1.5배 사이면 +0.5점'});
   }
 
   // 전체 변형도
   if(sim < 0.5 && userText.length >= 20){
     score += 1;
+    breakdown.push({got:true, pts:1, name:'전체 변형도', detail:'원문과 '+Math.round(sim*100)+'% 비슷 (50% 미만)'});
     var goodMsgs = [
       '전체적으로 원문에서 충분히 벗어났어요. 같은 뼈대 위에 완전히 다른 살을 입힌 느낌이에요.',
       '원문의 구조를 빌려오되 자기 이야기로 채운 게 잘 느껴져요.',
       '이 정도면 원문을 모르는 사람이 보면 전혀 다른 문장이라고 생각할 거예요. 잘 바꿨어요!'
     ];
     review += goodMsgs[Math.floor(Math.random()*goodMsgs.length)];
+  } else {
+    breakdown.push({got:false, pts:1, name:'전체 변형도', detail: userText.length < 20 ? '20자 미만' : '원문과 '+Math.round(sim*100)+'% 비슷', how:'50% 아래로 내리고 20자 이상 쓰면 +1점'});
   }
 
+  result.rawScore = score;
+  result.breakdown = breakdown;
   result.stars = Math.min(5, Math.max(1, Math.round(score)));
   result.sections.push({lbl:'AI 코치의 구조 분석', txt: review});
 
@@ -11075,15 +11627,23 @@ function analyzeCreative(original, userText) {
     return result;
   }
 
-  var score=0, details=[];
-  if(words.length>=15){score+=1;details.push('충분한 길이로 글을 전개했어요.');}
-  else if(words.length>=8){score+=0.5;details.push('조금 더 길게 써보면 좋겠어요.');}
-  else details.push('글이 짧아요. 생각을 좀 더 펼쳐보세요.');
+  var score=0, details=[], breakdown=[];
+  if(words.length>=15){
+    score+=1;details.push('충분한 길이로 글을 전개했어요.');
+    breakdown.push({got:true, pts:1, name:'글의 길이', detail:words.length+'어절 (15어절 이상)'});
+  } else if(words.length>=8){
+    score+=0.5;details.push('조금 더 길게 써보면 좋겠어요.');
+    breakdown.push({got:'part', pts:0.5, max:1, name:'글의 길이', detail:words.length+'어절', how:'15어절을 넘기면 +0.5점'});
+  } else {
+    details.push('글이 짧아요. 생각을 좀 더 펼쳐보세요.');
+    breakdown.push({got:false, pts:1, name:'글의 길이', detail:words.length+'어절 (짧음)', how:'15어절 이상 쓰면 +1점'});
+  }
 
   // tokenCompare로 정확한 비교
   var tc = tokenCompare(original, userText);
   if(wov>0.1&&wov<0.5){
     score+=1;
+    breakdown.push({got:true, pts:1, name:'원문과의 연결', detail:'겹치는 단어 '+Math.round(wov*100)+'% (10~50%)'});
     var genuineNewC = tc.newWords.filter(function(w){return w.length>=2;});
     if(genuineNewC.length >= 2){
       details.push('원문의 주제와 연결되면서도 "'+genuineNewC[0]+'", "'+genuineNewC[1]+'" 같은 자기만의 표현이 돋보여요.');
@@ -11091,23 +11651,44 @@ function analyzeCreative(original, userText) {
       details.push('원문의 주제와 연결되면서도 자기만의 관점이 보여요.');
     }
   }
-  else if(wov<=0.1){score+=0.5;details.push('원문과의 연결이 약해요. 오늘 배운 기법을 반영해보세요.');}
+  else if(wov<=0.1){
+    score+=0.5;details.push('원문과의 연결이 약해요. 오늘 배운 기법을 반영해보세요.');
+    breakdown.push({got:'part', pts:0.5, max:1, name:'원문과의 연결', detail:'겹치는 단어 '+Math.round(wov*100)+'% (너무 적음)', how:'원문 주제와 닿는 단어를 조금 남기면 +0.5점'});
+  }
   else {
     details.push('원문의 표현을 많이 가져왔어요 ('+tc.sharedWords.length+'개 공통). 자기만의 소재로 바꿔보세요.');
+    breakdown.push({got:false, pts:1, name:'원문과의 연결', detail:'겹치는 단어 '+Math.round(wov*100)+'% (너무 많음)', how:'50% 아래로 내리면 +1점'});
   }
 
-  if(/[.!?。…]$/.test(userText.trim())){score+=0.5;details.push('문장이 깔끔하게 마무리됐어요.');}
+  if(/[.!?。…]$/.test(userText.trim())){
+    score+=0.5;details.push('문장이 깔끔하게 마무리됐어요.');
+    breakdown.push({got:true, pts:0.5, name:'문장 마무리', detail:'문장부호로 끝맺음'});
+  } else {
+    breakdown.push({got:false, pts:0.5, name:'문장 마무리', detail:'끝에 문장부호가 없음', how:'마침표나 물음표로 닫으면 +0.5점'});
+  }
 
   var concrete=/[가-힣]+(소리|빛|냄새|바람|하늘|바다|길|방|창|문|손|눈|입|마음|시간|밤|아침|봄|여름|가을|겨울|비|눈물|웃음|목소리)/;
-  if(concrete.test(userText)){score+=1;details.push('구체적인 이미지가 글에 생동감을 줘요.');}
-  else details.push('구체적인 사물이나 감각 표현을 넣으면 글이 더 선명해져요.');
+  if(concrete.test(userText)){
+    score+=1;details.push('구체적인 이미지가 글에 생동감을 줘요.');
+    breakdown.push({got:true, pts:1, name:'구체적 이미지', detail:'감각·사물 표현이 있음 ("'+(userText.match(concrete)||[''])[0]+'")'});
+  } else {
+    details.push('구체적인 사물이나 감각 표현을 넣으면 글이 더 선명해져요.');
+    breakdown.push({got:false, pts:1, name:'구체적 이미지', detail:'감각·사물 표현 없음', how:'소리·빛·냄새·손·창 같은 구체어를 넣으면 +1점'});
+  }
 
   if(sim<0.3&&words.length>=10){
     score+=1;
+    breakdown.push({got:true, pts:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 비슷 (30% 미만)'});
     var novelHighlight = tc.newWords.length>=3 ? ' "'+tc.newWords.slice(0,3).join('", "')+'" 등 원문에 없는 표현이 많아요.' : '';
     details.push('독창적인 시각이 돋보입니다.'+novelHighlight);
   }
 
+  else {
+    breakdown.push({got:false, pts:1, name:'독창성', detail: words.length<10 ? '10어절 미만' : '원문과 '+Math.round(sim*100)+'% 비슷', how:'30% 아래로 내리고 10어절 이상 쓰면 +1점'});
+  }
+
+  result.rawScore=score;
+  result.breakdown=breakdown;
   result.stars=Math.min(5,Math.max(1,Math.round(score)));
   result.sections.push({lbl:'감정·이미지 분석',txt:details.join(' ')});
 
@@ -11155,6 +11736,40 @@ function lockInputMode(){
   else document.getElementById('imTyping').classList.add('locked');
 }
 
+// 채점 내역을 표로 그린다. 받은 항목·못 받은 항목·다음에 뭘 하면 오르는지를 모두 보여준다.
+function renderScoreBreakdown(result) {
+  var rows = (result && result.breakdown) || [];
+  if (!rows.length) return '';
+
+  var total = rows.reduce(function (sum, r) { return sum + (r.got === true ? r.pts : (r.got === 'part' ? r.pts : 0)); }, 0);
+  var max = rows.reduce(function (sum, r) { return sum + (r.max || r.pts); }, 0);
+
+  var body = rows.map(function (r) {
+    var mark = r.got === true ? '받음' : (r.got === 'part' ? '일부' : '못 받음');
+    var cls = r.got === true ? 'ok' : (r.got === 'part' ? 'part' : 'miss');
+    var pts = r.got === true ? '+' + r.pts : (r.got === 'part' ? '+' + r.pts + ' / ' + r.max : '0 / ' + r.pts);
+    return '<tr class="sb-' + cls + '">' +
+      '<td class="sb-mark">' + mark + '</td>' +
+      '<td class="sb-name">' + r.name + '<span class="sb-detail">' + (r.detail || '') + '</span></td>' +
+      '<td class="sb-pts">' + pts + '</td>' +
+      '</tr>';
+  }).join('');
+
+  // 못 받은 항목 중 가장 점수가 큰 것을 다음 목표로 안내한다
+  var missed = rows.filter(function (r) { return r.got !== true && r.how; })
+                   .sort(function (a, b) { return (b.max || b.pts) - (a.max || a.pts); });
+  var nextStep = missed.length
+    ? '<div class="sb-next"><strong>다음 점수</strong> ' + missed[0].how + '</div>'
+    : '<div class="sb-next"><strong>만점</strong> 모든 항목을 받았어요.</div>';
+
+  return '<div class="score-breakdown">' +
+    '<div class="sb-head"><span>채점 내역</span><span class="sb-total">' +
+      (Math.round(total * 10) / 10) + ' / ' + max + '</span></div>' +
+    '<table class="sb-table"><tbody>' + body + '</tbody></table>' +
+    nextStep +
+  '</div>';
+}
+
 function renderLocalCoachCard(title, result, apiError) {
   var bricks = Math.min(5, Math.max(1, result && result.stars ? result.stars : 3));
   var brickStr = '🧱'.repeat(bricks) + '░'.repeat(5 - bricks);
@@ -11178,7 +11793,7 @@ function renderLocalCoachCard(title, result, apiError) {
     '<div class="air-head"><span class="air-lbl">' + title + '</span></div>' +
     '<div class="air-body">' +
       '<div class="bf-world"><div class="bf-world-bricks">' + brickStr + '</div><div class="bf-world-msg">로컬 코치가 먼저 읽어봤어요</div></div>' +
-      apiNote + sections + tip +
+      renderScoreBreakdown(result) + apiNote + sections + tip +
     '</div></div>';
 }
 
@@ -11556,18 +12171,12 @@ function renderMyPage() {
   var totalSessions = stars.growth.sessions + stars.healing.sessions;
   document.getElementById('mpTotalStars').textContent = totalStars;
   document.getElementById('mpTotalSessions').textContent = totalSessions;
-  // 연속일
-  var streak = 0;
-  var today = new Date();
-  for(var i=0;i<60;i++){
-    var d=new Date(today);d.setDate(d.getDate()-i);
-    var ds=d.toISOString().split('T')[0];
-    if(pastRecords.find(function(r){return r.date===ds;})) streak++;
-    else if(i>0) break;
-  }
+  // 개관 일수
+  var openStatus = lbOpeningStatus();
+  var streak = openStatus.streak;
   document.getElementById('mpStreak').textContent = streak;
-  // 세계관
-  var ws = getWorldStage('growth', stars.growth.total);
+  // 세계관 — 성장·힐링이 같은 서가를 채우므로 둘을 합산한다 (홈 패널과 동일 기준)
+  var ws = lbFindStage(totalStars);
   document.getElementById('mpWorldStage').textContent = ws.current.name;
   // 에디션별
   document.getElementById('mpGrowthStars').textContent = '🧱 ' + stars.growth.total;
@@ -11578,6 +12187,11 @@ function renderMyPage() {
   renderMilestoneBadges(streak);
   // 기법 카드 컬렉션
   renderTechCollection();
+  // 세계관 패널 — 위 세 지표를 하나로 묶어 설명한다
+  try {
+    renderWorldPanel(totalStars, openStatus,
+      Object.keys(getEarnedTechniques()).length, getAllTechniques().length);
+  } catch (e) { console.warn('세계관 패널 렌더 실패', e); }
   // 기록 목록
   mpCurrentCount = 0;
   document.getElementById('mpRecordList').innerHTML = '';
@@ -11838,57 +12452,152 @@ function filterRecords(type, btn) {
   });
 }
 
-/* ── 세계관 단계 계산 ── */
-var WORLD_STAGES = {
-  growth: [
-    {name:'첫 벽돌',at:0},{name:'기초 공사',at:25},{name:'작은 벽',at:75},
-    {name:'작은 집',at:150},{name:'문장집',at:300},{name:'2층 문장집',at:500},
-    {name:'문장 서재',at:1000},{name:'문장 도서관',at:2500},{name:'우주도서관',at:6000}
-  ],
-  healing: [
-    {name:'첫 벽돌',at:0},{name:'기초 공사',at:10,streak:true},{name:'작은 벽',at:30},
-    {name:'작은 집',at:100},{name:'문장집',at:200},{name:'문장 서재',at:500},
-    {name:'문장 도서관',at:1000},{name:'우주도서관',at:2500}
-  ]
-};
+/* ── 세계관 단계 ──────────────────────────────────────────────
+   축: 내 문장을 읽을 수 있는 사람의 범위가 넓어진다.
+   혼자 보는 방 → 집안 → 빌려주는 책방 → 공공 → 국가 → 대륙 → 지구 → 우주.
 
-var BRICK_HOUSE_STAGES = [
-  {name:'첫 벽돌', at:0, next:5, copy:'첫날의 벽돌이 집의 시작점이 됩니다.'},
-  {name:'기초 공사', at:5, next:25, copy:'약 1주차의 벽돌이 집터를 잡아줍니다.'},
-  {name:'작은 벽', at:25, next:75, copy:'약 2주차부터 문장이 벽처럼 올라오기 시작합니다.'},
-  {name:'집의 뼈대', at:75, next:150, copy:'3주차 이후에는 내가 쓴 문장이 집의 형태를 만들어요.'},
-  {name:'작은 집', at:150, next:300, copy:'약 한 달 동안 쌓은 벽돌로 작은 집이 완성됩니다.'},
-  {name:'문장집', at:300, next:500, copy:'두 달 가까이 쌓은 문장이 나만의 문장집이 됩니다.'},
-  {name:'2층 문장집', at:500, next:1000, copy:'약 100일 지속하면 집이 한 단계 업그레이드됩니다.'},
-  {name:'문장 서재', at:1000, next:2500, copy:'오래 쌓은 문장들이 서재처럼 정리됩니다.'},
-  {name:'문장 도서관', at:2500, next:6000, copy:'문장들이 책장처럼 모여 하나의 도서관이 됩니다.'},
-  {name:'우주 도서관', at:6000, next:null, copy:'당신의 문장이 하나의 세계로 넓어졌습니다.'}
+   이전에는 표가 세 벌(WORLD_STAGES.growth / .healing / BRICK_HOUSE_STAGES)이었고
+   같은 이름이 서로 다른 임계값을 썼다. '기초 공사'가 5개·10개·25개 세 가지였고,
+   화면마다 같은 진도를 다른 단계로 불렀다. 하나로 합친다.
+
+   사용자는 이 세계에서 '사서'다. 짓는 사람이 아니라 모으고 꽂는 사람.
+   그래서 카피는 공사(기초 공사·뼈대) 대신 서가·열람·꽂다를 쓴다.
+
+   at   = 이 단계가 시작되는 누적 벽돌
+   next = 다음 단계의 at (마지막은 null)
+   하루 4벽돌 기준 도달 시점을 주석에 적어 둔다. */
+/* 각 단계는 "넓어진다"와 "오래된다"를 함께 말한다.
+   도서관은 낡는 것이 손해가 아닌 거의 유일한 건물이고, 그게 이 축의 보상이다. */
+var WORLD_LADDER = [
+  {at:0,    next:5,    name:'빈 책상',        scope:'아직 아무것도 없다',
+   copy:'아무것도 없습니다. 첫 문장이 이 도서관의 첫 장서가 됩니다.'},
+  {at:5,    next:25,   name:'서재 방',        scope:'나만 본다',                    // 2일
+   copy:'문장이 놓일 자리가 생겼습니다. 아직은 나만 아는 방입니다.'},
+  {at:25,   next:75,   name:'서재형 거실',    scope:'같이 사는 사람이 본다',        // 1주
+   copy:'방을 나온 문장이 거실 책장까지 왔습니다. 지나가다 한 번씩 눈이 갑니다.'},
+  {at:75,   next:150,  name:'책이 쌓인 저택', scope:'집이 문장으로 찬다',           // 3주
+   copy:'쌓인 것이 눈에 보입니다. 자주 꺼낸 책은 벌써 책등이 닳았습니다.'},
+  {at:150,  next:300,  name:'책방',           scope:'처음으로 남에게 빌려준다',     // 5주
+   copy:'내 문장을 누군가 빌려 갑니다. 돌아온 책에는 남의 손때가 묻어 있습니다.'},
+  {at:300,  next:600,  name:'동네 도서관',    scope:'아는 사람들의 공간',           // 10주
+   copy:'동네 사람이 찾아옵니다. 오래 있었다는 이유만으로 믿는 사람이 생깁니다.'},
+  {at:600,  next:1000, name:'시 도서관',      scope:'모르는 사람도 온다',           // 5개월
+   copy:'이름을 모르는 사람이 서가 앞에 섭니다. 이제 이 도서관은 혼자 굴러갑니다.'},
+  {at:1000, next:1800, name:'한국 도서관',    scope:'같은 말을 쓰는 모두',          // 8개월
+   copy:'같은 말을 쓰는 사람들이 여기까지 찾아옵니다. 초기 장서는 이미 귀합니다.'},
+  {at:1800, next:3000, name:'아시아 도서관',  scope:'언어를 넘는다',                // 1년 3개월
+   copy:'번역이 필요한 거리까지 갔습니다. 옛 판본을 찾는 사람이 나타납니다.'},
+  {at:3000, next:5000, name:'대륙 도서관',    scope:'대륙을 건넌다',                // 2년
+   copy:'한 대륙에서 다른 대륙으로 옮겨 갑니다. 가장 오래된 서가가 가장 붐빕니다.'},
+  {at:5000, next:8000, name:'지구 도서관',    scope:'행성 전체',                    // 3년 4개월
+   copy:'어디서든 열람할 수 있습니다. 처음 쓴 문장이 가장 많이 인용됩니다.'},
+  {at:8000, next:null, name:'우주 도서관',    scope:'끝이 아니라 지평',             // 5년 6개월
+   copy:'여기서 멈추지 않습니다. 서가는 길어지고, 오래된 쪽이 더 깊어집니다.'}
 ];
 
-function getWorldStage(edition, total) {
-  var stages = WORLD_STAGES[edition] || WORLD_STAGES.growth;
-  var current = stages[0], next = stages[1] || null;
-  for (var i = stages.length - 1; i >= 0; i--) {
-    if (total >= stages[i].at) {
-      current = stages[i];
-      next = stages[i+1] || null;
-      break;
-    }
+// 성장편·힐링편을 나누지 않는다. 도서관은 하나이고, 두 훈련이 같은 서가를 채운다.
+var WORLD_STAGES = { growth: WORLD_LADDER, healing: WORLD_LADDER };
+var BRICK_HOUSE_STAGES = WORLD_LADDER;
+
+/** 누적 벽돌로 현재 단계와 다음 단계를 찾는다. 반환 형태는 기존 호출부와 동일하다. */
+function lbFindStage(total) {
+  var n = Number(total) || 0;
+  var index = 0;
+  for (var i = WORLD_LADDER.length - 1; i >= 0; i--) {
+    if (n >= WORLD_LADDER[i].at) { index = i; break; }
   }
-  return {current:current, next:next, total:total};
+  return {
+    current: WORLD_LADDER[index],
+    next: WORLD_LADDER[index + 1] || null,
+    total: n
+  };
 }
 
-function getBrickHouseStage(total) {
-  var current = BRICK_HOUSE_STAGES[0];
-  for (var i = BRICK_HOUSE_STAGES.length - 1; i >= 0; i--) {
-    if (total >= BRICK_HOUSE_STAGES[i].at) {
-      current = BRICK_HOUSE_STAGES[i];
-      break;
-    }
-  }
-  var next = current.next == null ? null : BRICK_HOUSE_STAGES.find(function(s){ return s.at === current.next; });
-  return {current:current, next:next, total:total};
+/* 세계관 패널. 지표가 여덟 개로 흩어져 있어 서로 무슨 관계인지 안 보였다.
+   여기서 세 가지 질문 — 얼마나 쌓았나 / 얼마나 오래 지켰나 / 무엇을 할 수 있나 — 로 묶는다. */
+function renderWorldPanel(bricks, st, techEarned, techTotal) {
+  var panel = document.getElementById('worldPanel');
+  if (!panel) return;
+
+  var streak = st.streak;
+  var stage = lbFindStage(bricks);
+  var toNext = stage.next ? (stage.next.at - bricks) : 0;
+  var nextMs = MILESTONES.find(function(m){ return streak < m.days; });
+  var curMs  = MILESTONES.filter(function(m){ return streak >= m.days; }).pop();
+  var onBreak = st.closedDays > 1;
+  var bind = lbBindingStatus();
+
+  var axes = [
+    { icon:'🧱', q:'얼마나 쌓았나',
+      a:'벽돌 <em>' + bricks + '</em>개 · 지금은 <em>' + stage.current.name + '</em>',
+      note: stage.next
+        ? (stage.next.name + '까지 ' + toNext + '개 남았습니다.')
+        : '마지막 단계입니다. 서가는 계속 길어집니다.' },
+    { icon: onBreak ? '🚪' : '🕯️', q:'문을 얼마나 열었나',
+      a: onBreak
+        ? '<em>' + (st.closedDays - 1) + '</em>일째 휴관 중'
+        : '개관 <em>' + streak + '</em>일째' + (curMs ? ' · <em>' + curMs.name + '</em>' : ''),
+      note: onBreak
+        ? '도서관은 휴관해도 도서관입니다. 오늘 다시 열 수 있습니다.'
+        : (nextMs
+            ? (nextMs.name + '까지 ' + (nextMs.days - streak) + '일 남았습니다.')
+            : '휴관 없이 이어가고 있습니다.') },
+    { icon:'📕', q:'무엇을 남겼나',
+      a: bind.volumes
+        ? '<em>' + bind.volumes + '</em>권 · 지금 권 ' + bind.cur + '장'
+        : '문장 <em>' + bind.total + '</em>장' + (bind.step ? ' · <em>' + bind.step.name + '</em>' : ''),
+      note:'한 권까지 ' + bind.toVolume + '장. 100장이 모이면 서가에 꽂힙니다.' },
+    { icon:'🔑', q:'무엇을 할 수 있나',
+      a:'기법 <em>' + techEarned + '</em> / ' + techTotal,
+      note:'하루에 하나씩 익힙니다. 익힌 기법은 평가 기준이 됩니다.' }
+  ];
+
+  var ladder = WORLD_LADDER.map(function(s, i) {
+    var cls = bricks >= s.at ? 'done' : '';
+    if (s === stage.current) cls += ' here';
+    return '<div class="wp-step ' + cls + '">' +
+      '<div class="wp-step-n">' + (s.at === 0 ? '시작' : '벽돌 ' + s.at) + '</div>' +
+      '<div class="wp-step-name">' + s.name + '</div>' +
+      '<div class="wp-step-scope">' + s.scope + '</div>' +
+    '</div>';
+  }).join('');
+
+  panel.innerHTML =
+    '<div class="wp-head">' +
+      '<div class="wp-title">레터브릭의 세계</div>' +
+      '<div class="wp-lead"><b>도서관은 낡을수록 값이 오르는 거의 유일한 건물입니다.</b> ' +
+      '문장 하나를 옮겨 적을 때마다 벽돌 하나가 생깁니다. 그 벽돌로 서가를 짓습니다. ' +
+      '처음은 나만 보는 방 한 칸, 끝은 우주 도서관입니다.</div>' +
+    '</div>' +
+    '<div class="wp-axes">' +
+      axes.map(function(x) {
+        return '<div class="wp-axis">' +
+          '<div class="wp-icon">' + x.icon + '</div>' +
+          '<div class="wp-body">' +
+            '<div class="wp-q">' + x.q + '</div>' +
+            '<div class="wp-a">' + x.a + '</div>' +
+            '<div class="wp-note">' + x.note + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('') +
+    '</div>' +
+    '<div class="wp-now"><div class="wp-now-copy">' + stage.current.copy + '</div></div>' +
+    '<button class="wp-toggle" type="button" onclick="toggleWorldLadder(this)" ' +
+      'aria-expanded="false" aria-controls="wpLadder">전체 단계 12개 보기</button>' +
+    '<div class="wp-ladder hide" id="wpLadder">' + ladder + '</div>';
 }
+
+function toggleWorldLadder(btn) {
+  var el = document.getElementById('wpLadder');
+  if (!el) return;
+  var open = el.classList.toggle('hide') === false;
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  btn.textContent = open ? '전체 단계 접기' : '전체 단계 12개 보기';
+}
+
+// 이름을 유지해 기존 호출부를 건드리지 않는다. edition은 더 이상 단계를 가르지 않는다.
+function getWorldStage(edition, total) { return lbFindStage(total); }
+function getBrickHouseStage(total) { return lbFindStage(total); }
 
 function renderBrickHouse() {
   var panel = document.getElementById('brickHomePanel');
@@ -12113,24 +12822,47 @@ analyzeCreative = function(original, userText) {
   // ── 3단계: 사용자 문장 구체 분석 ──
   var impressions = [];
   var techApplied = [];
+  var breakdown = [];
 
   // 길이 평가
-  if(words.length >= 15){ score += 1; impressions.push('생각을 충분히 펼쳐주셨어요.'); }
-  else if(words.length >= 8){ score += 0.5; impressions.push('핵심이 담겨있어요.'); }
+  if(words.length >= 15){
+    score += 1; impressions.push('생각을 충분히 펼쳐주셨어요.');
+    breakdown.push({got:true, pts:1, name:'글의 길이', detail:words.length+'어절 (15어절 이상)'});
+  } else if(words.length >= 8){
+    score += 0.5; impressions.push('핵심이 담겨있어요.');
+    breakdown.push({got:'part', pts:0.5, max:1, name:'글의 길이', detail:words.length+'어절', how:'15어절을 넘기면 +0.5점'});
+  } else {
+    breakdown.push({got:false, pts:1, name:'글의 길이', detail:words.length+'어절 (짧음)', how:'15어절 이상 쓰면 +1점'});
+  }
 
   // 구체적 이미지
   var concreteWords = userText.match(/[가-힣]+(소리|빛|냄새|바람|하늘|바다|길|방|창|문|손|눈|입|시간|밤|아침|봄|여름|가을|겨울|비|눈물|웃음|목소리|거리|골목|커피|노래|얼굴|어깨|발걸음|마음)/g);
   if(concreteWords && concreteWords.length > 0){
     score += 1;
     impressions.push("'" + concreteWords[0] + "' 같은 구체적 이미지가 글에 생동감을 줍니다.");
+    breakdown.push({got:true, pts:1, name:'구체적 이미지', detail:'"'+concreteWords[0]+'" 등 '+concreteWords.length+'개'});
+  } else {
+    breakdown.push({got:false, pts:1, name:'구체적 이미지', detail:'감각·사물 표현 없음', how:'소리·빛·냄새·손·창 같은 구체어를 넣으면 +1점'});
   }
 
   // 문장 완성도
-  if(/[.!?。…]$/.test(userText.trim())){ score += 0.5; }
+  if(/[.!?。…]$/.test(userText.trim())){
+    score += 0.5;
+    breakdown.push({got:true, pts:0.5, name:'문장 마무리', detail:'문장부호로 끝맺음'});
+  } else {
+    breakdown.push({got:false, pts:0.5, name:'문장 마무리', detail:'끝에 문장부호가 없음', how:'마침표나 물음표로 닫으면 +0.5점'});
+  }
 
   // 독창성
-  if(sim < 0.3 && words.length >= 10){ score += 1; impressions.push('원문에서 벗어나 자기만의 세계를 열었어요.'); }
-  else if(wov > 0.1 && wov < 0.5){ score += 0.5; impressions.push('원문의 정서를 이어가면서도 자기 색깔을 냈어요.'); }
+  if(sim < 0.3 && words.length >= 10){
+    score += 1; impressions.push('원문에서 벗어나 자기만의 세계를 열었어요.');
+    breakdown.push({got:true, pts:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 비슷 (30% 미만)'});
+  } else if(wov > 0.1 && wov < 0.5){
+    score += 0.5; impressions.push('원문의 정서를 이어가면서도 자기 색깔을 냈어요.');
+    breakdown.push({got:'part', pts:0.5, max:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 비슷', how:'30% 아래로 내리고 10어절 이상 쓰면 +0.5점'});
+  } else {
+    breakdown.push({got:false, pts:1, name:'독창성', detail: words.length<10 ? '10어절 미만' : '원문과 '+Math.round(sim*100)+'% 비슷', how:'30% 아래로 내리고 10어절 이상 쓰면 +1점'});
+  }
 
   // ── 4단계: 기법 적용 여부 구체 분석 ──
   // 기법별 적용 체크 (사용자 문장에서 해당 패턴 탐지)
@@ -12170,6 +12902,15 @@ analyzeCreative = function(original, userText) {
     }
   }
 
+  // 기법 항목은 위 분기가 score를 1(또는 0.5) 올렸는지로 판정한다
+  var techGot = techApplied.length > 0 && /적용|사용|드러나|녹아|활용|주고/.test(techApplied[techApplied.length-1]);
+  breakdown.push(techGot
+    ? {got:true, pts:1, name:'오늘의 기법 적용', detail:techName}
+    : {got:false, pts:1, name:'오늘의 기법 적용', detail:techName+' 미적용',
+       how: techApplied.length ? techApplied[techApplied.length-1] : '오늘 배운 기법을 한 번 넣어보세요'});
+
+  result.rawScore = score;
+  result.breakdown = breakdown;
   result.stars = Math.min(5, Math.max(1, Math.round(score)));
 
   // ── AI 코치의 진솔한 감상문 ──
@@ -13231,92 +13972,216 @@ if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D
   };
 }
 
-// Generate a 800x450 canvas share card; returns the canvas element
-function generateShareCard() {
+// ── SNS 공유 카드 ───────────────────────────────────────────────
+// 규격: 인스타 피드 4:5(1080x1350) 기본. 정사각형·스토리도 지원한다.
+// 기존 800x450(16:9)은 유튜브 썸네일 비율이라 피드에서 가장 작게 노출되고,
+// 800px는 인스타 업로드 기준(1080px)보다 작아 확대되며 흐려졌다.
+
+var SHARE_FORMATS = {
+  feed:   { w: 1080, h: 1350, label: '피드 4:5' },
+  square: { w: 1080, h: 1080, label: '정사각형 1:1' },
+  story:  { w: 1080, h: 1920, label: '스토리 9:16' }
+};
+var _shareFormat = 'feed';
+
+// 캔버스는 웹폰트를 직접 기다려야 한다. 안 그러면 시스템 폰트로 떨어진다.
+async function ensureShareFonts() {
+  if (!document.fonts || !document.fonts.load) return;
+  try {
+    await Promise.all([
+      document.fonts.load('700 52px "Gowun Batang"'),
+      document.fonts.load('400 52px "Gowun Batang"'),
+      document.fonts.load('400 26px "Noto Sans KR"'),
+      document.fonts.load('500 26px "Noto Sans KR"')
+    ]);
+    await document.fonts.ready;
+  } catch (e) { /* 폰트 로딩 실패해도 그리기는 진행한다 */ }
+}
+
+// 주어진 폭에 맞게 줄바꿈. 한국어는 어절 단위로 끊고, 한 어절이 폭보다 길면 글자 단위로 자른다.
+function lbWrapLines(ctx, text, maxWidth) {
+  var out = [];
+  (text || '').split(/\n/).forEach(function (para) {
+    var words = para.split(' ');
+    var line = '';
+    words.forEach(function (word) {
+      var probe = line ? line + ' ' + word : word;
+      if (ctx.measureText(probe).width <= maxWidth) { line = probe; return; }
+      if (line) out.push(line);
+      if (ctx.measureText(word).width <= maxWidth) { line = word; return; }
+      var chunk = '';
+      for (var i = 0; i < word.length; i++) {
+        if (ctx.measureText(chunk + word[i]).width > maxWidth && chunk) { out.push(chunk); chunk = ''; }
+        chunk += word[i];
+      }
+      line = chunk;
+    });
+    if (line) out.push(line);
+  });
+  return out;
+}
+
+// 문장 길이에 따라 글자 크기를 줄여 항상 카드 안에 담기게 한다.
+function lbFitQuote(ctx, text, maxWidth, maxHeight, startSize) {
+  for (var size = startSize; size >= Math.round(startSize * 0.52); size -= 2) {
+    ctx.font = '400 ' + size + 'px "Gowun Batang", Georgia, serif';
+    var lh = Math.round(size * 1.62);
+    var lines = lbWrapLines(ctx, text, maxWidth);
+    if (lines.length * lh <= maxHeight) return { size: size, lineHeight: lh, lines: lines };
+  }
+  var minSize = Math.round(startSize * 0.52);
+  ctx.font = '400 ' + minSize + 'px "Gowun Batang", Georgia, serif';
+  var lh2 = Math.round(minSize * 1.62);
+  return { size: minSize, lineHeight: lh2, lines: lbWrapLines(ctx, text, maxWidth) };
+}
+
+function generateShareCard(formatKey) {
   if (!todaySent) return null;
 
+  var fmt = SHARE_FORMATS[formatKey || _shareFormat] || SHARE_FORMATS.feed;
+  var W = fmt.w, H = fmt.h;
+  var M = Math.round(W * 0.088);           // 여백 95px
+  var inner = W - M * 2;
+
   var canvas = document.createElement('canvas');
-  canvas.width = 800;
-  canvas.height = 450;
+  canvas.width = W;
+  canvas.height = H;
   var ctx = canvas.getContext('2d');
 
-  // ── Background ──
-  ctx.fillStyle = '#2c2420';
-  ctx.fillRect(0, 0, 800, 450);
+  // ── 배경 ──
+  ctx.fillStyle = '#2C2420';
+  ctx.fillRect(0, 0, W, H);
 
-  // ── Subtle grain overlay (low opacity pattern) ──
-  ctx.fillStyle = 'rgba(247,242,232,0.015)';
-  for (var gx = 0; gx < 800; gx += 4) {
-    for (var gy = 0; gy < 450; gy += 4) {
-      if (Math.random() > 0.6) ctx.fillRect(gx, gy, 2, 2);
+  // 아래로 갈수록 아주 살짝 어두워지는 결. 종이 질감을 대신한다.
+  var grad = ctx.createLinearGradient(0, 0, 0, H);
+  grad.addColorStop(0, 'rgba(247,242,232,0.030)');
+  grad.addColorStop(1, 'rgba(0,0,0,0.055)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // 벽돌 줄눈. 세계관의 재료를 배경으로 아주 옅게 깐다.
+  // 눈에 띄면 안 된다 — 있는지 없는지 모를 만큼만.
+  var brickW = Math.round(W * 0.125), brickH = Math.round(brickW * 0.42);
+  ctx.strokeStyle = 'rgba(247,242,232,0.035)';
+  ctx.lineWidth = 1;
+  for (var row = 0, y2 = 0; y2 < H; row++, y2 += brickH) {
+    ctx.beginPath(); ctx.moveTo(0, y2 + 0.5); ctx.lineTo(W, y2 + 0.5); ctx.stroke();
+    var offset = (row % 2) ? brickW / 2 : 0;
+    for (var x2 = offset; x2 < W; x2 += brickW) {
+      ctx.beginPath(); ctx.moveTo(x2 + 0.5, y2); ctx.lineTo(x2 + 0.5, y2 + brickH); ctx.stroke();
     }
   }
 
-  // ── Logo: 2x2 brick grid ──
-  var bx = 36, by = 34;
-  var brickColors = ['#b65e3c', '#8b9e6e', '#6e8b9e', '#9e6e8b'];
-  var brickW = [14, 10, 10, 14];
-  var brickPositions = [
-    {x: bx,      y: by,      w: brickW[0], h: 8},
-    {x: bx + 16, y: by,      w: brickW[1], h: 8},
-    {x: bx,      y: by + 10, w: brickW[2], h: 8},
-    {x: bx + 16, y: by + 10, w: brickW[3], h: 8}
+  // ── 머리말: 벽돌 로고 + 워드마크 ──
+  var headY = M;
+  var unit = Math.round(W * 0.0165);       // 벽돌 한 칸 18px
+  var gap = Math.round(unit * 0.28);
+  // DOM 로고와 같은 팔레트. 한 흙에서 나온 네 장이라는 느낌으로 명도만 변주한다.
+  var brickColors = ['#B65E3C', '#A8452F', '#9B3C29', '#C4714E'];
+  var bh = unit * 0.58;                     // DOM 로고와 같은 벽돌 비율
+  var cells = [
+    { x: 0, y: 0, w: unit * 1.35 }, { x: unit * 1.35 + gap, y: 0, w: unit },
+    { x: unit * 0.18, y: bh + gap, w: unit }, { x: unit * 1.18 + gap, y: bh + gap, w: unit * 1.35 }
   ];
-  for (var bi = 0; bi < brickPositions.length; bi++) {
-    var bp = brickPositions[bi];
-    ctx.fillStyle = brickColors[bi];
+  cells.forEach(function (c, i) {
+    ctx.fillStyle = brickColors[i];
     ctx.beginPath();
-    ctx.roundRect(bp.x, bp.y, bp.w, bp.h, 2);
+    ctx.roundRect(M + c.x, headY + c.y, c.w, bh, Math.round(unit * 0.1));
     ctx.fill();
-  }
-
-  // ── "letterbrick" text next to logo ──
-  ctx.fillStyle = '#f7f2e8';
-  ctx.font = '18px sans-serif';
+  });
+  var wordX = M + unit * 2.4 + gap * 2 + Math.round(W * 0.016);
+  ctx.font = '700 ' + Math.round(W * 0.029) + 'px "Gowun Batang", Georgia, serif';
   ctx.textBaseline = 'middle';
-  ctx.fillText('letterbrick', bx + 34, by + 9);
+  ctx.textAlign = 'left';
+  var wordY = headY + bh + gap * 0.5;
+  // letter는 종이색, brick은 벽돌색으로 나눠 그린다
+  ctx.fillStyle = 'rgba(247,242,232,0.94)';
+  ctx.fillText('letter', wordX, wordY);
+  var letterW = ctx.measureText('letter').width;
+  ctx.fillStyle = '#DE9068';
+  ctx.fillText('brick', wordX + letterW, wordY);
 
-  // ── Thin horizontal separator line ──
-  var lineY = 82;
-  ctx.strokeStyle = 'rgba(247,242,232,0.12)';
+  // ── 구분선 ──
+  var lineY = headY + Math.round(W * 0.062);
+  ctx.strokeStyle = 'rgba(247,242,232,0.14)';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(36, lineY);
-  ctx.lineTo(764, lineY);
+  ctx.moveTo(M, lineY + 0.5);
+  ctx.lineTo(W - M, lineY + 0.5);
   ctx.stroke();
 
-  // ── Today's sentence (center area) ──
-  var sentY = 130;
-  ctx.fillStyle = '#f7f2e8';
-  ctx.font = 'bold 28px serif';
-  ctx.textBaseline = 'alphabetic';
-  var lineCount = wrapText(ctx, todaySent.text || '', 100, sentY, 600, 44);
+  // ── 바닥글 자리를 먼저 잡아 본문 영역을 계산한다 ──
+  var footY = H - M;
+  var bodyTop = lineY + Math.round(H * 0.055);
+  var bodyBottom = footY - Math.round(H * 0.055);
 
-  // ── Author + source ──
-  var authorY = sentY + lineCount * 44 + 22;
+  // ── 문장 ──
+  ctx.textBaseline = 'alphabetic';
+  var attrSize = Math.round(W * 0.024);
+  var attrGap = Math.round(W * 0.045);
+  var quoteMax = bodyBottom - bodyTop - attrGap - attrSize;
+  var fit = lbFitQuote(ctx, todaySent.text || '', inner, quoteMax, Math.round(W * 0.049));
+
+  // 본문 블록을 남은 공간의 시각 중심에 놓는다. 예전엔 위쪽에 고정돼 아래가 비었다.
+  var blockH = fit.lines.length * fit.lineHeight + attrGap + attrSize;
+  var blockTop = bodyTop + Math.max(0, (bodyBottom - bodyTop - blockH) / 2);
+
+  // 여는 따옴표를 문장 위에 크게 하나. 인용이라는 걸 한눈에 알린다.
+  ctx.fillStyle = 'rgba(222,144,104,0.34)';
+  ctx.font = '700 ' + Math.round(W * 0.115) + 'px Georgia, serif';
+  ctx.fillText('\u201C', M - Math.round(W * 0.008), blockTop - Math.round(W * 0.012));
+
+  ctx.fillStyle = '#F7F2E8';
+  ctx.font = '400 ' + fit.size + 'px "Gowun Batang", Georgia, serif';
+  var y = blockTop + fit.size;
+  fit.lines.forEach(function (ln) {
+    ctx.fillText(ln, M, y);
+    y += fit.lineHeight;
+  });
+
+  // 문장과 출처 사이 짧은 선
+  var ruleY = y - fit.lineHeight + Math.round(attrGap * 0.42);
+  ctx.strokeStyle = 'rgba(222,144,104,0.5)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(M, ruleY + 0.5);
+  ctx.lineTo(M + Math.round(W * 0.06), ruleY + 0.5);
+  ctx.stroke();
+
+  // ── 출처 ──
   var authorText = '';
   if (todaySent.author) {
     authorText = '— ' + todaySent.author;
     if (todaySent.source) authorText += ' ' + lbWrapSource(todaySent.source);
   }
-  ctx.fillStyle = 'rgba(247,242,232,0.5)';
-  ctx.font = '14px sans-serif';
-  ctx.fillText(authorText, 100, authorY);
+  if (authorText) {
+    ctx.fillStyle = 'rgba(247,242,232,0.72)';   // 기존 0.5 → 읽히는 밝기로
+    ctx.font = '400 ' + attrSize + 'px "Noto Sans KR", sans-serif';
+    ctx.fillText(authorText, M, y - fit.lineHeight + attrGap + attrSize);
+  }
 
-  // ── Bottom date line ──
+  // ── 바닥글: 날짜(왼쪽) / 해시태그(오른쪽) ──
   var now = new Date();
-  var month = now.getMonth() + 1;
-  var day = now.getDate();
-  var dateLabel = month + '월 ' + day + '일 · 오늘의 필사';
-  ctx.fillStyle = 'rgba(247,242,232,0.4)';
-  ctx.font = '12px sans-serif';
-  ctx.fillText(dateLabel, 36, 420);
+  var footSize = Math.round(W * 0.0205);
+  ctx.font = '400 ' + footSize + 'px "Noto Sans KR", sans-serif';
+  ctx.textBaseline = 'alphabetic';
 
-  // ── Right side: hashtag watermark ──
-  ctx.fillStyle = 'rgba(247,242,232,0.18)';
-  ctx.font = '11px sans-serif';
+  ctx.fillStyle = 'rgba(247,242,232,0.60)';    // 기존 0.4
+  ctx.textAlign = 'left';
+  ctx.fillText((now.getMonth() + 1) + '월 ' + now.getDate() + '일 · 오늘의 필사', M, footY);
+
+  // 오른쪽에는 오늘의 세계관 단계. 해시태그보다 이게 카드의 값을 만든다.
+  var stageName = '';
+  try {
+    var st = loadStars();
+    var totalBricks = (st.growth.total || 0) + (st.healing.total || 0);
+    var stg = getBrickHouseStage(totalBricks);
+    stageName = stg.current.name + ' · 벽돌 ' + totalBricks;
+  } catch (e) { stageName = '#레터브릭 #필사'; }
+
+  ctx.fillStyle = 'rgba(222,144,104,0.78)';
   ctx.textAlign = 'right';
-  ctx.fillText('#레터브릭 #필사', 764, 420);
+  ctx.fillText(stageName, W - M, footY);
   ctx.textAlign = 'left';
 
   return canvas;
@@ -13379,17 +14244,97 @@ function downloadShareCanvas() {
   var canvas = _shareCanvas;
   if (!canvas) return;
   var link = document.createElement('a');
-  link.download = 'letterbrick-' + new Date().toISOString().slice(0, 10) + '.png';
+  link.download = 'letterbrick-' + _shareFormat + '-' + new Date().toISOString().slice(0, 10) + '.png';
   link.href = canvas.toDataURL('image/png');
   link.click();
 }
 
+// 생각의 재료 렌더링. lens가 없으면 조용히 감춘다(기존 문단과 호환).
+function renderHealingLens(lens) {
+  var box = document.getElementById('healingLens');
+  if (!box) return;
+  if (!lens || !lens.body) { box.style.display = 'none'; return; }
+
+  document.getElementById('healingLensLabel').textContent = lens.label || '생각의 재료';
+
+  var bodyEl = document.getElementById('healingLensBody');
+  bodyEl.innerHTML = '';
+  String(lens.body).split(/\n+/).filter(function (s) { return s.trim(); }).forEach(function (para) {
+    var p = document.createElement('p');
+    p.textContent = para.trim();
+    bodyEl.appendChild(p);
+  });
+
+  var qBox = document.getElementById('healingLensQuote');
+  if (lens.quote && lens.quote.text) {
+    document.getElementById('healingLensQuoteText').textContent = '“' + lens.quote.text + '”';
+    document.getElementById('healingLensQuoteWho').textContent = lens.quote.who ? '— ' + lens.quote.who : '';
+    qBox.style.display = 'block';
+  } else {
+    qBox.style.display = 'none';
+  }
+
+  box.style.display = 'block';
+}
+
+// 로고 마크업 정본. 네 곳에서 각자 만들던 것을 하나로 모은다.
+function lbLogoHTML(opts) {
+  var o = opts || {};
+  var cls = ['lb-logo', 'lb-logo--' + (o.size || 'md')];
+  if (o.onDark) cls.push('lb-logo--on-dark');
+  if (o.animate) cls.push('lb-logo--animate');
+  if (o.live) cls.push('lb-logo--live');
+  return '<span class="' + cls.join(' ') + '">' +
+      '<span class="lb-logo-bricks" aria-hidden="true">' +
+        '<span class="lb-logo-brick"></span><span class="lb-logo-brick"></span>' +
+        '<span class="lb-logo-brick"></span><span class="lb-logo-brick"></span>' +
+      '</span>' +
+      '<span class="lb-logo-text"><span class="lb-letter">letter</span><span class="lb-brick">brick</span></span>' +
+    '</span>';
+}
+
+// 화면에 이미 있는 옛 로고들을 정본으로 갈아끼운다.
+function lbUpgradeLogos() {
+  var targets = [
+    {sel:'.logo',        size:'md', dark:false, live:true},
+    {sel:'.splash-logo', size:'xl', dark:true,  animate:true},
+    {sel:'.sc-logo',     size:'sm', dark:false}
+  ];
+  targets.forEach(function (t) {
+    document.querySelectorAll(t.sel).forEach(function (el) {
+      if (el.dataset.lbUpgraded) return;
+      el.dataset.lbUpgraded = '1';
+      el.innerHTML = lbLogoHTML({size:t.size, onDark:t.dark, animate:t.animate, live:t.live});
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', lbUpgradeLogos);
+} else {
+  lbUpgradeLogos();
+}
+
 async function shareToday() {
   if (!todaySent) return;
+  await ensureShareFonts();          // 웹폰트를 기다리지 않으면 시스템 폰트로 그려진다
   var canvas = generateShareCard();
   if (!canvas) return;
-  // 항상 모달로 카드 이미지 보여주기
   showShareModal(canvas);
+}
+
+// 규격 전환 — 같은 문장으로 다시 그린다
+async function setShareFormat(key) {
+  if (!SHARE_FORMATS[key]) return;
+  _shareFormat = key;
+  document.querySelectorAll('.sm-fmt-btn').forEach(function (btn) {
+    btn.classList.toggle('active', btn.dataset.fmt === key);
+  });
+  await ensureShareFonts();
+  var canvas = generateShareCard(key);
+  if (!canvas) return;
+  _shareCanvas = canvas;
+  document.getElementById('shareModalImg').src = canvas.toDataURL('image/png');
 }
 
 // 홈 화면 CTA 날짜는 훈련 진입 전에도 보이므로 로드 시점에 한 번 맞춘다
@@ -13409,6 +14354,11 @@ async function shareToday() {
   <div class="sm-inner">
     <div class="sm-img-wrap">
       <img id="shareModalImg" src="" alt="공유 카드">
+    </div>
+    <div class="sm-formats">
+      <button type="button" class="sm-fmt-btn active" data-fmt="feed" onclick="setShareFormat('feed')">피드 4:5</button>
+      <button type="button" class="sm-fmt-btn" data-fmt="square" onclick="setShareFormat('square')">정사각형 1:1</button>
+      <button type="button" class="sm-fmt-btn" data-fmt="story" onclick="setShareFormat('story')">스토리 9:16</button>
     </div>
     <div class="sm-actions">
       <button class="sm-btn sm-btn-dl" onclick="downloadShareCanvas()">💾 이미지 저장</button>
