@@ -1245,6 +1245,57 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 
 /* ══════ TECHNIQUE COLLECTION ══════ */
 .tech-collection{margin:20px 0 24px;}
+/* 기법 상세 — 밝은 종이 위에 얹는다. 마이페이지가 밝은 배경이다. */
+#techModal{
+  position:fixed; inset:0; z-index:9000; display:flex; align-items:center; justify-content:center;
+  padding:20px; background:rgba(28,22,19,.62); backdrop-filter:blur(2px);
+}
+#techModal.hide{ display:none; }
+.tm-inner{
+  position:relative; width:100%; max-width:520px; max-height:86vh; overflow:hidden;
+  border:1px solid var(--line); border-radius:16px; background:#FFFDF9;
+  box-shadow:0 24px 64px rgba(28,22,19,.35);
+}
+.tm-close{
+  position:absolute; right:10px; top:10px; z-index:2;
+  width:32px; height:32px; min-width:24px; min-height:24px; cursor:pointer;
+  border:1px solid var(--line); border-radius:50%; background:#FBF6EE;
+  font-size:14px; color:var(--ink2); line-height:1;
+}
+.tm-close:hover{ background:#F4EFE6; }
+.tm-body{ max-height:86vh; overflow-y:auto; padding:22px 22px 26px; }
+.tm-state{
+  font-family:'Noto Sans KR',sans-serif; font-size:12px; font-weight:700; letter-spacing:.02em;
+}
+.tm-state.on{ color:#2C7458; }
+.tm-state.off{ color:var(--ink3); }
+.tm-title{
+  margin:7px 0 16px; font-family:'Gowun Batang',Georgia,serif; font-size:19px; line-height:1.45;
+  font-weight:700; color:var(--ink); padding-right:34px;
+}
+.tm-sec{ margin-top:16px; padding-top:14px; border-top:1px solid #EFE9DE; }
+.tm-sec:first-of-type{ border-top:0; padding-top:0; }
+.tm-lbl{
+  font-family:'Noto Sans KR',sans-serif; font-size:12px; font-weight:700;
+  color:var(--brick-d); letter-spacing:.02em; margin-bottom:7px;
+}
+.tm-sec p{ margin:0; font-family:'Noto Sans KR',sans-serif; font-size:13px; line-height:1.75; color:var(--ink2); }
+.tm-sec ul{ margin:0; padding-left:17px; }
+.tm-sec li{ font-family:'Noto Sans KR',sans-serif; font-size:13px; line-height:1.7; color:var(--ink2); }
+.tm-sec li + li{ margin-top:5px; }
+.tm-sec blockquote{
+  margin:0; padding:11px 13px; border-radius:9px; background:#F7F2E9;
+  font-family:'Gowun Batang',Georgia,serif; font-size:14px; line-height:1.8; color:var(--ink);
+}
+.tm-sec blockquote.tm-good{ background:#F1F6F2; }
+.tm-sec cite{
+  display:block; margin-top:6px; font-style:normal;
+  font-family:'Noto Sans KR',sans-serif; font-size:12px; color:var(--ink3);
+}
+.tm-mission p{ padding:11px 13px; border-radius:9px; background:#FBF0E9; color:var(--ink); }
+.tm-locked p{ color:var(--ink3); }
+@media (max-width:420px){ .tm-body{ padding:18px 16px 22px; } .tm-title{ font-size:17px; } }
+
 .tech-coll-head{
   display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;
 }
@@ -1253,6 +1304,10 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   background:var(--paper2);padding:3px 8px;border-radius:10px;
   border:1px solid var(--line);
 }
+/* div에서 button으로 바뀌었다. 브라우저 기본 스타일을 걷어낸다. */
+.tc{ appearance:none; -webkit-appearance:none; font:inherit; text-align:left; width:100%; cursor:pointer; }
+.tc.earned:hover{ filter:brightness(0.985); }
+.tc.locked:hover{ filter:brightness(0.99); }
 .tech-grid{
   display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
 }
@@ -1273,7 +1328,8 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 }
 .tc-check{
   position:absolute;top:8px;right:8px;
-  font-size:12px;color:var(--brick);font-weight:700;
+  /* --brick은 벽돌 배경(--brick-p) 위에서 4.02:1로 기준 미달이었다 */
+  font-size:12px;color:var(--brick-d);font-weight:800;
 }
 
 /* ── 마이페이지 법적 푸터 ── */
@@ -3811,7 +3867,8 @@ const SENTENCES = [
       technique:"<b>비유 + 비유 행위자 확장</b> — X=Y라 정의하고, Y의 행위자를 우리 자신으로 확장해 주체성 부각<br>예시: '삶이란 우리가 쓰는 소설이다. 그러나 수정본은 늘 우리가 결정한다.'"
     },
     example:"일기란 내가 살아온 날들의 지도다. 그러나 어디에 길을 표시할지는 늘 내가 정한다."
-  },
+  }
+,
   /* ─── 성장편 (GROWTH_DAYS 통합 60개) ─── */
   {
     "text": "사랑은 죽음보다, 죽음의 공포보다 강하다. 오직 사랑만이 삶을 붙들고 앞으로 나아가게 한다.",
@@ -10851,7 +10908,8 @@ function getAllTechniques() {
     var skill = s.learn && s.learn.coreSkill;
     if (skill && !seen[skill]) {
       seen[skill] = true;
-      skills.push({ skill: skill, author: s.author });
+      // 설명을 보여주려면 learn과 출전이 함께 있어야 한다
+      skills.push({ skill: skill, author: s.author, source: s.source, text: s.text, learn: s.learn });
     }
   });
   return skills;
@@ -10898,21 +10956,91 @@ function renderTechCollection() {
     return 0;
   });
 
-  grid.innerHTML = sorted.map(function(item) {
+  // 눌러서 설명을 볼 수 있어야 하므로 div가 아니라 button으로 낸다
+  _techSorted = sorted;
+  _techEarned = earned;
+  grid.innerHTML = sorted.map(function(item, i) {
     var isEarned = !!earned[item.skill];
     var dateStr = '';
     if (earned[item.skill]) {
       var d = new Date(earned[item.skill]);
       dateStr = (d.getMonth()+1) + '월 ' + d.getDate() + '일 완성';
     }
-    return '<div class="tc' + (isEarned ? ' earned' : ' locked') + '">' +
+    return '<button type="button" class="tc' + (isEarned ? ' earned' : ' locked') + '" ' +
+      'onclick="openTechDetail(' + i + ')" aria-label="' + lbEscapeHtml(item.skill) + ' 설명 보기">' +
       (isEarned
         ? '<div class="tc-check">✓</div>'
         : '<div class="tc-lock">🔒</div>') +
       '<div class="tc-name">' + item.skill + '</div>' +
       (isEarned ? '<div class="tc-date">' + dateStr + '</div>' : '') +
-    '</div>';
+    '</button>';
   }).join('');
+}
+
+var _techSorted = [], _techEarned = {};
+
+/* 기법 하나를 펼쳐 보여준다.
+   익힌 기법은 전부, 아직 못 만난 기법은 한 줄 소개까지만. */
+function openTechDetail(i) {
+  var item = _techSorted[i];
+  if (!item) return;
+  var box = document.getElementById('techModal');
+  var body = document.getElementById('techModalBody');
+  if (!box || !body) return;
+
+  var L = item.learn || {};
+  var A = L.anatomy || {};
+  var isEarned = !!_techEarned[item.skill];
+  var esc = lbEscapeHtml;
+  var html = '';
+
+  html += '<div class="tm-state ' + (isEarned ? 'on' : 'off') + '">' +
+    (isEarned ? '✓ 익힌 기법 · ' + (function(){ var d=new Date(_techEarned[item.skill]); return (d.getMonth()+1)+'월 '+d.getDate()+'일'; })()
+              : '아직 만나지 않은 기법') + '</div>';
+  html += '<h3 class="tm-title">' + esc(item.skill) + '</h3>';
+
+  if (A.effect) {
+    html += '<div class="tm-sec"><div class="tm-lbl">왜 통하는가</div><p>' +
+            esc(isEarned ? A.effect : String(A.effect).split(/(?<=\.)\s/)[0]) + '</p></div>';
+  }
+
+  if (isEarned) {
+    if (A.rhetoric && A.rhetoric.length) {
+      html += '<div class="tm-sec"><div class="tm-lbl">쓰인 장치</div><ul>' +
+              A.rhetoric.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></div>';
+    }
+    if (item.text) {
+      var t = String(item.text);
+      html += '<div class="tm-sec"><div class="tm-lbl">출전</div>' +
+              '<blockquote>' + esc(t.length > 110 ? t.slice(0, 110) + '…' : t) + '</blockquote>' +
+              '<cite>— ' + esc(item.author || '') + (item.source ? ' ' + lbWrapSource(item.source) : '') + '</cite></div>';
+    }
+    if (L.goodExample) {
+      html += '<div class="tm-sec"><div class="tm-lbl">이렇게 쓰면 된다</div><blockquote class="tm-good">' +
+              esc(L.goodExample) + '</blockquote></div>';
+    }
+    if (L.practiceMission) {
+      html += '<div class="tm-sec tm-mission"><div class="tm-lbl">연습</div><p>' + esc(L.practiceMission) + '</p></div>';
+    }
+    if (L.pitfalls && L.pitfalls.length) {
+      html += '<div class="tm-sec"><div class="tm-lbl">이러면 무너진다</div><ul>' +
+              L.pitfalls.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul></div>';
+    }
+  } else {
+    html += '<div class="tm-sec tm-locked"><p>이 기법이 실린 문장을 만나면 전부 열립니다. ' +
+            '출전은 ' + esc(item.author || '') + '입니다.</p></div>';
+  }
+
+  body.innerHTML = html;
+  body.scrollTop = 0;
+  box.classList.remove('hide');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTechDetail() {
+  var box = document.getElementById('techModal');
+  if (box) box.classList.add('hide');
+  document.body.style.overflow = '';
 }
 
 
@@ -14572,6 +14700,14 @@ async function setShareFormat(key) {
   if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",apply);}else{apply();}
 })();
 </script>
+
+<!-- ══════ 기법 상세 모달 ══════ -->
+<div id="techModal" class="hide" onclick="if(event.target===this)closeTechDetail()">
+  <div class="tm-inner" role="dialog" aria-modal="true" aria-labelledby="techModalBody">
+    <button type="button" class="tm-close" onclick="closeTechDetail()" aria-label="닫기">✕</button>
+    <div class="tm-body" id="techModalBody"></div>
+  </div>
+</div>
 
 <!-- ══════ CANVAS SHARE MODAL ══════ -->
 <div id="shareModal" class="hide">
