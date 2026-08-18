@@ -1762,6 +1762,26 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   .hl-body{font-size:14px;line-height:1.95;}
 }
 
+/* 렌즈에서 질문으로 이어지는 실. 두 카드가 한 흐름으로 읽히게 한다. */
+.healing-lens + .healing-question-card{ position:relative; margin-top:26px; }
+.healing-lens + .healing-question-card::before{
+  content:""; position:absolute; left:50%; top:-20px; width:1px; height:16px;
+  background:linear-gradient(180deg, rgba(222,144,104,0) 0%, rgba(222,144,104,.55) 100%);
+}
+.hqc-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.hqc-level{ display:flex; gap:4px; }
+.hqc-lv{
+  min-height:24px; padding:5px 10px; cursor:pointer;
+  border:1px solid rgba(247,242,232,.18); border-radius:999px; background:transparent;
+  font-family:'Noto Sans KR',sans-serif; font-size:12px; font-weight:600;
+  color:rgba(247,242,232,.62); letter-spacing:0;
+}
+.hqc-lv:hover{ border-color:rgba(247,242,232,.34); color:rgba(247,242,232,.85); }
+.hqc-lv.active{ border-color:rgba(222,144,104,.75); background:rgba(222,144,104,.14); color:#F3C6AC; }
+.hqc-form{
+  margin-top:9px; font-family:'Noto Sans KR',sans-serif; font-size:12px;
+  color:rgba(247,242,232,.55); line-height:1.6;
+}
 .healing-question-card{
   margin:0 0 20px;text-align:left;
   animation:fu .45s ease both;
@@ -2819,8 +2839,15 @@ const fbDb = firebase.firestore();
 
       <!-- 오늘의 질문 카드 -->
       <div class="healing-question-card" id="healingQuestionCard">
-        <div class="hqc-eyebrow">오늘의 질문</div>
+        <div class="hqc-head">
+          <div class="hqc-eyebrow" id="healingQuestionEyebrow">오늘의 질문</div>
+          <div class="hqc-level" id="healingQuestionLevel" style="display:none;">
+            <button type="button" class="hqc-lv active" data-lv="easy" onclick="setHealingQuestionLevel('easy')">쉬운 질문</button>
+            <button type="button" class="hqc-lv" data-lv="deep" onclick="setHealingQuestionLevel('deep')">깊은 질문</button>
+          </div>
+        </div>
         <div class="hqc-question" id="healingQuestionText">이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?</div>
+        <div class="hqc-form" id="healingQuestionForm"></div>
       </div>
 
       <!-- 나의 답 (소감 입력) -->
@@ -11040,10 +11067,8 @@ function finishHealing() {
   document.getElementById('healingDuration').textContent = m > 0 ? m + '분 ' + s + '초' : s + '초';
   stopTTS(); stopBGM();
 
-  // 오늘의 질문 카드 채우기 — 문단에 고정된 질문 사용
-  var q = (healingPassage && healingPassage.question) || '이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?';
-  var qEl = document.getElementById('healingQuestionText');
-  if (qEl) qEl.textContent = q;
+  // 오늘의 질문 카드 채우기 — 쉬운/깊은 두 벌을 두고 고르게 한다
+  renderHealingQuestion();
 
   // 생각의 재료 — lens가 있는 문단에만 보여준다
   renderHealingLens(healingPassage && healingPassage.lens);
@@ -12817,6 +12842,14 @@ analyzeCreative = function(original, userText) {
   // ── 1단계: 기본 검증 ──
   if(sim > 0.8){
     result.stars = 1;
+    result.rawScore = 0;
+    // 점수 이유를 남긴다. 내역이 없으면 왜 1점인지 화면에서 알 수 없다.
+    result.breakdown = [
+      {got:false, pts:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 일치',
+       how:'창작 칸은 원문을 옮기는 곳이 아니라 새 문장을 세우는 곳입니다. 원문과 30% 아래로 벌려보세요.'},
+      {got:false, pts:1, name:'나만의 장면', detail:'내 경험이 들어가지 않음',
+       how:'내가 직접 본 것, 만진 것, 들은 것을 하나 넣으면 완전히 다른 문장이 됩니다.'}
+    ];
     result.sections.push({lbl:'소감',txt:'원문의 좋은 점을 잘 포착하셨어요. 여기에 자기만의 경험이나 장면을 하나 더하면 완전히 다른 글이 됩니다.'});
     result.tip = '나만 겪은 순간 하나를 떠올려서 한 문장 넣어보세요.';
     return result;
@@ -12839,18 +12872,23 @@ analyzeCreative = function(original, userText) {
   var breakdown = [];
 
   // 길이 평가
-  if(words.length >= 15){
-    score += 1; impressions.push('생각을 충분히 펼쳐주셨어요.');
-    breakdown.push({got:true, pts:1, name:'글의 길이', detail:words.length+'어절 (15어절 이상)'});
-  } else if(words.length >= 8){
-    score += 0.5; impressions.push('핵심이 담겨있어요.');
-    breakdown.push({got:'part', pts:0.5, max:1, name:'글의 길이', detail:words.length+'어절', how:'15어절을 넘기면 +0.5점'});
+  // 한 문장을 벼리는 훈련이다. 길게 쓴 글이 아니라 완결된 문장에 점수를 준다.
+  if(words.length >= 8){
+    score += 1; impressions.push('한 문장으로 충분히 세웠어요.');
+    breakdown.push({got:true, pts:1, name:'문장의 길이', detail:words.length+'어절 (8어절 이상)'});
+  } else if(words.length >= 5){
+    score += 0.5; impressions.push('짧지만 핵심이 서 있어요.');
+    breakdown.push({got:'part', pts:0.5, max:1, name:'문장의 길이', detail:words.length+'어절', how:'8어절을 넘기면 +0.5점'});
   } else {
-    breakdown.push({got:false, pts:1, name:'글의 길이', detail:words.length+'어절 (짧음)', how:'15어절 이상 쓰면 +1점'});
+    breakdown.push({got:false, pts:1, name:'문장의 길이', detail:words.length+'어절 (너무 짧음)', how:'5어절 이상 쓰면 +0.5점, 8어절 이상이면 +1점'});
   }
 
   // 구체적 이미지
-  var concreteWords = userText.match(/[가-힣]+(소리|빛|냄새|바람|하늘|바다|길|방|창|문|손|눈|입|시간|밤|아침|봄|여름|가을|겨울|비|눈물|웃음|목소리|거리|골목|커피|노래|얼굴|어깨|발걸음|마음)/g);
+  // 접미사 목록만 보던 방식은 "딱쟁이·새살·상처" 같은 가장 구체적인 말을 놓쳤다.
+  // 접미사 매칭과 단어 매칭을 함께 쓴다.
+  var _concSuffix = userText.match(/[가-힣]+(소리|빛|냄새|바람|하늘|바다|길|방|창|문|손|눈|입|시간|밤|아침|봄|여름|가을|겨울|비|눈물|웃음|목소리|거리|골목|커피|노래|얼굴|어깨|발걸음|마음)/g) || [];
+  var _concWord = userText.match(/(살갗|살결|새살|딱지|딱쟁이|상처|흉터|피|뼈|숨|땀|침|맥박|심장|가슴|등|배|팔|다리|무릎|발|발끝|손끝|손톱|이마|뺨|턱|목|머리카락|머리|귀|어깨죽지|돌|바위|물|불|흙|땅|모래|나무|잎|이파리|꽃|뿌리|씨|씨앗|풀|가지|열매|파도|구름|별|달|해|햇살|서리|얼음|눈송이|안개|그릇|밥|국|숟가락|의자|책상|계단|문턱|유리|거울|종이|실|바늘|옷|소매|신발|이불|베개|시계|전등|그림자|담벼락|지붕|우산|주머니|닿|스치|젖|마르|시리|뜨겁|차갑|미끄럽|거칠|따갑|간지|아리)/g) || [];
+  var concreteWords = _concSuffix.concat(_concWord);
   if(concreteWords && concreteWords.length > 0){
     score += 1;
     impressions.push("'" + concreteWords[0] + "' 같은 구체적 이미지가 글에 생동감을 줍니다.");
@@ -12868,14 +12906,16 @@ analyzeCreative = function(original, userText) {
   }
 
   // 독창성
-  if(sim < 0.3 && words.length >= 10){
-    score += 1; impressions.push('원문에서 벗어나 자기만의 세계를 열었어요.');
+  // 독창성은 길이가 아니라 원문과의 거리다. 어절 수 조건을 뺐다.
+  // 다만 두세 마디로는 판정이 무의미하므로 최소 4어절만 요구한다.
+  if(sim < 0.3 && words.length >= 4){
+    score += 1; impressions.push('원문에서 벗어나 자기만의 문장을 세웠어요.');
     breakdown.push({got:true, pts:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 비슷 (30% 미만)'});
   } else if(wov > 0.1 && wov < 0.5){
-    score += 0.5; impressions.push('원문의 정서를 이어가면서도 자기 색깔을 냈어요.');
-    breakdown.push({got:'part', pts:0.5, max:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 비슷', how:'30% 아래로 내리고 10어절 이상 쓰면 +0.5점'});
+    score += 0.5; impressions.push('원문의 결을 이어가면서도 자기 색을 냈어요.');
+    breakdown.push({got:'part', pts:0.5, max:1, name:'독창성', detail:'원문과 '+Math.round(sim*100)+'% 비슷', how:'원문과 30% 아래로 벌리면 +0.5점'});
   } else {
-    breakdown.push({got:false, pts:1, name:'독창성', detail: words.length<10 ? '10어절 미만' : '원문과 '+Math.round(sim*100)+'% 비슷', how:'30% 아래로 내리고 10어절 이상 쓰면 +1점'});
+    breakdown.push({got:false, pts:1, name:'독창성', detail: words.length<4 ? '4어절 미만이라 판정 불가' : '원문과 '+Math.round(sim*100)+'% 비슷', how:'원문과 30% 아래로 벌리면 +1점'});
   }
 
   // ── 4단계: 기법 적용 여부 구체 분석 ──
@@ -12886,8 +12926,14 @@ analyzeCreative = function(original, userText) {
   var hasNegation = /아니[라다]|않는|없[는다]|못[하한]/.test(userText); // 부정 구문
   var hasQuestion = /[?]|인가|는가|을까|는지/.test(userText); // 의문형
   var hasCommand = /하[라자]|[으세]세요|십시오/.test(userText); // 명령/권유형
+  // 끝난 자리에서 시작을 선언하는 구조: 조건·시점절 + 생성/시작 어휘
+  var hasTurn = /(면|자리|자마자|뒤에|후에|나면|고 나서|지고|떨어지|끝나|저물|지나|물러|사라|그친|멎)/.test(userText)
+             && /(시작|처음|새|돋|피[어우]|열리|트[이인]|태어|생기|자라|오르|밝|꿈틀|움트|싹|번지|차오르|일어|살아|되살|다시|올라)/.test(userText);
 
-  if(techName.indexOf('역설') >= 0 || techName.indexOf('역접') >= 0 || techName.indexOf('양보') >= 0){
+  if(techName.indexOf('시작') >= 0 || techName.indexOf('끝') >= 0 || techName.indexOf('전환') >= 0 || techName.indexOf('선언') >= 0){
+    if(hasTurn || hasContrast){ score += 1; techApplied.push('끝과 시작을 한 문장에 붙이는 구조가 적용됐어요.'); }
+    else techApplied.push("'~하면 ~한다'처럼 끝난 자리에서 다음이 시작되는 구조를 만들어보세요.");
+  } else if(techName.indexOf('역설') >= 0 || techName.indexOf('역접') >= 0 || techName.indexOf('양보') >= 0){
     if(hasContrast){ score += 1; techApplied.push('대비/역접 구조를 사용하셨어요.'); }
     else techApplied.push('대비나 반전 구조를 넣으면 더 깊어질 수 있어요.');
   } else if(techName.indexOf('반복') >= 0 || techName.indexOf('병치') >= 0 || techName.indexOf('클라이맥스') >= 0){
@@ -14264,6 +14310,46 @@ function downloadShareCanvas() {
 }
 
 // 생각의 재료 렌더링. lens가 없으면 조용히 감춘다(기존 문단과 호환).
+/* 질문은 두 벌이다.
+   쉬운 질문 = 시점과 분량이 박힌 것, 깊은 질문 = 사유를 파고드는 기존 질문.
+   기본값은 쉬운 쪽이다. 빈칸 앞에서 막히지 않는 것이 먼저다. */
+var _healingQLevel = 'easy';
+
+function setHealingQuestionLevel(lv) {
+  _healingQLevel = (lv === 'deep') ? 'deep' : 'easy';
+  renderHealingQuestion();
+}
+
+function renderHealingQuestion() {
+  var p = (typeof healingPassage !== 'undefined') ? healingPassage : null;
+  var easy = (p && p.question) || '이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?';
+  var deep = (p && p.questionDeep) || '';
+  var hasBoth = !!deep;
+
+  var lvBox = document.getElementById('healingQuestionLevel');
+  if (lvBox) {
+    lvBox.style.display = hasBoth ? 'flex' : 'none';
+    [].forEach.call(lvBox.querySelectorAll('.hqc-lv'), function (b) {
+      b.classList.toggle('active', b.getAttribute('data-lv') === _healingQLevel);
+    });
+  }
+  if (!hasBoth) _healingQLevel = 'easy';
+
+  var qEl = document.getElementById('healingQuestionText');
+  if (qEl) qEl.textContent = (_healingQLevel === 'deep') ? deep : easy;
+
+  // 렌즈가 있으면 질문이 그 재료를 이어받는다는 걸 말로도 알린다
+  var eye = document.getElementById('healingQuestionEyebrow');
+  if (eye) eye.textContent = (p && p.lens) ? '읽은 재료에서 이어서' : '오늘의 질문';
+
+  var form = document.getElementById('healingQuestionForm');
+  if (form) {
+    form.textContent = (_healingQLevel === 'deep')
+      ? '길게 써도 좋습니다. 답이 안 나오면 쉬운 질문으로 바꿔도 됩니다.'
+      : '한 문장이면 충분합니다. 잘 쓰려 하지 않아도 됩니다.';
+  }
+}
+
 function renderHealingLens(lens) {
   var box = document.getElementById('healingLens');
   if (!box) return;
