@@ -14037,6 +14037,15 @@ if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D
 // 기존 800x450(16:9)은 유튜브 썸네일 비율이라 피드에서 가장 작게 노출되고,
 // 800px는 인스타 업로드 기준(1080px)보다 작아 확대되며 흐려졌다.
 
+/* 선택 줄은 규격 줄과 같은 버튼을 쓰되, 위에 놓여 성격이 다르다는 걸 여백으로 알린다 */
+var _SM_SRC_CSS = (function () {
+  var st = document.createElement('style');
+  st.textContent = '.sm-sources{margin-bottom:6px;}' +
+    '.sm-sources .sm-fmt-btn{font-size:12px;padding:6px 11px;min-height:24px;}';
+  document.head.appendChild(st);
+  return true;
+})();
+
 var SHARE_FORMATS = {
   feed:   { w: 1080, h: 1350, label: '피드 4:5' },
   square: { w: 1080, h: 1080, label: '정사각형 1:1' },
@@ -14093,6 +14102,51 @@ function lbFitQuote(ctx, text, maxWidth, maxHeight, startSize) {
   ctx.font = '400 ' + minSize + 'px "Gowun Batang", Georgia, serif';
   var lh2 = Math.round(minSize * 1.62);
   return { size: minSize, lineHeight: lh2, lines: lbWrapLines(ctx, text, maxWidth) };
+}
+
+/* 카드에 실을 문장 후보. 원문 + 오늘 내가 쓴 것들.
+   기존 카드는 원문만 그려서 정작 사용자가 만든 문장이 빠져 있었다. */
+function lbShareSources() {
+  var out = [];
+  var rec = null;
+  try {
+    var today = lbToday();
+    rec = (pastRecords || []).filter(function (r) { return r && r.date === today; })[0] || null;
+  } catch (e) { rec = null; }
+
+  var originText = (todaySent && todaySent.text) || (rec && rec.sentence) || '';
+  if (originText) {
+    var who = '';
+    var a = (todaySent && todaySent.author) || (rec && rec.author) || '';
+    var s = (todaySent && todaySent.source) || (rec && rec.source) || '';
+    if (a) { who = '— ' + a; if (s) who += ' ' + lbWrapSource(s); }
+    out.push({ key: 'origin', label: '원문', text: originText, who: who });
+  }
+  if (!rec) return out;
+
+  var isHeal = rec.edition === 'healing';
+  var fields = isHeal
+    ? [['copy', '필사', rec.copyText], ['heal', '힐링 필사', rec.creative], ['sogam', '소감', rec.sogam]]
+    : [['copy', '필사', rec.copyText], ['struct', '구조 변형', rec.structText], ['creative', '창작', rec.creative]];
+
+  fields.forEach(function (f) {
+    var t = (typeof cleanUserSentence === 'function') ? cleanUserSentence(f[2]) : (f[2] || '');
+    if (!t) return;
+    // 필사는 원문을 옮겨 적은 것이라 원문과 같으면 중복이므로 뺀다
+    if (f[0] === 'copy' && originText && t.replace(/\s/g, '') === originText.replace(/\s/g, '')) return;
+    out.push({ key: f[0], label: f[1], text: t, who: '' });
+  });
+  return out;
+}
+
+var _shareSource = 'all';   // 'all' 또는 개별 key
+
+function lbShareBlocks() {
+  var all = lbShareSources();
+  if (!all.length) return [];
+  if (_shareSource === 'all') return all;
+  var one = all.filter(function (s) { return s.key === _shareSource; });
+  return one.length ? one : all.slice(0, 1);
 }
 
 function generateShareCard(formatKey) {
@@ -14179,45 +14233,85 @@ function generateShareCard(formatKey) {
   ctx.textBaseline = 'alphabetic';
   var attrSize = Math.round(W * 0.024);
   var attrGap = Math.round(W * 0.045);
-  var quoteMax = bodyBottom - bodyTop - attrGap - attrSize;
-  var fit = lbFitQuote(ctx, todaySent.text || '', inner, quoteMax, Math.round(W * 0.049));
+  var blocks = lbShareBlocks();
+  if (!blocks.length) blocks = [{ key:'origin', label:'원문', text: (todaySent && todaySent.text) || '', who:'' }];
+  var avail = bodyBottom - bodyTop;
 
-  // 본문 블록을 남은 공간의 시각 중심에 놓는다. 예전엔 위쪽에 고정돼 아래가 비었다.
-  var blockH = fit.lines.length * fit.lineHeight + attrGap + attrSize;
-  var blockTop = bodyTop + Math.max(0, (bodyBottom - bodyTop - blockH) / 2);
+  if (blocks.length === 1) {
+    // 한 문장만 실을 때는 크게, 가운데.
+    var b0 = blocks[0];
+    var quoteMax = avail - attrGap - attrSize;
+    var fit = lbFitQuote(ctx, b0.text || '', inner, quoteMax, Math.round(W * 0.049));
+    var blockH = fit.lines.length * fit.lineHeight + attrGap + attrSize;
+    var blockTop = bodyTop + Math.max(0, (avail - blockH) / 2);
 
-  // 여는 따옴표를 문장 위에 크게 하나. 인용이라는 걸 한눈에 알린다.
-  ctx.fillStyle = 'rgba(222,144,104,0.34)';
-  ctx.font = '700 ' + Math.round(W * 0.115) + 'px Georgia, serif';
-  ctx.fillText('\u201C', M - Math.round(W * 0.008), blockTop - Math.round(W * 0.012));
+    ctx.fillStyle = 'rgba(222,144,104,0.34)';
+    ctx.font = '700 ' + Math.round(W * 0.115) + 'px Georgia, serif';
+    ctx.fillText('\u201C', M - Math.round(W * 0.008), blockTop - Math.round(W * 0.012));
 
-  ctx.fillStyle = '#F7F2E8';
-  ctx.font = '400 ' + fit.size + 'px "Gowun Batang", Georgia, serif';
-  var y = blockTop + fit.size;
-  fit.lines.forEach(function (ln) {
-    ctx.fillText(ln, M, y);
-    y += fit.lineHeight;
-  });
+    ctx.fillStyle = '#F7F2E8';
+    ctx.font = '400 ' + fit.size + 'px "Gowun Batang", Georgia, serif';
+    var y = blockTop + fit.size;
+    fit.lines.forEach(function (ln) { ctx.fillText(ln, M, y); y += fit.lineHeight; });
 
-  // 문장과 출처 사이 짧은 선
-  var ruleY = y - fit.lineHeight + Math.round(attrGap * 0.42);
-  ctx.strokeStyle = 'rgba(222,144,104,0.5)';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(M, ruleY + 0.5);
-  ctx.lineTo(M + Math.round(W * 0.06), ruleY + 0.5);
-  ctx.stroke();
+    var ruleY = y - fit.lineHeight + Math.round(attrGap * 0.42);
+    ctx.strokeStyle = 'rgba(222,144,104,0.5)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(M, ruleY + 0.5); ctx.lineTo(M + Math.round(W * 0.06), ruleY + 0.5); ctx.stroke();
 
-  // ── 출처 ──
-  var authorText = '';
-  if (todaySent.author) {
-    authorText = '— ' + todaySent.author;
-    if (todaySent.source) authorText += ' ' + lbWrapSource(todaySent.source);
-  }
-  if (authorText) {
-    ctx.fillStyle = 'rgba(247,242,232,0.72)';   // 기존 0.5 → 읽히는 밝기로
-    ctx.font = '400 ' + attrSize + 'px "Noto Sans KR", sans-serif';
-    ctx.fillText(authorText, M, y - fit.lineHeight + attrGap + attrSize);
+    var authorText = b0.who || '';
+    if (!authorText && b0.key !== 'origin') authorText = '— 내가 쓴 문장';
+    if (authorText) {
+      ctx.fillStyle = 'rgba(247,242,232,0.72)';
+      ctx.font = '400 ' + attrSize + 'px "Noto Sans KR", sans-serif';
+      ctx.fillText(authorText, M, y - fit.lineHeight + attrGap + attrSize);
+    }
+  } else {
+    // 여러 문장을 실을 때는 라벨을 붙여 쌓는다. 원문과 내 문장이 한눈에 대비된다.
+    var lblSize = Math.round(W * 0.021);
+    var lblGap = Math.round(W * 0.016);
+    var blockGap = Math.round(H * 0.026);
+    var whoSize = Math.round(W * 0.019);
+    var whoRows = blocks.filter(function (b) { return b.who; }).length;
+    var chrome = blocks.length * (lblSize + lblGap) + blockGap * (blocks.length - 1) + whoRows * (whoSize + lblGap);
+    var perMax = Math.max(Math.round(W * 0.05), (avail - chrome) / blocks.length);
+    var startSize = Math.round(W * (blocks.length >= 4 ? 0.031 : 0.036));
+
+    var fits = blocks.map(function (b) { return lbFitQuote(ctx, b.text || '', inner, perMax, startSize); });
+    var totalH = chrome + fits.reduce(function (s, f) { return s + f.lines.length * f.lineHeight; }, 0);
+    var yy = bodyTop + Math.max(0, (avail - totalH) / 2);
+
+    blocks.forEach(function (b, i) {
+      // 라벨
+      ctx.fillStyle = (b.key === 'origin') ? 'rgba(247,242,232,0.46)' : '#DE9068';
+      ctx.font = '700 ' + lblSize + 'px "Noto Sans KR", sans-serif';
+      yy += lblSize;
+      ctx.fillText(b.label, M, yy);
+      yy += lblGap;
+
+      // 본문
+      var f = fits[i];
+      ctx.fillStyle = (b.key === 'origin') ? 'rgba(247,242,232,0.80)' : '#F7F2E8';
+      ctx.font = '400 ' + f.size + 'px "Gowun Batang", Georgia, serif';
+      f.lines.forEach(function (ln) { yy += f.lineHeight; ctx.fillText(ln, M, yy - (f.lineHeight - f.size)); });
+
+      // 출처 (원문에만)
+      if (b.who) {
+        yy += lblGap + whoSize;
+        ctx.fillStyle = 'rgba(247,242,232,0.55)';
+        ctx.font = '400 ' + whoSize + 'px "Noto Sans KR", sans-serif';
+        ctx.fillText(b.who, M, yy);
+      }
+      if (i < blocks.length - 1) {
+        yy += blockGap;
+        ctx.strokeStyle = 'rgba(247,242,232,0.10)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(M, Math.round(yy - blockGap * 0.45) + 0.5);
+        ctx.lineTo(M + Math.round(W * 0.10), Math.round(yy - blockGap * 0.45) + 0.5);
+        ctx.stroke();
+      }
+    });
   }
 
   // ── 바닥글: 날짜(왼쪽) / 해시태그(오른쪽) ──
@@ -14418,9 +14512,39 @@ if (document.readyState === 'loading') {
 async function shareToday() {
   if (!todaySent) return;
   await ensureShareFonts();          // 웹폰트를 기다리지 않으면 시스템 폰트로 그려진다
+  // 오늘 쓴 것이 있으면 기본값은 '전체'다. 원문만 나가면 내 문장이 빠진다.
+  _shareSource = 'all';
   var canvas = generateShareCard();
   if (!canvas) return;
   showShareModal(canvas);
+  renderShareSourceRow();
+}
+
+// 무엇을 실을지 고르는 줄. 오늘 쓴 것이 있을 때만 나온다.
+function renderShareSourceRow() {
+  var row = document.getElementById('shareSourceRow');
+  if (!row) return;
+  var srcs = lbShareSources();
+  if (srcs.length < 2) { row.style.display = 'none'; return; }
+  row.style.display = 'flex';
+  var items = [{ key: 'all', label: '전체' }].concat(srcs.map(function (s) { return { key: s.key, label: s.label }; }));
+  row.innerHTML = items.map(function (it) {
+    return '<button type="button" class="sm-fmt-btn' + (it.key === _shareSource ? ' active' : '') +
+           '" data-src="' + it.key + '" onclick="setShareSource(\'' + it.key + '\')">' + it.label + '</button>';
+  }).join('');
+}
+
+async function setShareSource(key) {
+  _shareSource = key;
+  var row = document.getElementById('shareSourceRow');
+  if (row) row.querySelectorAll('.sm-fmt-btn').forEach(function (b) {
+    b.classList.toggle('active', b.dataset.src === key);
+  });
+  await ensureShareFonts();
+  var canvas = generateShareCard(_shareFormat);
+  if (!canvas) return;
+  _shareCanvas = canvas;
+  document.getElementById('shareModalImg').src = canvas.toDataURL('image/png');
 }
 
 // 규격 전환 — 같은 문장으로 다시 그린다
@@ -14455,6 +14579,7 @@ async function setShareFormat(key) {
     <div class="sm-img-wrap">
       <img id="shareModalImg" src="" alt="공유 카드">
     </div>
+    <div class="sm-formats sm-sources" id="shareSourceRow"></div>
     <div class="sm-formats">
       <button type="button" class="sm-fmt-btn active" data-fmt="feed" onclick="setShareFormat('feed')">피드 4:5</button>
       <button type="button" class="sm-fmt-btn" data-fmt="square" onclick="setShareFormat('square')">정사각형 1:1</button>
