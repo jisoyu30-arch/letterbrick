@@ -2799,7 +2799,7 @@ const fbDb = firebase.firestore();
             <span class="ht-desc">머무는 시간</span>
           </button>
           <button class="healing-theme-btn" onclick="selectHealingTheme('여운')">
-            <span class="ht-icon" style="font-size:24px;opacity:0.7;">🌙</span>
+            <span class="ht-icon"><img src="images/icon_moon.svg" width="26" height="26" style="opacity:0.6;" alt="moon"></span>
             <span class="ht-name">여운</span>
             <span class="ht-desc">남겨진 것들</span>
           </button>
@@ -9313,19 +9313,20 @@ function renderMySentenceWall() {
   }
 
   // 보여줄 문장 — 완성된 권을 펼쳤으면 그 권, 아니면 지금 만드는 권
-  var rows = (lbViewVolume ? lbVolumeSlice(st.all, lbViewVolume)
-                           : st.all.slice(st.volumes * SENTENCES_PER_VOLUME)).slice().reverse();
+  // 문장 본문은 권을 펼쳤을 때만 낸다.
+  // 늘 펼쳐 두면 아래 전체 기록과 똑같은 내용이 두 번 나온다.
+  var rows = lbViewVolume ? lbVolumeSlice(st.all, lbViewVolume).slice().reverse() : [];
 
   if (sub) {
     sub.textContent = !st.total
       ? '성장이나 힐링 루틴을 완료하면 쓴 문장이 여기 쌓입니다.'
       : (lbViewVolume
           ? '제 ' + lbViewVolume + '권 · 문장 ' + rows.length + '장'
-          : '지금 권에 ' + rows.length + '장. 원문이 아니라 내가 직접 쓴 문장만 모읍니다.');
+          : '지금 권에 ' + st.cur + '장. 날짜별로 다시 읽으려면 아래 전체 기록을 보세요.');
   }
 
   if (!rows.length) {
-    list.innerHTML = '<div class="sentence-stack-empty">첫 문장을 쌓을 준비가 되어 있어요.</div>';
+    list.innerHTML = '';
     if (moreBtn) moreBtn.classList.add('hide');
     return;
   }
