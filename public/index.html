@@ -11778,6 +11778,20 @@ function analyzeStructure(original, userText) {
   return result;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   ⚠ 여기부터 아래 약 100줄은 실행되지 않는다.
+   같은 파일 뒤쪽의 `analyzeCreative = function(...)` 이 이 함수를
+   통째로 덮어쓴다. 페이지가 로드되는 순간 이 본문은 버려진다.
+
+   채점 기준을 바꾸려면 이 함수가 아니라 덮어쓰는 쪽을 고쳐야 한다.
+       찾는 법:  grep -n "^analyzeCreative = function" index.html
+
+   이 안에 남은 15어절·10어절은 옛 기준이라 화면에 반영되지 않는다.
+   실제로 쓰이는 기준은 덮어쓰는 쪽에 있다(8어절/5어절).
+
+   지우지 않고 두는 이유는 초기 채점 설계를 대조하기 위함이다.
+   (참고: analyzeStructure는 덮어쓰기가 없는 살아 있는 코드다)
+   ══════════════════════════════════════════════════════════════ */
 function analyzeCreative(original, userText) {
   var result = {stars:0, sections:[], errors:[], tip:''};
   var errs = detectErrors(userText); result.errors = errs;
@@ -13593,7 +13607,11 @@ function applyDataToApp() {
         reason: '영감: ' + d.inspiration,
         why: d.why || null,
         inspiration: d.inspiration,
-        question: (localDay && localDay.question) || d.question || null
+        question: (localDay && localDay.question) || d.question || null,
+        // lens와 questionDeep을 빠뜨리면 '생각의 재료'와 깊은 질문이
+        // 화면까지 오지 못한다. 두 진입 경로 모두 이 entry만 본다.
+        questionDeep: (localDay && localDay.questionDeep) || d.questionDeep || null,
+        lens: (localDay && localDay.lens) || d.lens || null
       };
       if (HEALING_PASSAGES[d.theme]) HEALING_PASSAGES[d.theme].push(entry);
     });
