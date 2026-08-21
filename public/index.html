@@ -423,8 +423,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
 .mp-edition-row{display:flex;gap:10px;margin-bottom:8px;}
 .mp-edition{flex:1;background:var(--paper3);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;}
 .mp-ed-label{font-size:12px;font-weight:600;color:var(--ink2);}
-.mp-ed-val{font-size:13px;color:var(--brick);font-weight:700;}
-.mp-load-more{width:100%;padding:10px;margin-top:10px;background:var(--paper3);border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--ink3);cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
+.mp-ed-val{font-size:13px;color:var(--brick-d);font-weight:700;}
+.mp-load-more{width:100%;padding:10px;min-height:24px;margin-top:10px;background:var(--paper3);border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--ink3);cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
 .mp-load-more:hover{border-color:var(--brick);color:var(--ink);}
 .mp-empty{text-align:center;padding:40px 20px;color:var(--ink3);font-size:13px;line-height:1.8;}
 /* 기록 카드 (마이페이지용) */
@@ -1027,7 +1027,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .mbadge-text{display:flex;flex-direction:column;gap:1px;}
 .mbadge-name{font-size:12px;font-family:'Gowun Batang',serif;letter-spacing:.3px;}
 .mbadge-days{font-size:12px;color:var(--ink3);}
-.mbadge-done{font-size:12px;color:var(--gold);font-weight:700;}
+.mbadge-done{font-size:12px;color:#7A5A12;font-weight:700;}
 
 /* ══════ TOAST ══════ */
 .lb-toast{
@@ -1136,7 +1136,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .vol-book.open{border-color:var(--brick-d);background:#FBF0E9;}
 .vol-no{font-size:13px;font-weight:700;color:var(--ink);}
 .vol-book.open .vol-no{color:var(--brick-d);}
-.vol-range{font-size:11px;color:var(--ink3);}
+.vol-range{font-size:12px;color:var(--ink3);}
 .vol-back{justify-content:center;background:transparent;}
 .wall-more{
   display:block;width:100%;margin-top:10px;padding:11px;min-height:24px;
@@ -1234,7 +1234,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;
 }
 .mp-milestone-next{font-size:12px;color:var(--ink3);}
-.mp-milestone-next span{color:var(--brick);font-weight:700;}
+.mp-milestone-next span{color:var(--brick-d);font-weight:700;}
 .mp-milestone-progress{
   height:5px;background:var(--line2);border-radius:4px;margin-bottom:14px;overflow:hidden;
 }
@@ -1350,7 +1350,7 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
   font-family:'Noto Sans KR',sans-serif;
 }
 .mp-legal-links button:hover{color:var(--ink);}
-.mp-legal-dot{font-size:12px;color:var(--line);}
+.mp-legal-dot{font-size:12px;color:var(--ink3);}
 .mp-credit{
   font-size:12px;color:var(--ink3);line-height:1.7;
 }
@@ -2403,10 +2403,10 @@ const fbDb = firebase.firestore();
 
     <!-- ── 오늘 필사 리마인더 배너 ── -->
     <div class="reminder-banner hide" id="reminderBanner">
-      <div class="reminder-banner-txt">✏️ 오늘 아직 필사를 안 하셨어요!</div>
-      <button class="reminder-banner-btn"
+      <div class="reminder-banner-txt" id="reminderBannerTxt">🕯️ 오늘은 아직 문을 열지 않았습니다.</div>
+      <button class="reminder-banner-btn" id="reminderBannerBtn"
         onclick="document.getElementById('reminderBanner').classList.add('hide');showPage('growth',document.querySelectorAll('.nav-tab')[1]);">
-        지금 쓰기 →
+        문 열기 →
       </button>
     </div>
 
@@ -10801,15 +10801,20 @@ function maybeShowNotifyAsk() {
 function checkTodayReminder() {
   var banner = document.getElementById('reminderBanner');
   if (!banner) return;
-  var todayStr = lbToday();
-  var writtenToday = pastRecords.some(function(r) {
-    return r.date && r.date.slice(0, 10) === todayStr;
-  });
-  if (!writtenToday && pastRecords.length > 0) {
-    banner.classList.remove('hide');
-  } else {
-    banner.classList.add('hide');
+  var st = lbOpeningStatus();
+  // 오늘 썼거나 아직 한 번도 안 쓴 사람에게는 띄우지 않는다
+  if (st.openToday || !st.everOpened) { banner.classList.add('hide'); return; }
+
+  // 빠진 날을 실패로 말하지 않는다. 도서관은 휴관해도 도서관이다.
+  var onBreak = st.closedDays > 1;
+  var txt = document.getElementById('reminderBannerTxt');
+  if (txt) {
+    txt.textContent = (onBreak ? '🚪 ' : '🕯️ ') + lbOpeningLine(st) +
+                      (onBreak ? ' 오늘 다시 열 수 있습니다.' : '');
   }
+  var btn = document.getElementById('reminderBannerBtn');
+  if (btn) btn.textContent = (onBreak ? '다시 열기 →' : '문 열기 →');
+  banner.classList.remove('hide');
 }
 
 /* ══════════════════════════════
@@ -11047,6 +11052,14 @@ function closeTechDetail() {
 
 /* ══════════════════════════════
    HEALING QUESTIONS DATA
+
+   ⚠ 아래 HEALING_QUESTIONS와 HEALING_PASSAGES는 비상용 폴백이다.
+   applyDataToApp()이 로드 시점에 data.js의 HEALING_DAYS(30일)로
+   HEALING_PASSAGES를 통째로 갈아엎으므로, 평소에는 여기 값이 쓰이지 않는다.
+   data.js가 없거나 비었을 때만 살아난다.
+
+   질문을 고치려면 여기가 아니라 data.js의 HEALING_DAYS를 고칠 것.
+   (여기 남은 질문들은 "~있다면" 조건절 형태라 2026-08 개선 전 기준이다)
 ══════════════════════════════ */
 const HEALING_QUESTIONS = {
   '다짐': [
