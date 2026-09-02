@@ -1,5 +1,6 @@
 // Vercel Serverless Function — /api/score
-// 레터브릭 문장 코치 AI (Claude Sonnet) — 관찰→근거→개선→예시 구조
+// 레터브릭 문장 코치 AI (Claude Haiku 4.5) — 관찰→근거→개선→예시 구조
+// 재현성: temperature 0.2 + 창작은 2회 채점 보수 병합 + 5단계 앵커 보충 + 인용 검증
 
 // ── 루브릭 기본값 (AI Hub 논술형·서술형 글쓰기 평가 데이터 기반) ──
 const DEFAULT_STEP3_RUBRIC = [
@@ -92,9 +93,103 @@ const DEFAULT_STEP4_RUBRIC = [
   }
 ];
 
+// ── 5단계 앵커 은행 — 클라이언트 루브릭에 levels가 없을 때 항목명으로 보충 ──
+// data.js 루브릭은 desc만 있고 levels가 없어서, 같은 글도 호출마다 점수가 흔들렸다.
+// 항목명에 키워드가 포함되면 해당 앵커를 붙여 채점 스케일을 고정한다.
+const LEVEL_BANK = [
+  { key: '기법', levels: [
+    '오늘 기법의 흔적이 없거나 원문을 그대로 옮겼다',
+    '기법을 흉내 냈으나 형태만 남고 뜻이 살지 않았다',
+    '기법을 시도했고 알아볼 수 있다',
+    '기법이 자기 소재 안에서 자연스럽게 작동한다',
+    '기법이 문장의 뼈대가 되어 원문 없이도 홀로 선다'
+  ]},
+  { key: '선명성', levels: DEFAULT_STEP4_RUBRIC[0].levels },
+  { key: '구체성', levels: DEFAULT_STEP4_RUBRIC[1].levels },
+  { key: '통일성', levels: DEFAULT_STEP4_RUBRIC[2].levels },
+  { key: '여운',   levels: DEFAULT_STEP4_RUBRIC[3].levels },
+  { key: '진정성', levels: [
+    '빌려온 말로만 채워져 있다',
+    '자기 경험처럼 보이려 하나 겉돈다',
+    '자기 경험에서 나온 대목이 한 곳 있다',
+    '경험의 세부가 문장을 끌고 간다',
+    '꾸미지 않은 고백이 문장 전체를 지탱한다'
+  ]},
+  { key: '재현', levels: DEFAULT_STEP3_RUBRIC[0].levels },
+  { key: '완성도', levels: DEFAULT_STEP3_RUBRIC[2].levels }
+];
+function withLevels(rubric) {
+  return rubric.map(r => {
+    if (r.levels && r.levels.length) return r;
+    const hit = LEVEL_BANK.find(b => String(r.name || '').includes(b.key));
+    return hit ? { ...r, levels: hit.levels } : r;
+  });
+}
+
+// ── 인용 검증 — 코멘트가 사용자 문장의 실제 구절을 담고 있는지 ──
+// 공백을 제거한 뒤 6글자 이상 연속 일치가 있으면 인용으로 본다.
+function sharesPhrase(comment, source, minLen = 6) {
+  const c = String(comment || '').replace(/\s+/g, '');
+  const s = String(source || '').replace(/\s+/g, '');
+  if (!c || !s) return false;
+  if (s.length <= minLen) return c.includes(s);
+  for (let i = 0; i + minLen <= s.length; i++) {
+    if (c.includes(s.slice(i, i + minLen))) return true;
+  }
+  return false;
+}
+
+// ── 2회 채점 병합 — 항목별로 낮은 쪽 채택, 산문 필드는 총점이 낮은 회차에서 ──
+function mergeConservative(a, b) {
+  const byName = {};
+  (a.criteria || []).forEach(c => { byName[c.name] = { a: c }; });
+  (b.criteria || []).forEach(c => { (byName[c.name] = byName[c.name] || {}).b = c; });
+  const criteria = Object.keys(byName).map(n => {
+    const { a: ca, b: cb } = byName[n];
+    if (!ca) return cb;
+    if (!cb) return ca;
+    return (cb.bricks || 0) < (ca.bricks || 0) ? cb : ca;
+  });
+  const sum = r => (r.criteria || []).reduce((s, c) => s + (c.bricks || 0), 0);
+  const base = sum(b) < sum(a) ? b : a;
+  return { ...base, criteria, scoringPasses: 2 };
+}
+
+// ── Claude 호출 + JSON 추출 ──
+async function callClaude(prompt, apiKey) {
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01'
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5',
+      max_tokens: 4096,
+      temperature: 0.2, // 재현성 — 같은 글이면 같은 점수에 가깝게
+      messages: [{ role: 'user', content: prompt }]
+    })
+  });
+  if (!response.ok) {
+    const errText = await response.text();
+    const err = new Error('Claude API error');
+    err.status = response.status; err.detail = errText;
+    throw err;
+  }
+  const data = await response.json();
+  const text = data.content?.[0]?.text || '';
+  const codeBlock = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  const jsonStr = codeBlock ? codeBlock[1] : text;
+  const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) { const e = new Error('Invalid response format'); e.raw = text; throw e; }
+  try { return JSON.parse(jsonMatch[0]); }
+  catch (pe) { const e = new Error('JSON parse error'); e.raw = text; throw e; }
+}
+
 // ── 루브릭 → 프롬프트 텍스트 변환 (5단계 기준 포함) ──
 function rubricToText(rubric) {
-  return rubric.map(function(r, i) {
+  return withLevels(rubric).map(function(r, i) {
     const levelText = r.levels
       ? r.levels.map((l, li) => `     ${li + 1}단계: ${l}`).join('\n')
       : '';
@@ -318,40 +413,23 @@ JSON으로만 응답:
       return res.status(400).json({ error: 'Invalid type' });
     }
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5',
-        max_tokens: 4096,
-        messages: [{ role: 'user', content: prompt }]
-      })
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('Claude API error:', response.status, errText);
-      return res.status(502).json({ error: 'Claude API error', status: response.status, detail: errText, fallback: true });
-    }
-
-    const data = await response.json();
-    const text = data.content?.[0]?.text || '';
-    console.log('AI raw response:', text.slice(0, 500));
-    const codeBlock = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-    const jsonStr = codeBlock ? codeBlock[1] : text;
-    const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) return res.status(502).json({ error: 'Invalid response format', rawText: text.slice(0, 300), fallback: true });
-
+    // 창작 채점은 2회 병렬 호출 후 보수적으로 병합 (SCORE_DOUBLE_PASS=0 이면 1회)
+    const doublePass = type === 'creative' && process.env.SCORE_DOUBLE_PASS !== '0';
     let result;
     try {
-      result = JSON.parse(jsonMatch[0]);
-    } catch (parseErr) {
-      console.error('JSON parse error. Raw:', text.slice(0, 800));
-      return res.status(502).json({ error: 'JSON parse error', rawText: text.slice(0, 800), fallback: true });
+      if (doublePass) {
+        const settled = await Promise.allSettled([callClaude(prompt, apiKey), callClaude(prompt, apiKey)]);
+        const ok = settled.filter(s => s.status === 'fulfilled').map(s => s.value);
+        if (ok.length === 0) throw settled[0].reason;
+        result = ok.length === 2 ? mergeConservative(ok[0], ok[1]) : { ...ok[0], scoringPasses: 1 };
+      } else {
+        result = await callClaude(prompt, apiKey);
+        if (type === 'creative' || type === 'structure') result.scoringPasses = 1;
+      }
+    } catch (err) {
+      console.error('Claude call failed:', err.message, err.status || '', (err.detail || err.raw || '').slice(0, 500));
+      if (err.status) return res.status(502).json({ error: 'Claude API error', status: err.status, detail: err.detail, fallback: true });
+      return res.status(502).json({ error: err.message, rawText: (err.raw || '').slice(0, 800), fallback: true });
     }
 
     // criteria 누락 항목 자동 보완 (structure / creative 타입)
@@ -373,6 +451,9 @@ JSON으로만 응답:
           });
         }
       });
+      // 인용 검증 — 사용자 문장 구절이 코멘트에 없으면 cited:false 로 표시
+      result.criteria.forEach(c => { c.cited = sharesPhrase(c.comment, userText); });
+      result.uncitedCount = result.criteria.filter(c => !c.cited).length;
       // maxBricks 및 bricks 재계산
       result.maxBricks = activeRubric.reduce((s, r) => s + r.weight, 0);
       result.bricks = result.criteria.reduce((s, c) => s + (c.bricks || 0), 0);
