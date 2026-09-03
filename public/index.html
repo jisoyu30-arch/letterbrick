@@ -1523,6 +1523,18 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .bf-crit-body{flex:1;}
 .bf-crit-name{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--ink3);margin-bottom:3px;}
 .bf-crit-comment{font-size:14px;color:var(--ink2);line-height:1.85;font-family:'Noto Serif KR',serif;font-weight:300;}
+.bf-crit-uncited{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600;letter-spacing:0;color:#9A7A30;background:var(--paper2);vertical-align:middle;}
+.bf-crit-note{font-size:11px;color:var(--ink3);margin-top:3px;line-height:1.6;}
+.air-passes{margin-left:auto;font-size:10px;color:var(--ink3);letter-spacing:.3px;}
+/* Step 4 — 채점 기준 사전 노출 */
+.s4-today{background:rgba(46,42,38,0.04);border-radius:8px;padding:12px 14px;margin-bottom:12px;}
+.s4-today-lbl{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--ink3);margin-bottom:6px;}
+.s4-today-tech{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.s4-today-list{list-style:none;padding:0;margin:0 0 8px;}
+.s4-today-list li{font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:2px;}
+.s4-w{margin:0 6px;font-size:11px;}
+.s4-d{color:var(--ink3);}
+.s4-today-note{font-size:11px;color:var(--ink3);line-height:1.6;border-top:1px dashed rgba(46,42,38,0.12);padding-top:6px;}
 .bf-lacking{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
   padding:10px 13px;margin-bottom:10px;}
 .bf-lacking-lbl{font-size:12px;font-weight:700;letter-spacing:.8px;color:var(--brick-d);margin-bottom:4px;}
@@ -2657,6 +2669,7 @@ const fbDb = firebase.firestore();
       <button class="btn-back" onclick="goBack(4)">← 구조 연습으로 돌아가기</button>
       <div class="ctag"><div class="ctag-dot s4"></div>Step 4 — 창의적 글쓰기</div>
       <div class="step-purpose">오늘 배운 구조로 나만의 문장을 완성하는 단계예요.</div>
+      <div class="s4-today" id="s4Today" style="display:none;"></div>
       <p style="font-size:13px;color:var(--ink2);line-height:1.7;margin-bottom:12px;">
         오늘 익힌 문장 구조를 떠올리며, 나만의 창의적인 문장을 만들어보세요.
       </p>
@@ -9622,7 +9635,22 @@ function checkCopy(){
 }
 function goS2(){document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';updateSB(2);window.scrollTo(0,0);}
 function goS3(){document.getElementById('s2').style.display='none';document.getElementById('s3').style.display='block';updateSB(3);window.scrollTo(0,0);}
-function goS4(){document.getElementById('s3').style.display='none';document.getElementById('s4').style.display='block';updateSB(4);window.scrollTo(0,0);}
+function goS4(){document.getElementById('s3').style.display='none';document.getElementById('s4').style.display='block';renderS4Today();updateSB(4);window.scrollTo(0,0);}
+// 채점 전에 기준을 먼저 보여준다 — 기준을 모른 채 받은 점수는 납득되지 않는다
+function renderS4Today(){
+  var box=document.getElementById('s4Today');
+  if(!box||typeof todaySent==='undefined'||!todaySent) return;
+  var rub=getLocalRubric('creative')||[];
+  var tech=getTechName(todaySent.learn);
+  var items=rub.map(function(r){
+    return '<li><b>'+r.name+'</b><span class="s4-w">'+'🧱'.repeat(r.weight)+'</span><span class="s4-d">'+(r.desc||'')+'</span></li>';
+  }).join('');
+  box.innerHTML='<div class="s4-today-lbl">오늘은 이것을 봅니다</div>'+
+    '<div class="s4-today-tech">'+tech+'</div>'+
+    (items?'<ul class="s4-today-list">'+items+'</ul>':'')+
+    '<div class="s4-today-note">AI는 위 기준으로만 채점하고, 항목마다 내 문장을 인용해 근거를 답니다. 여운은 읽는 사람마다 달라서 "이 독자에게 남은 것"으로만 말합니다.</div>';
+  box.style.display='block';
+}
 // AI 회차는 그대로 — 그냥 화면만 전환
 function goBack(fromStep){
   var steps = {2:'s1', 3:'s2', 4:'s3'};
@@ -12105,27 +12133,31 @@ runCreative = async function() {
     var cBrickStr = '🧱'.repeat(cBricks) + '░'.repeat(cMaxB - cBricks);
     var cCriteriaH = (aiResult.criteria||[]).map(function(c){
       var cb = '🧱'.repeat(c.bricks) + '░'.repeat(c.max - c.bricks);
+      // 서버 인용 검증에 걸린 항목은 그대로 보여주되 참고용임을 밝힌다
+      var badge = (c.cited===false) ? '<span class="bf-crit-uncited">인용 없음 · 참고만</span>' : '';
+      // 여운은 객관 지표가 아니다 — 독자 한 사람의 감상임을 명시
+      var note = /여운/.test(c.name||'') ? '<div class="bf-crit-note">여운은 읽는 사람마다 다릅니다. 이 판정은 "이 독자에게 남은 것"입니다.</div>' : '';
       return '<div class="bf-criterion">'+
         '<div class="bf-crit-bricks">'+cb+'</div>'+
         '<div class="bf-crit-body">'+
-          '<div class="bf-crit-name">'+c.name+'</div>'+
-          '<div class="bf-crit-comment">'+c.comment+'</div>'+
+          '<div class="bf-crit-name">'+c.name+badge+'</div>'+
+          '<div class="bf-crit-comment">'+c.comment+'</div>'+note+
         '</div></div>';
     }).join('');
     var cErrs = [];
     (aiResult.spellingErrors||[]).forEach(function(e){cErrs.push('<div class="err-spelling">✏️ <b>'+e.word+'</b> → '+e.correction+' ('+e.reason+')</div>');});
     (aiResult.spacingErrors||[]).forEach(function(e){cErrs.push('<div class="err-spacing">⬜ '+e.suggestion+'</div>');});
     var cErrH = cErrs.length ? '<div class="bf-errors" style="margin-top:8px;">'+cErrs.join('')+'</div>' : '';
-    // 관찰→근거→개선→예시 구조
+    // 관찰→근거→힌트 구조 — 고쳐 쓴 예시는 주지 않는다 (창작은 사용자 몫)
     var cFbH = '<div class="fb-grid">';
     if(aiResult.observation) cFbH += '<div class="fb-section fb-obs"><div class="fb-section-lbl">관찰</div><div class="fb-section-txt">'+aiResult.observation+'</div></div>';
     if(aiResult.evidence)    cFbH += '<div class="fb-section fb-evd"><div class="fb-section-lbl">근거</div><div class="fb-section-txt">'+aiResult.evidence+'</div></div>';
-    if(aiResult.improvement) cFbH += '<div class="fb-section fb-imp"><div class="fb-section-lbl">개선</div><div class="fb-section-txt">'+aiResult.improvement+'</div></div>';
-    if(aiResult.example)     cFbH += '<div class="fb-section fb-ex"><div class="fb-section-lbl">예시</div><div class="fb-section-txt">'+aiResult.example+'</div></div>';
+    if(aiResult.improvement) cFbH += '<div class="fb-section fb-imp"><div class="fb-section-lbl">힌트</div><div class="fb-section-txt">'+aiResult.improvement+'</div></div>';
     cFbH += '</div>';
     var encH = aiResult.encouragement ? '<div class="fb-enc">'+aiResult.encouragement+'</div>' : '';
+    var passesH = (aiResult.scoringPasses===2) ? '<span class="air-passes">2회 채점 · 낮은 쪽 채택</span>' : '';
     cHtml = '<div class="air">'+
-      '<div class="air-head"><span class="air-lbl">창의적 글쓰기 — 오늘 획득</span></div>'+
+      '<div class="air-head"><span class="air-lbl">창의적 글쓰기 — 오늘 획득</span>'+passesH+'</div>'+
       '<div class="air-body">'+
         '<div class="bf-world"><div class="bf-world-bricks">'+cBrickStr+'</div><div class="bf-world-msg">'+(aiResult.worldMessage||'벽돌 '+cBricks+'개')+'</div></div>'+
         '<div class="bf-criteria" style="margin-bottom:12px;">'+cCriteriaH+'</div>'+
@@ -13642,6 +13674,27 @@ loadSentencesFromFirestore().then(function(loaded) {
 /* ══════════════════════════════
    API 채점: callAI() → /api/score fetch
 ══════════════════════════════ */
+// 오늘 문장의 루브릭 — data.js(LOCAL_GROWTH_DAYS) 우선, Firestore 루브릭은 오래됐을 수 있음
+function getLocalRubric(type) {
+  var rubric = null;
+  if (window.LOCAL_GROWTH_DAYS && typeof todaySent !== 'undefined' && todaySent) {
+    for (var i = 0; i < LOCAL_GROWTH_DAYS.length; i++) {
+      var d = LOCAL_GROWTH_DAYS[i];
+      var v = (d.A && d.A.t === todaySent.text) ? d.A : (d.B && d.B.t === todaySent.text) ? d.B : null;
+      if (v && v.learn) {
+        if (type === 'structure' && v.learn.step3Rubric) rubric = v.learn.step3Rubric;
+        if (type === 'creative'  && v.learn.step4Rubric) rubric = v.learn.step4Rubric;
+        break;
+      }
+    }
+  }
+  if (!rubric && typeof todaySent !== 'undefined' && todaySent && todaySent.learn) {
+    if (type === 'structure' && todaySent.learn.step3Rubric) rubric = todaySent.learn.step3Rubric;
+    if (type === 'creative'  && todaySent.learn.step4Rubric) rubric = todaySent.learn.step4Rubric;
+  }
+  return rubric;
+}
+
 async function callAI(type, original, userText, learningPoint) {
   try {
     if (!canUsePaidBetaAi()) {
@@ -13655,24 +13708,8 @@ async function callAI(type, original, userText, learningPoint) {
       return null;
     }
     consumePaidBetaAiCall();
-    // 루브릭 추출 — data.js(LOCAL_GROWTH_DAYS) 우선, Firestore 루브릭은 오래됐을 수 있음
-    var rubric = null;
-    if (window.LOCAL_GROWTH_DAYS && todaySent) {
-      for (var _ri = 0; _ri < LOCAL_GROWTH_DAYS.length; _ri++) {
-        var _rday = LOCAL_GROWTH_DAYS[_ri];
-        var _rv = (_rday.A && _rday.A.t === todaySent.text) ? _rday.A
-                : (_rday.B && _rday.B.t === todaySent.text) ? _rday.B : null;
-        if (_rv && _rv.learn) {
-          if (type === 'structure' && _rv.learn.step3Rubric) rubric = _rv.learn.step3Rubric;
-          if (type === 'creative'  && _rv.learn.step4Rubric) rubric = _rv.learn.step4Rubric;
-          break;
-        }
-      }
-    }
-    if (!rubric && todaySent && todaySent.learn) {
-      if (type === 'structure' && todaySent.learn.step3Rubric) rubric = todaySent.learn.step3Rubric;
-      if (type === 'creative'  && todaySent.learn.step4Rubric) rubric = todaySent.learn.step4Rubric;
-    }
+    // 루브릭 추출 — 화면(renderS4Today)과 채점이 같은 기준을 보도록 공용 헬퍼 사용
+    var rubric = getLocalRubric(type);
     var controller = new AbortController();
     var timeoutMs = (type === 'copy') ? 25000 : 45000;
     var timer = setTimeout(function(){ controller.abort(); }, timeoutMs);
