@@ -1,0 +1,602 @@
+[
+  {
+    "day": 1,
+    "doy": 213,
+    "week": 31,
+    "weekTheme": "입추, 달력은 가을 몸은 여름 — 누가 보는가",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "새침하게 흐린 품이 눈이 올 듯하더니 눈은 아니 오고 얼다가 만 비가 추적추적 내리었다.",
+      "author": "현진건",
+      "work": "운수 좋은 날 (1924)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
+      "technique": "기대한 것(눈)을 먼저 세우고 어긋난 것(비)을 뒤에 놓아, 날씨 한 줄로 이야기 전체의 아이러니를 예고한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "적적한 밤 가운데 다른 파동 없는 공기는 그 수상한 말 마디를 곁에서 나는 듯이 또렷또렷이 전해 주었다.",
+      "author": "현진건",
+      "work": "B사감과 러브레터 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
+      "technique": "소리를 나른 것은 공기라고 주어를 바꿔 놓아, 정적의 밀도를 눈에 보이게 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W31 「입추, 달력은 가을 몸은 여름 — 누가 보는가」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 2,
+    "doy": 214,
+    "week": 31,
+    "weekTheme": "입추, 달력은 가을 몸은 여름 — 누가 보는가",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "뾰족한 입을 앙다물고 돋보기 너머로 쌀쌀한 눈이 노릴 때엔 기숙생들이 오싹하고 몸서리를 치리만큼 그는 엄격하고 매서웠다.",
+      "author": "현진건",
+      "work": "B사감과 러브레터 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
+      "technique": "성격을 먼저 말하지 않고, 보는 사람의 몸 반응을 자로 삼아 성격을 재게 한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "컴컴한 복도에 자다가 일어난 세 처녀의 흰 모양은 그림자처럼 소리없이 움직였다.",
+      "author": "현진건",
+      "work": "B사감과 러브레터 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
+      "technique": "검정 바탕에 흰 형체를 얹은 뒤 '그림자'로 되받아, 색을 한 번 더 뒤집는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W31 「입추, 달력은 가을 몸은 여름 — 누가 보는가」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 3,
+    "doy": 215,
+    "week": 31,
+    "weekTheme": "입추, 달력은 가을 몸은 여름 — 누가 보는가",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "그 언저리는 인제 다시 피가 아니 나려는 것처럼 혈색이 없다 하더니, 그 희던 꺼풀 밑에 다시금 꽃물이 차츰차츰 밀려온다.",
+      "author": "현진건",
+      "work": "술 권하는 사회 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%88%A0_%EA%B6%8C%ED%95%98%EB%8A%94_%EC%82%AC%ED%9A%8C",
+      "technique": "'멎었다 하더니 다시'라는 리듬으로 아주 작은 상처 하나를 시간의 흐름 위에 얹는다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "죽은 사람에게서뿐 볼 수 있는 해쓱한 얼굴이 경련적으로 떨며 절망한 어조로 소근거렸다.",
+      "author": "현진건",
+      "work": "술 권하는 사회 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%88%A0_%EA%B6%8C%ED%95%98%EB%8A%94_%EC%82%AC%ED%9A%8C",
+      "technique": "사람이 아니라 '얼굴'을 말하는 주체로 세워, 인물이 이미 반쯤 무너졌음을 문법으로 보여 준다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W31 「입추, 달력은 가을 몸은 여름 — 누가 보는가」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 4,
+    "doy": 216,
+    "week": 31,
+    "weekTheme": "입추, 달력은 가을 몸은 여름 — 누가 보는가",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "돈들은 수롱이더러 어디 달려와 보라는 듯이 휙휙 숨바꼭질을 하며 흐른다.",
+      "author": "계용묵",
+      "work": "「백치 아다다」(단편소설, 1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
+      "technique": "사물을 주어로 세우고 사람을 목적어로 돌려, 상황의 주도권을 뒤집어 보여준다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "육신이 흐느적흐느적하도록 피로했을 때만 정신이 은화처럼 맑소. 니코틴이 내 횟배 앓는 뱃속으로 스미면 머릿속에 으레 백지가 준비되는 법이오.",
+      "author": "이상",
+      "work": "날개 (1936, 조광)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/날개",
+      "technique": "몸과 정신을 반대로 놓고, '은화처럼'·'백지'라는 사물 비유로 추상적 상태를 만질 수 있게 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W31 「입추, 달력은 가을 몸은 여름 — 누가 보는가」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 5,
+    "doy": 217,
+    "week": 31,
+    "weekTheme": "입추, 달력은 가을 몸은 여름 — 누가 보는가",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "갑자기 방 안이 텅 비어지니 쌀쌀한 바람결이 쇠창살을 흔들며 그 방을 얼음 무덤같이 적막하게 하였습니다.",
+      "author": "백신애",
+      "work": "꺼래이 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%BA%BC%EB%9E%98%EC%9D%B4",
+      "technique": "사람이 빠진 자리를 바람과 소리로 채운 뒤 '얼음 무덤'으로 봉해, 부재를 감각으로 만든다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "한 개의 예술이 완성되기까지에는 그 노력이 헐한 것이 아니듯이 이 수박을 가꾸는 노력도 참으로 헐한 것이 아니었다.",
+      "author": "계용묵",
+      "work": "「수박」(수필, 1949)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/수박",
+      "technique": "'~이 아니듯이 ~도 아니었다'로 원관념과 보조관념을 똑같은 부정형에 태워 나란히 간다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W31 「입추, 달력은 가을 몸은 여름 — 누가 보는가」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 6,
+    "doy": 218,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "조금도 다름이 없는 그 집이 그 집이나 마찬가지인 초가이로되 집이면 집마다 다 들어오면서도 빼어놓는 집이 있다.",
+      "author": "계용묵",
+      "work": "「사연」(수필, 1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/사연",
+      "technique": "'집'을 네 번 되풀이하며 같음과 다름을 한 문장 안에서 정면으로 부딪치게 한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "이래서 나는 애최 계약이 잘못된 걸 알았다. 이태면 이태, 삼 년이면 삼 년, 기한을 딱 작정하고 일을 해야 원 할 것이다.",
+      "author": "김유정",
+      "work": "봄봄 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
+      "technique": "'이태면 이태, 삼 년이면 삼 년' — 같은 말을 조건절과 주절에 겹쳐 놓아 화자의 답답함을 리듬으로 만든다",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 7,
+    "doy": 219,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "더퍽더퍽 물과 싸움이나 하듯 엎어졌다가는 일어서고, 일어섰다가는 다시 엎어지며 달려가나 따를 길이 없다.",
+      "author": "계용묵",
+      "work": "「백치 아다다」(단편소설, 1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
+      "technique": "두 동사를 앞뒤로 맞물려 되풀이해, 헛된 반복 동작을 문장 구조로 재현한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "둥글고 커다란 눈은 서글서글하니 좋고 좀 지쳐 찢어졌지만 입은 밥술이나 톡톡히 먹음직하니 좋다.",
+      "author": "김유정",
+      "work": "봄봄 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
+      "technique": "'눈은 ~좋고 / 입은 ~좋다' 같은 어미를 둘로 나란히 두는 대구. 신체 부위를 하나씩 짝지어 배치",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 8,
+    "doy": 220,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "그런 모욕과 수치는 난생 처음 당하는 봉변으로, 지랄 중에도 몹쓸 지랄이었으나 성공은 성공이었다.",
+      "author": "김유정",
+      "work": "소낙비 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
+      "technique": "길게 양보한 뒤 'A는 A였다'라는 동어반복으로 매듭짓는다 — 설명을 포기함으로써 더 세게 말하는 법",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "경희는 이 살이 다 빠져서 걸을 수가 없을 때까지 팔뚝의 힘이 없어 늘어질 때까지 할 일이 무한이다.",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "'~까지'를 두 번 쌓아 한계를 끝까지 밀어 놓고 그 뒤에 '무한'을 놓는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 9,
+    "doy": 221,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "그것도 그냥 해내는 것이 아니라 푸드득하고 면두를 쪼고 물러섰다가 좀 사이를 두고 푸드득하고 모가지를 쪼았다.",
+      "author": "김유정",
+      "work": "동백꽃 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/동백꽃",
+      "technique": "같은 의성어를 두 번 놓고 사이에 '좀 사이를 두고'를 끼워 동작의 박자를 문장 길이로 재현한다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "저것! 저것은 개다. 저것은 꽃이고 저것은 닭이다. 저것은 배나무다. 그리고 저기 매달린 것은 배다.",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "같은 지시어를 고집스럽게 반복해 세상의 이름을 하나씩 확인하는, 가장 단순한 열거.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 10,
+    "doy": 222,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "지우고 보고 지우고 보아도 새까만 밤이 밀려나가고 밀려와 부디치고, 물먹은 별이, 반짝, 보석(寶石)처럼 백힌다.",
+      "author": "정지용",
+      "work": "「유리창(琉璃窓) 1」(1930 발표), 『정지용 시집』(1935) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/유리창1",
+      "technique": "'지우고 보고'와 '밀려나가고 밀려와'로 왕복 운동을 두 번 만든 뒤, 쉼표로 끊은 '반짝' 한 마디에 모든 움직임을 정지시킨다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "서를 보아도 벌판, 남을 보아도 벌판, 북을 보아도 벌판, 아─이 벌판은 어쩌라고 이렇게 한이 없이 늘어 놓였을꼬?",
+      "author": "이상",
+      "work": "권태 (1937, 조선일보)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/권태",
+      "technique": "같은 술어를 방위만 바꿔 세 번 쌓은 뒤 감탄으로 터뜨려, 단조로움 자체를 문장의 리듬으로 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 11,
+    "doy": 223,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "그러나 우리들은 이것을 그르다고 생각하지는 않는다. 갔다 와야 한다. 갔다 비록 못 돌아오는 한이 있더라도 가야 한다.",
+      "author": "이상",
+      "work": "동생 옥희 보아라 (1936, 중앙)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/동생_옥희_보아라",
+      "technique": "짧은 단정을 먼저 놓고, 같은 말을 조건절로 늘려 한 번 더 되풀이해 결심을 굳힌다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "소녀는 확실히 누구의 사진인가 보다. 언제든지 잠자코 있다. 소녀는 때때로 복통이 난다. 누가 연필로 장난을 한 까닭이다.",
+      "author": "이상",
+      "work": "실낙원 (1939, 조광)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/실낙원_(이상)",
+      "technique": "'소녀는 ~'이라는 짧은 진술과 그 근거를 한 쌍씩 반복해, 사람과 사물의 경계를 조용히 지운다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 12,
+    "doy": 224,
+    "week": 32,
+    "weekTheme": "말복, 끝이 보이는 더위 — 언제에서 보는가",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "금도 금이면 애써 키워온 콩도 콩이었다. 거진 다 자란 허울 멀쑥한 놈들이 삽 끝에 으스러지고 흙에 묻히고 하는 것이다.",
+      "author": "김유정",
+      "work": "금 따는 콩밭 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
+      "technique": "'금도 금이면 콩도 콩이었다' — 같은 말을 두 번 써서 두 가치를 저울에 올린다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "쏠쏠한 새벽 바람이 싸늘하게 가슴에 부딪친다. 그 부딪치는 서슬에 잠 못 자고 피곤한 몸이 부서질 듯이 지긋하였다.",
+      "author": "현진건",
+      "work": "술 권하는 사회 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%88%A0_%EA%B6%8C%ED%95%98%EB%8A%94_%EC%82%AC%ED%9A%8C",
+      "technique": "앞 문장의 동사를 다음 문장의 첫머리가 받아 무는 연쇄법. 두 문장이 하나처럼 이어진다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W32 「말복, 끝이 보이는 더위 — 언제에서 보는가」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 13,
+    "doy": 225,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "유리관 속에 춤추면 살 줄 믿고 이 아련한 서러움 속에서 일하고 공부하고 사랑하면 재미나게 살 수 있다기에 미덥지 않는 세상에 살아왔었다.",
+      "author": "김명순",
+      "work": "생명의 과실 - 유리관 속에 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/유리관_속에",
+      "technique": "'~기에'로 남의 말을 인용해 근거로 삼은 뒤, 마지막 술어에서 그 근거를 불신으로 되돌린다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "물도 젖여지지 않어 흰돌 우에 따로 구르고, 닥어 스미는 향기에 길초마다 옷깃이 매워라.",
+      "author": "정지용",
+      "work": "「옥류동(玉流洞)」, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/옥류동",
+      "technique": "물이 '젖지 않는다'는 모순, 향기가 '맵다'는 감각 전이. 한 문장에 불가능한 서술 둘을 넣어 신비를 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 14,
+    "doy": 226,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "쇠인 양 억센 등걸 암향부동 어인 꽃고 눈바람 분분한데 봄소식을 외오 가져 어즈버 지사고심을 비겨 볼까 하노라.",
+      "author": "정인보",
+      "work": "담원시조 매화사 삼첩 (1948)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8B%B4%EC%9B%90%EC%8B%9C%EC%A1%B0/%EB%A7%A4%ED%99%94%EC%82%AC_%EC%82%BC%EC%B2%A9",
+      "technique": "거친 형상과 은은한 향기를 맞붙이고 끝에서 사람의 마음으로 옮긴다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "빗낱이 듣는가 했더니 제법 떨어진다. 아연판 같이 무거운 하늘에서 떨어지는 비는 아연판을 치는 소리가 난다.",
+      "author": "정지용",
+      "work": "「비」 산문, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/비_(산문)",
+      "technique": "'아연판 같이'라는 비유를 던진 뒤 같은 단어를 소리로 되받아 회수한다. 비유가 한 문장 안에서 두 번 일하게 만드는 기술.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 15,
+    "doy": 227,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "큰 뜻을 품고 고국을 떠나던 운심의 그림자가 다시 조선 땅에 나타난 것은 계해년 삼월 중순이었다.",
+      "author": "최서해",
+      "work": "고국 (1924, 조선문단 창간호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%EA%B5%AD",
+      "technique": "떠남과 돌아옴을 한 문장에 겹치고 날짜를 문장 끝에 두어, 인물의 시간 전체를 첫 줄에 넣는다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "지금 이 뵈는 듯 마는 듯한 관 속에 생장(生葬)되는 이 답답함을 어찌하랴 미련한 나! 미련한 나!",
+      "author": "김명순",
+      "work": "생명의 과실 - 유리관 속에 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/유리관_속에",
+      "technique": "반문으로 출구가 없음을 확인한 다음, 같은 말을 두 번 외쳐 문장을 감정으로 끝낸다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 16,
+    "doy": 228,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "춘풍에 졸던 탄실(彈實)이 설한풍(雪寒風)에 흑흑 느끼다 사랑에 게으르던 탄실이 학대에 동분서주하다",
+      "author": "김명순",
+      "work": "생명의 과실 - 탄실의 초몽 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/탄실의_초몽",
+      "technique": "'무엇에 어떠하던 사람이 무엇에 어떠하다'는 대구를 두 번 겹쳐 한 사람의 전락을 네 행에 담는다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "새소리 끊인 곳, 흰돌 이마에 회돌아 서는 다람쥐 꼬리로 가을이 짙음을 보았고,",
+      "author": "정지용",
+      "work": "「꽃과 벗」, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/꽃과_벗",
+      "technique": "계절이라는 추상을 '다람쥐 꼬리'라는 아주 작은 사물 하나로 측정한다. 큰 것을 작은 것으로 재는 환유.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 17,
+    "doy": 229,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "쌈닭에게 고추장을 먹이면 병든 황소가 살모사를 먹고 용을 쓰는 것처럼 기운이 뻗친다 한다.",
+      "author": "김유정",
+      "work": "동백꽃 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/동백꽃",
+      "technique": "작은 닭을 큰 황소에 견주는 과장 직유. 비유의 크기를 원관념보다 키워 우스움을 만든다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "상처가 난 데를 메우려는 듯이 사방에서 모여든 물이 바가지 들어갔던 자리를 둥글게 에워싸며 한동안 야료를 치다가 그리 중상은 아니라고 안심한 것같이 너르게 너르게 둘레를 그리며 물러나갔다.",
+      "author": "현진건",
+      "work": "불 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B6%88",
+      "technique": "물의 움직임 전체를 '다친 몸'이라는 하나의 비유로 끝까지 밀고 나가, 비유를 장식이 아니라 뼈대로 쓴다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 18,
+    "doy": 230,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "이따금 생각나는 듯 살매들린 바람은 논밭간의 나무들을 뒤흔들며 미쳐 날뛰었다.",
+      "author": "김유정",
+      "work": "소낙비 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
+      "technique": "바람에 '생각나는 듯'이라는 마음을 주고 '미쳐 날뛰다'로 끝낸다 — 자연물 의인화의 최단 경로",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "벽에 맞아 떨어진 돈은 다시 술 끓이는 양푼에 떨어지며 정당한 매를 맞는다는 듯이 쨍하고 울었다.",
+      "author": "현진건",
+      "work": "운수 좋은 날 (1924)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
+      "technique": "사물에 맞는다와 운다는 동사를 붙여, 인물이 차마 못 하는 말을 사물이 대신하게 한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 19,
+    "doy": 231,
+    "week": 33,
+    "weekTheme": "처서, 물러가는 더위 — 얼마나 가까이",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "이걸 가만히 내려다보자니 내 대강이가 터져서 피가 흐르는 것같이 두 눈에서 불이 번쩍 난다.",
+      "author": "김유정",
+      "work": "동백꽃 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/동백꽃",
+      "technique": "닭의 상처를 화자 몸으로 옮겨 붙이는 감정이입 비유 — '분하다'를 쓰지 않고 분함을 쓴다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "그 학생을 태우고 나선 김 첨지의 다리는 이상하게 거뿐하였다. 달음질을 한다느니보다 거의 나는 듯하였다.",
+      "author": "현진건",
+      "work": "운수 좋은 날 (1924)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
+      "technique": "한 번 쓴 표현을 'A라기보다 B'로 다시 고쳐 써서 비유의 강도를 한 계단 올린다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W33 「처서, 물러가는 더위 — 얼마나 가까이」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 20,
+    "doy": 232,
+    "week": 34,
+    "weekTheme": "매미 소리와 서늘한 밤 — 어울리지 않는 둘",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "지게 위에 올려놓은 다음 엎디어 다시 지고 일어나려니 이게 웬일일까, 아까 오던 때와는 갑절이나 무거웠다.",
+      "author": "김유정",
+      "work": "땡볕 (1937)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/땡볕",
+      "technique": "절망을 무게로 번역한다 — 몸무게는 그대로인데 '갑절이나 무겁다'고 씀으로써 심경만 변한 것을 알린다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "쌀벌레 같은 그들의 발가락은 가장 조심성 많게 소리나는 곳을 향해서 곰실곰실 기어간다.",
+      "author": "현진건",
+      "work": "B사감과 러브레터 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
+      "technique": "사람이 아니라 발가락을 주어로 세워, 몸의 일부가 앞장서 움직이는 긴장을 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W34 「매미 소리와 서늘한 밤 — 어울리지 않는 둘」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 21,
+    "doy": 233,
+    "week": 34,
+    "weekTheme": "매미 소리와 서늘한 밤 — 어울리지 않는 둘",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "금점이란 칼 물고 뜀뛰기다, 잘되면이어니와 못되면 신세만 조핀다, 이렇게 전일부터 들은 소리가 있어서였다.",
+      "author": "김유정",
+      "work": "금 따는 콩밭 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
+      "technique": "들은 속담을 따옴표 없이 문장 속에 끌어들이고 끝에서 출처를 밝힌다 — 인물의 머릿속 목소리를 옮기는 법",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "그것은 마치 짐승을 놀리는 요술쟁이가 구경꾼을 바라볼 때처럼 훌륭한 제 재주를 갈채해 달라는 웃음이었다.",
+      "author": "현진건",
+      "work": "고향 (1926)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%ED%96%A5_(%ED%98%84%EC%A7%84%EA%B1%B4)",
+      "technique": "웃음의 모양이 아니라 웃음이 요구하는 것을 적어, 인물의 처지까지 함께 드러낸다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W34 「매미 소리와 서늘한 밤 — 어울리지 않는 둘」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 22,
+    "doy": 234,
+    "week": 34,
+    "weekTheme": "매미 소리와 서늘한 밤 — 어울리지 않는 둘",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "예제없이 버력은 무데기 무데기 쌓였다. 마치 사태 만난 공동 묘지와도 같이 귀살쩍고 되우 을씨년스럽다.",
+      "author": "김유정",
+      "work": "금 따는 콩밭 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
+      "technique": "밭을 '공동 묘지'에 견주어 앞으로 벌어질 파국을 미리 깔아둔다 — 비유로 복선을 심는 법",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "썩어 넘어진 서까래, 뚤뚤 구르는 주추는! 꼭 무덤을 파서 해골을 헐어 젖혀 놓은 것 같더마.",
+      "author": "현진건",
+      "work": "고향 (1926)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%ED%96%A5_(%ED%98%84%EC%A7%84%EA%B1%B4)",
+      "technique": "명사구 둘을 동사 없이 툭 던져 놓고 감탄으로 끊은 뒤, 비유 한 줄로 받아 낸다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W34 「매미 소리와 서늘한 밤 — 어울리지 않는 둘」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 23,
+    "doy": 235,
+    "week": 34,
+    "weekTheme": "매미 소리와 서늘한 밤 — 어울리지 않는 둘",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "무서운 밤, 지겨운 밤이 다시금 그를 향하여 시커먼 아가리를 벌리려 한다.",
+      "author": "현진건",
+      "work": "불 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B6%88",
+      "technique": "형용사 둘을 붙인 명사를 반복해 세운 뒤, 시간에 짐승의 입을 달아 준다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "칠 년이 지나면 인간 전체의 세포가 최후의 하나까지 교체된다고 한다. 칠 년 동안 나는 이 육친들과 관계없는 식사를 하리라.",
+      "author": "이상",
+      "work": "실낙원 (1939, 조광)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/실낙원_(이상)",
+      "technique": "남에게 들은 사실 하나를 그대로 받아 자기 결심의 단위로 삼아, 지식을 다짐으로 갈아 끼운다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W34 「매미 소리와 서늘한 밤 — 어울리지 않는 둘」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 24,
+    "doy": 236,
+    "week": 34,
+    "weekTheme": "매미 소리와 서늘한 밤 — 어울리지 않는 둘",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "취중에도 인력거를 태우지 말고 그 인력거 삯을 나를 주었으면 책 한 권을 사보련만 하는 생각이 있었다.",
+      "author": "현진건",
+      "work": "빈처 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B9%88%EC%B2%98",
+      "technique": "호의를 받는 순간의 부끄러운 속셈을 그대로 적어, 인물을 미화하지 않고 살려 낸다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "그러나 솔개에 치인 병아리 모양으로 숨 한 번 옳게 쉬지 못하는 순이는 그런 기색을 알아볼 여유도 없었다.",
+      "author": "현진건",
+      "work": "불 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B6%88",
+      "technique": "비유를 수식어 자리에 밀어 넣어 문장을 끊지 않고, 인물의 상태를 주어 앞에서 미리 결정해 버린다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W34 「매미 소리와 서늘한 밤 — 어울리지 않는 둘」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  }
+]

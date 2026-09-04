@@ -1,0 +1,752 @@
+[
+  {
+    "day": 1,
+    "doy": 152,
+    "week": 22,
+    "weekTheme": "망종, 심는 계절 — 결과 먼저",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "그러나 미를 사랑할 줄 아는 인간은 그것을 마음껏 사랑하여 보아야 만족을 느낀다. 가시 때문에 꺾기가 힘들다고 나는 그대로 두지는 못했다.",
+      "author": "계용묵",
+      "work": "「장미」(수필, 1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/장미",
+      "technique": "일반 명제를 먼저 말한 뒤 바로 다음 문장에서 자기 행동으로 그것을 증명한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "의사 믿기를 하느님같이 하는 그가 약을 전혀 먹지 않는 것은 그 무슨 모순인지 알 수 없다.",
+      "author": "이상",
+      "work": "병상 이후 (1939, 청색지)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/병상_이후",
+      "technique": "한 문장 안에 믿음과 행동을 나란히 놓고, 끝에서 '모순'이라 이름 붙여 자기 관찰을 마무리한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 2,
+    "doy": 153,
+    "week": 22,
+    "weekTheme": "망종, 심는 계절 — 결과 먼저",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "실로 이 서두 일행에 내용을 살릴 작품의 형식이 결정되는 것이니, 이 서두에 소홀할 수가 없다.",
+      "author": "계용묵",
+      "work": "「침묵의 변」(수필, 1949)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
+      "technique": "이유절과 결론절을 '~니'로 이어 붙여 주장을 한 문장 안에서 완결시킨다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "슬픈 일이다. 짖을 줄 모르는 벙어리 개, 지킬 줄 모르는 게으름뱅이 개, 이 바보 개들은 복날 개장국을 끓여 먹기 위하여 촌민의 희생이 된다.",
+      "author": "이상",
+      "work": "권태 (1937, 조선일보)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/권태",
+      "technique": "결론(슬픈 일이다)을 맨 앞에 던지고, 같은 꼴의 수식구 두 개로 대상을 규정한 뒤 결말을 붙인다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 3,
+    "doy": 154,
+    "week": 22,
+    "weekTheme": "망종, 심는 계절 — 결과 먼저",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "하필 글씨에 있어서뿐 아니라 모든 것에 있어서 이렇게 되는 것이 사실이지만 새로이 잘한다는 것이 이미 얻어 가지고 있는 그 명성을 누르기 힘들다.",
+      "author": "계용묵",
+      "work": "「낙관」(수필, 1941)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/낙관",
+      "technique": "개별 사례에서 '모든 것에 있어서'로 범위를 한 번 넓혀, 일화를 통찰로 승격시킨다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "내 꿈을 지배하는 자는 내가 아니다. 악수할 수조차 없는 두 사람을 봉쇄한 거대한 죄가 있다.",
+      "author": "이상",
+      "work": "오감도 시제15호 (1934, 조선중앙일보) — 위키문헌 현대 표기본",
+      "sourceUrl": "https://ko.wikisource.org/wiki/오감도",
+      "technique": "부정 단언을 먼저 놓고, 다음 문장에서 주어를 '죄'로 갈아 끼워 원인을 사물화하며 닫는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 4,
+    "doy": 155,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "콩으로 메주를 쑨대도 곧이듣지 않는 마을의 고집쟁이들도 이 노인만은 믿었다.",
+      "author": "계용묵",
+      "work": "「노인과 닭」(수필, 1943)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/노인과_닭",
+      "technique": "속담으로 사람됨을 먼저 그려 놓고 '~도 ~만은'으로 예외를 만들어 신뢰를 과장 없이 보여준다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "하룻길을 탈없이 다녀만 오면 가슴 속이 맑아지고 몸이 뿌듯이 차져서 눈에 보이지 않는 힘이 그 어느 구석에 포개져 가는 것 같다.",
+      "author": "이효석",
+      "work": "산정 (1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%82%B0%EC%A0%95",
+      "technique": "조건절 하나에 몸의 변화 셋을 달고 보이지 않는 것으로 마무리한다",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 5,
+    "doy": 156,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "나는 그 형리를 피할 수 없다. 오늘이 되어 버린 내일 속에서, 또 나는 질식할 만치 심심해해야 되고, 기막힐 만치 답답해해야 된다.",
+      "author": "이상",
+      "work": "권태 (1937, 조선일보)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/권태",
+      "technique": "'~할 만치 ~해야 되고'라는 대구를 겹쳐, 벗어날 수 없음을 문장 구조 자체로 재연한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "발걸음을 멈추어 살그머니 애딘 손을 잡으며 「늬는 자라 무엇이 되려니」 「사람이 되지」",
+      "author": "윤동주",
+      "work": "하늘과 바람과 별과 시 中 「아우의 인상화(印像畵)」 (1938년 작, 1955년 증보판 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/아우의_인상화",
+      "technique": "서술을 멈추고 짧은 대화 두 마디를 그대로 박아 넣어 설명 없이 장면을 살려낸다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 6,
+    "doy": 157,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "천에서 만족할 수 있으면 백에서도 만족할 수 있으려니와, 천에서 만족하지 못할 때 만에선들 만족할 수 있을까.",
+      "author": "이효석",
+      "work": "향수 (1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%96%A5%EC%88%98_(%EC%9D%B4%ED%9A%A8%EC%84%9D)",
+      "technique": "숫자만 바꿔 같은 문형을 되풀이하며 조건을 뒤집는 대구",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "물오른 봄버들 가지를 꺾어 들고 들어가도 문안 사람들은 부러워하는데 나는 서울서 꾀꼬리 소리를 들으며 살게 되었다.",
+      "author": "정지용",
+      "work": "「꾀꼬리와 국화(菊花)」 산문, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/꾀꼬리와_국화",
+      "technique": "자랑을 직접 말하지 않고 '남들은 이 정도로도 부러워하는데'라는 비교를 앞에 깔아 뒤 문장이 저절로 커지게 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 7,
+    "doy": 158,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "주리고 헐벗은 고독함에서 사람이란 인내와 단련이 필요한 것이 되겠으나 그들은 새삼스럽게 노력을 들이지 아니하여도 된다.",
+      "author": "정지용",
+      "work": "「비둘기」 산문, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/비둘기",
+      "technique": "일반 명제를 세운 뒤 '-되겠으나'로 곧장 예외를 붙인다. 위로처럼 들리던 문장이 뒤에서 더 서늘해지는 구성.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "내가 오래 기르든 여윈 독수리야! 와서 뜯어 먹어라, 시름없이 너는 살지고 나는 여위여야지, 그러나,",
+      "author": "윤동주",
+      "work": "하늘과 바람과 별과 시 中 「간(肝)」 (1941년 작, 1955년 증보판 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/간",
+      "technique": "자기를 해칠 존재를 '야!'로 불러 세우고 살지고/여위여야지 대구로 자기희생을 압축한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 8,
+    "doy": 159,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "매점 바깥주인된 화가는 이름조차 없고 송화가루 노랗고 뻑 뻑국 고비 고사리 고부라지고 호랑나비 쌍을 지어 훨훨 청산을 넘고.",
+      "author": "정지용",
+      "work": "「호랑나비」, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/호랑나비",
+      "technique": "'-고'를 네 번 반복해 사건을 마침표 없이 계속 이어 놓고, 결말도 '넘고.'로 열어 둔 채 끝낸다. 종결어미를 포기해 여운을 얻는다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "장년이 생각하기를 (숨도 아이에 쉬지 않어야 춥지 않으리라)고 주검다운 의식을 갇추어 삼동 내-부복하였다",
+      "author": "정지용",
+      "work": "「예장(禮裝)」, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/예장",
+      "technique": "괄호를 써서 인물의 속말을 서술 한복판에 그대로 심는다. 시점을 바꾸지 않고 내면을 삽입하는 값싼 방법.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 9,
+    "doy": 160,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "이 한 가지만으로 미루어 보아도 그 노인의 마음자리는 가히 알 수 있다는 것이었다.",
+      "author": "계용묵",
+      "work": "「노인과 닭」(수필, 1943)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/노인과_닭",
+      "technique": "작은 일화 하나로 사람 전체를 판단하는 문장을 일부러 앞에 두어, 뒤에서 뒤집을 밑돌로 쓴다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "나도 한 번은 나가야겠다. 이 흙을 굳게 지켜야 할 것도 잘 안다. 그러나 지켜야 할 직책과 나가야 할 직책과는 스스로 다를 줄 안다.",
+      "author": "이상",
+      "work": "동생 옥희 보아라 (1936, 중앙)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/동생_옥희_보아라",
+      "technique": "앞 두 문장의 동사(나가다·지키다)를 그대로 명사구 대구로 묶어, 흩어진 갈등을 한 줄로 정리한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 10,
+    "doy": 161,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "그리고 황장미는 숙성한 여인같이 점잖아 보이는 데 반하여 홍장미는 한참 시절을 자랑하는 17, 8의 처녀 같은 애교를 가졌다.",
+      "author": "계용묵",
+      "work": "「장미」(수필, 1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/장미",
+      "technique": "'~에 반하여'를 축으로 두 대상을 똑같은 문형에 나란히 세우는 대구.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "물방울 낙수지는 유니폼에 벌거벗은 팔목 피부는 포장지보다 정한 포장지고 그리고 유니폼은 피부보다 정한 피부다.",
+      "author": "이상",
+      "work": "산책의 가을 (1934, 신동아)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/산책의_가을",
+      "technique": "피부와 포장지의 자리를 서로 맞바꿔 되풀이하는 교차 대구로, 같은 비유를 두 번 쓴다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 11,
+    "doy": 162,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "그들은 왜 두려워하는가? 사람은 자기 자신과 하나가 되지 못했을 때에만 두려워한다. 그들은 한 번도 자기 자신을 인정한 적이 없기에 두려워한다.",
+      "author": "헤르만 헤세",
+      "work": "데미안, 1919",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
+      "technique": "자문자답 뒤에 같은 술어를 반복하며 원인을 한 겹 더 파고든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "일이 암만 바빠도 나 배 아프면 고만이니까. 아픈 사람이 누가 일을 하느냐.",
+      "author": "김유정",
+      "work": "봄봄 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
+      "technique": "주장을 던지고 곧바로 자기 편을 드는 반문을 붙여 혼잣말의 뻔뻔함을 만든다",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 12,
+    "doy": 163,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "여러분 중 누가 지금 나를 바보로 여기지 않겠는가. 인생을 아무것도 모르는 어린 바보로. 지난 여섯 달을 나처럼 사는 것이 백발의 노인들보다 더 오래 사는 일임을 잊은 채.",
+      "author": "표도르 도스토옙스키",
+      "work": "백치 (1869)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2638/pg2638.txt",
+      "technique": "질문으로 시작해 스스로에게 붙인 조롱을 되풀이한 뒤, 마지막에 시간의 단위를 뒤집어 반격한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "산정(山頂)에 올라서서 내려다보는 것도 사람이 할 것이다. 오냐, 이 팔은 무엇하자는 팔이고 이 다리는 어디 쓰자는 다리냐?",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "추상적 선언 다음에 제 몸(팔·다리)을 들어 되묻는다 — 결심을 신체로 착지시키는 법.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 13,
+    "doy": 164,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "어째서 우리 삶의 중대한 사건에서는, 한 사람의 운명이 결정되는 그 사건에서는, 내 운명이 그 순간 결정되었듯이, 어째서 그런 사건에는 과거도 미래도 없는 것일까.",
+      "author": "레프 톨스토이",
+      "work": "크로이체르 소나타 (1889)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/689/pg689.txt",
+      "technique": "'어째서'로 앞뒤를 감싸고 사이에 삽입구를 끼워, 질문이 끊기지 않고 제자리로 되돌아오게 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "그리고 난 사람의 키가 무럭무럭 자라는 줄만 알았지 붙배기 키에 모로만 벌어지는 몸도 있는 것을 누가 알았으랴.",
+      "author": "김유정",
+      "work": "봄봄 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
+      "technique": "'~인 줄만 알았지'로 통념을 세운 뒤 '누가 알았으랴' 반문으로 뒤엎는 2박자 구조",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 14,
+    "doy": 165,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "그녀의 심장은 이유도 모른 채 세차게 뛰었다. 그러나 젊은 날의 무모한 짓에 따라붙는 그 두려움이야말로 그 일의 가장 큰 매력이 아니겠는가.",
+      "author": "알렉산드르 푸시킨",
+      "work": "귀족 아가씨와 시골 처녀 (1831)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/55219/pg55219.txt",
+      "technique": "몸의 반응을 먼저 적고 그 원인을 설명 대신 질문으로 돌려, 독자를 판단의 자리에 앉힌다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "왜냐면 이 땅 삼천리 강산에 늘여 놓인 곡식이 말짱 뉘 것이람. 먼저 먹는 놈이 임자 아니냐.",
+      "author": "김유정",
+      "work": "만무방 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/만무방",
+      "technique": "서술자가 인물의 말투로 갈아타 반문 둘을 잇는다 — 3인칭 안에 1인칭을 밀어 넣는 자유간접화법",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 15,
+    "doy": 166,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "가을이 오면 기쁨에 넘쳐야 될 시골이 점점 살기만 띠어 옴은 웬일인고.",
+      "author": "김유정",
+      "work": "만무방 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/만무방",
+      "technique": "'~해야 될'로 당위를 세우고 현실로 어긋내며 답 없는 물음으로 닫는다 — 사회 비판을 한 문장에 넣는 법",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "어차피 짓궂은 운명이라면 그 운명과 겨뤄 보는 것이 어떨까. 진 줄은 뻔히 알지마는 그 패배의 결론과 다시 대항하는 수도 있지 않은가.",
+      "author": "이효석",
+      "work": "가을과 산양 (1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B0%80%EC%9D%84%EA%B3%BC_%EC%82%B0%EC%96%91",
+      "technique": "질문을 두 번 겹쳐 체념에서 결심으로 넘어가는 전환을 만든다",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 16,
+    "doy": 167,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "오냐, 사람이다. 사람으로 보이지 않는 험한 길을 찾지 않으면 누구더러 찾으라 하리!",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "짧은 자기 확인 뒤에 반문을 이어 붙여 결심을 남에게 떠넘길 수 없게 만든다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "웨! 웨 ─ 나라고 세상에 낫다가 남 위해 좋은 일 한번 못허란 법이 있나?",
+      "author": "지하련",
+      "work": "도정(道程), 1946",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
+      "technique": "감탄사를 두 번 겹쳐 호흡을 끊고, 부정문 형태의 반문으로 소망을 더 세게 말한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 17,
+    "doy": 168,
+    "week": 24,
+    "weekTheme": "하지, 가장 긴 낮 — 구조를 통째로 빌리기",
+    "techniqueFamily": "질문",
+    "A": {
+      "text": "온겨레 정성덩이 해돼오르니 올설날 이아침야 더찬란하다 뉘라서 겨울더러 추웁다더냐 오는봄만 마지려말고 내손으로 만들자",
+      "author": "정인보",
+      "work": "새해의 노래 1절 (1950)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%83%88%ED%95%B4%EC%9D%98_%EB%85%B8%EB%9E%98",
+      "technique": "풍경 두 줄을 깔고 반문으로 통념을 밀어낸 뒤 명령형으로 방향을 돌려세운다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "대체 좋다는 그것이 무엇이냐. 우리의 마음의 거문고가 우리의 마음속에서 저절로 울리어지는 그 까닭이다.",
+      "author": "홍사용",
+      "work": "조선은 메나리 나라 (1928)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/조선은_메나리_나라",
+      "technique": "스스로 묻고 곧바로 답하는 자문자답. 답을 비유(거문고) 하나로만 처리해 설명을 아낀다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 18,
+    "doy": 169,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "나는 무수한 검붉은 아이들에게 묻노라 오오 허공을 잡으려던 설움들아 분노에 매 맞아 부서진 거울 조각들아 피 맞아 피에 젖은 아이들아",
+      "author": "김명순",
+      "work": "생명의 과실 - 내 가슴에 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/내_가슴에",
+      "technique": "'~아'로 끝나는 호격 명사구를 세 번 쌓아 부르는 대상을 넓히며 감정을 고조시킨다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "번번이 해도 번번이 실패하는, 밤 피할 궁리로 하여 그의 좁은 가슴은 쥐어뜯기었다.",
+      "author": "현진건",
+      "work": "불 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B6%88",
+      "technique": "'번번이'를 두 번 붙여 반복되는 실패의 지겨움 자체를 소리로 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 19,
+    "doy": 170,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "낡은 그물은 바다를 얽고 바다는 대륙을 푸른 보로 싼다. 여기 바다의 음모가 서리어 있다.",
+      "author": "이육사",
+      "work": "「바다의 마음」 (1946년 《육사시집》 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/바다의_마음",
+      "technique": "같은 3행 틀을 세 번째로 되풀이하되 마지막 명사만 은총→아량→음모로 바꿔 뜻을 뒤집는다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "인력거가 무거워지매 그의 몸은 이상하게도 가벼워졌고 그리고 또 인력거가 가벼워지니 몸은 다시금 무거워졌건만 이번에는 마음조차 초조해 온다.",
+      "author": "현진건",
+      "work": "운수 좋은 날 (1924)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
+      "technique": "무겁다와 가볍다를 교차로 두 번 뒤집은 뒤 마지막에 마음을 얹어, 물리적 대구를 심리로 착지시킨다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 20,
+    "doy": 171,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "하나는 이글이글 만발한 꽃 같고 하나는 시들시들 마른 낙엽 같다. 아내를 형이라 하고, 처형을 아우라 하였으면 아무라도 속을 것이다.",
+      "author": "현진건",
+      "work": "빈처 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B9%88%EC%B2%98",
+      "technique": "대구로 두 얼굴을 붙여 놓고, 다음 문장에서 순서를 뒤집어 대비를 한 번 더 조인다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "나는 왕이로소이다. 나는 왕이로소이다. 어머님의 가장 어여쁜 아들, 나는 왕이로소이다.",
+      "author": "홍사용",
+      "work": "나는 왕이로소이다 (1923)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/나는_왕이로소이다",
+      "technique": "같은 선언을 세 번 되풀이하되 두 번째와 세 번째 사이에만 수식어를 끼워, 반복 속에서 정보를 한 칸씩 밀어 넣는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 21,
+    "doy": 172,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "몇 번이나 신과 지팡이가 놓였다 치였다, 다라니가 벽에 걸리었다 떼었다 하였다. 그러는 동안에 자손의 얼굴은 자꾸자꾸 축이 나갔었다.",
+      "author": "현진건",
+      "work": "할머니의 죽음 (1923)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%95%A0%EB%A8%B8%EB%8B%88%EC%9D%98_%EC%A3%BD%EC%9D%8C",
+      "technique": "'놓였다 치였다', '걸리었다 떼었다'로 반복되는 헛된 준비를 보여 준 뒤, 그 반복이 깎아 낸 것을 한 줄로 계산한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "다시 그 사나이가 미워져 돌아갑니다. 돌아가다 생각하니 그 사나이가 그리워집니다.",
+      "author": "윤동주",
+      "work": "하늘과 바람과 별과 시 中 「자화상(自畵像)」 (1939년 작, 1948년 시집 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1948년)/자화상",
+      "technique": "같은 문형을 두 번 반복하고 술어만 미움→그리움으로 바꿔 감정이 이동한 자리를 보여준다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 22,
+    "doy": 173,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "한 길은 쌀이 곳간에 쌓이고 돈이 많고 귀염도 받고 사랑도 받고 밟기도 쉬운 황토(黃土)요, 가기도 쉽고 찾기도 어렵지 않은 탄탄대로이다.",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "'-고'를 계속 이어 이점을 쌓아 올린 뒤 마지막 한 단어(탄탄대로)로 봉인한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "실없는 말 하면은 얼굴이 붉고 진정으로 달래면 돌아내려라 그도 저도 말 없으면 가만한 한숨",
+      "author": "홍사용",
+      "work": "시악시 마음이란 (1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/시악시_마음이란",
+      "technique": "조건 세 개를 같은 틀로 나열해 인물을 정의한다. 마지막 항만 술어를 생략해 여운을 남긴다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 23,
+    "doy": 174,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "아아 그쳐요 그 익지 않은 바이올린의 탄식 처마 끝에 눈 녹은 물이 똑똑 들어 아버지의 옷깃을 적실 만하니 그쳐요 톱 켜는 소리 같은 것을.",
+      "author": "김명순",
+      "work": "생명의 과실 - 그쳐요 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/그쳐요",
+      "technique": "같은 명령('그쳐요')으로 열고 닫는 수미상관 안에 이유를 끼워 넣어 한 연을 완결한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "두자세치를 눈이 덥혀도 뿌리는 얼신 못건드려 대 죽고난 三月 파르스름히 풀닢은 깔리네 깔리네",
+      "author": "김영랑",
+      "work": "「언 땅 한길」, 『영랑시선』(1949) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/영랑시선/언_땅_한길",
+      "technique": "'덥혀도 -못건드려'로 위협과 무력함을 대비시킨 뒤, 마지막 동사만 두 번 반복해 풀이 계속 깔리는 시간을 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 24,
+    "doy": 175,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "난로는 새빨갛게 타야하고, 화로의 숯불은 이글이글 되어야 하고, 주전자의 물은 펄펄 끓어야 된다.",
+      "author": "이효석",
+      "work": "낙엽을 태우면서 (1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%99%EC%97%BD%EC%9D%84_%ED%83%9C%EC%9A%B0%EB%A9%B4%EC%84%9C",
+      "technique": "'~해야 한다'를 세 번 반복해 계절의 규칙을 선언처럼 만든다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "날씨가 개면 개었다고, 흐리면 흐렸다고, 바람이 불면 바람이 분다고, 봄이면 봄이라고, 여름은 여름이라고, 가을은 가을이라고",
+      "author": "이육사",
+      "work": "수필 「산사기(山寺記)」 (1941년)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/산사기",
+      "technique": "조건-결과를 여섯 번 되풀이하되 어절을 점점 줄여 문장 자체에 리듬을 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 25,
+    "doy": 176,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "물도 건너야 하고 언덕도 넘어야 하고 수없이 꼬부라진 길이요, 갈수록 험하고 찾기 어려운 길이다.",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "앞 문장과 똑같은 리듬을 쓰되 내용만 정반대로 채워 두 길을 대칭으로 세운다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "돈이 제일일 땐 돈을 뫃으려 정열을 쏫고, 권력이 제일일 땐 권력을 잡으려 수단을 가리지 않을 사람이다.",
+      "author": "지하련",
+      "work": "도정(道程), 1946",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
+      "technique": "'~이 제일일 땐 ~을' 틀을 두 번 돌려, 인물의 성격을 형용사 없이 행동 규칙으로만 정의한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 26,
+    "doy": 177,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "저 메는 높고 높고 저 가람은 예고 예고, 피고 또 피오시니 번으로써 세오리까? 천마 년 무궁한 빛을 길이 뵐까 하노라.",
+      "author": "정인보",
+      "work": "담원시조 근화사 삼첩 (1927년 작, 1948년 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8B%B4%EC%9B%90%EC%8B%9C%EC%A1%B0/%EA%B7%BC%ED%99%94%EC%82%AC_%EC%82%BC%EC%B2%A9",
+      "technique": "같은 말을 겹쳐('높고 높고', '예고 예고') 지속을 소리로 만든다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "여러 사람은, 하염없이 창자를 졸이며, 무엇을 기다리고 있다. 그러나, 그 기다리는 무엇이란 무엇이, 참으로 무엇인지는 모른다.",
+      "author": "홍사용",
+      "work": "저승길 (1923)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/저승길",
+      "technique": "'무엇'을 세 번 반복해 지시어의 뜻을 닳게 만들어, 불안 자체를 문장의 질감으로 바꾼다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 27,
+    "doy": 178,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "깃발에 바람세니 하늘뜻이다 따르자 옳은길로 물에나불에 뉘라서 세월더러 흐른다더냐 한이없는 우리할일을 맘껏펴처보리라",
+      "author": "정인보",
+      "work": "새해의 노래 2절 (1950)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%83%88%ED%95%B4%EC%9D%98_%EB%85%B8%EB%9E%98",
+      "technique": "앞 절과 똑같은 자리에 똑같은 반문을 놓아 짝을 이루는 후렴 구조",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "초당집 보비는 삼 년 전부터 가만히 자라는 마음의 풀을 베어버릴 힘없어서 ‘칠성’이라고 피로 쓰고 피로 지워 피로 샀다.",
+      "author": "김명순",
+      "work": "생명의 과실 - 사랑하는 이의 이름 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/사랑하는_이의_이름",
+      "technique": "'피로'를 세 번 반복하며 동사만 바꿔, 같은 대가를 치르는 세 단계를 한 호흡에 보인다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 28,
+    "doy": 179,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "제6의 소리는 크게 대답하다 우리는 죄의 죄를 받고 벌의 벌을 받고 우는 종의 종인 사람들이다.",
+      "author": "김명순",
+      "work": "생명의 과실 - 들리는 소리를 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/들리는_소리를",
+      "technique": "'죄의 죄, 벌의 벌, 종의 종'처럼 같은 명사를 겹쳐 정도를 극단까지 밀어 올린다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "바다로 가자 큰 바다로 가자 우리 인젠 큰하늘과 넓은바다를 마음대로 가졌노라 하늘이 바다요 바다가 하늘이라 바다 하늘 모두다 가졌노라",
+      "author": "김영랑",
+      "work": "「바다로 가자」, 『영랑시선』(1949) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/영랑시선/바다로_가자",
+      "technique": "'바다로 가자'를 반복해 시동을 걸고, '하늘이 바다요 바다가 하늘이라'로 두 단어를 서로 맞바꿔 경계를 지운다. 교차 대구의 교과서.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 29,
+    "doy": 180,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "나오기는 나왔으나, 갈 곳이 없는 아다다는 마당 귀를 돌아서선 발길을 더 내놓지 못하고 우뚝 섰다.",
+      "author": "계용묵",
+      "work": "「백치 아다다」(단편소설, 1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
+      "technique": "같은 동사를 '~기는 ~으나'로 겹쳐, 행동은 했으나 나아가지 못한 상태를 만든다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "그는 버젓이 게트림으로 길을 걸어야 걸릴 것은 하나도 없다. 논 맬 걱정도, 호포 바칠 걱정도, 빚 갚을 걱정, 아내 걱정, 또는 굶을 걱정도.",
+      "author": "김유정",
+      "work": "만무방 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/만무방",
+      "technique": "'걱정'을 다섯 번 반복하면서 수식을 점점 짧게 깎는다 — 열거의 리듬을 가속하는 법",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 30,
+    "doy": 181,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "이 밤나무야말로 사상이 일관된 철학자같이 숭엄하게, 무겁게, 그리고 거룩하게 보였다.",
+      "author": "계용묵",
+      "work": "「율정기」(수필, 1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/율정기",
+      "technique": "부사 셋을 짧은 것에서 긴 것 순으로 늘어놓아 감정을 층층이 끌어올린다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "답답한 하늘, 답답한 지평선, 답답한 풍경, 답답한 풍속 가운데서 나는 이리 디굴 저리 디굴 굴고 싶을 만치 답답해하고 지내야만 된다.",
+      "author": "이상",
+      "work": "권태 (1937, 조선일보)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/권태",
+      "technique": "같은 형용사를 네 번 반복하며 명사만 확장하다가, 마지막에 화자에게로 돌려 감정을 체감시킨다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  }
+]

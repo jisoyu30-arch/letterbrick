@@ -1,0 +1,702 @@
+[
+  {
+    "day": 1,
+    "doy": 32,
+    "week": 5,
+    "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "의심하던 시절에는 그래도 희망이 있었다. 그런데 지금은 희망이 없고, 그러면서도 여전히 모든 것을 의심한다.",
+      "author": "레프 톨스토이",
+      "work": "안나 카레니나 (1877)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+      "technique": "과거와 현재를 같은 두 낱말(희망·의심)로 짝지어 배치해, 상태가 얼마나 나빠졌는지를 설명 없이 드러낸다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "동정이라는 것이 흔히 상대방을 위해서보다 자기 자신의 명예나 자존심을 위해서 베풀어지듯이 이 여인의 동정도 이런 예에서 조금도 벗어나는 것이 없는 것 같다.",
+      "author": "계용묵",
+      "work": "「동정」(수필, 1948)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/동정",
+      "technique": "일반 원리를 먼저 세우고 '~도 벗어나지 않는다'로 목격한 장면을 그 안에 끼워 넣는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W5 「입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 2,
+    "doy": 33,
+    "week": 5,
+    "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "그것도 지금 어떤 우연한 사정 때문이 아니라, 언제나, 어느 시대에나, 품위 있는 인간은 겁쟁이이자 노예일 수밖에 없다.",
+      "author": "표도르 도스토옙스키",
+      "work": "지하로부터의 수기 (1864)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/600/pg600.txt",
+      "technique": "부정으로 한 가능성을 먼저 지우고 부사를 겹쳐 범위를 넓힌 뒤 결론을 놓아, 단정에 빠져나갈 틈을 남기지 않는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "주위에 둘러선 백양이라든가 솔 같은 것은 바람이 부는 듯만 해도 바람 좇아 몸을 부지할 줄 모르건만 유독 이 밤나무만은 고삭고 무지러진 가지일래 의연히 서서 그 자세를 변치 않는다.",
+      "author": "계용묵",
+      "work": "「율정기」(수필, 1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/율정기",
+      "technique": "주변을 먼저 다 흔들어 놓고 '유독 ~만은'으로 하나만 남겨, 대상의 성격을 세운다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W5 「입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 3,
+    "doy": 34,
+    "week": 5,
+    "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "행복한 가정은 모두 엇비슷하게 닮았다. 그러나 불행한 가정은 저마다 자기만의 방식으로 불행하다.",
+      "author": "레프 톨스토이",
+      "work": "안나 카레니나 (1877)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+      "technique": "앞뒤 절을 같은 문형으로 세운 뒤 뒤쪽만 뒤집어, 한 문장 안에서 대칭과 파격을 동시에 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "밥 한 끼 얻어먹는다는 것이 무슨 큰 품삯이나 받는 것 같이 그들 셋은 뼈가 부서지도록 일을 해 주고 돌아다녔으나 그래도 별 걱정은 없었다.",
+      "author": "백신애",
+      "work": "적빈 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A0%81%EB%B9%88",
+      "technique": "'밥 한 끼'와 '뼈가 부서지도록'을 저울에 올린 뒤, '그래도 별 걱정은 없었다'로 담담히 닫아 비참함을 키운다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W5 「입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 4,
+    "doy": 35,
+    "week": 5,
+    "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "자기 자신에게 거짓말하고 그 거짓말에 귀 기울이는 사람은, 끝내 자기 안의 진실도 주위의 진실도 분간하지 못하는 지경에 이르고, 그리하여 자신과 남에 대한 존경을 모두 잃는다.",
+      "author": "표도르 도스토옙스키",
+      "work": "카라마조프 형제들 (1880)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
+      "technique": "원인에서 결과로 이어지는 사슬을 한 문장 안에 단계별로 이어 붙여, 파국이 서서히 도착하게 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "이와 같이 나의 창작생활이 계속된다 하면 나는 그 창작이라 하는 것을 내버려서라도 양심의 부끄러움이 없게 하고 싶다.",
+      "author": "나도향",
+      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
+      "technique": "가정-양보-소망의 3단으로 이어, 무엇을 버리고 무엇을 지킬지를 한 문장 안에서 저울질한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W5 「입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 5,
+    "doy": 36,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "이것이 진실인지는 물을 필요도 없다. 보름을 위해 거짓말할 가치는 없으니까. 보름의 생이란 그 자체로 가질 값어치가 없고, 그것이야말로 내가 여기 순전한 진실만 쓴다는 증거다.",
+      "author": "표도르 도스토옙스키",
+      "work": "백치 (1869)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2638/pg2638.txt",
+      "technique": "근거를 결론 뒤에 붙이고 그 근거를 다시 근거의 근거로 삼아, 짧은 문장 안에 이중의 논증을 세운다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "그 말을 지상의 격언으로 굳게 믿어 온 나는 그 말에 도리어 일종의 의심을 품게 되었고 나중은 부인까지 하게 되었다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "믿음-의심-부인의 3단계를 한 문장에 순서대로 배열해 마음의 변화를 계단처럼 보여준다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 6,
+    "doy": 37,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "사람은 누구든 일해야 한다. 이마에 땀 흘리며 애써야 한다. 그것이 그의 삶의 의미이자 목적이고, 그의 행복이고 그의 열정이니까.",
+      "author": "안톤 체호프",
+      "work": "세 자매 (1901)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7986/pg7986.txt",
+      "technique": "명제-부연-이유의 3단으로 짧게 끊어 놓고, 마지막에 명사 넷을 겹쳐 결론의 폭을 넓힌다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "테마가 확정되고 마음의 안정에 시간의 여유까지 충분히 있어야 붓끝엔 흥이 실린다.",
+      "author": "계용묵",
+      "work": "「침묵의 변」(수필, 1949)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
+      "technique": "조건 셋을 '~고 ~에 ~까지'로 쌓아 올린 뒤 결과를 마지막에 한 번에 준다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 7,
+    "doy": 38,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "당신이 삶을 경멸하는 것은 삶의 의미와 목적이 바로 당신에게만 감춰져 있기 때문이고, 당신은 오직 자기 죽음만을 두려워한다. 그러나 진짜 사색가는 진실이 모두에게 감춰져 있어 불행하고, 모두를 위해 두려워한다.",
+      "author": "안톤 체호프",
+      "work": "불빛 (1888)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/13414/pg13414.txt",
+      "technique": "앞 절과 뒤 절을 같은 문형으로 세우고 주어만 바꿔, 대상을 옮기는 것만으로 비판을 완성한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "두만강을 건너고 오랑캐령을 넘어서 망망한 평야와 산천을 바라볼 때 청춘의 내 가슴은 이상의 불길에 탔다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "이동 동사를 연달아 놓아 거리를 벌린 뒤 마지막에 내면을 불의 이미지로 폭발시킨다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 8,
+    "doy": 39,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "고통과 실수와 삶의 권태가 사람을 뒤로 밀어내지만, 진실에 대한 갈증과 완강한 의지가 그들을 앞으로 앞으로 몰아간다.",
+      "author": "안톤 체호프",
+      "work": "결투 (1891)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/13505/pg13505.txt",
+      "technique": "뒤로 미는 힘과 앞으로 미는 힘을 한 문장에 대칭으로 세우고, 마지막 부사만 두 번 겹쳐 방향을 정한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "이지러는 졌으나 보름을 갓 지난 달은 부드러운 빛을 흔붓이 흘리고 있다. 대화까지는 팔십 리의 밤길, 고개를 둘이나 넘고 개울을 하나 건너고 벌판과 산길을 걸어야 된다.",
+      "author": "이효석",
+      "work": "메밀꽃 필 무렵 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%A9%94%EB%B0%80%EA%BD%83_%ED%95%84_%EB%AC%B4%EB%A0%B5",
+      "technique": "정지된 풍경 한 컷 뒤에 앞으로 갈 거리를 나열해 시간을 밀어낸다",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 9,
+    "doy": 40,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "사샤, 사정은 이래. 나는 열심히 일하고 열심히 생각했고 지칠 줄 몰랐어. 지금은 아무것도 하지 않고 아무것도 생각하지 않는데, 몸도 마음도 지쳐 있어.",
+      "author": "안톤 체호프",
+      "work": "이바노프 (1887)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1755/pg1755.txt",
+      "technique": "과거와 현재를 같은 문형으로 맞세우고, 마지막에 예상과 반대되는 결과를 놓아 역설을 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "척척 휘늘어진 버드나무 가지를 헤치고 푸른 바위 밑을 돌아 함박꽃 같은 웃음을 터뜨리며 돌돌 굴러내린다.",
+      "author": "강경애",
+      "work": "약수 (1940)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%95%BD%EC%88%98_(%EA%B0%95%EA%B2%BD%EC%95%A0)",
+      "technique": "주어(냇물)를 지운 채 헤치고-돌아-터뜨리며-굴러내린다로 동사만 이어 물의 속도를 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 10,
+    "doy": 41,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "사람은 몸이 그렇듯 영혼도 서로 닮았다. 우리 각자에게 뇌와 지라와 심장과 폐가 똑같이 있고, 이른바 도덕적 자질도 모두에게 같다. 사소한 차이는 중요하지 않다.",
+      "author": "이반 투르게네프",
+      "work": "아버지와 아들 (1862)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/30723/pg30723.txt",
+      "technique": "신체 기관을 열거해 물질적 근거를 깔고, 같은 논리를 도덕으로 확장한 뒤 반론을 미리 잘라낸다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "다 해진 적삼소매로 맥없이 늘어진 팔목은 뼈도 살도 없고, 오직 누렇다 못해서 푸른빛이 도는 가죽만이 있을 뿐이다.",
+      "author": "강경애",
+      "work": "지하촌 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A7%80%ED%95%98%EC%B4%8C",
+      "technique": "'~도 ~도 없고 오직 ~뿐'으로 빼고 또 빼서 마지막에 남은 것 하나만 보여준다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 11,
+    "doy": 42,
+    "week": 6,
+    "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "네가 충성을 맹세한 이를 성실히 섬겨라. 윗사람에게 복종하고, 호의를 구하지 말고, 힘든 일을 자청하지도 거절하지도 마라. 그리고 속담을 기억해라. 옷은 새것일 때 아끼고, 명예는 젊을 때 아껴라.",
+      "author": "알렉산드르 푸시킨",
+      "work": "대위의 딸 (1836)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/13511/pg13511.txt",
+      "technique": "짧은 명령을 연달아 쌓아 리듬을 만든 뒤, 마지막에 속담 한 줄로 전체를 갈무리한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "동네는 어둠에 푹 싸여 아무 것도 보이지 않으나, 동네 앞으로 우뚝 서 있는 늙은 홰나무만이 별을 따려는 듯 높아 보였다.",
+      "author": "강경애",
+      "work": "지하촌 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A7%80%ED%95%98%EC%B4%8C",
+      "technique": "'아무것도 안 보이나 ~만은'으로 어둠 속에 하나만 남겨, 배제로 대상을 부각한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W6 「말투로 거리 재기 — 조사와 종결어미」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 12,
+    "doy": 43,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "그에게는 천 개의 창살이 있고, 그 천 개의 창살 뒤에는 아무 세계도 없는 것만 같다.",
+      "author": "라이너 마리아 릴케",
+      "work": "신시집 중 '표범'(Neue Gedichte: Der Panther), 1907",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/33863/pg33863.txt",
+      "technique": "같은 수사('천 개의 창살')를 한 문장 안에서 두 번 되풀이해 시야를 닫아 버린다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "내가 고향을 떠나 간도로 간 것은 너무도 절박한 생활에 시든 몸이, 새 힘을 얻을까 하여 새 희망을 품고 새 세계를 동경하여 떠난 것도 군이 아는 사실이다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "'새 힘-새 희망-새 세계'로 같은 수식어를 세 번 반복해 기대를 부풀린 뒤 편지 상대에게 확인시킨다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 13,
+    "doy": 44,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "너희에게 말한다. 춤추는 별 하나를 낳으려면 자기 안에 아직 혼돈을 지니고 있어야 한다. 너희에게 말한다. 너희 안에는 아직 혼돈이 있다.",
+      "author": "프리드리히 니체",
+      "work": "차라투스트라는 이렇게 말했다, 1883",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
+      "technique": "같은 도입구를 되풀이해 일반 명제와 눈앞의 진단을 나란히 붙인다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "나는 일이 없으면 없느니만치, 고통이 닥치면 닥치느니만치 내 번민은 컸다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "'~느니만치'를 두 번 반복한 대구로 원인과 결과를 비례식처럼 묶는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 14,
+    "doy": 45,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "인간에게서 위대한 것은 그가 다리이지 목적이 아니라는 점이다. 인간에게서 사랑할 만한 것은 그가 건너감이며 몰락이라는 점이다.",
+      "author": "프리드리히 니체",
+      "work": "차라투스트라는 이렇게 말했다, 1883",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
+      "technique": "동일한 문형을 두 번 반복해 서로 다른 술어를 대구로 세운다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "쇠몽둥이 같은 두 주먹이 쑥 앞으로 닥칠 때 그의 가슴은 덜컥 내려앉았다.",
+      "author": "나도향",
+      "work": "물레방아 (1925, 조선문단 11호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%AC%BC%EB%A0%88%EB%B0%A9%EC%95%84",
+      "technique": "앞 문장과 같은 틀(직유+동작+반응)을 되풀이해 두 문장을 대구로 묶어 긴장을 증폭한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 15,
+    "doy": 46,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "지혜는 찾을 수 있고, 살아 낼 수 있고, 그것에 실려 갈 수 있고, 그것으로 기적을 행할 수도 있다. 다만 말하거나 가르칠 수는 없다.",
+      "author": "헤르만 헤세",
+      "work": "싯다르타, 1922",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
+      "technique": "가능형을 네 번 쌓아 올린 뒤 마지막 한 번의 부정으로 전부를 무너뜨린다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "일행의 옷은 물결에 젖고 젖은 옷깃은 얼음이 되어 꼿꼿하게 나뭇가지처럼 되었습니다.",
+      "author": "백신애",
+      "work": "꺼래이 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%BA%BC%EB%9E%98%EC%9D%B4",
+      "technique": "앞말의 끝을 뒷말의 앞으로 받는 연쇄법('젖고 → 젖은')으로 변화를 단계로 보여준다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 16,
+    "doy": 47,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "지혜는 전할 수 없다. 어떤 현자가 전하려 애쓰는 지혜는 언제나 어리석은 소리처럼 들린다.",
+      "author": "헤르만 헤세",
+      "work": "싯다르타(Siddhartha), 1922",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
+      "technique": "명제를 세운 뒤 같은 단어로 문장을 다시 시작해 근거를 잇는 꼬리물기.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "우악스레 큰 놈, 얄밉게 도드라진 놈, 미욱스레 한가운데 떡 버티고 섰는 놈, 이러한 바위돌들을 얼리고 달래면서 언제나 그 아미에 겸손한 웃음을 띠우고 흘러내린다.",
+      "author": "강경애",
+      "work": "약수 (1940)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%95%BD%EC%88%98_(%EA%B0%95%EA%B2%BD%EC%95%A0)",
+      "technique": "'~한 놈' 세 번으로 리듬을 만든 뒤 '이러한'으로 한 번에 묶어 받는 열거-수렴 구조.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 17,
+    "doy": 48,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "속았다! 속았다! 한 번 밤종의 잘못 울림을 따라나섰을 뿐인데, 그것은 결코 되돌릴 수 없다.",
+      "author": "프란츠 카프카",
+      "work": "시골 의사(Ein Landarzt), 1919",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/21989/pg21989.txt",
+      "technique": "감탄어 반복으로 감정을 세운 뒤 쉼표 하나 건너 한마디로 판결을 내린다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "우직한 차주의 사정없는 그 매, 그 매를 말없이 순종하는 그 말, 그 말의 정경을 차마 그대로는 보지 못하는 티 없는 어린 마음―그것은 분명히 거리에 핀 아름다운 꽃이었다.",
+      "author": "계용묵",
+      "work": "「말」(수필, 1941)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/말",
+      "technique": "앞 구의 끝말을 다음 구의 첫말로 물려 세 장면을 사슬처럼 잇고, 끝에서 비유 하나로 묶는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 18,
+    "doy": 49,
+    "week": 7,
+    "weekTheme": "우수, 녹는 것들 — 셋의 리듬",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "고독은 독창적인 것을, 과감하고 낯설게 아름다운 것을, 시를 익게 한다. 그러나 고독은 비뚤어진 것, 균형 잃은 것, 부조리하고 허용될 수 없는 것도 익게 한다.",
+      "author": "토마스 만",
+      "work": "베네치아에서의 죽음, 1912",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/12108/pg12108.txt",
+      "technique": "같은 주어와 동사를 반복하고 목적어만 바꿔 한 힘의 두 얼굴을 나란히 보인다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "그는 고개를 굽히고, 허리를 굽히고, 나중에는 마음을 굽히어 사정도 하여보고 애걸도 하여보았다.",
+      "author": "나도향",
+      "work": "물레방아 (1925, 조선문단 11호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%AC%BC%EB%A0%88%EB%B0%A9%EC%95%84",
+      "technique": "같은 동사 '굽히다'를 고개-허리-마음 순으로 반복해 신체에서 내면으로 굴복을 확장한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W7 「우수, 녹는 것들 — 셋의 리듬」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 19,
+    "doy": 50,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "청산 백운을 누가 알아? 다만 청산은 백운이 알고 백운은 청산이 알 뿐이지!",
+      "author": "홍사용",
+      "work": "청산백운 (1919)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/청산백운",
+      "technique": "질문을 던진 뒤 두 낱말의 자리를 서로 바꾼 교차 대구로 답해, 답이 곧 형식이 되게 한다.",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "사람들이 머리를 비틀었다 자나 깨나 싸움이 있을진대 사나 죽으나 똑같을 것이라고 사람마다 두 팔에 힘을 내뽑았다.",
+      "author": "김명순",
+      "work": "생명의 과실 - 싸움 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/싸움",
+      "technique": "'자나 깨나 / 사나 죽으나'로 반대말 쌍을 겹쳐 놓아, 어느 경우에도 같다는 결론을 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "같은 기법·다른 소재",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 20,
+    "doy": 51,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "우리는 눈 속의 나무둥치와 같다. 겉보기엔 매끄럽게 놓여 있어 살짝만 밀어도 치울 수 있을 것 같다. 아니, 그럴 수 없다. 그것들은 땅에 단단히 붙어 있다. 하지만 보라, 그것조차 겉보기일 뿐이다.",
+      "author": "프란츠 카프카",
+      "work": "관찰 중 '나무들'(Betrachtung: Die Bäume), 1912",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/23532/pg23532.txt",
+      "technique": "단정, 부정, 재부정으로 두 번 접는 계단식 반전을 짧은 문장으로만 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "밥 한 그릇에 온 전신이 녹도록 고맙다고 생각하는 이 늙은이라 이렇게 과분한 적선에는 도리어 고마운 줄 몰랐다.",
+      "author": "백신애",
+      "work": "적빈 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A0%81%EB%B9%88",
+      "technique": "작은 은혜엔 감격하고 큰 은혜엔 무감하다는 역설을 '도리어' 하나로 뒤집는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 21,
+    "doy": 52,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "그러니까 사람들은 살기 위해 이곳으로 오는구나. 나로서는 오히려 여기서 죽어 간다고 말하고 싶다.",
+      "author": "라이너 마리아 릴케",
+      "work": "말테의 수기(Die Aufzeichnungen des Malte Laurids Brigge), 1910",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
+      "technique": "통념을 그대로 옮겨 적은 뒤 같은 호흡 안에서 정반대로 되받아 관찰자의 눈을 세운다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "순이는 더 소리칠 용기가 없어 일행을 향하여 한 자국 내어놓자, 사나운 바람결이 몹쓸 장난같이 보드라운 순이의 몸뚱이를 갑판 위에 때려누이고 말았습니다.",
+      "author": "백신애",
+      "work": "꺼래이 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%BA%BC%EB%9E%98%EC%9D%B4",
+      "technique": "'~자'로 인물의 한 걸음과 자연의 반격을 즉시 잇고, 바람을 '몹쓸 장난'이라 부르며 가해자로 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 22,
+    "doy": 53,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "잿빛일세, 친애하는 벗이여, 모든 이론은. 그리고 푸르네, 생명의 황금빛 나무는.",
+      "author": "요한 볼프강 폰 괴테",
+      "work": "파우스트 1부, 1808",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2229/pg2229.txt",
+      "technique": "색채어를 문장 맨 앞에 도치해 두 세계를 정면으로 맞세운다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "약간의 힌트를 얻어 두었던 것으로 덮어놓고 붓을 잡으니 마치 지리학자나 탐험가들이 약간의 추상을 가지고 길을 떠나는 것 같다.",
+      "author": "나도향",
+      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
+      "technique": "자기 행위를 낯선 직업에 빗대어, 추상적인 심정을 공간 이동의 이미지로 바꾼다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 23,
+    "doy": 54,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "그레고르 잠자가 어느 날 아침 뒤숭숭한 꿈에서 깨어났을 때, 그는 침대 속에서 자신이 한 마리 거대한 벌레로 변해 있는 것을 발견했다.",
+      "author": "프란츠 카프카",
+      "work": "변신(Die Verwandlung), 1915",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/22367/pg22367.txt",
+      "technique": "평범한 시간 부사절로 일상을 깔아 놓고 주절의 마지막 한 단어에서 세계를 뒤집는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "이때 나에게는 부지런한 자에게 복이 온다 하는 말이 거짓말로 생각되었다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "통용되는 격언을 문장 안에 통째로 끌어와 한 마디로 부정해, 세계관이 무너지는 순간을 표시한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 24,
+    "doy": 55,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "그것은 별처럼 제 모든 가장자리에서 터져 나온다. 너를 보지 않는 자리는 어디에도 없기 때문이다. 너는 너의 삶을 바꿔야 한다.",
+      "author": "라이너 마리아 릴케",
+      "work": "신시집 별권 중 '고대 아폴로의 토르소'(Archaïscher Torso Apollos), 1908",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/33864/pg33864.txt",
+      "technique": "사물 묘사를 끝까지 밀어붙이다 마지막 한 문장에서 갑자기 독자 쪽으로 돌아선다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "우리는 우리로서 살아온 것이 아니라 어떤 험악한 제도의 희생자로서 살아왔었다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "'아니라'를 축으로 같은 서술어를 두 번 반복하며 주어의 자격만 바꿔 인식의 전환을 못 박는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 25,
+    "doy": 56,
+    "week": 8,
+    "weekTheme": "겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디",
+    "techniqueFamily": "대구",
+    "A": {
+      "text": "인간은 짐승과 초인 사이에 매인 밧줄이다. 심연 위에 걸쳐진 하나의 밧줄.",
+      "author": "프리드리히 니체",
+      "work": "차라투스트라는 이렇게 말했다(Also sprach Zarathustra), 1883",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
+      "technique": "정의를 내린 뒤 핵심 명사만 서술어 없이 되풀이해 이미지를 못 박는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "마침내 큰년이는 살구나무 아래에까지 와서는 나무를 사정없이 흔들어 놓으니 마치 겨울에 눈 내리는 것처럼 꽃송이가 펄펄 날아 내 머리와 옷이며 그 애에게까지 빨갛고 희게 떨어집니다.",
+      "author": "강경애",
+      "work": "나의 유년시절 (1933)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%98%EC%9D%98%20%EC%9C%A0%EB%85%84%20%EC%8B%9C%EC%A0%88",
+      "technique": "싸움의 한복판에 봄꽃을 겨울눈에 빗대 떨어뜨려, 폭력 장면을 아름다움으로 뒤집는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W8 「겨울과 봄이 하루 걸러 오는 주 — 짝 맞춘 두 마디」의 대구 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 26,
+    "doy": 57,
+    "week": 9,
+    "weekTheme": "경칩, 다시 깨어나는 것 — 되돌아오는 말",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "나는 병든 인간이다. 나는 심술궂은 인간이다. 나는 매력 없는 인간이다. 내 간이 병든 것 같다.",
+      "author": "표도르 도스토옙스키",
+      "work": "지하로부터의 수기 (1864)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/600/pg600.txt",
+      "technique": "같은 문형을 세 번 반복하며 술어만 바꿔, 자기소개를 자학의 리듬으로 바꿔놓는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "깊은 산속으로 우중충한 돌 틈바귀로 잔약한 몸으로 맨발에 짚신짝을 끌며 강파른 산등을 타고 돌려면 젖 먹던 힘까지 녹아 내리는 듯 진땀이 머리로부터 발끝까지 흘러내린다.",
+      "author": "김유정",
+      "work": "소낙비 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
+      "technique": "'~으로'를 세 번 겹쳐 쌓아 고단함이 누적되게 한 뒤 '머리로부터 발끝까지'로 몸 전체를 훑어 닫는다",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W9 「경칩, 다시 깨어나는 것 — 되돌아오는 말」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 27,
+    "doy": 58,
+    "week": 9,
+    "weekTheme": "경칩, 다시 깨어나는 것 — 되돌아오는 말",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "시간의 물결마다 제 충적토를 포개고, 종족마다 제 지층을 기념물 위에 내려놓고, 개인마다 제 돌 하나를 가져온다. 큰 건축물은 큰 산과 마찬가지로 여러 세기가 만든 작품이다.",
+      "author": "빅토르 위고",
+      "work": "파리의 노트르담 (1831)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/19657/pg19657.txt",
+      "technique": "'~마다'를 세 번 반복해 규모를 넓힌 뒤, 마지막 문장에서 하나의 명제로 수렴시킨다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "간단히 말하면 건강이 넘치는 천지였다. 불건강한 물건의 존재를 허락치 않는 천지였다.",
+      "author": "현진건",
+      "work": "불 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B6%88",
+      "technique": "긍정으로 한 번, 부정으로 한 번. 같은 말을 뒤집어 되풀이하면 정의가 선언이 된다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W9 「경칩, 다시 깨어나는 것 — 되돌아오는 말」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 28,
+    "doy": 59,
+    "week": 9,
+    "weekTheme": "경칩, 다시 깨어나는 것 — 되돌아오는 말",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "인간 노릇을 제대로, 마땅하게 하는 것보다 아름답고 정당한 일은 없다. 이 삶을 잘 사는 법보다 어려운 학문도 없다.",
+      "author": "미셸 드 몽테뉴",
+      "work": "에세 3권 13장 경험에 대하여 (1595년 판)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/58801/pg58801.txt",
+      "technique": "'~보다 ~한 것은 없다'라는 최상급 부정문을 두 번 이어 붙여 리듬을 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "처음에는 도박으로, 다음엔 절도로, 또 고 담에는 절도로, 절도로.",
+      "author": "김유정",
+      "work": "만무방 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/만무방",
+      "technique": "같은 단어를 마지막에 한 번 더 떨어뜨려 이력이 굳어버렸음을 알린다 — 반복이 곧 판결",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W9 「경칩, 다시 깨어나는 것 — 되돌아오는 말」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+  }
+]
