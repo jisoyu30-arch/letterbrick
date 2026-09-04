@@ -1,0 +1,74 @@
+[
+  {
+    "text": "가진바 씨앗을 뿌리면서 가거라. 발뿌리에 돌이 채이거든 감었든 눈을 와짝떠라.",
+    "author": "윤동주",
+    "deathYear": 1945,
+    "work": "하늘과 바람과 별과 시 中 「눈감고 간다」 (1941년 작, 1948년 시집 수록)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1948년)/눈감고_간다",
+    "quoteContext": "앞: 이들아 밤이 어두었는데 눈감고 가거라. / 뒤: (1941. 5. 31)",
+    "isTranslation": false,
+    "technique": "명령형 두 개를 잇되 두 번째에 조건절을 넣어 '감아라'에서 '떠라'로 태도를 뒤집는다.",
+    "techniqueFamily": "전환",
+    "lengthChars": 43,
+    "fitFor": "growth",
+    "verify": {
+      "status": "NOT-FOUND",
+      "ratio": 0.5,
+      "err": "rendered-checked"
+    }
+  },
+  {
+    "text": "즐거운 종달새야 어느 이랑에서 즐거웁게 솟쳐라. 푸르른 하늘은 아른아른 높기도 한데",
+    "author": "윤동주",
+    "deathYear": 1945,
+    "work": "하늘과 바람과 별과 시 中 「봄」 (1955년 증보판 수록)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/봄_1",
+    "quoteContext": "앞: 冬을 참어온 나는 풀포기처럼 피어난다. / 뒤: …… (시 끝)",
+    "isTranslation": false,
+    "technique": "부름과 명령으로 대상을 세운 뒤 시선을 하늘로 올려 문장을 맺지 않고 흘려보낸다.",
+    "techniqueFamily": "전환",
+    "lengthChars": 46,
+    "fitFor": "healing",
+    "verify": {
+      "status": "NOT-FOUND",
+      "ratio": 0.67,
+      "err": "rendered-checked"
+    }
+  },
+  {
+    "text": "바람이 자꼬 부는데 내발이 반석우에 섰다. 강물이 자꼬 흐르는데 내발이 언덕우에 섰다.",
+    "author": "윤동주",
+    "deathYear": 1945,
+    "work": "하늘과 바람과 별과 시 中 「바람이 불어」 (1941년 작, 1948년 시집 수록)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1948년)/바람이_불어",
+    "quoteContext": "앞: 일도 없다. 時代를 슬퍼한 일도 없다. / 뒤: (1941. 6. 2)",
+    "isTranslation": false,
+    "technique": "동일한 문형을 두 번 굴리며 움직이는 것(바람·강물)과 멈춘 것(내 발)을 대비시킨다.",
+    "techniqueFamily": "반복",
+    "lengthChars": 48,
+    "fitFor": "growth",
+    "verify": {
+      "status": "NOT-FOUND",
+      "ratio": 0.5,
+      "err": "rendered-checked"
+    }
+  },
+  {
+    "text": "아버지는 당나귀에게 짚을 한키 담아 주고, 어머니는 애기에게 젖을 한모금 먹이고, 밤은 다시 고요히 잠드오.",
+    "author": "윤동주",
+    "deathYear": 1945,
+    "work": "하늘과 바람과 별과 시 中 「밤」 (1937년 작, 1955년 증보판 수록)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/밤",
+    "quoteContext": "앞: 기 소스라처 깨고, 등잔에 불을 다오. / 뒤: 一九三七•三•",
+    "isTranslation": false,
+    "technique": "아버지-어머니 대구로 두 동작을 나란히 놓고, 마지막 한 줄에서 주어를 '밤'으로 바꿔 닫는다.",
+    "techniqueFamily": "구조",
+    "lengthChars": 60,
+    "fitFor": "healing",
+    "verify": {
+      "status": "NOT-FOUND",
+      "ratio": 0.63,
+      "err": "rendered-checked"
+    }
+  }
+]
