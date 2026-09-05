@@ -89,14 +89,14 @@
       "isTranslation": true
     },
     "B": {
-      "text": "세상이 모두 잠자는 이때, 집 마을에서 좀 떠나 으슥한 수수밭 머리에 풀포기를 모아 얽어 놓은 조그만 막 속에서 나오는 그림자가 있다.",
-      "author": "최서해",
-      "work": "큰물 진 뒤 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%81%B0%EB%AC%BC_%EC%A7%84_%EB%92%A4",
-      "technique": "세상 전체에서 마을, 밭머리, 막 안으로 범위를 계속 좁혀 들어가 마지막에 정체 불명의 존재를 내놓는다.",
-      "isTranslation": false
+      "text": "이것이 이제 나의 길이다. 너희의 길은 어디 있는가? 길을 묻는 자들에게 나는 그렇게 답했다. 그 길이라는 것은 없으니까.",
+      "author": "프리드리히 니체",
+      "work": "차라투스트라는 이렇게 말했다, 1883",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
+      "technique": "인용된 대답을 먼저 보여 준 뒤 그 근거를 마지막 짧은 문장에 던져 놓는다.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W1 「새해 첫 주 — 하나만 남기는 단문」의 구조 계열."
   },
   {
@@ -156,19 +156,19 @@
     "weekTheme": "새해 첫 주 — 하나만 남기는 단문",
     "techniqueFamily": "구조",
     "A": {
-      "text": "이것이 이제 나의 길이다. 너희의 길은 어디 있는가? 길을 묻는 자들에게 나는 그렇게 답했다. 그 길이라는 것은 없으니까.",
+      "text": "도덕적 현상이라는 것은 전혀 없다. 다만 현상에 대한 도덕적 해석이 있을 뿐이다.",
       "author": "프리드리히 니체",
-      "work": "차라투스트라는 이렇게 말했다, 1883",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
-      "technique": "인용된 대답을 먼저 보여 준 뒤 그 근거를 마지막 짧은 문장에 던져 놓는다.",
+      "work": "선악의 저편 108절, 1886",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
+      "technique": "같은 두 단어의 자리만 바꿔 명제를 통째로 뒤집는 최소 수단의 반전.",
       "isTranslation": true
     },
     "B": {
-      "text": "이러한 두봉화의 지조도 아니 가상타 할 수 없습니다만 진달래는 그러한 것의 방비책으로보다는 마음으로 그것을 이기어 내는 데 좀 더 고상한 뜻이 담긴 것을 엿볼 수 있습니다.",
-      "author": "계용묵",
-      "work": "「진달래」(수필, 1939)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/진달래",
-      "technique": "비교 대상의 미덕을 먼저 인정해 주고 나서 우열을 말해, 판단이 공정하게 들리게 한다.",
+      "text": "세상이 모두 잠자는 이때, 집 마을에서 좀 떠나 으슥한 수수밭 머리에 풀포기를 모아 얽어 놓은 조그만 막 속에서 나오는 그림자가 있다.",
+      "author": "최서해",
+      "work": "큰물 진 뒤 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%81%B0%EB%AC%BC_%EC%A7%84_%EB%92%A4",
+      "technique": "세상 전체에서 마을, 밭머리, 막 안으로 범위를 계속 좁혀 들어가 마지막에 정체 불명의 존재를 내놓는다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -214,6 +214,31 @@
       "isTranslation": true
     },
     "B": {
+      "text": "늦게 초라한 하숙으로 돌아온 그는 오래도록 잠들지 못했고, 마침내 선잠이 들었을 때는 카드와 초록 테이블과 지폐 더미와 금화 무더기 말고는 아무것도 꿈꾸지 못했다.",
+      "author": "알렉산드르 푸시킨",
+      "work": "스페이드 여왕 (1834)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/55219/pg55219.txt",
+      "technique": "잠들지 못한 시간과 잠든 뒤의 꿈을 한 문장에 이어 붙이고, 꿈의 내용을 명사 넷으로만 늘어놓아 욕망을 사물로 보여준다.",
+      "isTranslation": true
+    },
+    "contrastAxis": "서양↔동양 / 짧음↔김",
+    "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
+  },
+  {
+    "day": 10,
+    "doy": 10,
+    "week": 2,
+    "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "아무 데서도 소리가 나지 않았다. 완벽하게 고요했다. 온 세상이 잠든 것 같았다. 가끔 황소개구리들이 부산 떠는 소리만 빼면.",
+      "author": "마크 트웨인",
+      "work": "허클베리 핀의 모험",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/76/pg76.txt",
+      "technique": "정적을 세 번 다르게 말한 뒤 예외 하나를 붙여, 오히려 고요를 더 크게 들리게 한다.",
+      "isTranslation": true
+    },
+    "B": {
       "text": "덜컹덜컹 홈통에 들었다가 다시 쏟아져 흐르는 물이 육중한 물레방아를 번쩍 쳐들었다가 쿵 하고 확 속으로 내던질 제 머슴들의 콧소리는 허연 겨 가루가 켜켜 앉은 방앗간 속에서 청승스럽게 들려나온다.",
       "author": "나도향",
       "work": "물레방아 (1925, 조선문단 11호)",
@@ -225,17 +250,42 @@
     "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
   },
   {
-    "day": 10,
-    "doy": 10,
+    "day": 11,
+    "doy": 11,
     "week": 2,
     "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "늦게 초라한 하숙으로 돌아온 그는 오래도록 잠들지 못했고, 마침내 선잠이 들었을 때는 카드와 초록 테이블과 지폐 더미와 금화 무더기 말고는 아무것도 꿈꾸지 못했다.",
-      "author": "알렉산드르 푸시킨",
-      "work": "스페이드 여왕 (1834)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/55219/pg55219.txt",
-      "technique": "잠들지 못한 시간과 잠든 뒤의 꿈을 한 문장에 이어 붙이고, 꿈의 내용을 명사 넷으로만 늘어놓아 욕망을 사물로 보여준다.",
+      "text": "도끼가 번쩍하고 내려오는 게 보인다. 아무 소리도 들리지 않는다. 도끼가 다시 올라가는 게 보이고, 그게 사내의 머리 위로 올라갔을 때에야 쿵! 하는 소리가 들린다. 소리가 물 위를 건너오는 데 그만큼 걸린 것이다.",
+      "author": "마크 트웨인",
+      "work": "허클베리 핀의 모험",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/76/pg76.txt",
+      "technique": "보이는 것과 들리는 것의 시차를 순서대로 적어, 거리 자체를 문장 구조로 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "겨울이 찾아들면 조그마한 강을 앞에 끼고 큰 산을 등진 빼허는 쓸쓸히 눈 속에 묻혀서 차디찬 좁은 하늘을 쳐다보게 된다.",
+      "author": "최서해",
+      "work": "홍염 (1927, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
+      "technique": "앞-뒤 지형을 대구로 세워 마을을 가둔 뒤, 마을을 주어로 삼아 사람처럼 하늘을 보게 한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
+  },
+  {
+    "day": 12,
+    "doy": 12,
+    "week": 2,
+    "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "그러나 쓰러지면서 그는 한순간 솟아오르는 듯했다. 뒷다리가 무너져 내리자 그는 거대한 바위가 넘어가듯 위로 치솟았고, 코는 나무처럼 하늘을 향해 뻗었다.",
+      "author": "조지 오웰",
+      "work": "코끼리를 쏘다",
+      "sourceUrl": "https://gutenberg.net.au/ebooks02/0200141.txt",
+      "technique": "모순되는 두 동작(쓰러짐·솟아오름)을 한 문장에 겹치고 비유 두 개로 떠받쳐 장면을 정지시킨다",
       "isTranslation": true
     },
     "B": {
@@ -250,83 +300,8 @@
     "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
   },
   {
-    "day": 11,
-    "doy": 11,
-    "week": 2,
-    "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "아무 데서도 소리가 나지 않았다. 완벽하게 고요했다. 온 세상이 잠든 것 같았다. 가끔 황소개구리들이 부산 떠는 소리만 빼면.",
-      "author": "마크 트웨인",
-      "work": "허클베리 핀의 모험",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/76/pg76.txt",
-      "technique": "정적을 세 번 다르게 말한 뒤 예외 하나를 붙여, 오히려 고요를 더 크게 들리게 한다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "북극의 얼음세계나 거쳐 오는 듯한 차디찬 바람이 우― 하고 몰려오는 때면 산봉우리와 엉성한 가지 끝에 쌓였던 눈들이 한꺼번에 휘날려서 이 좁은 산골은 뿌연 눈안개 속에 들게 된다.",
-      "author": "최서해",
-      "work": "홍염 (1927, 조선문단)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
-      "technique": "먼 곳에서 바람을 끌어와 소리를 넣고, 높은 곳의 눈을 흩어 마지막에 좁은 골짜기를 덮는 순서로 화면을 좁힌다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
-  },
-  {
-    "day": 12,
-    "doy": 12,
-    "week": 2,
-    "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "도끼가 번쩍하고 내려오는 게 보인다. 아무 소리도 들리지 않는다. 도끼가 다시 올라가는 게 보이고, 그게 사내의 머리 위로 올라갔을 때에야 쿵! 하는 소리가 들린다. 소리가 물 위를 건너오는 데 그만큼 걸린 것이다.",
-      "author": "마크 트웨인",
-      "work": "허클베리 핀의 모험",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/76/pg76.txt",
-      "technique": "보이는 것과 들리는 것의 시차를 순서대로 적어, 거리 자체를 문장 구조로 만든다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "봄철을 만난 송림은 그 잎이 푸름을 지나서 거멓게 성이 올랐고 눈가루 같은 꽃을 뿌려 숨이 막힐 지경, 향기가 요란스러웠다.",
-      "author": "강경애",
-      "work": "내가 좋아하는 솔 (1940)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%B4%EA%B0%80%20%EC%A2%8B%EC%95%84%ED%95%98%EB%8A%94%20%EC%86%94",
-      "technique": "색 → 냄새 → 숨막힘 순으로 감각을 옮겨 가며 한 문장 안에서 강도를 올린다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
-  },
-  {
     "day": 13,
     "doy": 13,
-    "week": 2,
-    "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "그러나 쓰러지면서 그는 한순간 솟아오르는 듯했다. 뒷다리가 무너져 내리자 그는 거대한 바위가 넘어가듯 위로 치솟았고, 코는 나무처럼 하늘을 향해 뻗었다.",
-      "author": "조지 오웰",
-      "work": "코끼리를 쏘다",
-      "sourceUrl": "https://gutenberg.net.au/ebooks02/0200141.txt",
-      "technique": "모순되는 두 동작(쓰러짐·솟아오름)을 한 문장에 겹치고 비유 두 개로 떠받쳐 장면을 정지시킨다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "말은 장작개비가 번쩍 올라갈 때마다 떨어질 그 매의 무서움을 생각하고는 흠칠하고 네 굽을 들곤 한다.",
-      "author": "계용묵",
-      "work": "「말」(수필, 1941)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/말",
-      "technique": "아직 오지 않은 매를 먼저 쓰고 반응을 뒤에 붙여, 공포를 시간 순서 그대로 재현한다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
-  },
-  {
-    "day": 14,
-    "doy": 14,
     "week": 2,
     "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
     "techniqueFamily": "묘사",
@@ -347,6 +322,31 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
+  },
+  {
+    "day": 14,
+    "doy": 14,
+    "week": 2,
+    "weekTheme": "소한, 볼 것 적은 계절 — 추상어를 사물로",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "그러나 아니, 그는 지지 않을 것이었다. 홱 돌아서서 그는 도시의 금빛 인광을 향해 걸었다. 두 주먹은 쥐어졌고, 입은 굳게 다물렸다.",
+      "author": "D.H. 로렌스",
+      "work": "아들과 연인",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/217/pg217.txt",
+      "technique": "감정을 설명하는 말을 하나도 쓰지 않고, 몸의 동작 셋(돌아섬·주먹·입)만 나열해 결심을 보여준다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "그곳은 포석이 말라 있고, 도랑에는 진흙도 물도 없고, 담을 따라 풀이 자란다. 가장 무심한 사람도 지나가는 이들처럼 우울해지고, 마차 소리 하나가 사건이 되고, 집들은 침울하고, 담벼락에서는 감옥 냄새가 난다.",
+      "author": "오노레 드 발자크",
+      "work": "고리오 영감",
+      "sourceUrl": "https://fr.wikisource.org/wiki/Le_Père_Goriot_(1910)/I",
+      "technique": "같은 길이의 짧은 절을 계속 이어 붙이다가, 마지막 절에서만 시각을 버리고 냄새로 넘어가 장소에 판결을 내린다.",
+      "isTranslation": true
+    },
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W2 「소한, 볼 것 적은 계절 — 추상어를 사물로」의 묘사 계열."
   },
   {
@@ -456,11 +456,61 @@
     "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
     "techniqueFamily": "압축",
     "A": {
+      "text": "사람은 많다. 그러나 얼굴은 그보다 훨씬 더 많다. 사람마다 얼굴을 여럿 갖고 있기 때문이다.",
+      "author": "라이너 마리아 릴케",
+      "work": "말테의 수기, 1910",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
+      "technique": "수량 비교 한 번으로 관찰을 명제로 굳히고 근거절 하나만 붙인다.",
+      "isTranslation": true
+    },
+    "B": {
       "text": "인간도, 예술가도, 개인도 작자의 이름이 없는 이 거대한 덩어리 앞에서 지워진다. 인간의 지성이 거기에 요약되고 총합된다. 시간이 건축가이고, 민중이 석공이다.",
       "author": "빅토르 위고",
       "work": "파리의 노트르담 (1831)",
       "sourceUrl": "https://www.gutenberg.org/cache/epub/19657/pg19657.txt",
       "technique": "긴 서술을 두 문장 끌고 온 뒤, 마지막을 두 낱말 짝(건축가/석공)으로 못 박아 정리한다.",
+      "isTranslation": true
+    },
+    "contrastAxis": "서양↔동양 / 짧음↔김",
+    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
+  },
+  {
+    "day": 20,
+    "doy": 20,
+    "week": 3,
+    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "클레오파트라의 코, 그것이 조금만 더 낮았더라면 땅의 온 얼굴이 달라졌으리라.",
+      "author": "블레즈 파스칼",
+      "work": "팡세 단장 162 (1670, 브룅슈비크 판)",
+      "sourceUrl": "https://fr.wikisource.org/wiki/Pens%C3%A9es_(Pascal,_%C3%A9d._Brunschvicg)/Pens%C3%A9es/Section_II-2",
+      "technique": "가장 작은 것(코)과 가장 큰 것(땅)을 한 문장에 붙여, 가정법 하나로 규모를 폭발시킨다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "나는 지금도 보는 듯하거니와, 그 신사의 눈도 다른 주위의 눈들과 같이 능히 깨어진 계란을 바라볼 수 있는 대담성에 놀랐다.",
+      "author": "계용묵",
+      "work": "「계란」(수필, 1943)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/계란",
+      "technique": "비난할 자리에서 '대담성'이라는 엉뚱한 칭찬어를 골라, 반어로 글을 끝낸다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
+  },
+  {
+    "day": 21,
+    "doy": 21,
+    "week": 3,
+    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "영혼은 자기 사람을 고르고, 그다음엔 문을 닫는다. 나는 그 영혼이 넉넉한 나라에서 하나를 고르고, 돌처럼 관심의 밸브를 닫아버리는 것을 보았다.",
+      "author": "에밀리 디킨슨",
+      "work": "시편 '배제'",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
+      "technique": "짧은 동작 두 개로 시작해, 마지막에 딱딱한 사물(돌, 밸브)로 태도를 못 박는다.",
       "isTranslation": true
     },
     "B": {
@@ -475,75 +525,25 @@
     "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
   },
   {
-    "day": 20,
-    "doy": 20,
-    "week": 3,
-    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
-    "techniqueFamily": "압축",
-    "A": {
-      "text": "영혼은 자기 사람을 고르고, 그다음엔 문을 닫는다. 나는 그 영혼이 넉넉한 나라에서 하나를 고르고, 돌처럼 관심의 밸브를 닫아버리는 것을 보았다.",
-      "author": "에밀리 디킨슨",
-      "work": "시편 '배제'",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
-      "technique": "짧은 동작 두 개로 시작해, 마지막에 딱딱한 사물(돌, 밸브)로 태도를 못 박는다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "일어서려면 압박하려는 주위(周圍)요, 움직이면 사방에서 들어오는 욕이다.",
-      "author": "나혜석",
-      "work": "경희(瓊姬), 1918",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
-      "technique": "'~하면 ~이다' 두 짝을 최소 어절로 붙여, 설명 없이 상황 자체를 정의로 만든다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
-  },
-  {
-    "day": 21,
-    "doy": 21,
-    "week": 3,
-    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
-    "techniqueFamily": "압축",
-    "A": {
-      "text": "초원을 만들려면 토끼풀 하나와 벌 한 마리가 필요하다. 토끼풀 하나와 벌 한 마리, 그리고 몽상. 벌이 부족하면 몽상만으로도 된다.",
-      "author": "에밀리 디킨슨",
-      "work": "시편 'To make a prairie'",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
-      "technique": "재료를 나열한 뒤 하나씩 덜어내며, 마지막에 가장 작고 무형인 것만 남긴다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "터무니없다 하여 농토를 안 준다. 일 구멍이 없으매 품을 못 판다. 밥이 없다.",
-      "author": "김유정",
-      "work": "소낙비 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
-      "technique": "인과를 접속사 없이 단문 셋으로 끊고, 마지막을 가장 짧게 만들어 결론이 떨어지게 한다",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
-  },
-  {
     "day": 22,
     "doy": 22,
     "week": 4,
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "도덕적 현상이라는 것은 전혀 없다. 다만 현상에 대한 도덕적 해석이 있을 뿐이다.",
-      "author": "프리드리히 니체",
-      "work": "선악의 저편 108절, 1886",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
-      "technique": "같은 두 단어의 자리만 바꿔 명제를 통째로 뒤집는 최소 수단의 반전.",
+      "text": "모든 진리에 대해 그 반대 또한 똑같이 참이다. 진리는 오직 한쪽으로 치우칠 때에만 말해지고 말에 싸일 수 있기 때문이다.",
+      "author": "헤르만 헤세",
+      "work": "싯다르타, 1922",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
+      "technique": "도발적 명제를 먼저 던지고 곧바로 그 성립 조건을 대는 2단 구성.",
       "isTranslation": true
     },
     "B": {
-      "text": "점순이는 뭐 그리 썩 예쁜 계집애는 못된다. 그렇다구 또 개떡이냐 하면 그런 것도 아니고, 꼭 내 아내가 돼야 할 만치 그저 툽툽하게 생긴 얼굴이다.",
-      "author": "김유정",
-      "work": "봄봄 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
-      "technique": "부정 → 부정의 부정 → 착지. 인물 묘사를 양쪽으로 밀었다 가운데 세우는 3단 구조",
+      "text": "이러한 두봉화의 지조도 아니 가상타 할 수 없습니다만 진달래는 그러한 것의 방비책으로보다는 마음으로 그것을 이기어 내는 데 좀 더 고상한 뜻이 담긴 것을 엿볼 수 있습니다.",
+      "author": "계용묵",
+      "work": "「진달래」(수필, 1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/진달래",
+      "technique": "비교 대상의 미덕을 먼저 인정해 주고 나서 우열을 말해, 판단이 공정하게 들리게 한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -556,11 +556,11 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "모든 진리에 대해 그 반대 또한 똑같이 참이다. 진리는 오직 한쪽으로 치우칠 때에만 말해지고 말에 싸일 수 있기 때문이다.",
+      "text": "찾는다는 것은 목표를 갖는다는 뜻이다. 그러나 발견한다는 것은 자유롭다는 것, 열려 있다는 것, 목표가 없다는 뜻이다.",
       "author": "헤르만 헤세",
       "work": "싯다르타, 1922",
       "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-      "technique": "도발적 명제를 먼저 던지고 곧바로 그 성립 조건을 대는 2단 구성.",
+      "technique": "두 동사를 같은 정의문 틀에 넣고 내용만 정반대로 채워 대구를 만든다.",
       "isTranslation": true
     },
     "B": {
@@ -581,31 +581,6 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "찾는다는 것은 목표를 갖는다는 뜻이다. 그러나 발견한다는 것은 자유롭다는 것, 열려 있다는 것, 목표가 없다는 뜻이다.",
-      "author": "헤르만 헤세",
-      "work": "싯다르타, 1922",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-      "technique": "두 동사를 같은 정의문 틀에 넣고 내용만 정반대로 채워 대구를 만든다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "귀에 설은 새소리가 새여 들어와 참한 은시계로 자근자근 얻어맞은듯, 마음이 이일 저일 보살필 일로 갈러저, 수은방울처럼 동글 동글 나동그라저, 춥기는 하고 진정 일어나기 싫어라.",
-      "author": "정지용",
-      "work": "「이른봄 아침」, 『정지용 시집』(1935) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/향수/이른봄_아침",
-      "technique": "비유를 두 번(은시계, 수은방울) 겹쳐 마음의 상태를 물질로 바꾼 뒤, 마지막 한 줄에서 아주 평범한 실토로 착지한다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
-  },
-  {
-    "day": 25,
-    "doy": 25,
-    "week": 4,
-    "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
-    "techniqueFamily": "구조",
-    "A": {
       "text": "사람은 상대를 판단할 수 없는 동안에만 그를 사랑하고 존경한다. 그리움이란 불완전한 앎이 낳은 산물이다.",
       "author": "토마스 만",
       "work": "베네치아에서의 죽음(Der Tod in Venedig), 1912",
@@ -614,19 +589,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "반나절 동안 두려움 없이 하늘을 똑바로 쳐다볼 수 있는 사람이란 세상에서도 가장 착한 사람이거나 그렇지 않으면 가장 용기 있는 악한이어야 할 것이다.",
-      "author": "이효석",
-      "work": "들 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%93%A4",
-      "technique": "긴 조건절로 대상을 좁힌 뒤 정반대 두 답을 나란히 내놓는다",
-      "isTranslation": false
+      "text": "자기 자신에게 거짓말하고 그 거짓말에 귀 기울이는 사람은, 끝내 자기 안의 진실도 주위의 진실도 분간하지 못하는 지경에 이르고, 그리하여 자신과 남에 대한 존경을 모두 잃는다.",
+      "author": "표도르 도스토옙스키",
+      "work": "카라마조프 형제들 (1880)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
+      "technique": "원인에서 결과로 이어지는 사슬을 한 문장 안에 단계별로 이어 붙여, 파국이 서서히 도착하게 만든다.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
   },
   {
-    "day": 26,
-    "doy": 26,
+    "day": 25,
+    "doy": 25,
     "week": 4,
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
@@ -650,8 +625,8 @@
     "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
   },
   {
-    "day": 27,
-    "doy": 27,
+    "day": 26,
+    "doy": 26,
     "week": 4,
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
@@ -661,6 +636,31 @@
       "work": "베네치아에서의 죽음, 1912",
       "sourceUrl": "https://www.gutenberg.org/cache/epub/12108/pg12108.txt",
       "technique": "비교급 최상 표현을 문장 앞머리에 세워 결론부터 못 박는 도치.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "점순이는 뭐 그리 썩 예쁜 계집애는 못된다. 그렇다구 또 개떡이냐 하면 그런 것도 아니고, 꼭 내 아내가 돼야 할 만치 그저 툽툽하게 생긴 얼굴이다.",
+      "author": "김유정",
+      "work": "봄봄 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
+      "technique": "부정 → 부정의 부정 → 착지. 인물 묘사를 양쪽으로 밀었다 가운데 세우는 3단 구조",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
+  },
+  {
+    "day": 27,
+    "doy": 27,
+    "week": 4,
+    "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "내 아들아, 낮에는 즐거이 일에 임하라. 그러나 밤에 우리가 편히 잠들 수 있는 일만 하여라.",
+      "author": "토마스 만",
+      "work": "부덴브로크가의 사람들(Buddenbrooks), 1901",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/34811/pg34811.txt",
+      "technique": "낮과 밤을 짝지어 권유와 제한을 한 문장 안에서 맞물린 대구로 만든다.",
       "isTranslation": true
     },
     "B": {
@@ -681,19 +681,19 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "이 세상에서 사람이 가장 꺼리는 일은 자기 자신에게로 이끄는 그 길을 걷는 일이다.",
-      "author": "헤르만 헤세",
-      "work": "데미안, 1919",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-      "technique": "최상급 부정('가장 꺼리는')으로 통념과 정반대의 결론을 한 문장에 단정한다.",
+      "text": "누군가 요제프 K를 모함한 것이 틀림없었다. 그는 아무 나쁜 짓도 하지 않았는데 어느 날 아침 체포되었기 때문이다.",
+      "author": "프란츠 카프카",
+      "work": "소송(Der Prozess), 1925",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/69327/pg69327.txt",
+      "technique": "추측된 결론을 먼저 단정하고 근거절을 뒤에 붙여 독자를 추론에 끌어들인다.",
       "isTranslation": true
     },
     "B": {
-      "text": "그래도 부족하거든 이다음에 나 같은 사람이 나더라도 할 수만 있는 대로 또 학대해보아라 그러면 서로 미워하는 우리는 영영 작별된다",
-      "author": "김명순",
-      "work": "생명의 과실 - 유언 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/유언",
-      "technique": "가정을 한 단계 더 밀어붙여 극단까지 간 뒤, '그러면'으로 결별을 선언하는 논리 구조.",
+      "text": "귀에 설은 새소리가 새여 들어와 참한 은시계로 자근자근 얻어맞은듯, 마음이 이일 저일 보살필 일로 갈러저, 수은방울처럼 동글 동글 나동그라저, 춥기는 하고 진정 일어나기 싫어라.",
+      "author": "정지용",
+      "work": "「이른봄 아침」, 『정지용 시집』(1935) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/이른봄_아침",
+      "technique": "비유를 두 번(은시계, 수은방울) 겹쳐 마음의 상태를 물질로 바꾼 뒤, 마지막 한 줄에서 아주 평범한 실토로 착지한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -706,22 +706,22 @@
     "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "자기 자신에게 거짓말하고 그 거짓말에 귀 기울이는 사람은, 끝내 자기 안의 진실도 주위의 진실도 분간하지 못하는 지경에 이르고, 그리하여 자신과 남에 대한 존경을 모두 잃는다.",
-      "author": "표도르 도스토옙스키",
-      "work": "카라마조프 형제들 (1880)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
-      "technique": "원인에서 결과로 이어지는 사슬을 한 문장 안에 단계별로 이어 붙여, 파국이 서서히 도착하게 만든다.",
+      "text": "네가 가르치려는 진리가 추상적일수록, 너는 그만큼 더 감각을 그 진리로 꾀어내야 한다.",
+      "author": "프리드리히 니체",
+      "work": "선악의 저편 128절, 1886",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
+      "technique": "'…할수록 …하다' 비례 구문으로 추상과 감각이라는 두 축을 한 문장에 묶는다.",
       "isTranslation": true
     },
     "B": {
-      "text": "이와 같이 나의 창작생활이 계속된다 하면 나는 그 창작이라 하는 것을 내버려서라도 양심의 부끄러움이 없게 하고 싶다.",
-      "author": "나도향",
-      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
-      "technique": "가정-양보-소망의 3단으로 이어, 무엇을 버리고 무엇을 지킬지를 한 문장 안에서 저울질한다.",
-      "isTranslation": false
+      "text": "이것이 진실인지는 물을 필요도 없다. 보름을 위해 거짓말할 가치는 없으니까. 보름의 생이란 그 자체로 가질 값어치가 없고, 그것이야말로 내가 여기 순전한 진실만 쓴다는 증거다.",
+      "author": "표도르 도스토옙스키",
+      "work": "백치 (1869)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2638/pg2638.txt",
+      "technique": "근거를 결론 뒤에 붙이고 그 근거를 다시 근거의 근거로 삼아, 짧은 문장 안에 이중의 논증을 세운다.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W5 「입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기」의 구조 계열."
   },
   {
@@ -731,19 +731,19 @@
     "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "이것이 진실인지는 물을 필요도 없다. 보름을 위해 거짓말할 가치는 없으니까. 보름의 생이란 그 자체로 가질 값어치가 없고, 그것이야말로 내가 여기 순전한 진실만 쓴다는 증거다.",
-      "author": "표도르 도스토옙스키",
-      "work": "백치 (1869)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2638/pg2638.txt",
-      "technique": "근거를 결론 뒤에 붙이고 그 근거를 다시 근거의 근거로 삼아, 짧은 문장 안에 이중의 논증을 세운다.",
+      "text": "이 세상에서 사람이 가장 꺼리는 일은 자기 자신에게로 이끄는 그 길을 걷는 일이다.",
+      "author": "헤르만 헤세",
+      "work": "데미안, 1919",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
+      "technique": "최상급 부정('가장 꺼리는')으로 통념과 정반대의 결론을 한 문장에 단정한다.",
       "isTranslation": true
     },
     "B": {
-      "text": "개 돼지는 푹푹 크는데 왜 이리도 사람은 안 크는지, 한동안 머리가 아프도록 궁리도 해보았다.",
-      "author": "김유정",
-      "work": "봄봄 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
-      "technique": "짐승과 사람을 나란히 놓아 화자의 어리숙함을 설명 없이 드러낸다 — 비교항을 낮게 잡을수록 인물이 살아난다",
+      "text": "반나절 동안 두려움 없이 하늘을 똑바로 쳐다볼 수 있는 사람이란 세상에서도 가장 착한 사람이거나 그렇지 않으면 가장 용기 있는 악한이어야 할 것이다.",
+      "author": "이효석",
+      "work": "들 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%93%A4",
+      "technique": "긴 조건절로 대상을 좁힌 뒤 정반대 두 답을 나란히 내놓는다",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -756,19 +756,19 @@
     "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "당신이 삶을 경멸하는 것은 삶의 의미와 목적이 바로 당신에게만 감춰져 있기 때문이고, 당신은 오직 자기 죽음만을 두려워한다. 그러나 진짜 사색가는 진실이 모두에게 감춰져 있어 불행하고, 모두를 위해 두려워한다.",
-      "author": "안톤 체호프",
-      "work": "불빛 (1888)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/13414/pg13414.txt",
-      "technique": "앞 절과 뒤 절을 같은 문형으로 세우고 주어만 바꿔, 대상을 옮기는 것만으로 비판을 완성한다.",
+      "text": "의심하던 시절에는 그래도 희망이 있었다. 그런데 지금은 희망이 없고, 그러면서도 여전히 모든 것을 의심한다.",
+      "author": "레프 톨스토이",
+      "work": "안나 카레니나 (1877)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+      "technique": "과거와 현재를 같은 두 낱말(희망·의심)로 짝지어 배치해, 상태가 얼마나 나빠졌는지를 설명 없이 드러낸다.",
       "isTranslation": true
     },
     "B": {
-      "text": "당장 지게를 벗어던지고 푸른 그늘에 가 나자빠지고 싶은 생각이 굴뚝 같으련만 그걸 못 하니 짜증이 안 날 수 없다.",
+      "text": "음산한 검은 구름이 하늘에 뭉게뭉게 모여드는 것이 금시라도 비 한줄기 할 듯하면서도 여전히 짓궂은 햇발은 겹겹 산속에 묻힌 외진 마을을 통째로 자실 듯이 달구고 있었다.",
       "author": "김유정",
-      "work": "땡볕 (1937)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/땡볕",
-      "technique": "하고 싶은 것을 길게, 못 하는 이유를 짧게 — 욕망과 제약의 분량 차이가 답답함이 된다",
+      "work": "소낙비 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
+      "technique": "구름과 햇발을 '~하면서도'로 맞물려 한 문장 안에 두 기후를 대립시킨다 — 소설 첫 문장의 표본",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",

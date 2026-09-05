@@ -6,19 +6,19 @@
     "weekTheme": "입동, 다시 겨울 — 처음과 끝 겹치기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "너는 내게 놀라운 것들을 이야기해주는구나. 하지만 무엇보다 놀라운 것은 남자와 여자들이 겪는 고통이다. 비참함보다 더 큰 신비는 없다.",
-      "author": "오스카 와일드",
-      "work": "행복한 왕자",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/902/pg902.txt",
-      "technique": "앞말을 인정한 뒤 '하지만'으로 더 큰 것을 얹고, 마지막에 한 줄로 압축해 닫는다.",
+      "text": "지혜로 움직이면 모가 난다. 정에 삿대를 담그면 떠내려간다. 고집을 부리면 옹색해진다. 아무튼 사람의 세상은 살기 어렵다.",
+      "author": "나쓰메 소세키",
+      "work": "풀베개(草枕)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/776_14941.html",
+      "technique": "같은 꼴의 조건절 셋을 나란히 세우고, 넷째 문장에서 하나로 접어 결론을 낸다",
       "isTranslation": true
     },
     "B": {
-      "text": "아니다, 결코 아니다. 이상하게도 꼬리를 맞물고 덤비는 이 행운 앞에 조금 겁이 났음이다.",
-      "author": "현진건",
-      "work": "운수 좋은 날 (1924)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
-      "technique": "가짜 이유를 먼저 물리치고(부정) 진짜 이유를 뒤에 두면, 진짜 이유가 훨씬 무거워진다.",
+      "text": "콧등이면 콧등, 입술이면 입술, 꼭 앉던 그 자리에 영락없이 돌아와 앉는다.",
+      "author": "계용묵",
+      "work": "「전승지」(수필, 1942) — 수필집 『상아탑』(1955) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/전승지",
+      "technique": "'A면 A, B면 B' 꼴로 낱말을 제자리에서 되풀이해, 집요하게 같은 자리로 돌아오는 동작을 소리로 흉내낸다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -31,19 +31,19 @@
     "weekTheme": "입동, 다시 겨울 — 처음과 끝 겹치기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "천재의 작품에서 우리는 우리가 버린 생각을 알아본다. 그것들은 어딘가 낯설어진 위엄을 두르고 우리에게 돌아온다.",
-      "author": "랄프 왈도 에머슨",
-      "work": "자기신뢰",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/16643/pg16643.txt",
-      "technique": "앞 문장에서 발견을 진술하고, 뒤 문장에서 그것이 오는 '모습'을 이미지로 붙인다.",
+      "text": "그는 인생을 둘러보아도 특별히 갖고 싶은 것이 없었다. 그러나 이 보랏빛 불꽃만은, 저 무시무시한 공중의 불꽃만은 목숨과 바꿔서라도 붙잡고 싶었다.",
+      "author": "아쿠타가와 류노스케",
+      "work": "어느 바보의 일생(或阿呆の一生)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/19_14618.html",
+      "technique": "전부를 먼저 부정한 다음 단 하나만 예외로 남기고, 그 하나를 다시 불러 강조한다",
       "isTranslation": true
     },
     "B": {
-      "text": "상처가 난 데를 메우려는 듯이 사방에서 모여든 물이 바가지 들어갔던 자리를 둥글게 에워싸며 한동안 야료를 치다가 그리 중상은 아니라고 안심한 것같이 너르게 너르게 둘레를 그리며 물러나갔다.",
-      "author": "현진건",
-      "work": "불 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B6%88",
-      "technique": "물의 움직임 전체를 '다친 몸'이라는 하나의 비유로 끝까지 밀고 나가, 비유를 장식이 아니라 뼈대로 쓴다.",
+      "text": "둥글고 커다란 눈은 서글서글하니 좋고 좀 지쳐 찢어졌지만 입은 밥술이나 톡톡히 먹음직하니 좋다.",
+      "author": "김유정",
+      "work": "봄봄 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
+      "technique": "'눈은 ~좋고 / 입은 ~좋다' 같은 어미를 둘로 나란히 두는 대구. 신체 부위를 하나씩 짝지어 배치",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -56,19 +56,19 @@
     "weekTheme": "입동, 다시 겨울 — 처음과 끝 겹치기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "자연의 온갖 기쁨이 우리 둘레에서 그에게는 점점 낯설어지는 언어로 말을 건다. 그는 이제 그 말을 알아들으려는 노력조차 하지 않는다.",
-      "author": "앙드레 지드",
-      "work": "좁은 문",
-      "sourceUrl": "https://fr.wikisource.org/wiki/La_Porte_%C3%A9troite/Texte_entier",
-      "technique": "자연을 말하는 주체로 세운 뒤 '알아듣지 않는다'로 받으면, 단절이 사건처럼 그려진다",
+      "text": "집이 무너져 내가 빠져나가지 못할 것 같았고, 하늘이 내 머리 위로 떨어질 것 같았다. 그러나 아무 일도 없었다. 그런 하찮은 일로 하늘은 떨어지지 않는다.",
+      "author": "조지프 콘래드",
+      "work": "암흑의 핵심",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+      "technique": "과장된 예감을 두 번 쌓고 '아무 일도 없었다'로 꺾은 뒤, 같은 단어(하늘)를 되받아 냉정하게 부정한다.",
       "isTranslation": true
     },
     "B": {
-      "text": "돌을 집어던지면 깨금알같이 오도독 깨어질 듯한 맑은 하늘, 물고기 등같이 푸르다.",
-      "author": "이효석",
-      "work": "산 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%82%B0_(%EC%9D%B4%ED%9A%A8%EC%84%9D)",
-      "technique": "직유를 둘 겹쳐 촉감과 색을 동시에 잡는다",
+      "text": "조금도 다름이 없는 그 집이 그 집이나 마찬가지인 초가이로되 집이면 집마다 다 들어오면서도 빼어놓는 집이 있다.",
+      "author": "계용묵",
+      "work": "「사연」(수필, 1939)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/사연",
+      "technique": "'집'을 네 번 되풀이하며 같음과 다름을 한 문장 안에서 정면으로 부딪치게 한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -81,19 +81,19 @@
     "weekTheme": "입동, 다시 겨울 — 처음과 끝 겹치기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "위기가 닥칠 때마다 그는 원주민들이 그에게 기대하는 대로 해야 한다. 그는 가면을 쓰고, 그의 얼굴은 그 가면에 맞도록 자라난다.",
-      "author": "조지 오웰",
-      "work": "코끼리를 쏘다",
-      "sourceUrl": "https://gutenberg.net.au/ebooks02/0200141.txt",
-      "technique": "설명 한 문장 뒤에 짧은 은유를 붙여 마무리한다 — 논증이 이미지로 착지하는 순간",
+      "text": "그에게 어떤 사건의 의미는 알맹이처럼 안에 있지 않고 바깥에 있었다. 이야기를 감싸고 있다가, 불빛이 안개를 드러내듯 그 이야기에 의해 드러날 뿐이었다.",
+      "author": "조지프 콘래드",
+      "work": "암흑의 핵심",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+      "technique": "'안이 아니라 바깥'으로 통념을 먼저 뒤집고, 그 뒤집은 자리를 다시 직유로 붙잡는다.",
       "isTranslation": true
     },
     "B": {
-      "text": "돈들은 수롱이더러 어디 달려와 보라는 듯이 휙휙 숨바꼭질을 하며 흐른다.",
-      "author": "계용묵",
-      "work": "「백치 아다다」(단편소설, 1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-      "technique": "사물을 주어로 세우고 사람을 목적어로 돌려, 상황의 주도권을 뒤집어 보여준다.",
+      "text": "그런 모욕과 수치는 난생 처음 당하는 봉변으로, 지랄 중에도 몹쓸 지랄이었으나 성공은 성공이었다.",
+      "author": "김유정",
+      "work": "소낙비 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
+      "technique": "길게 양보한 뒤 'A는 A였다'라는 동어반복으로 매듭짓는다 — 설명을 포기함으로써 더 세게 말하는 법",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -106,102 +106,27 @@
     "weekTheme": "잎 진 자리 — 설명 대신 장면",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "틀에 찍어낸 듯한 악인이 세상에 있을 리 없습니다. 평소에는 모두 선인입니다. 그것이 결정적인 순간에 갑자기 악인으로 변하니 무서운 것입니다.",
+      "text": "사람의 세상을 만든 것은 신도 아니고 귀신도 아니다. 역시 앞집 세 채 옆집 두 채에 어른거리는 그저 평범한 사람이다.",
       "author": "나쓰메 소세키",
-      "work": "마음(こころ)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/773_14560.html",
-      "technique": "통념을 먼저 부정하고 짧은 단정으로 뒤집은 뒤, '그것이'로 받아 반전을 터뜨린다",
+      "work": "풀베개(草枕)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/776_14941.html",
+      "technique": "큰 것 둘을 먼저 지워 놓고, 가장 가까운 자리에 있는 것을 답으로 내놓는다",
       "isTranslation": true
     },
     "B": {
-      "text": "지금 거울 앞에서 아침 넥타이를 매며 역시 오늘밤에도 비어 있을 꺼어먼 자리를 보고 섰습니다.",
-      "author": "정지용",
-      "work": "「예양(禮讓)」 산문, 시집 『백록담』(1941) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/예양",
-      "technique": "결론을 말하지 않고 현재형 동작 하나로 멈춰 세운다. 과거를 회상하던 글을 '지금 ~섰습니다'로 끊어 여운을 만든다.",
-      "isTranslation": false
+      "text": "항구는 기꺼이 도우려 한다. 항구는 자애롭다. 항구에는 안전과 안락과 화롯가와 저녁과 따뜻한 담요와 친구들이 있다. 그러나 그 폭풍 속에서 항구는, 뭍은, 그 배의 가장 큰 위험이다.",
+      "author": "허먼 멜빌",
+      "work": "모비 딕",
+      "sourceUrl": "https://www.gutenberg.org/files/2701/2701-0.txt",
+      "technique": "같은 낱말을 주어로 세 번 반복하며 좋은 것을 쌓아 올린 뒤, '그러나' 한 번으로 그 전부를 위험으로 뒤집는다.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
   },
   {
     "day": 6,
     "doy": 310,
-    "week": 45,
-    "weekTheme": "잎 진 자리 — 설명 대신 장면",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "기억해 주십시오. 당신이 아는 나는 먼지에 더럽혀진 뒤의 나입니다. 더러워진 햇수가 많은 사람을 선배라 부른다면, 나는 분명 당신보다 선배일 것입니다.",
-      "author": "나쓰메 소세키",
-      "work": "마음(こころ)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/773_14560.html",
-      "technique": "명령형 한 문장으로 주의를 붙든 뒤, 흔한 낱말의 뜻을 새로 정의해 뒤집는다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "구기여지는것 젖는것이 아조 싫다. 파라솔 같이 채곡 접히기만 하는것은 언제든지 파라솔 같이 펴기 위하야-",
-      "author": "정지용",
-      "work": "「파라솔」 시, 시집 『백록담』(1941) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/파라솔",
-      "technique": "닫히는 행위의 이유를 열리는 행위에 둔다. 게다가 문장을 끝내지 않고 '-위하야-'로 멈춰 목적을 미완인 채 남긴다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
-  },
-  {
-    "day": 7,
-    "doy": 311,
-    "week": 45,
-    "weekTheme": "잎 진 자리 — 설명 대신 장면",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "태평해 보이는 사람들도 마음 밑바닥을 두드려 보면 어딘가 슬픈 소리가 난다.",
-      "author": "나쓰메 소세키",
-      "work": "나는 고양이로소이다(吾輩は猫である)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/789_14547.html",
-      "technique": "마음을 두드릴 수 있는 물건처럼 다뤄, 보이지 않는 것을 소리로 바꿔 놓는다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "어느 산골엘 가 호미를 잡아보아도 정은 조그만치도 안 붙었고, 거기에는 오직 쌀쌀한 불안과 굶주림이 품을 벌려 그를 맞을 뿐이었다.",
-      "author": "김유정",
-      "work": "소낙비 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
-      "technique": "'불안과 굶주림이 품을 벌려' — 추상명사에 팔을 달아 사람처럼 마중 나오게 한다",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
-  },
-  {
-    "day": 8,
-    "doy": 312,
-    "week": 45,
-    "weekTheme": "잎 진 자리 — 설명 대신 장면",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "이야기란 멀리서 들을 때는 언제나 충분히 선명하다가도, 사건의 현장에 가까이 갈수록 점점 흐릿해진다.",
-      "author": "조지 오웰",
-      "work": "코끼리를 쏘다",
-      "sourceUrl": "https://gutenberg.net.au/ebooks02/0200141.txt",
-      "technique": "'~할수록 ~해진다'의 반비례 구문 하나로 통념을 뒤집는다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "불행히 불은 예까지는 오기 전에 꺼졌다. 그 좋은 불구경이 너무 하잘것없이 끝난 것도 섭섭했지만, 그와는 달리 무엇이라고 형언할 수 없는 적막을 느꼈다.",
-      "author": "이상",
-      "work": "조춘점묘 (1936, 매일신보)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/조춘점묘",
-      "technique": "부사 '불행히' 하나로 상식을 뒤집고, '섭섭했지만 / 그와는 달리'로 감정을 두 겹으로 갈라놓는다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
-  },
-  {
-    "day": 9,
-    "doy": 313,
     "week": 45,
     "weekTheme": "잎 진 자리 — 설명 대신 장면",
     "techniqueFamily": "묘사",
@@ -214,11 +139,86 @@
       "isTranslation": true
     },
     "B": {
-      "text": "그이를 찾아서 해 저문 나라에, 커다란 거리에, 나아갔었더니 지나가는 나그네의 꼬임수에 흔하게 싸게 파는 궂은 설움을 멋없이 이렇게 사 가졌노라.",
-      "author": "홍사용",
-      "work": "해 저문 나라에 (1923)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/해_저문_나라에",
-      "technique": "설움을 거리에서 값싸게 사 온 물건으로 바꿔, 감정을 거래의 결과물로 사물화한다.",
+      "text": "눈을 감으면 밤도 아니고 낮도 아니고 남빛 안개 속의 조약돌 길 위를 한 처녀 거지가 무엇을 찾는 듯이 앞을 바라보고 뒤를 돌아다보고 새파랗게 질려서 보인다",
+      "author": "김명순",
+      "work": "생명의 과실 - 분신 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/분신",
+      "technique": "양쪽을 다 부정해 배경의 시간을 지운 뒤 인물 하나만 세워, 꿈의 문법으로 장면을 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
+  },
+  {
+    "day": 7,
+    "doy": 311,
+    "week": 45,
+    "weekTheme": "잎 진 자리 — 설명 대신 장면",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "부끄러움 많은 생애를 보내 왔습니다. 저에게는 인간의 생활이라는 것이 도무지 짐작이 가지 않습니다.",
+      "author": "다자이 오사무",
+      "work": "인간 실격(人間失格)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
+      "technique": "고백 한 줄로 생애 전체를 요약한 뒤, 다음 줄에서 그 이유를 모른다고 밝혀 판단을 유보한다",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "라일락 향기는 유난스럽게 진하고 세어서 한포기 덤불의 향기가 집 구석구석에 배어 뒤꼍에서나 방안에서까지도 가장 가까운 곳에서 흘러오듯 코 끝에 찰락거린다.",
+      "author": "이효석",
+      "work": "「화분(花粉)」(장편소설, 1939) — 《조광》 1월부터 연재",
+      "sourceUrl": "https://ko.wikisource.org/wiki/화분",
+      "technique": "'한포기'에서 '집 구석구석'으로 범위를 넓혔다가 '코 끝'으로 다시 좁혀, 향기의 이동 경로를 따라간다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
+  },
+  {
+    "day": 8,
+    "doy": 312,
+    "week": 45,
+    "weekTheme": "잎 진 자리 — 설명 대신 장면",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "황금빛 반짝임 속에서 해가 떠올라, 파도 위로 작은 물방울처럼 불꽃을 흘렸다. 누군가 지나가면서 들통에서 빛을 흘리고 간 것처럼.",
+      "author": "D.H. 로렌스",
+      "work": "아들과 연인",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/217/pg217.txt",
+      "technique": "가장 큰 것(일출)을 들통에서 흘린 액체라는 생활 규모의 직유로 줄여, 우주적 사건을 손에 잡히게 만든다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "장미꽃 처럼 곱게 피여 가는 화로에 숯불, 입춘때 밤은 마른풀 사르는 냄새가 난다.",
+      "author": "정지용",
+      "work": "「석류」, 『정지용 시집』(1935) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/향수/석류",
+      "technique": "앞절은 눈으로 뒷절은 코로 받아, 같은 대상을 두 감각에 나눠 담는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
+  },
+  {
+    "day": 9,
+    "doy": 313,
+    "week": 45,
+    "weekTheme": "잎 진 자리 — 설명 대신 장면",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "장미는 하룻밤 사이에 수백 송이가, 그야말로 수백 송이가 피어났다. 초록 덤불들은 대천사가 다녀가기라도 한 듯 고개를 숙이고 있었다.",
+      "author": "캐서린 맨스필드",
+      "work": "가든 파티",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1429/pg1429.txt",
+      "technique": "수치를 한 번 되풀이해 과장한 뒤, 그 과장을 종교적 직유로 받아 문장 안에서 정당화한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "죽은 사람에게서뿐 볼 수 있는 해쓱한 얼굴이 경련적으로 떨며 절망한 어조로 소근거렸다.",
+      "author": "현진건",
+      "work": "술 권하는 사회 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%88%A0_%EA%B6%8C%ED%95%98%EB%8A%94_%EC%82%AC%ED%9A%8C",
+      "technique": "사람이 아니라 '얼굴'을 말하는 주체로 세워, 인물이 이미 반쯤 무너졌음을 문법으로 보여 준다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -231,22 +231,22 @@
     "weekTheme": "잎 진 자리 — 설명 대신 장면",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "그는 장미 잎 냄새가 나는 회의주의를 베개 삼아, 아나톨 프랑스의 책을 읽고 있었다.",
-      "author": "아쿠타가와 류노스케",
-      "work": "어느 바보의 일생(或阿呆の一生)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/19_14618.html",
-      "technique": "추상 명사에 냄새를 입히고 베개로 바꿔, 사상을 만질 수 있는 물건으로 만든다",
+      "text": "사람들은 기차를 탄다고 말한다. 나는 실린다고 말한다. 사람들은 기차로 간다고 말한다. 나는 운반된다고 말한다.",
+      "author": "나쓰메 소세키",
+      "work": "풀베개(草枕)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/776_14941.html",
+      "technique": "같은 사실을 남의 말과 내 말로 번갈아 두 번 놓아, 동사 하나만 바꿔 관점을 뒤집는다",
       "isTranslation": true
     },
     "B": {
-      "text": "육신이 흐느적흐느적하도록 피로했을 때만 정신이 은화처럼 맑소. 니코틴이 내 횟배 앓는 뱃속으로 스미면 머릿속에 으레 백지가 준비되는 법이오.",
-      "author": "이상",
-      "work": "날개 (1936, 조광)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/날개",
-      "technique": "몸과 정신을 반대로 놓고, '은화처럼'·'백지'라는 사물 비유로 추상적 상태를 만질 수 있게 만든다.",
-      "isTranslation": false
+      "text": "최고의 시절이었고, 최악의 시절이었다. 지혜의 시대였고, 어리석음의 시대였다. 믿음의 시기였고, 불신의 시기였다. 빛의 계절이었고, 어둠의 계절이었다. 희망의 봄이었고, 절망의 겨울이었다.",
+      "author": "찰스 디킨스",
+      "work": "두 도시 이야기",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/98/pg98.txt",
+      "technique": "같은 문형을 반복하면서 짝이 되는 반대말만 갈아 끼워, 설명 없이 열거만으로 한 시대의 모순을 증명하는 법.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
   },
   {
@@ -256,19 +256,19 @@
     "weekTheme": "잎 진 자리 — 설명 대신 장면",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "이제 그만 멈추어야 할 때다. 그 음료의 효력은 줄어드는 듯하다. 내가 찾는 진실이 그 안에 있지 않고 내 안에 있다는 것은 분명하다.",
-      "author": "마르셀 프루스트",
-      "work": "잃어버린 시간을 찾아서 1: 스완네 집 쪽으로",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2650/pg2650.txt",
-      "technique": "'A가 아니라 B'의 자리 이동으로 탐색의 방향을 바깥에서 안으로 한 번에 돌린다",
+      "text": "별들은 우리 사과나무의 사과 같아. 대부분은 훌륭하고 성하지만, 몇 개는 병들었어. — 우리는 어느 쪽에 살아, 훌륭한 쪽이야 병든 쪽이야? — 병든 쪽이야.",
+      "author": "토머스 하디",
+      "work": "테스",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/110/pg110.txt",
+      "technique": "우주를 나무 한 그루로 줄여 놓고, 아이의 질문을 그 비유 안으로 끌어들여 세 글자로 답하게 한다.",
       "isTranslation": true
     },
     "B": {
-      "text": "텐트같은 하늘이 무너져 이 거리를 덮을가 궁금하면서 좀더 높은데로 올라가고 싶다.",
-      "author": "윤동주",
-      "work": "하늘과 바람과 별과 시 中 「산상(山上)」 (1936년 작, 1955년 증보판 수록)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/산상",
-      "technique": "무너질까 하는 불안을 먼저 적어 놓고 같은 문장 안에서 더 높이 가고 싶다고 뒤집는다.",
+      "text": "텅 빈 뱃가죽은 등에 가 붙고 입안과 목안은 송정으로 붙인 것 같이 입맛을 다시면 찢어지는 것 같이 따가웠다.",
+      "author": "백신애",
+      "work": "적빈 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A0%81%EB%B9%88",
+      "technique": "'배고프다'를 쓰지 않고 배·입·목 세 곳의 감각으로 나눠 적어 굶주림을 몸으로 옮긴다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -281,22 +281,22 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "그는 인생을 둘러보아도 특별히 갖고 싶은 것이 없었다. 그러나 이 보랏빛 불꽃만은, 저 무시무시한 공중의 불꽃만은 목숨과 바꿔서라도 붙잡고 싶었다.",
-      "author": "아쿠타가와 류노스케",
-      "work": "어느 바보의 일생(或阿呆の一生)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/19_14618.html",
-      "technique": "전부를 먼저 부정한 다음 단 하나만 예외로 남기고, 그 하나를 다시 불러 강조한다",
+      "text": "내 성미는 아마 뒤끝 있다는 말을 들을 겁니다. 한번 잃은 내 호감은 영영 잃은 것이니까요.",
+      "author": "제인 오스틴",
+      "work": "오만과 편견",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+      "technique": "같은 동사('잃다')를 앞뒤에 겹쳐 놓아, 성격 진술을 판결문처럼 닫아 버리는 압축.",
       "isTranslation": true
     },
     "B": {
-      "text": "떠받는 名鼓인듸 잔가락 온통 잊으오 떡 궁! 動中靜이오 소란속에 고요 있어 人生이 가을같이 익어가오",
-      "author": "김영랑",
-      "work": "「북」, 『영랑시선』(1949) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/영랑시선/북",
-      "technique": "'떡 궁!'이라는 의성어 하나를 던진 직후에 '動中靜'이라는 추상 명제를 붙인다. 소리에서 사유로 곧장 건너뛰는 도약.",
+      "text": "창을 열고 눕다. 창을 열어야 하눌이 들어오기에. 벗었던 안경을 다시 쓰다. 일식이 개이고난 날 밤 별이 더욱 푸르다.",
+      "author": "정지용",
+      "work": "「별」 시, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/별",
+      "technique": "동작 한 줄, 이유 한 줄을 번갈아 놓는다. 이유를 뒤에 놓았기 때문에 앞 동작이 매번 다시 읽힌다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "외국↔한국",
     "why": "W46 「소설(小雪), 안으로 드는 계절 — 남의 말 들이기」의 압축 계열."
   },
   {
@@ -306,22 +306,22 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "부끄러움 많은 생애를 보내 왔습니다. 저에게는 인간의 생활이라는 것이 도무지 짐작이 가지 않습니다.",
-      "author": "다자이 오사무",
-      "work": "인간 실격(人間失格)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
-      "technique": "고백 한 줄로 생애 전체를 요약한 뒤, 다음 줄에서 그 이유를 모른다고 밝혀 판단을 유보한다",
+      "text": "제 철학을 조금 배우셔야겠어요. 지난 일은 그 기억이 당신에게 기쁨을 주는 만큼만 생각하세요.",
+      "author": "제인 오스틴",
+      "work": "오만과 편견",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+      "technique": "조건절을 늘어놓지 않고 '~하는 만큼만'이라는 한정어 하나로 기억 전체를 재단하는 압축 명령.",
       "isTranslation": true
     },
     "B": {
-      "text": "학교를 맞추던 해 정히와 도망갈 약속을 어기든 일, 별로 맘이 내키지도 않는 것을 어머니가 몇 번 타이른다고 그냥 시집갈 궁리를 하든 일, 생각하면 아무리 제가 한 일이래도 모도 지랄같다.",
-      "author": "지하련",
-      "work": "결별(訣別), 1940",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%B0%EB%B3%84",
-      "technique": "'~하던 일'을 나열해 과거를 목록으로 늘어놓고, 마지막 한마디로 그 전부를 후려친다.",
+      "text": "이렇게 숨결이 꼭마저사만 이룬 일이란 人生에 흔치않어 어려운일 시원한일 소리를 떠나서야 북은 오직 가죽일뿐",
+      "author": "김영랑",
+      "work": "「북」, 『영랑시선』(1949) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/영랑시선/북",
+      "technique": "'어려운일 시원한일'처럼 상반된 평가를 조사 없이 붙여 판단을 겹쳐 놓고, 다음 행에서 '떠나서야 -일뿐'으로 관계의 조건을 못 박는다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "외국↔한국",
     "why": "W46 「소설(小雪), 안으로 드는 계절 — 남의 말 들이기」의 압축 계열."
   },
   {
@@ -331,22 +331,22 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "나는 생각했다. 희망이란 본래 있다고도 없다고도 할 수 없는 것이다. 이는 땅 위의 길과 같아서, 사실 땅에는 본래 길이 없었다. 걷는 사람이 많아지면 그것이 곧 길이 되는 것이다.",
-      "author": "루쉰",
-      "work": "고향(故鄉)",
-      "sourceUrl": "https://zh.wikisource.org/wiki/%E6%95%85%E9%84%89",
-      "technique": "추상어를 '있다/없다' 양쪽에서 지운 뒤, 길이라는 구체물로 옮겨 답을 만들어 낸다",
+      "text": "내게 인생은 미움을 품어 기르거나 잘못을 장부에 적어 두기에는 너무 짧아 보여.",
+      "author": "샬럿 브론테",
+      "work": "제인 에어",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1260/pg1260.txt",
+      "technique": "감정을 '기르다', '적어 두다'라는 노동 동사로 바꿔, 원한이 저절로 남는 게 아니라 품이 드는 일임을 드러내는 동사 선택.",
       "isTranslation": true
     },
     "B": {
-      "text": "갑자기 방 안이 텅 비어지니 쌀쌀한 바람결이 쇠창살을 흔들며 그 방을 얼음 무덤같이 적막하게 하였습니다.",
-      "author": "백신애",
-      "work": "꺼래이 (1934)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%BA%BC%EB%9E%98%EC%9D%B4",
-      "technique": "사람이 빠진 자리를 바람과 소리로 채운 뒤 '얼음 무덤'으로 봉해, 부재를 감각으로 만든다.",
+      "text": "그러나 내가 자살하지 아니하면 그가 자살할 수 없음을 그는 내게 가르친다. 거울속의 나는 불사조에 가깝다.",
+      "author": "이상",
+      "work": "오감도 시제15호 (1934, 조선중앙일보) — 위키문헌 현대 표기본",
+      "sourceUrl": "https://ko.wikisource.org/wiki/오감도",
+      "technique": "빠져나갈 수 없는 순환 조건문을 세운 뒤, 한 낱말(불사조)로 결론을 압축해 못을 박는다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "외국↔한국",
     "why": "W46 「소설(小雪), 안으로 드는 계절 — 남의 말 들이기」의 압축 계열."
   },
   {
@@ -356,22 +356,22 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "나는 그들이 다시 나처럼 서로 벽을 두고 멀어지지 않기를 바란다. 그들은 새로운 삶을 가져야 한다, 우리가 아직 살아 보지 못한 삶을.",
-      "author": "루쉰",
-      "work": "고향(故鄉)",
-      "sourceUrl": "https://zh.wikisource.org/wiki/%E6%95%85%E9%84%89",
-      "technique": "바람을 부정형으로 먼저 말한 뒤, 긍정형 한 문장을 도치해 붙여 여운을 남긴다",
+      "text": "얼굴이 화끈거리고, 온몸이 타고, 몸서리가 난다. 이 저주받을 짓을 적어 내려가는 지금 이 순간에도.",
+      "author": "에드거 앨런 포",
+      "work": "검은 고양이",
+      "sourceUrl": "https://www.gutenberg.org/files/2148/2148-0.txt",
+      "technique": "짧은 동사절 셋을 붙여 감정을 3연타로 쌓고, 마지막에 '지금'을 놓아 과거를 현재로 끌어온다.",
       "isTranslation": true
     },
     "B": {
-      "text": "별똥 떨어진 데가 내가 갈곳인가 보다. 하면 별똥아! 꼭 떨어져야할 곳에 떨어져야 한다.",
-      "author": "윤동주",
-      "work": "하늘과 바람과 별과 시 中 산문 「별똥 떨어진데」 (1955년 증보판 수록)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/별똥_떨어진데",
-      "technique": "앞 문장을 '하면'으로 받아 짐작을 명령으로 바꿔, 우연을 스스로의 결심으로 전환한다.",
-      "isTranslation": false
+      "text": "바깥의 것들은 사람에게 칠해진 겉칠일 뿐이다. 나는 나의 하늘이고 나의 지옥이다.",
+      "author": "프리드리히 실러",
+      "work": "군도 (5막, 프란츠 폰 모어의 독백)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/47804/pg47804.txt",
+      "technique": "외부 세계를 한 문장으로 축소해 치운 다음, 정반대의 두 극을 한 주어 안에 몰아넣어 문장을 닫는다.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "서양↔동양",
     "why": "W46 「소설(小雪), 안으로 드는 계절 — 남의 말 들이기」의 압축 계열."
   },
   {
@@ -381,22 +381,22 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "아Q는 잠시 서 있다가 마음속으로 생각했다. '나는 그래도 아들놈에게 맞은 셈이지. 요즘 세상은 정말 꼴이 아니야.' 그러고는 그 역시 흡족하게, 이긴 사람처럼 걸어갔다.",
-      "author": "루쉰",
-      "work": "아Q정전(阿Q正傳)",
-      "sourceUrl": "https://zh.wikisource.org/wiki/%E9%98%BF%EF%BC%B1%E6%AD%A3%E5%82%B3",
-      "technique": "속마음을 그대로 인용한 뒤 곧바로 어긋나는 행동을 붙여, 인물을 저절로 우습게 만든다",
+      "text": "대체 무슨 일이 있었던 거지? 그 뒤로 백 년쯤 지난 것 같은데, 아직 두 시간도 안 됐을 것이다.",
+      "author": "아르투어 슈니츨러",
+      "work": "구스틀 소위",
+      "sourceUrl": "http://www.zeno.org/Literatur/M/Schnitzler,+Arthur/Erz%C3%A4hlungen/Leutnant+Gustl",
+      "technique": "체감 시간과 실제 시간을 한 문장에 맞붙여, 숫자 둘만으로 충격의 크기를 잰다.",
       "isTranslation": true
     },
     "B": {
-      "text": "작다고 믿었던 자기의 힘이 철통 같은 성벽을 무너뜨리고 자기의 요구를 채울 때 사람은 무한한 기쁨과 충동을 받는다.",
-      "author": "최서해",
-      "work": "홍염 (1927, 조선문단)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
-      "technique": "개인의 장면에서 '사람은'이라는 일반 주어로 갈아타, 사건을 곧바로 명제로 끌어올린다.",
+      "text": "불행이 아니면 하루도 살 수 없는 '그런 인간'에게 행복이 오면 큰일 나오. 아마 즉사할 것이오. 협심증으로―",
+      "author": "이상",
+      "work": "김기림에게 1 (1936, 편지)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/김기림에게_1",
+      "technique": "역설을 세운 뒤 문장을 점점 짧게 끊고 마지막에 낱말 하나만 던져, 농담의 박자를 만든다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "외국↔한국",
     "why": "W46 「소설(小雪), 안으로 드는 계절 — 남의 말 들이기」의 압축 계열."
   },
   {
@@ -406,22 +406,22 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "나에게 해방은 버림 속에 있지 않다. 나는 천 겹의 기쁜 결박 속에서 자유의 품을 느낀다.",
-      "author": "라빈드라나트 타고르",
-      "work": "기탄잘리(Gitanjali) 73",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7164/pg7164.txt",
-      "technique": "통념을 한 줄로 부정한 뒤, 반대말 둘을 한 구절에 붙여 놓아 역설을 완성한다",
+      "text": "그러나 펜을 손에서 내려놓자 모든 것이 끝나 있었다. 말하자면 그의 정신은 움직이는 동안에만 살아 있었다.",
+      "author": "로베르트 무질",
+      "work": "생도 퇴를레스의 혼란",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/34717/pg34717.txt",
+      "technique": "구체적 동작 하나로 장면을 끊고, 이어지는 절에서 그 동작을 한 줄 정의로 바꿔 놓는다.",
       "isTranslation": true
     },
     "B": {
-      "text": "하늘이 이마에 와 닿어 있다. 실로 청옥같이 푸르고 넓은, 그것은 무한한 것이었다. 그러나 곳 그것은 하늘이 아니라 강물의 착각이었다.",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "감각을 먼저 충분히 믿게 만든 다음 한 문장으로 그것을 착각이라 뒤집는 반전.",
+      "text": "몇 달 만에야 한 번, 몇 해 만에야 한 번 집안으로 기어드는 자식은 자식이 아니요 손님이다.",
+      "author": "현진건",
+      "work": "사립 정신병원장",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%82%AC%EB%A6%BD_%EC%A0%95%EC%8B%A0%EB%B3%91%EC%9B%90%EC%9E%A5",
+      "technique": "같은 꼴의 구절을 두 번 얹어 조건을 쌓고, 'A가 아니요 B다'로 단호히 정의한다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "contrastAxis": "외국↔한국",
     "why": "W46 「소설(小雪), 안으로 드는 계절 — 남의 말 들이기」의 압축 계열."
   },
   {
@@ -431,19 +431,19 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "영혼을 낫게 할 수 있는 것은 감각뿐이다. 감각을 낫게 할 수 있는 것이 영혼뿐인 것과 똑같이.",
-      "author": "오스카 와일드",
-      "work": "도리언 그레이의 초상",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/174/pg174.txt",
-      "technique": "두 단어의 자리를 맞바꿔 같은 문장을 되풀이하는 교차 대구(키아스무스).",
+      "text": "아니, 아니, 이것도 작지만 목숨 있는 것임에 틀림없다. 그 목숨을 함부로 빼앗는다는 것은 아무리 그래도 가엾은 일이다.",
+      "author": "아쿠타가와 류노스케",
+      "work": "거미줄(蜘蛛の糸)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/92_14545.html",
+      "technique": "부정을 두 번 반복해 발을 멈추고, 대상을 다시 정의한 뒤 판단을 뒤집는다",
       "isTranslation": true
     },
     "B": {
-      "text": "주먹을 부르쥔 채 우상같이 서서 굼실거리는 물결만 그저 뚫어져라 쏘아보고 섰는 수롱이는 그 물 속에 영원히 잠들려는 아다다를 못 잊어 함인가? 그렇지 않으면 흘러 버린 그 돈이 차마 아까워서인가?",
-      "author": "계용묵",
-      "work": "「백치 아다다」(단편소설, 1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-      "technique": "답하지 않는 두 개의 질문을 나란히 던져 놓고 판단을 끝내 독자에게 넘긴다.",
+      "text": "개나리가 지더니 찔레꽃 봉오리가 연지같이 진하게 맺혔고 라일락이 만발했다.",
+      "author": "이효석",
+      "work": "「화분(花粉)」(장편소설, 1939) — 《조광》 1월부터 연재",
+      "sourceUrl": "https://ko.wikisource.org/wiki/화분",
+      "technique": "꽃 이름 셋만으로 계절이 넘어가는 시간을 재고, 설명하는 말을 한 마디도 쓰지 않는다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -456,19 +456,19 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "해야 할 말을 하라. 해야 마땅한 말 말고. 어떤 진실이든 그럴듯한 거짓보다는 낫다.",
-      "author": "헨리 데이비드 소로",
-      "work": "월든",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/205/pg205.txt",
-      "technique": "비슷해 보이는 두 표현을 나란히 놓고 한쪽만 잘라내 뜻을 벼린다.",
+      "text": "그러나 내내 그녀는 아무 차이도 없는 곳에서 구분을 만들고 있었다. 자기가 맞서 있다고 느끼는 동안, 그녀는 완전히 어울려 있었다.",
+      "author": "토머스 하디",
+      "work": "테스",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/110/pg110.txt",
+      "technique": "맞선다/어울린다처럼 정반대인 두 말을 한 문장 안에 붙여, 인물의 착각을 문법 구조 자체로 보여준다.",
       "isTranslation": true
     },
     "B": {
-      "text": "시집으로 간다하였으나 아무리 생각해도 남편의 매는 어머니의 그것보다 무섭다. 그러면 다시 집으로 돌아가나? 이번에는 외상없는 매가 떨어질 것 같다. 어디로 가야 하나?",
+      "text": "바람이 살랑거리니 바깥보다는 방안이 한결 좋다. 밤의 방안은 더욱이 마음에 든다.",
       "author": "계용묵",
-      "work": "「백치 아다다」(단편소설, 1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-      "technique": "묻고 답하고 다시 묻는 자문자답으로, 인물의 막다른 사고를 실시간처럼 보여준다.",
+      "work": "「방서한」(수필, 1948) — 수필집 『상아탑』(1955) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/방서한",
+      "technique": "'바깥/방안'으로 한 번 좁힌 뒤 '밤의 방안'으로 한 번 더 좁혀, 두 문장 만에 글의 무대를 확정한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -481,22 +481,22 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "성공은 한 번도 성공해보지 못한 이들이 가장 달게 여긴다. 꿀맛을 알아보려면 가장 아픈 목마름이 필요하다.",
-      "author": "에밀리 디킨슨",
-      "work": "시편 '성공'",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
-      "technique": "역설을 한 줄로 세운 뒤, 다음 줄에서 감각적 비유로 그 역설을 증명한다.",
+      "text": "그는 그저 어스름 속에서 그날그날의 생활을 하고 있었다. 말하자면 날이 다 나가 버린 가느다란 검을 지팡이 삼아.",
+      "author": "아쿠타가와 류노스케",
+      "work": "어느 바보의 일생(或阿呆の一生)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/19_14618.html",
+      "technique": "문장을 끝낸 뒤 비유 하나를 도치해 뒤에 붙여, 마지막 이미지가 오래 남게 한다",
       "isTranslation": true
     },
     "B": {
-      "text": "한 개의 예술이 완성되기까지에는 그 노력이 헐한 것이 아니듯이 이 수박을 가꾸는 노력도 참으로 헐한 것이 아니었다.",
-      "author": "계용묵",
-      "work": "「수박」(수필, 1949)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/수박",
-      "technique": "'~이 아니듯이 ~도 아니었다'로 원관념과 보조관념을 똑같은 부정형에 태워 나란히 간다.",
-      "isTranslation": false
+      "text": "이 글을 읽는 당신, 잠시 멈추어 보라. 쇠사슬이든 금사슬이든, 가시든 꽃이든, 그 긴 사슬이 당신을 묶은 것은 어느 잊지 못할 하루에 첫 고리가 만들어졌기 때문이다.",
+      "author": "찰스 디킨스",
+      "work": "위대한 유산",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1400/pg1400.txt",
+      "technique": "독자를 문장 안으로 호명한 뒤, 상반된 재료를 짝으로 나열해 '사슬' 하나의 은유로 수렴시키는 확장 비유.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W47 「첫눈 — 나열로 글 한 편」의 구조 계열."
   },
   {
@@ -506,19 +506,19 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "많은 광기는 눈 밝은 이에게는 더없는 분별이고, 많은 분별은 가장 지독한 광기다.",
-      "author": "에밀리 디킨슨",
-      "work": "시편 'Much madness'",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
-      "technique": "두 단어의 자리를 맞바꿔 같은 구조를 그대로 뒤집는 교차 대구.",
+      "text": "경험이란 강도의 문제이지 지속의 문제가 아니라는 것을 그에게 일깨워 줄 것은 아무것도 없었다. 테스가 몸으로 지나온 흉작이 그녀의 정신에는 수확이었다.",
+      "author": "토머스 하디",
+      "work": "테스",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/110/pg110.txt",
+      "technique": "흉작과 수확이라는 한 쌍의 농사말로, 몸과 정신을 맞바꿔 배치한다.",
       "isTranslation": true
     },
     "B": {
-      "text": "이십 대엔 스스로 절 어떤 비범한 특수 인간으로 설정하고 싶어서였고, 삼십 대에 와서는 모든 신망을 한 몸에 뫃은 가장 양심적인 인간으로 자처하고 싶어서였고",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "연대기를 '~대엔 ~였고'로 두 칸 끊어 자기 허영의 목록을 담담하게 만든다.",
+      "text": "'눈깔사탕'의 깜찍스럽고 무미한 어감에 비하여 '댕구알'이 풍기는 해학적인 여운이 여간 구수하지 않습니다.",
+      "author": "이상",
+      "work": "아름다운 조선말 (1936, 중앙)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/아름다운_조선말",
+      "technique": "두 낱말을 같은 저울에 올려 뜻이 아니라 어감만으로 견주는, '말맛 비평'의 기본 문형.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -531,19 +531,19 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "말은 뱉는 순간 죽는다고 어떤 이들은 말한다. 나는 말한다, 말은 바로 그날 살기 시작한다고.",
-      "author": "에밀리 디킨슨",
-      "work": "시편 '한 마디 말'",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
-      "technique": "남의 말을 먼저 인용하고, 같은 문형으로 정반대를 말해 그대로 되받는다.",
+      "text": "자만과 허영은 다르다. 자만은 우리가 우리 자신을 어떻게 보느냐에 더 가깝고, 허영은 남들이 우리를 어떻게 봐주기를 바라느냐에 가깝다.",
+      "author": "제인 오스틴",
+      "work": "오만과 편견",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+      "technique": "혼동되는 두 낱말을 나란히 세우고, 뒤 절에서 서술어를 생략해 대구를 팽팽하게 조이는 정의법.",
       "isTranslation": true
     },
     "B": {
-      "text": "유리관 속에 춤추면 살 줄 믿고 이 아련한 서러움 속에서 일하고 공부하고 사랑하면 재미나게 살 수 있다기에 미덥지 않는 세상에 살아왔었다.",
-      "author": "김명순",
-      "work": "생명의 과실 - 유리관 속에 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/유리관_속에",
-      "technique": "'~기에'로 남의 말을 인용해 근거로 삼은 뒤, 마지막 술어에서 그 근거를 불신으로 되돌린다.",
+      "text": "다들 죽어가는 사람들에게 검은 옷을 입히시요. 다들 살어가는 사람들에게 흰 옷을 입히시요.",
+      "author": "윤동주",
+      "work": "하늘과 바람과 별과 시 中 「새벽이 올때까지」 (1941년 작, 1948년 시집 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1948년)/새벽이_올_때까지",
+      "technique": "죽어가는/살어가는, 검은/흰을 짝지어 완전한 대구 두 줄로 세계를 둘로 가른다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -556,19 +556,19 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "우리가 이해하고 사랑하는 것은, 그것 또한 우리를 이해하고 우리를 사랑한다.",
-      "author": "로베르트 발저",
-      "work": "산책",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
-      "technique": "주어와 목적어를 뒤바꿔 같은 동사를 되돌려주면(A가 B를 → B도 A를) 한 문장이 거울처럼 닫힌다",
+      "text": "나는 평생 이기적인 인간이었습니다. 원칙에서가 아니라 실제 행동에서. 어릴 때 나는 무엇이 옳은지는 배웠지만, 내 성미를 고치는 법은 배우지 못했습니다.",
+      "author": "제인 오스틴",
+      "work": "오만과 편견",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+      "technique": "인정한 뒤 곧바로 범위를 좁히는 단서(但書)를 붙여, 고백을 변명이 아니라 자기 해부로 만드는 법.",
       "isTranslation": true
     },
     "B": {
-      "text": "나는 곧 그들에게 침이라도 뱉고 싶었다. 하되 나의 마음을 냉정하게 살펴본즉 슬프다! 나에게는 그들을 모욕할 권리가 없었다.",
-      "author": "현진건",
-      "work": "할머니의 죽음 (1923)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%95%A0%EB%A8%B8%EB%8B%88%EC%9D%98_%EC%A3%BD%EC%9D%8C",
-      "technique": "남을 향하던 칼끝을 문장 중간에서 자기에게 돌린다. 분노, 점검, 자백의 3단 구성.",
+      "text": "주린 이의 입에서 굴러서 눈먼 이의 손길에 부서지는 것아 내 마음에서 사라져라 오오 ‘사랑’이란 거짓말아!",
+      "author": "김명순",
+      "work": "생명의 과실 - 저주 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/저주",
+      "technique": "앞 연들에 흩어 놓았던 이미지를 마지막 연에서 다시 모아 압축 회수하는 마무리법.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -581,22 +581,22 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "나는 더 이상 나 자신이 아니었고 다른 사람이 되어 있었으며, 바로 그 때문에 오히려 다시금 온전히 나 자신이었다.",
-      "author": "로베르트 발저",
-      "work": "산책",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
-      "technique": "부정으로 시작해 한 바퀴 돌아 같은 자리로 돌아오는 역설 구조 — '바로 그 때문에 오히려'가 회전축이다",
+      "text": "이제 고통이 그 어떤 가르침보다 강해서, 당신의 마음이 어떤 것이었는지를 제게 가르쳐 주었습니다. 저는 휘고 부서졌습니다. 하지만, 부디, 더 나은 모양으로.",
+      "author": "찰스 디킨스",
+      "work": "위대한 유산",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1400/pg1400.txt",
+      "technique": "수동태로 부서짐을 먼저 인정하고, 문장 끝에 삽입구를 끼워 결론을 뒤집지 않은 채 방향만 돌리는 법.",
       "isTranslation": true
     },
     "B": {
-      "text": "이렇게 하여 잃어버린 내 두개팔을 나는 촉대세움으로 내 방안에 장식하여 놓았다. 팔은 죽어서도 오히려 나에게 겁을 내이는것만 같다.",
+      "text": "나는 거울 없는 실내에 있다. 거울속의 나는 역시 외출중이다. 나는 지금 거울속의 나를 무서워하며 떨고 있다.",
       "author": "이상",
-      "work": "오감도 시제13호 (1934, 조선중앙일보) — 위키문헌 현대 표기본",
+      "work": "오감도 시제15호 (1934, 조선중앙일보) — 위키문헌 현대 표기본",
       "sourceUrl": "https://ko.wikisource.org/wiki/오감도",
-      "technique": "끔찍한 사건을 인테리어 동사('장식하다')로 서술해 감정을 지운 뒤, 다음 문장에서 그 감정을 대상에게 넘긴다.",
+      "technique": "서로 모순되는 전제를 아무 설명 없이 태연히 병렬해, 논리를 지우고 감정만 남기는 진술법.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국",
+    "contrastAxis": "외국↔한국 / 짧음↔김",
     "why": "W47 「첫눈 — 나열로 글 한 편」의 구조 계열."
   },
   {
@@ -606,22 +606,22 @@
     "weekTheme": "첫눈 — 나열로 글 한 편",
     "techniqueFamily": "구조",
     "A": {
-      "text": "나는 이 풍요로운 대지 전체를 눈앞에 두고 있었으면서도, 오직 가장 작고 가장 보잘것없는 것만을 바라보고 있었다.",
-      "author": "로베르트 발저",
-      "work": "산책",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
-      "technique": "가장 큰 것(대지 전체)과 가장 작은 것을 한 문장에 나란히 놓고 '~면서도'로 이어 낙차를 만든다",
+      "text": "\"세상이라는 건 자네 아닌가\"라는 말이 혀끝까지 나왔다가, 호리키를 화나게 하는 것이 싫어서 도로 집어넣었습니다.",
+      "author": "다자이 오사무",
+      "work": "인간 실격(人間失格)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
+      "technique": "하지 못한 말을 먼저 들려주고, 그 말을 삼킨 이유를 뒤에 붙여 침묵의 무게를 만든다",
       "isTranslation": true
     },
     "B": {
-      "text": "우리는 말만 하면 속에 잡아넣은 행복이 날아갈까 두려워하는 것같이 그는 묵묵히 부어주고 나는 묵묵히 마시었다.",
-      "author": "현진건",
-      "work": "타락자",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%80%EB%9D%BD%EC%9E%90",
-      "technique": "'묵묵히'를 두 주어에 나란히 붙여, 침묵을 두 사람이 나누어 갖는 동작으로 만든다.",
-      "isTranslation": false
+      "text": "내 감각조차 제 증거를 거부하는 이 일에서 그런 기대를 한다면 나는 정말 미친 것이리라. 그러나 나는 미치지 않았고, 꿈꾸고 있지도 않다. 다만 내일이면 나는 죽고, 오늘 나는 내 영혼의 짐을 벗으려 한다.",
+      "author": "에드거 앨런 포",
+      "work": "검은 고양이",
+      "sourceUrl": "https://www.gutenberg.org/files/2148/2148-0.txt",
+      "technique": "스스로 의심을 먼저 꺼내고 두 번 부정한 뒤, 마감 시한을 못 박아 말할 자격을 만든다.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W47 「첫눈 — 나열로 글 한 편」의 구조 계열."
   },
   {
@@ -631,19 +631,19 @@
     "weekTheme": "대설, 소리가 덮이는 주 — 읽히는 리듬",
     "techniqueFamily": "반복",
     "A": {
-      "text": "나는 하나의 내면이 되었고 내면 속을 걷듯 걸었다. 모든 바깥은 꿈이 되었고, 여태 이해했던 것은 이해할 수 없는 것이 되었다.",
-      "author": "로베르트 발저",
-      "work": "산책",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
-      "technique": "뒷절에서 반복되는 서술어(되었다)를 생략하면 두 번째 대구가 압축되면서 속도가 붙는다",
+      "text": "저는 약했고, 지금도 약합니다. 당신이 얼마나 갑작스러운 힘으로, 한 무더기 잿더미인 저를 불로 지폈는지 당신이 알아 주기를 바랄 만큼.",
+      "author": "찰스 디킨스",
+      "work": "두 도시 이야기",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/98/pg98.txt",
+      "technique": "과거와 현재를 같은 낱말로 겹쳐 고백을 길게 끌고 간 뒤, 자기 자신을 사물(잿더미)로 낮춰 문장 안에 끼워 넣는 법.",
       "isTranslation": true
     },
     "B": {
-      "text": "밤 같기는 한데 어둡지는 않고 낮 같기는 한데 볕이 없는 음침한 곳이다.",
-      "author": "최서해",
-      "work": "박돌의 죽음",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B0%95%EB%8F%8C%EC%9D%98_%EC%A3%BD%EC%9D%8C",
-      "technique": "'A 같기는 한데 A가 아니다'를 두 번 반복해, 어느 쪽도 아닌 상태를 정의로 만든다.",
+      "text": "실없는 말 하면은 얼굴이 붉고 진정으로 달래면 돌아내려라 그도 저도 말 없으면 가만한 한숨",
+      "author": "홍사용",
+      "work": "시악시 마음이란 (1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/시악시_마음이란",
+      "technique": "조건 세 개를 같은 틀로 나열해 인물을 정의한다. 마지막 항만 술어를 생략해 여운을 남긴다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -656,19 +656,19 @@
     "weekTheme": "대설, 소리가 덮이는 주 — 읽히는 리듬",
     "techniqueFamily": "반복",
     "A": {
-      "text": "저녁은 그 안에서 하루가 죽기라도 하는 듯이 바라보라. 그리고 아침은 그 안에서 모든 것이 태어나기라도 하는 듯이 바라보라.",
-      "author": "앙드레 지드",
-      "work": "지상의 양식",
-      "sourceUrl": "https://fr.wikisource.org/wiki/Les_Nourritures_terrestres/Texte_entier",
-      "technique": "같은 명령형 틀을 두 번 쓰되 안쪽 낱말만 죽음↔탄생으로 뒤집는다 — 반복이 대비를 실어 나른다",
+      "text": "나는 새가 아닙니다. 어떤 그물도 나를 가두지 못합니다. 나는 나 자신의 의지를 가진 자유로운 인간이고, 그 의지를 지금 당신을 떠나는 데 쓰겠습니다.",
+      "author": "샬럿 브론테",
+      "work": "제인 에어",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1260/pg1260.txt",
+      "technique": "상대가 붙인 비유(새)를 부정으로 되받고, 그 비유의 세계(그물)를 한 번 더 부순 뒤 마지막에 행동을 선언하는 3단.",
       "isTranslation": true
     },
     "B": {
-      "text": "이따금 생각나는 듯 살매들린 바람은 논밭간의 나무들을 뒤흔들며 미쳐 날뛰었다.",
-      "author": "김유정",
-      "work": "소낙비 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
-      "technique": "바람에 '생각나는 듯'이라는 마음을 주고 '미쳐 날뛰다'로 끝낸다 — 자연물 의인화의 최단 경로",
+      "text": "물도 건너야 하고 언덕도 넘어야 하고 수없이 꼬부라진 길이요, 갈수록 험하고 찾기 어려운 길이다.",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "앞 문장과 똑같은 리듬을 쓰되 내용만 정반대로 채워 두 길을 대칭으로 세운다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -681,19 +681,19 @@
     "weekTheme": "대설, 소리가 덮이는 주 — 읽히는 리듬",
     "techniqueFamily": "반복",
     "A": {
-      "text": "내가 네 양식을 찾아다 준다면 너는 그것을 먹을 허기가 없을 것이고, 내가 네 잠자리를 깔아준다면 너는 거기서 잘 졸음이 없을 것이다.",
-      "author": "앙드레 지드",
-      "work": "지상의 양식",
-      "sourceUrl": "https://fr.wikisource.org/wiki/Les_Nourritures_terrestres/Texte_entier",
-      "technique": "'만약 ~한다면 ~없을 것이다' 조건절 두 개를 같은 길이로 나란히 놓아 리듬으로 설득한다",
+      "text": "그가 나보다 더 나이기 때문이야. 우리 영혼이 무엇으로 만들어졌든 그의 것과 내 것은 같아. 린턴의 것은 달빛과 번개만큼, 서리와 불만큼 달라.",
+      "author": "에밀리 브론테",
+      "work": "폭풍의 언덕",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/768/pg768.txt",
+      "technique": "같음을 먼저 단언한 뒤, 다름은 설명하지 않고 두 쌍의 사물 비유로만 처리해 온도 차를 만드는 법.",
       "isTranslation": true
     },
     "B": {
-      "text": "농촌으로 돌아든대야 내게 밭이 있나, 도회로 나간대야 내게 자본이 있나?",
-      "author": "최서해",
-      "work": "기아와 살륙",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B8%B0%EC%95%84%EC%99%80_%EC%82%B4%EB%A5%99",
-      "technique": "완전히 같은 꼴의 반문 두 개를 붙여, 어디로도 갈 수 없음을 형태 자체로 보여 준다.",
+      "text": "제6의 소리는 크게 대답하다 우리는 죄의 죄를 받고 벌의 벌을 받고 우는 종의 종인 사람들이다.",
+      "author": "김명순",
+      "work": "생명의 과실 - 들리는 소리를 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/들리는_소리를",
+      "technique": "'죄의 죄, 벌의 벌, 종의 종'처럼 같은 명사를 겹쳐 정도를 극단까지 밀어 올린다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -706,22 +706,22 @@
     "weekTheme": "대설, 소리가 덮이는 주 — 읽히는 리듬",
     "techniqueFamily": "반복",
     "A": {
-      "text": "미덕이라는 덫 앞에서 나는 아무런 방비가 없었다. 온갖 영웅적인 것이 나를 눈부시게 하면서 나를 끌어당겼다.",
-      "author": "앙드레 지드",
-      "work": "좁은 문",
-      "sourceUrl": "https://fr.wikisource.org/wiki/La_Porte_%C3%A9troite/Texte_entier",
-      "technique": "좋은 것을 '덫'이라 부르는 한 낱말짜리 은유가 문장 전체의 방향을 바꾼다",
+      "text": "그는 온 세상이 평화의 황홀 속에 누워 있기를 바랐고, 나는 온 세상이 찬란한 축제 속에 반짝이며 춤추기를 바랐다. 나는 그의 천국은 절반만 살아 있다고 했고, 그는 내 천국은 취해 있다고 했다.",
+      "author": "에밀리 브론테",
+      "work": "폭풍의 언덕",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/768/pg768.txt",
+      "technique": "같은 문형에 동사만 바꿔 넣어 두 사람의 천국을 나란히 세우고, 서로의 반박까지 대칭으로 주고받게 하는 대구.",
       "isTranslation": true
     },
     "B": {
-      "text": "쌈닭에게 고추장을 먹이면 병든 황소가 살모사를 먹고 용을 쓰는 것처럼 기운이 뻗친다 한다.",
-      "author": "김유정",
-      "work": "동백꽃 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/동백꽃",
-      "technique": "작은 닭을 큰 황소에 견주는 과장 직유. 비유의 크기를 원관념보다 키워 우스움을 만든다",
+      "text": "별이 흐른다. 물이 흐른다. 밤이야 깊거나 말거나 별은 별대로 흐르며 눈을 부시고, 물은 물대로 흐르며 귓전을 어지럽힌다.",
+      "author": "계용묵",
+      "work": "「침묵의 변」(수필, 1949) — 작가가 폐기한 자작 서두를 본문에 인용한 대목",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
+      "technique": "같은 동사로 짧은 문장 둘을 세운 뒤, 그 둘을 그대로 대구로 확장해 리듬을 만든다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국",
+    "contrastAxis": "외국↔한국 / 짧음↔김",
     "why": "W48 「대설, 소리가 덮이는 주 — 읽히는 리듬」의 반복 계열."
   },
   {
@@ -731,22 +731,22 @@
     "weekTheme": "대설, 소리가 덮이는 주 — 읽히는 리듬",
     "techniqueFamily": "반복",
     "A": {
-      "text": "살아 있을 때 그 코끼리는 적어도 백 파운드 값이 나갔다. 죽고 나면 상아 값, 잘해야 오 파운드어치일 뿐이었다.",
-      "author": "조지 오웰",
-      "work": "코끼리를 쏘다",
-      "sourceUrl": "https://gutenberg.net.au/ebooks02/0200141.txt",
-      "technique": "'살아 있을 때 / 죽고 나면'을 문두에 세우고 숫자로 받으면, 감정 없이도 잔혹함이 드러난다",
+      "text": "나는 다만 내 사방에 보이지 않는 높은 담이 있어, 나를 홀로 가두어 몹시 답답하게 만든다고 느꼈다.",
+      "author": "루쉰",
+      "work": "고향(故鄉)",
+      "sourceUrl": "https://zh.wikisource.org/wiki/%E6%95%85%E9%84%89",
+      "technique": "보이지 않는 것에 '높은 담'이라는 형태를 주고, 그 담이 하는 일을 동사로 이어 붙인다",
       "isTranslation": true
     },
     "B": {
-      "text": "앞서는 형의 손에 목숨을 구해 받았으나 이번에는 같은 산골에서 그 주먹에 명을 도로 끊을지도 모른다.",
-      "author": "김유정",
-      "work": "노다지",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%85%B8%EB%8B%A4%EC%A7%80",
-      "technique": "'앞서는–이번에는', '구해 받았으나–끊을지도'로 같은 손을 두 결말에 걸어 아이러니를 만든다.",
-      "isTranslation": false
+      "text": "우리에게 모든 평범한 삶을 꿰뚫어 보고 느끼는 감각이 있다면, 그것은 풀이 자라는 소리와 다람쥐의 심장이 뛰는 소리를 듣는 일과 같을 것이다. 그리고 우리는 침묵의 저편에 놓인 그 굉음에 죽고 말 것이다.",
+      "author": "조지 엘리엇",
+      "work": "미들마치",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/145/pg145.txt",
+      "technique": "가장 작은 소리 둘을 나란히 들려준 다음, 그것을 '굉음'이라는 정반대 크기의 낱말로 받아 감각의 규모를 뒤집는 법.",
+      "isTranslation": true
     },
-    "contrastAxis": "외국↔한국",
+    "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W48 「대설, 소리가 덮이는 주 — 읽히는 리듬」의 반복 계열."
   }
 ]
