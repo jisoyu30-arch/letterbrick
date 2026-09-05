@@ -6,31 +6,6 @@
     "weekTheme": "망종, 심는 계절 — 결과 먼저",
     "techniqueFamily": "구조",
     "A": {
-      "text": "내 안에서 창조하는 믿음이 말라버린 탓인지, 아니면 현실이란 기억 속에서만 이루어지는 탓인지, 오늘 처음으로 내게 보여주는 꽃들은 진짜 꽃 같지 않다.",
-      "author": "마르셀 프루스트",
-      "work": "잃어버린 시간을 찾아서 1: 스완네 집 쪽으로",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2650/pg2650.txt",
-      "technique": "'~탓인지, 아니면 ~탓인지' 두 원인을 미결로 늘어놓고 결론만 확정한다 — 판단 유보가 오히려 설득한다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "실로 이 서두 일행에 내용을 살릴 작품의 형식이 결정되는 것이니, 이 서두에 소홀할 수가 없다.",
-      "author": "계용묵",
-      "work": "「침묵의 변」(수필, 1949)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
-      "technique": "이유절과 결론절을 '~니'로 이어 붙여 주장을 한 문장 안에서 완결시킨다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 2,
-    "doy": 153,
-    "week": 22,
-    "weekTheme": "망종, 심는 계절 — 결과 먼저",
-    "techniqueFamily": "구조",
-    "A": {
       "text": "봄은 졸음이 온다. 고양이는 쥐 잡는 일을 잊고, 사람은 빚이 있다는 것을 잊는다. 때로는 제 영혼이 어디 있는지조차 잊고 정신을 놓는다.",
       "author": "나쓰메 소세키",
       "work": "풀베개(草枕)",
@@ -47,11 +22,11 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열."
   },
   {
-    "day": 3,
-    "doy": 154,
+    "day": 2,
+    "doy": 153,
     "week": 22,
     "weekTheme": "망종, 심는 계절 — 결과 먼저",
     "techniqueFamily": "구조",
@@ -72,13 +47,13 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열."
   },
   {
-    "day": 4,
-    "doy": 155,
-    "week": 23,
-    "weekTheme": "장마 예보 — 만약의 문장",
+    "day": 3,
+    "doy": 154,
+    "week": 22,
+    "weekTheme": "망종, 심는 계절 — 결과 먼저",
     "techniqueFamily": "구조",
     "A": {
       "text": "그래서 생각해 낸 것이 익살이었습니다. 그것은 인간을 향한 저의 마지막 구애였습니다.",
@@ -97,11 +72,11 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W22 「망종, 심는 계절 — 결과 먼저」의 구조 계열."
   },
   {
-    "day": 5,
-    "doy": 156,
+    "day": 4,
+    "doy": 155,
     "week": 23,
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
@@ -122,11 +97,11 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
   },
   {
-    "day": 6,
-    "doy": 157,
+    "day": 5,
+    "doy": 156,
     "week": 23,
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
@@ -139,19 +114,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "그것을 집어 들고 조심조심 펴보려다가 말고 머뭇머뭇한다. 그 속에 그를 해케 할 무슨 위험품이나 든 것같이.",
-      "author": "현진건",
-      "work": "빈처 (1921)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B9%88%EC%B2%98",
-      "technique": "행동을 먼저 다 보여 준 뒤 비유를 뒤에 도치로 붙이면, 비유가 해설이 아니라 여운이 된다.",
+      "text": "실로 이 서두 일행에 내용을 살릴 작품의 형식이 결정되는 것이니, 이 서두에 소홀할 수가 없다.",
+      "author": "계용묵",
+      "work": "「침묵의 변」(수필, 1949)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
+      "technique": "이유절과 결론절을 '~니'로 이어 붙여 주장을 한 문장 안에서 완결시킨다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
   },
   {
-    "day": 7,
-    "doy": 158,
+    "day": 6,
+    "doy": 157,
     "week": 23,
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
@@ -164,19 +139,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "우리는 메나리 나라 백성이다. 메나리 나라로 돌아가자. 내 것이 아니면 모두 빌어온 것뿐이다.",
-      "author": "홍사용",
-      "work": "조선은 메나리 나라 (1928)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/조선은_메나리_나라",
-      "technique": "단정-청유-근거의 세 문장을 짧게 끊어, 주장문의 최소 골격을 그대로 드러낸다.",
+      "text": "거울이란 제 얼굴을 비칠 때만 실용품이다. 그 외의 경우에는 도무지 장난감인 것이다.",
+      "author": "이상",
+      "work": "날개 (1936, 조광)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/날개",
+      "technique": "'A란 ~할 때만 B다'로 정의한 뒤, 나머지 경우를 한 문장으로 뒤집는 정의-반전 짝을 만든다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
   },
   {
-    "day": 8,
-    "doy": 159,
+    "day": 7,
+    "doy": 158,
     "week": 23,
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
@@ -189,19 +164,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "얼골이 바로 푸른 한울을 울어렀기에 발이 항시 검은 흙을 향하기 욕되지 않도다.",
-      "author": "정지용",
-      "work": "「나무」, 『정지용 시집』(1935) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/향수/나무",
-      "technique": "얼굴/발, 푸른 하늘/검은 흙을 위아래로 짝지어 놓고 '-기에 -않도다'로 인과를 건다. 대구 하나로 삶의 태도를 세우는 문장.",
+      "text": "암만해도 회화로는 해결이 안 된다. 회화로 안 되면 행동인데 어떤 행동을 하나.",
+      "author": "이상",
+      "work": "EPIGRAM (1936, 여성)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/EPIGRAM",
+      "technique": "앞 문장의 끝말을 다음 문장의 첫머리로 받아, 생각이 굴러가는 과정을 그대로 노출한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
   },
   {
-    "day": 9,
-    "doy": 160,
+    "day": 8,
+    "doy": 159,
     "week": 23,
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
@@ -222,11 +197,11 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
   },
   {
-    "day": 10,
-    "doy": 161,
+    "day": 9,
+    "doy": 160,
     "week": 23,
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
@@ -247,7 +222,32 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
+  },
+  {
+    "day": 10,
+    "doy": 161,
+    "week": 23,
+    "weekTheme": "장마 예보 — 만약의 문장",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "당신 같은 사람들은 돈을 존경한다. 그리고 돈에 대한 그 존경이, 그들로 하여금 다른 무엇도 높이 여기지 못하게 만든다.",
+      "author": "로베르트 발저",
+      "work": "산책",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
+      "technique": "앞절의 마지막 낱말(존경)을 뒷절의 주어로 받아 이어붙이면 문장이 스스로 논리를 밀고 나간다",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "그것을 집어 들고 조심조심 펴보려다가 말고 머뭇머뭇한다. 그 속에 그를 해케 할 무슨 위험품이나 든 것같이.",
+      "author": "현진건",
+      "work": "빈처 (1921)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B9%88%EC%B2%98",
+      "technique": "행동을 먼저 다 보여 준 뒤 비유를 뒤에 도치로 붙이면, 비유가 해설이 아니라 여운이 된다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W23 「장마 예보 — 만약의 문장」의 구조 계열."
   },
   {
     "day": 11,
@@ -272,7 +272,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 12,
@@ -297,7 +297,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 13,
@@ -322,7 +322,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 14,
@@ -347,7 +347,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 15,
@@ -372,7 +372,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 16,
@@ -397,7 +397,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 17,
@@ -422,11 +422,61 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W24 「하지, 가장 긴 낮 — 구조를 통째로 빌리기」의 질문 계열."
   },
   {
     "day": 18,
     "doy": 169,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "인간이 된다는 것은 바로 책임을 진다는 것이다. 자기 탓이 아닌 듯한 비참 앞에서 부끄러움을 아는 것이다.",
+      "author": "앙투안 드 생텍쥐페리",
+      "work": "인간의 대지 (1939)",
+      "sourceUrl": "https://archive.org/download/saint_exupery_terre_des_hommes/saint_exupery_terre_des_hommes_djvu.txt",
+      "technique": "정의문을 세우고 같은 형식의 문장을 이어 붙여 뜻을 넓히는 연쇄 정의.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "그러나 여기 어디 불을 찾으려는 정열이 있으며, 뛰어 들 불이 있느냐? 없다. 나에게는 아무것도 없고, 아무것도 없는 내 눈에는 아무것도 보이지 않는다.",
+      "author": "이상",
+      "work": "권태 (1937, 조선일보)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/권태",
+      "technique": "긴 질문에 한 단어로 답한 뒤 '아무것도 없다'를 사슬처럼 이어받아 결핍을 세 겹으로 증폭한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
+  },
+  {
+    "day": 19,
+    "doy": 170,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "지적 자유는 물질적인 것에 달려 있다. 시는 지적 자유에 달려 있다. 그리고 여자들은 언제나 가난했다.",
+      "author": "버지니아 울프",
+      "work": "자기만의 방",
+      "sourceUrl": "http://gutenberg.net.au/ebooks02/0200791.txt",
+      "technique": "앞 문장의 끝말을 다음 문장의 첫머리로 받아 사슬처럼 잇고, 마지막 한 줄에서 결론을 떨어뜨린다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "불초 이상은 말끝마다 참 참 소리가 많아 늘 듣는 이들의 웃음을 사는데 제 딴은 참 소리야말로 참 아름다운 화술인 줄 믿고 그러는 것이어늘 웃는 것은 참 이상한 일입니다.",
+      "author": "이상",
+      "work": "아름다운 조선말 (1936, 중앙)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/아름다운_조선말",
+      "technique": "문제 삼는 낱말 '참'을 한 문장 안에서 여섯 번 써서, 주장을 설명하지 않고 몸소 시연해 보인다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
+  },
+  {
+    "day": 20,
+    "doy": 171,
     "week": 25,
     "weekTheme": "아닌 것으로 윤곽 그리기",
     "techniqueFamily": "반복",
@@ -439,44 +489,69 @@
       "isTranslation": true
     },
     "B": {
-      "text": "충주집을 생각만 하여도 철없이 얼굴이 붉어지고 발 밑이 떨리고 그 자리에 소스라쳐버린다.",
+      "text": "나무를 판 때의 마음이 이날같이 즐거운 적은 없었다. 물건을 산 때의 마음도 이날같이 즐거운 적은 없었다.",
       "author": "이효석",
-      "work": "메밀꽃 필 무렵 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%A9%94%EB%B0%80%EA%BD%83_%ED%95%84_%EB%AC%B4%EB%A0%B5",
-      "technique": "'-고'로 신체 반응을 연쇄시켜 감정을 설명하지 않고 보여 준다",
+      "work": "산 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%82%B0_(%EC%9D%B4%ED%9A%A8%EC%84%9D)",
+      "technique": "한 단어만 바꿔 문장을 통째로 되풀이하는 대구 반복",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
   },
   {
-    "day": 19,
-    "doy": 170,
+    "day": 21,
+    "doy": 172,
     "week": 25,
     "weekTheme": "아닌 것으로 윤곽 그리기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "나는 존재를 그리지 않는다. 나는 지나감을 그린다. 나이에서 나이로가 아니라 날에서 날로, 분에서 분으로 지나감을.",
-      "author": "미셸 드 몽테뉴",
-      "work": "에세 3권 2장 뉘우침에 대하여 (1595년 판)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/58801/pg58801.txt",
-      "technique": "부정과 긍정을 같은 동사로 짝지어 놓고, 시간 단위를 좁혀 가며 반복해 정밀도를 높인다.",
+      "text": "보려면 눈이 쉰 쌍은 필요하다고 그녀는 생각했다. 그 한 여자를 다 둘러싸기에는 쉰 쌍의 눈으로도 모자랐다.",
+      "author": "버지니아 울프",
+      "work": "등대로",
+      "sourceUrl": "http://gutenberg.net.au/ebooks01/0100101.txt",
+      "technique": "앞 문장이 내놓은 숫자를 다음 문장이 곧바로 부정해 과장을 한 단계 더 밀어올린다.",
       "isTranslation": true
     },
     "B": {
-      "text": "불초 이상은 말끝마다 참 참 소리가 많아 늘 듣는 이들의 웃음을 사는데 제 딴은 참 소리야말로 참 아름다운 화술인 줄 믿고 그러는 것이어늘 웃는 것은 참 이상한 일입니다.",
-      "author": "이상",
-      "work": "아름다운 조선말 (1936, 중앙)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/아름다운_조선말",
-      "technique": "문제 삼는 낱말 '참'을 한 문장 안에서 여섯 번 써서, 주장을 설명하지 않고 몸소 시연해 보인다.",
+      "text": "사랑을 원하여도 얻지 못하고 자유를 원하여도 얻지 못하고 이별을 청하여도 안 들어 의심 받고 학대 받고 갇혀 비관하던 나머지에 병든 몸을 일으켜 평양의 별장에서 자살하였다.",
+      "author": "김명순",
+      "work": "의심의 소녀 (1917)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/의심의_소녀",
+      "technique": "'~하여도 얻지 못하고'를 반복해 무력을 쌓은 뒤, 수동 동사를 연달아 붙여 파국까지 단숨에 간다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
   },
   {
-    "day": 20,
-    "doy": 171,
+    "day": 22,
+    "doy": 173,
+    "week": 25,
+    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "미래는 빛이 바랬고, 과거는 녹아 흩어졌다. 나 자신이 타올랐고 피어났다, 타오르며 피어나는 그 순간 속에서.",
+      "author": "로베르트 발저",
+      "work": "산책",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
+      "technique": "동사로 쓴 말(타오르다·피어나다)을 곧바로 수식어로 되돌려 써서 주체와 순간을 같은 낱말로 겹친다",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "실상 청춘은 꽃을 그다지 사랑할 배도 없을 것이며 다만 하늘의 별 물 속의 진주 마음속에 사람을 표정(表情)하기 위하여 꽃을 꺾고 꽂고 선사하고 찢고 하였을 뿐이 아니었습니까.",
+      "author": "정지용",
+      "work": "「노인(老人)과 꽃」 산문, 시집 『백록담』(1941) 수록",
+      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/노인과_꽃",
+      "technique": "'꺾고 꽂고 선사하고 찢고' 네 동사를 조사 없이 붙여 청춘의 속도를 문장의 속도로 만든다. 동사 연쇄로 가속하는 법.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
+  },
+  {
+    "day": 23,
+    "doy": 174,
     "week": 25,
     "weekTheme": "아닌 것으로 윤곽 그리기",
     "techniqueFamily": "반복",
@@ -497,70 +572,20 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
   },
   {
-    "day": 21,
-    "doy": 172,
+    "day": 24,
+    "doy": 175,
     "week": 25,
     "weekTheme": "아닌 것으로 윤곽 그리기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "한 도시를 알아보는 손쉬운 방법은 그곳에서 사람들이 어떻게 일하고 어떻게 사랑하고 어떻게 죽는지를 살피는 것이다.",
-      "author": "알베르 카뮈",
-      "work": "페스트 (1947)",
-      "sourceUrl": "https://archive.org/download/albert-camus-la-peste-1947-fr/Albert%20Camus%20-%20La%20Peste%20%281947%29%20%5BFR%5D_djvu.txt",
-      "technique": "'어떻게'를 세 번 반복해 일·사랑·죽음을 같은 층위에 올려놓는 삼항 나열.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "사랑을 원하여도 얻지 못하고 자유를 원하여도 얻지 못하고 이별을 청하여도 안 들어 의심 받고 학대 받고 갇혀 비관하던 나머지에 병든 몸을 일으켜 평양의 별장에서 자살하였다.",
-      "author": "김명순",
-      "work": "의심의 소녀 (1917)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/의심의_소녀",
-      "technique": "'~하여도 얻지 못하고'를 반복해 무력을 쌓은 뒤, 수동 동사를 연달아 붙여 파국까지 단숨에 간다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 22,
-    "doy": 173,
-    "week": 25,
-    "weekTheme": "아닌 것으로 윤곽 그리기",
-    "techniqueFamily": "반복",
-    "A": {
-      "text": "지적 자유는 물질적인 것에 달려 있다. 시는 지적 자유에 달려 있다. 그리고 여자들은 언제나 가난했다.",
-      "author": "버지니아 울프",
-      "work": "자기만의 방",
-      "sourceUrl": "http://gutenberg.net.au/ebooks02/0200791.txt",
-      "technique": "앞 문장의 끝말을 다음 문장의 첫머리로 받아 사슬처럼 잇고, 마지막 한 줄에서 결론을 떨어뜨린다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "실상 청춘은 꽃을 그다지 사랑할 배도 없을 것이며 다만 하늘의 별 물 속의 진주 마음속에 사람을 표정(表情)하기 위하여 꽃을 꺾고 꽂고 선사하고 찢고 하였을 뿐이 아니었습니까.",
-      "author": "정지용",
-      "work": "「노인(老人)과 꽃」 산문, 시집 『백록담』(1941) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/노인과_꽃",
-      "technique": "'꺾고 꽂고 선사하고 찢고' 네 동사를 조사 없이 붙여 청춘의 속도를 문장의 속도로 만든다. 동사 연쇄로 가속하는 법.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 23,
-    "doy": 174,
-    "week": 25,
-    "weekTheme": "아닌 것으로 윤곽 그리기",
-    "techniqueFamily": "반복",
-    "A": {
-      "text": "보려면 눈이 쉰 쌍은 필요하다고 그녀는 생각했다. 그 한 여자를 다 둘러싸기에는 쉰 쌍의 눈으로도 모자랐다.",
-      "author": "버지니아 울프",
-      "work": "등대로",
-      "sourceUrl": "http://gutenberg.net.au/ebooks01/0100101.txt",
-      "technique": "앞 문장이 내놓은 숫자를 다음 문장이 곧바로 부정해 과장을 한 단계 더 밀어올린다.",
+      "text": "그러나 젊을 때는 영(零)이어도 좋다. 이른 시기에, 너무 이른 시기에 무언가가 되어버리는 것만큼 해로운 일은 없으니까.",
+      "author": "로베르트 발저",
+      "work": "벤야멘타 하인학교(야콥 폰 군텐)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/24176/pg24176.txt",
+      "technique": "같은 말을 강도를 올려 한 번 더 놓는 자기수정('이른, 너무 이른')이 강조가 된다",
       "isTranslation": true
     },
     "B": {
@@ -572,20 +597,20 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열."
   },
   {
-    "day": 24,
-    "doy": 175,
-    "week": 25,
-    "weekTheme": "아닌 것으로 윤곽 그리기",
+    "day": 25,
+    "doy": 176,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "미래는 빛이 바랬고, 과거는 녹아 흩어졌다. 나 자신이 타올랐고 피어났다, 타오르며 피어나는 그 순간 속에서.",
+      "text": "우리는 한 가지 점에서 모두 똑같다. 완전한 가난과 완전한 의존이다. 우리는 작다, 하잘것없음에 이르기까지 작다.",
       "author": "로베르트 발저",
-      "work": "산책",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/39247/pg39247.txt",
-      "technique": "동사로 쓴 말(타오르다·피어나다)을 곧바로 수식어로 되돌려 써서 주체와 순간을 같은 낱말로 겹친다",
+      "work": "벤야멘타 하인학교(야콥 폰 군텐)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/24176/pg24176.txt",
+      "technique": "서술어를 문장 앞으로 끌어낸 도치('우리는 작다, ~까지 작다')로 같은 말을 두 번 밟는다",
       "isTranslation": true
     },
     "B": {
@@ -597,32 +622,7 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W25 「아닌 것으로 윤곽 그리기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 25,
-    "doy": 176,
-    "week": 26,
-    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
-    "techniqueFamily": "반복",
-    "A": {
-      "text": "그러나 젊을 때는 영(零)이어도 좋다. 이른 시기에, 너무 이른 시기에 무언가가 되어버리는 것만큼 해로운 일은 없으니까.",
-      "author": "로베르트 발저",
-      "work": "벤야멘타 하인학교(야콥 폰 군텐)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/24176/pg24176.txt",
-      "technique": "같은 말을 강도를 올려 한 번 더 놓는 자기수정('이른, 너무 이른')이 강조가 된다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "나무를 판 때의 마음이 이날같이 즐거운 적은 없었다. 물건을 산 때의 마음도 이날같이 즐거운 적은 없었다.",
-      "author": "이효석",
-      "work": "산 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%82%B0_(%EC%9D%B4%ED%9A%A8%EC%84%9D)",
-      "technique": "한 단어만 바꿔 문장을 통째로 되풀이하는 대구 반복",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국",
-    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열."
   },
   {
     "day": 26,
@@ -647,36 +647,11 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열."
   },
   {
     "day": 27,
     "doy": 178,
-    "week": 26,
-    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
-    "techniqueFamily": "반복",
-    "A": {
-      "text": "우리는 한 가지 점에서 모두 똑같다. 완전한 가난과 완전한 의존이다. 우리는 작다, 하잘것없음에 이르기까지 작다.",
-      "author": "로베르트 발저",
-      "work": "벤야멘타 하인학교(야콥 폰 군텐)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/24176/pg24176.txt",
-      "technique": "서술어를 문장 앞으로 끌어낸 도치('우리는 작다, ~까지 작다')로 같은 말을 두 번 밟는다",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "나는 무수한 검붉은 아이들에게 묻노라 오오 허공을 잡으려던 설움들아 분노에 매 맞아 부서진 거울 조각들아 피 맞아 피에 젖은 아이들아",
-      "author": "김명순",
-      "work": "생명의 과실 - 내 가슴에 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/내_가슴에",
-      "technique": "'~아'로 끝나는 호격 명사구를 세 번 쌓아 부르는 대상을 넓히며 감정을 고조시킨다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국",
-    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 28,
-    "doy": 179,
     "week": 26,
     "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
     "techniqueFamily": "반복",
@@ -689,19 +664,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "낡은 그물은 바다를 얽고 바다는 대륙을 푸른 보로 싼다. 여기 바다의 음모가 서리어 있다.",
-      "author": "이육사",
-      "work": "「바다의 마음」 (1946년 《육사시집》 수록)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/바다의_마음",
-      "technique": "같은 3행 틀을 세 번째로 되풀이하되 마지막 명사만 은총→아량→음모로 바꿔 뜻을 뒤집는다.",
+      "text": "물들어야 될 것 같다. 물들어야 옳을 것 같다. 물들지 않음이 거짓말이다. 물들지 않으면 안 될 것 같다.",
+      "author": "이효석",
+      "work": "들 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%93%A4",
+      "technique": "같은 서술을 조금씩 강도를 올려 네 번 되풀이하는 점층 반복",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열."
   },
   {
-    "day": 29,
-    "doy": 180,
+    "day": 28,
+    "doy": 179,
     "week": 26,
     "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
     "techniqueFamily": "반복",
@@ -714,19 +689,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "인력거가 무거워지매 그의 몸은 이상하게도 가벼워졌고 그리고 또 인력거가 가벼워지니 몸은 다시금 무거워졌건만 이번에는 마음조차 초조해 온다.",
-      "author": "현진건",
-      "work": "운수 좋은 날 (1924)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
-      "technique": "무겁다와 가볍다를 교차로 두 번 뒤집은 뒤 마지막에 마음을 얹어, 물리적 대구를 심리로 착지시킨다.",
+      "text": "나는 무수한 검붉은 아이들에게 묻노라 오오 허공을 잡으려던 설움들아 분노에 매 맞아 부서진 거울 조각들아 피 맞아 피에 젖은 아이들아",
+      "author": "김명순",
+      "work": "생명의 과실 - 내 가슴에 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/내_가슴에",
+      "technique": "'~아'로 끝나는 호격 명사구를 세 번 쌓아 부르는 대상을 넓히며 감정을 고조시킨다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열."
   },
   {
-    "day": 30,
-    "doy": 181,
+    "day": 29,
+    "doy": 180,
     "week": 26,
     "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
     "techniqueFamily": "반복",
@@ -739,14 +714,39 @@
       "isTranslation": true
     },
     "B": {
-      "text": "날씨가 개면 개었다고, 흐리면 흐렸다고, 바람이 불면 바람이 분다고, 봄이면 봄이라고, 여름은 여름이라고, 가을은 가을이라고",
+      "text": "낡은 그물은 바다를 얽고 바다는 대륙을 푸른 보로 싼다. 여기 바다의 음모가 서리어 있다.",
       "author": "이육사",
-      "work": "수필 「산사기(山寺記)」 (1941년)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/산사기",
-      "technique": "조건-결과를 여섯 번 되풀이하되 어절을 점점 줄여 문장 자체에 리듬을 만든다.",
+      "work": "「바다의 마음」 (1946년 《육사시집》 수록)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/바다의_마음",
+      "technique": "같은 3행 틀을 세 번째로 되풀이하되 마지막 명사만 은총→아량→음모로 바꿔 뜻을 뒤집는다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국",
-    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열."
+  },
+  {
+    "day": 30,
+    "doy": 181,
+    "week": 26,
+    "weekTheme": "장마 진입 — 죽은 비유 갈아끼우기",
+    "techniqueFamily": "반복",
+    "A": {
+      "text": "기쁨과 슬픔을 가볍게 견딜 힘을 주십시오. 나의 사랑이 섬김 속에서 열매 맺게 할 힘을 주십시오.",
+      "author": "라빈드라나트 타고르",
+      "work": "기탄잘리(Gitanjali) 36",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7164/pg7164.txt",
+      "technique": "같은 청유문을 머리에 두고 목적어만 갈아 끼워, 기도를 리듬으로 만든다",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "인력거가 무거워지매 그의 몸은 이상하게도 가벼워졌고 그리고 또 인력거가 가벼워지니 몸은 다시금 무거워졌건만 이번에는 마음조차 초조해 온다.",
+      "author": "현진건",
+      "work": "운수 좋은 날 (1924)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
+      "technique": "무겁다와 가볍다를 교차로 두 번 뒤집은 뒤 마지막에 마음을 얹어, 물리적 대구를 심리로 착지시킨다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W26 「장마 진입 — 죽은 비유 갈아끼우기」의 반복 계열."
   }
 ]
