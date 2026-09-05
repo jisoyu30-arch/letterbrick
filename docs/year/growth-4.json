@@ -6,23 +6,23 @@
     "weekTheme": "1분기 통합 — 기법 겹쳐 쓰기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "모진 바람에 하늘하늘 일어서는 불길은 어느새 보릿짚더미를 살라 버리고 울타리를 살라 버리고 울타리 안에 있는 집에 옮았다.",
-      "author": "최서해",
-      "work": "홍염 (1927, 조선문단)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
-      "technique": "'살라 버리고'를 반복하며 대상을 점점 크게 바꿔, 불의 확산을 문장의 리듬으로 재현한다.",
-      "isTranslation": false
+      "text": "좋은 저녁 식사는 좋은 대화에 무척 중요하다. 잘 먹지 못한 사람은 잘 생각하지도, 잘 사랑하지도, 푹 자지도 못한다.",
+      "author": "버지니아 울프",
+      "work": "자기만의 방",
+      "sourceUrl": "http://gutenberg.net.au/ebooks02/0200791.txt",
+      "technique": "세 개의 동사에 같은 부사를 붙여 삼단으로 반복하고, 조건절을 뒤에 놓아 한 번에 회수한다.",
+      "isTranslation": true
     },
     "B": {
-      "text": "뿌리는 비, 날리는 비, 부으 뜬 비, 붓는 비, 쏟는 비, 뛰는 비, 그저 오는 비, 허둥지둥하는 비, 촉촉 좇는 비, 쫑알거리는 비, 지나가는 비, 그러나 11월 비는 건너가는 비다.",
-      "author": "정지용",
-      "work": "「비」 산문, 시집 『백록담』(1941) 수록",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백록담/비_(산문)",
-      "technique": "같은 명사를 열한 번 반복해 리듬을 쌓아 올린 뒤 '그러나' 하나로 전부를 밀어내고 단 하나의 정답을 남긴다.",
+      "text": "해지면 자고 해뜨면 걷고 집이 있으면 얻어먹고 없으면 굶으면서 방랑하였다.",
+      "author": "최서해",
+      "work": "고국 (1924, 조선문단 창간호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%EA%B5%AD",
+      "technique": "조건과 행동을 짧은 대구로 네 번 이어 붙여, 설명 없이 떠도는 세월의 리듬을 만든다.",
       "isTranslation": false
     },
-    "contrastAxis": "짧음↔김",
-    "why": "W13 「1분기 통합 — 기법 겹쳐 쓰기」의 반복 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W13 「1분기 통합 — 기법 겹쳐 쓰기」의 반복 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
     "day": 2,
@@ -31,12 +31,137 @@
     "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
     "techniqueFamily": "압축",
     "A": {
+      "text": "자연도 네가 이해하는 그런 의미에서는 어리석은 소리야. 자연은 신전이 아니라 작업장이고, 인간은 그 안의 일꾼이지.",
+      "author": "이반 투르게네프",
+      "work": "아버지와 아들 (1862)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/30723/pg30723.txt",
+      "technique": "상대의 낱말을 그대로 받아 부정한 뒤 'A가 아니라 B'로 정의를 갈아 끼우고, 사람을 그 안에 배치한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "이렇게 되면 온 집안은 신산하여 말할 수 없는 울음, 비통, 처참, 소조한 분위기에 싸인다.",
+      "author": "최서해",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "감정 명사 네 개를 쉼표로만 이어 붙여, 설명 없이 정서의 밀도를 쌓는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 3,
+    "doy": 93,
+    "week": 14,
+    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "제 몸가짐을 지을 줄 알았다면, 당신은 책을 지은 사람보다 훨씬 더 많은 일을 한 것이다.",
+      "author": "미셸 드 몽테뉴",
+      "work": "에세 3권 13장 경험에 대하여 (1595년 판)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/58801/pg58801.txt",
+      "technique": "같은 동사('짓다')를 삶과 책에 겹쳐 써서, 비교급 하나로 우열을 뒤집는다.",
+      "isTranslation": true
+    },
+    "B": {
       "text": "그날 벌어서 그날 먹는 생활이었고, 그리 되고 보니 하루만 병으로 쉬게 되면, 그 하루 양식 값은 빚이 되었다.",
       "author": "최서해",
       "work": "담요 (수필, 발표연도 미확인)",
       "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8B%B4%EC%9A%94",
       "technique": "'그날'과 '하루'를 반복해 시간 단위를 좁히고, 마지막 단어 '빚'으로 삶의 구조를 한 번에 요약한다.",
       "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 4,
+    "doy": 94,
+    "week": 14,
+    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "그러므로 우리의 존엄은 모두 생각에 있다. 우리가 일어서야 할 자리는 바로 거기다.",
+      "author": "블레즈 파스칼",
+      "work": "팡세 단장 347 (1670, 브룅슈비크 판)",
+      "sourceUrl": "https://fr.wikisource.org/wiki/Pens%C3%A9es_(Pascal,_%C3%A9d._Brunschvicg)/Pens%C3%A9es/Section_VI",
+      "technique": "긴 논증을 '그러므로' 한 마디로 접고, 지시어(거기)로 결론의 위치만 가리킨다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "이리하여 문서방은 차마 생목숨을 끊기 어려워서 원수가 주는 땅을 파먹게 되었다.",
+      "author": "최서해",
+      "work": "홍염 (1927, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
+      "technique": "원인과 결과를 한 문장에 붙여, '원수가 주는 땅'이라는 한 구절로 굴욕의 조건을 압축한다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 5,
+    "doy": 95,
+    "week": 14,
+    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "그녀는 한복판에 선을 하나 그었다. 그것으로 끝이었다. 완성이었다. 그래, 나는 내 환영을 보았다.",
+      "author": "버지니아 울프",
+      "work": "등대로",
+      "sourceUrl": "http://gutenberg.net.au/ebooks01/0100101.txt",
+      "technique": "긴 준비 끝에 두세 어절짜리 단문을 연달아 놓아 장편 전체의 마침표를 찍는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "선뜩하기에 보니 장손가락의 둘째 마디 위에 새빨간 피가 비죽이 스미어 나온다. 알알하고 아프다. 마음과 같이 아프다.",
+      "author": "계용묵",
+      "work": "「손」(수필, 1941)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/손",
+      "technique": "긴 관찰문 뒤에 여덟 자, 열 자로 줄여 통증을 몸에서 마음으로 옮긴다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 6,
+    "doy": 96,
+    "week": 14,
+    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "도덕적인 책이니 부도덕한 책이니 하는 것은 없다. 책은 잘 썼거나 못 썼거나 둘 중 하나다. 그뿐이다.",
+      "author": "오스카 와일드",
+      "work": "도리언 그레이의 초상 (서문)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/174/pg174.txt",
+      "technique": "통념을 한 문장으로 지우고, 대체 기준을 이분법으로 세운 뒤 세 글자로 닫는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "사람의 일생에 있어 건강에 으뜸가는 복이 없다고 하거늘, 건강이란 조금도 고려치 않고 지은 집들.",
+      "author": "계용묵",
+      "work": "「집」(수필, 1941)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/집",
+      "technique": "통념을 인용한 뒤 서술어 없는 명사구를 남겨, 말끝을 삼킨 분노를 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 7,
+    "doy": 97,
+    "week": 14,
+    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "완전히 길을 잃기 전에는, 다시 말해 세계를 잃기 전에는, 우리는 자신을 찾기 시작하지 못한다.",
+      "author": "헨리 데이비드 소로",
+      "work": "월든",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/205/pg205.txt",
+      "technique": "'다시 말해'로 같은 말을 한 단계 더 크게 바꿔 말해 뜻의 나사를 조인다.",
+      "isTranslation": true
     },
     "B": {
       "text": "나는 이러한 생각을 해 보고는 사실까지를 무시하게 되는 믿음의 힘, 그 힘의 위대한 데 문득 놀라곤 한다.",
@@ -46,71 +171,46 @@
       "technique": "명사구를 떼어 던져 놓았다가 '그 힘의'로 다시 받아, 같은 대상을 두 번 짚어 강조한다.",
       "isTranslation": false
     },
-    "contrastAxis": "같은 기법·다른 소재",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 3,
-    "doy": 93,
+    "day": 8,
+    "doy": 98,
     "week": 14,
     "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "이리하여 문서방은 차마 생목숨을 끊기 어려워서 원수가 주는 땅을 파먹게 되었다.",
-      "author": "최서해",
-      "work": "홍염 (1927, 조선문단)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
-      "technique": "원인과 결과를 한 문장에 붙여, '원수가 주는 땅'이라는 한 구절로 굴욕의 조건을 압축한다.",
-      "isTranslation": false
-    },
-    "B": {
-      "text": "그도 계획을 한다거나 결의를 한다면 벌써 여정은 사라지고 마는 것이니깐, 한번 척 느꼈을 때는 출발이다.",
-      "author": "이육사",
-      "work": "수필 「산사기(山寺記)」 (1941년)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/산사기",
-      "technique": "긴 역설을 앞세운 뒤 결론을 명사 한 단어(출발)로 끊어 문장의 속도를 바꾼다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "같은 기법·다른 소재",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 4,
-    "doy": 94,
-    "week": 14,
-    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
-    "techniqueFamily": "압축",
-    "A": {
-      "text": "내가 변하고 있다고 누구에게 말한들 무슨 소용인가. 나는 이미 예전의 내가 아니고, 지금까지와 다른 무엇이라면 내게는 아는 사람이 없다는 뜻이니까.",
-      "author": "라이너 마리아 릴케",
-      "work": "말테의 수기, 1910",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
-      "technique": "수사의문으로 시작해 조건절 두 개로 스스로 답을 좁혀 가며 고립을 논증한다.",
+      "text": "어떤 물건의 값이란, 그것과 맞바꾸어야 하는 삶의 양이다. 당장이든 긴 안목에서든.",
+      "author": "헨리 데이비드 소로",
+      "work": "월든",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/205/pg205.txt",
+      "technique": "익숙한 단어(값)를 낯선 단위(삶의 양)로 다시 정의해 개념 자체를 바꾼다.",
       "isTranslation": true
     },
     "B": {
-      "text": "주먹을 부르쥔 채 우상같이 서서 굼실거리는 물결만 그저 뚫어져라 쏘아보고 섰는 수롱이는 그 물 속에 영원히 잠들려는 아다다를 못 잊어 함인가? 그렇지 않으면 흘러 버린 그 돈이 차마 아까워서인가?",
-      "author": "계용묵",
-      "work": "「백치 아다다」(단편소설, 1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-      "technique": "답하지 않는 두 개의 질문을 나란히 던져 놓고 판단을 끝내 독자에게 넘긴다.",
+      "text": "늙은 병사가 있어서 오래 싸웠는지라 온몸에 상처를 받고는 싸움이 싫어서 군기(軍器)를 호미와 괭이로 갈았었다.",
+      "author": "김명순",
+      "work": "생명의 과실 - 싸움 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/싸움",
+      "technique": "인물 소개-경위-결정을 한 문장에 접속으로 이어, 한 편의 이야기를 도입부째 압축한다.",
       "isTranslation": false
     },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "contrastAxis": "외국↔한국",
+    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 5,
-    "doy": 95,
-    "week": 14,
-    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
-    "techniqueFamily": "압축",
+    "day": 9,
+    "doy": 99,
+    "week": 15,
+    "weekTheme": "지는 꽃 — 다리 지우기",
+    "techniqueFamily": "전환",
     "A": {
-      "text": "괴물과 싸우는 자는 그 과정에서 자신이 괴물이 되지 않도록 조심하라. 네가 오래도록 심연을 들여다보면, 심연도 네 안을 들여다본다.",
-      "author": "프리드리히 니체",
-      "work": "선악의 저편(Jenseits von Gut und Böse) 146절, 1886",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
-      "technique": "앞 문장의 목적어를 뒤 문장의 주어로 뒤집어 시선의 방향을 되돌린다.",
+      "text": "우리는 눈 속의 나무둥치와 같다. 겉보기엔 매끄럽게 놓여 있어 살짝만 밀어도 치울 수 있을 것 같다. 아니, 그럴 수 없다. 그것들은 땅에 단단히 붙어 있다. 하지만 보라, 그것조차 겉보기일 뿐이다.",
+      "author": "프란츠 카프카",
+      "work": "관찰 중 '나무들'(Betrachtung: Die Bäume), 1912",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/23532/pg23532.txt",
+      "technique": "단정, 부정, 재부정으로 두 번 접는 계단식 반전을 짧은 문장으로만 만든다.",
       "isTranslation": true
     },
     "B": {
@@ -122,20 +222,70 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 6,
-    "doy": 96,
-    "week": 14,
-    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
-    "techniqueFamily": "압축",
+    "day": 10,
+    "doy": 100,
+    "week": 15,
+    "weekTheme": "지는 꽃 — 다리 지우기",
+    "techniqueFamily": "전환",
     "A": {
-      "text": "너희는 나를 숭배한다. 그러나 그 숭배가 어느 날 무너진다면 어찌할 것인가? 조심하라, 조각상에 깔려 죽지 않도록.",
-      "author": "프리드리히 니체",
-      "work": "차라투스트라는 이렇게 말했다, 1883",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
-      "technique": "진술, 가정, 경고 세 박자로 숭배를 위험으로 바꾸는 3단 구성.",
+      "text": "그레고르 잠자가 어느 날 아침 뒤숭숭한 꿈에서 깨어났을 때, 그는 침대 속에서 자신이 한 마리 거대한 벌레로 변해 있는 것을 발견했다.",
+      "author": "프란츠 카프카",
+      "work": "변신(Die Verwandlung), 1915",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/22367/pg22367.txt",
+      "technique": "평범한 시간 부사절로 일상을 깔아 놓고 주절의 마지막 한 단어에서 세계를 뒤집는다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "긴 풀에 잔 바람이 홀홀히 감기고 이따금 들리는 벌레소리, 어디 샘물이 있는가 싶었다.",
+      "author": "강경애",
+      "work": "지하촌 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A7%80%ED%95%98%EC%B4%8C",
+      "technique": "명사(벌레소리)에서 쉼표로 끊고 곧바로 추측으로 넘어가, 묘사와 내면을 한 문장에 붙인다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 11,
+    "doy": 101,
+    "week": 15,
+    "weekTheme": "지는 꽃 — 다리 지우기",
+    "techniqueFamily": "전환",
+    "A": {
+      "text": "그러니까 사람들은 살기 위해 이곳으로 오는구나. 나로서는 오히려 여기서 죽어 간다고 말하고 싶다.",
+      "author": "라이너 마리아 릴케",
+      "work": "말테의 수기(Die Aufzeichnungen des Malte Laurids Brigge), 1910",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
+      "technique": "통념을 그대로 옮겨 적은 뒤 같은 호흡 안에서 정반대로 되받아 관찰자의 눈을 세운다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "순이는 더 소리칠 용기가 없어 일행을 향하여 한 자국 내어놓자, 사나운 바람결이 몹쓸 장난같이 보드라운 순이의 몸뚱이를 갑판 위에 때려누이고 말았습니다.",
+      "author": "백신애",
+      "work": "꺼래이 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%BA%BC%EB%9E%98%EC%9D%B4",
+      "technique": "'~자'로 인물의 한 걸음과 자연의 반격을 즉시 잇고, 바람을 '몹쓸 장난'이라 부르며 가해자로 만든다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 12,
+    "doy": 102,
+    "week": 15,
+    "weekTheme": "지는 꽃 — 다리 지우기",
+    "techniqueFamily": "전환",
+    "A": {
+      "text": "그것은 별처럼 제 모든 가장자리에서 터져 나온다. 너를 보지 않는 자리는 어디에도 없기 때문이다. 너는 너의 삶을 바꿔야 한다.",
+      "author": "라이너 마리아 릴케",
+      "work": "신시집 별권 중 '고대 아폴로의 토르소'(Archaïscher Torso Apollos), 1908",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/33864/pg33864.txt",
+      "technique": "사물 묘사를 끝까지 밀어붙이다 마지막 한 문장에서 갑자기 독자 쪽으로 돌아선다.",
       "isTranslation": true
     },
     "B": {
@@ -147,61 +297,61 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 7,
-    "doy": 97,
-    "week": 14,
-    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
-    "techniqueFamily": "압축",
+    "day": 13,
+    "doy": 103,
+    "week": 15,
+    "weekTheme": "지는 꽃 — 다리 지우기",
+    "techniqueFamily": "전환",
     "A": {
-      "text": "두 영혼이, 아아, 내 가슴속에 살고 있어 하나가 다른 하나에게서 떨어져 나가려 한다.",
-      "author": "요한 볼프강 폰 괴테",
-      "work": "파우스트 1부, 1808",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2229/pg2229.txt",
-      "technique": "감탄사를 문장 한가운데 끼워 넣어 객관적 진술을 신음으로 바꾼다.",
+      "text": "괴물과 싸우는 자는 그 과정에서 자신이 괴물이 되지 않도록 조심하라. 네가 오래도록 심연을 들여다보면, 심연도 네 안을 들여다본다.",
+      "author": "프리드리히 니체",
+      "work": "선악의 저편(Jenseits von Gut und Böse) 146절, 1886",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
+      "technique": "앞 문장의 목적어를 뒤 문장의 주어로 뒤집어 시선의 방향을 되돌린다.",
       "isTranslation": true
     },
     "B": {
-      "text": "글이라고 쓰기를 시작하기는 이럭저럭 한 6, 7년이 되었으나 글다운 글을 써 본 일이 한 번도 없고 남 앞에 그 글을 내어놓을 때마다 양심에 부끄러움을 느끼지 않은 적은 한 번도 없다.",
-      "author": "나도향",
-      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
-      "technique": "'한 번도 없다'를 두 번 쓰되 한쪽은 없음, 한쪽은 없지 않음으로 뒤집어 부끄러움을 이중으로 못 박는다.",
+      "text": "시작이 절반이라는 말이 있지만 나의 창작에 있어선 시작이 전부라 해도 과언이 아니다.",
+      "author": "계용묵",
+      "work": "「침묵의 변」(수필, 1949)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
+      "technique": "널리 아는 속담을 인용한 뒤 낱말 하나('절반'→'전부')만 바꿔 자기 주장으로 만든다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 8,
-    "doy": 98,
-    "week": 14,
-    "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
-    "techniqueFamily": "압축",
+    "day": 14,
+    "doy": 104,
+    "week": 15,
+    "weekTheme": "지는 꽃 — 다리 지우기",
+    "techniqueFamily": "전환",
     "A": {
-      "text": "언제까지나 제자로만 남는다면 그것은 스승에게 잘못 갚는 일이다. 어찌하여 너희는 내 화관을 잡아 뜯으려 하지 않는가?",
+      "text": "너희는 나를 숭배한다. 그러나 그 숭배가 어느 날 무너진다면 어찌할 것인가? 조심하라, 조각상에 깔려 죽지 않도록.",
       "author": "프리드리히 니체",
       "work": "차라투스트라는 이렇게 말했다, 1883",
       "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
-      "technique": "잠언을 던진 뒤 곧바로 반문을 붙여 독자에게 행동을 요구한다.",
+      "technique": "진술, 가정, 경고 세 박자로 숭배를 위험으로 바꾸는 3단 구성.",
       "isTranslation": true
     },
     "B": {
-      "text": "시집으로 간다하였으나 아무리 생각해도 남편의 매는 어머니의 그것보다 무섭다. 그러면 다시 집으로 돌아가나? 이번에는 외상없는 매가 떨어질 것 같다. 어디로 가야 하나?",
-      "author": "계용묵",
-      "work": "「백치 아다다」(단편소설, 1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-      "technique": "묻고 답하고 다시 묻는 자문자답으로, 인물의 막다른 사고를 실시간처럼 보여준다.",
+      "text": "그러나 다음 내 글이 그대에게 닿을 때는, 벌써 나는 다른 산간이나 또는 해상에 별과 별 사이의 거리를 헤아려 보면서 지금과는 다른 생각을 하고 있는 줄 알아라.",
+      "author": "이육사",
+      "work": "수필 「산사기(山寺記)」 (1941년)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/산사기",
+      "technique": "읽는 시점으로 자리를 옮겨 지금의 나를 과거로 만들고 명령형으로 편지를 닫는다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W14 「청명, 꽃 피는 주 — '처럼'으로 잇기」의 압축 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 9,
-    "doy": 99,
+    "day": 15,
+    "doy": 105,
     "week": 15,
     "weekTheme": "지는 꽃 — 다리 지우기",
     "techniqueFamily": "전환",
@@ -214,31 +364,6 @@
       "isTranslation": true
     },
     "B": {
-      "text": "이렇게 좁혀서 여섯 번을 접을 때, 내 머리에 언뜻 떠오르는 생각과 같이 내 눈앞을 슬쩍 지나가는 그림자가 있다.",
-      "author": "최서해",
-      "work": "담요 (수필, 발표연도 미확인)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8B%B4%EC%9A%94",
-      "technique": "손으로 하던 일의 반복 횟수를 세는 순간에 기억을 끼워 넣어, 현재에서 과거로 넘어가는 문을 만든다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 10,
-    "doy": 100,
-    "week": 15,
-    "weekTheme": "지는 꽃 — 다리 지우기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "사람들은 때로 짐승 같은 잔인함을 말하지만, 그것은 짐승에게 크나큰 부당함이자 모욕이다. 짐승은 결코 인간만큼 잔인할 수 없다. 그토록 예술적으로 잔인할 수는 없다.",
-      "author": "표도르 도스토옙스키",
-      "work": "카라마조프 형제들 (1880)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
-      "technique": "익숙한 관용구를 인용한 뒤 곧바로 반박하고, 마지막에 어울리지 않는 수식어 하나로 문장을 비튼다.",
-      "isTranslation": true
-    },
-    "B": {
       "text": "나는 이 장관에 취하여 잠깐 섰다가 방으로 들어오면 방안은 굴 속 같고 무슨 냄새가 코를 버티운다.",
       "author": "강경애",
       "work": "고향의 창공 (1935)",
@@ -247,20 +372,20 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 11,
-    "doy": 101,
-    "week": 15,
-    "weekTheme": "지는 꽃 — 다리 지우기",
+    "day": 16,
+    "doy": 106,
+    "week": 16,
+    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
     "techniqueFamily": "전환",
     "A": {
-      "text": "그는 아홉 살이었다. 아이였다. 그러나 자기 영혼을 알았고 그것을 소중히 여겼으며, 눈꺼풀이 눈을 지키듯 지켰고, 사랑이라는 열쇠 없이는 누구도 그 안에 들이지 않았다.",
-      "author": "레프 톨스토이",
-      "work": "안나 카레니나 (1877)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
-      "technique": "짧은 단문 두 개로 사실을 못 박은 뒤 긴 문장으로 반전을 펼쳐, 리듬 자체가 의미를 만들게 한다.",
+      "text": "사람들은 때로 짐승 같은 잔인함을 말하지만, 그것은 짐승에게 크나큰 부당함이자 모욕이다. 짐승은 결코 인간만큼 잔인할 수 없다. 그토록 예술적으로 잔인할 수는 없다.",
+      "author": "표도르 도스토옙스키",
+      "work": "카라마조프 형제들 (1880)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
+      "technique": "익숙한 관용구를 인용한 뒤 곧바로 반박하고, 마지막에 어울리지 않는 수식어 하나로 문장을 비튼다.",
       "isTranslation": true
     },
     "B": {
@@ -272,13 +397,38 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 12,
-    "doy": 102,
-    "week": 15,
-    "weekTheme": "지는 꽃 — 다리 지우기",
+    "day": 17,
+    "doy": 107,
+    "week": 16,
+    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
+    "techniqueFamily": "전환",
+    "A": {
+      "text": "그는 아홉 살이었다. 아이였다. 그러나 자기 영혼을 알았고 그것을 소중히 여겼으며, 눈꺼풀이 눈을 지키듯 지켰고, 사랑이라는 열쇠 없이는 누구도 그 안에 들이지 않았다.",
+      "author": "레프 톨스토이",
+      "work": "안나 카레니나 (1877)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+      "technique": "짧은 단문 두 개로 사실을 못 박은 뒤 긴 문장으로 반전을 펼쳐, 리듬 자체가 의미를 만들게 한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "밥 한 그릇에 온 전신이 녹도록 고맙다고 생각하는 이 늙은이라 이렇게 과분한 적선에는 도리어 고마운 줄 몰랐다.",
+      "author": "백신애",
+      "work": "적빈 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A0%81%EB%B9%88",
+      "technique": "작은 은혜엔 감격하고 큰 은혜엔 무감하다는 역설을 '도리어' 하나로 뒤집는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
+  },
+  {
+    "day": 18,
+    "doy": 108,
+    "week": 16,
+    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
     "techniqueFamily": "전환",
     "A": {
       "text": "사랑 없이도 나무를 베고 벽돌을 굽고 쇠를 두드릴 수 있다. 그러나 사람을 사랑 없이 대할 수는 없다. 벌을 조심 없이 다룰 수 없는 것과 같다.",
@@ -289,21 +439,21 @@
       "isTranslation": true
     },
     "B": {
-      "text": "긴 풀에 잔 바람이 홀홀히 감기고 이따금 들리는 벌레소리, 어디 샘물이 있는가 싶었다.",
-      "author": "강경애",
-      "work": "지하촌 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A7%80%ED%95%98%EC%B4%8C",
-      "technique": "명사(벌레소리)에서 쉼표로 끊고 곧바로 추측으로 넘어가, 묘사와 내면을 한 문장에 붙인다.",
+      "text": "아니 괴상한 일이 '생겼다'느니보다 '발각되었다'는 것이 마땅할는지 모르리라.",
+      "author": "현진건",
+      "work": "B사감과 러브레터 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
+      "technique": "방금 쓴 동사 하나를 다른 동사로 바꿔 달면, 사건의 성격 자체가 통째로 바뀐다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 13,
-    "doy": 103,
-    "week": 15,
-    "weekTheme": "지는 꽃 — 다리 지우기",
+    "day": 19,
+    "doy": 109,
+    "week": 16,
+    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
     "techniqueFamily": "전환",
     "A": {
       "text": "그는 아무것도 생각하지 않았고 생각할 수도 없었다. 다만 온몸으로 느꼈다. 이제 자기에게는 생각의 자유도 의지도 없으며, 모든 것이 갑자기, 돌이킬 수 없이 결정되었다는 것을.",
@@ -314,21 +464,21 @@
       "isTranslation": true
     },
     "B": {
-      "text": "시작이 절반이라는 말이 있지만 나의 창작에 있어선 시작이 전부라 해도 과언이 아니다.",
-      "author": "계용묵",
-      "work": "「침묵의 변」(수필, 1949)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
-      "technique": "널리 아는 속담을 인용한 뒤 낱말 하나('절반'→'전부')만 바꿔 자기 주장으로 만든다.",
+      "text": "그들의 얼굴은 놀랍고 무서운 빛이 없지 않았으되 점점 호기심에 번쩍이기 시작하였다.",
+      "author": "현진건",
+      "work": "B사감과 러브레터 (1925)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
+      "technique": "한 얼굴 안에서 감정이 갈아타는 과정을 '~였으되 점점'으로 이어, 변화의 속도까지 적는다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 14,
-    "doy": 104,
-    "week": 15,
-    "weekTheme": "지는 꽃 — 다리 지우기",
+    "day": 20,
+    "doy": 110,
+    "week": 16,
+    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
     "techniqueFamily": "전환",
     "A": {
       "text": "우리 시대가 지나면 사람들은 기구를 타고 날아다닐 테고 옷깃 모양도 달라질 테고 어쩌면 여섯 번째 감각을 발견해 키울지도 모른다. 그러나 삶은 그대로일 것이다. 여전히 고되고, 알 수 없고, 행복한 채로.",
@@ -347,13 +497,13 @@
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 15,
-    "doy": 105,
-    "week": 15,
-    "weekTheme": "지는 꽃 — 다리 지우기",
+    "day": 21,
+    "doy": 111,
+    "week": 16,
+    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
     "techniqueFamily": "전환",
     "A": {
       "text": "지금 우리는 철도를 놓고 여기 서서 철학을 논하지만, 이천 년이 지나면 이 둑도, 고된 일을 마치고 잠든 저 사람들도, 먼지 한 톨 남지 않을 것이다.",
@@ -364,19 +514,19 @@
       "isTranslation": true
     },
     "B": {
-      "text": "아니 괴상한 일이 '생겼다'느니보다 '발각되었다'는 것이 마땅할는지 모르리라.",
-      "author": "현진건",
-      "work": "B사감과 러브레터 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
-      "technique": "방금 쓴 동사 하나를 다른 동사로 바꿔 달면, 사건의 성격 자체가 통째로 바뀐다.",
+      "text": "거짓말이란 오래 못 간다. 봉이 나서 뼉다귀도 못 추리기 전에 훨훨 벗어나는 게 상책이겠다.",
+      "author": "김유정",
+      "work": "금 따는 콩밭 (1935)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
+      "technique": "잠언처럼 들리는 단정을 먼저 놓고 뒤에서 그것이 사기꾼의 속셈임을 드러낸다 — 마지막 문장의 배신",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W15 「지는 꽃 — 다리 지우기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
-    "day": 16,
-    "doy": 106,
+    "day": 22,
+    "doy": 112,
     "week": 16,
     "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
     "techniqueFamily": "전환",
@@ -389,165 +539,15 @@
       "isTranslation": true
     },
     "B": {
-      "text": "그들의 얼굴은 놀랍고 무서운 빛이 없지 않았으되 점점 호기심에 번쩍이기 시작하였다.",
-      "author": "현진건",
-      "work": "B사감과 러브레터 (1925)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
-      "technique": "한 얼굴 안에서 감정이 갈아타는 과정을 '~였으되 점점'으로 이어, 변화의 속도까지 적는다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 17,
-    "doy": 107,
-    "week": 16,
-    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "인간의 영광스러운 걸작은 제때에 맞게 사는 것이다. 다스리고 쌓고 짓는 다른 모든 일은 기껏해야 곁가지이고 부속물이다.",
-      "author": "미셸 드 몽테뉴",
-      "work": "에세 3권 13장 경험에 대하여 (1595년 판)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/58801/pg58801.txt",
-      "technique": "가장 작아 보이는 것을 정점에 올리고, 커 보이는 일들은 나열해 한꺼번에 강등시킨다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "헌칠한 벌판에 능금꽃이 피고 나무가 우거지고 벼이삭이 무거울 때에는 그래도 마을은 기름지게 빛나더니 이제 풍성한 윤택을 잃은 마을은 하는 수 없이 가난한 참혹한 꼴을 그대로 드러내 놓았다.",
-      "author": "이효석",
-      "work": "10월에 피는 능금꽃 (1933)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/10%EC%9B%94%EC%97%90_%ED%94%BC%EB%8A%94_%EB%8A%A5%EA%B8%88%EA%BD%83",
-      "technique": "풍요를 셋 쌓아 올린 뒤 '이제' 하나로 시간을 꺾어 대비를 만든다",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 18,
-    "doy": 108,
-    "week": 16,
-    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "우리의 비참을 위로해 주는 유일한 것이 오락이다. 그런데 그것이야말로 우리의 가장 큰 비참이다.",
-      "author": "블레즈 파스칼",
-      "work": "팡세 단장 171 (1670, 브룅슈비크 판)",
-      "sourceUrl": "https://fr.wikisource.org/wiki/Pens%C3%A9es_(Pascal,_%C3%A9d._Brunschvicg)/Pens%C3%A9es/Section_II-2",
-      "technique": "같은 낱말(비참)을 문장 앞뒤에 놓아, 위로가 곧 병이 되는 고리를 한 줄로 닫는다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "그러나 다음 내 글이 그대에게 닿을 때는, 벌써 나는 다른 산간이나 또는 해상에 별과 별 사이의 거리를 헤아려 보면서 지금과는 다른 생각을 하고 있는 줄 알아라.",
-      "author": "이육사",
-      "work": "수필 「산사기(山寺記)」 (1941년)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/산사기",
-      "technique": "읽는 시점으로 자리를 옮겨 지금의 나를 과거로 만들고 명령형으로 편지를 닫는다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 19,
-    "doy": 109,
-    "week": 16,
-    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "나쁜 이유로라도 설명되는 세계는 친숙한 세계다. 그러나 환상과 빛을 갑자기 빼앗긴 우주에서 인간은 자신을 이방인으로 느낀다.",
-      "author": "알베르 카뮈",
-      "work": "시지프 신화 (1942)",
-      "sourceUrl": "https://archive.org/download/sisyphe-pdf-fr/texte_djvu.txt",
-      "technique": "'그러나' 하나로 세계를 둘로 가르고, 앞뒤 문장을 같은 길이로 맞춰 대칭을 만든다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "그러나 그 웃음 소리들이 사라지기 전에 김 첨지는 훌쩍훌쩍 울기 시작하였다.",
-      "author": "현진건",
-      "work": "운수 좋은 날 (1924)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
-      "technique": "앞 감정이 채 끝나기 전에 반대 감정을 겹쳐 놓아, 두 감정 사이의 시간을 지운다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 20,
-    "doy": 110,
-    "week": 16,
-    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "번히 마름이란 욕 잘하고, 사람 잘 치고, 그리고 생김생기길 호박개같애야 쓰는 거지만 장인님은 외양이 똑 됐다.",
-      "author": "김유정",
-      "work": "봄봄 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/봄봄",
-      "technique": "조건 셋을 늘어놓고 '똑 됐다' 한마디로 착지 — 열거의 끝을 짧게 끊어 비꼼을 만든다",
-      "isTranslation": false
-    },
-    "B": {
-      "text": "동물원에서밖에 볼 수 없는 짐승, 산에 있는 짐승들을 사로잡아다가 동물원에 갖다 가둔 것이 아니라, 동물원에 있는 짐승들을 이런 산에다 내어 놓아준 것만 같은 착각을 자꾸만 느낍니다.",
+      "text": "물론 싸워서는 안 된다. 친구끼리는 정다워야 하니까. 그래서 우리는 우리 두 사람의 공동의 적을 하나 찾기로 한다.",
       "author": "이상",
-      "work": "산촌여정 (1935, 매일신보)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/산촌여정",
-      "technique": "'A를 B에 가둔 게 아니라 B의 것을 A에 풀어놓은 것 같다'로 인과의 방향을 통째로 뒤집는다.",
+      "work": "EPIGRAM (1936, 여성)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/EPIGRAM",
+      "technique": "당위-이유-결론의 정연한 삼단 형식에 엉뚱한 결론만 얹어, 논리의 외형으로 웃음을 만든다.",
       "isTranslation": false
     },
-    "contrastAxis": "짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 21,
-    "doy": 111,
-    "week": 16,
-    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "거짓말이란 오래 못 간다. 봉이 나서 뼉다귀도 못 추리기 전에 훨훨 벗어나는 게 상책이겠다.",
-      "author": "김유정",
-      "work": "금 따는 콩밭 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
-      "technique": "잠언처럼 들리는 단정을 먼저 놓고 뒤에서 그것이 사기꾼의 속셈임을 드러낸다 — 마지막 문장의 배신",
-      "isTranslation": false
-    },
-    "B": {
-      "text": "다만 이 무덤같은 침묵을 깨뜨리는 — 깨뜨린다느니보다 한층 더 침묵을 깊게 하고 불길하게 하는 빡빡하는 그윽한 소리, 어린애의 젖 빠는 소리가 날 뿐이다.",
-      "author": "현진건",
-      "work": "운수 좋은 날 (1924)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
-      "technique": "문장 한가운데서 제 말을 스스로 뒤집고, 소리의 정체는 맨 끝까지 미룬다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 22,
-    "doy": 112,
-    "week": 16,
-    "weekTheme": "봄비 오는 주 — 사물에 동사 주기",
-    "techniqueFamily": "전환",
-    "A": {
-      "text": "하늘이 이마에 와 닿어 있다. 실로 청옥같이 푸르고 넓은, 그것은 무한한 것이었다. 그러나 곳 그것은 하늘이 아니라 강물의 착각이었다.",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "감각을 먼저 충분히 믿게 만든 다음 한 문장으로 그것을 착각이라 뒤집는 반전.",
-      "isTranslation": false
-    },
-    "B": {
-      "text": "텐트같은 하늘이 무너져 이 거리를 덮을가 궁금하면서 좀더 높은데로 올라가고 싶다.",
-      "author": "윤동주",
-      "work": "하늘과 바람과 별과 시 中 「산상(山上)」 (1936년 작, 1955년 증보판 수록)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/하늘과_바람과_별과_시_(1955년)/산상",
-      "technique": "무너질까 하는 불안을 먼저 적어 놓고 같은 문장 안에서 더 높이 가고 싶다고 뒤집는다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "짧음↔김",
-    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W16 「봄비 오는 주 — 사물에 동사 주기」의 전환 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   },
   {
     "day": 23,
@@ -556,6 +556,14 @@
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
     "A": {
+      "text": "웃으면 곯아 비틀어진 우붕 뿌리 같은 그 얼굴에 누비질한 것 같이 잘게 깊게 잡힌 주름살이 피며 주름 사이에서 햇빛을 보지 못한 살이 받고 지운 것 같이 여기저기 드러나는 것이었다.",
+      "author": "백신애",
+      "work": "적빈 (1934)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%A0%81%EB%B9%88",
+      "technique": "비유를 세 개 이어 붙여(뿌리→누비질→받고 지운 것) 한 얼굴을 층층이 파고든다.",
+      "isTranslation": false
+    },
+    "B": {
       "text": "발아래 폭삭폭삭 밟히는 흙알을 한 줌 쥐어 누구의 얼굴에고 팩 ─ 끼얹고는 그냥 돌쳐서고 싶은 야릇한 분만이다.",
       "author": "지하련",
       "work": "결별(訣別), 1940",
@@ -563,7 +571,16 @@
       "technique": "하지 못한 행동을 끝까지 구체적으로 그린 다음, 마지막 한 단어로 감정의 이름을 붙인다.",
       "isTranslation": false
     },
-    "B": {
+    "contrastAxis": "짧음↔김",
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
+  },
+  {
+    "day": 24,
+    "doy": 114,
+    "week": 17,
+    "weekTheme": "초록이 짙어지는 주 — 감각 교차",
+    "techniqueFamily": "묘사",
+    "A": {
       "text": "욕을 이토록 먹어 가면서도 대거리 한 마디 못하는 걸 생각하니 돌부리에 채이어 발톱 밑이 터지는 것도 모를 만큼 분하고 급기야는 두 눈에 눈물까지 불끈 내솟는다.",
       "author": "김유정",
       "work": "동백꽃 (1936)",
@@ -571,12 +588,45 @@
       "technique": "감정의 크기를 '발톱 밑이 터지는 것도 모를 만큼'이라는 몸의 사건으로 재는 법",
       "isTranslation": false
     },
+    "B": {
+      "text": "새침하게 흐린 품이 눈이 올 듯하더니 눈은 아니 오고 얼다가 만 비가 추적추적 내리었다.",
+      "author": "현진건",
+      "work": "운수 좋은 날 (1924)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%9A%B4%EC%88%98_%EC%A2%8B%EC%9D%80_%EB%82%A0",
+      "technique": "기대한 것(눈)을 먼저 세우고 어긋난 것(비)을 뒤에 놓아, 날씨 한 줄로 이야기 전체의 아이러니를 예고한다.",
+      "isTranslation": false
+    },
     "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
   },
   {
-    "day": 24,
-    "doy": 114,
+    "day": 25,
+    "doy": 115,
+    "week": 17,
+    "weekTheme": "초록이 짙어지는 주 — 감각 교차",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "중복 허리의 뜨거운 땡볕이라 길 가는 사람은 저편 처마 밑으로만 배앵뱅 돌고 있다.",
+      "author": "김유정",
+      "work": "땡볕 (1937)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/땡볕",
+      "technique": "더위를 온도가 아니라 사람들이 걷는 경로로 보여준다 — 날씨는 행동으로 쓴다",
+      "isTranslation": false
+    },
+    "B": {
+      "text": "군데군데 찢어진 겅성드뭇한 눈썹이 올올이 일어서며 아래로 축 처지는 서슬에 양미간에는 여러 가닥 주름이 잡히고 광대뼈 위로 뺨살이 실룩실룩 보이자 두 볼은 쪽 빨아든다.",
+      "author": "현진건",
+      "work": "고향 (1926)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%ED%96%A5_(%ED%98%84%EC%A7%84%EA%B1%B4)",
+      "technique": "눈썹에서 미간, 광대, 볼로 시선을 한 방향으로만 내려보내며 얼굴을 카메라처럼 훑는다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "짧음↔김",
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
+  },
+  {
+    "day": 26,
+    "doy": 116,
     "week": 17,
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
@@ -597,11 +647,11 @@
       "isTranslation": false
     },
     "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
   },
   {
-    "day": 25,
-    "doy": 115,
+    "day": 27,
+    "doy": 117,
     "week": 17,
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
@@ -622,11 +672,11 @@
       "isTranslation": false
     },
     "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
   },
   {
-    "day": 26,
-    "doy": 116,
+    "day": 28,
+    "doy": 118,
     "week": 17,
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
@@ -647,11 +697,11 @@
       "isTranslation": false
     },
     "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
   },
   {
-    "day": 27,
-    "doy": 117,
+    "day": 29,
+    "doy": 119,
     "week": 17,
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
@@ -672,57 +722,7 @@
       "isTranslation": false
     },
     "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 28,
-    "doy": 118,
-    "week": 17,
-    "weekTheme": "초록이 짙어지는 주 — 감각 교차",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "북극의 얼음세계나 거쳐 오는 듯한 차디찬 바람이 우― 하고 몰려오는 때면 산봉우리와 엉성한 가지 끝에 쌓였던 눈들이 한꺼번에 휘날려서 이 좁은 산골은 뿌연 눈안개 속에 들게 된다.",
-      "author": "최서해",
-      "work": "홍염 (1927, 조선문단)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
-      "technique": "먼 곳에서 바람을 끌어와 소리를 넣고, 높은 곳의 눈을 흩어 마지막에 좁은 골짜기를 덮는 순서로 화면을 좁힌다.",
-      "isTranslation": false
-    },
-    "B": {
-      "text": "망망한 푸른 바다는 하늘을 따라 멀리 달려나갔고 한두 척의 어선이 수평선 위에 비스듬히 걸려서 슬픈 노래를 자욱히 뿌리고 있다.",
-      "author": "강경애",
-      "work": "내가 좋아하는 솔 (1940)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%B4%EA%B0%80%20%EC%A2%8B%EC%95%84%ED%95%98%EB%8A%94%20%EC%86%94",
-      "technique": "넓은 바다에서 배 한두 척으로 시야를 좁힌 뒤 소리(노래)로 마무리해 원경을 청각으로 닫는다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
-  },
-  {
-    "day": 29,
-    "doy": 119,
-    "week": 17,
-    "weekTheme": "초록이 짙어지는 주 — 감각 교차",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "저편 뜨물 동이 옆에는 봉희가 붙어 서서 그 큰 머리를 숙이고 마치 젖 빨듯이 입을 뜨물 동이에 대고 뜨물을 꼴깍꼴깍 들이마시고 있다.",
-      "author": "강경애",
-      "work": "소금 (1934)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%86%8C%EA%B8%88",
-      "technique": "'마치 젖 빨듯이' 하나로 굶주림과 어린 나이를 동시에 말한다 — 설명 없는 비유.",
-      "isTranslation": false
-    },
-    "B": {
-      "text": "세찬 바닷바람에 채인 지전은 바람결 좇아 공중으로 올라가 팔랑팔랑 허공에서 재주를 넘어가며 산산이 헤어져 멀리 그리고 가깝게 하나씩 하나씩 물위에 떨어져서는 넘노는 물결 좇아 잠겼다 떴다 숨바꼭질을 한다.",
-      "author": "계용묵",
-      "work": "「백치 아다다」(단편소설, 1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-      "technique": "한 문장을 끊지 않고 동사를 계속 이어 붙여, 흩어지는 움직임을 끝까지 따라간다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. A는 한국 산문의 호흡, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열. 같은 기법을 두 소재로 비교한다."
   },
   {
     "day": 30,
@@ -731,22 +731,22 @@
     "weekTheme": "입하, 하나를 끝까지 — 확장 비유",
     "techniqueFamily": "비유",
     "A": {
-      "text": "새는 알에서 나오려고 싸운다. 알은 세계다. 태어나려는 자는 하나의 세계를 부수어야 한다.",
-      "author": "헤르만 헤세",
-      "work": "데미안, 1919",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-      "technique": "짧은 단문 세 개를 사슬처럼 이어 비유를 명제로 끌어올린다.",
+      "text": "잿빛일세, 친애하는 벗이여, 모든 이론은. 그리고 푸르네, 생명의 황금빛 나무는.",
+      "author": "요한 볼프강 폰 괴테",
+      "work": "파우스트 1부, 1808",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2229/pg2229.txt",
+      "technique": "색채어를 문장 맨 앞에 도치해 두 세계를 정면으로 맞세운다.",
       "isTranslation": true
     },
     "B": {
-      "text": "위에서는 푸푸, 부글부글하는 소리, 아래에서는 밀짚의 탁탁 튀는 소리, 마치 경희가 도쿄 음악 학교 연주회석에서 듣던 관현악 연주 소리 같기도 하다.",
-      "author": "나혜석",
-      "work": "경희(瓊姬), 1918",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
-      "technique": "위/아래 소리를 짝지어 배치한 뒤 마지막에 전혀 다른 세계의 비유로 건너뛴다.",
+      "text": "약간의 힌트를 얻어 두었던 것으로 덮어놓고 붓을 잡으니 마치 지리학자나 탐험가들이 약간의 추상을 가지고 길을 떠나는 것 같다.",
+      "author": "나도향",
+      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
+      "technique": "자기 행위를 낯선 직업에 빗대어, 추상적인 심정을 공간 이동의 이미지로 바꾼다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W18 「입하, 하나를 끝까지 — 확장 비유」의 비유 계열. A는 번역문의 압축된 어조, B는 한국 원문으로 같은 기법을 다른 언어 감각에서 본다."
+    "why": "W18 「입하, 하나를 끝까지 — 확장 비유」의 비유 계열. A는 번역문의 압축된 어조, B는 한국 산문의 호흡으로 같은 기법을 다른 언어 감각에서 본다."
   }
 ]
