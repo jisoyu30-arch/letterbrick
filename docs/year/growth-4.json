@@ -6,19 +6,19 @@
     "weekTheme": "1분기 통합 — 기법 겹쳐 쓰기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "좋은 저녁 식사는 좋은 대화에 무척 중요하다. 잘 먹지 못한 사람은 잘 생각하지도, 잘 사랑하지도, 푹 자지도 못한다.",
+      "text": "위대한 계시는 끝내 오지 않았다. 위대한 계시는 어쩌면 원래 오지 않는 것인지도 모른다. 대신 작고 일상적인 기적들이 있었다. 어둠 속에서 느닷없이 그어진 성냥불 같은 것들이.",
       "author": "버지니아 울프",
-      "work": "자기만의 방",
-      "sourceUrl": "http://gutenberg.net.au/ebooks02/0200791.txt",
-      "technique": "세 개의 동사에 같은 부사를 붙여 삼단으로 반복하고, 조건절을 뒤에 놓아 한 번에 회수한다.",
+      "work": "등대로",
+      "sourceUrl": "http://gutenberg.net.au/ebooks01/0100101.txt",
+      "technique": "같은 문장을 한 번 더 쓰되 한 단어만 바꿔 단정을 추측으로 낮추고, 그 뒤에 대안을 놓는다.",
       "isTranslation": true
     },
     "B": {
-      "text": "해지면 자고 해뜨면 걷고 집이 있으면 얻어먹고 없으면 굶으면서 방랑하였다.",
+      "text": "나는 밤이나 낮이나, 비 오나 바람이 치나 헤아리지 않고 삯김, 삯심부름, 삯나무, 무엇이든지 가리지 않았다.",
       "author": "최서해",
-      "work": "고국 (1924, 조선문단 창간호)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%EA%B5%AD",
-      "technique": "조건과 행동을 짧은 대구로 네 번 이어 붙여, 설명 없이 떠도는 세월의 리듬을 만든다.",
+      "work": "탈출기 (1925, 조선문단)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%83%88%EC%B6%9C%EA%B8%B0",
+      "technique": "시간과 날씨를 대구로 묶고 '삯'으로 시작하는 명사를 셋 늘어놓아 노동의 총량을 리듬으로 보여준다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -31,11 +31,11 @@
     "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "이 세상 어디에도 마침내 실컷 울 수 있는 곳은 없단 말인가? 찬 바람이 그녀의 앞치마를 풍선처럼 부풀렸다. 그리고 비가 오기 시작했다. 어디에도 없었다.",
+      "text": "그녀는 목걸이를 재빨리 풀었다. 재빨리, 보지 않은 채로 상자 안에 넣었다. 그러나 뚜껑을 덮을 때, 무언가 우는 소리를 들은 것 같았다.",
       "author": "캐서린 맨스필드",
-      "work": "가든 파티 「마 파커의 생애」",
+      "work": "가든 파티 「미스 브릴」",
       "sourceUrl": "https://www.gutenberg.org/cache/epub/1429/pg1429.txt",
-      "technique": "질문 → 사물 → 날씨로 답을 미루다가, 다섯 글자짜리 문장 하나로 대답을 끊어 놓는다.",
+      "technique": "우는 주체를 끝까지 '무언가'로 남겨, 자기 울음을 사물 쪽으로 밀어 놓는다.",
       "isTranslation": true
     },
     "B": {
@@ -56,19 +56,19 @@
     "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "그녀는 목걸이를 재빨리 풀었다. 재빨리, 보지 않은 채로 상자 안에 넣었다. 그러나 뚜껑을 덮을 때, 무언가 우는 소리를 들은 것 같았다.",
-      "author": "캐서린 맨스필드",
-      "work": "가든 파티 「미스 브릴」",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/1429/pg1429.txt",
-      "technique": "우는 주체를 끝까지 '무언가'로 남겨, 자기 울음을 사물 쪽으로 밀어 놓는다.",
+      "text": "세상이 점점 나아지는 것은 역사에 남지 않는 행위들에 얼마간 빚지고 있다. 당신과 내가 그럴 수도 있었던 것보다 덜 나쁘게 사는 것은, 숨은 삶을 성실히 살고 아무도 찾지 않는 무덤에 누운 이들 덕이 절반이다.",
+      "author": "조지 엘리엇",
+      "work": "미들마치",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/145/pg145.txt",
+      "technique": "'얼마간', '절반'처럼 크기를 재는 말로 감정을 절제하다가, 마지막에 '아무도 찾지 않는 무덤'이라는 구체 이미지 하나로 닫는 법.",
       "isTranslation": true
     },
     "B": {
-      "text": "이리하여 문서방은 차마 생목숨을 끊기 어려워서 원수가 주는 땅을 파먹게 되었다.",
+      "text": "그날 벌어서 그날 먹는 생활이었고, 그리 되고 보니 하루만 병으로 쉬게 되면, 그 하루 양식 값은 빚이 되었다.",
       "author": "최서해",
-      "work": "홍염 (1927, 조선문단)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%ED%99%8D%EC%97%BC",
-      "technique": "원인과 결과를 한 문장에 붙여, '원수가 주는 땅'이라는 한 구절로 굴욕의 조건을 압축한다.",
+      "work": "담요 (수필, 발표연도 미확인)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8B%B4%EC%9A%94",
+      "technique": "'그날'과 '하루'를 반복해 시간 단위를 좁히고, 마지막 단어 '빚'으로 삶의 구조를 한 번에 요약한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -81,11 +81,11 @@
     "weekTheme": "청명, 꽃 피는 주 — '처럼'으로 잇기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "그녀는 한복판에 선을 하나 그었다. 그것으로 끝이었다. 완성이었다. 그래, 나는 내 환영을 보았다.",
-      "author": "버지니아 울프",
-      "work": "등대로",
-      "sourceUrl": "http://gutenberg.net.au/ebooks01/0100101.txt",
-      "technique": "긴 준비 끝에 두세 어절짜리 단문을 연달아 놓아 장편 전체의 마침표를 찍는다.",
+      "text": "도덕적인 책이니 부도덕한 책이니 하는 것은 없다. 책은 잘 썼거나 못 썼거나 둘 중 하나다. 그뿐이다.",
+      "author": "오스카 와일드",
+      "work": "도리언 그레이의 초상 (서문)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/174/pg174.txt",
+      "technique": "통념을 한 문장으로 지우고, 대체 기준을 이분법으로 세운 뒤 세 글자로 닫는다.",
       "isTranslation": true
     },
     "B": {
@@ -114,11 +114,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "그때 나는 그의 얼굴이 웃기보다 찡그리기에 가장 적당한 얼굴임을 발견하였다.",
-      "author": "현진건",
-      "work": "고향 (1926)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%ED%96%A5_(%ED%98%84%EC%A7%84%EA%B1%B4)",
-      "technique": "외모를 나열하는 대신 '어느 표정에 맞게 생겼는가'로 바꿔, 한 줄로 한 사람의 인생을 요약한다.",
+      "text": "푸른 하늘에 닿을 듯이 세월에 불타고 우뚝 남아 서서 차라리 봄도 꽃피진 말아라.",
+      "author": "이육사",
+      "work": "「교목(喬木)」 (1940년 7월 《인문평론》 발표)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/교목",
+      "technique": "상승(닿을 듯이)과 금지(꽃피진 말아라)를 한 문장에 붙여 의지를 역설로 말한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -139,11 +139,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "비밀이 없다는 것은 재산 없는 것처럼 가난할 뿐만 아니라, 더 불쌍하다.",
-      "author": "이상",
-      "work": "19세기식 (1937, 삼사문학)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/19세기식",
-      "technique": "비밀을 재산에 견준 뒤 '뿐만 아니라'로 한 칸 더 밀어붙여, 두 마디로 아포리즘을 완성한다.",
+      "text": "그때 나는 그의 얼굴이 웃기보다 찡그리기에 가장 적당한 얼굴임을 발견하였다.",
+      "author": "현진건",
+      "work": "고향 (1926)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B3%A0%ED%96%A5_(%ED%98%84%EC%A7%84%EA%B1%B4)",
+      "technique": "외모를 나열하는 대신 '어느 표정에 맞게 생겼는가'로 바꿔, 한 줄로 한 사람의 인생을 요약한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -589,11 +589,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "내가 변하고 있다고 누구에게 말한들 무슨 소용인가. 나는 이미 예전의 내가 아니고, 지금까지와 다른 무엇이라면 내게는 아는 사람이 없다는 뜻이니까.",
-      "author": "라이너 마리아 릴케",
-      "work": "말테의 수기, 1910",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
-      "technique": "수사의문으로 시작해 조건절 두 개로 스스로 답을 좁혀 가며 고립을 논증한다.",
+      "text": "아이는 울며 유모의 품으로 파고들었다. 사랑하는 아버지의 모습에 놀라고, 투구 꼭대기에서 사납게 끄덕이는 청동과 말총 장식이 무서웠던 것이다.",
+      "author": "호메로스",
+      "work": "일리아스 6권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+      "technique": "영웅의 위엄을 아이의 눈높이로 낮추고, 공포의 근거를 사물 하나(투구 장식)에 몰아 준다.",
       "isTranslation": true
     },
     "contrastAxis": "서양↔동양 / 짧음↔김",
@@ -606,19 +606,19 @@
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "잿빛일세, 친애하는 벗이여, 모든 이론은. 그리고 푸르네, 생명의 황금빛 나무는.",
-      "author": "요한 볼프강 폰 괴테",
-      "work": "파우스트 1부, 1808",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2229/pg2229.txt",
-      "technique": "색채어를 문장 맨 앞에 도치해 두 세계를 정면으로 맞세운다.",
+      "text": "곧바로 빛나는 헥토르는 투구를 머리에서 벗어, 번쩍이는 그대로 땅에 내려놓았다. 그러고서 사랑하는 아들에게 입 맞추고 두 팔로 어르며 신들에게 빌었다.",
+      "author": "호메로스",
+      "work": "일리아스 6권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+      "technique": "감정을 말하지 않고 동작의 순서만 적는다. 벗고—놓고—입 맞추고—어르는 네 동작이 곧 감정선이다.",
       "isTranslation": true
     },
     "B": {
-      "text": "또그닥또그닥, 또각또각, 한참 석양 노을이 내려 비치기 시작하는 인적 드문 포도 위에서 이 두 음향의 속 모르는 싸움은 자못 그 절정에 달하고 있었다.",
+      "text": "말은 장작개비가 번쩍 올라갈 때마다 떨어질 그 매의 무서움을 생각하고는 흠칠하고 네 굽을 들곤 한다.",
       "author": "계용묵",
-      "work": "「구두」(수필, 1949)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/구두",
-      "technique": "두 개의 의성어를 문장 앞에 나란히 세워, 사람 대신 소리끼리 맞붙게 만든다.",
+      "work": "「말」(수필, 1941)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/말",
+      "technique": "아직 오지 않은 매를 먼저 쓰고 반응을 뒤에 붙여, 공포를 시간 순서 그대로 재현한다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -631,36 +631,11 @@
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "인간은 짐승과 초인 사이에 매인 밧줄이다. 심연 위에 걸쳐진 하나의 밧줄.",
-      "author": "프리드리히 니체",
-      "work": "차라투스트라는 이렇게 말했다(Also sprach Zarathustra), 1883",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7205/pg7205.txt",
-      "technique": "정의를 내린 뒤 핵심 명사만 서술어 없이 되풀이해 이미지를 못 박는다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "짐은 놓고서 있으면 그런 거북함만은 없을 것인데 그대로 들고만 서 있을 차빌 하는 걸 보면 필시 아무 데나 막 놓아서는 안 될 무슨 그런 중요한 것이 들어 있음이 틀림없었다.",
-      "author": "계용묵",
-      "work": "「계란」(수필, 1943)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/계란",
-      "technique": "보이는 행동 하나에서 보이지 않는 사정을 추론해 나가는, 관찰-추리형 서술문.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열."
-  },
-  {
-    "day": 27,
-    "doy": 117,
-    "week": 17,
-    "weekTheme": "초록이 짙어지는 주 — 감각 교차",
-    "techniqueFamily": "묘사",
-    "A": {
-      "text": "새는 알에서 나오려고 싸운다. 알은 세계다. 태어나려는 자는 하나의 세계를 부수어야 한다.",
-      "author": "헤르만 헤세",
-      "work": "데미안, 1919",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-      "technique": "짧은 단문 세 개를 사슬처럼 이어 비유를 명제로 끌어올린다.",
+      "text": "그런데도 오디세우스가 곁에 선 것을 알아채자 개는 꼬리를 흔들고 두 귀를 늘어뜨렸다. 다만 주인 쪽으로 다가갈 힘은 남아 있지 않았다.",
+      "author": "호메로스",
+      "work": "오디세이아 17권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+      "technique": "재회의 감정을 몸짓 세 개로만 적고 끝내 말을 주지 않는다. 절제가 곧 강도가 된다.",
       "isTranslation": true
     },
     "B": {
@@ -675,17 +650,42 @@
     "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열."
   },
   {
+    "day": 27,
+    "doy": 117,
+    "week": 17,
+    "weekTheme": "초록이 짙어지는 주 — 감각 교차",
+    "techniqueFamily": "묘사",
+    "A": {
+      "text": "나는 한 그루 물푸레나무가 서 있음을 안다. 그 이름은 위그드라실, 흰 진흙을 끼얹은 높은 나무다. 골짜기에 내리는 이슬이 거기서 온다. 우르드의 샘 위에 언제나 푸르게 서 있다.",
+      "author": "작자 미상(고 에다)",
+      "work": "고 에다 「무녀의 예언(Völuspá)」 19연 (고대 노르드어 원문 참조, 온:사유 번역)",
+      "sourceUrl": "https://is.wikisource.org/wiki/V%C3%B6lusp%C3%A1",
+      "technique": "이름을 밝히기 전에 사물을 먼저 세워 두고, 그 나무에서 흘러나오는 것들로 크기를 짐작하게 한다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "발아래 폭삭폭삭 밟히는 흙알을 한 줌 쥐어 누구의 얼굴에고 팩 ─ 끼얹고는 그냥 돌쳐서고 싶은 야릇한 분만이다.",
+      "author": "지하련",
+      "work": "결별(訣別), 1940",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%B0%EB%B3%84",
+      "technique": "하지 못한 행동을 끝까지 구체적으로 그린 다음, 마지막 한 단어로 감정의 이름을 붙인다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열."
+  },
+  {
     "day": 28,
     "doy": 118,
     "week": 17,
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "그들은 왜 두려워하는가? 사람은 자기 자신과 하나가 되지 못했을 때에만 두려워한다. 그들은 한 번도 자기 자신을 인정한 적이 없기에 두려워한다.",
-      "author": "헤르만 헤세",
-      "work": "데미안, 1919",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-      "technique": "자문자답 뒤에 같은 술어를 반복하며 원인을 한 겹 더 파고든다.",
+      "text": "나는 보았다. 피 흘리는 신 발드르, 오딘의 아이에게 감춰진 운명을. 들판보다 높이 자란, 가늘고 몹시 아름다운 겨우살이가 거기 서 있었다.",
+      "author": "작자 미상(고 에다)",
+      "work": "고 에다 「무녀의 예언(Völuspá)」 31연 (고대 노르드어 원문 참조, 온:사유 번역)",
+      "sourceUrl": "https://is.wikisource.org/wiki/V%C3%B6lusp%C3%A1",
+      "technique": "재앙의 도구를 '가늘고 아름답다'고 먼저 말해, 결말을 알면서도 그 앞에서 잠시 멈춰 서게 한다.",
       "isTranslation": true
     },
     "B": {
@@ -706,22 +706,22 @@
     "weekTheme": "초록이 짙어지는 주 — 감각 교차",
     "techniqueFamily": "묘사",
     "A": {
-      "text": "두 영혼이, 아아, 내 가슴속에 살고 있어 하나가 다른 하나에게서 떨어져 나가려 한다.",
-      "author": "요한 볼프강 폰 괴테",
-      "work": "파우스트 1부, 1808",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2229/pg2229.txt",
-      "technique": "감탄사를 문장 한가운데 끼워 넣어 객관적 진술을 신음으로 바꾼다.",
+      "text": "신들께 빈다. 이 노역에서 나를 놓아달라고. 한 해가 다 가도록 지킨 이 망을 이제 거두게 해달라고. 나는 개처럼 한쪽 팔을 괴고 엎드려, 쉰 적이 없다.",
+      "author": "아이스킬로스",
+      "work": "아가멤논 1행 (E. D. A. Morshead 영역본, Project Gutenberg #8604 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt",
+      "technique": "기도로 열어 말의 목적을 먼저 밝히고, 그 다음 자세 하나를 그려 지친 몸을 보여준다.",
       "isTranslation": true
     },
     "B": {
-      "text": "당신은 나를 모를 거다, 『톰 소여의 모험』이라는 책을 읽지 않았다면. 하지만 그건 상관없다. 그 책은 마크 트웨인 씨가 만들었고, 그는 대체로 진실을 말했다. 늘여놓은 것도 있었지만, 대체로는 진실이었다.",
-      "author": "마크 트웨인",
-      "work": "허클베리 핀의 모험",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/76/pg76.txt",
-      "technique": "화자가 자기 이야기의 신빙성을 스스로 흔들어놓고 시작하는 도입 화법.",
+      "text": "둘은 서서 숲을 바라보았다. 삼나무의 높이를 올려다보았다. 숲으로 들어가는 길을 눈으로 훑었다. 훔바바가 다니던 자리에 길이 있었고, 그 자취는 곧았다.",
+      "author": "작자 미상 (신-리케-운니니 전승 편집)",
+      "work": "길가메시 서사시 제5토판, 삼나무 숲 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+      "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+      "technique": "시선이 옮겨 가는 순서대로 문장을 끊어 배치해, 카메라가 장면을 여는 것처럼 공간을 펼친다.",
       "isTranslation": true
     },
-    "contrastAxis": "서양↔동양 / 짧음↔김",
+    "contrastAxis": "서양↔동양",
     "why": "W17 「초록이 짙어지는 주 — 감각 교차」의 묘사 계열."
   },
   {
@@ -731,19 +731,19 @@
     "weekTheme": "입하, 하나를 끝까지 — 확장 비유",
     "techniqueFamily": "비유",
     "A": {
-      "text": "신은 사람이 살아 있으라고, 기쁨과 슬픔과 근심을 가지라고 만들었어. 그런데 너는 아무것도 원하지 않으니 살아 있는 게 아니야. 너는 돌이고 진흙이야.",
-      "author": "안톤 체호프",
-      "work": "유형지에서 (1892)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/1732/pg1732.txt",
-      "technique": "창조의 목적을 먼저 진술한 뒤 그 기준으로 상대를 재고, 마지막에 사람을 사물 이름으로 바꿔 부른다.",
+      "text": "잿빛일세, 친애하는 벗이여, 모든 이론은. 그리고 푸르네, 생명의 황금빛 나무는.",
+      "author": "요한 볼프강 폰 괴테",
+      "work": "파우스트 1부, 1808",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2229/pg2229.txt",
+      "technique": "색채어를 문장 맨 앞에 도치해 두 세계를 정면으로 맞세운다.",
       "isTranslation": true
     },
     "B": {
-      "text": "나무같이 힘센 다리가 성큼 하고 나설 때 신치규는 머리끝이 으쓱 하였다.",
+      "text": "약간의 힌트를 얻어 두었던 것으로 덮어놓고 붓을 잡으니 마치 지리학자나 탐험가들이 약간의 추상을 가지고 길을 떠나는 것 같다.",
       "author": "나도향",
-      "work": "물레방아 (1925, 조선문단 11호)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%AC%BC%EB%A0%88%EB%B0%A9%EC%95%84",
-      "technique": "직유로 몸의 한 부분만 확대한 뒤 상대의 반응을 짧게 붙여 위협을 감각으로 전달한다.",
+      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
+      "technique": "자기 행위를 낯선 직업에 빗대어, 추상적인 심정을 공간 이동의 이미지로 바꾼다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",

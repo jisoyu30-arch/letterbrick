@@ -30,6 +30,21 @@
     }
   },
   {
+    "text": "이렇게 좁혀서 여섯 번을 접을 때, 내 머리에 언뜻 떠오르는 생각과 같이 내 눈앞을 슬쩍 지나가는 그림자가 있다.",
+    "author": "최서해",
+    "work": "담요 (수필, 발표연도 미확인)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8B%B4%EC%9A%94",
+    "technique": "손으로 하던 일의 반복 횟수를 세는 순간에 기억을 끼워 넣어, 현재에서 과거로 넘어가는 문을 만든다.",
+    "techniqueFamily": "전환",
+    "isTranslation": false,
+    "lengthChars": 63,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "작다고 믿었던 자기의 힘이 철통 같은 성벽을 무너뜨리고 자기의 요구를 채울 때 사람은 무한한 기쁨과 충동을 받는다.",
     "author": "최서해",
     "work": "홍염 (1927, 조선문단)",
@@ -45,36 +60,6 @@
     }
   },
   {
-    "text": "길가 이름 모를 긴 풀잎에 이슬이 산딸기처럼 무르익었고 어깨 위를 어루만지는 나뭇잎에서 생선 비린내가 후끈거린다.",
-    "author": "강경애",
-    "work": "약수 (1940)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EC%95%BD%EC%88%98_(%EA%B0%95%EA%B2%BD%EC%95%A0)",
-    "technique": "이슬을 열매로, 나뭇잎 냄새를 비린내로 — 어울리지 않는 감각을 일부러 붙여 낯설게 만든다.",
-    "techniqueFamily": "비유",
-    "isTranslation": false,
-    "lengthChars": 63,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "봄철을 만난 송림은 그 잎이 푸름을 지나서 거멓게 성이 올랐고 눈가루 같은 꽃을 뿌려 숨이 막힐 지경, 향기가 요란스러웠다.",
-    "author": "강경애",
-    "work": "내가 좋아하는 솔 (1940)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%B4%EA%B0%80%20%EC%A2%8B%EC%95%84%ED%95%98%EB%8A%94%20%EC%86%94",
-    "technique": "색 → 냄새 → 숨막힘 순으로 감각을 옮겨 가며 한 문장 안에서 강도를 올린다.",
-    "techniqueFamily": "묘사",
-    "isTranslation": false,
-    "lengthChars": 69,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "용정의 치안을 맡으신 만주국 경관 나리들은 이 모든 것을 얼빠지게 바라본다. 마치 탄알없는 총 모양으로.",
     "author": "강경애",
     "work": "간도의 봄 (1933)",
@@ -83,21 +68,6 @@
     "techniqueFamily": "비유",
     "isTranslation": false,
     "lengthChars": 58,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "저편 뜨물 동이 옆에는 봉희가 붙어 서서 그 큰 머리를 숙이고 마치 젖 빨듯이 입을 뜨물 동이에 대고 뜨물을 꼴깍꼴깍 들이마시고 있다.",
-    "author": "강경애",
-    "work": "소금 (1934)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EC%86%8C%EA%B8%88",
-    "technique": "'마치 젖 빨듯이' 하나로 굶주림과 어린 나이를 동시에 말한다 — 설명 없는 비유.",
-    "techniqueFamily": "묘사",
-    "isTranslation": false,
-    "lengthChars": 75,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -165,21 +135,6 @@
     }
   },
   {
-    "text": "어찌 글씨의 능, 불능으로 가치가 있게 됩니까? 이왕 얻은 그 필자의 명성 여하로 글씨의 가치가 인정되는 것이지요.",
-    "author": "계용묵",
-    "work": "「낙관」(수필, 1941)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/낙관",
-    "technique": "반문으로 상대의 전제를 먼저 무너뜨린 뒤, 곧바로 자기 답을 붙여 못을 박는다.",
-    "techniqueFamily": "질문",
-    "isTranslation": false,
-    "lengthChars": 64,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "한 개의 예술이 완성되기까지에는 그 노력이 헐한 것이 아니듯이 이 수박을 가꾸는 노력도 참으로 헐한 것이 아니었다.",
     "author": "계용묵",
     "work": "「수박」(수필, 1949)",
@@ -210,29 +165,14 @@
     }
   },
   {
-    "text": "말은 장작개비가 번쩍 올라갈 때마다 떨어질 그 매의 무서움을 생각하고는 흠칠하고 네 굽을 들곤 한다.",
-    "author": "계용묵",
-    "work": "「말」(수필, 1941)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/말",
-    "technique": "아직 오지 않은 매를 먼저 쓰고 반응을 뒤에 붙여, 공포를 시간 순서 그대로 재현한다.",
-    "techniqueFamily": "묘사",
-    "isTranslation": false,
-    "lengthChars": 56,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "시집으로 간다하였으나 아무리 생각해도 남편의 매는 어머니의 그것보다 무섭다. 그러면 다시 집으로 돌아가나? 이번에는 외상없는 매가 떨어질 것 같다. 어디로 가야 하나?",
+    "text": "더퍽더퍽 물과 싸움이나 하듯 엎어졌다가는 일어서고, 일어섰다가는 다시 엎어지며 달려가나 따를 길이 없다.",
     "author": "계용묵",
     "work": "「백치 아다다」(단편소설, 1935)",
     "sourceUrl": "https://ko.wikisource.org/wiki/백치_아다다",
-    "technique": "묻고 답하고 다시 묻는 자문자답으로, 인물의 막다른 사고를 실시간처럼 보여준다.",
-    "techniqueFamily": "질문",
+    "technique": "두 동사를 앞뒤로 맞물려 되풀이해, 헛된 반복 동작을 문장 구조로 재현한다.",
+    "techniqueFamily": "반복",
     "isTranslation": false,
-    "lengthChars": 93,
+    "lengthChars": 58,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -255,14 +195,14 @@
     }
   },
   {
-    "text": "발아래 폭삭폭삭 밟히는 흙알을 한 줌 쥐어 누구의 얼굴에고 팩 ─ 끼얹고는 그냥 돌쳐서고 싶은 야릇한 분만이다.",
-    "author": "지하련",
-    "work": "결별(訣別), 1940",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%B0%EB%B3%84",
-    "technique": "하지 못한 행동을 끝까지 구체적으로 그린 다음, 마지막 한 단어로 감정의 이름을 붙인다.",
-    "techniqueFamily": "묘사",
+    "text": "위에서는 푸푸, 부글부글하는 소리, 아래에서는 밀짚의 탁탁 튀는 소리, 마치 경희가 도쿄 음악 학교 연주회석에서 듣던 관현악 연주 소리 같기도 하다.",
+    "author": "나혜석",
+    "work": "경희(瓊姬), 1918",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+    "technique": "위/아래 소리를 짝지어 배치한 뒤 마지막에 전혀 다른 세계의 비유로 건너뛴다.",
+    "techniqueFamily": "비유",
     "isTranslation": false,
-    "lengthChars": 62,
+    "lengthChars": 83,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -495,21 +435,6 @@
     }
   },
   {
-    "text": "거짓말이란 오래 못 간다. 봉이 나서 뼉다귀도 못 추리기 전에 훨훨 벗어나는 게 상책이겠다.",
-    "author": "김유정",
-    "work": "금 따는 콩밭 (1935)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
-    "technique": "잠언처럼 들리는 단정을 먼저 놓고 뒤에서 그것이 사기꾼의 속셈임을 드러낸다 — 마지막 문장의 배신",
-    "techniqueFamily": "전환",
-    "isTranslation": false,
-    "lengthChars": 51,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "예제없이 버력은 무데기 무데기 쌓였다. 마치 사태 만난 공동 묘지와도 같이 귀살쩍고 되우 을씨년스럽다.",
     "author": "김유정",
     "work": "금 따는 콩밭 (1935)",
@@ -518,6 +443,21 @@
     "techniqueFamily": "비유",
     "isTranslation": false,
     "lengthChars": 57,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "금도 금이면 애써 키워온 콩도 콩이었다. 거진 다 자란 허울 멀쑥한 놈들이 삽 끝에 으스러지고 흙에 묻히고 하는 것이다.",
+    "author": "김유정",
+    "work": "금 따는 콩밭 (1935)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/금 따는 콩밭",
+    "technique": "'금도 금이면 콩도 콩이었다' — 같은 말을 두 번 써서 두 가치를 저울에 올린다",
+    "techniqueFamily": "반복",
+    "isTranslation": false,
+    "lengthChars": 67,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -630,36 +570,6 @@
     }
   },
   {
-    "text": "하나는 이글이글 만발한 꽃 같고 하나는 시들시들 마른 낙엽 같다. 아내를 형이라 하고, 처형을 아우라 하였으면 아무라도 속을 것이다.",
-    "author": "현진건",
-    "work": "빈처 (1921)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B9%88%EC%B2%98",
-    "technique": "대구로 두 얼굴을 붙여 놓고, 다음 문장에서 순서를 뒤집어 대비를 한 번 더 조인다.",
-    "techniqueFamily": "반복",
-    "isTranslation": false,
-    "lengthChars": 74,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "적적한 밤 가운데 다른 파동 없는 공기는 그 수상한 말 마디를 곁에서 나는 듯이 또렷또렷이 전해 주었다.",
-    "author": "현진건",
-    "work": "B사감과 러브레터 (1925)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
-    "technique": "소리를 나른 것은 공기라고 주어를 바꿔 놓아, 정적의 밀도를 눈에 보이게 만든다.",
-    "techniqueFamily": "묘사",
-    "isTranslation": false,
-    "lengthChars": 58,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "쌀벌레 같은 그들의 발가락은 가장 조심성 많게 소리나는 곳을 향해서 곰실곰실 기어간다.",
     "author": "현진건",
     "work": "B사감과 러브레터 (1925)",
@@ -683,21 +593,6 @@
     "techniqueFamily": "비유",
     "isTranslation": false,
     "lengthChars": 58,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "뾰족한 입을 앙다물고 돋보기 너머로 쌀쌀한 눈이 노릴 때엔 기숙생들이 오싹하고 몸서리를 치리만큼 그는 엄격하고 매서웠다.",
-    "author": "현진건",
-    "work": "B사감과 러브레터 (1925)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/B%EC%82%AC%EA%B0%90%EA%B3%BC_%EB%9F%AC%EB%B8%8C%EB%A0%88%ED%84%B0",
-    "technique": "성격을 먼저 말하지 않고, 보는 사람의 몸 반응을 자로 삼아 성격을 재게 한다.",
-    "techniqueFamily": "묘사",
-    "isTranslation": false,
-    "lengthChars": 67,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -743,6 +638,21 @@
     "techniqueFamily": "전환",
     "isTranslation": false,
     "lengthChars": 69,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "말갛게 개인 하늘은 구름 한 점도 없고 아른아른한 아지랑이가 그 하늘거리는 깁 오리로 봄비단을 짜내는 어느 아름다운 봄날이었다.",
+    "author": "현진건",
+    "work": "할머니의 죽음 (1923)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%ED%95%A0%EB%A8%B8%EB%8B%88%EC%9D%98_%EC%A3%BD%EC%9D%8C",
+    "technique": "부고를 알리기 직전에 가장 화창한 날씨를 길게 깔아 두는 배치. 아름다움이 곧 잔인함이 된다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 71,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -870,6 +780,21 @@
     }
   },
   {
+    "text": "비온 뒤끝은 아직도 깨끗지 못하여 검은 구름발이 삼각산 봉우리를 뒤덮어 돌고 기운차게 서서 흔들기 좋아하는 포플러도 잎새 하나 움직이지 않고 조용히 서 있을 만치 그렇게 바람 한 점도 날리지 않는다.",
+    "author": "나혜석",
+    "work": "규원, 1921",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B7%9C%EC%9B%90",
+    "technique": "멀리(구름)에서 가까이(잎새 하나)로 초점을 좁히고, 마지막에 '없음'으로 정적을 확정한다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "lengthChars": 111,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "하늘이 이마에 와 닿어 있다. 실로 청옥같이 푸르고 넓은, 그것은 무한한 것이었다. 그러나 곳 그것은 하늘이 아니라 강물의 착각이었다.",
     "author": "지하련",
     "work": "도정(道程), 1946",
@@ -885,6 +810,21 @@
     }
   },
   {
+    "text": "한 길은 쌀이 곳간에 쌓이고 돈이 많고 귀염도 받고 사랑도 받고 밟기도 쉬운 황토(黃土)요, 가기도 쉽고 찾기도 어렵지 않은 탄탄대로이다.",
+    "author": "나혜석",
+    "work": "경희(瓊姬), 1918",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+    "technique": "'-고'를 계속 이어 이점을 쌓아 올린 뒤 마지막 한 단어(탄탄대로)로 봉인한다.",
+    "techniqueFamily": "반복",
+    "isTranslation": false,
+    "lengthChars": 77,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "그러나 저보다 몇 십백 배 묘한 미감을 느끼는 자가 있으려니 생각할 때에 제 눈을 빼어 버리고도 싶고 제 머리를 뚜드려 바치고도 싶다.",
     "author": "나혜석",
     "work": "경희(瓊姬), 1918",
@@ -893,6 +833,36 @@
     "techniqueFamily": "고백",
     "isTranslation": false,
     "lengthChars": 75,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "또 거기에는 앵두 씨가 여기저기 떨어져 있고 큰 유리화대접에 반도 채 못 담겨 있는 앵두는 물에 젖어 반투명체로 연연하게 곱고 붉은빛이 광선에 반사되어 기름 윤이 흐르게 번쩍번쩍한다.",
+    "author": "나혜석",
+    "work": "규원, 1921",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B7%9C%EC%9B%90",
+    "technique": "버려진 것(씨)에서 시작해 같은 사물의 가장 빛나는 상태로 옮겨 가며 한 문장에 명암을 담는다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "lengthChars": 102,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "돈이 제일일 땐 돈을 뫃으려 정열을 쏫고, 권력이 제일일 땐 권력을 잡으려 수단을 가리지 않을 사람이다.",
+    "author": "지하련",
+    "work": "도정(道程), 1946",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
+    "technique": "'~이 제일일 땐 ~을' 틀을 두 번 돌려, 인물의 성격을 형용사 없이 행동 규칙으로만 정의한다.",
+    "techniqueFamily": "반복",
+    "isTranslation": false,
+    "lengthChars": 58,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -1035,6 +1005,21 @@
     }
   },
   {
+    "text": "메나리는 글이 아니다. 말도 아니요 또 시도 아니다. 이 백성이 생기고 이 나라가 이룩될 때에 메나리도 저절로 따라 생긴 것이니,",
+    "author": "홍사용",
+    "work": "조선은 메나리 나라 (1928)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/조선은_메나리_나라",
+    "technique": "'아니다'를 세 번 쌓아 대상을 좁힌 뒤 긍정 정의로 착지하는, 부정 정의법의 교과서적 예.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 72,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "대체 좋다는 그것이 무엇이냐. 우리의 마음의 거문고가 우리의 마음속에서 저절로 울리어지는 그 까닭이다.",
     "author": "홍사용",
     "work": "조선은 메나리 나라 (1928)",
@@ -1125,6 +1110,21 @@
     }
   },
   {
+    "text": "눈을 감으면 밤도 아니고 낮도 아니고 남빛 안개 속의 조약돌 길 위를 한 처녀 거지가 무엇을 찾는 듯이 앞을 바라보고 뒤를 돌아다보고 새파랗게 질려서 보인다",
+    "author": "김명순",
+    "work": "생명의 과실 - 분신 (1925)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/생명의_과실/분신",
+    "technique": "양쪽을 다 부정해 배경의 시간을 지운 뒤 인물 하나만 세워, 꿈의 문법으로 장면을 만든다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "lengthChars": 87,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "벗이여 벗은 벗의 마음을 바람의 팔랑개비인 줄 믿느뇨? 물 위에 떴다 사라지는 물거품인 줄 아느뇨?",
     "author": "김명순",
     "work": "생명의 과실 - 위로 (1925)",
@@ -1200,6 +1200,36 @@
     }
   },
   {
+    "text": "위태한 호수가로 달리는 어린아이 뒤에 바로 천사가 따라 보호하는 바에야 죄악의 절벽으로 달리는 우리 영혼 뒤에 어찌 천사가 애타하고 슬퍼하지 않겠는가.",
+    "author": "정지용",
+    "work": "「이목구비(耳目口鼻)」 산문, 시집 『백록담』(1941) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/백록담/이목구비",
+    "technique": "'어린아이 뒤에 / 우리 영혼 뒤에'를 같은 구조로 겹쳐 놓고 마지막을 반문으로 닫아, 설득 대신 독자가 스스로 답하게 만든다.",
+    "techniqueFamily": "질문",
+    "isTranslation": false,
+    "lengthChars": 84,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "걸을 량이면 아스팔트를 밟기로 한다. 서울거리에서 흙을 밟을 맛이 무엇이랴.",
+    "author": "정지용",
+    "work": "「아스팔트」 산문, 시집 『백록담』(1941) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/백록담/아스팔트",
+    "technique": "선언 한 문장 뒤에 곧바로 반문을 붙여 근거를 대신한다. 설명을 생략하고도 태도가 서는 도입부.",
+    "techniqueFamily": "질문",
+    "isTranslation": false,
+    "lengthChars": 42,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "구기여지는것 젖는것이 아조 싫다. 파라솔 같이 채곡 접히기만 하는것은 언제든지 파라솔 같이 펴기 위하야-",
     "author": "정지용",
     "work": "「파라솔」 시, 시집 『백록담』(1941) 수록",
@@ -1238,6 +1268,36 @@
     "techniqueFamily": "비유",
     "isTranslation": false,
     "lengthChars": 49,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "매점 바깥주인된 화가는 이름조차 없고 송화가루 노랗고 뻑 뻑국 고비 고사리 고부라지고 호랑나비 쌍을 지어 훨훨 청산을 넘고.",
+    "author": "정지용",
+    "work": "「호랑나비」, 시집 『백록담』(1941) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/향수/호랑나비",
+    "technique": "'-고'를 네 번 반복해 사건을 마침표 없이 계속 이어 놓고, 결말도 '넘고.'로 열어 둔 채 끝낸다. 종결어미를 포기해 여운을 얻는다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 69,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "동해(東海)는 푸른 삽화(揷畵)처럼 움직 않고 누뤼 알이 참벌처럼 옴겨 간다.",
+    "author": "정지용",
+    "work": "「비로봉(毘盧峯)」, 『정지용 시집』(1935) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/향수/비로봉",
+    "technique": "거대한 것은 정지시키고 아주 작은 것만 움직이게 한다. 크기와 운동을 반대로 배치해 고도감을 만든다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "lengthChars": 43,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -1365,6 +1425,21 @@
     }
   },
   {
+    "text": "그러나 내가 자살하지 아니하면 그가 자살할 수 없음을 그는 내게 가르친다. 거울속의 나는 불사조에 가깝다.",
+    "author": "이상",
+    "work": "오감도 시제15호 (1934, 조선중앙일보) — 위키문헌 현대 표기본",
+    "sourceUrl": "https://ko.wikisource.org/wiki/오감도",
+    "technique": "빠져나갈 수 없는 순환 조건문을 세운 뒤, 한 낱말(불사조)로 결론을 압축해 못을 박는다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "lengthChars": 59,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "이렇게 하여 잃어버린 내 두개팔을 나는 촉대세움으로 내 방안에 장식하여 놓았다. 팔은 죽어서도 오히려 나에게 겁을 내이는것만 같다.",
     "author": "이상",
     "work": "오감도 시제13호 (1934, 조선중앙일보) — 위키문헌 현대 표기본",
@@ -1373,6 +1448,21 @@
     "techniqueFamily": "전환",
     "isTranslation": false,
     "lengthChars": 73,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "불행이 아니면 하루도 살 수 없는 '그런 인간'에게 행복이 오면 큰일 나오. 아마 즉사할 것이오. 협심증으로―",
+    "author": "이상",
+    "work": "김기림에게 1 (1936, 편지)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/김기림에게_1",
+    "technique": "역설을 세운 뒤 문장을 점점 짧게 끊고 마지막에 낱말 하나만 던져, 농담의 박자를 만든다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "lengthChars": 61,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -1418,21 +1508,6 @@
     "techniqueFamily": "비유",
     "isTranslation": false,
     "lengthChars": 62,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "열한 살 먹던 해 정월 열나흗날 밤, 맨 잿더미로 그림자를 보려 갔을 때인데요, 명(命)이나 긴가 짧은가 보랴고.",
-    "author": "홍사용",
-    "work": "나는 왕이로소이다 (1923)",
-    "sourceUrl": "https://ko.wikisource.org/wiki/나는_왕이로소이다",
-    "technique": "나이-날짜-행동을 먼저 다 던지고 그 이유를 문장 끝에 도치해 붙여, 목적이 뒤늦게 서늘하게 도착한다.",
-    "techniqueFamily": "구조",
-    "isTranslation": false,
-    "lengthChars": 63,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -1523,6 +1598,36 @@
     "techniqueFamily": "전환",
     "isTranslation": false,
     "lengthChars": 52,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "나는 그 형리를 피할 수 없다. 오늘이 되어 버린 내일 속에서, 또 나는 질식할 만치 심심해해야 되고, 기막힐 만치 답답해해야 된다.",
+    "author": "이상",
+    "work": "권태 (1937, 조선일보)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/권태",
+    "technique": "'~할 만치 ~해야 되고'라는 대구를 겹쳐, 벗어날 수 없음을 문장 구조 자체로 재연한다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 74,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "나도 한 번은 나가야겠다. 이 흙을 굳게 지켜야 할 것도 잘 안다. 그러나 지켜야 할 직책과 나가야 할 직책과는 스스로 다를 줄 안다.",
+    "author": "이상",
+    "work": "동생 옥희 보아라 (1936, 중앙)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/동생_옥희_보아라",
+    "technique": "앞 두 문장의 동사(나가다·지키다)를 그대로 명사구 대구로 묶어, 흩어진 갈등을 한 줄로 정리한다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 75,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -1759,6 +1864,21 @@
     }
   },
   {
+    "text": "몇 달 만에야 한 번, 몇 해 만에야 한 번 집안으로 기어드는 자식은 자식이 아니요 손님이다.",
+    "author": "현진건",
+    "work": "사립 정신병원장",
+    "sourceUrl": "https://ko.wikisource.org/wiki/%EC%82%AC%EB%A6%BD_%EC%A0%95%EC%8B%A0%EB%B3%91%EC%9B%90%EC%9E%A5",
+    "technique": "같은 꼴의 구절을 두 번 얹어 조건을 쌓고, 'A가 아니요 B다'로 단호히 정의한다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "lengthChars": 52,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "순한 양 같은 이 낙천가가 비록 취중일망정 사나운 짐승같이 날뛰면 악마보다도 더 지독한 표정을 할 줄이야 누가 꿈엔들 생각하였으랴.",
     "author": "현진건",
     "work": "사립 정신병원장",
@@ -1819,21 +1939,6 @@
     }
   },
   {
-    "text": "현재 꽁보가 갖고 다니는 그 목숨은 더펄이 손에서 명줄을 받은 그때의 끄트머리다.",
-    "author": "김유정",
-    "work": "노다지",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%85%B8%EB%8B%A4%EC%A7%80",
-    "technique": "긴 사연을 'A는 B의 끄트머리다'라는 한 줄 정의로 접어 넣는 압축법.",
-    "techniqueFamily": "압축",
-    "isTranslation": false,
-    "lengthChars": 45,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "앞서는 형의 손에 목숨을 구해 받았으나 이번에는 같은 산골에서 그 주먹에 명을 도로 끊을지도 모른다.",
     "author": "김유정",
     "work": "노다지",
@@ -1879,21 +1984,6 @@
     }
   },
   {
-    "text": "네가 노다지를 만나든, 내가 만나든 둘이 똑같이 나눠 가지고 집을 사고 계집을 얻고, 술도 먹고, 편히 살자고.",
-    "author": "김유정",
-    "work": "노다지",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%85%B8%EB%8B%A4%EC%A7%80",
-    "technique": "'-든' 두 개로 조건을 지운 뒤 '-고'로 소원을 줄줄이 이어, 약속의 말투를 그대로 살린다.",
-    "techniqueFamily": "구조",
-    "isTranslation": false,
-    "lengthChars": 62,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "그리고 그는 눈을 휘둥그렇게 뜨고 사면의 불평을 찾기 시작한다마는 아우는 마당도 쓸어 놓고, 부뚜막의 그릇도 치우고, 물독의 뚜껑도 잘 덮어 놓았다.",
     "author": "김유정",
     "work": "따라지",
@@ -1902,21 +1992,6 @@
     "techniqueFamily": "전환",
     "isTranslation": false,
     "lengthChars": 83,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "그런데 팔자가 사나운지 모두 우거지상, 노랑퉁이, 말괄량이, 이런 몹쓸 것들뿐이다.",
-    "author": "김유정",
-    "work": "따라지",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EB%94%B0%EB%9D%BC%EC%A7%80",
-    "technique": "별명 세 개를 쉼표로 늘어놓고 '이런'으로 한꺼번에 묶어 내리는 열거-수렴형 문장.",
-    "techniqueFamily": "압축",
-    "isTranslation": false,
-    "lengthChars": 46,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -2119,21 +2194,6 @@
     }
   },
   {
-    "text": "경희도 여자다. 더구나 조선 사회에서 살아온 여자다. 조선 가정의 인습에 파묻힌 여자다.",
-    "author": "나혜석",
-    "work": "경희",
-    "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
-    "technique": "같은 명사('여자다')로 끝나는 문장을 세 번 이어, 수식을 늘리며 조건을 조여 간다.",
-    "techniqueFamily": "반복",
-    "isTranslation": false,
-    "lengthChars": 49,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "그 부인네들이 장한가? 내가 장한가? 이 부인네들이 사람일까? 내가 사람일까?",
     "author": "나혜석",
     "work": "경희",
@@ -2254,6 +2314,201 @@
     }
   },
   {
+    "text": "저녁은 그 안에서 하루가 죽기라도 하는 듯이 바라보라. 그리고 아침은 그 안에서 모든 것이 태어나기라도 하는 듯이 바라보라.",
+    "author": "앙드레 지드",
+    "work": "지상의 양식",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Les_Nourritures_terrestres/Texte_entier",
+    "technique": "같은 명령형 틀을 두 번 쓰되 안쪽 낱말만 죽음↔탄생으로 뒤집는다 — 반복이 대비를 실어 나른다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 69,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "지혜로 움직이면 모가 난다. 정에 삿대를 담그면 떠내려간다. 고집을 부리면 옹색해진다. 아무튼 사람의 세상은 살기 어렵다.",
+    "author": "나쓰메 소세키",
+    "work": "풀베개(草枕)",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/776_14941.html",
+    "technique": "같은 꼴의 조건절 셋을 나란히 세우고, 넷째 문장에서 하나로 접어 결론을 낸다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 68,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "살기 어려움이 심해지면 편한 곳으로 옮겨 가고 싶어진다. 어디로 옮겨도 살기 어렵다고 깨달았을 때, 시가 태어나고 그림이 생긴다.",
+    "author": "나쓰메 소세키",
+    "work": "풀베개(草枕)",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/776_14941.html",
+    "technique": "앞 문장이 내놓은 해결책을 뒤 문장이 무너뜨리고, 그 막다른 자리에서 다른 결론을 꺼낸다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "사람의 세상을 만든 것은 신도 아니고 귀신도 아니다. 역시 앞집 세 채 옆집 두 채에 어른거리는 그저 평범한 사람이다.",
+    "author": "나쓰메 소세키",
+    "work": "풀베개(草枕)",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000148/files/776_14941.html",
+    "technique": "큰 것 둘을 먼저 지워 놓고, 가장 가까운 자리에 있는 것을 답으로 내놓는다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 66,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "아니, 아니, 이것도 작지만 목숨 있는 것임에 틀림없다. 그 목숨을 함부로 빼앗는다는 것은 아무리 그래도 가엾은 일이다.",
+    "author": "아쿠타가와 류노스케",
+    "work": "거미줄(蜘蛛の糸)",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/92_14545.html",
+    "technique": "부정을 두 번 반복해 발을 멈추고, 대상을 다시 정의한 뒤 판단을 뒤집는다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 67,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "그는 그저 어스름 속에서 그날그날의 생활을 하고 있었다. 말하자면 날이 다 나가 버린 가느다란 검을 지팡이 삼아.",
+    "author": "아쿠타가와 류노스케",
+    "work": "어느 바보의 일생(或阿呆の一生)",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000879/files/19_14618.html",
+    "technique": "문장을 끝낸 뒤 비유 하나를 도치해 뒤에 붙여, 마지막 이미지가 오래 남게 한다",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "\"세상이라는 건 자네 아닌가\"라는 말이 혀끝까지 나왔다가, 호리키를 화나게 하는 것이 싫어서 도로 집어넣었습니다.",
+    "author": "다자이 오사무",
+    "work": "인간 실격(人間失格)",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
+    "technique": "하지 못한 말을 먼저 들려주고, 그 말을 삼킨 이유를 뒤에 붙여 침묵의 무게를 만든다",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "나는 그들이 다시 나처럼 서로 벽을 두고 멀어지지 않기를 바란다. 그들은 새로운 삶을 가져야 한다, 우리가 아직 살아 보지 못한 삶을.",
+    "author": "루쉰",
+    "work": "고향(故鄉)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E6%95%85%E9%84%89",
+    "technique": "바람을 부정형으로 먼저 말한 뒤, 긍정형 한 문장을 도치해 붙여 여운을 남긴다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 75,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "그는 다만 사람이 천지 사이에 살다 보면 대개 때로는 조리돌림을 당하고 구경거리가 되는 일도 없지 않겠거니 여겼을 뿐이다.",
+    "author": "루쉰",
+    "work": "아Q정전(阿Q正傳)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E9%98%BF%EF%BC%B1%E6%AD%A3%E5%82%B3",
+    "technique": "끔찍한 일을 '본래 그런 것'이라는 상투구로 감싸, 문장의 태연함 자체가 비판이 되게 한다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 68,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "당신께 가장 가까이 이르는 것은 가장 먼 길이며, 곡조의 지극한 단순함으로 이끄는 것은 가장 복잡한 수련입니다.",
+    "author": "라빈드라나트 타고르",
+    "work": "기탄잘리(Gitanjali) 12",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/7164/pg7164.txt",
+    "technique": "먼 것과 가까운 것, 복잡한 것과 단순한 것을 서로 맞바꿔 두 번 뒤집는다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 62,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "나그네는 제 문에 이르기 위해 낯선 문을 모두 두드려야 하고, 사람은 가장 안쪽의 성소에 닿기 위해 바깥의 온 세계를 헤매야 한다.",
+    "author": "라빈드라나트 타고르",
+    "work": "기탄잘리(Gitanjali) 12",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/7164/pg7164.txt",
+    "technique": "목적을 앞에 두고 수단을 뒤에 놓는 같은 틀을 두 번 반복해, 역설을 규칙처럼 들리게 한다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "낡은 말이 혀 위에서 사그라들 때 새로운 가락이 가슴에서 터져 나오고, 옛 길이 사라진 자리에서 새 땅이 그 경이와 함께 드러난다.",
+    "author": "라빈드라나트 타고르",
+    "work": "기탄잘리(Gitanjali) 37",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/7164/pg7164.txt",
+    "technique": "'사라질 때·사라진 자리에서'로 조건을 두 번 세우고, 그때마다 새것을 내놓아 상실을 시작으로 바꾼다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
+    "text": "당신은 나를 끝없는 것으로 만드셨으니, 그것이 당신의 기쁨입니다. 이 연약한 그릇을 당신은 비우고 또 비우시며, 늘 새로운 생명으로 채우십니다.",
+    "author": "라빈드라나트 타고르",
+    "work": "기탄잘리(Gitanjali) 1",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/7164/pg7164.txt",
+    "technique": "비움과 채움을 한 문장 안에 이어 붙여, 반대되는 두 동작이 하나의 사랑이 되게 한다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "translation-url-ok",
+      "ratio": null,
+      "err": ""
+    }
+  },
+  {
     "text": "길을 묻기운다. 길을 가다가도, 정전지대(定全地帶)에 섰다가도 나는 흔히 시골 사람에게 길을 묻기운다.",
     "author": "계용묵",
     "work": "「길을 묻기운다」(수필, 1939) — 수필집 『상아탑』(1955) 수록",
@@ -2307,21 +2562,6 @@
     "techniqueFamily": "대구",
     "isTranslation": false,
     "lengthChars": 47,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
-    "text": "휴가일 때마다 그들은 서로 찾는다. 앉아서는 빙그레 웃는다. 웃는 것이 인사다.",
-    "author": "계용묵",
-    "work": "「수첩초」(수필, 1942) — 수필집 『상아탑』(1955) 수록",
-    "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/수첩초",
-    "technique": "짧은 문장 셋을 점점 짧아지게 놓고, 마지막에 앞 문장의 낱말을 주어로 받아 정의로 닫는다.",
-    "techniqueFamily": "압축",
-    "isTranslation": false,
-    "lengthChars": 44,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -2524,6 +2764,36 @@
     }
   },
   {
+    "text": "먹는 데도 역시 그 운치가 반은 더 미각을 돋우는 것이어서 수박은 다락 위에서 꿀을 부어 한가히 먹어야 맛이 나고, 참외는 거적문을 들치고 들어가는 원두막 안에서 먹어야 맛이 난다.",
+    "author": "계용묵",
+    "work": "「여름의 미각」(수필, 1942) — 수필집 『상아탑』(1955) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/여름의_미각",
+    "technique": "명제를 먼저 세우고 '수박은 ~ 맛이 나고, 참외는 ~ 맛이 난다'로 예를 똑같은 문형에 두 번 담는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "lengthChars": 101,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "참으로 해가 솟을락말락 동쪽 하늘이 벌겋게 물들어 오를 때, 그리고 해가 질락말락 서쪽 하늘에 붉은 놀이 길이 퍼질 때, 이때야말로 낚시질의 그날의 계절인 것이다.",
+    "author": "계용묵",
+    "work": "「조어찬」(수필, 1937) — 수필집 『상아탑』(1955) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/조어찬",
+    "technique": "'~할 때, 그리고 ~할 때' 두 조건을 나란히 쌓은 뒤 '이때야말로'로 한 점에 모아 닫는다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 91,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "어떠한 고기나 작은 놈은 대개 물 위에서 놀기를 좋아하고 큰 놈은 물 깊이 있기를 좋아한다.",
     "author": "계용묵",
     "work": "「조어찬」(수필, 1937) — 수필집 『상아탑』(1955) 수록",
@@ -2539,14 +2809,14 @@
     }
   },
   {
-    "text": "어머니의 귀에는 사람의 입에서 나오는 큰 소리가 총소리보다도 더 무섭게 들린다.",
+    "text": "산도 상상봉 맨꼭대기에까지 추어올라 발뒤축을 돋워들고 있는 목을 다 내빼어도, 가로 놓인 앞산의 그 높은 봉은 눈 아래 정복하는 수가 없다.",
     "author": "계용묵",
     "work": "「별을 헨다」(단편소설, 1946)",
     "sourceUrl": "https://ko.wikisource.org/wiki/별을_헨다",
-    "technique": "'~보다도 더'라는 비교 하나로 인물이 겪어 온 세월을 설명 없이 전한다.",
-    "techniqueFamily": "압축",
+    "technique": "'~까지 ~올라 ~돋워들고 ~내빼어도'로 동작을 끝까지 쌓아 올린 뒤, 한 번에 무너뜨린다.",
+    "techniqueFamily": "구조",
     "isTranslation": false,
-    "lengthChars": 44,
+    "lengthChars": 78,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -2584,6 +2854,21 @@
     }
   },
   {
+    "text": "한 개의 예술을 창조할 때 그 속에서 생을 찾고, 생의 가치를 느낌으로 자기라는 존재를 내다본다.",
+    "author": "계용묵",
+    "work": "「청춘도」(단편소설, 1938)",
+    "sourceUrl": "https://ko.wikisource.org/wiki/청춘도",
+    "technique": "'창조 → 생 → 생의 가치 → 존재'로 앞 낱말을 다음 절이 이어받는 사슬을 만든다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "lengthChars": 54,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
     "text": "아이들을 바른 길로 인도하고 가르쳐 주지는 못할망정 그들을 꼬여서 옭아 먹자는 것은 아무리 생각해도 나이가 부끄러운 일이었다.",
     "author": "계용묵",
     "work": "「물매미」(단편소설, 1950)",
@@ -2592,6 +2877,21 @@
     "techniqueFamily": "구조",
     "isTranslation": false,
     "lengthChars": 70,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "눈 보이지 않고, 귀 들리지 않고, 잠시간 전신이 죽고, 감각이 없어졌다.",
+    "author": "이효석",
+    "work": "「돈(豚)」(단편소설, 1933) — 《조선문학》 10월호 발표",
+    "sourceUrl": "https://ko.wikisource.org/wiki/돈",
+    "technique": "주어와 서술어만 남긴 짧은 마디를 '~고'로 네 번 이어, 감각이 하나씩 꺼지는 순서를 그대로 보여준다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "lengthChars": 41,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -2659,14 +2959,29 @@
     }
   },
   {
-    "text": "원체 집들이 듬성한 주택지대인지라 초목 속에 싸인 그 푸른 집은 이웃과는 동떨어지게 조용하고 한적하게 보인다.",
+    "text": "개나리가 지더니 찔레꽃 봉오리가 연지같이 진하게 맺혔고 라일락이 만발했다.",
     "author": "이효석",
     "work": "「화분(花粉)」(장편소설, 1939) — 《조광》 1월부터 연재",
     "sourceUrl": "https://ko.wikisource.org/wiki/화분",
-    "technique": "'~인지라'로 까닭을 먼저 깔고 인상을 뒤에 놓아, 묘사에 설명을 겹쳐 준다.",
-    "techniqueFamily": "구조",
+    "technique": "꽃 이름 셋만으로 계절이 넘어가는 시간을 재고, 설명하는 말을 한 마디도 쓰지 않는다.",
+    "techniqueFamily": "압축",
     "isTranslation": false,
-    "lengthChars": 61,
+    "lengthChars": 41,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "라일락 향기는 유난스럽게 진하고 세어서 한포기 덤불의 향기가 집 구석구석에 배어 뒤꼍에서나 방안에서까지도 가장 가까운 곳에서 흘러오듯 코 끝에 찰락거린다.",
+    "author": "이효석",
+    "work": "「화분(花粉)」(장편소설, 1939) — 《조광》 1월부터 연재",
+    "sourceUrl": "https://ko.wikisource.org/wiki/화분",
+    "technique": "'한포기'에서 '집 구석구석'으로 범위를 넓혔다가 '코 끝'으로 다시 좁혀, 향기의 이동 경로를 따라간다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "lengthChars": 86,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -2734,21 +3049,6 @@
     }
   },
   {
-    "text": "바다 바람이 그대 머리에 아른대는구료, 그대 머리는 슬픈 듯 하늘거리고. 바다 바람이 그대 치마폭에 니치대는구료, 그대 치마는 부끄러운 듯 나부끼고.",
-    "author": "정지용",
-    "work": "「갑판 우」, 『정지용 시집』(1935) 수록",
-    "sourceUrl": "https://ko.wikisource.org/wiki/향수/갑판_우",
-    "technique": "'바다 바람이 그대 ~에 ~는구료, 그대 ~는 ~ 듯 ~고'라는 틀을 통째로 한 번 더 돌리고, 목적어와 형용사만 바꾼다.",
-    "techniqueFamily": "대구",
-    "isTranslation": false,
-    "lengthChars": 83,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "이 아이의 비단결 숨소리를 보라. 이 아이의 씩씩하고도 보드라운 모습을 보라. 이 아이 입술에 깃들인 박꽃 웃음을 보라.",
     "author": "정지용",
     "work": "「태극선」, 『정지용 시집』(1935) 수록",
@@ -2772,6 +3072,21 @@
     "techniqueFamily": "묘사",
     "isTranslation": false,
     "lengthChars": 62,
+    "verify": {
+      "status": "exact",
+      "ratio": 1,
+      "err": ""
+    }
+  },
+  {
+    "text": "장미꽃 처럼 곱게 피여 가는 화로에 숯불, 입춘때 밤은 마른풀 사르는 냄새가 난다.",
+    "author": "정지용",
+    "work": "「석류」, 『정지용 시집』(1935) 수록",
+    "sourceUrl": "https://ko.wikisource.org/wiki/향수/석류",
+    "technique": "앞절은 눈으로 뒷절은 코로 받아, 같은 대상을 두 감각에 나눠 담는다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "lengthChars": 46,
     "verify": {
       "status": "exact",
       "ratio": 1,
@@ -2869,21 +3184,6 @@
     }
   },
   {
-    "text": "하나가 멕이면 열 네 사람이 받고 하는 맛으로 일터가 흥성스러워지며 일이 실하게 부쩍 부쩍 늘어갑니다.",
-    "author": "정지용",
-    "work": "「육체(肉體)」 산문, 시집 『백록담』(1941) 수록",
-    "sourceUrl": "https://ko.wikisource.org/wiki/백록담/육체",
-    "technique": "'하나가 ~면 열 네 사람이 ~고'로 수를 대비시켜, 작은 원인에서 커지는 결과를 숫자로 보여준다.",
-    "techniqueFamily": "구조",
-    "isTranslation": false,
-    "lengthChars": 57,
-    "verify": {
-      "status": "exact",
-      "ratio": 1,
-      "err": ""
-    }
-  },
-  {
     "text": "다리가 휘청거리어 쓰러질까 싶게 갠신갠신히 옮기게 되는데 쇄골이 부러지지 않고 백이는 것이 희한한 일이 아닙니까.",
     "author": "정지용",
     "work": "「육체(肉體)」 산문, 시집 『백록담』(1941) 수록",
@@ -2896,6 +3196,132 @@
       "status": "exact",
       "ratio": 1,
       "err": ""
+    }
+  },
+  {
+    "text": "거짓말에는 죽음의 얼룩이, 죽어야 할 것의 맛이 배어 있다. 그것이야말로 내가 이 세상에서 미워하고 혐오하는 것, 잊고 싶은 것이다.",
+    "author": "조지프 콘래드",
+    "work": "암흑의 핵심",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+    "technique": "추상어(거짓말)를 얼룩과 맛이라는 감각어 두 개로 나란히 정의한 뒤, 대시로 미워하는 이유를 덧붙인다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 74,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나는 일을 좋아하지 않는다. 좋아하는 사람은 없다. 그러나 일 안에 있는 것은 좋아한다 — 자기 자신을 발견할 기회를.",
+    "author": "조지프 콘래드",
+    "work": "암흑의 핵심",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+    "technique": "부정 → 삽입절로 일반화 → 역접으로 뒤집고, 마지막에 목적어를 도치해 정의를 붙인다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 66,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그에게 어떤 사건의 의미는 알맹이처럼 안에 있지 않고 바깥에 있었다. 이야기를 감싸고 있다가, 불빛이 안개를 드러내듯 그 이야기에 의해 드러날 뿐이었다.",
+    "author": "조지프 콘래드",
+    "work": "암흑의 핵심",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+    "technique": "'안이 아니라 바깥'으로 통념을 먼저 뒤집고, 그 뒤집은 자리를 다시 직유로 붙잡는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 85,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "땅끝까지 이어지는 그 고요한 물길은 흐린 하늘 아래를 어둡게 흘렀다. 거대한 어둠의 한복판으로 이어지는 것처럼 보였다.",
+    "author": "조지프 콘래드",
+    "work": "암흑의 핵심",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/219/pg219.txt",
+    "technique": "밝고 평온한 수식(고요한, 땅끝까지)을 길게 끌고 가다가, 마지막 명사 하나로 문장의 뜻을 반대편으로 넘긴다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 66,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "몇 마디 인사말 말고는 그 애에게 말을 걸어본 적이 없었다. 그런데도 그 애의 이름은 내 어리석은 피 전부를 부르는 호출 같았다.",
+    "author": "제임스 조이스",
+    "work": "더블린 사람들 「애러비」",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/2814/pg2814.txt",
+    "technique": "사실을 먼저 최대한 낮춰 놓고, 역접 뒤에 감정의 주어를 마음이 아니라 몸(피)으로 바꿔 올린다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그 모든 소음은 내게 하나의 삶의 감각으로 모여들었다. 나는 적들의 무리 사이로 성배를 안전하게 들고 지나간다고 상상했다.",
+    "author": "제임스 조이스",
+    "work": "더블린 사람들 「애러비」",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/2814/pg2814.txt",
+    "technique": "저잣거리의 잡음을 한 문장에 모은 뒤, 콜론 하나로 받아 성스러운 이미지로 단숨에 도약한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 68,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "황금빛 반짝임 속에서 해가 떠올라, 파도 위로 작은 물방울처럼 불꽃을 흘렸다. 누군가 지나가면서 들통에서 빛을 흘리고 간 것처럼.",
+    "author": "D.H. 로렌스",
+    "work": "아들과 연인",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/217/pg217.txt",
+    "technique": "가장 큰 것(일출)을 들통에서 흘린 액체라는 생활 규모의 직유로 줄여, 우주적 사건을 손에 잡히게 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그 모든 것, 그리고 그 자신, 무한히 작은 것, 중심에는 아무것도 아닌 것, 그런데도 아무것도 아니지 않은 것.",
+    "author": "D.H. 로렌스",
+    "work": "아들과 연인",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/217/pg217.txt",
+    "technique": "술어 없이 명사구만 쉼표로 이어 붙이다가, 마지막에 앞말을 그대로 부정해 뒤집는다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "키 큰 흰 백합들이 달빛 속에서 비틀거리고 있었고, 공기는 그 향으로 가득 차 있었다. 무언가가 거기 있는 것처럼.",
+    "author": "D.H. 로렌스",
+    "work": "아들과 연인",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/217/pg217.txt",
+    "technique": "냄새를 '누군가의 인기척'으로 바꿔, 후각을 형체 없는 존재감으로 번역한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 64,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
     }
   },
   {
@@ -2913,6 +3339,20 @@
     }
   },
   {
+    "text": "장미는 하룻밤 사이에 수백 송이가, 그야말로 수백 송이가 피어났다. 초록 덤불들은 대천사가 다녀가기라도 한 듯 고개를 숙이고 있었다.",
+    "author": "캐서린 맨스필드",
+    "work": "가든 파티",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1429/pg1429.txt",
+    "technique": "수치를 한 번 되풀이해 과장한 뒤, 그 과장을 종교적 직유로 받아 문장 안에서 정당화한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 74,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
     "text": "공기는 움직이지 않았지만, 입을 벌리면 아주 옅은 한기가 들어왔다. 얼음물 잔을 입에 대기 직전에 느끼는 그 한기 같은.",
     "author": "캐서린 맨스필드",
     "work": "가든 파티 「미스 브릴」",
@@ -2921,6 +3361,90 @@
     "techniqueFamily": "비유",
     "isTranslation": true,
     "lengthChars": 67,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그러나 내내 그녀는 아무 차이도 없는 곳에서 구분을 만들고 있었다. 자기가 맞서 있다고 느끼는 동안, 그녀는 완전히 어울려 있었다.",
+    "author": "토머스 하디",
+    "work": "테스",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/110/pg110.txt",
+    "technique": "맞선다/어울린다처럼 정반대인 두 말을 한 문장 안에 붙여, 인물의 착각을 문법 구조 자체로 보여준다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "경험이란 강도의 문제이지 지속의 문제가 아니라는 것을 그에게 일깨워 줄 것은 아무것도 없었다. 테스가 몸으로 지나온 흉작이 그녀의 정신에는 수확이었다.",
+    "author": "토머스 하디",
+    "work": "테스",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/110/pg110.txt",
+    "technique": "흉작과 수확이라는 한 쌍의 농사말로, 몸과 정신을 맞바꿔 배치한다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 84,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "자만과 허영은 다르다. 자만은 우리가 우리 자신을 어떻게 보느냐에 더 가깝고, 허영은 남들이 우리를 어떻게 봐주기를 바라느냐에 가깝다.",
+    "author": "제인 오스틴",
+    "work": "오만과 편견",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+    "technique": "혼동되는 두 낱말을 나란히 세우고, 뒤 절에서 서술어를 생략해 대구를 팽팽하게 조이는 정의법.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 75,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "제게는 남의 뜻대로 겁먹는 것을 견디지 못하는 고집이 있습니다. 저를 위협하려는 시도가 있을 때마다 제 용기는 늘 함께 올라갑니다.",
+    "author": "제인 오스틴",
+    "work": "오만과 편견",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+    "technique": "앞 문장에서 결점처럼 고백한 성질을, 뒤 문장에서 그대로 장점으로 뒤집어 세우는 자기 규정.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나는 평생 이기적인 인간이었습니다. 원칙에서가 아니라 실제 행동에서. 어릴 때 나는 무엇이 옳은지는 배웠지만, 내 성미를 고치는 법은 배우지 못했습니다.",
+    "author": "제인 오스틴",
+    "work": "오만과 편견",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+    "technique": "인정한 뒤 곧바로 범위를 좁히는 단서(但書)를 붙여, 고백을 변명이 아니라 자기 해부로 만드는 법.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 85,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "제 철학을 조금 배우셔야겠어요. 지난 일은 그 기억이 당신에게 기쁨을 주는 만큼만 생각하세요.",
+    "author": "제인 오스틴",
+    "work": "오만과 편견",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
+    "technique": "조건절을 늘어놓지 않고 '~하는 만큼만'이라는 한정어 하나로 기억 전체를 재단하는 압축 명령.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "lengthChars": 52,
     "verify": {
       "status": "origin-exact",
       "ratio": 1
@@ -2955,6 +3479,90 @@
     }
   },
   {
+    "text": "저는 약했고, 지금도 약합니다. 당신이 얼마나 갑작스러운 힘으로, 한 무더기 잿더미인 저를 불로 지폈는지 당신이 알아 주기를 바랄 만큼.",
+    "author": "찰스 디킨스",
+    "work": "두 도시 이야기",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/98/pg98.txt",
+    "technique": "과거와 현재를 같은 낱말로 겹쳐 고백을 길게 끌고 간 뒤, 자기 자신을 사물(잿더미)로 낮춰 문장 안에 끼워 넣는 법.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "lengthChars": 76,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나는 새가 아닙니다. 어떤 그물도 나를 가두지 못합니다. 나는 나 자신의 의지를 가진 자유로운 인간이고, 그 의지를 지금 당신을 떠나는 데 쓰겠습니다.",
+    "author": "샬럿 브론테",
+    "work": "제인 에어",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1260/pg1260.txt",
+    "technique": "상대가 붙인 비유(새)를 부정으로 되받고, 그 비유의 세계(그물)를 한 번 더 부순 뒤 마지막에 행동을 선언하는 3단.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 84,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그가 나보다 더 나이기 때문이야. 우리 영혼이 무엇으로 만들어졌든 그의 것과 내 것은 같아. 린턴의 것은 달빛과 번개만큼, 서리와 불만큼 달라.",
+    "author": "에밀리 브론테",
+    "work": "폭풍의 언덕",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/768/pg768.txt",
+    "technique": "같음을 먼저 단언한 뒤, 다름은 설명하지 않고 두 쌍의 사물 비유로만 처리해 온도 차를 만드는 법.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그는 온 세상이 평화의 황홀 속에 누워 있기를 바랐고, 나는 온 세상이 찬란한 축제 속에 반짝이며 춤추기를 바랐다. 나는 그의 천국은 절반만 살아 있다고 했고, 그는 내 천국은 취해 있다고 했다.",
+    "author": "에밀리 브론테",
+    "work": "폭풍의 언덕",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/768/pg768.txt",
+    "technique": "같은 문형에 동사만 바꿔 넣어 두 사람의 천국을 나란히 세우고, 서로의 반박까지 대칭으로 주고받게 하는 대구.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 109,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "우리에게 모든 평범한 삶을 꿰뚫어 보고 느끼는 감각이 있다면, 그것은 풀이 자라는 소리와 다람쥐의 심장이 뛰는 소리를 듣는 일과 같을 것이다. 그리고 우리는 침묵의 저편에 놓인 그 굉음에 죽고 말 것이다.",
+    "author": "조지 엘리엇",
+    "work": "미들마치",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/145/pg145.txt",
+    "technique": "가장 작은 소리 둘을 나란히 들려준 다음, 그것을 '굉음'이라는 정반대 크기의 낱말로 받아 감각의 규모를 뒤집는 법.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 114,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "우리는 모두 도덕적 우둔함 속에서 태어난다. 세상을 제 잘난 자신을 먹일 젖통쯤으로 여기면서.",
+    "author": "조지 엘리엇",
+    "work": "미들마치",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/145/pg145.txt",
+    "technique": "추상 명제를 먼저 세우고, 뒤에 붙인 분사구 하나로 그 추상을 젖먹이의 그림으로 바꿔 버리는 후치 비유.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 52,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
     "text": "철학적인 몸짓으로 카토는 제 칼 위로 몸을 던지고, 나는 조용히 배를 탄다. 여기에 놀랄 것은 하나도 없다.",
     "author": "허먼 멜빌",
     "work": "모비 딕",
@@ -2963,6 +3571,132 @@
     "techniqueFamily": "대구",
     "isTranslation": true,
     "lengthChars": 60,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "이 무시무시한 대양이 푸른 뭍을 둘러싸듯, 사람의 영혼 안에도 평화와 기쁨으로 가득한 섬 하나가 있다. 다만 그 섬은 반쯤만 아는 삶의 온갖 공포에 에워싸여 있다.",
+    "author": "허먼 멜빌",
+    "work": "모비 딕",
+    "sourceUrl": "https://www.gutenberg.org/files/2701/2701-0.txt",
+    "technique": "바깥 지리를 그대로 마음의 지형으로 옮긴다. '둘러싸듯 → 에워싸여'로 같은 동작을 두 층에 반복한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 91,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "새 식민지를 세운 이들은 어떤 미덕과 행복의 유토피아를 꿈꾸었든, 예외 없이 처녀지의 한쪽을 묘지로, 다른 한쪽을 감옥터로 떼어 두는 일을 가장 이른 실무로 여겼다.",
+    "author": "너새니얼 호손",
+    "work": "주홍 글자",
+    "sourceUrl": "https://www.gutenberg.org/files/25344/25344-0.txt",
+    "technique": "양보절로 이상을 먼저 세워 준 다음, 주절에서 묘지와 감옥이라는 현실 위에 착지시킨다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 92,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "주홍 글자는 다른 여자들이 감히 밟지 못하는 땅으로 들어가는 그녀의 여권이었다.",
+    "author": "너새니얼 호손",
+    "work": "주홍 글자",
+    "sourceUrl": "https://www.gutenberg.org/files/25344/25344-0.txt",
+    "technique": "낙인을 '여권'이라는 한 낱말로 바꿔, 형벌을 통행권으로 뒤집는 단일 은유.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 44,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "내 감각조차 제 증거를 거부하는 이 일에서 그런 기대를 한다면 나는 정말 미친 것이리라. 그러나 나는 미치지 않았고, 꿈꾸고 있지도 않다. 다만 내일이면 나는 죽고, 오늘 나는 내 영혼의 짐을 벗으려 한다.",
+    "author": "에드거 앨런 포",
+    "work": "검은 고양이",
+    "sourceUrl": "https://www.gutenberg.org/files/2148/2148-0.txt",
+    "technique": "스스로 의심을 먼저 꺼내고 두 번 부정한 뒤, 마감 시한을 못 박아 말할 자격을 만든다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "lengthChars": 115,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "얼굴이 화끈거리고, 온몸이 타고, 몸서리가 난다. 이 저주받을 짓을 적어 내려가는 지금 이 순간에도.",
+    "author": "에드거 앨런 포",
+    "work": "검은 고양이",
+    "sourceUrl": "https://www.gutenberg.org/files/2148/2148-0.txt",
+    "technique": "짧은 동사절 셋을 붙여 감정을 3연타로 쌓고, 마지막에 '지금'을 놓아 과거를 현재로 끌어온다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "lengthChars": 56,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그대는 더 이상 무엇도 이류나 삼류로 받아들이지 마라. 죽은 자들의 눈으로 보지도 말고, 책 속의 유령을 먹지도 마라. 내 눈으로도 보지 마라.",
+    "author": "월트 휘트먼",
+    "work": "풀잎 — 나 자신의 노래",
+    "sourceUrl": "https://www.gutenberg.org/files/1322/1322-0.txt",
+    "technique": "금지를 사슬처럼 잇다가 마지막에 화자 자신까지 금지 목록에 넣어 권위를 스스로 내려놓는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "이 모든 것 속에서 무엇이 좋단 말인가? 답. 그대가 여기 있다는 것. 삶이 있고 정체성이 있다는 것. 저 강력한 연극이 계속되고, 그대가 거기에 한 구절을 보탤 수 있다는 것.",
+    "author": "월트 휘트먼",
+    "work": "풀잎 — 오 나여! 오 삶이여!",
+    "sourceUrl": "https://www.gutenberg.org/files/1322/1322-0.txt",
+    "technique": "긴 탄식 뒤에 '답'이라는 한 마디를 세워 문을 바꾸고, 명사절 셋으로만 대답한다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 99,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "이 두 사람은 집안의 가장 큰 보물을 서로를 위해 가장 어리석게 내던졌다. 그러나 마지막으로 한마디 하자면, 선물을 주는 모든 이들 가운데 이 둘이 가장 지혜로웠다.",
+    "author": "오 헨리",
+    "work": "크리스마스 선물",
+    "sourceUrl": "https://www.gutenberg.org/files/2776/2776-0.txt",
+    "technique": "'어리석다'로 규정해 놓고 같은 문단 안에서 '지혜롭다'로 되받아, 판단을 한 번에 뒤집는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 92,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "십일월에 의사들이 폐렴이라 부르는 차갑고 눈에 보이지 않는 이방인이 이 마을을 어슬렁거리며 얼음 같은 손가락으로 여기저기 사람들을 건드렸다.",
+    "author": "오 헨리",
+    "work": "마지막 잎새",
+    "sourceUrl": "https://www.gutenberg.org/files/3707/3707-0.txt",
+    "technique": "병을 사람으로 바꿔 걷게 하고 손가락까지 달아 준다. 진단명이 등장인물이 되는 의인화.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 78,
     "verify": {
       "status": "origin-exact",
       "ratio": 1
@@ -2997,6 +3731,48 @@
     }
   },
   {
+    "text": "법은 독수리의 비행이 되었을 것을 달팽이걸음으로 망쳐 놓았다. 법은 아직 위대한 인간을 하나도 길러내지 못했지만, 자유는 거인과 극단을 품어 부화시킨다.",
+    "author": "프리드리히 실러",
+    "work": "군도 (1막 2장, 카를 폰 모어)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/47804/pg47804.txt",
+    "technique": "두 동물의 속도를 맞세워 한 문장을 만들고, 같은 주어를 반복하며 반대편 낱말을 끌어와 대비를 완성한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 85,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "바깥의 것들은 사람에게 칠해진 겉칠일 뿐이다. 나는 나의 하늘이고 나의 지옥이다.",
+    "author": "프리드리히 실러",
+    "work": "군도 (5막, 프란츠 폰 모어의 독백)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/47804/pg47804.txt",
+    "technique": "외부 세계를 한 문장으로 축소해 치운 다음, 정반대의 두 극을 한 주어 안에 몰아넣어 문장을 닫는다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "lengthChars": 45,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "전나무 한 그루가 북쪽 헐벗은 언덕 위에 홀로 서 있다. 졸음이 밀려온다. 얼음과 눈이 흰 이불로 그를 감싼다. 그는 종려나무를 꿈꾼다. 저 멀리 동방에서, 불타는 바위벽 위에 홀로 말없이 슬퍼하는 종려나무를.",
+    "author": "하인리히 하이네",
+    "work": "노래의 책 - 서정적 간주곡 33",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3498/pg3498.txt",
+    "technique": "두 연을 같은 자리(홀로·말없이)에 세우고 배경만 얼음에서 불로 뒤집으면, 설명 없이 거리가 만들어진다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 117,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
     "text": "그것은 오래된 이야기다. 그런데도 언제나 새롭다. 그리고 그 일이 방금 자기에게 일어난 사람은, 심장이 둘로 갈라진다.",
     "author": "하인리히 하이네",
     "work": "노래의 책 - 서정적 간주곡 39",
@@ -3005,6 +3781,20 @@
     "techniqueFamily": "전환",
     "isTranslation": true,
     "lengthChars": 66,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "마침내 두 사람은 헤어졌고, 그 뒤로는 이따금 꿈에서나 서로를 보았다. 두 사람은 이미 오래전에 죽어 있었고, 스스로도 그것을 거의 알지 못했다.",
+    "author": "하인리히 하이네",
+    "work": "노래의 책 - 귀향 33",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3498/pg3498.txt",
+    "technique": "시간 부사를 마침내→이따금→오래전에로 한 칸씩 밀어 두다가, 마지막 행에서 사실을 뒤늦게 알린다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 81,
     "verify": {
       "status": "origin-exact",
       "ratio": 1
@@ -3039,6 +3829,34 @@
     }
   },
   {
+    "text": "하지만 구스틀, 자신에게 솔직해져 봐. 너는 겁이 나는 거야. 한 번도 해 본 적이 없으니까 겁이 나는 거지. 그래 봐야 소용없어. 두려움이 누구를 도운 적은 없으니까.",
+    "author": "아르투어 슈니츨러",
+    "work": "구스틀 소위",
+    "sourceUrl": "http://www.zeno.org/Literatur/M/Schnitzler,+Arthur/Erz%C3%A4hlungen/Leutnant+Gustl",
+    "technique": "자기 이름을 불러 화자를 둘로 쪼갠 뒤, 같은 낱말을 되풀이하며 스스로를 몰아붙인다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "lengthChars": 94,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.75
+    }
+  },
+  {
+    "text": "대체 무슨 일이 있었던 거지? 그 뒤로 백 년쯤 지난 것 같은데, 아직 두 시간도 안 됐을 것이다.",
+    "author": "아르투어 슈니츨러",
+    "work": "구스틀 소위",
+    "sourceUrl": "http://www.zeno.org/Literatur/M/Schnitzler,+Arthur/Erz%C3%A4hlungen/Leutnant+Gustl",
+    "technique": "체감 시간과 실제 시간을 한 문장에 맞붙여, 숫자 둘만으로 충격의 크기를 잰다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "lengthChars": 55,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.79
+    }
+  },
+  {
     "text": "그것은 길들여진 개념 같았다. 그가 날마다 자잘한 재주를 부리게 하던 개념, 그런데 이제 갑자기 사슬이 풀려 버린 개념.",
     "author": "로베르트 무질",
     "work": "생도 퇴를레스의 혼란",
@@ -3053,6 +3871,20 @@
     }
   },
   {
+    "text": "그러나 펜을 손에서 내려놓자 모든 것이 끝나 있었다. 말하자면 그의 정신은 움직이는 동안에만 살아 있었다.",
+    "author": "로베르트 무질",
+    "work": "생도 퇴를레스의 혼란",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/34717/pg34717.txt",
+    "technique": "구체적 동작 하나로 장면을 끊고, 이어지는 절에서 그 동작을 한 줄 정의로 바꿔 놓는다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "lengthChars": 59,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
     "text": "그 일에서 그의 사람됨으로 옮겨 오는 것은 아무것도 없었고, 그 일이 그의 사람됨에서 나온 것도 아니었다.",
     "author": "로베르트 무질",
     "work": "생도 퇴를레스의 혼란",
@@ -3061,6 +3893,62 @@
     "techniqueFamily": "대구",
     "isTranslation": true,
     "lengthChars": 59,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "작은 앎은 큰 앎에 미치지 못하고, 짧은 삶은 긴 삶에 미치지 못한다. 어떻게 그런 줄 아는가. 아침에 돋는 버섯은 그믐과 초하루를 모르고, 쓰르라미는 봄과 가을을 모른다.",
+    "author": "장자",
+    "work": "장자 · 소요유",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E9%80%8D%E9%81%99%E9%81%8A",
+    "technique": "추상 대구를 먼저 놓고 '어떻게 아는가' 한 줄로 끊은 뒤, 같은 형태의 구체 예시 대구로 증명한다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 96,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "온 세상이 그를 칭찬해도 더 힘내지 않고, 온 세상이 그를 헐뜯어도 더 꺾이지 않는다. 안과 밖의 구분이 정해져 있고, 영예와 치욕의 경계가 분명하기 때문이다.",
+    "author": "장자",
+    "work": "장자 · 소요유",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E9%80%8D%E9%81%99%E9%81%8A",
+    "technique": "칭찬과 비난을 같은 문형에 나란히 넣어 반응 없음을 대칭으로 보인 뒤, 이유를 뒤에 한 번만 붙인다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 89,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "큰 앎은 느긋하고, 작은 앎은 자잘하다. 큰 말은 담담하고, 작은 말은 재잘거린다.",
+    "author": "장자",
+    "work": "장자 · 제물론",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E9%BD%8A%E7%89%A9%E8%AB%96",
+    "technique": "네 글자 마디 넷을 크다/작다로만 갈라 붙여, 뜻보다 리듬으로 차이를 먼저 느끼게 한다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 46,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "원숭이 치는 이가 도토리를 나눠주며 말했다. 아침에 셋, 저녁에 넷. 원숭이들이 모두 성냈다. 그러면 아침에 넷, 저녁에 셋. 원숭이들이 모두 기뻐했다. 이름도 실질도 축나지 않았는데 기쁨과 성냄이 갈렸다.",
+    "author": "장자",
+    "work": "장자 · 제물론",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E9%BD%8A%E7%89%A9%E8%AB%96",
+    "technique": "총량이 같은 두 배열을 나란히 놓고 반응만 뒤집어, 감정이 사실이 아니라 순서에 반응함을 드러낸다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 115,
     "verify": {
       "status": "origin-exact",
       "ratio": 1
@@ -3095,6 +3983,20 @@
     }
   },
   {
+    "text": "그 소리는 웅웅 울려, 원망하는 듯 그리워하는 듯, 우는 듯 하소연하는 듯했다. 남은 소리는 하늘하늘 실오라기처럼 이어져 끊어지지 않았다.",
+    "author": "소동파",
+    "work": "전적벽부",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E5%89%8D%E8%B5%A4%E5%A3%81%E8%B3%A6",
+    "technique": "'~듯'을 네 번 겹쳐 소리를 감정으로 번역한 뒤, 실오라기 하나로 그 여운의 굵기를 확정한다",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 77,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
     "text": "재산을 지킬 때는 그토록 인색한 사람들이, 시간을 버리는 일에 이르면 한없이 헤퍼진다. 인색해도 부끄럽지 않은 것은 오직 시간뿐인데.",
     "author": "세네카",
     "work": "인생의 짧음에 관하여 3장",
@@ -3103,6 +4005,34 @@
     "techniqueFamily": "전환",
     "isTranslation": true,
     "lengthChars": 74,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "사람들을 흔들어놓는 것은 일어난 일이 아니라, 일어난 일에 대해 사람들이 품는 판단이다.",
+    "author": "에픽테토스",
+    "work": "엥케이리디온 5장",
+    "sourceUrl": "https://el.wikisource.org/wiki/%CE%95%CE%B3%CF%87%CE%B5%CE%B9%CF%81%CE%AF%CE%B4%CE%B9%CE%BF%CE%BD",
+    "technique": "부정으로 통념을 밀어내고 같은 어구를 다시 불러와 한 낱말만 덧붙여, 원인의 위치를 옮겨 놓는다",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 49,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "일이 네가 바라는 대로 일어나기를 구하지 마라. 일이 일어나는 대로 일어나기를 바라라.",
+    "author": "에픽테토스",
+    "work": "엥케이리디온 8장",
+    "sourceUrl": "https://el.wikisource.org/wiki/%CE%95%CE%B3%CF%87%CE%B5%CE%B9%CF%81%CE%AF%CE%B4%CE%B9%CE%BF%CE%BD",
+    "technique": "앞뒤 절의 낱말은 그대로 두고 자리만 맞바꿔, 문장의 형태 자체로 태도의 전환을 보여준다",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 48,
     "verify": {
       "status": "origin-exact",
       "ratio": 1
@@ -3123,6 +4053,62 @@
     }
   },
   {
+    "text": "소설이란 큰길 위를 걸어가는 거울이다. 어떤 때는 하늘의 푸름을 비추고, 어떤 때는 길바닥 웅덩이의 진창을 비춘다. 거울이 진창을 보여주었다고 당신은 거울을 탓한다. 차라리 웅덩이가 팬 그 길을 탓하라.",
+    "author": "스탕달",
+    "work": "적과 흑",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/798/pg798.txt",
+    "technique": "정의 한 줄을 놓고 '어떤 때는 / 어떤 때는'으로 두 면을 나란히 세운 뒤, 그 대구를 그대로 받아 반박으로 뒤집는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 113,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.9
+    }
+  },
+  {
+    "text": "우리 마음은 보물창고다. 한 번에 비워버리면 파산이다. 감정이 제 전부를 드러낸 것을 우리는 용서하지 않는다. 제 돈 한 푼 없는 사람을 용서하지 않는 것과 똑같이.",
+    "author": "오노레 드 발자크",
+    "work": "고리오 영감",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Le_Père_Goriot_(1910)/I",
+    "technique": "비유를 세우고 곧바로 조건절로 밀어붙인 뒤, 전혀 다른 대상을 같은 저울에 올려 비교로 닫는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 92,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그는 이십 년 동안 제 창자를, 제 사랑을 주었다. 그리고 하루 만에 제 재산을 주었다. 레몬이 다 짜이자, 딸들은 껍질을 길모퉁이에 버렸다.",
+    "author": "오노레 드 발자크",
+    "work": "고리오 영감",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Le_Père_Goriot_(1910)/I",
+    "technique": "같은 동사를 두 번 반복해 이십 년과 하루를 맞부딪히고, 마지막 한 줄만 비유로 갈아 끼워 결말을 낸다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 79,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.84
+    }
+  },
+  {
+    "text": "원칙 같은 것은 없다. 사건이 있을 뿐이다. 법 같은 것은 없다. 정황이 있을 뿐이다. 뛰어난 자는 사건과 정황을 아내로 맞아 제 뜻대로 끌고 간다.",
+    "author": "오노레 드 발자크",
+    "work": "고리오 영감",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Le_Père_Goriot_(1910)/II",
+    "technique": "부정과 긍정을 같은 틀에 넣어 두 번 되풀이해 리듬을 만든 뒤, 세 번째 문장에서 틀을 깨고 결론으로 넘어간다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 83,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.71
+    }
+  },
+  {
     "text": "마침내 배가 떠났다. 그리고 창고와 작업장과 공장으로 뒤덮인 양쪽 강기슭이, 풀려나가는 두 개의 넓은 리본처럼 미끄러져 갔다.",
     "author": "귀스타브 플로베르",
     "work": "감정 교육",
@@ -3137,6 +4123,76 @@
     }
   },
   {
+    "text": "프레데리크는 거기서 쓰게 될 방을, 희곡의 구상을, 그림의 소재를, 앞으로 올 열정을 생각했다. 제 영혼이 훌륭하니 마땅히 받아야 할 행복이 오는 것이 늦다고 그는 여겼다.",
+    "author": "귀스타브 플로베르",
+    "work": "감정 교육",
+    "sourceUrl": "https://fr.wikisource.org/wiki/L’Éducation_sentimentale,_éd._Conard,_1910/I/I",
+    "technique": "기대를 네 개의 명사구로 부풀린 다음, 바로 뒤 한 문장에서 그 전부를 비꼬아 눌러 앉힌다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 96,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그것은 환영 같았다. 그녀는 벤치 한가운데에 혼자 앉아 있었다. 아니, 적어도 그는 아무도 알아보지 못했다. 그녀의 눈이 보내온 눈부심 속에서.",
+    "author": "귀스타브 플로베르",
+    "work": "감정 교육",
+    "sourceUrl": "https://fr.wikisource.org/wiki/L’Éducation_sentimentale,_éd._Conard,_1910/I/I",
+    "technique": "단정한 다음 '아니, 적어도'로 스스로 물러서서, 본 것이 사실이 아니라 마음이었음을 실토한다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.68
+    }
+  },
+  {
+    "text": "그녀의 이름은, 사는 곳은, 삶은, 지난날은 어떤 것이었을까? 그는 그녀 방의 가구를, 그녀가 입었던 모든 옷을, 그녀가 만나던 사람들을 알고 싶었다.",
+    "author": "귀스타브 플로베르",
+    "work": "감정 교육",
+    "sourceUrl": "https://fr.wikisource.org/wiki/L’Éducation_sentimentale,_éd._Conard,_1910/I/I",
+    "technique": "명사만 나열한 큰 질문을 던져 놓고, 답 대신 더 사소한 목록을 늘어놓아 마음의 크기를 재게 한다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "lengthChars": 84,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.85
+    }
+  },
+  {
+    "text": "그들은 절망하고 떨면서 센강 쪽으로 내려갔다. 마침내 강가에서 낡은 밤 마차 한 대를 찾아냈다. 낮 동안에는 제 초라함이 부끄럽기라도 한 듯, 밤이 되어야만 파리에서 보이는 그런 마차였다.",
+    "author": "기 드 모파상",
+    "work": "목걸이",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Contes_du_jour_et_de_la_nuit_(éd._Flammarion,_1885)/La_Parure",
+    "technique": "사물에 '부끄럽기라도 한 듯'을 붙여 감정을 옮겨 놓고, 배경을 인물의 처지와 같은 것으로 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 105,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "왜 세상 위에 이 반쯤 걷힌 베일이 던져졌는가? 왜 이 가슴의 떨림, 이 영혼의 흔들림, 이 살의 나른함인가? 왜 잠자리에 든 사람들이 보지도 못할 이 유혹의 펼쳐짐인가? 그리고 신부는 알 수 없었다.",
+    "author": "기 드 모파상",
+    "work": "달빛",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Clair_de_lune_(recueil,_1884)/Clair_de_lune",
+    "technique": "같은 의문사를 세 번 반복해 밀어 올린 뒤, 짧은 평서문 한 줄로 끊어 내려 답 없음을 답으로 만든다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "lengthChars": 112,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.74
+    }
+  },
+  {
     "text": "그리고 그는 달아났다. 넋이 나가서, 거의 부끄러워하면서, 들어갈 권리가 없는 신전에 발을 들이고 만 사람처럼.",
     "author": "기 드 모파상",
     "work": "달빛",
@@ -3148,6 +4204,34 @@
     "verify": {
       "status": "origin-exact",
       "ratio": 1
+    }
+  },
+  {
+    "text": "삶은 멈춘 듯했다. 가게는 닫혔고, 거리는 말이 없었다. 이따금 한 주민이 그 침묵에 겁을 먹고 담을 따라 재빨리 빠져나갔다. 기다림의 불안은 적이 어서 오기를 바라게 만들었다.",
+    "author": "기 드 모파상",
+    "work": "비곗덩어리",
+    "sourceUrl": "https://fr.wikisource.org/wiki/Les_Soirées_de_Médan/Boule_de_suif",
+    "technique": "짧은 병렬로 정지를 그린 다음, 마지막 한 문장에서 소망의 방향을 뒤집어 공포의 정체를 드러낸다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "lengthChars": 99,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.88
+    }
+  },
+  {
+    "text": "그녀는 오른쪽을 보았다. 도살장 앞에 피 묻은 앞치마를 두른 백정들이 무리 지어 서 있는 대로 쪽을. 그녀는 왼쪽을 보았다. 길게 이어진 대로의 띠를 따라가다 맞은편 병원의 흰 덩어리에서 멈추는 쪽을.",
+    "author": "에밀 졸라",
+    "work": "목로주점",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/6497/pg6497.txt",
+    "technique": "'오른쪽을 보았다 / 왼쪽을 보았다'를 같은 자리에 놓아, 설명 없이 시선의 왕복만으로 기다림을 그린다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "lengthChars": 112,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.93
     }
   },
   {
@@ -3229,6 +4313,20 @@
     "techniqueFamily": "고백",
     "isTranslation": true,
     "lengthChars": 64,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "어째서 운명은 나를 정직한 밀수꾼들의 평온한 무리 속으로 던져 넣었을까? 잔잔한 샘에 던져진 돌처럼 나는 그들의 고요를 흐트러뜨렸고, 그 돌처럼 나 자신도 하마터면 바닥으로 가라앉을 뻔했다.",
+    "author": "미하일 레르몬토프",
+    "work": "우리 시대의 영웅",
+    "sourceUrl": "https://ru.wikisource.org/wiki/Герой_нашего_времени_(Лермонтов)/1969_(СО)",
+    "technique": "하나의 비유를 한 문장 안에 두 번 놓고, 두 번째에서 비유의 주체를 가해자에서 피해자로 뒤집는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "lengthChars": 106,
     "verify": {
       "status": "origin-exact",
       "ratio": 1
@@ -3449,6 +4547,1993 @@
       "status": "origin-exact",
       "ratio": 1,
       "method": "reencoded"
+    }
+  },
+  {
+    "text": "이제 말해 주소서, 올림포스의 저택에 사는 무사 여신들이여. 그대들은 여신이라 곁에 있어 모든 것을 알지만, 우리는 소문만 들을 뿐 아무것도 알지 못하니.",
+    "author": "호메로스",
+    "work": "일리아스 2권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "긴 카탈로그를 열기 전, 아는 자와 모르는 자를 대구로 갈라 세워 뒤이을 목록에 권위를 빌려 온다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 86,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나뭇잎의 세대가 그러하듯 사람의 세대도 그러하다. 잎은 바람이 땅에 흩뿌리고, 숲은 봄철이 오면 다시 움을 틔워 내민다. 사람의 세대도 하나가 돋으면 하나가 그친다.",
+    "author": "호메로스",
+    "work": "일리아스 6권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "비유를 먼저 던지고, 원관념을 같은 문형으로 되받아 닫는 반지 구성.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 92,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "산꼭대기의 끝없는 숲을 사르는 불길이 멀리서도 보이듯, 그들이 나아갈 때 헤아릴 수 없는 청동에서 뿜어 나온 눈부신 빛이 하늘까지 뻗쳐 올랐다.",
+    "author": "호메로스",
+    "work": "일리아스 2권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "'~듯이 / 그처럼'의 두 축으로 문장을 벌리는 확장 직유. 그림을 먼저 크게 그리고 원관념을 나중에 얹는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "기러기와 두루미와 목이 긴 백조의 무리가 강가 들판을 이리저리 날며 깃을 뽐내고 울며 내려앉듯, 그처럼 수많은 부족의 전사들이 배와 막사에서 쏟아져 나왔다.",
+    "author": "호메로스",
+    "work": "일리아스 2권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "직유의 원관념을 뒤로 미루고 풍경 하나를 끝까지 완성한 뒤 '그처럼'으로 넘긴다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 87,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그때 그대가 우는 것을 보고 누군가 말하리라. '이 여자가 헥토르의 아내다. 일리오스를 두고 싸울 때 말 길들이는 트로이아인 가운데 맨 앞에서 싸우던 그 사람의.'",
+    "author": "호메로스",
+    "work": "일리아스 6권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "아직 오지 않은 시간을 남의 목소리로 미리 들려주는 예언적 인용. 화자의 죽음을 직접 말하지 않고도 알게 한다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 91,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "헥토르, 당신은 내게 아버지이고 어머니이며, 오라비이자 나의 늠름한 남편입니다.",
+    "author": "호메로스",
+    "work": "일리아스 6권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "잃어버린 관계들을 하나씩 세어 한 사람 위에 겹쳐 올린다. 열거가 그대로 상실 목록이 되는 압축.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 44,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "여인이여, 지나치게 슬퍼하지 마오. 운명을 거스르고 나를 하데스로 내던질 사람은 없소. 다만 한번 태어난 이상, 비겁하든 용감하든 정해진 몫을 벗어난 사람도 없었소.",
+    "author": "호메로스",
+    "work": "일리아스 6권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "위로를 부정문으로 열고, 같은 부정형을 한 번 더 써서 예외 없음의 단언으로 닫는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 92,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "산에서 사냥개가 굴에서 몰아낸 새끼사슴을 골짜기로 뒤쫓듯, 덤불 밑에 웅크려도 냄새를 맡아 기어이 찾아내듯, 헥토르는 아킬레우스를 따돌리지 못했다.",
+    "author": "호메로스",
+    "work": "일리아스 22권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "직유 안에 '숨어도 소용없다'는 조건절을 심어, 비유가 결말을 미리 알려 주게 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 82,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "꿈속에서 달아나는 자를 뒤쫓다 붙잡지 못하듯, 쫓기는 자도 달아나지 못하고 쫓는 자도 따라잡지 못하듯, 아킬레우스는 따라잡지 못했고 헥토르는 벗어나지 못했다.",
+    "author": "호메로스",
+    "work": "일리아스 22권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "두 사람의 실패를 대구로 나란히 놓아, 가장 빠른 추격 장면에서 시간을 정지시킨다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 88,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "아킬레우스여, 신들을 두려워하고 나를 가엾이 여기시오. 그대의 아버지를 생각하며. 나는 그분보다 더 가엾은 자, 내 아들들을 죽인 자의 얼굴을 향해 손을 뻗은 자이니.",
+    "author": "호메로스",
+    "work": "일리아스 24권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "상대의 아버지를 먼저 불러내 적을 누군가의 아들로 바꿔 놓은 뒤, 마지막에 자기 처지를 못 박는 설득의 전환.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 93,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "제우스의 마루에는 항아리 둘이 놓여 있다. 하나에는 재앙이, 하나에는 축복이 담겼다. 섞어서 받는 사람은 오늘은 불행을, 내일은 다시 행복을 만난다.",
+    "author": "호메로스",
+    "work": "일리아스 24권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "추상적인 운명을 눈에 보이는 사물 두 개로 바꾸고, 배분 방식만 설명해 세계관을 완성한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 83,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "둘은 저마다의 죽은 이를 떠올렸다. 프리아모스는 아킬레우스의 발 앞에 엎드려 헥토르를 위해 울었고, 아킬레우스는 제 아버지를 위해, 또 파트로클로스를 위해 울었다.",
+    "author": "호메로스",
+    "work": "일리아스 24권 (Lang·Leaf·Myers 1883 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/3059/pg3059.txt",
+    "technique": "같은 동사(울다)를 두 인물에 나눠 붙여, 설명 없이 적대를 지워 버린다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 91,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "북풍이 가을걷이 철에 엉겅퀴 씨앗을 들판으로 쓸어 가면 솜털들이 서로 엉겨 붙듯, 바람은 그 뗏목을 바다 위로 이리저리 실어 갔다.",
+    "author": "호메로스",
+    "work": "오디세이아 5권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "거대한 폭풍을 가장 가벼운 사물에 빗대어, 크기 대신 무력함으로 스케일을 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "오래 앓아 여위어 가던 아버지가 살아난 것이 자식들에게 더없이 반갑듯, 그렇게 오디세우스에게 뭍과 숲이 반가웠다.",
+    "author": "호메로스",
+    "work": "오디세이아 5권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "풍경의 반가움을 사람의 회복에 빗대, 감정의 크기를 사람 단위로 재게 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.86
+    }
+  },
+  {
+    "text": "문어를 굴에서 끌어내면 빨판마다 자갈이 딸려 나오듯, 그의 굳센 손에서 살갗이 바위에 벗겨져 나갔다.",
+    "author": "호메로스",
+    "work": "오디세이아 5권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "잔혹한 장면을 일상의 어로 장면으로 옮겨, 눈을 돌리지 않고 보게 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 56,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "이웃도 없는 외딴 농가에서 사람이 검은 잿속에 불씨를 묻어 불의 씨를 지키듯, 오디세우스도 그렇게 제 몸을 낙엽으로 덮었다.",
+    "author": "호메로스",
+    "work": "오디세이아 5권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "잠드는 장면을 불씨 보존에 빗대, 휴식에 생존의 뜻을 심어 넣는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 69,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.87
+    }
+  },
+  {
+    "text": "산에서 자란 사자가 제 힘을 믿고 비바람을 맞으며 눈에 불을 켜고 나서듯, 오디세우스는 벌거벗은 채 머리 고운 처녀들에게 다가가려 했다.",
+    "author": "호메로스",
+    "work": "오디세이아 6권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "전투용 사자 직유를 벌거벗은 조난자에게 붙여, 위엄과 초라함을 한 문장에 겹쳐 놓는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 76,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.88
+    }
+  },
+  {
+    "text": "활 든 아르테미스가 산등성이를 내려오면 요정들이 함께 뛰놀고 레토는 흐뭇해하며, 여신은 머리를 높이 들어 쉬이 알아볼 수 있듯 — 모두 아름다우나 — 그 처녀는 시녀들 가운데 홀로 빛났다.",
+    "author": "호메로스",
+    "work": "오디세이아 6권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "직유 한복판에 짧은 삽입구를 넣어, 비교하면서도 나머지를 깎아내리지 않는 균형을 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 105,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.88
+    }
+  },
+  {
+    "text": "낮이면 그 커다란 베를 짜고, 밤이면 곁에 횃불을 놓게 하고 도로 풀었다. 그렇게 세 해 동안 그녀는 아카이아인들의 마음을 홀렸다.",
+    "author": "호메로스",
+    "work": "오디세이아 2권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "낮과 밤의 대구 한 쌍으로 삼 년의 시간을 통째로 압축한다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "아르고스에게는 검은 죽음의 운명이 닥쳤다. 스무 해 만에 오디세우스를 다시 본 바로 그 시각에.",
+    "author": "호메로스",
+    "work": "오디세이아 17권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "죽음과 재회를 한 문장에 겹쳐 두고, 뒤에 붙인 시간 부사구로 끝을 눌러 준다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 53,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나를 죽인 것은 화살도 병도 아니었다. 오직 너를 향한 사무친 그리움이, 너의 지혜와 너의 다정함이 내게서 단 목숨을 앗아 갔다.",
+    "author": "호메로스",
+    "work": "오디세이아 11권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "두 번의 부정을 먼저 세워 두고 단 하나의 긍정으로 원인을 못 박는다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.79
+    }
+  },
+  {
+    "text": "죽음을 두고 나를 위로하려 들지 마시오, 위대한 오디세우스여. 살림도 땅도 없는 사람의 품팔이로 지상에 사는 편이, 스러진 모든 죽은 자를 다스리는 것보다 낫소.",
+    "author": "호메로스",
+    "work": "오디세이아 11권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "위로를 먼저 막아 세운 뒤, 비교급 하나로 명예의 세계관을 통째로 뒤집는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 90,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.88
+    }
+  },
+  {
+    "text": "바다에서 배를 잃고 헤엄쳐 온 사람에게 뭍이 반갑듯, 그녀에게 남편의 모습이 그렇게 반가웠다. 흰 팔은 그의 목에서 좀처럼 풀리지 않았다.",
+    "author": "호메로스",
+    "work": "오디세이아 23권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "난파한 남편에게 어울릴 직유를 기다린 아내 쪽에 돌려 붙이는 뒤집힌 직유.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 77,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.89
+    }
+  },
+  {
+    "text": "그녀는 죽을 사람이고 그대는 늙음도 죽음도 모릅니다. 그래도 나는 날마다 집으로 돌아가는 날을 보기를 바랍니다. 신이 나를 포도줏빛 바다에서 부순다 해도 견디겠습니다.",
+    "author": "호메로스",
+    "work": "오디세이아 5권 (Butcher & Lang 1879 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/1728/pg1728.txt",
+    "technique": "상대의 우위를 먼저 온전히 인정하고 '그래도'로 뒤집는 양보 구문. 반박하지 않아서 더 세다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 93,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "멀리 다니는 사람에게는 지혜가 필요하다. 집에서는 무엇이든 쉽다. 아무것도 모르면서 슬기로운 이들 사이에 앉은 사람은 곧 눈짓거리가 된다.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 5연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "긴 조언 사이에 짧은 단정 한 줄을 끼워 넣어 앞뒤를 뒤집는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 77,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "길 떠나는 사람이 지고 갈 더 나은 짐은 없다, 큰 슬기보다. 낯선 곳에서는 그것이 재물보다 낫다. 그것이 가난한 자의 밑천이다.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 10연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "보이지 않는 지혜를 등에 지는 '짐'으로 바꿔, 무게와 부피를 가진 물건처럼 다룬다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "길 떠나는 사람이 지고 갈 더 나은 짐은 없다, 큰 슬기보다. 들판을 건너는 사람이 지고 갈 더 나쁜 양식은 없다, 지나친 술보다.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 11연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "앞 연의 첫 구절을 그대로 되풀이한 뒤 '더 나은'을 '더 나쁜'으로만 바꿔, 한 쌍의 문장을 만든다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "가축 떼는 언제 풀을 떠나 집으로 돌아갈지 안다. 그러나 어리석은 사람은 제 배의 크기를 끝내 알지 못한다.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 21연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "짐승이 아는 것을 먼저 말해 놓고, 그다음에 사람이 모르는 것을 놓아 대비만으로 꾸짖는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 60,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나쁜 벗에게 가는 길은 큰 에움길이다, 그 집이 길가에 있어도. 좋은 벗에게는 지름길이 놓여 있다, 그가 멀리 떠나 있어도.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 34연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "실제 거리와 마음의 거리를 맞바꿔 놓아, 같은 문형 두 개가 서로를 뒤집게 한다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 69,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "벗에게는 벗이 되어라. 선물에는 선물로 갚아라. 웃음에는 웃음으로 받고, 거짓에는 속임으로 갚아라.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 42연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "같은 낱말을 주는 자리와 받는 자리에 나란히 놓아, 되갚음의 원리를 문장의 생김새로 만든다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 55,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "들판에 홀로 선 전나무는 시든다. 껍질도 잎도 그를 지켜주지 않는다. 아무도 사랑하지 않는 사람이 그러하다. 그가 얼마나 오래 살겠는가.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 50연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "나무 한 그루를 먼저 세우고 '사람이 그러하다'로 옮겨간 뒤, 답을 주지 않는 질문으로 닫는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 76,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "큰 것만 주어야 하는 것은 아니다. 작은 것으로 칭찬을 사는 일이 많다. 빵 반 덩이와 기울어진 잔 하나로 나는 벗을 얻었다.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 52연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "technique": "통념을 부정한 뒤 자기 경험의 구체적 물건 두 개로 못을 박아, 반박을 막는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 70,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그녀는 본다. 땅이 두 번째로 바다에서 솟아오르는 것을, 온통 푸르게. 폭포가 떨어지고 독수리가 그 위를 난다. 산에서 물고기를 낚는 독수리가.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「무녀의 예언(Völuspá)」 59연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/V%C3%B6lusp%C3%A1",
+    "technique": "가라앉는 장면과 똑같은 문형으로 솟아오르는 장면을 놓아, 앞의 파괴 목록을 되감아 재생한다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "북유럽",
+    "isMyth": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그는 모든 것에 대비한다. 모진 역병조차 견디는 법을 익혔다. 무엇이 닥쳐도 그는 안전하다. 오직 죽음에만, 끝내 약을 찾지 못했다.",
+    "author": "소포클레스",
+    "work": "안티고네 360행 (Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+    "technique": "능력을 세 번 쌓아 올린 뒤 마지막 한 항목으로 앞의 전부를 뒤집는 반전 배치.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 74,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "행복의 으뜸은 지혜로운 마음이다. 크게 부푼 말은 크게 얻어맞는다. 지난 잘못이 치른 값이, 늙어서야 지혜를 데려온다.",
+    "author": "소포클레스",
+    "work": "안티고네 마지막 합창 (Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+    "technique": "같은 어근을 앞뒤에 겹쳐 놓는 어사 반복. '크게 부푼 말'과 '크게 얻어맞는다'가 서로를 물고 있다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 66,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.85
+    }
+  },
+  {
+    "text": "죽어야 할 자들의 겨레여, 삶이 한 뼘인 자들이여. 나는 그대들을 그림자의 그림자로 셈한다.",
+    "author": "소포클레스",
+    "work": "오이디푸스 왕 1186행 (Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+    "technique": "같은 낱말을 제 안에 한 번 더 넣어 크기를 반으로 접는다. 그림자의 그림자.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 51,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나는 나를 운명의 아들로 여긴다. 달들이 내 형제이고, 나는 그들과 함께 차고 기운다. 무엇도 나를 나 아닌 것으로 만들지 못한다.",
+    "author": "소포클레스",
+    "work": "오이디푸스 왕 1080행 (Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+    "technique": "혈연 관계를 은유로 갈아끼운 뒤, 마지막에 단언 한 문장으로 못을 박는다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 73,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.88
+    }
+  },
+  {
+    "text": "오만이 참주를 낳는다. 텅 빈 재물로 배부른 오만이 가파른 꼭대기까지 기어올라 왕좌를 붙잡고, 그러고는 굴러떨어져 엎어진다.",
+    "author": "소포클레스",
+    "work": "오이디푸스 왕 873행 (Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/31/pg31.txt",
+    "technique": "상승 동사를 연달아 쌓아 올린 뒤 마지막 한 동사로 무너뜨리는 점층과 낙하.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 69,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "잠을 청하는 자리에, 잠 대신 두려움이 식구처럼 서서 내 눈꺼풀이 감기는 것을 막는다.",
+    "author": "아이스킬로스",
+    "work": "아가멤논 14행 (E. D. A. Morshead 영역본, Project Gutenberg #8604 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt",
+    "technique": "추상 명사를 자리에 세워 사람처럼 행동시킨다. 두려움이 '선다'고 쓰는 순간 방이 생긴다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 48,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "밤의 환영 속에서, 떨어지는 빗방울처럼 고통의 기억들이 내린다. 눈물과 슬픔을 지나, 원치 않는 영혼 위로 지혜가 온다.",
+    "author": "아이스킬로스",
+    "work": "아가멤논 179행 (E. D. A. Morshead 영역본, Project Gutenberg #8604 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt",
+    "technique": "'내린다'는 동사 하나로 비와 기억과 지혜를 같은 방향으로 정렬한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 67,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "적을 갚으려는 자가 어찌 그물을 성기게 짜겠는가. 뛰어넘지 못하도록, 파멸의 그물을 촘촘히 둘러야 하지 않겠는가.",
+    "author": "아이스킬로스",
+    "work": "아가멤논 1374행 (E. D. A. Morshead 영역본, Project Gutenberg #8604 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt",
+    "technique": "설명 대신 반문으로 밀어붙인다. 대답을 듣는 쪽이 하게 만드는 수사의문.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "다 말하겠다. 내려친 그대로 나는 서 있다. 끝난 일 위에 두 발을 굳게 딛고.",
+    "author": "아이스킬로스",
+    "work": "아가멤논 1379행 (E. D. A. Morshead 영역본, Project Gutenberg #8604 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/8604/pg8604.txt",
+    "technique": "행위와 자세를 한 문장에 겹쳐 시간을 정지시킨다. '내려친 그대로 서 있다'가 과거와 현재를 붙인다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 44,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "필연의 힘은 꺾이지 않는다. 그것을 알기에, 나는 내 몫을 되도록 가볍게 지기로 한다.",
+    "author": "아이스킬로스",
+    "work": "결박된 프로메테우스 103행 (Theodore Alois Buckley 1849 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/27458/pg27458.txt",
+    "technique": "부정할 수 없는 사실을 먼저 인정한 뒤, 그 인정을 태도의 근거로 뒤집어 쓰는 전환.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 48,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나는 사람들이 제 죽을 날을 미리 보지 못하게 했다. 무슨 약으로 그리했느냐고. 눈먼 희망을 그들 안에 살게 했다.",
+    "author": "아이스킬로스",
+    "work": "결박된 프로메테우스 248행 (Theodore Alois Buckley 1849 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/27458/pg27458.txt",
+    "technique": "문답 세 마디를 한 덩어리로 압축한다. 가운데 질문이 답을 앞뒤로 갈라 마지막 구절에 무게를 몰아준다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 64,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그들은 보아도 헛되이 보았고, 들어도 듣지 못했다. 꿈속의 형상들처럼 오랫동안 모든 것을 되는대로 뒤섞었다.",
+    "author": "아이스킬로스",
+    "work": "결박된 프로메테우스 447행 (Theodore Alois Buckley 1849 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/27458/pg27458.txt",
+    "technique": "같은 동사를 두 번 써서 한 번은 긍정, 한 번은 부정으로 꺾는 어사 대구.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 60,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "사람들에게 그 많은 길을 찾아준 나에게, 정작 지금 이 비참에서 빠져나갈 길은 하나도 없다.",
+    "author": "아이스킬로스",
+    "work": "결박된 프로메테우스 469행 (Theodore Alois Buckley 1849 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/27458/pg27458.txt",
+    "technique": "앞 절의 풍요와 뒤 절의 빈곤을 같은 낱말('길')로 이어 붙여 낙차를 만든다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 51,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "땅 위에서 피 흘리며 자라는 모든 것 가운데, 가장 많이 짓밟힌 풀은 여자다.",
+    "author": "에우리피데스",
+    "work": "메데이아 230행 (Gilbert Murray 영역본, Project Gutenberg #35451 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt",
+    "technique": "가장 넓은 범주로 문을 연 뒤 마지막 한 낱말로 좁혀 찍는 최상급 배치.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 43,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그들은 저희가 전장을 감당한다 하고, 우리는 안전한 데 숨어 있다 한다. 나는 방패를 들고 세 번 싸움터에 서겠다. 아이를 한 번 낳느니.",
+    "author": "에우리피데스",
+    "work": "메데이아 248행 (Gilbert Murray 영역본, Project Gutenberg #35451 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt",
+    "technique": "상대의 주장을 그대로 옮겨 놓고, 숫자 대비(세 번 대 한 번)로 단번에 반박한다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 77,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "쉼 없이 달리던 강 위로 물결이 거꾸로 흐른다. 삶이 뒤집히고, 삶의 법이 짓밟힌다.",
+    "author": "에우리피데스",
+    "work": "메데이아 410행 (Gilbert Murray 영역본, Project Gutenberg #35451 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt",
+    "technique": "자연의 불가능한 장면을 먼저 보여준 뒤 그것을 사람 일에 겹쳐 놓는 이중 노출.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 47,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "일어나 갑옷을 입어라, 내 마음아. 무엇을 더 미루어 이 끔찍하고 피할 수 없는 죄의 관을 쓰겠는가.",
+    "author": "에우리피데스",
+    "work": "메데이아 1242행 (Gilbert Murray 영역본, Project Gutenberg #35451 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/35451/pg35451.txt",
+    "technique": "제 마음을 남처럼 불러 명령한다. 호격 하나로 화자가 둘로 갈라진다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 56,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "네 눈은 보았고 네 입술은 맛보았다. 그러나 너를 감싸고 있던 그 풍성한 삶을, 네 혼은 알지도 겪지도 못했다.",
+    "author": "에우리피데스",
+    "work": "트로이 여인들 1167행 (Gilbert Murray 영역본, Project Gutenberg #35171 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/35171/pg35171.txt",
+    "technique": "눈, 입술, 혼을 차례로 세워 감각에서 존재로 올라가다 마지막에서 부정으로 끊는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 62,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "시인이 어떤 비문을 새겨야 참말이 되겠느냐. '여기 한 아기가 누웠다. 그리스인들이 두려워하여, 두려운 나머지 죽인 아기가.'",
+    "author": "에우리피데스",
+    "work": "트로이 여인들 1188행 (Gilbert Murray 영역본, Project Gutenberg #35171 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/35171/pg35171.txt",
+    "technique": "질문으로 열고 인용부호 안의 짧은 비문으로 답한다. 형식이 바뀌는 순간 문장이 돌이 된다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "그리스",
+    "isMyth": true,
+    "lengthChars": 70,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "신이 신령한 쑥 한 심지와 마늘 스무 톨을 주며 말했다. 너희가 이것을 먹고 백 날 동안 햇빛을 보지 않으면 곧 사람의 몸을 얻으리라.",
+    "author": "일연",
+    "work": "삼국유사 권1 기이 고조선(왕검조선) (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%80",
+    "technique": "물건 둘과 날수 하나로 금기를 세우고, 조건절 안에 결말을 미리 걸어 둔다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 75,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "곰과 범이 그것을 받아먹고 스무하루를 참았다. 곰은 여자의 몸을 얻었고, 범은 참지 못하여 사람의 몸을 얻지 못했다.",
+    "author": "일연",
+    "work": "삼국유사 권1 기이 고조선(왕검조선) (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%80",
+    "technique": "똑같은 문장 틀에 '참았다/참지 못했다'만 바꿔 넣어, 두 운명을 한 획으로 갈라놓는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 65,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "햇빛이 비추자 몸을 끌어 피했으나, 햇그림자가 또 좇아와 비추었다. 그로 인해 아이를 배어 알 하나를 낳으니 크기가 다섯 되들이만 했다.",
+    "author": "김부식",
+    "work": "삼국사기 권13 고구려본기 동명성왕 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+    "technique": "피함과 좇음을 한 문장 안에 맞물려 놓아, 벗어날 수 없다는 사실을 동작만으로 보인다.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 76,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "어머니가 물건으로 알을 싸서 따뜻한 곳에 두었더니, 한 사내아이가 껍질을 깨고 나왔는데 뼈대와 생김이 빼어났다.",
+    "author": "김부식",
+    "work": "삼국사기 권13 고구려본기 동명성왕 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+    "technique": "싸다-두다-깨다-나오다. 형용 없이 동사만 이어 붙여 탄생을 진행시킨다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 62,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "주몽은 준마를 알아보고 먹이를 줄여 여위게 했고, 둔한 말은 잘 먹여 살찌게 했다. 왕은 살찐 말을 제가 타고 여윈 말을 주몽에게 주었다.",
+    "author": "김부식",
+    "work": "삼국사기 권13 고구려본기 동명성왕 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+    "technique": "알아본 것을 감추려 정반대로 행동하고, 속은 쪽이 반대로 고르게 만드는 역설의 대구.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 77,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "이에 물고기와 자라가 떠올라 다리가 되었다. 주몽이 건너자 물고기와 자라가 흩어졌고, 뒤쫓던 기병은 건너지 못했다.",
+    "author": "김부식",
+    "work": "삼국사기 권13 고구려본기 동명성왕 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+    "technique": "다리가 생겼다가 풀리는 두 동작 사이에 주인공 한 사람만 통과시켜 선택받음을 증명한다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 64,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "펄펄 나는 꾀꼬리, 암수 서로 기대는데. 내 외로움을 생각하니, 누구와 더불어 돌아가랴.",
+    "author": "유리왕",
+    "work": "삼국사기 권13 고구려본기 유리명왕 '황조가' (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+    "technique": "자연의 짝지음을 두 구로 먼저 세우고, 자기 홀로됨을 붙인 뒤 질문으로 닫는 흥(興)의 원형.",
+    "techniqueFamily": "질문",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 49,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "너희는 봉우리 꼭대기를 파서 흙을 쥐고 노래하라. 거북아 거북아, 머리를 내어라. 내놓지 않으면 구워서 먹으리.",
+    "author": "작자 미상(가락국기), 일연 편",
+    "work": "삼국유사 권2 기이 가락국기 '구지가' (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%BA%8C",
+    "technique": "호격을 두 번 겹쳐 부르고 명령-조건-위협을 잇는 네 걸음. 주술 노래의 최소 골격이다.",
+    "techniqueFamily": "반복",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 62,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "키 아홉 자는 은나라 탕임금이요, 용 같은 얼굴은 한나라 고조요, 여덟 빛깔 눈썹은 요임금이요, 겹눈동자는 순임금이었다.",
+    "author": "작자 미상(가락국기), 일연 편",
+    "work": "삼국유사 권2 기이 가락국기 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%BA%8C",
+    "technique": "몸의 부위마다 옛 임금을 하나씩 대는 카탈로그 직유. 인물 묘사가 곧 계보 선언이 된다.",
+    "techniqueFamily": "비유",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 67,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "세오는 남편이 돌아오지 않는 것을 이상히 여겨 찾아 나섰다. 남편이 벗어 둔 신을 보고 그 바위에 올랐더니, 바위는 전처럼 그를 업고 갔다.",
+    "author": "일연",
+    "work": "삼국유사 권1 기이 연오랑 세오녀 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%80",
+    "technique": "'전처럼'이라는 한마디로 앞 장면을 통째로 되풀이해, 찾으러 간 사람을 같은 운명에 태운다.",
+    "techniqueFamily": "반복",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 78,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그러하나 내 아내가 짜 둔 고운 비단이 있다. 이것으로 하늘에 제사 지내면 될 것이다.",
+    "author": "일연",
+    "work": "삼국유사 권1 기이 연오랑 세오녀 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%80",
+    "technique": "돌아갈 수 없다는 거절 뒤에 '그러하나'로 꺾어, 대신 보낼 물건 하나를 내미는 전환.",
+    "techniqueFamily": "전환",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 48,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "옛사람이 말하기를, 한 말의 곡식도 오히려 찧을 수 있고 한 자의 베도 오히려 꿰맬 수 있다 했습니다. 진실로 마음이 같다면 어찌 반드시 부귀한 뒤에야 함께할 수 있겠습니까.",
+    "author": "김부식",
+    "work": "삼국사기 권45 열전5 온달 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B745",
+    "technique": "속담 두 짝을 대구로 인용해 발판을 놓고, 그 위에서 반문 하나로 결론을 세운다.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 97,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "지금 그대의 냄새를 맡으니 향기가 예사롭지 않고, 그대의 손을 잡으니 부드럽기가 솜 같습니다. 반드시 천하의 귀인일 것입니다.",
+    "author": "김부식",
+    "work": "삼국사기 권45 열전5 온달 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B745",
+    "technique": "눈먼 이가 코와 손 둘로만 사람을 알아본다. 감각 하나씩 짝지은 대구가 곧 인물 묘사가 된다.",
+    "techniqueFamily": "묘사",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 70,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "부디 저잣거리 사람의 말을 사지 마시고, 나라의 말 가운데 병들고 여위어 버려진 것을 골라 바꾸십시오.",
+    "author": "김부식",
+    "work": "삼국사기 권45 열전5 온달 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B745",
+    "technique": "금지 한 줄과 선택 한 줄을 나란히 붙여, 사람의 안목을 문장 구조 자체로 보여준다.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 57,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "길을 떠나며 맹세했다. 계립현과 죽령 서쪽 땅이 우리에게 돌아오지 않으면, 나도 돌아오지 않겠다.",
+    "author": "김부식",
+    "work": "삼국사기 권45 열전5 온달 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B745",
+    "technique": "'돌아오다'라는 한 낱말을 땅과 사람에 겹쳐 써서, 맹세를 한 단어의 반복으로 압축한다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 54,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "사람의 마음은 헤아릴 수 없습니다. 그러나 신의 아내 같은 이는 죽더라도 두 마음을 품지 않을 것입니다.",
+    "author": "김부식",
+    "work": "삼국사기 권48 열전8 도미 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B748",
+    "technique": "상대의 일반론을 먼저 인정해 준 뒤, 예외 하나를 세워 뒤집는 양보-반전 문형.",
+    "techniqueFamily": "전환",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 58,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "아내는 곧 달아나 강어귀에 이르렀으나 건널 수 없었다. 하늘을 부르며 통곡하니, 문득 외로운 배 한 척이 물결을 따라 왔다.",
+    "author": "김부식",
+    "work": "삼국사기 권48 열전8 도미 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B748",
+    "technique": "막다른 곳 - 부르짖음 - 응답을 한 호흡에 잇고, 그 사이에 어떤 설명도 넣지 않는다.",
+    "techniqueFamily": "구조",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 69,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "한 번 죽어서 다섯 가지 이로움이 갖추어집니다. 어찌 그것을 어기겠습니까.",
+    "author": "일연",
+    "work": "삼국유사 권5 감통 김현감호 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%BA%94",
+    "technique": "앞서 늘어놓은 목록을 숫자 하나로 묶어 되받고, 반문으로 닫아 반론을 끊는다.",
+    "techniqueFamily": "압축",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 41,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "무심한 남의 손에 죽느니, 낭군의 칼 아래 엎드려 그 은혜를 갚는 편이 어떻겠습니까.",
+    "author": "일연",
+    "work": "삼국유사 권5 감통 김현감호 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%BA%94",
+    "technique": "두 죽음을 저울에 나란히 올려, 피할 수 없는 죽음을 스스로 고른 선택으로 바꾼다.",
+    "techniqueFamily": "대구",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 47,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "붉은 얼굴과 고운 웃음은 풀 위의 이슬이요, 지초 난초 같던 약속은 바람에 날리는 버들솜입니다.",
+    "author": "일연",
+    "work": "삼국유사 권3 탑상 낙산이대성 관음 정취 조신 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%89",
+    "technique": "얼굴과 약속을 각각 이슬과 버들솜에 맞세운 이중 비유. 두 짝이 같은 무게로 사라진다.",
+    "techniqueFamily": "비유",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 53,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "즐거움은 잠깐이라 마음은 벌써 시들해지고, 시름 속에서 몰래 얼굴이 늙어간다. 누런 조가 익기를 다시 기다릴 것 없다.",
+    "author": "일연",
+    "work": "삼국유사 권3 탑상 낙산이대성 관음 정취 조신, 말미 게송 (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%89",
+    "technique": "짧은 기쁨과 긴 늙음을 한 줄씩 맞세운 뒤, 옛 고사를 부정문으로 끌어와 깨달음을 앞당긴다.",
+    "techniqueFamily": "전환",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 66,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "임이여 물을 건너지 마오. 임은 끝내 물을 건넜네. 물에 빠져 죽었으니, 임을 장차 어이할꼬.",
+    "author": "여옥(전승), 최표 기록",
+    "work": "악부시집 권26 상화가사 '공무도하'(최표 『고금주』 인용) 한문 원문, zh.wikisource, 온:사유 번역",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E6%A8%82%E5%BA%9C%E8%A9%A9%E9%9B%86/026%E5%8D%B7",
+    "technique": "같은 말 '물을 건너다'를 금지-사실-결과로 세 번 옮겨 붙이며 문장이 그대로 무너져 내린다.",
+    "techniqueFamily": "반복",
+    "isTranslation": false,
+    "origin": "한국",
+    "isMyth": true,
+    "lengthChars": 52,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그의 온몸에 털이 돋았고, 머리카락은 여자처럼 땋아 내린 듯했다. 그 머리털은 보리 까끄라기처럼 무성하게 자랐다. 그는 사람도 나라도 알지 못했다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제1토판, 엔키두의 모습 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "technique": "몸의 비유를 두 번 겹쳐 쌓다가 마지막에 앎의 부재로 툭 떨어뜨려, 야생을 결핍으로 정의한다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "메소포타미아",
+    "isMyth": true,
+    "lengthChars": 82,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "신들은 개처럼 웅크렸다. 이슈타르는 해산하는 여자처럼 부르짖었다. 입에서 단 말만 나오던 그 여신이 소리쳐 울었다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제11토판, 대홍수 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "technique": "신을 개와 산모에 잇달아 견주어 권위를 두 단계로 끌어내리고, 마지막에 별칭을 덧붙여 낙차를 키운다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "메소포타미아",
+    "isMyth": true,
+    "lengthChars": 64,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "우르샤나비여, 내 팔은 누구를 위해 애썼는가. 내 심장의 피는 누구를 위해 쏟았는가. 나 자신을 위해서가 아니었다. 땅의 사자를 위해 나는 그것을 얻었다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제11토판, 길가메시의 탄식 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "technique": "같은 질문을 주어만 바꿔 두 번 던진 뒤 스스로 답해, 대답이 나오는 순간 허무가 완성되게 한다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "메소포타미아",
+    "isMyth": true,
+    "lengthChars": 86,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "세상은 여전히 다툼과 미움으로 넘친다. 아비와 아들이 서로의 운명을 부추기고, 핏줄의 피가 핏줄의 손에 흐른다. 복수는 죽은 자와 함께 잠들지도 죽지도 않는다.",
+    "author": "피르다우시",
+    "work": "샤나메 '소흐랍 이야기' 서두 (James Atkinson 1832 영역본 참조, Persian Literature Vol.1, 1900 판본, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/10315/pg10315.txt",
+    "technique": "같은 단어를 주어와 목적어 자리에 겹쳐 놓아, 비극의 구조 자체를 한 문장 안으로 접어 넣는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "페르시아",
+    "isMyth": true,
+    "lengthChars": 89,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "내가 누구에게서 나왔는지 말해 주십시오. 벗이 묻고 적이 물을 때, 내 침묵이 내 부끄러움을 증언하게 하지 마십시오. 그래도 감추신다면, 어머니의 피가 그 죄를 씻을 것입니다.",
+    "author": "피르다우시",
+    "work": "샤나메 '소흐랍 이야기', 소흐랍이 어머니에게 (James Atkinson 1832 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/10315/pg10315.txt",
+    "technique": "부탁에서 원망으로, 원망에서 협박으로 한 단계씩 온도를 올려 마지막 한 줄에서 문장을 뒤집는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "페르시아",
+    "isMyth": true,
+    "lengthChars": 98,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그대의 교만을 자랑하지 마시오. 이 슬픔은 내가 내게 불러들인 것이오. 그대는 다만 운명이 쓴 도구였을 뿐, 그대에게는 죄가 없소, 조금도 없소.",
+    "author": "피르다우시",
+    "work": "샤나메 '소흐랍 이야기', 소흐랍의 마지막 말 (James Atkinson 1832 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/10315/pg10315.txt",
+    "technique": "금지로 시작해 자기 탓으로 넘어가고, 마지막 낱말을 한 번 더 되풀이해 용서를 못 박는다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "페르시아",
+    "isMyth": true,
+    "lengthChars": 81,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "내 손이, 자연을 거스른 이 손이 내 아들을 죽였다. 내 아들이 죽었고, 이 땅에서 뿌리째 뽑혔다.",
+    "author": "피르다우시",
+    "work": "샤나메 '소흐랍 이야기', 팔찌를 본 뒤 (James Atkinson 1832 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/10315/pg10315.txt",
+    "technique": "소유격을 겹쳐 써서 가해자와 피해자를 한 사람의 몸 안에 몰아넣고, 마지막 한 단어로 끊는다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "페르시아",
+    "isMyth": true,
+    "lengthChars": 55,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "너에게는 징표가 있었다. 어찌하여 감추었느냐. 그 금팔찌를 그의 눈앞에 내밀었더라면, 네 귀한 피가 그의 칼을 물들이는 일은 없었을 것이다.",
+    "author": "피르다우시",
+    "work": "샤나메 '소흐랍 이야기', 타흐미네의 통곡 (James Atkinson 1832 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.gutenberg.org/cache/epub/10315/pg10315.txt",
+    "technique": "사실을 먼저 놓고 질문을 던진 뒤 가정법으로 되감아, 후회의 세 단계를 한 문단에 담는다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "페르시아",
+    "isMyth": true,
+    "lengthChars": 78,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "마음을 도로 불러오라. 슬픈 두려움은 놓아 보내라. 어쩌면 언젠가는 이것마저 기억하는 일이 즐거우리라.",
+    "author": "베르길리우스",
+    "work": "아이네이스 1권 202-203행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen1.shtml",
+    "technique": "명령형 둘로 현재를 붙잡은 뒤, 마지막 한 줄에서 시점을 미래로 옮겨 고통을 재료로 바꾼다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 57,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "아카테스여, 이제 어느 자리가, 땅 위의 어느 지역이 우리의 고생으로 가득하지 않겠는가. 사물에도 눈물이 있고, 죽어 가는 것들이 마음을 건드린다.",
+    "author": "베르길리우스",
+    "work": "아이네이스 1권 459-462행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen1.shtml",
+    "technique": "답이 정해진 물음을 두 번 던져 범위를 넓혀 놓고, 마지막에 짧은 단정으로 닫는다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 82,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.88
+    }
+  },
+  {
+    "text": "여왕이여, 그대는 말할 수 없는 고통을 되살리라 명하는군요. 내 눈으로 본 가장 비참한 것들을, 그리고 내가 큰 몫이었던 그 일들을.",
+    "author": "베르길리우스",
+    "work": "아이네이스 2권 3-6행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen2.shtml",
+    "technique": "첫 단어에 '말할 수 없는'을 놓고도 말을 이어 가게 해, 거부와 고백을 한 문장에 겹친다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 74,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.83
+    }
+  },
+  {
+    "text": "신들의 운명이 아니었다면, 우리 마음이 어긋나지 않았다면, 트로이아는 지금도 서 있었을 것이고, 프리아모스의 높은 성채여, 너는 남아 있었을 것이다.",
+    "author": "베르길리우스",
+    "work": "아이네이스 2권 54-56행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen2.shtml",
+    "technique": "이루어지지 않은 가정을 쌓다가 3인칭을 2인칭 부름으로 바꿔, 서술을 애도로 넘긴다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 83,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.81
+    }
+  },
+  {
+    "text": "아베르누스로 내려가는 길은 쉽다. 검은 디스의 문은 밤에도 낮에도 열려 있다. 그러나 걸음을 되돌려 위쪽 바람으로 빠져나오는 것, 그것이 일이고, 그것이 수고다.",
+    "author": "베르길리우스",
+    "work": "아이네이스 6권 126-129행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen6.shtml",
+    "technique": "쉬운 쪽은 길게 설명하고 어려운 쪽은 짧은 두 마디로 끊어, 문장 길이로 난이도를 표시한다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 90,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "숲에서 가을의 첫 추위에 잎이 떨어져 내리듯 그렇게 많이, 혹은 깊은 바다에서 뭍으로 새들이 무리 지어 몰려들듯 그렇게 많이.",
+    "author": "베르길리우스",
+    "work": "아이네이스 6권 309-312행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen6.shtml",
+    "technique": "셀 수 없는 것을 다른 셀 수 없는 것 둘에 견주고, '그렇게 많이'를 반복해 크기를 감각으로 옮긴다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 70,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.87
+    }
+  },
+  {
+    "text": "로마인이여, 너는 다스림으로 백성을 이끌 것을 기억하라. 이것이 너의 기술이 되리라. 평화에 규범을 세우고, 굴복한 자는 살려 두고, 교만한 자는 끝까지 꺾는 것.",
+    "author": "베르길리우스",
+    "work": "아이네이스 6권 851-857행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen6.shtml",
+    "technique": "남의 기술을 먼저 인정한 뒤 자기 몫을 명령형으로 부르고, 마지막을 짧은 대구로 닫는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 91,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.85
+    }
+  },
+  {
+    "text": "그는 가지를 팔로 끌어안는다. 사람의 몸을 안듯이. 그리고 나무에 입을 맞춘다. 그러나 나무는 그 입맞춤에서 물러난다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 1권 555-556행, 다프네 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met1.shtml",
+    "technique": "같은 두 단어를 어순만 뒤집어 되풀이해, 다가감과 물러남을 한 쌍으로 묶는다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 66,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.6
+    }
+  },
+  {
+    "text": "그는 모르는 채 자기를 원하고, 좋아하는 자가 곧 좋아지는 자가 된다. 구하는 사이에 구해지고, 불을 붙이면서 동시에 탄다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 3권 425-426행, 나르키소스 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met3.shtml",
+    "technique": "능동과 수동을 같은 동사로 짝지어, 주체와 대상이 하나로 겹치는 상태를 문법으로 보여 준다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 69,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.73
+    }
+  },
+  {
+    "text": "그것이 나다. 나는 알았다. 내 모습이 나를 속인 것이 아니었다. 나는 나를 향한 사랑으로 탄다. 원하는 것은 내 곁에 있는데, 넉넉함이 나를 가난하게 만들었다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 3권 463-466행, 나르키소스 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met3.shtml",
+    "technique": "깨달음을 짧은 단정으로 먼저 놓고, 마지막에 정반대의 두 낱말을 맞붙여 역설로 닫는다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 90,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.79
+    }
+  },
+  {
+    "text": "누런 밀랍이 약한 불에 녹듯, 아침 서리가 미지근한 볕에 스러지듯, 그렇게 그는 사랑에 얇아져 흘러내리고, 감춰진 불에 조금씩 갉아 먹힌다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 3권 487-490행, 나르키소스 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met3.shtml",
+    "technique": "사라지는 두 물질을 나란히 대고 마지막에 '조금씩'을 넣어, 소멸에 속도를 붙인다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 78,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "바우키스는 필레몬에게서 잎이 돋는 것을 보았고, 늙은 필레몬은 바우키스에게서 잎이 돋는 것을 보았다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 8권 699-700행, 필레몬과 바우키스 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met8.shtml",
+    "technique": "두 이름의 자리를 맞바꿔 같은 문장을 되풀이해, 동시에 일어난 일을 하나의 그림으로 만든다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 56,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그녀가 뒤처질까 두려워, 또 보고 싶어 못 견뎌 사랑하는 자는 눈을 돌렸다. 그러자 그녀는 곧바로 미끄러져 내려갔다. 팔을 뻗었으나 물러나는 공기 말고는 아무것도 붙들지 못했다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 10권 56-59행, 오르페우스와 에우리디케 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met10.shtml",
+    "technique": "돌아본 이유를 둘 나란히 적어 변명을 없애고, 결과는 곧바로 한 문장에 붙여 시간을 지운다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 99,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "여기서 둘은 나란히 발을 맞추어 거닌다. 이제는 앞서가는 그녀를 따르고, 이제는 앞장서서 나아간다. 오르페우스는 이제 안심하고 자기 에우리디케를 돌아본다.",
+    "author": "오비디우스",
+    "work": "변신 이야기 11권 64-66행, 오르페우스와 에우리디케 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met11.shtml",
+    "technique": "이야기를 부순 바로 그 동작을 마지막에 그대로 다시 쓰되 조건 하나만 바꿔, 결말을 뒤집는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "로마",
+    "isMyth": true,
+    "lengthChars": 86,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.82
+    }
+  },
+  {
+    "text": "과보가 해와 달리기를 겨루어 해 속으로 들어갔다. 목이 말라 황하와 위수를 마셨으나 모자라, 북쪽 큰 못으로 갔다. 닿기 전에 길에서 목말라 죽었다. 버린 지팡이가 복숭아 숲이 되었다.",
+    "author": "작자 미상(산해경)",
+    "work": "산해경 해외북경 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/山海經/海外北經",
+    "technique": "두 글자, 세 글자짜리 짧은 절을 계속 이어 붙여 속도를 만들고, 마지막 한 절에서 죽음을 숲으로 뒤집는다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "중국",
+    "isMyth": true,
+    "lengthChars": 103,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "신이 열 있다. 이름을 여와의 창자라 한다. 창자가 신으로 변하여 율광의 들에 있으며, 길을 가로질러 누워 있다.",
+    "author": "작자 미상(산해경)",
+    "work": "산해경 대황서경 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/山海經/大荒西經",
+    "technique": "몸의 한 부분을 그대로 이름으로 삼아 열 신을 만들고, 마지막 한 구에는 그들의 자세만 남긴다.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "중국",
+    "isMyth": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그것이 내 마음이 옳다고 여기는 바라면, 아홉 번 죽는다 해도 나는 끝내 뉘우치지 않겠다.",
+    "author": "굴원",
+    "work": "초사 이소 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "technique": "조건절을 앞에 세우고 극단의 수를 뒤에 놓는다. 두 마디만으로 선언이 완성되는 최소 구조.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "중국",
+    "isMyth": true,
+    "lengthChars": 50,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "슬픔 가운데 산 채로 헤어지는 것보다 더한 슬픔은 없고, 기쁨 가운데 새로 서로를 알아보는 것보다 더한 기쁨은 없다.",
+    "author": "굴원",
+    "work": "초사 구가 「소사명」 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/九歌",
+    "technique": "같은 골격을 두 번 세워 슬픔과 기쁨을 같은 자리에 놓는 최상급 대구. 두 극단이 한 문장 안에서 균형을 이룬다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "중국",
+    "isMyth": true,
+    "lengthChars": 65,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "어지러이 뒤엉킨 아홉 고을. 누가 오래 살고 누가 일찍 죽는지가 어찌하여 내게 달려 있는가.",
+    "author": "굴원",
+    "work": "초사 구가 「대사명」 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/九歌",
+    "technique": "넓은 공간을 한 구로 펼친 뒤 곧바로 자기에게 물음을 돌린다. 규모에서 책임으로 옮겨 가는 전환.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "중국",
+    "isMyth": true,
+    "lengthChars": 51,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "나가서 들어오지 않고, 가서 돌아오지 않는다. 벌판은 아득하고 길은 멀다. 긴 칼을 차고 진나라 활을 옆에 끼었다. 머리와 몸이 갈라져도 마음은 꺾이지 않는다.",
+    "author": "굴원",
+    "work": "초사 구가 「국상」 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/九歌",
+    "technique": "부정 대구로 시작해 사물을 세다가, 마지막에 몸과 마음을 갈라 놓아 반전을 만든다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "중국",
+    "isMyth": true,
+    "lengthChars": 89,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "이와나가히메를 두었다면 눈이 내리고 바람이 불어도 바위처럼 늘 굳게 계셨을 것이고, 사쿠야히메를 두었다면 꽃처럼 피어나셨을 것이다. 언니를 돌려보냈으니, 그대의 목숨은 꽃처럼 덧없으리라.",
+    "author": "오노 야스마로 편(고사기)",
+    "work": "고사기 상권 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/古事記/上卷",
+    "technique": "두 이름을 바위와 꽃에 나란히 걸고, 하나를 지워 결말을 만든다. 선택이 곧 운명이 되는 비유 구조.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "일본",
+    "isMyth": true,
+    "lengthChars": 104,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.64
+    }
+  },
+  {
+    "text": "덩굴 얽힌 이와레 못에서 우는 오리를, 나는 오늘만 보고 구름 속으로 숨어 버려야 하는가.",
+    "author": "오쓰 황자",
+    "work": "만엽집 권3 挽歌 0416 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第三",
+    "technique": "죽음을 '구름에 숨는다'로 바꿔 부르고, '오늘만'이라는 한 마디에 남은 시간을 전부 담는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "일본",
+    "isMyth": true,
+    "lengthChars": 50,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1
+    }
+  },
+  {
+    "text": "그때 죽음은 없었고, 죽지 않는 것도 없었다. 밤과 낮을 가르는 표지도 없었다. 그 하나는 숨 없이, 제 본성으로 숨 쉬었다.",
+    "author": "작자 미상 (리그베다 찬가)",
+    "work": "리그베다 10권 129 「창조 찬가」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv10129.htm",
+    "technique": "대구로 양극을 지운 뒤, 마지막에 '숨 없이 숨 쉬었다'는 모순 하나를 남긴다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 70,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "누가 참으로 알며, 누가 여기서 말할 수 있는가. 신들도 이 세계가 생긴 뒤에 왔다. 그는 알 것이다. 혹은 그도 모를 것이다.",
+    "author": "작자 미상 (리그베다 찬가)",
+    "work": "리그베다 10권 129 「창조 찬가」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv10129.htm",
+    "technique": "권위를 끝까지 쌓아 올린 다음 마지막 한 문장으로 스스로 무너뜨린다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 71,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.6,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "그는 제 큼으로 홀로 다스리는 자가 되었다. 숨 쉬는 것과 잠든 것, 움직이는 세계 전부의. 우리는 어떤 신에게 제물을 바쳐야 하는가.",
+    "author": "작자 미상 (리그베다 찬가)",
+    "work": "리그베다 10권 121 「카(Ka) 찬가」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv10121.htm",
+    "technique": "찬양을 쌓고 연마다 같은 물음을 되돌려 놓는 후렴 — 답이 아니라 물음이 기둥이 된다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 75,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.81,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "어둠을 가장 짙은 빛깔로 물들이는 그이가 내게 또렷이 다가왔다. 아침이여, 빚을 지우듯 이 밤을 지워다오.",
+    "author": "작자 미상 (리그베다 찬가)",
+    "work": "리그베다 10권 127 「밤 찬가」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv10127.htm",
+    "technique": "밤을 빚으로 바꾸는 한 낱말짜리 비유가 앞 문장 전체를 다시 읽게 만든다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 59,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "주사위는 굴러 내려갔다가 곧 튀어 오른다. 손도 없으면서 손 있는 자를 부린다. 판 위에 던져지면, 저는 차가우면서 사람의 마음을 재로 태운다.",
+    "author": "작자 미상 (리그베다 찬가)",
+    "work": "리그베다 10권 34 「노름꾼의 노래」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv10034.htm",
+    "technique": "역설을 짝지어 놓는다 — 손 없는 것이 손을 부리고, 찬 것이 태운다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 80,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.86,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "베푸는 이의 재물은 마르지 않고, 주지 않으려는 자는 위로해줄 이를 찾지 못한다. 신들은 굶주림을 우리 죽음으로 정해두지 않았다.",
+    "author": "작자 미상 (리그베다 찬가)",
+    "work": "리그베다 10권 117 「베풂의 노래」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv10117.htm",
+    "technique": "두 운명을 속담처럼 나란히 붙인 뒤, 뒤집힌 전제를 뒤에 놓아 무게를 준다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.82,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "내 마음과 나는 의논한다. 어떻게 하면 바루나와 내가 다시 하나가 될까. 그는 성내지 않고 무엇을 받아줄까. 언제쯤 나는 편히 그를 볼까.",
+    "author": "작자 미상 (바시슈타 계열 찬가)",
+    "work": "리그베다 7권 86 「바루나 찬가」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv07086.htm",
+    "technique": "자기 마음을 대화 상대로 삼고, 물음 셋을 이어 붙여 죄책감을 소리 내어 만든다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 77,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.84,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "낡아 해진 옷을 벗고 새 옷을 입듯, 몸에 깃든 것은 낡은 몸을 벗고 새 몸으로 들어간다.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 6권 「바가바드기타」 2장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06026.htm",
+    "technique": "가장 흔한 살림살이 하나로 가장 큰 것을 설명한다 — 직유의 눈금 낮추기.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 50,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "네 몫은 일에 있을 뿐, 그 열매에 있지 않다. 열매를 일의 이유로 삼지 말고, 하지 않는 쪽으로도 기울지 마라.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 6권 「바가바드기타」 2장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06026.htm",
+    "technique": "긍정 하나를 세우고 부정 둘로 좌우를 막는다 — 세 문장으로 길을 좁히는 압축.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 63,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "거북이 사방에서 제 팔다리를 거두어들이듯, 감각을 그 대상에서 거두어들이는 사람 — 그의 마음이 흔들리지 않는 마음이다.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 6권 「바가바드기타」 2장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06026.htm",
+    "technique": "짐승의 동작 하나를 먼저 보여주고 뒤에 뜻을 붙인다 — 그림이 개념보다 앞선다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 67,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "잎 하나, 꽃 하나, 열매 하나, 물 한 모금 — 마음이 맑은 이가 정성으로 바치면 나는 그것을 받는다.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 6권 「바가바드기타」 9장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06033.htm",
+    "technique": "가장 작은 것 넷을 나열해 제물의 크기를 지운다 — 목록으로 값을 재정의하기.",
+    "techniqueFamily": "압축",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 58,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "나는 죽음이다. 세계를 무너뜨리는 자다. 여기 늘어선 이 모든 무사는 네가 없어도 사라질 것이다.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 6권 「바가바드기타」 11장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06035.htm",
+    "technique": "긴 물음 끝에 짧은 자기 규정 한 문장으로 답한다 — 길이의 낙차가 곧 충격이 된다.",
+    "techniqueFamily": "전환",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 54,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "그대와 함께라면 어디든 하늘이고, 그대가 없는 곳은 어디든 지옥입니다. 그러니 저를 데려가 주세요. 이것이 제 모든 바람이고 제 모든 기쁨입니다.",
+    "author": "발미키",
+    "work": "라마야나 2권 30장 「사랑의 승리」 (Griffith 1870-74 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rama/ry108.htm",
+    "technique": "장소를 사람으로 바꾸는 대구 한 쌍 뒤에 곧바로 부탁을 붙여, 수사를 요구로 착지시킨다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 81,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.8,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "제가 지나는 갈대와 덤불과 가시나무와 엉킨 풀도, 그대만 곁에 있다면 사슴 가죽처럼 부드러울 것입니다.",
+    "author": "발미키",
+    "work": "라마야나 2권 30장 「사랑의 승리」 (Griffith 1870-74 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rama/ry108.htm",
+    "technique": "거친 것을 넷 나열한 뒤 단 하나의 조건절로 촉감을 뒤집는다.",
+    "techniqueFamily": "비유",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 57,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "몇몇이 신의를 저버렸다 하여, 여인들에게는 사랑도 진실도 없다 하시렵니까. 다른 이들을 의심하시더라도, 제 한 생이 보여준 것만은 인정해 주십시오.",
+    "author": "발미키",
+    "work": "라마야나 6권 118장 「시타의 대답」 (Griffith 1870-74 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rama/ry489.htm",
+    "technique": "일반화를 되묻는 물음으로 받고, 양보절 하나를 내주며 자기 몫만 지켜낸다.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 82,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "거인이 저를 붙들어 제가 그 미운 팔 안에 있었다면, 그것은 운명과 도둑을 탓할 일이지 그대의 아내를 탓할 일이 아닙니다. 제 마음은 제 것이었고, 여전히 진실했습니다.",
+    "author": "발미키",
+    "work": "라마야나 6권 118장 「시타의 대답」 (Griffith 1870-74 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rama/ry489.htm",
+    "technique": "조건절로 사실을 인정하고, 주절에서 책임의 자리를 옮긴 뒤, 짧은 단언으로 끝낸다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 94,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.8,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "날마다 헤아릴 수 없는 것들이 죽음의 집으로 갑니다. 그런데 뒤에 남은 자들은 자기는 죽지 않는다고 믿습니다. 이보다 놀라운 일이 무엇이겠습니까.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 3권 311장 「야크샤의 물음」 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m03/m03311.htm",
+    "technique": "사실 한 줄, 모순 한 줄, 되묻기 한 줄 — 세 문장으로 완성되는 반문의 뼈대.",
+    "techniqueFamily": "질문",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 81,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "어머니는 땅보다 무겁고, 아버지는 하늘보다 높습니다. 마음은 바람보다 빠르고, 우리 생각은 풀보다 많습니다.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 3권 311장 「야크샤의 물음」 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m03/m03311.htm",
+    "technique": "무게·높이·빠르기·수를 차례로 대응시켜, 네 문장을 하나의 저울로 만든다.",
+    "techniqueFamily": "대구",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 60,
+    "verify": {
+      "status": "origin-exact",
+      "ratio": 1,
+      "method": "curl"
+    }
+  },
+  {
+    "text": "제게 헌신한 이를 버려야 얻는 번영이라면 저는 그 번영을 바라지 않습니다. 저를 따르는 이를 버리는 것은 끝없는 죄라고 했습니다.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 17권 3장 「마하프라스타니카 파르바」 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m17/m17003.htm",
+    "technique": "제안을 조건절로 되받아 거절하고, 인용 한 줄을 근거로 덧대 결정을 굳힌다.",
+    "techniqueFamily": "고백",
+    "isTranslation": true,
+    "origin": "인도",
+    "isMyth": true,
+    "lengthChars": 72,
+    "verify": {
+      "status": "origin-partial",
+      "ratio": 0.86,
+      "method": "curl"
     }
   }
 ]

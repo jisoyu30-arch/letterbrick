@@ -1,0 +1,776 @@
+[
+  {
+    "text": "낮은 저녁에 칭찬하라. 칼은 시험해 본 뒤에, 얼음은 건너간 뒤에, 술은 다 마신 뒤에 칭찬하라.",
+    "author": "작자 미상(고 에다)",
+    "work": "고 에다 「높으신 이의 말씀(Hávamál)」 81연 (고대 노르드어 원문 참조, 온:사유 번역)",
+    "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+    "quoteContext": "Að kveldi skal dag leyfa, / mæki er reyndur er, / ís er yfir kemur, / öl er drukkið er.",
+    "origin": "북유럽",
+    "technique": "'~한 뒤에'를 네 번 겹쳐, 판단을 미루라는 원칙을 목록의 리듬으로 각인시킨다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.29
+    }
+  },
+  {
+    "text": "놀라운 것은 많다. 그러나 인간보다 더 놀라운 것은 없다. 잿빛 남풍이 이는 바다를, 그는 흰 물거품을 가르며 건너간다.",
+    "author": "소포클레스",
+    "work": "안티고네 332행 (Perseus 그리스어 원문 및 Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0185:card=332",
+    "quoteContext": "πολλὰ τὰ δεινὰ κοὐδὲν ἀνθρώπου δεινότερον πέλει. τοῦτο καὶ πολιοῦ πέραν πόντου χειμερίῳ νότῳ χωρεῖ, περιβρυχίοισιν περῶν ὑπ᾽ οἴδμασιν. / \"Many wonders there be, but naught more wondrous than man; Over the surging sea, with a whitening south wind wan, Through the foam of the firth, man makes his perilous way\" (Storr)",
+    "origin": "그리스",
+    "technique": "총론을 한 문장으로 못 박고, 다음 문장에서 곧장 구체 장면 하나로 내려앉는 두괄식 개막.",
+    "techniqueFamily": "구조",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.33
+    }
+  },
+  {
+    "text": "그 법은 어제 생긴 것도 오늘 생긴 것도 아닙니다. 그것은 죽지 않습니다. 어디서 비롯되었는지 아는 사람도 없습니다.",
+    "author": "소포클레스",
+    "work": "안티고네 456행 (Perseus 그리스어 원문 및 Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0185:card=441",
+    "quoteContext": "οὐ γάρ τι νῦν γε κἀχθές, ἀλλ᾽ ἀεί ποτε ζῇ ταῦτα, κοὐδεὶς οἶδεν ἐξ ὅτου φάνη. / \"They were not born today nor yesterday; They die not; and none knoweth whence they sprang.\" (Storr)",
+    "origin": "그리스",
+    "technique": "부정문 셋을 나란히 세워 대상의 초월성을 증명한다. 긍정으로는 닿지 않는 자리를 부정이 연다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.35
+    }
+  },
+  {
+    "text": "나는 함께 미워하려고 태어난 사람이 아닙니다. 함께 사랑하려고 태어난 사람입니다.",
+    "author": "소포클레스",
+    "work": "안티고네 523행 (Perseus 그리스어 원문 및 Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0185:card=513",
+    "quoteContext": "οὔτοι συνέχθειν, ἀλλὰ συμφιλεῖν ἔφυν. / \"My nature is for mutual love, not hate.\" (Storr)",
+    "origin": "그리스",
+    "technique": "부정과 긍정을 같은 문형에 태워 앞뒤로 붙이는 대구. 뒤 절이 앞 절을 밀어내며 자리를 차지한다.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.25
+    }
+  },
+  {
+    "text": "제우스만이 앎에 이르는 온전한 길을 보여주었다. 사람은 겪어야 배운다는 그 길을.",
+    "author": "아이스킬로스",
+    "work": "아가멤논 176행 (Perseus 그리스어 원문 및 E. D. A. Morshead 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0003:card=176",
+    "quoteContext": "τὸν φρονεῖν βροτοὺς ὁδώσαντα, τὸν πάθει μάθος θέντα κυρίως ἔχειν. / \"'Tis Zeus alone who shows the perfect way Of knowledge: He hath ruled, Men shall learn wisdom, by affliction schooled.\" (Morshead)",
+    "origin": "그리스",
+    "technique": "앞 문장이 '길'을 말하고 뒤 문장이 그 길의 정체를 한 마디로 되받는 동어 회수.",
+    "techniqueFamily": "압축",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.26
+    }
+  },
+  {
+    "text": "제우스여, 그 많은 이름 가운데 이 이름이 마땅하다면, 제우스여, 그대를 부른다. 마음의 모든 길을 지나왔으나 다 헛되었고, 그대를 제우스라 부르는 길만 남았다.",
+    "author": "아이스킬로스",
+    "work": "아가멤논 160행 (Perseus 그리스어 원문 및 E. D. A. Morshead 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0003:card=160",
+    "quoteContext": "Ζεύς, ὅστις ποτ᾽ ἐστίν, εἰ τόδ᾽ αὐτῷ φίλον κεκλημένῳ, τοῦτό νιν προσεννέπω. οὐκ ἔχω προσεικάσαι πάντ᾽ ἐπισταθμώμενος πλὴν Διός / \"Zeus—if to The Unknown That name of many names seem good—Zeus, upon Thee I call.\" (Morshead)",
+    "origin": "그리스",
+    "technique": "호격을 부르다 말고 조건절을 끼운 뒤 다시 같은 호격으로 돌아오는 삽입. 머뭇거림 자체가 경건이 된다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.5
+    }
+  },
+  {
+    "text": "이에 천부인 세 개를 주어 내려가 다스리게 했다. 환웅은 무리 삼천을 이끌고 태백산 꼭대기 신단수 아래로 내려와, 그곳을 신시라 불렀다.",
+    "author": "일연",
+    "work": "삼국유사 권1 기이 고조선(왕검조선) (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%80",
+    "quoteContext": "乃授天符印三箇，遣往理之。雄率徒三千，降於太伯山頂神壇樹下，謂之神市",
+    "origin": "한국",
+    "technique": "셋과 삼천이라는 숫자를 나란히 놓아, 설명 없이 신성함의 규모를 눈금으로만 보여준다.",
+    "techniqueFamily": "압축",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.5
+    }
+  },
+  {
+    "text": "물에게 고했다. 나는 하늘 임금의 아들이요 하백의 외손이다. 오늘 달아나는데 뒤쫓는 자가 곧 닿는다, 어찌하랴.",
+    "author": "김부식",
+    "work": "삼국사기 권13 고구려본기 동명성왕 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+    "quoteContext": "告水曰：我是天帝子，何伯外孫。今日逃走，追者垂及如何",
+    "origin": "한국",
+    "technique": "물을 사람처럼 불러 세운 뒤 자기 혈통부터 대는 신화적 자기소개. 이름이 곧 열쇠가 된다.",
+    "techniqueFamily": "고백",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "들나귀를 쫓던 벗이여, 광야의 표범을 쫓던 벗이여. 들나귀를 쫓던 벗이여, 광야의 표범을 쫓던 벗이여. 엔키두, 우리는 모든 일을 함께 이겨 냈다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제8토판, 길가메시의 통곡 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Comrade (and) henchman, who chased the wild ass, the pard of the desert, / Comrade (and) henchman, who chased the wild ass, the pard of the desert, / Enkidu—we who all 'haps' overcame",
+    "origin": "메소포타미아",
+    "technique": "같은 호격을 글자 하나 바꾸지 않고 두 번 되풀이한 뒤 이름을 불러, 반복 자체가 통곡의 리듬이 되게 한다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "우리는 하늘의 황소를 잡아 죽였고, 삼나무 숲의 훔바바를 무너뜨렸다. 그런데 지금 그대를 덮친 이 잠은 무엇인가. 그대는 어두워졌고, 내 말을 듣지 못한다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제8토판 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Captured the Heavenly Bull, and 'destroy'd (him)': we o'erthrew Humbaba, / He who 'abode' in the Forest 'of Cedars'—O, what is this slumber / Now hath o'ercome 'thee'",
+    "origin": "메소포타미아",
+    "technique": "함께한 무용담을 열거하다 질문 하나로 방향을 꺾어, 죽음을 '잠'이라는 다른 이름으로 부른다.",
+    "techniqueFamily": "전환",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "그러나 그는 눈을 들지 않았다. 길가메시가 그 가슴에 손을 대었을 때, 심장은 뛰지 않았다. 그는 신부에게 하듯 벗의 얼굴을 덮어 주었다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제8토판, 엔키두의 죽음 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Natheless he raised not 'his eyes, and' his heart, (when Gilgamish) felt (it), / Made no beat. / Then he veil'd (his) friend like a bride",
+    "origin": "메소포타미아",
+    "technique": "짧은 부정문 둘로 죽음을 확인한 뒤, 전혀 다른 자리에서 온 비유 하나로 감정을 옮겨 놓는다.",
+    "techniqueFamily": "압축",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "그는 사자처럼 목소리를 높였다. 새끼를 빼앗긴 암사자처럼 울부짖었다. 벗의 앞에서 앞뒤로 서성이며 제 머리카락을 뜯어 내던졌다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제8토판 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Lifted his voice like a lion ... 'Roar'd' like a lioness robb'd of 'her' whelps. In front of his comrade' / Paced he backwards and forwards, tearing and casting his ringlets",
+    "origin": "메소포타미아",
+    "technique": "같은 짐승의 비유를 수사자에서 새끼 잃은 암사자로 바꿔, 두 번째에서 한 단 더 깊이 밀어 넣는다.",
+    "techniqueFamily": "비유",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "길가메시는 광야를 헤매며 벗을 두고 울었다. 나 또한 엔키두처럼 죽지 않겠는가. 슬픔이 내 심장으로 들어왔다. 나는 죽음이 두려워 광야를 헤맨다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제9토판 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Gilgamish bitterly wept for his comrade, (for) Enkidu, ranging / Over the desert: \"I, too—shall I not die like Enkidu also? / Sorrow hath enter'd my heart; I fear death as I range o'er the desert\"",
+    "origin": "메소포타미아",
+    "technique": "삼인칭 서술 한 줄 뒤에 곧장 일인칭 독백으로 갈아타, 두려움을 남의 일에서 제 일로 옮긴다.",
+    "techniqueFamily": "고백",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "마슈, 그것이 그 산의 이름이다. 봉우리는 하늘 꼭대기까지 치솟고, 가슴은 저승까지 닿는다. 그 문 앞에는 전갈 인간이 지켜 섰고, 그 눈길이 곧 죽음이었다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제9토판, 마슈 산 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Unto the Zenith of Heaven 'uprear'd are' their summits, (and) downwards / (Deep) unto Hell reach their breasts: (and there) at their portals stand sentry / Scorpion-men, awful in terror, their (very) glance Death",
+    "origin": "메소포타미아",
+    "technique": "위와 아래를 한 문장 안에 마주 세워 산의 크기를 재고, 그 끝에 문지기를 놓아 공포를 완성한다.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "길가메시여, 어찌하여 달리는가. 그대가 찾는 그 생명을 그대는 찾지 못한다. 신들은 사람을 지을 때 죽음을 사람의 몫으로 떼어 주고, 생명은 제 손에 남겼다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제10토판, 시두리의 말 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "\"Gilgamish, why runnest thou, (inasmuch as) the life which thou seekest, / Thou canst not find? (For) the gods, in their (first) creation of mortals, / Death allotted to man, (but) life they retain'd in their keeping.\"",
+    "origin": "메소포타미아",
+    "technique": "질문으로 붙잡아 세운 뒤 곧바로 단정으로 못 박고, 그 뒤에 이유를 붙이는 후렴형 구조.",
+    "techniqueFamily": "질문",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.04
+    }
+  },
+  {
+    "text": "길가메시여, 배를 채워라. 밤낮으로 즐거워하고 날마다 잔치를 벌여라. 밤낮으로 춤추고 기뻐하며 옷을 새로 갈아입어라. 머리를 감고 물에 몸을 씻어라.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제10토판, 시두리의 권유 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Gilgamish, full be thy belly, / Each day and night be thou merry, (and) daily keep holiday revel, / Each day and night do thou dance and rejoice; (and) fresh be thy raiment",
+    "origin": "메소포타미아",
+    "technique": "명령형 동사를 연달아 쌓아, 추상적 위로 대신 몸으로 할 수 있는 일의 목록을 건넨다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "네 손을 잡은 어린것을 귀히 여겨라. 품 안의 아내를 기쁘게 하여라. 이것이 사람에게 주어진 몫이다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제10토판, 고바빌로니아판 시두리 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Cherish the little one holding thy hand; be thy spouse in thy bosom / Happy—(for) this is the dower 'of man'",
+    "origin": "메소포타미아",
+    "technique": "손이 닿는 거리의 두 장면을 나란히 놓고, 한 줄의 정의로 닫아 결론을 만든다.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "갈대집이여, 갈대집이여. 담이여, 담이여. 들어라, 갈대집이여. 헤아려라, 담이여. 슈리팍의 사람아, 집을 헐어 그것으로 배를 지어라.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제11토판, 에아의 경고 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "'O Reed-hut, O Reed-hut! / Wall, wall! Hearken, O Reed-hut, consider, O Wall! O thou Mortal, / Thou of Shurippak ... a dwelling / Pull down, (and) fashion a vessel (therewith)'",
+    "origin": "메소포타미아",
+    "technique": "사물을 두 번씩 겹쳐 부르는 호격으로 판을 깔고, 그 위에서 명령으로 넘어가 신탁의 어조를 만든다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "무기를, 그리고 한 사내를 나는 노래한다. 트로이아 해안을 떠나 처음으로 이탈리아에, 운명에 쫓겨 라비니움 물가에 닿은 자를. 땅에서도 바다에서도 그는 오래 내던져졌다.",
+    "author": "베르길리우스",
+    "work": "아이네이스 1권 1-3행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen1.shtml",
+    "quoteContext": "Arma virumque cano, Troiae qui primus ab oris / Italiam, fato profugus, Laviniaque venit / litora, multum ille et terris iactatus et alto",
+    "origin": "로마",
+    "technique": "목적어를 맨 앞에 던져 놓고, 그 뒤에 관계절로 사람의 내력을 길게 풀어 붙인다.",
+    "techniqueFamily": "구조",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "형천이 천제와 신의 자리를 다투었다. 천제가 그 머리를 베어 상양산에 묻었다. 그러자 형천은 젖으로 눈을 삼고 배꼽으로 입을 삼아, 방패와 도끼를 쥐고 춤을 추었다.",
+    "author": "작자 미상(산해경)",
+    "work": "산해경 해외서경 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/山海經/海外西經",
+    "quoteContext": "刑天與帝爭神，帝斷其首，葬之常羊之山，乃以乳為目，以臍為口，操干戚以舞。",
+    "origin": "중국",
+    "technique": "잃은 것을 다른 것으로 바꾸는 대구를 두 번 세우고, 마지막 동사 하나('춤추었다')로 패배를 뒤집는다.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.5
+    }
+  },
+  {
+    "text": "한창때를 붙잡아 더러운 것을 버리지 않는가. 어찌하여 이 태도를 고치지 않는가. 준마를 타고 달려라. 오라, 내가 앞길을 안내하겠다.",
+    "author": "굴원",
+    "work": "초사 이소 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "不撫壯而棄穢兮，何不改此度？乘騏驥以馳騁兮，來吾道夫先路。",
+    "origin": "중국",
+    "technique": "물음 둘로 상대를 밀어붙인 뒤 명령과 초대로 방향을 튼다. 비난이 제안으로 바뀌는 자리가 한 행 안에 있다.",
+    "techniqueFamily": "질문",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "길은 아득하고 아득하여 멀고도 멀다. 나는 위로 아래로 오르내리며 찾고 또 찾겠다.",
+    "author": "굴원",
+    "work": "초사 이소 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "路曼曼其脩遠兮，吾將上下而求索。",
+    "origin": "중국",
+    "technique": "앞 구는 겹말로 늘이고 뒤 구는 방향어로 끊는다. 늘임과 끊음의 대비가 그대로 의지의 모양이 된다.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "사람은 저마다 즐기는 바가 있으나, 나만은 나를 가다듬는 일을 늘 좋아했다. 몸이 갈가리 찢겨도 나는 변하지 않는다. 내 마음을 어찌 꺾을 수 있겠는가.",
+    "author": "굴원",
+    "work": "초사 이소 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "民生各有所樂兮，余獨好脩以爲常。雖體解吾猶未變兮，豈余心之可懲。",
+    "origin": "중국",
+    "technique": "'저마다'와 '나만은'을 맞세워 고립을 세우고, 마지막을 물음으로 닫아 대답을 상대에게 넘긴다.",
+    "techniqueFamily": "질문",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "난초와 구릿대가 변하여 향기롭지 않고, 창포와 혜초가 변하여 띠풀이 되었다. 어찌하여 지난날의 향기로운 풀이 오늘은 그저 이런 쑥이 되었는가.",
+    "author": "굴원",
+    "work": "초사 이소 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "蘭芷變而不芳兮，荃蕙化而爲茅。何昔日之芳草兮，今直爲此蕭艾也。",
+    "origin": "중국",
+    "technique": "이름 있는 풀 넷을 나열해 변질을 보이고, 마지막을 답 없는 물음으로 닫는다. 사람을 말하지 않고 사람을 말한다.",
+    "techniqueFamily": "비유",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "이자나미가 먼저 말했다. '아아, 어여쁜 사내여.' 뒤이어 이자나기가 말했다. '아아, 어여쁜 처녀여.'",
+    "author": "오노 야스마로 편(고사기)",
+    "work": "고사기 상권 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/古事記/上卷",
+    "quoteContext": "伊耶那美命先言：「阿那迩夜志愛袁登古袁！」後伊耶那岐命言：「阿那迩夜志愛袁登賣袁！」",
+    "origin": "일본",
+    "technique": "같은 감탄을 두 번 되풀이하되 부르는 대상만 바꾼다. 말한 순서 하나가 뒤의 이야기를 전부 만든다.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "아마테라스는 두려워하여 하늘 바위굴 문을 닫고 안에 틀어박혔다. 그러자 높은 하늘벌이 모두 어두워지고 갈대벌 가운데 나라도 온통 캄캄해져, 끝나지 않는 밤이 이어졌다.",
+    "author": "오노 야스마로 편(고사기)",
+    "work": "고사기 상권 (zh.wikisource 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/古事記/上卷",
+    "quoteContext": "故於是天照大御神見畏，閇天石屋戶而，刺許母理坐也。尒，高天原皆暗，葦原中國悉闇，因此而常夜往。",
+    "origin": "일본",
+    "technique": "한 사람의 작은 동작 하나에 세계 전체의 결과를 곧바로 잇는다. 원인과 결과 사이에 설명을 두지 않는 압축.",
+    "techniqueFamily": "압축",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.25
+    }
+  },
+  {
+    "text": "여덟 구름 피어오르는 이즈모의 여덟 겹 울타리. 아내를 감추려고 여덟 겹 울타리를 세운다. 그 여덟 겹 울타리를.",
+    "author": "스사노오(고사기 소재 가요)",
+    "work": "고사기 상권 (zh.wikisource 한문 음차 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/古事記/上卷",
+    "quoteContext": "夜久毛多都，伊豆毛夜幣賀岐。都麻碁微尒，夜弊賀岐都久流。曾能夜幣賀岐袁。(八雲立つ 出雲八重垣 妻籠みに 八重垣作る その八重垣を)",
+    "origin": "일본",
+    "technique": "같은 말을 세 번 되풀이하고 마지막에 '그'를 붙여 되돌아본다. 반복 자체가 울타리의 겹이 된다.",
+    "techniqueFamily": "반복",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.33
+    }
+  },
+  {
+    "text": "이와시로 바닷가 소나무 가지를 당겨 매듭을 짓는다. 무사히 살아 있다면 돌아와 다시 보리라.",
+    "author": "아리마 황자",
+    "work": "만엽집 권2 挽歌 0141 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "磐代の浜松が枝を引き結びま幸くあらばまた還り見む",
+    "origin": "일본",
+    "technique": "손의 동작 하나를 먼저 놓고 소원을 뒤에 건다. 매듭이라는 사물이 곧 약속의 형태가 된다.",
+    "techniqueFamily": "압축",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "집에 있으면 그릇에 담을 밥을, 풀베개 베는 길 위에 있으므로 모밀잣밤나무 잎에 담는다.",
+    "author": "아리마 황자",
+    "work": "만엽집 권2 挽歌 0142 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "家にあれば笥に盛る飯を草枕旅にしあれば椎の葉に盛る",
+    "origin": "일본",
+    "technique": "같은 문장을 두 번 세우고 담는 그릇만 바꾼다. 처지의 차이를 명사 하나로 드러내는 대구.",
+    "techniqueFamily": "대구",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "text": "이불길이라 부르는 히키테산에 아내를 두고 산길을 걸어 내려오니, 살아 있다는 느낌이 들지 않는다.",
+    "author": "가키노모토노 히토마로",
+    "work": "만엽집 권2 挽歌 0212 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "衾道を引手の山に妹を置きて山道を往けば生けるともなし",
+    "origin": "일본",
+    "technique": "장소·행위·상태를 한 줄로 이어 붙이고 마지막을 부정으로 끊는다. 감정어 없이 감정을 끝내는 법.",
+    "techniqueFamily": "압축",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.5
+    }
+  },
+  {
+    "text": "가모산 바위를 베고 누운 나를, 알지 못한 채로 아내는 아직 나를 기다리고 있겠지.",
+    "author": "가키노모토노 히토마로",
+    "work": "만엽집 권2 挽歌 0223 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "鴨山の磐根し枕ける吾をかも知らにと妹が待ちつつあらむ",
+    "origin": "일본",
+    "technique": "자기 죽음을 먼저 그리고 그것을 모르는 사람을 뒤에 놓는다. 시점을 어긋내어 슬픔을 만드는 구조.",
+    "techniqueFamily": "구조",
+    "_k": "g",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "놀라운 것은 많다. 그러나 인간보다 더 놀라운 것은 없다. 잿빛 남풍이 이는 바다를 그는 흰 물거품을 가르며 건너간다. 지치지도 늙지도 않는 가장 오래된 신, 대지를 그는 해마다 갈아엎는다. 멍에 진 말들과 함께 보습을 돌리며. 가벼운 마음의 새도, 들과 숲의 짐승도, 짠 바다의 무리도 그는 짜놓은 그물로 거둔다. 그는 꾀의 주인이다. 사나운 황소도, 산을 자유로이 달리는 사슴도 그의 끝없는 재주에 길든다. 그는 모든 것에 대비한다. 모진 역병조차 견디는 법을 익혔다. 무엇이 닥쳐도 안전하다. 오직 죽음에만, 끝내 약을 찾지 못했다.",
+    "author": "소포클레스",
+    "work": "안티고네 332행 (Perseus 그리스어 원문 및 Francis Storr 1912 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0185:card=332",
+    "quoteContext": "πολλὰ τὰ δεινὰ κοὐδὲν ἀνθρώπου δεινότερον πέλει. / \"Many wonders there be, but naught more wondrous than man... He hath provision for all: fell plague he hath learnt to endure; Safe whate'er may befall: yet for death he hath found no cure.\" (Storr)",
+    "origin": "그리스",
+    "theme": "다짐",
+    "why": "바다, 땅, 하늘, 짐승을 차례로 굴복시킨 뒤 '오직 죽음에만'으로 끝난다. 목록 전체가 마지막 한 줄을 위한 준비다.",
+    "question": "이 합창은 인간이 무엇을 해냈는지를 길게 세다가 딱 하나 못 한 것으로 끝납니다. 당신이 지금까지 길들인 것들을 이 순서대로 세어본다면, 마지막에 남는 '끝내 못 한 하나'는 무엇입니까.",
+    "questionDeep": "'그는 모든 것에 대비한다'와 '끝내 약을 찾지 못했다'가 세 줄 사이에 붙어 있습니다. 대비할 수 없다는 것을 알면서도 계속 대비하게 되는 일이 당신에게도 있습니까. 그 대비는 실제로 무엇을 지켜주고 있습니까.",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.14
+    }
+  },
+  {
+    "passage": "위서에 이르기를, 지난 이천 년 전에 단군왕검이 있어 아사달에 도읍을 세우고 나라를 열어 조선이라 불렀으니 요임금과 같은 때라 했다. 고기에 이르기를, 옛날에 환인의 서자 환웅이 있었는데 자주 천하에 마음을 두고 인간 세상을 탐냈다. 아버지가 아들의 뜻을 알고 아래로 삼위와 태백을 내려다보니 널리 인간을 이롭게 할 만했다. 이에 천부인 세 개를 주어 내려가 다스리게 했다. 환웅은 무리 삼천을 이끌고 태백산 꼭대기 신단수 아래로 내려와 그곳을 신시라 하니, 이가 곧 환웅천왕이다. 바람의 어른과 비의 스승과 구름의 스승을 거느리고 곡식과 목숨과 병과 형벌과 선악을 맡아, 무릇 인간의 삼백예순 남짓한 일을 맡아 세상에 있으면서 다스리고 교화했다.",
+    "author": "일연",
+    "work": "삼국유사 권1 기이 고조선(왕검조선) (1512년 중종임신본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E9%81%BA%E4%BA%8B/%E5%8D%B7%E7%AC%AC%E4%B8%80",
+    "quoteContext": "《魏書》云：乃往二千載有壇君王儉。立都阿斯達開國號朝鮮。與高同時。《古記》云：昔，有桓因庶子桓雄，數意天下，貪求人世。父知子意，下視三危太伯可以弘益人間，乃授天符印三箇，遣往理之。雄率徒三千，降於太伯山頂神壇樹下，謂之神市，是謂桓雄天王也。將風伯雨師雲師，而主穀主命主病主刑主善惡。凡主人間三百六十餘事，在世理化",
+    "origin": "한국",
+    "theme": "다짐",
+    "why": "'널리 인간을 이롭게 할 만했다'는 판단 한 줄 뒤에 곧바로 도장 세 개를 쥐여 내려보낸다. 뜻과 실행 사이에 군더더기가 한 글자도 없다.",
+    "question": "환웅이 내려온 이유는 그 땅이 사람을 이롭게 할 만해서였습니다. 내가 지금 발 딛고 있는 자리를 그런 눈으로 내려다보면 무엇이 보이나요?",
+    "questionDeep": "곡식과 목숨과 병과 형벌과 선악까지 삼백예순 가지를 맡았다는 목록 앞에서, 내가 실제로 맡고 있는 일의 목록은 어디까지 이어지나요?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.53
+    }
+  },
+  {
+    "passage": "길가메시여, 어찌하여 달리는가. 그대가 찾는 그 생명을 그대는 찾지 못한다. 신들은 사람을 처음 지을 때 죽음을 사람의 몫으로 떼어 주고, 생명은 제 손에 남겨 두었다. 길가메시여, 그러니 배를 채워라. 밤낮으로 즐거워하고 날마다 잔치를 벌여라. 밤낮으로 춤추고 기뻐하여라. 옷은 새로 갈아입고, 머리는 깨끗이 감고, 물에 몸을 씻어라. 네 손을 잡은 어린것을 귀히 여기고, 품 안의 아내를 기쁘게 하여라. 이것이 사람에게 주어진 몫이다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제10토판, 술 만드는 여인 시두리의 말 (R. Campbell Thompson, The Epic of Gilgamish, 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "\"Gilgamish, why runnest thou, (inasmuch as) the life which thou seekest, / Thou canst not find? ... Cherish the little one holding thy hand; be thy spouse in thy bosom / Happy—(for) this is the dower 'of man'\"",
+    "origin": "메소포타미아",
+    "theme": "힐링",
+    "why": "'그대가 찾는 그 생명을 그대는 찾지 못한다'로 길을 완전히 끊어 놓고, 곧바로 '손을 잡은 어린것을 귀히 여기라'로 옮겨 간다. 위로가 아니라 방향의 교체다.",
+    "question": "길가메시가 불사를 찾아 광야를 헤매던 그 발걸음처럼, 지금 당신이 붙들고 끝내 놓지 못하는 것은 무엇인가요?",
+    "questionDeep": "시두리는 '손을 잡은 어린것'과 '품 안의 아내'를 사람의 몫이라 불렀습니다. 지금 당신 손이 닿는 거리에는 누가, 무엇이 있나요?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.04
+    }
+  },
+  {
+    "passage": "술 만드는 여인이 멀리서 그를 보고 마음속으로 생각했다. 저것은 여자를 겁탈하려는 자다, 어디로 저리 다가오는가. 그러고는 바깥문을 걸고, 안문을 걸고, 제 방까지 걸어 잠갔다. 길가메시가 그 잠그는 소리를 듣고 턱을 들어 그쪽으로 마음을 두었다. 마침내 여인이 물었다. 어찌하여 그대의 기운은 그토록 축났고, 얼굴은 그토록 꺼졌는가. 어찌하여 마음에 슬픔이 앉았고, 즐거움은 그쳤는가. 그대의 배 속에는 슬픔이 있고, 그대의 얼굴은 먼 길을 다녀온 사람의 얼굴이며, 추위와 더위에 씻긴 얼굴이다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제10토판, 시두리의 문 앞에서 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Barr'd she 'her postern', barr'd she her inner door, barr'd she 'her chamber' ... \"Why is thy vigour (so) wasted, (or why) is thy countenance sunken ... Like one who hath gone a far journey (So) is thy face\"",
+    "origin": "메소포타미아",
+    "theme": "여운",
+    "why": "여인은 문을 세 번 잠그고 나서야 그의 얼굴을 본다. '먼 길을 다녀온 사람의 얼굴'이라는 한 마디가 그가 지나온 전부를 대신한다.",
+    "question": "시두리는 문을 다 잠근 뒤에야 길가메시의 얼굴을 제대로 보았습니다. 당신이 누군가를 밀어낸 다음에야 뒤늦게 알아본 표정이 있었나요? 그때 무엇이 보였나요?",
+    "questionDeep": "'추위와 더위에 씻긴 얼굴'은 어떤 시간을 지나온 얼굴일까요. 요즘 당신의 얼굴에는 무엇이 새겨져 있다고 생각하나요?",
+    "season": "겨울",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.05
+    }
+  },
+  {
+    "passage": "내 말을 들으시오, 우루크의 어른들이여. 나에게 귀 기울여 주시오. 나는 내 벗 엔키두를 두고 통곡하는 여자처럼 소리 내어 웁니다. 허벅지에 찬 도끼에서 내 손은 힘이 빠지고, 허리띠의 칼은 눈앞에서 사라졌습니다. 잔칫날의 옷도 내게 아무 기쁨을 주지 못하고, 슬픔이 나를 덮쳐 나를 주저앉혔습니다. 들나귀를 쫓던 벗이여, 광야의 표범을 쫓던 벗이여. 우리는 산을 올랐고, 하늘의 황소를 붙잡아 죽였고, 삼나무 숲의 훔바바를 무너뜨렸습니다. 그런데 지금 그대를 덮친 이 잠은 무엇입니까. 그대는 어두워졌고, 내 말을 듣지 못합니다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제8토판, 엔키두를 두고 부르는 곡 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "\"'Tis that I weep for my 'comrade' Enkidu, bitterly crying / Like to a wailing woman: my grip is 'slack'd' on the curtleaxe / (Slung at) my thigh ... O, what is this slumber / Now hath o'ercome 'thee'\"",
+    "origin": "메소포타미아",
+    "theme": "여운",
+    "why": "'허벅지의 도끼에서 손이 풀리고, 허리띠의 칼이 눈앞에서 사라졌다'처럼 슬픔을 몸과 물건으로만 말하다가, 마지막에 '이 잠은 무엇입니까'로 죽음을 다른 이름으로 부른다.",
+    "question": "길가메시는 슬프다고 말하는 대신 도끼에서 손이 풀렸다고 말했습니다. 당신의 슬픔은 몸의 어디에서, 어떤 물건에서 먼저 드러나나요?",
+    "questionDeep": "그는 벗의 죽음을 끝내 '잠'이라고 불렀습니다. 당신이 아직 제 이름으로 부르지 못하고 다른 말로 돌려 부르는 일은 무엇인가요?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "태양신이 마음이 움직여 그를 불러 말했다. 길가메시여, 어찌하여 달리는가. 그대가 찾는 그 생명을 그대는 찾지 못한다. 길가메시가 용사 샤마시에게 답했다. 내가 광야를 오르내리며 떠돈 끝에, 결국 땅속에 머리를 누이고 해가 다 가도록 잠들어야 합니까. 영영 그래야 합니까. 내 눈이 해를 보게 하고 그 밝음에 물리도록 두십시오. 밝음이 넓으면 어둠은 멀리 물러납니다. 죽은 사람이 언제 다시 햇빛을 보겠습니까.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제9토판 말미, 고바빌로니아판 샤마시와의 문답 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "\"Shall I, after I roam up and down o'er the waste as a wand'rer, / Lay my head in the bowels of earth ... Let mine eyes see the Sun and be sated with brightness ... When will the man who is dead (ever) look on the light of the Sunshine?\"",
+    "origin": "메소포타미아",
+    "theme": "다짐",
+    "why": "신의 단정에 굴복하지 않고 '내 눈이 해를 보게 하고 그 밝음에 물리도록 두라'고 되받는다. 불멸을 포기하는 대신 지금의 빛을 요구한다.",
+    "question": "길가메시는 신에게 '내 눈이 해를 보게 하고 그 밝음에 물리도록 두라'고 답했습니다. 오늘 당신이 물리도록 보고 싶은 밝음은 어떤 것인가요?",
+    "questionDeep": "'밝음이 넓으면 어둠은 멀리 물러난다'는 말은 어둠을 없애자는 말이 아닙니다. 당신은 지금 어떤 어둠 옆에 무엇을 넓히고 있나요?",
+    "season": "여름",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "그가 나를 데려간 곳은 어둠의 집, 이르칼라의 처소였다. 들어간 자는 다시 나오지 못하는 집이었다. 한번 지나가면 되돌아오는 길이 없는 그 길로, 사는 이들이 햇빛을 빼앗긴 그 집으로 그는 나를 이끌었다. 그곳에서는 흙이 먹을 것이고 진흙이 양식이며, 사람들은 새처럼 깃털 옷을 입고 어둠 속에 앉아 있다. 그들은 결코 빛을 보지 못한다. 문을 지나 그 집에 들어서니, 옛날 이 땅을 다스리던 왕관 쓴 자들이 왕관을 벗고 앉아 있었다.",
+    "author": "작자 미상 (신-리케-운니니 전승 편집)",
+    "work": "길가메시 서사시 제7토판, 엔키두가 죽기 전 꾼 꿈 (R. Campbell Thompson 1928 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.org/download/thompson-1928-gilgamesh/Thompson_1928_Gilgamesh_djvu.txt",
+    "quoteContext": "Me did he lead to the Dwelling of Darkness, the home of Irkalla, / Unto the Dwelling from which he who entereth cometh forth never! ... Where for their food is the dust, and the mud is their sustenance: bird-like / Wear they a garment of feathers",
+    "origin": "메소포타미아",
+    "theme": "여운",
+    "why": "'들어간 자는 다시 나오지 못하는 집'이라는 규정을 세 번 다른 말로 되풀이한 뒤, 왕관 쓴 자들이 왕관을 벗고 있는 장면 하나로 닫는다.",
+    "question": "엔키두는 죽기 전에 그 집의 문턱을 미리 보고 왔습니다. 당신이 아직 겪지 않았는데 이미 알고 있는 것 같은 두려움이 있나요? 그것은 어떤 모습인가요?",
+    "questionDeep": "그 집에서는 왕관 쓴 자들이 왕관을 벗고 앉아 있었습니다. 지금 당신이 쓰고 있는 것들 가운데, 벗어도 여전히 당신인 것은 무엇인가요?",
+    "season": "겨울",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "나는 고양 임금의 먼 후손이며, 나의 선친은 백용이라 불렸다. 섭제성이 첫 달에 바로 섰을 때, 경인의 날에 나는 이 땅으로 내려왔다. 아버지는 내가 태어난 때를 하나하나 헤아려 보고, 비로소 내게 아름다운 이름을 주었다. 나를 정칙이라 이름 짓고, 나를 영균이라 자를 지었다. 내게는 이미 안으로 지닌 아름다움이 있었고, 거기에 갈고닦은 재주를 더했다. 강리와 벽지를 어깨에 걸치고, 가을 난초를 엮어 허리에 찼다. 물살처럼 흘러 나는 미처 닿지 못할 듯하여, 세월이 나를 기다려 주지 않을까 두려웠다. 아침에는 언덕의 목련을 꺾고, 저녁에는 물가의 겨울풀을 뜯었다. 해와 달은 문득 머물지 않고, 봄과 가을이 서로 자리를 바꾼다. 초목이 시들어 떨어지는 것을 볼 때마다, 아름다운 사람이 늙어 갈까 두려웠다.",
+    "author": "굴원",
+    "work": "초사 이소 서두 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "帝高陽之苗裔兮，朕皇考曰伯庸。攝提貞于孟陬兮，惟庚寅吾以降。皇覽揆余初度兮，肇錫余以嘉名。名余曰正則兮，字余曰靈均。紛吾既有此內美兮，又重之以脩能。扈江離與辟芷兮，紉秋蘭以爲佩。汩余若將不及兮，恐年歲之不吾與。朝搴阰之木蘭兮，夕攬洲之宿莽。日月忽其不淹兮，春與秋其代序。惟草木之零落兮，恐美人之遲暮。",
+    "origin": "중국",
+    "theme": "다짐",
+    "why": "혈통과 태어난 날짜부터 세워 놓고 곧바로 '가을 난초를 엮어 허리에 찼다'로 넘어간다. 자기를 소개하는 글이 아니라 자기를 무엇으로 만들지 정하는 글이라, 옮겨 적는 동안 같은 결심이 따라온다.",
+    "question": "굴원은 아침에 목련을 꺾고 저녁에 겨울풀을 뜯으며 하루를 채웠습니다. 당신이 매일 반복해서 몸에 지니는, 남들 눈에는 사소해 보일 그 습관은 무엇인가요?",
+    "questionDeep": "'세월이 나를 기다려 주지 않을까 두려웠다'고 그는 썼습니다. 지금 당신이 늦을까 봐 겁내는 일은 무엇이고, 그 조급함은 당신을 서두르게 하나요 아니면 멈추게 하나요?",
+    "season": "가을",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "누이 여수가 애가 타서, 거듭거듭 나를 꾸짖었다. '곤은 곧기만 하다가 제 몸을 잃었고, 끝내 우산 벌판에서 일찍 죽었다. 너는 어찌하여 그리 말이 곧고 자신을 가다듬기만 하느냐. 너 혼자만 그 고운 절개를 지녔구나. 남들은 잡초를 방 안 가득 쌓아 두는데, 너만 홀로 떨어져 그것을 걸치지 않는구나. 집집마다 찾아다니며 설명할 수는 없다. 누가 네 속마음을 살펴 준다더냐.' 세상은 다 함께 무리 짓기를 좋아하는데, 나는 어찌하여 이렇게 외롭고, 어찌하여 그 말을 듣지 않는가.",
+    "author": "굴원",
+    "work": "초사 이소 여수의 꾸짖음 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "女嬃之嬋媛兮，申申其詈予。曰鮌婞直以亡身兮，終然殀乎羽之野。汝何博謇而好脩兮，紛獨有此姱節。薋菉葹以盈室兮，判獨離而不服。衆不可戶說兮，孰云察余之中情。世並舉而好朋兮，夫何焭獨而不予聽。",
+    "origin": "중국",
+    "theme": "여운",
+    "why": "누이의 잔소리가 통째로 인용부호 안에 들어와 있다. '너 혼자만 그 고운 절개를 지녔구나'는 칭찬이 아니라 비난인데, 굴원은 그 말을 지우지 않고 자기 시 안에 옮겨 적었다.",
+    "question": "여수는 '집집마다 찾아다니며 설명할 수는 없다'고 말합니다. 당신이 끝내 설명을 포기한 채 오해받고 있는 일은 무엇인가요?",
+    "questionDeep": "가장 가까운 사람이 당신을 걱정해서 던진 말이 가장 아프게 남을 때가 있습니다. 그 말을 지금 다시 꺼내 본다면, 당신은 그 말의 어디에 동의하고 어디에서 갈라섭니까?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "길을 살피지 못한 것이 뉘우쳐져, 한참 서 있다가 나는 돌아가려 한다. 수레를 돌려 왔던 길로 되짚는다, 헤매어 온 거리가 아직 멀지 않을 때에. 난초 자란 물가에 말을 세워 두고, 산초 언덕을 달리다 거기서 쉰다. 나아가도 받아들여지지 않아 허물만 얻었으니, 물러나 처음의 옷을 다시 짓겠다. 마름과 연잎을 지어 저고리를 삼고, 부용을 모아 치마를 삼는다. 아무도 나를 알아주지 않아도 그만이다, 내 마음이 참으로 향기롭기만 하다면. 갓은 우뚝하게 높이고, 허리에 찬 것은 길고 어지럽게 늘인다. 향기와 때가 섞여 있어도, 밝은 바탕만은 아직 이지러지지 않았다.",
+    "author": "굴원",
+    "work": "초사 이소 초복 대목 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "悔相道之不察兮，延佇乎吾將反。回朕車以復路兮，及行迷之未遠。步余馬於蘭臯兮，馳椒丘且焉止息。進不入以離尤兮，退將復脩吾初服。製芰荷以爲衣兮，雧芙蓉以爲裳。不吾知其亦已兮，苟余情其信芳。高余冠之岌岌兮，長余佩之陸離。芳與澤其雜糅兮，唯昭質其猶未虧。",
+    "origin": "중국",
+    "theme": "다짐",
+    "why": "'물러나 처음의 옷을 다시 짓겠다'가 이 문단의 축이다. 실패를 인정한 뒤에도 사과하지 않고 옷을 짓는다. 마름과 연잎과 부용을 하나씩 세는 동안 후퇴가 준비로 바뀐다.",
+    "question": "굴원은 헤맨 것을 알아차리자 '아직 멀지 않을 때에' 수레를 돌립니다. 당신이 지금 되짚어 돌아가야 한다고 느끼면서도 이미 늦었다며 미루고 있는 길은 어디인가요?",
+    "questionDeep": "'아무도 나를 알아주지 않아도 그만이다'라고 말하려면 그 앞에 조건이 하나 붙습니다. 알아주는 사람 없이도 계속하려면, 당신 자신에게 무엇이 참이어야 합니까?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "내 수레 천 채를 모아 옥 굴대를 나란히 하고 함께 달린다. 여덟 마리 용을 굽이굽이 몰고, 구름 깃발을 구불구불 싣는다. 뜻을 누르고 속도를 늦추니, 넋은 저 높은 곳으로 아득히 달려간다. 「구가」를 연주하고 「소」를 춤춘다. 잠깐 날을 빌려 즐거움을 훔친다. 해가 빛나는 곳까지 올라갔다가, 문득 아래로 옛 고향을 내려다보았다. 마부가 슬퍼하고 말이 그리워하여, 몸을 웅크린 채 돌아보며 나아가지 않았다. 맺는 말. 다 끝났구나. 나라에 사람이 없어 나를 알아줄 이 없으니, 또 무엇하러 옛 도읍을 그리워하랴. 함께 바른 정치를 할 이가 없으니, 나는 팽함이 간 곳으로 가겠다.",
+    "author": "굴원",
+    "work": "초사 이소 결말 (楚辭補註 洪興祖 판본 한문 원문, 온:사유 번역)",
+    "sourceUrl": "https://zh.wikisource.org/wiki/楚辭補註/卷第一",
+    "quoteContext": "屯余車其千乘兮，齊玉軑而並馳。駕八龍之婉婉兮，載雲旗之委蛇。抑志而弭節兮，神高馳之邈邈。奏《九歌》而舞《韶》兮，聊假日以媮樂。陟陞皇之赫戲兮，忽臨睨夫舊鄉。僕夫悲余馬懷兮，蜷局顧而不行。亂曰：已矣哉，國無人莫我知兮，又何懷乎故都？既莫足與爲美政兮，吾將從彭咸之所居。",
+    "origin": "중국",
+    "theme": "여운",
+    "why": "하늘 끝까지 올라간 수레를 멈추는 것은 신이 아니라 마부와 말이다. '몸을 웅크린 채 돌아보며 나아가지 않았다' 바로 뒤에 '다 끝났구나'가 온다. 화려한 상승이 한 문장에 무너진다.",
+    "question": "굴원의 말과 마부는 하늘 끝에서 고향을 내려다보고 발을 멈춥니다. 당신을 아주 멀리 데려가려다 마지막에 붙잡은 것은 무엇이었나요?",
+    "questionDeep": "'나를 알아줄 이 없으니 무엇하러 그리워하랴'는 그가 스스로를 설득하는 말입니다. 당신은 어떤 것에서 마음을 떼어 내려고 스스로에게 어떤 말을 반복해 왔습니까?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0
+    }
+  },
+  {
+    "passage": "지나가는 해가 저물어 가듯이, 비치던 달이 구름에 가려지듯이, 먼바다 마름처럼 내게 기대던 그이가 단풍잎처럼 스러져 갔다고, 심부름꾼이 말을 전했다. 활 소리 같은 그 말만 듣고 나서, 무슨 말을 해야 할지 무엇을 해야 할지 알 수 없었다. 소리만 듣고 견딜 수는 없어서, 내 그리움의 천 겹 가운데 한 겹이라도 달래질까 하여, 그이가 늘 나가 보던 가루 저잣거리에 나가 섰다. 서서 귀를 기울였으나 우네비산에서 우는 새소리조차 들리지 않았고, 길 가는 사람 가운데 단 하나도 그이를 닮은 이가 없어서, 어찌할 길이 없어 그이의 이름을 부르며 소매를 흔들었다.",
+    "author": "가키노모토노 히토마로",
+    "work": "만엽집 권2 挽歌 0207 泣血哀慟歌 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "渡る日の　暮れゆくがごと　照る月の　雲隠るごと　沖つ藻の　靡きし妹は　もみち葉の　過ぎて去にしと　玉梓の　使の言へば　梓弓　音のみ聞きて　言はむすべ　為むすべ知らに　音のみを　聞きてありえねば　吾が恋ふる　千重の一重も　慰むる　心もありやと　我妹子が　止まず出で見し　輕の市に　吾が立ち聞けば　玉たすき　畝傍の山に　鳴く鳥の　声も聞こえず　玉ほこの　道行く人も　一人だに　似てし行かねば　すべをなみ　妹が名呼びて　袖ぞ振りつる",
+    "origin": "일본",
+    "theme": "여운",
+    "why": "'해가 저물어 가듯이', '달이 구름에 가려지듯이', '단풍잎처럼'. 죽음을 말하기 전에 비유를 세 번 겹치고, 마지막에는 비유를 다 버리고 소매를 흔드는 동작 하나만 남긴다.",
+    "question": "히토마로는 아내가 늘 나가 보던 저잣거리에 나가 서서 귀를 기울입니다. 당신은 잃은 사람을 찾아 어디를 다시 가 보았나요?",
+    "questionDeep": "'그이를 닮은 이가 단 하나도 없어서'에 이르러서야 그는 비로소 이름을 부릅니다. 당신이 누군가의 부재를 정말로 실감한 것은 어떤 장면에서였습니까?",
+    "season": "가을",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.44
+    }
+  },
+  {
+    "passage": "아지랑이 타오르는 거친 들에, 흰 천으로 지은 하늘 너울에 가려, 새처럼 아침에 떠나가서, 지는 해처럼 숨어 버렸으므로, 아내가 남겨 놓은 어린아이가 보채며 울 때마다, 줄 것이 아무것도 없어서, 사내인 나는 겨드랑이에 끼어 안았다. 아내와 둘이 나란히 잠들던, 베개를 놓아둔 방 안에서, 낮에는 쓸쓸히 지내고, 밤에는 한숨을 쉬며 새웠다. 탄식해도 어찌해야 할지 알 수 없고, 그리워해도 만날 길이 없다.",
+    "author": "가키노모토노 히토마로",
+    "work": "만엽집 권2 挽歌 0210 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "蜻火の　燃ゆる荒野に　白布の　天領巾隠り　鳥じもの　朝発ち行して　入日なす　隠りにしかば　我妹子が　形見に置ける　若き児の　乞ひ泣くごとに　取り与ふ　物しなければ　男じもの　脇ばさみ持ち　我妹子と　二人吾が寝し　枕付く　妻屋のうちに　昼はも　うらさび暮らし　夜はも　息づき明かし　嘆けども　せむすべ知らに　恋ふれども　逢ふよしをなみ",
+    "origin": "일본",
+    "theme": "여운",
+    "why": "'줄 것이 아무것도 없어서'와 '겨드랑이에 끼어 안았다' 사이에 설명이 하나도 없다. 아이를 안는 그 서툰 자세 하나가 슬픔이라는 말보다 정확하다.",
+    "question": "히토마로는 우는 아이에게 줄 것이 없어 겨드랑이에 끼어 안습니다. 당신이 해 줄 것이 없어서 그저 옆에 있기만 했던 순간은 언제였나요?",
+    "questionDeep": "'낮에는 쓸쓸히 지내고 밤에는 한숨을 쉬며 새웠다'—당신의 슬픔은 낮과 밤에 각각 어떤 모양으로 나타납니까?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.45
+    }
+  },
+  {
+    "passage": "오쓰 황자가 죽은 뒤, 오쿠 황녀가 이세 신궁에서 도읍으로 올라올 때 지은 노래 두 수. 신령한 바람 부는 이세 땅에 그대로 있을 것을, 어찌하여 왔는가, 그대도 계시지 않는데. 보고 싶어 내가 이렇게 하는 그대도 계시지 않는데, 어찌하여 왔는가, 말만 지치게 하면서. 오쓰 황자의 주검을 가쓰라기 후타카미산으로 옮겨 묻을 때, 오쿠 황녀가 슬퍼하며 지은 노래 두 수. 이승의 사람인 나는 내일부터 후타카미산을 내 아우라 여기고 바라보아야 하는가. 바위 위에 자란 마취목을 꺾고 싶지만, 보여 줄 그대가 계시다고 아무도 말해 주지 않는다.",
+    "author": "오쿠 황녀",
+    "work": "만엽집 권2 挽歌 0163-0166 (鹿持雅澄 訓訂本 원문, 온:사유 번역)",
+    "sourceUrl": "https://ja.wikisource.org/wiki/万葉集_(鹿持雅澄訓訂)/巻第二",
+    "quoteContext": "大津皇子の薨ましし後、大来皇女の伊勢の斎宮より上京りたまへる時、よみませる御歌二首／神風の伊勢の国にもあらましを何しか来けむ君も在さなくに／見まく欲り吾がする君も在さなくに何しか来けむ馬疲るるに／大津皇子の屍を葛城の二上山に移し葬りまつれる時、大来皇女の哀傷みてよみませる御歌二首／うつそみの人なる吾や明日よりは二上山を我が兄と吾が見む／磯の上に生ふる馬酔木を手折らめど見すべき君が在すと言はなくに",
+    "origin": "일본",
+    "theme": "여운",
+    "why": "'어찌하여 왔는가'가 두 수 연달아 반복되고, 두 번째에는 '말만 지치게 하면서'가 붙는다. 슬픔이 아니라 말의 피로를 말한다. 마지막 수는 꽃을 꺾으려다 손을 멈추는 데서 끝난다.",
+    "question": "오쿠 황녀는 내일부터 산을 아우라 여기고 보아야 하느냐고 묻습니다. 당신은 떠난 사람을 어떤 사물이나 장소에 옮겨 놓고 지내고 있나요?",
+    "questionDeep": "'꺾고 싶지만 보여 줄 그대가 없다'—무언가를 보고 가장 먼저 떠올리는 사람이 이제 곁에 없을 때, 그 순간 당신의 손은 무엇을 하게 됩니까?",
+    "season": "봄",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.07
+    }
+  },
+  {
+    "passage": "내 마음과 나는 의논한다. 어떻게 하면 바루나와 내가 다시 하나가 될까. 그는 성내지 않고 내 어떤 것을 받아줄까. 언제쯤 나는 마음 놓고 그를 바라보며 그가 자애롭다 여기게 될까. 내 허물이 무엇인지 알고 싶어 나는 남들에게 묻는다. 지혜로운 이들을 찾아가 묻는다. 그런데 그들은 하나같이 같은 대답을 준다. 바루나가 그대에게 노하신 것이다. 우리를 배반한 것은 우리 뜻이 아니라 홀림이었다. 부주의였고, 술이었고, 주사위였고, 분노였다. 늙은 것이 젊은 것을 그릇된 길로 이끈다. 잠조차 모든 잘못을 씻어내지는 못한다.",
+    "author": "작자 미상 (바시슈타 계열 찬가)",
+    "work": "리그베다 7권 86 「바루나 찬가」 (Griffith 1896 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rigveda/rv07086.htm",
+    "quoteContext": "Fain to know this is my sin I question others... This one same answer even the sages gave me, \"Surely this Varuṇa is angry with thee.\" Not our own will betrayed us, but seduction, thoughtlessness, Varuṇa wine, dice, or anger... even sleep removeth not all evil-doing.",
+    "origin": "인도",
+    "theme": "여운",
+    "why": "지혜로운 이들을 찾아갔더니 '하나같이 같은 대답'이 돌아온다. 답을 구하러 나섰다가 제 허물만 확인하고 돌아오는 걸음이 그대로 남는다.",
+    "question": "여러 사람에게 물었는데 모두가 같은 대답을 했다면, 당신은 그 다음에 무엇을 했을 것 같나요?",
+    "questionDeep": "이 사람은 잘못의 목록 끝에 '잠조차 모든 잘못을 씻어내지 못한다'를 덧붙입니다. 시간이 꽤 흘렀는데도 아직 씻기지 않은 채 남아 있는 일이 있다면, 그것은 왜 그대로 남았을까요?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.52,
+      "method": "curl"
+    }
+  },
+  {
+    "passage": "이들을 보니 제 팔다리가 풀리고 입이 마릅니다. 몸이 떨리고 털이 곤두섭니다. 활이 손에서 미끄러지고 살갗이 탑니다. 저는 더 서 있을 수 없습니다. 마음이 흩어집니다. 저는 이기고 싶지 않습니다. 나라도 즐거움도 바라지 않습니다. 그것들을 누리자고 바랐던 바로 그 사람들이 지금 목숨과 재물을 걸고 저 앞에 서 있는데, 나라가 무슨 소용이며 즐거움이 무슨 소용이겠습니까. 저는 싸우지 않겠습니다. 그렇게 말하고 아르주나는 활과 화살을 내려놓은 채 수레 위에 주저앉았다. 그러자 크리슈나가 말했다. 이런 때에 어디서 이 낙심이 너에게 왔느냐. 마음의 이 약함을 털어내고 일어서라.",
+    "author": "비야사(전승)",
+    "work": "마하바라타 6권 「바가바드기타」 1-2장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06025.htm",
+    "quoteContext": "Gandiva slips from my hand, and my skin burns. I am unable to stand (any longer)... 'I will not fight,'--and then remained silent... Shaking off this vile weakness of hearts, arise, O chastiser of foes.",
+    "origin": "인도",
+    "theme": "다짐",
+    "why": "'저는 싸우지 않겠습니다'와 '일어서라' 사이에 활을 내려놓고 주저앉는 문장 하나가 놓여 있다. 이 장면의 중심은 그 침묵이다.",
+    "question": "활을 내려놓고 수레에 주저앉은 아르주나에게 한 문장을 건넬 수 있다면, 당신은 '일어서라' 말고 어떤 말을 고르겠습니까?",
+    "questionDeep": "아르주나가 멈춘 이유는 두려움이 아니라 맞은편에 선 사람들이 누구인지 알아보았기 때문입니다. 당신이 그만두고 싶었던 일 가운데, 상대를 알아보았기 때문에 그만두고 싶었던 일은 무엇이었나요?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.32,
+      "method": "curl"
+    }
+  },
+  {
+    "passage": "긴 싸움이 끝나고 라마가 말했다. 부인, 내 일은 끝났고 그대는 전쟁의 상으로 되찾혔소. 그러나 그대를 위해 바다를 건넌 것이 아니오. 내 명예와 짓밟힌 법을 위해 싸운 것이오. 그대 이름에 얼룩이 있으니 내 사랑은 갔소. 세상은 그대 앞에 넓으니 어디로든 가시오, 나와는 말고. 말 하나하나가 화살처럼 그이의 가슴을 뚫었다. 눈물을 닦고 그이가 대답했다. 높은 집에서 난 사람이 높은 집에서 난 여인에게 이런 말을 하십니까. 몇몇이 신의를 저버렸다 하여 여인들에게는 사랑도 진실도 없다 하십니까. 거인이 저를 붙들어 제가 그 미운 팔 안에 있었다면, 그것은 운명과 도둑을 탓할 일입니다. 제 마음은 제 것이었고, 여전히 진실했습니다.",
+    "author": "발미키",
+    "work": "라마야나 6권 117-118장 「시타의 수모」·「시타의 대답」 (Griffith 1870-74 영역본 참조, 온:사유 번역)",
+    "sourceUrl": "https://archive.sacred-texts.com/hin/rama/ry489.htm",
+    "quoteContext": "But, lady,'twas not love for thee That led mine army o'er the sea... The world is all before thee: flee: Go where thou wilt, but not with me... If some are faithless, wilt thou find No love and truth in womankind?... My heart was mine and still was true",
+    "origin": "인도",
+    "theme": "여운",
+    "why": "'그대를 위해 바다를 건넌 것이 아니오'가 먼저 오고, 그 다음에 '제 마음은 제 것이었습니다'가 온다. 승리 뒤에 오는 가장 잔인한 대화다.",
+    "question": "남이 써놓은 이야기 앞에서 '그건 제 것이었습니다'라고 말해야 했던 순간을 떠올린다면, 당신은 그때 어떤 말을 골랐나요?",
+    "questionDeep": "라마는 사랑이 아니라 명예를 위해 싸웠다고 말합니다. 당신이 누군가를 위해 했다고 여긴 일 가운데, 사실은 자기 이름을 위해 한 일이 있었다면 그것은 무엇이었나요?",
+    "season": "무관",
+    "_k": "h",
+    "verify": {
+      "status": "ORIGIN-NOT-FOUND",
+      "ratio": 0.29,
+      "method": "curl"
+    }
+  }
+]

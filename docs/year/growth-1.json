@@ -406,6 +406,31 @@
     "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
     "techniqueFamily": "압축",
     "A": {
+      "text": "사람은 많다. 그러나 얼굴은 그보다 훨씬 더 많다. 사람마다 얼굴을 여럿 갖고 있기 때문이다.",
+      "author": "라이너 마리아 릴케",
+      "work": "말테의 수기, 1910",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
+      "technique": "수량 비교 한 번으로 관찰을 명제로 굳히고 근거절 하나만 붙인다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "국인이 장차 너를 해치려 한다. 네 재주와 지략으로 어디를 간들 안 되겠느냐. 더디 머물러 욕을 당하기보다는, 멀리 떠나 할 일을 하는 편이 낫다.",
+      "author": "김부식",
+      "work": "삼국사기 권13 고구려본기 동명성왕 (옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+      "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B713",
+      "technique": "'~하기보다 ~함이 낫다'는 저울 문형으로, 어머니가 아들의 결단을 한 줄에 담아 건넨다.",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
+  },
+  {
+    "day": 18,
+    "doy": 18,
+    "week": 3,
+    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
+    "techniqueFamily": "압축",
+    "A": {
       "text": "요새를 함락시키는 일은 어렵지 않다. 어려운 것은 전쟁 전체를 이기는 일이다.",
       "author": "레프 톨스토이",
       "work": "전쟁과 평화 (1869)",
@@ -425,8 +450,33 @@
     "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
   },
   {
-    "day": 18,
-    "doy": 18,
+    "day": 19,
+    "doy": 19,
+    "week": 3,
+    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
+    "techniqueFamily": "압축",
+    "A": {
+      "text": "더 위로가 되는 말을 해드릴 수 없어 미안합니다. 행동하는 사랑은 꿈속의 사랑에 비하면 가혹하고 무서운 것이니까요.",
+      "author": "표도르 도스토옙스키",
+      "work": "카라마조프 형제들 (1880)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/28054/pg28054.txt",
+      "technique": "사과 한 문장을 앞에 두어 뒤따르는 단언의 날을 세우고, 두 종류의 사랑을 같은 저울에 올린다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "인간도, 예술가도, 개인도 작자의 이름이 없는 이 거대한 덩어리 앞에서 지워진다. 인간의 지성이 거기에 요약되고 총합된다. 시간이 건축가이고, 민중이 석공이다.",
+      "author": "빅토르 위고",
+      "work": "파리의 노트르담 (1831)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/19657/pg19657.txt",
+      "technique": "긴 서술을 두 문장 끌고 온 뒤, 마지막을 두 낱말 짝(건축가/석공)으로 못 박아 정리한다.",
+      "isTranslation": true
+    },
+    "contrastAxis": "서양↔동양 / 짧음↔김",
+    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
+  },
+  {
+    "day": 20,
+    "doy": 20,
     "week": 3,
     "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
     "techniqueFamily": "압축",
@@ -450,33 +500,8 @@
     "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
   },
   {
-    "day": 19,
-    "doy": 19,
-    "week": 3,
-    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
-    "techniqueFamily": "압축",
-    "A": {
-      "text": "사람은 많다. 그러나 얼굴은 그보다 훨씬 더 많다. 사람마다 얼굴을 여럿 갖고 있기 때문이다.",
-      "author": "라이너 마리아 릴케",
-      "work": "말테의 수기, 1910",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2188/pg2188.txt",
-      "technique": "수량 비교 한 번으로 관찰을 명제로 굳히고 근거절 하나만 붙인다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "인간도, 예술가도, 개인도 작자의 이름이 없는 이 거대한 덩어리 앞에서 지워진다. 인간의 지성이 거기에 요약되고 총합된다. 시간이 건축가이고, 민중이 석공이다.",
-      "author": "빅토르 위고",
-      "work": "파리의 노트르담 (1831)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/19657/pg19657.txt",
-      "technique": "긴 서술을 두 문장 끌고 온 뒤, 마지막을 두 낱말 짝(건축가/석공)으로 못 박아 정리한다.",
-      "isTranslation": true
-    },
-    "contrastAxis": "서양↔동양 / 짧음↔김",
-    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
-  },
-  {
-    "day": 20,
-    "doy": 20,
+    "day": 21,
+    "doy": 21,
     "week": 3,
     "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
     "techniqueFamily": "압축",
@@ -500,42 +525,17 @@
     "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
   },
   {
-    "day": 21,
-    "doy": 21,
-    "week": 3,
-    "weekTheme": "대한, 몸이 먼저 아는 주 — 힘을 동사로",
-    "techniqueFamily": "압축",
-    "A": {
-      "text": "영혼은 자기 사람을 고르고, 그다음엔 문을 닫는다. 나는 그 영혼이 넉넉한 나라에서 하나를 고르고, 돌처럼 관심의 밸브를 닫아버리는 것을 보았다.",
-      "author": "에밀리 디킨슨",
-      "work": "시편 '배제'",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12242/pg12242.txt",
-      "technique": "짧은 동작 두 개로 시작해, 마지막에 딱딱한 사물(돌, 밸브)로 태도를 못 박는다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "확실히 그 가치의 판단에 명석한 두뇌도 그 명성 앞에서는 눈을 감는 것이 예의다.",
-      "author": "계용묵",
-      "work": "「낙관」(수필, 1941)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/낙관",
-      "technique": "'예의다'라는 반어적 단어 하나로 비판을 감싼 채 찌른다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W3 「대한, 몸이 먼저 아는 주 — 힘을 동사로」의 압축 계열."
-  },
-  {
     "day": 22,
     "doy": 22,
     "week": 4,
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "모든 진리에 대해 그 반대 또한 똑같이 참이다. 진리는 오직 한쪽으로 치우칠 때에만 말해지고 말에 싸일 수 있기 때문이다.",
-      "author": "헤르만 헤세",
-      "work": "싯다르타, 1922",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-      "technique": "도발적 명제를 먼저 던지고 곧바로 그 성립 조건을 대는 2단 구성.",
+      "text": "사람은 상대를 판단할 수 없는 동안에만 그를 사랑하고 존경한다. 그리움이란 불완전한 앎이 낳은 산물이다.",
+      "author": "토마스 만",
+      "work": "베네치아에서의 죽음(Der Tod in Venedig), 1912",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/12108/pg12108.txt",
+      "technique": "감정을 조건으로 한정한 뒤 그 감정 자체를 냉정한 정의로 다시 세운다.",
       "isTranslation": true
     },
     "B": {
@@ -556,19 +556,19 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "찾는다는 것은 목표를 갖는다는 뜻이다. 그러나 발견한다는 것은 자유롭다는 것, 열려 있다는 것, 목표가 없다는 뜻이다.",
-      "author": "헤르만 헤세",
-      "work": "싯다르타, 1922",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-      "technique": "두 동사를 같은 정의문 틀에 넣고 내용만 정반대로 채워 대구를 만든다.",
+      "text": "가장 많이 사랑하는 사람이 지는 쪽이고 괴로워해야 한다. 이 단순하고 모진 가르침을 그의 열네 살 영혼은 이미 삶에서 받아 들였다.",
+      "author": "토마스 만",
+      "work": "토니오 크뢰거(Tonio Kröger), 1903",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/23313/pg23313.txt",
+      "technique": "잠언을 먼저 던지고 줄표 뒤에서 그것을 배운 사람의 나이를 밝혀 무게를 뒤집는다.",
       "isTranslation": true
     },
     "B": {
-      "text": "갈퀴를 손에 들고는 어느 때까지든지 연기 속에 우뚝 서서 타서 흩어지는 낙엽의 산더미를 바라보며 향기로운 냄새를 맡고 있노라면 별안간 맹렬한 생활의 의욕을 느끼게 된다.",
-      "author": "이효석",
-      "work": "낙엽을 태우면서 (1938)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%99%EC%97%BD%EC%9D%84_%ED%83%9C%EC%9A%B0%EB%A9%B4%EC%84%9C",
-      "technique": "동작을 길게 이어 붙이다가 '별안간'으로 마음의 사건을 터뜨린다",
+      "text": "테마가 확정되고 마음의 안정에 시간의 여유까지 충분히 있어야 붓끝엔 흥이 실린다.",
+      "author": "계용묵",
+      "work": "「침묵의 변」(수필, 1949)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/상아탑/침묵의_변",
+      "technique": "조건 셋을 '~고 ~에 ~까지'로 쌓아 올린 뒤 결과를 마지막에 한 번에 준다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -581,11 +581,11 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "사람은 상대를 판단할 수 없는 동안에만 그를 사랑하고 존경한다. 그리움이란 불완전한 앎이 낳은 산물이다.",
+      "text": "오직 눈으로만 서로를 아는 사람들의 관계보다 더 기이하고 더 까다로운 것은 없다.",
       "author": "토마스 만",
-      "work": "베네치아에서의 죽음(Der Tod in Venedig), 1912",
+      "work": "베네치아에서의 죽음, 1912",
       "sourceUrl": "https://www.gutenberg.org/cache/epub/12108/pg12108.txt",
-      "technique": "감정을 조건으로 한정한 뒤 그 감정 자체를 냉정한 정의로 다시 세운다.",
+      "technique": "비교급 최상 표현을 문장 앞머리에 세워 결론부터 못 박는 도치.",
       "isTranslation": true
     },
     "B": {
@@ -606,36 +606,11 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "가장 많이 사랑하는 사람이 지는 쪽이고 괴로워해야 한다. 이 단순하고 모진 가르침을 그의 열네 살 영혼은 이미 삶에서 받아 들였다.",
+      "text": "내 아들아, 낮에는 즐거이 일에 임하라. 그러나 밤에 우리가 편히 잠들 수 있는 일만 하여라.",
       "author": "토마스 만",
-      "work": "토니오 크뢰거(Tonio Kröger), 1903",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/23313/pg23313.txt",
-      "technique": "잠언을 먼저 던지고 줄표 뒤에서 그것을 배운 사람의 나이를 밝혀 무게를 뒤집는다.",
-      "isTranslation": true
-    },
-    "B": {
-      "text": "경희의 앞에는 지금 두 길이 있다. 그 길은 희미하지도 않고 또렷한 두 길이다.",
-      "author": "나혜석",
-      "work": "경희(瓊姬), 1918",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
-      "technique": "명제를 한 문장으로 던진 뒤, 다음 문장에서 그 명제를 곧바로 한정해 조여 준다.",
-      "isTranslation": false
-    },
-    "contrastAxis": "외국↔한국 / 짧음↔김",
-    "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
-  },
-  {
-    "day": 26,
-    "doy": 26,
-    "week": 4,
-    "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
-    "techniqueFamily": "구조",
-    "A": {
-      "text": "오직 눈으로만 서로를 아는 사람들의 관계보다 더 기이하고 더 까다로운 것은 없다.",
-      "author": "토마스 만",
-      "work": "베네치아에서의 죽음, 1912",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/12108/pg12108.txt",
-      "technique": "비교급 최상 표현을 문장 앞머리에 세워 결론부터 못 박는 도치.",
+      "work": "부덴브로크가의 사람들(Buddenbrooks), 1901",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/34811/pg34811.txt",
+      "technique": "낮과 밤을 짝지어 권유와 제한을 한 문장 안에서 맞물린 대구로 만든다.",
       "isTranslation": true
     },
     "B": {
@@ -650,17 +625,42 @@
     "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
   },
   {
+    "day": 26,
+    "doy": 26,
+    "week": 4,
+    "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
+    "techniqueFamily": "구조",
+    "A": {
+      "text": "누군가 요제프 K를 모함한 것이 틀림없었다. 그는 아무 나쁜 짓도 하지 않았는데 어느 날 아침 체포되었기 때문이다.",
+      "author": "프란츠 카프카",
+      "work": "소송(Der Prozess), 1925",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/69327/pg69327.txt",
+      "technique": "추측된 결론을 먼저 단정하고 근거절을 뒤에 붙여 독자를 추론에 끌어들인다.",
+      "isTranslation": true
+    },
+    "B": {
+      "text": "갈퀴를 손에 들고는 어느 때까지든지 연기 속에 우뚝 서서 타서 흩어지는 낙엽의 산더미를 바라보며 향기로운 냄새를 맡고 있노라면 별안간 맹렬한 생활의 의욕을 느끼게 된다.",
+      "author": "이효석",
+      "work": "낙엽을 태우면서 (1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%82%99%EC%97%BD%EC%9D%84_%ED%83%9C%EC%9A%B0%EB%A9%B4%EC%84%9C",
+      "technique": "동작을 길게 이어 붙이다가 '별안간'으로 마음의 사건을 터뜨린다",
+      "isTranslation": false
+    },
+    "contrastAxis": "외국↔한국 / 짧음↔김",
+    "why": "W4 「1월의 매듭 — 꾸미는 말 한 개만」의 구조 계열."
+  },
+  {
     "day": 27,
     "doy": 27,
     "week": 4,
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "내 아들아, 낮에는 즐거이 일에 임하라. 그러나 밤에 우리가 편히 잠들 수 있는 일만 하여라.",
-      "author": "토마스 만",
-      "work": "부덴브로크가의 사람들(Buddenbrooks), 1901",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/34811/pg34811.txt",
-      "technique": "낮과 밤을 짝지어 권유와 제한을 한 문장 안에서 맞물린 대구로 만든다.",
+      "text": "네가 가르치려는 진리가 추상적일수록, 너는 그만큼 더 감각을 그 진리로 꾀어내야 한다.",
+      "author": "프리드리히 니체",
+      "work": "선악의 저편 128절, 1886",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
+      "technique": "'…할수록 …하다' 비례 구문으로 추상과 감각이라는 두 축을 한 문장에 묶는다.",
       "isTranslation": true
     },
     "B": {
@@ -681,11 +681,11 @@
     "weekTheme": "1월의 매듭 — 꾸미는 말 한 개만",
     "techniqueFamily": "구조",
     "A": {
-      "text": "누군가 요제프 K를 모함한 것이 틀림없었다. 그는 아무 나쁜 짓도 하지 않았는데 어느 날 아침 체포되었기 때문이다.",
-      "author": "프란츠 카프카",
-      "work": "소송(Der Prozess), 1925",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/69327/pg69327.txt",
-      "technique": "추측된 결론을 먼저 단정하고 근거절을 뒤에 붙여 독자를 추론에 끌어들인다.",
+      "text": "의심하던 시절에는 그래도 희망이 있었다. 그런데 지금은 희망이 없고, 그러면서도 여전히 모든 것을 의심한다.",
+      "author": "레프 톨스토이",
+      "work": "안나 카레니나 (1877)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+      "technique": "과거와 현재를 같은 두 낱말(희망·의심)로 짝지어 배치해, 상태가 얼마나 나빠졌는지를 설명 없이 드러낸다.",
       "isTranslation": true
     },
     "B": {
@@ -706,19 +706,19 @@
     "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "네가 가르치려는 진리가 추상적일수록, 너는 그만큼 더 감각을 그 진리로 꾀어내야 한다.",
-      "author": "프리드리히 니체",
-      "work": "선악의 저편 128절, 1886",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/7204/pg7204.txt",
-      "technique": "'…할수록 …하다' 비례 구문으로 추상과 감각이라는 두 축을 한 문장에 묶는다.",
+      "text": "행복한 가정은 모두 엇비슷하게 닮았다. 그러나 불행한 가정은 저마다 자기만의 방식으로 불행하다.",
+      "author": "레프 톨스토이",
+      "work": "안나 카레니나 (1877)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
+      "technique": "앞뒤 절을 같은 문형으로 세운 뒤 뒤쪽만 뒤집어, 한 문장 안에서 대칭과 파격을 동시에 만든다.",
       "isTranslation": true
     },
     "B": {
-      "text": "이것이 진실인지는 물을 필요도 없다. 보름을 위해 거짓말할 가치는 없으니까. 보름의 생이란 그 자체로 가질 값어치가 없고, 그것이야말로 내가 여기 순전한 진실만 쓴다는 증거다.",
-      "author": "표도르 도스토옙스키",
-      "work": "백치 (1869)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/2638/pg2638.txt",
-      "technique": "근거를 결론 뒤에 붙이고 그 근거를 다시 근거의 근거로 삼아, 짧은 문장 안에 이중의 논증을 세운다.",
+      "text": "당신이 삶을 경멸하는 것은 삶의 의미와 목적이 바로 당신에게만 감춰져 있기 때문이고, 당신은 오직 자기 죽음만을 두려워한다. 그러나 진짜 사색가는 진실이 모두에게 감춰져 있어 불행하고, 모두를 위해 두려워한다.",
+      "author": "안톤 체호프",
+      "work": "불빛 (1888)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/13414/pg13414.txt",
+      "technique": "앞 절과 뒤 절을 같은 문형으로 세우고 주어만 바꿔, 대상을 옮기는 것만으로 비판을 완성한다.",
       "isTranslation": true
     },
     "contrastAxis": "서양↔동양 / 짧음↔김",
@@ -731,19 +731,19 @@
     "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "이 세상에서 사람이 가장 꺼리는 일은 자기 자신에게로 이끄는 그 길을 걷는 일이다.",
-      "author": "헤르만 헤세",
-      "work": "데미안, 1919",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-      "technique": "최상급 부정('가장 꺼리는')으로 통념과 정반대의 결론을 한 문장에 단정한다.",
+      "text": "사람은 누구든 일해야 한다. 이마에 땀 흘리며 애써야 한다. 그것이 그의 삶의 의미이자 목적이고, 그의 행복이고 그의 열정이니까.",
+      "author": "안톤 체호프",
+      "work": "세 자매 (1901)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/7986/pg7986.txt",
+      "technique": "명제-부연-이유의 3단으로 짧게 끊어 놓고, 마지막에 명사 넷을 겹쳐 결론의 폭을 넓힌다.",
       "isTranslation": true
     },
     "B": {
-      "text": "반나절 동안 두려움 없이 하늘을 똑바로 쳐다볼 수 있는 사람이란 세상에서도 가장 착한 사람이거나 그렇지 않으면 가장 용기 있는 악한이어야 할 것이다.",
-      "author": "이효석",
-      "work": "들 (1936)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%93%A4",
-      "technique": "긴 조건절로 대상을 좁힌 뒤 정반대 두 답을 나란히 내놓는다",
+      "text": "경희의 앞에는 지금 두 길이 있다. 그 길은 희미하지도 않고 또렷한 두 길이다.",
+      "author": "나혜석",
+      "work": "경희(瓊姬), 1918",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "명제를 한 문장으로 던진 뒤, 다음 문장에서 그 명제를 곧바로 한정해 조여 준다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -756,19 +756,19 @@
     "weekTheme": "입춘, 이름이 실제보다 먼저 오는 절기 — 앞자리 다투기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "의심하던 시절에는 그래도 희망이 있었다. 그런데 지금은 희망이 없고, 그러면서도 여전히 모든 것을 의심한다.",
-      "author": "레프 톨스토이",
-      "work": "안나 카레니나 (1877)",
-      "sourceUrl": "https://www.gutenberg.org/cache/epub/1399/pg1399.txt",
-      "technique": "과거와 현재를 같은 두 낱말(희망·의심)로 짝지어 배치해, 상태가 얼마나 나빠졌는지를 설명 없이 드러낸다.",
+      "text": "고통과 실수와 삶의 권태가 사람을 뒤로 밀어내지만, 진실에 대한 갈증과 완강한 의지가 그들을 앞으로 앞으로 몰아간다.",
+      "author": "안톤 체호프",
+      "work": "결투 (1891)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/13505/pg13505.txt",
+      "technique": "뒤로 미는 힘과 앞으로 미는 힘을 한 문장에 대칭으로 세우고, 마지막 부사만 두 번 겹쳐 방향을 정한다.",
       "isTranslation": true
     },
     "B": {
-      "text": "음산한 검은 구름이 하늘에 뭉게뭉게 모여드는 것이 금시라도 비 한줄기 할 듯하면서도 여전히 짓궂은 햇발은 겹겹 산속에 묻힌 외진 마을을 통째로 자실 듯이 달구고 있었다.",
-      "author": "김유정",
-      "work": "소낙비 (1935)",
-      "sourceUrl": "https://ko.wikisource.org/wiki/소낙비",
-      "technique": "구름과 햇발을 '~하면서도'로 맞물려 한 문장 안에 두 기후를 대립시킨다 — 소설 첫 문장의 표본",
+      "text": "이지러는 졌으나 보름을 갓 지난 달은 부드러운 빛을 흔붓이 흘리고 있다. 대화까지는 팔십 리의 밤길, 고개를 둘이나 넘고 개울을 하나 건너고 벌판과 산길을 걸어야 된다.",
+      "author": "이효석",
+      "work": "메밀꽃 필 무렵 (1936)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%A9%94%EB%B0%80%EA%BD%83_%ED%95%84_%EB%AC%B4%EB%A0%B5",
+      "technique": "정지된 풍경 한 컷 뒤에 앞으로 갈 거리를 나열해 시간을 밀어낸다",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
