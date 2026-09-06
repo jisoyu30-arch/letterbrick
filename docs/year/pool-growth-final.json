@@ -2700,21 +2700,6 @@
     }
   },
   {
-    "text": "새는 알에서 나오려고 싸운다. 알은 세계다. 태어나려는 자는 하나의 세계를 부수어야 한다.",
-    "author": "헤르만 헤세",
-    "work": "데미안, 1919",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-    "technique": "짧은 단문 세 개를 사슬처럼 이어 비유를 명제로 끌어올린다.",
-    "techniqueFamily": "비유",
-    "isTranslation": true,
-    "lengthChars": 50,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
     "text": "너희는 나를 숭배한다. 그러나 그 숭배가 어느 날 무너진다면 어찌할 것인가? 조심하라, 조각상에 깔려 죽지 않도록.",
     "author": "프리드리히 니체",
     "work": "차라투스트라는 이렇게 말했다, 1883",
@@ -2723,81 +2708,6 @@
     "techniqueFamily": "전환",
     "isTranslation": true,
     "lengthChars": 64,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "그들은 왜 두려워하는가? 사람은 자기 자신과 하나가 되지 못했을 때에만 두려워한다. 그들은 한 번도 자기 자신을 인정한 적이 없기에 두려워한다.",
-    "author": "헤르만 헤세",
-    "work": "데미안, 1919",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-    "technique": "자문자답 뒤에 같은 술어를 반복하며 원인을 한 겹 더 파고든다.",
-    "techniqueFamily": "질문",
-    "isTranslation": true,
-    "lengthChars": 80,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "지혜는 찾을 수 있고, 살아 낼 수 있고, 그것에 실려 갈 수 있고, 그것으로 기적을 행할 수도 있다. 다만 말하거나 가르칠 수는 없다.",
-    "author": "헤르만 헤세",
-    "work": "싯다르타, 1922",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-    "technique": "가능형을 네 번 쌓아 올린 뒤 마지막 한 번의 부정으로 전부를 무너뜨린다.",
-    "techniqueFamily": "반복",
-    "isTranslation": true,
-    "lengthChars": 76,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "모든 진리에 대해 그 반대 또한 똑같이 참이다. 진리는 오직 한쪽으로 치우칠 때에만 말해지고 말에 싸일 수 있기 때문이다.",
-    "author": "헤르만 헤세",
-    "work": "싯다르타, 1922",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-    "technique": "도발적 명제를 먼저 던지고 곧바로 그 성립 조건을 대는 2단 구성.",
-    "techniqueFamily": "구조",
-    "isTranslation": true,
-    "lengthChars": 68,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "지혜는 전할 수 없다. 어떤 현자가 전하려 애쓰는 지혜는 언제나 어리석은 소리처럼 들린다.",
-    "author": "헤르만 헤세",
-    "work": "싯다르타(Siddhartha), 1922",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-    "technique": "명제를 세운 뒤 같은 단어로 문장을 다시 시작해 근거를 잇는 꼬리물기.",
-    "techniqueFamily": "반복",
-    "isTranslation": true,
-    "lengthChars": 50,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "찾는다는 것은 목표를 갖는다는 뜻이다. 그러나 발견한다는 것은 자유롭다는 것, 열려 있다는 것, 목표가 없다는 뜻이다.",
-    "author": "헤르만 헤세",
-    "work": "싯다르타, 1922",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/2499/pg2499.txt",
-    "technique": "두 동사를 같은 정의문 틀에 넣고 내용만 정반대로 채워 대구를 만든다.",
-    "techniqueFamily": "구조",
-    "isTranslation": true,
-    "lengthChars": 66,
     "verify": {
       "status": "translation-url-ok",
       "ratio": null,
@@ -2933,21 +2843,6 @@
     "techniqueFamily": "구조",
     "isTranslation": true,
     "lengthChars": 48,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "이 세상에서 사람이 가장 꺼리는 일은 자기 자신에게로 이끄는 그 길을 걷는 일이다.",
-    "author": "헤르만 헤세",
-    "work": "데미안, 1919",
-    "sourceUrl": "https://www.gutenberg.org/cache/epub/41907/pg41907.txt",
-    "technique": "최상급 부정('가장 꺼리는')으로 통념과 정반대의 결론을 한 문장에 단정한다.",
-    "techniqueFamily": "구조",
-    "isTranslation": true,
-    "lengthChars": 46,
     "verify": {
       "status": "translation-url-ok",
       "ratio": null,
@@ -9454,111 +9349,6 @@
     "techniqueFamily": "대구",
     "isTranslation": true,
     "lengthChars": 72,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "이것을 네게 주는 것은 네가 시간을 기억하라고가 아니라, 이따금 잠시라도 시간을 잊고서 시간을 정복하려 애쓰느라 숨을 다 쓰지 말라고 주는 것이다.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "'A하라고가 아니라 B하라고'로 목적을 뒤집고, 그 B를 다시 길게 늘여 무게를 뒤쪽에 싣는다",
-    "techniqueFamily": "전환",
-    "isTranslation": true,
-    "lengthChars": 82,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "어떤 전투도 이긴 적이 없다고 그는 말했다. 싸운 적조차 없다고. 전장은 인간에게 자기 자신의 어리석음과 절망만을 드러내 보일 뿐이고, 승리란 철학자와 바보들의 환상이라고.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "단언 뒤에 더 센 단언을 짧게 덧붙여 앞말을 갱신하고(이긴 적 없다 → 싸운 적조차 없다), 마지막에 정의로 마감한다",
-    "techniqueFamily": "구조",
-    "isTranslation": true,
-    "lengthChars": 96,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "시간은 작은 톱니바퀴들이 째깍째깍 잘라내고 있는 동안은 죽어 있고, 시계가 멈출 때에야 비로소 살아난다고 그는 말했다.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "'~하는 동안은 죽어 있고, ~할 때에야 살아난다' — 삶과 죽음을 뒤바꾼 대구가 시간관 하나를 통째로 세운다",
-    "techniqueFamily": "대구",
-    "isTranslation": true,
-    "lengthChars": 66,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "인간은 자기 불행의 총합이라고 아버지는 말했다. 언젠가는 불행도 지치겠거니 싶겠지만, 그때는 시간 자체가 너의 불행이라고 아버지는 말했다.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "짧은 정의를 던진 뒤 그 정의에 반박을 붙였다가 다시 뒤집는다 — 앞 문장의 핵심어를 세 번 굴리는 법",
-    "techniqueFamily": "압축",
-    "isTranslation": true,
-    "lengthChars": 77,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "네가 후회하게 될 것은 언제나 네가 몸에 붙인 게으른 습관들이다. 아버지는 그렇게 말했다.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "'~할 것은 언제나 ~이다' 강조 구문으로 결론을 앞세우고, 출처는 세 어절짜리 짧은 문장으로 뒤에 붙인다",
-    "techniqueFamily": "압축",
-    "isTranslation": true,
-    "lengthChars": 50,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "시계 소리를 오랫동안 못 들은 채 지낼 수도 있다. 그러다 째깍이는 단 한 번의 순간에, 듣지 못했던 그 길고 점점 잦아드는 시간의 행렬이 마음속에 끊김 없이 떠오른다.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "긴 시간(오랫동안)과 최소 단위(단 한 번의 순간)를 앞뒤로 붙여 시간 감각을 급격히 압축한다",
-    "techniqueFamily": "구조",
-    "isTranslation": true,
-    "lengthChars": 94,
-    "verify": {
-      "status": "translation-url-ok",
-      "ratio": null,
-      "err": ""
-    }
-  },
-  {
-    "text": "내 이름은 내가 기억할 수 있기 전부터 딜지였고, 사람들이 나를 오래전에 잊고 난 뒤에도 딜지일 것이다.",
-    "author": "윌리엄 포크너",
-    "work": "음향과 분노",
-    "sourceUrl": "https://standardebooks.org/ebooks/william-faulkner/the-sound-and-the-fury/text/single-page",
-    "technique": "기억의 시작 이전과 망각 이후를 양끝에 세우고 그 사이를 이름 하나로 잇는다",
-    "techniqueFamily": "대구",
-    "isTranslation": true,
-    "lengthChars": 58,
     "verify": {
       "status": "translation-url-ok",
       "ratio": null,
