@@ -11045,17 +11045,30 @@ function pickYearHealing(theme) {
   var doy = todayDoy();
   var today = HEALING_YEAR[doy - 1];
   if (!today) return null;
-  // 사용자가 테마를 골랐고 오늘 문단의 테마와 다르면, 같은 테마 중 가장 가까운 날짜로
+  // 사용자가 테마를 골랐고 오늘 문단의 테마와 다르면 같은 테마에서 가져온다.
+  //
+  // 가장 가까운 하루 '하나'만 고르면, 그 테마가 드문 구간에서 며칠씩 같은 글이 계속 나온다.
+  // 테마별 보유량이 다짐 76 · 힐링 131 · 여운 158로 치우쳐 있어서,
+  // 다짐을 고른 사용자는 같은 글을 최장 18일 연속으로 보고 있었다.
+  // 그래서 가까운 순으로 몇 개를 추려 놓고 날짜로 돌려 쓴다.
+  // 추린 것이 전부 오늘 근처라 계절은 그대로 맞고, 이틀 연속 같은 글은 나오지 않는다.
   if (theme && today.theme !== theme) {
-    var best = null, bestGap = 999;
+    var pool = [];
     for (var i = 0; i < HEALING_YEAR.length; i++) {
       var c = HEALING_YEAR[i];
       if (c.theme !== theme) continue;
       var gap = Math.abs(c.doy - doy);
       if (gap > 182) gap = 365 - gap; // 연말연시 인접 처리
-      if (gap < bestGap) { bestGap = gap; best = c; }
+      pool.push({ c: c, gap: gap });
     }
-    if (best) today = best;
+    if (pool.length) {
+      pool.sort(function (a, b) { return a.gap - b.gap || a.c.doy - b.c.doy; });
+      // 폭 11, 하루에 2칸씩. 한 칸씩 밀면 순위가 밀리는 속도와 맞물려
+      // 사흘 연속 같은 글이 나온다. 2칸이면 그 맞물림이 풀린다.
+      // 폭·배수 조합 25가지를 1년 돌려 비교한 결과 이 값이 가장 나았다.
+      var rotate = Math.min(11, pool.length);
+      today = pool[(doy * 2) % rotate].c;
+    }
   }
   return {
     id: 'y_' + today.doy,
