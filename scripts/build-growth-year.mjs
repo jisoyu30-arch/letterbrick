@@ -88,19 +88,37 @@ for (let m = 1; m <= 12; m++) {
 
 days.sort((a, b) => a.doy - b.doy);
 
-// 기존 data-year.js 의 HEALING_YEAR 는 보존하고 GROWTH_YEAR 만 갈아 끼운다
+// 성장편은 일자별 파일로 쪼갠다.
+// 성장편 인덱싱은 가입일 기준이라 사용자의 day N이 1-365 어디든 될 수 있어
+// "이번 달만 로드"가 성립하지 않는다. 하루치만 받는 것이 유일하게 맞는 구조다.
+const outDir = path.join(ROOT, 'public', 'growth');
+fs.mkdirSync(outDir, { recursive: true });
+// 이전 산출물 정리
+for (const f of fs.readdirSync(outDir)) {
+  if (/^\d{3}\.json$/.test(f)) fs.unlinkSync(path.join(outDir, f));
+}
+let bytes = 0;
+days.forEach(d => {
+  const name = String(d.doy).padStart(3, '0') + '.json';
+  const body = JSON.stringify(d);
+  fs.writeFileSync(path.join(outDir, name), body, 'utf8');
+  bytes += Buffer.byteLength(body, 'utf8');
+});
+
+// data-year.js 에서 GROWTH_YEAR 블록은 제거하고, 목차만 남긴다
 let existing = '';
 try { existing = fs.readFileSync(TARGET, 'utf8'); } catch (e) {}
-const growthBlock = 'const GROWTH_YEAR = ' + JSON.stringify(days, null, 1) + ';\n'
-  + 'if (typeof window !== "undefined") { window.GROWTH_YEAR = GROWTH_YEAR; }\n';
-
-let out;
-if (/const GROWTH_YEAR =/.test(existing)) {
-  out = existing.replace(/const GROWTH_YEAR =[\s\S]*?window\.GROWTH_YEAR = GROWTH_YEAR; \}\n/, growthBlock);
-} else {
-  out = existing.trimEnd() + '\n\n' + growthBlock;
-}
-fs.writeFileSync(TARGET, out, 'utf8');
+const NL = String.fromCharCode(10);
+existing = existing.replace(/const GROWTH_YEAR =[\s\S]*?window\.GROWTH_YEAR = GROWTH_YEAR; \}/, '');
+existing = existing.replace(/const GROWTH_INDEX =[\s\S]*?window\.GROWTH_INDEX = GROWTH_INDEX; \}/, '');
+const index = days.map(d => ({
+  doy: d.doy, week: d.week, weekTheme: d.weekTheme,
+  fam: d.techniqueFamily, hasLearn: !d.A.learn._fallback && !d.B.learn._fallback
+}));
+const indexBlock = NL
+  + 'const GROWTH_INDEX = ' + JSON.stringify(index) + ';' + NL
+  + 'if (typeof window !== "undefined") { window.GROWTH_INDEX = GROWTH_INDEX; }' + NL;
+fs.writeFileSync(TARGET, existing.trimEnd() + NL + indexBlock, 'utf8');
 
 console.log('=== 성장편 빌드 ===');
 monthStatus.forEach(s => console.log('  ' + s));
@@ -108,8 +126,10 @@ console.log('');
 console.log('총 ' + days.length + '일 / ' + (days.length * 2) + '문장');
 console.log('학습블록 보유 ' + withLearn + ' · 폴백 ' + withFallback);
 console.log('doy 연속: ' + (days.every((d, i) => d.doy === i + 1) ? '1-' + days.length + ' 정상' : '결번 있음'));
-console.log('data-year.js ' + (fs.statSync(TARGET).size / 1024).toFixed(0) + 'KB');
+console.log('일자별 파일 ' + days.length + '개, 평균 ' + Math.round(bytes / days.length / 1024 * 10) / 10 + 'KB, 총 ' + Math.round(bytes / 1024) + 'KB');
+console.log('data-year.js ' + (fs.statSync(TARGET).size / 1024).toFixed(0) + 'KB (힐링 365일 + 성장 목차)');
 if (withFallback > 0) {
-  console.log('\n주의: 폴백 ' + withFallback + '문장은 anatomy가 비어 있어 2단계(구조 학습) 화면이 축소된다.');
-  console.log('      채점(3·4단계)은 최소 루브릭으로 동작한다.');
+  console.log('');
+  console.log('폴백 ' + withFallback + '문장은 anatomy가 비어 2단계(구조 학습)가 축소된다.');
+  console.log('채점(3·4단계)은 최소 루브릭으로 동작한다. GROWTH_INDEX.hasLearn 으로 구분 가능.');
 }

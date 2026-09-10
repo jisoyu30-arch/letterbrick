@@ -11203,6 +11203,63 @@ function startRecommendedHealing() {
   selectHealingTheme(theme);
 }
 
+// 1년치 성장편 — 가입일 기준으로 오늘 차례를 고른다.
+// 기법이 1주차부터 누적되는 커리큘럼이라 달력을 쓰면 9월 가입자가
+// 36주차부터 시작하게 된다. 힐링편(계절)과 반대 원리다.
+// 데이터는 public/growth/NNN.json 하루치만 받는다(약 6KB).
+function growthDayNo() {
+  var override = localStorage.getItem('lb_growth_day'); // 관리자 미리보기
+  if (override !== null) {
+    var o = parseInt(override, 10);
+    if (!isNaN(o)) return ((o - 1) % 365 + 365) % 365 + 1;
+  }
+  var joined = null;
+  try {
+    if (typeof currentUser !== 'undefined' && currentUser && currentUser.joinedAt) joined = new Date(currentUser.joinedAt);
+  } catch (e) {}
+  if (!joined || isNaN(joined.getTime())) {
+    // 가입일을 모르면(게스트 등) 첫 방문일을 기준으로 잡아 저장해 둔다
+    var seed = localStorage.getItem('lb_first_seen');
+    if (!seed) { seed = new Date().toISOString(); try { localStorage.setItem('lb_first_seen', seed); } catch (e) {} }
+    joined = new Date(seed);
+  }
+  var elapsed = Math.floor((Date.now() - joined.getTime()) / 86400000);
+  if (!isFinite(elapsed) || elapsed < 0) elapsed = 0;
+  return (elapsed % 365) + 1;
+}
+
+var _growthCache = {};
+function loadGrowthDay(dayNo) {
+  if (_growthCache[dayNo]) return Promise.resolve(_growthCache[dayNo]);
+  var name = String(dayNo).padStart(3, '0') + '.json';
+  return fetch('growth/' + name, { cache: 'force-cache' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function (d) { _growthCache[dayNo] = d; return d; })
+    .catch(function (e) { console.warn('[LetterBrick] 성장편 ' + dayNo + '일차 로드 실패, 30일 순환으로 폴백:', e.message); return null; });
+}
+
+// 로드한 하루치를 앱의 SENTENCES 형식으로 변환해 오늘 문장을 세운다
+function applyGrowthDay(d) {
+  if (!d || !d.A || !d.B) return false;
+  function toSent(v, variant) {
+    return {
+      text: v.t, author: v.a, source: v.s, sourceUrl: v.sourceUrl,
+      authorNote: '', reason: v.pt,
+      learn: v.learn || {},
+      example: v.example || (v.learn && v.learn.goodExample) || '오늘 배운 기법으로 자신만의 문장을 써보세요.',
+      day: d.doy, variant: variant, isTranslation: !!v.isTranslation,
+      _lp: d.lp, _contrastAxis: d.contrastAxis, _weekTheme: d.weekTheme
+    };
+  }
+  var sA = toSent(d.A, 'A'), sB = toSent(d.B, 'B');
+  SENTENCES.length = 0;
+  SENTENCES.push(sA, sB);
+  // A/B 중 오늘 보여줄 쪽 — 하루 안에서 A를 기본으로 두고 사용자가 전환할 수 있다
+  todayIdx = 0;
+  todaySent = SENTENCES[0];
+  return true;
+}
+
 // 1년치 힐링편 — 달력 기준으로 오늘 문단을 고른다.
 // 계절 정합이 목적이므로 가입일이 아니라 실제 날짜를 쓴다(7월엔 여름 문단).
 // HEALING_YEAR가 없으면 기존 30일 순환(HEALING_PASSAGES)으로 조용히 폴백한다.
@@ -13723,6 +13780,17 @@ window.LOCAL_GROWTH_DAYS = (typeof GROWTH_DAYS !== 'undefined' && GROWTH_DAYS) ?
 window.LOCAL_HEALING_DAYS = (typeof HEALING_DAYS !== 'undefined' && HEALING_DAYS) ? HEALING_DAYS : null;
 loadSentencesFromFirestore().then(function(loaded) {
   applyDataToApp();
+  // 1년치 성장편이 있으면 오늘 차례로 덮어쓴다.
+  // 실패하면 applyDataToApp()이 세운 30일 순환이 그대로 남는다.
+  if (typeof GROWTH_INDEX !== 'undefined' && GROWTH_INDEX && GROWTH_INDEX.length) {
+    var dayNo = growthDayNo();
+    loadGrowthDay(dayNo).then(function(d) {
+      if (applyGrowthDay(d)) {
+        console.log('[LetterBrick] 성장편 ' + dayNo + '일차 적용 (W' + d.week + ' ' + d.weekTheme + ')');
+        if (typeof renderSentence === 'function') { try { renderSentence(); } catch (e) {} }
+      }
+    });
+  }
 });
 
 /* ══════════════════════════════
