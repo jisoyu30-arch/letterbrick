@@ -13653,13 +13653,30 @@ function inferSentenceTags(s) {
   var author = s.author || '';
   var text = s.text || '';
   var ctx = (s.reason || s._lp || '').toLowerCase() + text.toLowerCase();
-  var KOREAN_POETS = ['윤동주','김소월','이상','박목월','정지용','이육사','한용운','노천명','백석','이해인'];
-  var WESTERN_LIT  = ['카뮈','릴케','카프카','헤세','보들레르','발레리','엘리엇','휘트먼','투르게네프','생텍쥐페리'];
-  var RUSSIAN_LIT  = ['도스토예프스키','톨스토이','체호프','파스테르나크','아흐마토바','불가코프'];
-  if (KOREAN_POETS.some(function(p){return author.includes(p);})) tags.push('한국시');
-  if (WESTERN_LIT.some(function(w){return author.includes(w);})) tags.push('서양문학');
-  if (RUSSIAN_LIT.some(function(r){return author.includes(r);})) tags.push('러시아문학');
-  if (author.includes('레터브릭') || author.includes('오리지널')) tags.push('오리지널');
+  // 목록은 실제 수록 작가에서 뽑았다. 예전 목록은 30일 데이터 시절 것이라
+  // 1년치로 넘어온 뒤 대부분의 작가가 아무 태그도 못 받고 있었다.
+  // (표기도 어긋나 있었다 — 데이터는 '도스토옙스키'인데 목록은 '도스토예프스키'라
+  //  러시아문학 태그가 한 번도 붙지 않았다.)
+  var KOREAN_LIT = ['강경애','계용묵','김명순','김부식','김소월','김영랑','김유정','나도향',
+    '나혜석','백신애','윤동주','이상','이육사','이효석','일연','정인보','정지용','조명희',
+    '지하련','최서해','한용운','현진건','홍사용'];
+  var EAST_ASIA  = ['공자','노자','맹자','장자','굴원','소동파','루쉰','산해경',
+    '구니키다','나쓰메','다자이','모리 오가이','미야자와','아쿠타가와','히구치'];
+  var RUSSIAN_LIT = ['고골','톨스토이','체호프','투르게네프','푸시킨','레르몬토프',
+    '고리키','부닌','도스토옙스키'];
+  var MYTH_EPIC  = ['호메로스','발미키','비야사','베르길리우스','소포클레스','아이스킬로스',
+    '에우리피데스','헤시오도스','스노리','피르다우시','오비디우스',
+    '리그베다','고 에다','니벨룽','신-리케','산해경','가락국기','일연'];
+  var isOriginal = author.includes('레터브릭') || author.includes('오리지널') || author.includes('온:사유');
+  var hit = function(list){ return list.some(function(p){ return author.includes(p); }); };
+  if (hit(KOREAN_LIT))  tags.push('한국문학');
+  if (hit(EAST_ASIA))   tags.push('동아시아문학');
+  if (hit(RUSSIAN_LIT)) tags.push('러시아문학');
+  if (hit(MYTH_EPIC))   tags.push('신화·서사시');
+  if (isOriginal) tags.push('오리지널');
+  // 위 어디에도 안 걸린 외국 작가는 서양문학으로 둔다.
+  // 새 작가가 들어와도 태그가 비지 않게 하려는 것이다.
+  else if (!tags.length) tags.push('서양문학');
   if (text.length < 30) tags.push('짧은문장');
   else if (text.length > 80) tags.push('긴문장');
   else tags.push('보통문장');
