@@ -39,11 +39,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "그러나 여긔 한 개의 비밀이 있었다. 이런 사람이 영예로워지면 질수록 흉악해지는 비밀이었다.",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "앞 문장 끝의 단어(비밀)를 다음 문장 끝에서 다시 받아 정의하는 연쇄법.",
+      "text": "한 개의 예술을 창조할 때 그 속에서 생을 찾고, 생의 가치를 느낌으로 자기라는 존재를 내다본다.",
+      "author": "계용묵",
+      "work": "「청춘도」(단편소설, 1938)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/청춘도",
+      "technique": "앞 절 끝의 낱말을 다음 절이 글자 그대로 주워 들어, 작은 자리에서 가장 큰 말까지 비약 없이 네 칸을 올라간다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -81,11 +81,11 @@
     "weekTheme": "장마 예보 — 만약의 문장",
     "techniqueFamily": "구조",
     "A": {
-      "text": "나는 믿음을 받고 있다. 내 목숨 따위는 문제가 아니다. 죽어서 사죄한다는 마음 편한 소리는 하고 있을 수 없다. 나는 신뢰에 보답해야만 한다.",
-      "author": "다자이 오사무",
-      "work": "달려라 메로스(走れメロス)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/1567_14913.html",
-      "technique": "짧은 단정을 잇달아 놓아 스스로를 설득하고, 마지막 한 문장에서 해야 할 일로 바꾼다",
+      "text": "제게 헌신한 이를 버려야 얻는 번영이라면 저는 그 번영을 바라지 않습니다. 저를 따르는 이를 버리는 것은 끝없는 죄라고 했습니다.",
+      "author": "비야사(전승)",
+      "work": "마하바라타 17권 3장 「마하프라스타니카 파르바」 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+      "sourceUrl": "https://archive.sacred-texts.com/hin/m17/m17003.htm",
+      "technique": "상대가 내민 조건을 고쳐 쓰지 않고 그대로 되받아 그 안에서 거절하고, 들은 말 한 줄을 근거로 덧대 결정을 못 박는다.",
       "isTranslation": true
     },
     "B": {
@@ -114,11 +114,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "싸홈이 끝나는 날 나는 죽고, 나는 다시 탄생할 것이다. …나는 지금 영등포로 간다, 그렇다! 나의 묘지가 이곳이라면 나의 고향도 이곳이 될 것이다",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "죽음과 탄생, 묘지와 고향이라는 반대말을 같은 자리에 겹쳐 놓아 결심을 한 점으로 모은다.",
+      "text": "소리를 버럭버럭 가슴이 툭 터지도록 지르면서 물이든지 불이든지 헤아리지 않고 엄벙덤벙 날뛰었으면 속이 시원할 것 같다.",
+      "author": "최서해",
+      "work": "박돌의 죽음",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%B0%95%EB%8F%8C%EC%9D%98_%EC%A3%BD%EC%9D%8C",
+      "technique": "상극인 두 낱말을 같은 조사로 묶어 한꺼번에 지워 버리고, 하지 못한 난동을 가정형 안에 가둬 터뜨린다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",

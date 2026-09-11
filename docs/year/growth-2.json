@@ -231,11 +231,11 @@
     "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
     "techniqueFamily": "구조",
     "A": {
-      "text": "길들인 것만을 알게 되는 거야. 사람들은 이제 무엇을 알 시간이 없어. 상인들에게서 다 만들어진 것을 사지.",
-      "author": "앙투안 드 생텍쥐페리",
-      "work": "어린 왕자 21장 (1943)",
-      "sourceUrl": "https://gutenberg.net.au/ebooks03/0300771h.html",
-      "technique": "원칙 한 줄 뒤에 시대 진단과 구체적 습관을 붙여, 추상에서 생활로 두 계단 내려온다.",
+      "text": "큰 것만 주어야 하는 것은 아니다. 작은 것으로 칭찬을 사는 일이 많다. 빵 반 덩이와 기울어진 잔 하나로 나는 벗을 얻었다.",
+      "author": "작자 미상(고 에다)",
+      "work": "고 에다 「높으신 이의 말씀(Hávamál)」 52연 (고대 노르드어 원문 참조, 온:사유 번역)",
+      "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+      "technique": "통념을 한 줄로 지운 뒤 세태와 물건을 차례로 붙여, 원칙에서 생활로 두 계단 내려온다.",
       "isTranslation": true
     },
     "B": {
@@ -256,11 +256,11 @@
     "weekTheme": "말투로 거리 재기 — 조사와 종결어미",
     "techniqueFamily": "구조",
     "A": {
-      "text": "대지는 책보다 우리 자신에 대해 더 많은 것을 가르쳐 준다. 대지가 우리에게 맞서기 때문이다. 인간은 장애물과 자기를 겨루어 볼 때 비로소 자신을 발견한다.",
-      "author": "앙투안 드 생텍쥐페리",
-      "work": "인간의 대지 (1939)",
-      "sourceUrl": "https://archive.org/download/saint_exupery_terre_des_hommes/saint_exupery_terre_des_hommes_djvu.txt",
-      "technique": "주장 → 짧은 이유절 → 일반 명제 순으로, 이유를 한 문장으로 독립시켜 호흡을 끊는다.",
+      "text": "나는 가끔 나 자신을 경멸한다… 그래서 남들도 경멸하는 것은 아닐까? 나는 고결한 충동에 더는 응하지 못하게 되었다. 나 자신에게 우스워 보이는 것이 두렵다.",
+      "author": "미하일 레르몬토프",
+      "work": "우리 시대의 영웅 (러시아어 원문 참조, 온:사유 번역)",
+      "sourceUrl": "https://ru.wikisource.org/wiki/Герой_нашего_времени_(Лермонтов)/1969_(СО)",
+      "technique": "단정을 말줄임표로 늘어뜨린 뒤, 같은 동사의 대상만 바꿔 되물어 자기혐오를 세상혐오의 원인 자리로 옮긴다.",
       "isTranslation": true
     },
     "B": {

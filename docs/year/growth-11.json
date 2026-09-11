@@ -239,12 +239,12 @@
       "isTranslation": true
     },
     "B": {
-      "text": "부끄러움 많은 생애를 보내 왔습니다. 저에게는 인간의 생활이라는 것이 도무지 짐작이 가지 않습니다.",
-      "author": "다자이 오사무",
-      "work": "인간 실격(人間失格)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
-      "technique": "고백 한 줄로 생애 전체를 요약한 뒤, 다음 줄에서 그 이유를 모른다고 밝혀 판단을 유보한다",
-      "isTranslation": true
+      "text": "붕, 하고 난데없이 이는 바람에 안기어 비는 낙엽과 함께 몸에 부딪고 또 부딪고 하였다.",
+      "author": "김유정",
+      "work": "노다지",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%85%B8%EB%8B%A4%EC%A7%80",
+      "technique": "소리 한 마디를 주어보다 먼저 내놓고 같은 동사를 '또'로 겹쳐 닫아, 기분은 한 글자도 적지 않고 장면만으로 밀어붙인다.",
+      "isTranslation": false
     },
     "contrastAxis": "서양↔동양 / 짧음↔김",
     "why": "W45 「잎 진 자리 — 설명 대신 장면」의 묘사 계열."
@@ -406,11 +406,11 @@
     "weekTheme": "소설(小雪), 안으로 드는 계절 — 남의 말 들이기",
     "techniqueFamily": "압축",
     "A": {
-      "text": "\"메로스, 자네 알몸이 아닌가. 어서 그 망토를 입게.\" 용사는 몹시 얼굴을 붉혔다.",
-      "author": "다자이 오사무",
-      "work": "달려라 메로스(走れメロス)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/1567_14913.html",
-      "technique": "영웅에게 가장 사소한 말을 던지고 반응 한 줄만 남겨, 이야기를 웃음으로 닫는다",
+      "text": "하늘나라 같은 데 가지 않아도 되잖아. 우리는 여기에 하늘나라보다 더 좋은 곳을 만들어야 한다고 내 선생님이 말했어.",
+      "author": "미야자와 겐지",
+      "work": "은하철도의 밤 (青空文庫 원문 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.aozora.gr.jp/cards/000081/files/456_15050.html",
+      "technique": "상대가 가려는 곳을 되물어 밀어낸 뒤 바로 그 낱말을 다시 가져와 더 높은 기준으로 세우고, 맨 끝에 가서야 그 말이 남에게서 온 것임을 밝힌다.",
       "isTranslation": true
     },
     "B": {

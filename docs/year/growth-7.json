@@ -556,11 +556,11 @@
     "weekTheme": "대서, 답 없는 더위 — 답을 유보하기",
     "techniqueFamily": "질문",
     "A": {
-      "text": "세상이란 도대체 무엇일까요. 인간의 복수형일까요. 어디에 그 세상이라는 것의 실체가 있는 걸까요.",
-      "author": "다자이 오사무",
-      "work": "인간 실격(人間失格)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
-      "technique": "같은 대상에 질문을 세 번 던지되 점점 좁혀, 답 대신 질문의 형태로 결론을 만든다",
+      "text": "신에게 영감 받아 온통 내달린다. 루시여, 너는 어디로 내달리느냐? 대답을 다오. 대답이 없다.",
+      "author": "니콜라이 고골",
+      "work": "죽은 혼",
+      "sourceUrl": "https://ru.wikisource.org/wiki/Мёртвые_души_(Гоголь)/Том_I/Глава_XI",
+      "technique": "묻고 답을 재촉한 뒤 그 재촉이 무산되었음을 3인칭 한 줄로 알려, 침묵 자체를 답의 자리에 앉힌다.",
       "isTranslation": true
     },
     "B": {
@@ -639,11 +639,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "웨! 웨 ─ 나라고 세상에 낫다가 남 위해 좋은 일 한번 못허란 법이 있나?",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "감탄사를 두 번 겹쳐 호흡을 끊고, 부정문 형태의 반문으로 소망을 더 세게 말한다.",
+      "text": "그 부인네들이 장한가? 내가 장한가? 이 부인네들이 사람일까? 내가 사람일까?",
+      "author": "나혜석",
+      "work": "경희",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%BD%ED%9D%AC",
+      "technique": "주어만 남과 나로 번갈아 바꾼 짧은 물음 넷을 잇대고 답은 한 줄도 달지 않아, 물음만으로 갈등을 세운다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",

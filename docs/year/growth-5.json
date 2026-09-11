@@ -89,11 +89,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "오직 물질적인 재화만을 위해 일하면서 우리는 우리 손으로 우리의 감옥을 짓는다.",
-      "author": "앙투안 드 생텍쥐페리",
-      "work": "인간의 대지 (1939)",
-      "sourceUrl": "https://archive.org/download/saint_exupery_terre_des_hommes/saint_exupery_terre_des_hommes_djvu.txt",
-      "technique": "'짓다'라는 긍정 동사에 '감옥'을 붙여, 노동의 결과를 한 낱말로 뒤집는다.",
+      "text": "낡아 해진 옷을 벗고 새 옷을 입듯, 몸에 깃든 것은 낡은 몸을 벗고 새 몸으로 들어간다.",
+      "author": "비야사(전승)",
+      "work": "마하바라타 6권 「바가바드기타」 2장 (Ganguli 1883-96 영역본 참조, 온:사유 번역)",
+      "sourceUrl": "https://archive.sacred-texts.com/hin/m06/m06026.htm",
+      "technique": "누구나 매일 하는 동작 하나로 문장 틀을 먼저 찍고, 그 틀을 어순 그대로 한 번 더 놓은 뒤 핵심 명사 하나만 갈아 끼운다.",
       "isTranslation": true
     },
     "contrastAxis": "서양↔동양 / 짧음↔김",
@@ -306,11 +306,11 @@
     "weekTheme": "어버이날 주 — 부분으로 전체 부르기",
     "techniqueFamily": "반복",
     "A": {
-      "text": "그러니까 달리는 것이다. 믿음을 받고 있으니까 달리는 것이다. 늦느냐 늦지 않느냐는 문제가 아니다.",
-      "author": "다자이 오사무",
-      "work": "달려라 메로스(走れメロス)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/1567_14913.html",
-      "technique": "같은 결론을 두 번 말하되 두 번째에 이유를 끼워 넣어, 반복이 곧 설명이 되게 한다",
+      "text": "바우키스는 필레몬에게서 잎이 돋는 것을 보았고, 늙은 필레몬은 바우키스에게서 잎이 돋는 것을 보았다.",
+      "author": "오비디우스",
+      "work": "변신 이야기 8권 714-715행, 필레몬과 바우키스 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.thelatinlibrary.com/ovid/ovid.met8.shtml",
+      "technique": "나무가 되는 변화 전체를 잎이 돋는다는 작은 것 하나로만 불러 나머지를 독자에게 맡기고, 그 작은 것이 두 사람 사이를 한 번씩 돌게 한다.",
       "isTranslation": true
     },
     "B": {
@@ -339,11 +339,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "그래서 생각해 낸 것이 익살이었습니다. 그것은 인간을 향한 저의 마지막 구애였습니다.",
-      "author": "다자이 오사무",
-      "work": "인간 실격(人間失格)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
-      "technique": "앞 문장의 마지막 낱말을 다음 문장의 주어로 받아, 행동에 곧바로 이름을 붙인다",
+      "text": "큰 앎은 느긋하고, 작은 앎은 자잘하다. 큰 말은 담담하고, 작은 말은 재잘거린다.",
+      "author": "장자",
+      "work": "장자 · 제물론",
+      "sourceUrl": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E9%BD%8A%E7%89%A9%E8%AB%96",
+      "technique": "네 마디의 자리 배열과 마디 길이는 그대로 두고, 앞에서는 '큰'과 '작은' 한 글자만, 뒤에서는 서술어의 소리만 갈아 끼워 뜻을 따지기 전에 리듬으로 차이를 먼저 느끼게 한다.",
       "isTranslation": true
     },
     "contrastAxis": "서양↔동양 / 짧음↔김",
@@ -364,11 +364,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "본시 용기라는 말은 무서운 것이 있기 때문에, 직 그 무서운 것을 이기는 데로부터 생긴 말이라면, 또 달리는 가장 무서움을 잘 타는 사람이, 가장 용기 있는 사람이 될 수도 있다는, 역설이 나올 수도 있지 않은가",
-      "author": "지하련",
-      "work": "도정(道程), 1946",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EB%8F%84%EC%A0%95",
-      "technique": "낱말의 어원을 캐서 그 뜻을 뒤집고, 마지막에 '역설'이라는 이름을 스스로 붙여 준다.",
+      "text": "글이라고 쓰기를 시작하기는 이럭저럭 한 6, 7년이 되었으나 글다운 글을 써 본 일이 한 번도 없고 남 앞에 그 글을 내어놓을 때마다 양심에 부끄러움을 느끼지 않은 적은 한 번도 없다.",
+      "author": "나도향",
+      "work": "쓴다는 것이 죄악 같다 (1925, 조선문단 8호)",
+      "sourceUrl": "https://ko.wikisource.org/wiki/%EC%93%B4%EB%8B%A4%EB%8A%94_%EA%B2%83%EC%9D%B4_%EC%A3%84%EC%95%85_%EA%B0%99%EB%8B%A4",
+      "technique": "'한 번도 없다'를 토씨까지 같은 꼴로 두 번 쓰되 한쪽은 있음의 없음으로, 한쪽은 없음의 없음으로 걸어 부끄러움을 두 겹으로 못 박는다.",
       "isTranslation": false
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
@@ -656,11 +656,11 @@
     "weekTheme": "자라는 속도 — 순서에 크기 주기",
     "techniqueFamily": "구조",
     "A": {
-      "text": "저는 인간을 극도로 두려워하면서도, 그러면서도 인간을 도무지 단념할 수 없었던 모양입니다.",
-      "author": "다자이 오사무",
-      "work": "인간 실격(人間失格)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
-      "technique": "상반된 마음 둘을 한 문장 안에 붙여 놓고, '-면서도'로 모순을 그대로 견디게 한다",
+      "text": "벗에게는 벗이 되어라. 선물에는 선물로 갚아라. 웃음에는 웃음으로 받고, 거짓에는 속임으로 갚아라.",
+      "author": "작자 미상(고 에다)",
+      "work": "고 에다 「높으신 이의 말씀(Hávamál)」 42연 (고대 노르드어 원문 참조, 온:사유 번역)",
+      "sourceUrl": "https://is.wikisource.org/wiki/H%C3%A1vam%C3%A1l",
+      "technique": "받은 낱말을 갚는 자리에 그대로 세 번 되놓아 규칙을 세운 뒤, 마지막 한 짝만 다른 낱말로 받아 그 규칙을 한 번 어긋낸다.",
       "isTranslation": true
     },
     "B": {
@@ -681,11 +681,11 @@
     "weekTheme": "망종, 심는 계절 — 결과 먼저",
     "techniqueFamily": "구조",
     "A": {
-      "text": "의심하는 것이 올바른 마음가짐이라고 나에게 가르쳐 준 것은 너희들이다. 사람의 마음은 믿을 것이 못 된다. 인간은 본디 사욕의 덩어리다. 믿어서는 안 된다.",
-      "author": "다자이 오사무",
-      "work": "달려라 메로스(走れメロス)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/1567_14913.html",
-      "technique": "긴 문장으로 책임을 상대에게 넘긴 뒤, 짧은 단정 셋으로 못을 박아 반박할 틈을 없앤다",
+      "text": "아베르누스로 내려가는 길은 쉽다. 검은 디스의 문은 밤에도 낮에도 열려 있다. 그러나 걸음을 되돌려 위쪽 바람으로 빠져나오는 것, 그것이 일이고, 그것이 수고다.",
+      "author": "베르길리우스",
+      "work": "아이네이스 6권 126-129행 (라틴어 원문 The Latin Library 판 참조, 온:사유 번역)",
+      "sourceUrl": "https://www.thelatinlibrary.com/vergil/aen6.shtml",
+      "technique": "쉬운 쪽은 판정부터 먼저 내놓고 길게 풀어 놓은 뒤, 어려운 쪽은 끝에서 두 어절짜리 두 마디로 끊어 문장의 길이 자체가 난이도를 가리키게 한다.",
       "isTranslation": true
     },
     "B": {

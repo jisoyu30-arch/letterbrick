@@ -56,11 +56,11 @@
     "weekTheme": "경칩, 다시 깨어나는 것 — 되돌아오는 말",
     "techniqueFamily": "반복",
     "A": {
-      "text": "인간이 된다는 것은 바로 책임을 진다는 것이다. 자기 탓이 아닌 듯한 비참 앞에서 부끄러움을 아는 것이다.",
-      "author": "앙투안 드 생텍쥐페리",
-      "work": "인간의 대지 (1939)",
-      "sourceUrl": "https://archive.org/download/saint_exupery_terre_des_hommes/saint_exupery_terre_des_hommes_djvu.txt",
-      "technique": "정의문을 세우고 같은 형식의 문장을 이어 붙여 뜻을 넓히는 연쇄 정의.",
+      "text": "인간은 말의 온전한 뜻에서 인간일 때에만 놀이한다. 그리고 놀이하는 곳에서만 그는 온전히 인간이다.",
+      "author": "프리드리히 실러",
+      "work": "인간의 미적 교육에 관한 편지 (열다섯 번째 편지, 독일어 원문 참조, 온:사유 번역)",
+      "sourceUrl": "http://www.zeno.org/Literatur/M/Schiller,+Friedrich/Theoretische+Schriften/%C3%9Cber+die+%C3%A4sthetische+Erziehung+des+Menschen+in+einer+Reihe+von+Briefen/F%C3%BCnfzehnter+Brief",
+      "technique": "앞 문장의 두 낱말을 뒷문장에서 자리만 바꿔 되돌려주어, 주장이 스스로 닫히는 정의가 되게 한다.",
       "isTranslation": true
     },
     "B": {
@@ -114,11 +114,11 @@
       "isTranslation": true
     },
     "B": {
-      "text": "지금 저에게는 행복도 불행도 없습니다. 다만, 일체는 지나갑니다. 지금까지 아비규환 속에서 살아온 이른바 '인간'의 세계에서 단 하나 진리처럼 여겨진 것은 그것뿐이었습니다.",
-      "author": "다자이 오사무",
-      "work": "인간 실격(人間失格)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/301_14912.html",
-      "technique": "두 극단을 함께 지운 다음, 남은 한 줄을 진리로 지정해 문장 전체를 그 위에 세운다",
+      "text": "작은 앎은 큰 앎에 미치지 못하고, 짧은 삶은 긴 삶에 미치지 못한다. 어떻게 그런 줄 아는가. 아침에 돋는 버섯은 그믐과 초하루를 모르고, 쓰르라미는 봄과 가을을 모른다.",
+      "author": "장자",
+      "work": "장자 · 소요유 (zh.wikisource 한문 원문, 온:사유 번역)",
+      "sourceUrl": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E9%80%8D%E9%81%99%E9%81%8A",
+      "technique": "긴 대구 사이에 짧은 물음 한 줄을 끼워 숨을 끊고, 뒤의 예시를 예시가 아니라 대답으로 만든다.",
       "isTranslation": true
     },
     "contrastAxis": "서양↔동양 / 짧음↔김",
@@ -439,12 +439,12 @@
       "isTranslation": true
     },
     "B": {
-      "text": "아지랑이가 꼈든, 안개가 꼈든, 유리알처럼 영농한 하늘이 사뭇 높아서 하늘은 아무리 봐도 가을하늘이다.",
-      "author": "지하련",
-      "work": "결별(訣別), 1940",
-      "sourceUrl": "https://ko.wikisource.org/wiki/%EA%B2%B0%EB%B3%84",
-      "technique": "양보절을 두 번 깔아 반론을 미리 치워 놓고, 결론을 단정문 하나로 못 박는다.",
-      "isTranslation": false
+      "text": "사람의 마음은 헤아릴 수 없습니다. 그러나 제 아내 같은 사람은 죽더라도 두 마음을 품지 않을 것입니다.",
+      "author": "김부식",
+      "work": "삼국사기 권48 열전8 도미 (도미가 개루왕에게 아뢰는 말, 옥산서원본 계열 한문 원문, zh.wikisource, 온:사유 번역)",
+      "sourceUrl": "https://zh.wikisource.org/wiki/%E4%B8%89%E5%9C%8B%E5%8F%B2%E8%A8%98/%E5%8D%B748",
+      "technique": "상대의 일반론을 통째로 인정해 다툴 거리를 치운 뒤, 가장 센 양보절을 걸고 예외 하나만 못 박는다.",
+      "isTranslation": true
     },
     "contrastAxis": "외국↔한국 / 짧음↔김",
     "why": "W11 「춘분, 빼기의 첫 축 — 빼도 살아남는 말」의 구조 계열."
@@ -531,11 +531,11 @@
     "weekTheme": "구체와 추상의 사다리",
     "techniqueFamily": "압축",
     "A": {
-      "text": "메로스는 격노했다. 반드시 저 사악하고 포악한 왕을 없애야 한다고 결의했다. 메로스는 정치를 모른다. 메로스는 마을의 목동이다.",
-      "author": "다자이 오사무",
-      "work": "달려라 메로스(走れメロス)",
-      "sourceUrl": "https://www.aozora.gr.jp/cards/000035/files/1567_14913.html",
-      "technique": "감정, 결심, 무지, 신분을 한 문장씩 끊어 나열해 인물의 조건을 네 박자로 세운다",
+      "text": "그러나 펜을 손에서 내려놓자 모든 것이 끝나 있었다. 말하자면 그의 정신은 움직이는 동안에만 살아 있었다.",
+      "author": "로베르트 무질",
+      "work": "「생도 퇴를레스의 혼란」(1906) — 독일어 원문 (온:사유 번역)",
+      "sourceUrl": "https://www.gutenberg.org/cache/epub/34717/pg34717.txt",
+      "technique": "손으로 한 동작 하나로 장면을 끊고, 바로 다음 절에서 그 동작을 사람 전체에 대한 한 줄 정의로 갈아 끼운다.",
       "isTranslation": true
     },
     "B": {
