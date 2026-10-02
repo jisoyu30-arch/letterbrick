@@ -38,7 +38,12 @@ Before publishing or pushing, inspect `.gitignore`, `.vercelignore`, and Git sta
 - Crowdfunding: `public/crowdfunding.html`, `public/crowdfunding-tumblbug.html`, `crowdfunding.html`
 - Admin: `public/admin.html`
 - Taste test: `public/taste-test.html`
-- Growth content: `public/growth-sentences.js`, `public/data.js`
+- Growth content: `public/data.js` (30-day fallback), `public/data-year.js` (healing year + growth index),
+  `public/growth/001.json`-`365.json` (one file per day, loaded by day-since-signup)
+  - `public/growth-sentences.js` was removed on 2026-10-02. It was an old converted copy that no HTML
+    loaded, but it was still being served publicly and contained seven authors whose copyright is live
+    (including one living author) plus four excluded ones — and 백석's poem verbatim with no derivation
+    label. A backup is outside the repo. Do not reintroduce it; the files above are the growth source.
 - Google Sheets Apps Script: `scripts/google_apps_script.js`
 - Visual direction: `DESIGN_GUIDELINES.md`
 

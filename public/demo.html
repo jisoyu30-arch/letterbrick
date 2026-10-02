@@ -3900,7 +3900,7 @@ function openHealingShare() {
   // 주요 표현 3줄 추출 (문장 단위로 쪼개서 인상적인 3개)
   var sentences = healingPassage.text.match(/[^.!?。]+[.!?。]+/g) || [healingPassage.text];
   var keyLines = [];
-  // 짧고 인상적인 문장 우선 (15~50자)
+  // 짧고 인상적인 문장 우선 (15-50자)
   var scored = sentences.map(function(s){ var t=s.trim(); return {t:t, score: (t.length>=15&&t.length<=50?2:0) + (/[다요니까]$/.test(t)?1:0)}; });
   scored.sort(function(a,b){return b.score-a.score;});
   for(var i=0;i<Math.min(3,scored.length);i++) keyLines.push(scored[i].t);

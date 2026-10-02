@@ -1534,6 +1534,9 @@ textarea:focus{border-color:var(--brick);box-shadow:0 0 0 3px rgba(182,94,60,0.1
 .s4-today-list li{font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:2px;}
 .s4-w{margin:0 6px;font-size:11px;}
 .s4-d{color:var(--ink3);}
+/* 깊은 질문을 볼 때 위에 남기는 앞선 질문. 가리킬 대상을 잃지 않게 한다 */
+.hqc-prev{font-size:12px;line-height:1.7;color:rgba(247,242,232,0.42);
+  padding-left:10px;border-left:2px solid rgba(247,242,232,0.18);margin-bottom:10px;}
 .s4-today-note{font-size:11px;color:var(--ink3);line-height:1.6;border-top:1px dashed rgba(46,42,38,0.12);padding-top:6px;}
 .bf-lacking{background:var(--brick-l);border-left:3px solid var(--brick);border-radius:0 8px 8px 0;
   padding:10px 13px;margin-bottom:10px;}
@@ -2656,7 +2659,7 @@ const fbDb = firebase.firestore();
       <div class="ppreview" id="spp"><img id="sppImg" src="" alt="미리보기"></div>
       <div class="ld" id="sLd"><div class="ld-txt">평가 중이에요...</div><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
       <div id="sRes"></div>
-      <button class="btn-p" id="sBtn" onclick="runStruct()">AI 채점 받기 →</button>
+      <button class="btn-p" id="sBtn" onclick="runStruct()">채점 받기 →</button>
       <div class="att-left" id="sAtt">채점 기회 2번 남음</div>
       <button class="btn-s" id="sNext" onclick="goS4()" style="display:none;">다음 — 창의적 글쓰기 →</button>
       <button class="btn-finish-early" id="s3Finish" onclick="finishEarly('struct')" style="display:none;">
@@ -2692,7 +2695,7 @@ const fbDb = firebase.firestore();
       <div class="ppreview" id="cpp"><img id="cppImg" src="" alt="미리보기"></div>
       <div class="ld" id="cLd"><div class="ld-txt">읽고 있어요...</div><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>
       <div id="cRes"></div>
-      <button class="btn-p" id="cBtn" onclick="runCreative()">AI 평가 받기 →</button>
+      <button class="btn-p" id="cBtn" onclick="runCreative()">평가 받기 →</button>
       <div class="att-left" id="cAtt">평가 기회 2번 남음</div>
       <button class="btn-s" id="cNext" onclick="finish()" style="display:none;">오늘 필사 완성! 🎉</button>
     </div>
@@ -2915,6 +2918,7 @@ const fbDb = firebase.firestore();
             <button type="button" class="hqc-lv" data-lv="deep" onclick="setHealingQuestionLevel('deep')">깊은 질문</button>
           </div>
         </div>
+        <div class="hqc-prev" id="healingQuestionPrev" style="display:none;"></div>
         <div class="hqc-question" id="healingQuestionText">이 문단이 오늘 하루의 나에게 건네는 말은 무엇인가요?</div>
         <div class="hqc-form" id="healingQuestionForm"></div>
       </div>
@@ -2932,7 +2936,7 @@ const fbDb = firebase.firestore();
 
       <!-- AI 코치 답변 -->
       <div id="healingCoachResponse" style="display:none;margin-top:16px;text-align:left;">
-        <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:var(--brick);margin-bottom:8px;">AI 코치의 답변</div>
+        <div id="healingCoachLabel" style="font-size:12px;font-weight:700;letter-spacing:1px;color:var(--brick);margin-bottom:8px;">코치의 답변</div>
         <div id="healingCoachText" style="font-size:13px;color:rgba(247,242,232,0.8);line-height:1.9;font-family:'Noto Serif KR',serif;font-weight:300;background:rgba(182,94,60,0.1);border-left:3px solid var(--brick);border-radius:0 10px 10px 0;padding:14px 16px;"></div>
       </div>
 
@@ -3279,7 +3283,7 @@ const SENTENCES = [
         effect:"독자는 반복 리듬에 익숙해지다가 마지막에 형식이 깨지는 순간 충격을 받는다. '어머니'가 두 번 반복되는 것은 단순 반복이 아니라 울음처럼 들린다.",
         rhythm:"상승 후 폭발형 — 5개 항목이 쌓이며 기대감이 올라가고, '어머니, 어머니'에서 한 번에 터짐"
       },
-      practiceMission:"'___ 하나에 ___와' 구조를 4~5번 반복해 리듬을 만든 뒤, 마지막에 그 형식을 완전히 깨는 한 단어나 한 구절을 배치해보세요. 마지막이 앞의 모든 항목을 흡수해야 해요.",
+      practiceMission:"'___ 하나에 ___와' 구조를 4-5번 반복해 리듬을 만든 뒤, 마지막에 그 형식을 완전히 깨는 한 단어나 한 구절을 배치해보세요. 마지막이 앞의 모든 항목을 흡수해야 해요.",
       pitfalls:["마지막 항목이 앞 항목들과 같은 형식이면 폭발이 일어나지 않음","열거 항목들이 너무 이질적이면 리듬이 흐트러짐","마지막 단어/구절이 너무 평범하면 충격이 사라짐 (예: '그리움' → 앞 항목들과 다를 바 없음)"],
       goodExample:"서랍 하나에 접힌 편지와, 서랍 하나에 바랜 사진과, 서랍 하나에 지켜지지 못한 약속과, 서랍 하나에 아직 말하지 못한 이름.",
       step3Rubric:[
@@ -3922,7 +3926,7 @@ const SENTENCES = [
         "effect": "비교 대상을 극단(죽음의 공포)까지 끌어올린 뒤 사랑을 그 위에 세우는 구조가 독자에게 '그렇구나'라는 즉각적 공감을 만든다. 동사 두 개의 병렬이 사랑을 수동적 감정이 아닌 능동적 힘으로 느끼게 한다.",
         "rhythm": "상승-폭발형 — 비교 목록이 쌓이다가 '오직 사랑만이'에서 정점에 도달"
       },
-      "practiceMission": "오늘 미션 — 작은 장면 하나(사람·동물·풍경)를 2~3문장으로 묘사하고, 마지막에 '오직 ___만이 ___한다'로 깨달음 한 줄을 붙여보세요.",
+      "practiceMission": "오늘 미션 — 작은 장면 하나(사람·동물·풍경)를 2-3문장으로 묘사하고, 마지막에 '오직 ___만이 ___한다'로 깨달음 한 줄을 붙여보세요.",
       "pitfalls": [
         "깨달음을 먼저 쓰고 장면을 붙이면 설교처럼 들린다 — 반드시 장면이 먼저",
         "'붙들고'처럼 동사를 두 개 쓸 때 의미가 겹치면 늘어진다 — 각 동사의 역할을 다르게",
@@ -4793,7 +4797,7 @@ const SENTENCES = [
       },
       "practiceMission": "오늘 미션 — '___에 ___과, ___에 ___과' 구조를 4번 반복하고, 마지막에 가장 중요한 이름이나 단어로 마무리해보세요.",
       "pitfalls": [
-        "반복 횟수가 2~3번이면 리듬이 쌓이지 않는다 — 최소 4~5회",
+        "반복 횟수가 2-3번이면 리듬이 쌓이지 않는다 — 최소 4-5회",
         "마지막 단어도 같은 구조로 끝내면 폭발 효과가 없어진다",
         "나열 항목이 서로 너무 비슷하면 감정의 층위가 단조로워진다"
       ],
@@ -6302,7 +6306,7 @@ const SENTENCES = [
         "effect": "물음표 하나가 확신의 문장을 철학적 질문으로 바꾼다. 짧을수록 독자가 스스로 채워야 할 공간이 커진다.",
         "rhythm": "단타-침묵형 — 짧게 끝나고 긴 침묵이 뒤따름"
       },
-      "practiceMission": "오늘 미션 — '나는 ___을/를 ___는가?' 형태로 자기 자신에게 6~10글자 질문을 던져보세요. 이어서 그 질문에 대한 솔직한 답 하나를 써보세요.",
+      "practiceMission": "오늘 미션 — '나는 ___을/를 ___는가?' 형태로 자기 자신에게 6-10글자 질문을 던져보세요. 이어서 그 질문에 대한 솔직한 답 하나를 써보세요.",
       "pitfalls": [
         "설명을 붙이면 짧고 강한 질문의 힘이 사라진다",
         "질문이 너무 길면 핵심이 분산된다",
@@ -6815,7 +6819,7 @@ const SENTENCES = [
   },
   {
     "text": "자기 자신이 되는 것, 그것이 사회 전체가 막으려 하는 유일한 일이다.",
-    "author": "랄프 왈도 에머슨",
+    "author": "랠프 월도 에머슨",
     "source": "「자기 신뢰」(1841) — 온:사유 번역",
     "authorNote": "온:사유 자체 번역",
     "reason": "개인과 사회의 대립을 한 문장으로 표현하기",
@@ -8519,13 +8523,42 @@ let now=new Date(); let calYear=now.getFullYear(), calMonth=now.getMonth();
 function lbWrapSource(source){
   if(!source) return '';
   var s = String(source).trim();
-  return s.indexOf('「') !== -1 ? s : '「' + s + '」';
+  // 이미 낫표가 있으면 그대로 둔다. 덧씌우면 「「구두」(수필, 1949)」가 된다
+  if(s.indexOf('「') !== -1 || s.indexOf('『') !== -1) return s;
+  // ' — ' 뒤는 판본·번역 주체 같은 꼬리다. 제목만 감싼다
+  var tail = '';
+  var dash = s.indexOf(' — ');
+  if(dash > 0){ tail = s.slice(dash); s = s.slice(0, dash).trim(); }
+  // 끝의 괄호 중 연도·지면·판본만 제목 밖으로 뺀다.
+  // 「고향(故鄉)」처럼 한자·원어 병기는 제목의 일부라 그대로 둔다
+  var m = s.match(/^(.*?)\s*(\([^()]*\))$/);
+  if(m && m[1].trim() && /[0-9,]|번역|참조|수록|연재|소설|수필|시집|산문/.test(m[2])){
+    return '「' + m[1].trim() + '」' + m[2] + tail;
+  }
+  return '「' + s + '」' + tail;
 }
-function lbCredit(author, source){
+/* 외국 작품은 전부 자체 번역이다(COPYRIGHT_POLICY.md). 그런데 출처 문자열에
+   '온:사유 번역' 라벨이 붙은 것은 일부뿐이라, 플래그가 있으면 꼬리로 붙인다.
+   1년치 데이터를 건드리지 않고 표기를 맞추는 쪽을 골랐다. */
+function lbCredit(author, source, isTranslation){
   var parts = [];
   if(author) parts.push(String(author).trim());
   if(source) parts.push(lbWrapSource(source));
-  return parts.length ? '— ' + parts.join(' ') : '';
+  if(!parts.length) return '';
+  var out = '— ' + parts.join(' ');
+  if(isTranslation && !/온:사유|레터브릭/.test(out)) out += ' · 온:사유 번역';
+  return out;
+}
+/* 화면에 'AI 코치'라고 쓸 수 있는지 판정한다.
+   lbLastAiError 가 null 이면 /api/score 호출이 실제로 성공한 것이고,
+   값이 있으면 권한 없음·한도 초과·키 없음·타임아웃 중 하나라 로컬 분석이다.
+   무료 체험은 호출 자체가 막혀 있어 항상 로컬인데, 예전에는 화면이 전부
+   'AI 코치'라고 단정했다. 하지 않은 일을 했다고 적는 건 거짓 표기다. */
+function lbCoachName(){
+  return (typeof window !== 'undefined' && window.lbLastAiError) ? '로컬 코치' : 'AI 코치';
+}
+function lbIsAiLive(){
+  return typeof canUsePaidBetaAi === 'function' ? canUsePaidBetaAi() : false;
 }
 function lbJosa(word, withBatchim, withoutBatchim){
   if(!word) return withoutBatchim;
@@ -8596,12 +8629,12 @@ function enterApp(){
   // Populate all sentence displays with FULL text
   const s=todaySent;
   document.getElementById('stickySentText').textContent=s.text;
-  document.getElementById('stickySentAuthor').textContent=lbCredit(s.author, s.source);
+  document.getElementById('stickySentAuthor').textContent=lbCredit(s.author, s.source, s.isTranslation);
   // Step 1 원문 참고 카드 채우기
   var refText = document.getElementById('copyRefText');
   var refAuthor = document.getElementById('copyRefAuthor');
   if(refText) refText.textContent = s.text;
-  if(refAuthor) refAuthor.textContent = lbCredit(s.author, s.source);
+  if(refAuthor) refAuthor.textContent = lbCredit(s.author, s.source, s.isTranslation);
   // Populate top WHY card
   document.getElementById('twReason').textContent=s.reason;
   buildLearnContent();
@@ -9168,7 +9201,9 @@ function renderRecords(){
       stepsHtml += '<div class="exp-sec"><div class="exp-lbl">✨ 창의적 글쓰기' + (rec.creativeScore ? ' ★'+rec.creativeScore : '') + '</div><div class="exp-txt" style="font-family:\'Noto Serif KR\',serif;font-style:italic;color:var(--ink);">"' + rec.creative + '"</div></div>';
     }
     if(rec.creativeFb) {
-      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">AI 코치 평가</div><div class="exp-txt">' + rec.creativeFb + '</div></div>';
+      // rec.creativeFb 에는 AI 피드백이 담긴 적이 없다. 저장 시점의 상태 문구다
+      // ('오늘의 창의적 글쓰기가 저장됐어요.' 등). 'AI 코치 평가'는 거짓 라벨이었다
+      stepsHtml += '<div class="exp-sec"><div class="exp-lbl">기록</div><div class="exp-txt">' + rec.creativeFb + '</div></div>';
     }
     // 완료 단계 표시
     var stepsLabel = '';
@@ -9423,7 +9458,10 @@ function renderS4Today(){
   box.innerHTML='<div class="s4-today-lbl">오늘은 이것을 봅니다</div>'+
     '<div class="s4-today-tech">'+tech+'</div>'+
     (items?'<ul class="s4-today-list">'+items+'</ul>':'')+
-    '<div class="s4-today-note">AI는 위 기준으로만 채점하고, 항목마다 내 문장을 인용해 근거를 답니다. 여운은 읽는 사람마다 달라서 "이 독자에게 남은 것"으로만 말합니다.</div>';
+    '<div class="s4-today-note">' + (lbIsAiLive()
+      ? 'AI는 위 기준으로만 채점하고, 항목마다 내 문장을 인용해 근거를 답니다.'
+      : '지금은 로컬 코치가 위 기준으로 채점합니다. 유료 베타 권한이 열리면 AI 코치가 항목마다 내 문장을 인용해 근거를 답니다.')
+      + ' 여운은 읽는 사람마다 달라서 "이 독자에게 남은 것"으로만 말합니다.</div>';
   box.style.display='block';
 }
 // AI 회차는 그대로 — 그냥 화면만 전환
@@ -9612,7 +9650,7 @@ function finish(){
       doneOrig.style.display = 'block';
     }
     if (doneCredit && todaySent) {
-      doneCredit.textContent = lbCredit(todaySent.author, todaySent.source);
+      doneCredit.textContent = lbCredit(todaySent.author, todaySent.source, todaySent.isTranslation);
       doneCredit.style.display = 'block';
     }
     if (doneArrow) doneArrow.style.display = 'block';
@@ -9815,10 +9853,11 @@ function openShare(rec) {
   if (rec) {
     _shareRec = rec;
     document.getElementById('scSent').textContent = rec.sentence || '';
-    document.getElementById('scAuthor').textContent = lbCredit(rec.author, rec.source);
+    document.getElementById('scAuthor').textContent = lbCredit(rec.author, rec.source, rec.isTranslation);
     document.getElementById('scCreative').textContent = rec.creative || '';
-    document.getElementById('scFeedback').innerHTML = rec.creativeFb
-      ? `<b>AI 코치</b> "${rec.creativeFb.substring(0,40)}…"` : '';
+    // 과거 기록에는 코치 피드백이 저장되지 않는다(creativeFb 는 저장 안내문).
+    // 외부로 나가는 카드에 없는 말을 코치 말로 싣지 않는다
+    document.getElementById('scFeedback').innerHTML = '';
     document.getElementById('scScore').innerHTML = `${rec.score}<span>/100</span>`;
     const d = new Date(rec.date);
     document.getElementById('scDate').textContent =
@@ -9840,10 +9879,10 @@ function openShare(rec) {
     const cResEl = document.getElementById('cRes');
     const fb = cResEl ? cResEl.querySelector('.air-txt') : null;
     document.getElementById('scSent').textContent = todaySent.text;
-    document.getElementById('scAuthor').textContent = lbCredit(todaySent.author, todaySent.source);
+    document.getElementById('scAuthor').textContent = lbCredit(todaySent.author, todaySent.source, todaySent.isTranslation);
     document.getElementById('scCreative').textContent = creative;
     document.getElementById('scFeedback').innerHTML = fb
-      ? `<b>AI 코치</b> "${fb.textContent.substring(0,40)}…"` : '';
+      ? `<b>${lbCoachName()}</b> "${fb.textContent.substring(0,40)}…"` : '';
     document.getElementById('scScore').innerHTML = `${fs}<span>/100</span>`;
     document.getElementById('scDate').textContent = dateStr;
     // 기법 태그 (오늘 세션)
@@ -10163,12 +10202,19 @@ async function enterGuestMode() {
     await upsertFirebaseUserProfile(fbUser, currentUser);
   } catch(e) {
     console.warn('Anonymous auth failed; falling back to local guest:', e);
+    /* 재방문 게스트는 기존 신원을 그대로 쓴다.
+       매번 'guest_' + Date.now() 로 새로 만들면 기록이 lb_records_<옛 id> 에 남은 채
+       고아가 되고, joinedAt 도 오늘로 바뀌어 성장편이 1일차로 되돌아간다.
+       익명 인증이 막힌 환경에서는 이 경로가 유일한 신원이라 반드시 이어 써야 한다. */
+    var savedGuest = null;
+    try { savedGuest = JSON.parse(localStorage.getItem('lb_user') || 'null'); } catch(e2) {}
+    var reusable = savedGuest && savedGuest.id && (savedGuest.isGuest || savedGuest.isAnonymous);
     currentUser = {
-      nickname: '체험 중',
+      nickname: (reusable && savedGuest.nickname) || '체험 중',
       email: '',
-      id: 'guest_' + Date.now(),
+      id: reusable ? savedGuest.id : 'guest_' + Date.now(),
       photo: '',
-      joinedAt: new Date().toISOString(),
+      joinedAt: (reusable && savedGuest.joinedAt) || new Date().toISOString(),
       isGuest: true,
       isAnonymous: true,
       firebaseSync: false
@@ -11085,6 +11131,7 @@ function pickYearHealing(theme) {
     source: today.source,
     sourceUrl: today.sourceUrl,
     inspiration: today.inspiration,
+    isTranslation: !!today.isTranslation,
     reason: today.why,
     why: today.why,
     question: today.question,
@@ -11177,7 +11224,7 @@ function formatPassageCredit(passage) {
   if (!passage) return '';
   var author = passage.author || passage.inspiration || '레터브릭';
   var source = passage.source || '';
-  return lbCredit(author, source);
+  return lbCredit(author, source, passage.isTranslation);
 }
 
 function resetHealingFlow() {
@@ -11366,7 +11413,7 @@ function renderQuoteSelection() {
     const preview = q.data.text.length > 80 ? q.data.text.substring(0,80)+'…' : q.data.text;
     div.innerHTML =
       '<div class="quote-opt-text">'+preview+'</div>'+
-      '<div class="quote-opt-author">'+lbCredit(q.data.author, q.data.source)+'</div>'+
+      '<div class="quote-opt-author">'+lbCredit(q.data.author, q.data.source, q.data.isTranslation)+'</div>'+
       '<div class="quote-opt-reason">'+q.data.reason.substring(0,80)+'…</div>';
     div.onclick = function(){ selectGrowthQuote(q.idx); };
     container.appendChild(div);
@@ -11382,7 +11429,7 @@ function selectGrowthQuote(idx) {
   document.getElementById('growthStepBar').style.display = 'flex';
   document.getElementById('s1').style.display = 'block';
   document.getElementById('stickySentText').textContent = todaySent.text;
-  document.getElementById('stickySentAuthor').textContent = lbCredit(todaySent.author, todaySent.source);
+  document.getElementById('stickySentAuthor').textContent = lbCredit(todaySent.author, todaySent.source, todaySent.isTranslation);
   document.getElementById('twReason').textContent = todaySent.reason;
   // 훈련 목표 = coreSkill (있으면) 또는 reason 첫 문장
   var coreSkill = (todaySent.learn && todaySent.learn.coreSkill) ? todaySent.learn.coreSkill : '';
@@ -11400,8 +11447,10 @@ function selectGrowthQuote(idx) {
   document.getElementById('sRes').innerHTML = '';
   document.getElementById('cRes').innerHTML = '';
   document.getElementById('matchOk').style.display = 'none';
-  document.getElementById('sBtn').textContent = 'AI 채점 받기 →'; document.getElementById('sBtn').style.display = 'block';
-  document.getElementById('cBtn').textContent = 'AI 평가 받기 →'; document.getElementById('cBtn').style.display = 'block';
+  // 무료 체험은 /api/score 를 호출하지 않는다. 그런데도 'AI 채점 받기'라고 적혀 있었다
+  var aiLive = lbIsAiLive();
+  document.getElementById('sBtn').textContent = (aiLive ? 'AI 채점 받기' : '채점 받기') + ' →'; document.getElementById('sBtn').style.display = 'block';
+  document.getElementById('cBtn').textContent = (aiLive ? 'AI 평가 받기' : '평가 받기') + ' →'; document.getElementById('cBtn').style.display = 'block';
   document.getElementById('sNext').style.display = 'none';
   document.getElementById('cNext').style.display = 'none';
   document.getElementById('sAtt').textContent = '채점 기회 2번 남음';
@@ -11667,11 +11716,11 @@ function analyzeStructure(original, userText) {
     score += 0.5;
     breakdown.push({got:true, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배'});
   } else if(lr < 0.6){
-    breakdown.push({got:false, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배 (짧음)', how:'0.6~1.5배 사이면 +0.5점'});
+    breakdown.push({got:false, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배 (짧음)', how:'0.6-1.5배 사이면 +0.5점'});
     review += '원문보다 많이 짧아졌어요. 조금 더 살을 붙여보면 의미가 더 풍성해질 거예요. ';
   } else {
     review += '원문보다 길어졌어요. 핵심만 남기면 더 임팩트 있는 문장이 될 수 있어요. ';
-    breakdown.push({got:false, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배 (김)', how:'0.6~1.5배 사이면 +0.5점'});
+    breakdown.push({got:false, pts:0.5, name:'길이 유지', detail:'원문의 '+lr.toFixed(1)+'배 (김)', how:'0.6-1.5배 사이면 +0.5점'});
   }
 
   // 전체 변형도
@@ -11691,7 +11740,9 @@ function analyzeStructure(original, userText) {
   result.rawScore = score;
   result.breakdown = breakdown;
   result.stars = Math.min(5, Math.max(1, Math.round(score)));
-  result.sections.push({lbl:'AI 코치의 구조 분석', txt: review});
+  // 이 함수는 로컬 규칙 분석이다. 카드 제목이 '로컬 코치 분석'인데
+  // 안에서 스스로 AI라고 말하면 안 된다
+  result.sections.push({lbl:'구조 분석', txt: review});
 
   // 기법 연결
   var techName = getTechName(todaySent.learn);
@@ -11764,7 +11815,7 @@ function analyzeCreative(original, userText) {
   var tc = tokenCompare(original, userText);
   if(wov>0.1&&wov<0.5){
     score+=1;
-    breakdown.push({got:true, pts:1, name:'원문과의 연결', detail:'겹치는 단어 '+Math.round(wov*100)+'% (10~50%)'});
+    breakdown.push({got:true, pts:1, name:'원문과의 연결', detail:'겹치는 단어 '+Math.round(wov*100)+'% (10-50%)'});
     var genuineNewC = tc.newWords.filter(function(w){return w.length>=2;});
     if(genuineNewC.length >= 2){
       details.push('원문의 주제와 연결되면서도 "'+genuineNewC[0]+'", "'+genuineNewC[1]+'" 같은 자기만의 표현이 돋보여요.');
@@ -12173,7 +12224,9 @@ finish = function() {
     setTimeout(function(){document.getElementById('bwMsFill').style.width = msPct + '%';}, 500);
   } else {
     msEl.style.display = 'flex';
-    document.getElementById('bwMsLabel').textContent = '🏆 ' + ws.current.name;
+    // 트로피는 AGENTS.md 가 피하라고 한 completion trophy 다. 등불로 바꿨다 —
+    // 마일스톤 이름이 '꺼지지 않는 창'이라 결과 상태를 가리키는 쪽이 맞다
+    document.getElementById('bwMsLabel').textContent = '🕯️ ' + ws.current.name;
     document.getElementById('bwMsCount').textContent = '최고 단계!';
     document.getElementById('bwMsFill').style.width = '100%';
   }
@@ -12194,7 +12247,7 @@ finish = function() {
     var bfArrow=document.getElementById('doneArrow');
     var bfSkill=document.getElementById('doneSkillText');
     if(bfOrig&&todaySent){bfOrig.textContent=todaySent.text;bfOrig.style.display='block';}
-    if(bfCredit&&todaySent){bfCredit.textContent=lbCredit(todaySent.author,todaySent.source);bfCredit.style.display='block';}
+    if(bfCredit&&todaySent){bfCredit.textContent=lbCredit(todaySent.author,todaySent.source,todaySent.isTranslation);bfCredit.style.display='block';}
     if(bfArrow)bfArrow.style.display='block';
     var bfCore=(todaySent&&todaySent.learn&&todaySent.learn.coreSkill)||'';
     if(bfSkill&&bfCore){bfSkill.textContent='오늘 익힌 기법 — '+bfCore;bfSkill.style.display='block';}
@@ -12501,7 +12554,7 @@ function loadMoreRecords() {
     // 상세 내용
     var detailHtml = '';
     // 원문
-    detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📖 원문</div><div class="mp-rec-stage-text">"'+rec.sentence+'"</div><div style="font-size:12px;color:var(--ink3);margin-top:3px;">'+lbCredit(rec.author, rec.source)+'</div></div>';
+    detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📖 원문</div><div class="mp-rec-stage-text">"'+rec.sentence+'"</div><div style="font-size:12px;color:var(--ink3);margin-top:3px;">'+lbCredit(rec.author, rec.source, rec.isTranslation)+'</div></div>';
     // 필사
     if(rec.copyText){
       detailHtml += '<div class="mp-rec-stage"><div class="mp-rec-stage-label">📝 내가 따라 쓴 문장</div><div class="mp-rec-stage-text">'+rec.copyText.substring(0,300)+(rec.copyText.length>300?'…':'')+'</div></div>';
@@ -13341,6 +13394,8 @@ function generateHealingCoachResponse(sogam, passage, historyContext) {
 function showHealingCoachResponse(text, emotion) {
   var sogamSec=document.getElementById('healingSogamSection');
   if(sogamSec){var sogamBtn=sogamSec.querySelector('button'); if(sogamBtn)sogamBtn.style.display='none';}
+  var lblEl = document.getElementById('healingCoachLabel');
+  if (lblEl) lblEl.textContent = lbCoachName() + '의 답변';
   document.getElementById('healingCoachText').textContent = text;
   document.getElementById('healingCoachResponse').style.display = 'block';
   document.getElementById('healingShareSection').style.display = 'block';
@@ -13402,7 +13457,7 @@ function openHealingShare() {
   // 주요 표현 3줄 추출 (문장 단위로 쪼개서 인상적인 3개)
   var sentences = healingPassage.text.match(/[^.!?。]+[.!?。]+/g) || [healingPassage.text];
   var keyLines = [];
-  // 짧고 인상적인 문장 우선 (15~50자)
+  // 짧고 인상적인 문장 우선 (15-50자)
   var scored = sentences.map(function(s){ var t=s.trim(); return {t:t, score: (t.length>=15&&t.length<=50?2:0) + (/[다요니까]$/.test(t)?1:0)}; });
   scored.sort(function(a,b){return b.score-a.score;});
   for(var i=0;i<Math.min(3,scored.length);i++) keyLines.push(scored[i].t);
@@ -13863,7 +13918,7 @@ renderQuoteSelection = function() {
     div.innerHTML =
       '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">'
       + '<span style="width:24px;height:24px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">' + item.label + '</span>'
-      + '<span class="quote-opt-author">— ' + item.s.author + ' 「' + item.s.source + '」</span>'
+      + '<span class="quote-opt-author">' + lbCredit(item.s.author, item.s.source, item.s.isTranslation) + '</span>'
       + badgeHtml + '</div>'
       + '<div class="quote-opt-text">' + preview + '</div>'
       + '<div class="quote-opt-reason" style="margin-top:8px;">' + reason + '</div>';
@@ -14554,6 +14609,20 @@ function renderHealingQuestion() {
 
   var qEl = document.getElementById('healingQuestionText');
   if (qEl) qEl.textContent = (_healingQLevel === 'deep') ? deep : easy;
+
+  /* 깊은 질문 131건이 '그것/그때'로 시작하는데, 그 대상은 쉬운 질문에만 있다.
+     한 칸에서 바꿔 끼우면 가리킬 것이 화면에서 사라져 무슨 말인지 알 수 없다.
+     그래서 깊은 질문을 고르면 쉬운 질문을 작게 위에 남긴다. */
+  var prevEl = document.getElementById('healingQuestionPrev');
+  if (prevEl) {
+    if (_healingQLevel === 'deep' && hasBoth) {
+      prevEl.textContent = easy;
+      prevEl.style.display = 'block';
+    } else {
+      prevEl.textContent = '';
+      prevEl.style.display = 'none';
+    }
+  }
 
   // 렌즈가 있으면 질문이 그 재료를 이어받는다는 걸 말로도 알린다
   var eye = document.getElementById('healingQuestionEyebrow');
