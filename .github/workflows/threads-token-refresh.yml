@@ -1,0 +1,47 @@
+name: Threads Token Refresh
+
+on:
+  schedule:
+    # 매월 1일·15일 10시 17분(KST). Threads 장기 토큰은 60일이면 끝나서 그 전에 새로 받는다.
+    - cron: '17 1 1,15 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        channel: [KO, EN]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check and refresh token
+        id: refresh
+        env:
+          THREADS_CHANNEL: ${{ matrix.channel }}
+          THREADS_TOKEN_KO: ${{ secrets.THREADS_TOKEN_KO }}
+          THREADS_TOKEN_EN: ${{ secrets.THREADS_TOKEN_EN }}
+          THREADS_CAN_STORE_SECRET: ${{ secrets.THREADS_SECRETS_PAT != '' }}
+          THREADS_NEW_TOKEN_PATH: ${{ runner.temp }}/threads-token-${{ matrix.channel }}
+        run: npm run threads:token
+
+      # 새 토큰은 파일로만 넘기고, 저장한 뒤 바로 지운다
+      - name: Save refreshed token as repository secret
+        if: steps.refresh.outputs.refreshed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.THREADS_SECRETS_PAT }}
+          SECRET_NAME: THREADS_TOKEN_${{ matrix.channel }}
+          TOKEN_PATH: ${{ runner.temp }}/threads-token-${{ matrix.channel }}
+        run: |
+          gh secret set "$SECRET_NAME" --repo "$GITHUB_REPOSITORY" < "$TOKEN_PATH"
+          rm -f "$TOKEN_PATH"
+          echo "- $SECRET_NAME 저장 완료" >> "$GITHUB_STEP_SUMMARY"

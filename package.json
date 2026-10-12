@@ -16,7 +16,12 @@
     "beta:grant": "node scripts/grant-paid-beta.cjs",
     "quality:duplicates:dry": "node scripts/quality-duplicate-cleanup.cjs",
     "quality:duplicates:commit": "node scripts/quality-duplicate-cleanup.cjs --commit",
-    "release:report": "node scripts/generate-release-report.cjs"
+    "release:report": "node scripts/generate-release-report.cjs",
+    "threads:publish": "node scripts/threads/publish.cjs",
+    "threads:publish:dry": "node scripts/threads/publish.cjs --dry-run",
+    "threads:token": "node scripts/threads/refresh-token.cjs",
+    "threads:en-queue": "node scripts/threads/curriculum-posts.cjs",
+    "test:threads": "node --test scripts/threads/threads.test.cjs"
   },
   "devDependencies": {
     "firebase-admin": "^13.7.0"

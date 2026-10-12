@@ -1,0 +1,45 @@
+name: Threads Publish
+
+on:
+  schedule:
+    # 매시 7분. 노션 '스레드 발행 큐'에서 승인되고 때가 된 글을 채널별로 하나씩 올린다.
+    - cron: '7 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: '점검만 하기 (실제로 올리지 않음)'
+        required: true
+        default: true
+        type: boolean
+
+concurrency:
+  group: threads-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        channel: [KO, EN]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Publish due posts
+        env:
+          THREADS_CHANNEL: ${{ matrix.channel }}
+          THREADS_TOKEN_KO: ${{ secrets.THREADS_TOKEN_KO }}
+          THREADS_TOKEN_EN: ${{ secrets.THREADS_TOKEN_EN }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_THREADS_DATA_SOURCE_ID: ${{ secrets.NOTION_THREADS_DATA_SOURCE_ID }}
+          THREADS_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: npm run threads:publish
